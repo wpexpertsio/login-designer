@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @param       string $footer_text The existing footer text.
  * @return      string
  */
-function edd_admin_rate_us( $footer_text ) {
+function loginly_admin_rate_us( $footer_text ) {
 	global $typenow;
 
 	if ( 'download' == $typenow ) {
@@ -38,4 +38,4 @@ function edd_admin_rate_us( $footer_text ) {
 		return $footer_text;
 	}
 }
-add_filter( 'admin_footer_text', 'edd_admin_rate_us' );
+add_filter( 'admin_footer_text', 'loginly_admin_rate_us' );

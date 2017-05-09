@@ -1,0 +1,13 @@
+{
+  "name": "Loginly",
+  "slug": "loginly",  
+  "textdomain": "loginly",
+  "version": "1.0.0",
+  "downloadid": "null",
+  "description": "Ava is more than the next generation of WordPress themes — it’s an uncompromising vision of personalizing WordPress themes for the modern world. It puts incredible power that leaps past all other WordPress themes at your fingertips.",  
+  "theme_uri": "https://themebeans.com/themes/ava",
+  "author": "ThemeBeans <hello@themebeans.com>",
+  "author_uri": "https://themebeans.com",
+  "author_shop": "ThemeBeans",
+  "license": "http://www.gnu.org/licenses/gpl-2.0.html GNU Public License"
+}

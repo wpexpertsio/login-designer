@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="273px" height="102px" viewBox="0 0 273 102" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Symbols-Test" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="header-1">
+            <path d="" id="Path-2" stroke="#979797"></path>
+            <rect id="Rectangle" fill="#000000" x="26" y="35" width="16" height="1"></rect>
+            <circle id="Oval" fill="#000000" cx="20.5" cy="35.5" r="2.5"></circle>
+            <rect id="Rectangle" fill="#000000" x="46" y="35" width="16" height="1"></rect>
+            <rect id="Rectangle" fill="#000000" x="66" y="35" width="16" height="1"></rect>
+            <path d="" id="Path-2" stroke="#979797"></path>
+            <rect id="Rectangle" fill="#000000" transform="translate(199.000000, 35.500000) scale(-1, 1) translate(-199.000000, -35.500000) " x="191" y="35" width="16" height="1"></rect>
+            <circle id="Oval" fill="#000000" transform="translate(252.500000, 35.500000) scale(-1, 1) translate(-252.500000, -35.500000) " cx="252.5" cy="35.5" r="2.5"></circle>
+            <rect id="Rectangle" fill="#000000" transform="translate(219.000000, 35.500000) scale(-1, 1) translate(-219.000000, -35.500000) " x="211" y="35" width="16" height="1"></rect>
+            <rect id="Rectangle" fill="#000000" transform="translate(239.000000, 35.500000) scale(-1, 1) translate(-239.000000, -35.500000) " x="231" y="35" width="16" height="1"></rect>
+            <rect id="Rectangle" fill="#000000" x="121" y="29" width="30.6778253" height="12.925695"></rect>
+            <rect id="Rectangle" fill="#F0F0F0" x="18" y="68" width="77" height="39"></rect>
+            <rect id="Rectangle" fill="#F0F0F0" x="105" y="68" width="64" height="39"></rect>
+            <rect id="Rectangle-Copy" fill="#F0F0F0" x="98" y="68" width="77" height="39"></rect>
+            <rect id="Rectangle-Copy" fill="#F0F0F0" x="178" y="68" width="77" height="39"></rect>
+            <path d="" id="Path-2" stroke="#979797"></path>
+            <path d="" id="Path-2" stroke="#979797"></path>
+        </g>
+    </g>
+</svg>

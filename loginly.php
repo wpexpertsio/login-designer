@@ -69,9 +69,7 @@ if ( ! class_exists( 'Loginly' ) ) :
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Loginly ) ) {
 				self::$instance = new Loginly;
 				self::$instance->setup_constants();
-
-				add_action( 'plugins_loaded', array( self::$instance, 'load_textdomain' ) );
-
+				self::$instance->actions();
 				self::$instance->includes();
 			}
 
@@ -144,14 +142,35 @@ if ( ! class_exists( 'Loginly' ) ) :
 		 */
 		private function includes() {
 
-			// require_once LOGINLY_PLUGIN_DIR . 'includes/actions.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-scripts.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/customizer.php';
+
 			if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
 				require_once LOGINLY_PLUGIN_DIR . 'includes/admin/admin-footer.php';
 				require_once LOGINLY_PLUGIN_DIR . 'includes/admin/admin-action-links.php';
-			} else {
-				// require_once LOGINLY_PLUGIN_DIR . 'includes/theme-compatibility.php';
 			}
-			// require_once LOGINLY_PLUGIN_DIR . 'includes/install.php';
+		}
+
+		/**
+	     * Load the actions
+	     *
+	     * @since  1.0.0
+	     * @return void
+	     */
+	    public function actions() {
+	        add_action( 'init', array( $this, 'load_textdomain' ), -1 );
+	        add_action( 'customize_register', array( $this, 'load_customizer_controls' ), 11 );
+	    }
+
+		/**
+		 * Register Customizer Controls.
+		 *
+		 * @access private
+		 * @since 1.4
+		 * @return void
+		 */
+		public function load_customizer_controls() {
+			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/class-loginly-template-selector.php';
 		}
 
 		/**
