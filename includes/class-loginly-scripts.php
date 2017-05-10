@@ -57,8 +57,11 @@ if ( ! class_exists( 'Loginly_Scripts' ) ) :
 			// Use minified libraries if SCRIPT_DEBUG is turned off.
 			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '';
 
-			wp_register_script( 'loginly-customizer', $js_dir . 'loginly-customizer' . $suffix . '.js', array( 'jquery' ), LOGINLY_VERSION, 'all' );
-			// wp_enqueue_script( 'loginly-customizer' );
+			//wp_register_script( 'loginly-customizer', $js_dir . 'loginly-customizer' . $suffix . '.js', array( 'customize-controls' ), LOGINLY_VERSION, 'all' );
+			//wp_enqueue_script( 'loginly-customizer' );
+
+			// wp_register_script( 'customizer-background-image-controls', esc_url( $js_dir . '/js/loginly-customizer.js' ), array( 'customize-controls' ) );
+			// wp_enqueue_script( 'customizer-background-image-controls' );
 		}
 	}
 

@@ -25,12 +25,13 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) {
  *
  * @access  public
  */
-class Loginly_Template_Selector_Control extends WP_Customize_Control {
+class Loginly_Templates_Control extends WP_Customize_Control {
 
 	/**
-	 * Set the variables to be used in this control.
+	 * The control type.
 	 *
-	 * @var string $type Control Name.
+	 * @access public
+	 * @var string
 	 */
 	public $type = 'loginly-template-selector';
 

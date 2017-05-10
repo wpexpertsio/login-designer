@@ -171,8 +171,9 @@ if ( ! class_exists( 'Loginly' ) ) :
 		 * @return void
 		 */
 		public function load_customizer_controls() {
-			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/class-loginly-template-selector-control.php';
 			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/class-loginly-range-control.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/class-loginly-templates-control.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/class-loginly-background-control.php';
 		}
 
 		/**

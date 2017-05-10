@@ -15,6 +15,9 @@
  */
 function loginly_customize_register( $wp_customize ) {
 
+	// Register background control JS template.
+	$wp_customize->register_control_type( 'Loginly_Background_Control' );
+
 	/**
 	 * Create the primary panel, and all secondary sections within the panel.
 	 */
@@ -64,7 +67,7 @@ function loginly_customize_register( $wp_customize ) {
 			'sanitize_callback'     => '',
 		) );
 
-		$wp_customize->add_control( new Loginly_Template_Selector_Control( $wp_customize, 'loginly__template-selector', array(
+		$wp_customize->add_control( new Loginly_Templates_Control( $wp_customize, 'loginly__template-selector', array(
 			'type'                  => 'loginly-template-selector',
 			'description'           => esc_html__( 'You can switch templates at any time. Previewing a template allows you to make style changes without changing the live template visitors see.', '@@textdomain' ),
 			'section'               => 'loginly__section--templates',
@@ -75,6 +78,71 @@ function loginly_customize_register( $wp_customize ) {
 	 * "Loginly Editor" > "Style Editor" settings and controls.
 	 */
 
+		/**
+		 * Register settings for the "Background" control below.
+		 */
+		$wp_customize->add_setting( 'loginly__custom-background-image--url', array(
+			'sanitize_callback' 	=> 'esc_url',
+		) );
+
+		$wp_customize->add_setting( 'loginly__custom-background-image--id', array(
+			'sanitize_callback' 	=> 'absint',
+		) );
+
+		$wp_customize->add_setting( 'loginly__custom-background-image--repeat', array(
+			'default' 				=> 'repeat',
+			'sanitize_callback' 	=> 'sanitize_text_field',
+		) );
+
+		$wp_customize->add_setting( 'loginly__custom-background-image--size', array(
+			'default' 				=> 'auto',
+			'sanitize_callback' 	=> 'sanitize_text_field',
+		) );
+
+		$wp_customize->add_setting( 'loginly__custom-background-image--attach', array(
+			'default' 				=> 'center-center',
+			'sanitize_callback' 	=> 'sanitize_text_field',
+		) );
+
+		$wp_customize->add_setting( 'loginly__custom-background-image--position', array(
+			'default' 				=> 'scroll',
+			'sanitize_callback' 	=> 'sanitize_text_field',
+		) );
+
+		/**
+		 * Register the "Background" control.
+		 */
+		$wp_customize->add_control( new Loginly_Background_Control( $wp_customize, 'loginly__custom-background-image', array(
+				'label'				=> esc_html__( 'Background', '@@textdomain' ),
+				'section'			=> 'loginly__section--styles',
+				'settings'    		=> array(
+					'image_url' 	=> 'loginly__custom-background-image--url',
+					'image_id' 		=> 'loginly__custom-background-image--id',
+					'repeat' 		=> 'loginly__custom-background-image--repeat',
+					'size' 			=> 'loginly__custom-background-image--size',
+					'attach' 		=> 'loginly__custom-background-image--attach',
+					'position' 		=> 'loginly__custom-background-image--position',
+				),
+			)
+		) );
+
+		/**
+		 * Add the background color selector.
+		 */
+		$wp_customize->add_setting( 'loginly__custom-background-color', array(
+			'default'               => '',
+			'transport'             => '',
+			'sanitize_callback'     => 'sanitize_hex_color',
+		) );
+
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'loginly__custom-background-color', array(
+			// 'label'                 => esc_html__( 'Background', '@@textdomain' ),
+			'section'               => 'loginly__section--styles',
+		) ) );
+
+		/**
+		 * Add the custom logo uploader.
+		 */
 		$wp_customize->add_setting( 'loginly__custom-logo', array(
 			'sanitize_callback'     => '',
 		) );
@@ -85,8 +153,11 @@ function loginly_customize_register( $wp_customize ) {
 			'settings'             => 'loginly__custom-logo',
 		) ) );
 
+		/**
+		 * Add the max width option, to be applied to the custom logo.
+		 */
 		$wp_customize->add_setting( 'loginly__custom-logo-maxwidth', array(
-			'default'               => '',
+			'default'               => '100',
 			'transport'             => '',
 			'sanitize_callback'     => '',
 		) );
@@ -96,7 +167,7 @@ function loginly_customize_register( $wp_customize ) {
 			'label'                 => esc_html__( 'Logo Width', '@@textdomain' ),
 			'section'               => 'loginly__section--styles',
 			'description'           => 'px',
-			'default'               => '',
+			'default'               => '100',
 			'input_attrs'           => array(
 				'min'               => 0,
 				'max'               => 200,
@@ -104,6 +175,27 @@ function loginly_customize_register( $wp_customize ) {
 				),
 			)
 		) );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	/**
 	 * "Loginly Editor" > "Settings" settings and controls.

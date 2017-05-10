@@ -125,8 +125,6 @@
 
 .customize-control-loginly-range span {
   margin: 0;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
 }
 
 .customize-control-loginly-range .track {
@@ -315,6 +313,12 @@
   background: #b4b9be;
 }
 
+/*
+* @Author: Home
+* @Date:   2017-05-10 10:15:04
+* @Last Modified by:   Home
+* @Last Modified time: 2017-05-10 10:25:38
+*/
 #sub-accordion-section-loginly__section--styles .customize-control-image {
   position: relative;
   margin-bottom: 15px;
