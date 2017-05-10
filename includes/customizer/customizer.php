@@ -14,69 +14,129 @@
  * @param WP_Customize_Manager $wp_customize the Customizer object.
  */
 function loginly_customize_register( $wp_customize ) {
-	/**
-	 * Add the main panel.
-	 */
-	$wp_customize->add_section( 'loginly__panel', array(
-		'title'           => esc_html__( 'Loginly', '@@textdomain' ),
-		'description'     => esc_html__( '', '@@textdomain' ),
-		'priority'        => 1,
-	) );
 
 	/**
-	 * Add the template selector control.
+	 * Create the primary panel, and all secondary sections within the panel.
 	 */
-	$wp_customize->add_setting( 'loginly__template-selector', array(
-		'default'               => '',
-		'sanitize_callback'     => '',
-	) );
 
-	$wp_customize->add_control( new Loginly_Template_Selector( $wp_customize, 'loginly__template-selector', array(
-		'type'                  => 'layout',
-		'description'           => esc_html__( 'You can switch templates at any time. Previewing a template allows you to make style changes without changing the live template visitors see.', '@@textdomain' ),
-		'section'               => 'loginly__panel',
-		'choices'               => ava_get_choices( ava_get_header_layouts() ),
-	) ) );
+		/**
+		 * Add the "Loginly" panel.
+		 */
+		$wp_customize->add_panel( 'loginly__panel', array(
+			'title'           => esc_html__( 'Loginly Editor', '@@textdomain' ),
+			'priority'        => 1,
+		) );
 
+		/**
+		 * Add the "Templates" section.
+		 */
+		$wp_customize->add_section( 'loginly__section--templates', array(
+			'title'           => esc_html__( 'Templates', '@@textdomain' ),
+			'panel'           => 'loginly__panel',
+		) );
 
+		/**
+		 * Add the "Styles" section.
+		 */
+		$wp_customize->add_section( 'loginly__section--styles', array(
+			'title'           => esc_html__( 'Style Editor', '@@textdomain' ),
+			'panel'           => 'loginly__panel',
+		) );
 
+		/**
+		 * Add the "Settings" section.
+		 */
+		$wp_customize->add_section( 'loginly__section--settings', array(
+			'title'           => esc_html__( 'Settings', '@@textdomain' ),
+			'panel'           => 'loginly__panel',
+		) );
 
+	/**
+	 * "Loginly Editor" > "Templates" settings and controls.
+	 */
 
+		/**
+		 * Add the template selector setting and control.
+		 */
+		$wp_customize->add_setting( 'loginly__template-selector', array(
+			'default'               => '',
+			'transport'             => '',
+			'sanitize_callback'     => '',
+		) );
 
+		$wp_customize->add_control( new Loginly_Template_Selector_Control( $wp_customize, 'loginly__template-selector', array(
+			'type'                  => 'loginly-template-selector',
+			'description'           => esc_html__( 'You can switch templates at any time. Previewing a template allows you to make style changes without changing the live template visitors see.', '@@textdomain' ),
+			'section'               => 'loginly__section--templates',
+			'choices'               => ava_get_choices( ava_get_header_layouts() ),
+		) ) );
 
+	/**
+	 * "Loginly Editor" > "Style Editor" settings and controls.
+	 */
 
+		$wp_customize->add_setting( 'loginly__custom-logo', array(
+			'sanitize_callback'     => '',
+		) );
 
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'loginly__custom-logo', array(
+			'label'                => esc_html__( 'Logo', '@@textdomain' ),
+			'section'              => 'loginly__section--styles',
+			'settings'             => 'loginly__custom-logo',
+		) ) );
 
+		$wp_customize->add_setting( 'loginly__custom-logo-maxwidth', array(
+			'default'               => '',
+			'transport'             => '',
+			'sanitize_callback'     => '',
+		) );
 
+		$wp_customize->add_control( new Loginly_Range_Control( $wp_customize, 'loginly__custom-logo-maxwidth', array(
+			'type'                  => 'loginly-range',
+			'label'                 => esc_html__( 'Logo Width', '@@textdomain' ),
+			'section'               => 'loginly__section--styles',
+			'description'           => 'px',
+			'default'               => '',
+			'input_attrs'           => array(
+				'min'               => 0,
+				'max'               => 200,
+				'step'              => 2,
+				),
+			)
+		) );
 
+	/**
+	 * "Loginly Editor" > "Settings" settings and controls.
+	 */
 
+		$wp_customize->add_setting( 'loginly__test', array(
+			'default'               => '',
+			'sanitize_callback'     => '',
+		) );
 
-
-
-
-
-
-
-
-
-
-
-
-
-	$wp_customize->add_setting( 'loginly__test', array(
-		'default'               => '',
-		'sanitize_callback'     => '',
-	) );
-
-	$wp_customize->add_control( 'loginly__test', array(
-		'type'                  => 'checkbox',
-		'label'                 => esc_html__( 'Show Checkout', '@@textdomain' ),
-		'description'           => '',
-		'section'               => 'loginly__template_1',
-	) );
+		$wp_customize->add_control( 'loginly__test', array(
+			'type'                  => 'checkbox',
+			'label'                 => esc_html__( 'Show Checkout', '@@textdomain' ),
+			'description'           => '',
+			'section'               => 'loginly__section--settings',
+		) );
 }
 
 add_action( 'customize_register', 'loginly_customize_register', 11 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -157,7 +217,7 @@ function ava_get_header_layouts() {
 	return apply_filters( 'ava_nav_layouts', array(
 		'loginly__template--01' => array(
 			'title' => esc_html__( 'Template 01 Name', '@@textdomain' ),
-		    'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
+			'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
 		),
 	) );
 }

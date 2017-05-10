@@ -160,6 +160,7 @@ if ( ! class_exists( 'Loginly' ) ) :
 	    public function actions() {
 	        add_action( 'init', array( $this, 'load_textdomain' ), -1 );
 	        add_action( 'customize_register', array( $this, 'load_customizer_controls' ), 11 );
+	        add_action( 'wp_head', array( $this, 'version_in_header' ) );
 	    }
 
 		/**
@@ -170,7 +171,19 @@ if ( ! class_exists( 'Loginly' ) ) :
 		 * @return void
 		 */
 		public function load_customizer_controls() {
-			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/class-loginly-template-selector.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/class-loginly-template-selector-control.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/class-loginly-range-control.php';
+		}
+
+		/**
+		 * Add the plugin version to the header.
+		 *
+		 * @access public
+		 * @since 1.4
+		 * @return void
+		 */
+		public function version_in_header() {
+			echo '<meta name="generator" content="Loginly ' . esc_html( LOGINLY_VERSION ). '" />' . "\n";
 		}
 
 		/**

@@ -9,3 +9,39 @@
 
 // Range Control
 @import "modules/range";
+
+
+
+
+
+
+
+
+#sub-accordion-section-loginly__section--styles {
+	
+	.customize-control-image {
+		position: relative;
+		margin-bottom: 15px;
+	
+		.placeholder {
+			display: none;
+		}
+
+		button:not(.control-focus):not(.remove-button) {
+			width: 100%;
+			border: 1px dashed $border-color;
+			box-shadow: none;
+			border-radius: 0;
+			padding: 5px 0;
+			background: transparent;
+
+			&:hover {
+				color: $blue;
+			}
+
+			&:active {
+				transform: translateY(0);
+			}
+		}
+	}
+}

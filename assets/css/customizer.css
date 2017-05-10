@@ -98,3 +98,247 @@
 .layout:checked + label .more-details .active {
   opacity: 1;
 }
+
+.customize-control-loginly-range {
+  position: relative;
+}
+
+.customize-control-loginly-range:hover label {
+  opacity: 0;
+}
+
+.customize-control-loginly-range:hover .track,
+.customize-control-loginly-range:hover .range-reset {
+  opacity: 1;
+}
+
+.customize-control-loginly-range label {
+  display: block;
+  margin-right: 55px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: opacity 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+  transition: opacity 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+}
+
+.customize-control-loginly-range span {
+  margin: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.customize-control-loginly-range .track {
+  background: #b4b9be;
+  left: 23px;
+  opacity: 0;
+  padding: 5px 0;
+  position: absolute;
+  right: 65px;
+  top: 50%;
+  -webkit-transform: translatey(-50%);
+      -ms-transform: translatey(-50%);
+          transform: translatey(-50%);
+  -webkit-transition: opacity 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+  transition: opacity 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+  width: 72%;
+}
+
+.customize-control-loginly-range .value {
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: -3px;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  width: 65px;
+}
+
+.customize-control-loginly-range .value input[type=number] {
+  background: none;
+  border: none;
+  box-shadow: 0 0 0;
+  color: #555d66;
+  display: inline-block;
+  line-height: 14px;
+  padding: 2px 0;
+  position: relative;
+  text-align: right;
+  width: 25px;
+}
+
+.customize-control-loginly-range .value input[type=number]::-webkit-inner-spin-button, .customize-control-loginly-range .value input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+  margin: 0;
+}
+
+.customize-control-loginly-range .value input[type=number]:hover {
+  color: #0073aa;
+}
+
+.customize-control-loginly-range .value span {
+  display: none;
+}
+
+.customize-control-loginly-range .value em {
+  cursor: default;
+  display: inline-block;
+  font-style: normal;
+}
+
+.customize-control-loginly-range .range-reset {
+  cursor: pointer;
+  height: 19px;
+  left: -4px;
+  opacity: 0;
+  position: absolute;
+  top: 3px;
+  -webkit-transition: opacity 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+  transition: opacity 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+  width: 19px;
+}
+
+.customize-control-loginly-range .range-reset::after {
+  content: "\f335";
+  cursor: pointer;
+  font: 100 20px/1 dashicons;
+  left: 0;
+  position: relative;
+  top: -1px;
+  z-index: 999;
+}
+
+.customize-control-loginly-range input[type=range] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin: 0 0;
+  padding: 0;
+}
+
+.customize-control-loginly-range input[type=range]:focus {
+  outline: none;
+}
+
+.customize-control-loginly-range input[type=range]::-webkit-slider-runnable-track {
+  animate: 0.2s;
+  background: #b4b9be;
+  border-radius: 1px;
+  border: 0 solid #b4b9be;
+  box-shadow: 0 0 0 #b4b9be;
+  cursor: pointer;
+  height: 2px;
+  width: 100%;
+}
+
+.customize-control-loginly-range input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #b4b9be;
+}
+
+.customize-control-loginly-range input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  background: #fff;
+  border-radius: 50px;
+  border: 1px solid #b4b9be;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 #b4b9be;
+  cursor: pointer;
+  height: 19px;
+  margin-top: -9px;
+  width: 19px;
+}
+
+.customize-control-loginly-range input[type=range]::-moz-range-thumb {
+  background: #fff;
+  border-radius: 50px;
+  border: 1px solid #b4b9be;
+  box-shadow: 0 0 0 #b4b9be;
+  cursor: pointer;
+  height: 19px;
+  width: 19px;
+}
+
+.customize-control-loginly-range input[type=range]::-moz-range-track {
+  animate: 0.2s;
+  background: #b4b9be;
+  border-radius: 1px;
+  border: 0 solid #b4b9be;
+  box-shadow: 0 0 0 #b4b9be;
+  cursor: pointer;
+  height: 2px;
+  width: 100%;
+}
+
+.customize-control-loginly-range input[type=range]::-ms-track {
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+  cursor: pointer;
+  height: 2px;
+  width: 100%;
+}
+
+.customize-control-loginly-range input[type=range]::-ms-fill-lower {
+  background: #b4b9be;
+  border-radius: 2px;
+  border: 0 solid #b4b9be;
+  box-shadow: 0 0 0 #b4b9be;
+}
+
+.customize-control-loginly-range input[type=range]::-ms-fill-upper {
+  background: #b4b9be;
+  border-radius: 2px;
+  border: 0 solid #b4b9be;
+  box-shadow: 0 0 0 #b4b9be;
+}
+
+.customize-control-loginly-range input[type=range]::-ms-thumb {
+  background: #fff;
+  border-radius: 50px;
+  border: 1px solid #b4b9be;
+  box-shadow: 0 0 0 #b4b9be;
+  cursor: pointer;
+  height: 17px;
+  width: 17px;
+}
+
+.customize-control-loginly-range input[type=range]:focus::-ms-fill-lower {
+  background: #b4b9be;
+}
+
+.customize-control-loginly-range input[type=range]:focus::-ms-fill-upper {
+  background: #b4b9be;
+}
+
+#sub-accordion-section-loginly__section--styles .customize-control-image {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+#sub-accordion-section-loginly__section--styles .customize-control-image .placeholder {
+  display: none;
+}
+
+#sub-accordion-section-loginly__section--styles .customize-control-image button:not(.control-focus):not(.remove-button) {
+  width: 100%;
+  border: 1px dashed #b4b9be;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 5px 0;
+  background: transparent;
+}
+
+#sub-accordion-section-loginly__section--styles .customize-control-image button:not(.control-focus):not(.remove-button):hover {
+  color: #0073aa;
+}
+
+#sub-accordion-section-loginly__section--styles .customize-control-image button:not(.control-focus):not(.remove-button):active {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
