@@ -26,3 +26,33 @@
 	});
 
 } )( jQuery );
+
+
+
+
+
+(function ( api ) {
+	
+    api.panel( 'loginly__panel', function( section ) {
+        var previousUrl, clearPreviousUrl, previewUrlValue;
+        previewUrlValue = api.previewer.previewUrl;
+        clearPreviousUrl = function() {
+            previousUrl = null;
+        };
+ 
+        section.expanded.bind( function( isExpanded ) {
+            var url;
+            if ( isExpanded ) {
+                url = api.settings.url.home;
+                previousUrl = previewUrlValue.get();
+                previewUrlValue.set( url );
+                previewUrlValue.bind( clearPreviousUrl );
+            } else {
+                previewUrlValue.unbind( clearPreviousUrl );
+                if ( previousUrl ) {
+                    previewUrlValue.set( previousUrl );
+                }
+            }
+        } );
+    } );
+} ( wp.customize ) );

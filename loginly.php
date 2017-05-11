@@ -212,7 +212,7 @@ if ( ! class_exists( 'Loginly' ) ) :
 		public function redirect_to_custom_page() {
 			if ( ! empty( $_GET['page'] ) ) {
 				if ( ( 'loginly_customizer' == $_GET['page'] ) ) {
-					wp_redirect( get_admin_url().'customize.php?url='.wp_login_url() );
+					wp_redirect( admin_url( '/customize.php?url='.wp_login_url( '/' ) ) );
 				}
 			}
 		}

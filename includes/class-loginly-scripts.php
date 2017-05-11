@@ -59,7 +59,7 @@ if ( ! class_exists( 'Loginly_Scripts' ) ) :
 			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '';
 
 			wp_enqueue_script( 'loginly-customize-preview', $js_dir . 'loginly-customize-preview' . $suffix . '.js', array( 'customize-preview' ), LOGINLY_VERSION, true );
-			wp_enqueue_script( 'loginly-customize-events', $js_dir . 'loginly-customize-events' . $suffix . '.js', array( 'customize-controls' ), LOGINLY_VERSION, true );
+			// wp_enqueue_script( 'loginly-customize-events', $js_dir . 'loginly-customize-events' . $suffix . '.js', array( 'customize-controls' ), LOGINLY_VERSION, true );
 		}
 
 		/**
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Loginly_Scripts' ) ) :
 			// Use minified libraries if SCRIPT_DEBUG is turned off.
 			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '';
 
-			wp_enqueue_script( 'loginly-customize-live', $js_dir . 'loginly-customize-live' . $suffix . '.js', array( 'customize-preview' ), LOGINLY_VERSION, true );
+			// wp_enqueue_script( 'loginly-customize-live', $js_dir . 'loginly-customize-live' . $suffix . '.js', array( 'customize-preview' ), LOGINLY_VERSION, true );
 		}
 	}
 

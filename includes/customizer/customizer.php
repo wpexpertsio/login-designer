@@ -158,11 +158,6 @@ function loginly_customize_register( $wp_customize ) {
 			'settings'             => 'loginly__custom-logo',
 		) ) );
 
-		// $wp_customize->selective_refresh->add_partial( 'loginly__custom-logo', array(
-		// 	'selector'            => '',
-		// 	'container_inclusive' => false,
-		// ) );
-
 		/**
 		 * Add the max width option, to be applied to the custom logo.
 		 */
@@ -186,7 +181,18 @@ function loginly_customize_register( $wp_customize ) {
 			)
 		) );
 
+		$wp_customize->add_setting( 'loginly__login-redirect', array(
+			'default'           => '',
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		) );
 
+		$wp_customize->add_control( 'loginly__login-redirect', array(
+			'label'          => esc_html__( 'Login Redirect', '@@textdomain' ),
+			'section'        => 'loginly__section--styles',
+			'type'           => 'dropdown-pages',
+			'allow_addition' => true,
+		) );
 
 
 
@@ -212,10 +218,10 @@ function loginly_customize_register( $wp_customize ) {
 	 */
 
 		$wp_customize->add_setting( 'loginly__login-page', array(
-            'default'           => 'Log In',
-            'sanitize_callback' => 'absint',
-            'transport'         => 'postMessage',
-        ) );
+			'default'           => 'Log In',
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		) );
 
 		$wp_customize->add_control( 'loginly__login-page', array(
 			'label'          => esc_html__( 'Login Page', '@@textdomain' ),
