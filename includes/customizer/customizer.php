@@ -8,6 +8,11 @@
  * @license   @@pkg.license
  */
 
+
+// Add theme support for selective refresh for widgets.
+add_theme_support( 'customize-selective-refresh-widgets' );
+
+
 /**
  * Register Customizer Settings.
  *
@@ -26,7 +31,7 @@ function loginly_customize_register( $wp_customize ) {
 		 * Add the "Loginly" panel.
 		 */
 		$wp_customize->add_panel( 'loginly__panel', array(
-			'title'           => esc_html__( 'Loginly Editor', '@@textdomain' ),
+			'title'           => esc_html__( 'Loginly', '@@textdomain' ),
 			'priority'        => 1,
 		) );
 
@@ -153,12 +158,17 @@ function loginly_customize_register( $wp_customize ) {
 			'settings'             => 'loginly__custom-logo',
 		) ) );
 
+		// $wp_customize->selective_refresh->add_partial( 'loginly__custom-logo', array(
+		// 	'selector'            => '',
+		// 	'container_inclusive' => false,
+		// ) );
+
 		/**
 		 * Add the max width option, to be applied to the custom logo.
 		 */
 		$wp_customize->add_setting( 'loginly__custom-logo-maxwidth', array(
 			'default'               => '100',
-			'transport'             => '',
+			'transport'             => 'postMessage',
 			'sanitize_callback'     => '',
 		) );
 
@@ -200,6 +210,20 @@ function loginly_customize_register( $wp_customize ) {
 	/**
 	 * "Loginly Editor" > "Settings" settings and controls.
 	 */
+
+		$wp_customize->add_setting( 'loginly__login-page', array(
+            'default'           => 'Log In',
+            'sanitize_callback' => 'absint',
+            'transport'         => 'postMessage',
+        ) );
+
+		$wp_customize->add_control( 'loginly__login-page', array(
+			'label'          => esc_html__( 'Login Page', '@@textdomain' ),
+			'section'        => 'loginly__section--settings',
+			'type'           => 'dropdown-pages',
+			'allow_addition' => true,
+		) );
+
 
 		$wp_customize->add_setting( 'loginly__test', array(
 			'default'               => '',
@@ -313,4 +337,10 @@ function ava_get_header_layouts() {
 		),
 	) );
 }
+
+
+
+
+
+
 

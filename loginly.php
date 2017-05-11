@@ -144,6 +144,8 @@ if ( ! class_exists( 'Loginly' ) ) :
 
 			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-scripts.php';
 			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/customizer.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/customizer-css.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/misc-functions.php';
 
 			if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
 				require_once LOGINLY_PLUGIN_DIR . 'includes/admin/admin-footer.php';
@@ -152,22 +154,24 @@ if ( ! class_exists( 'Loginly' ) ) :
 		}
 
 		/**
-	     * Load the actions
-	     *
-	     * @since  1.0.0
-	     * @return void
-	     */
-	    public function actions() {
-	        add_action( 'init', array( $this, 'load_textdomain' ), -1 );
-	        add_action( 'customize_register', array( $this, 'load_customizer_controls' ), 11 );
-	        add_action( 'wp_head', array( $this, 'version_in_header' ) );
-	    }
+		 * Load the actions
+		 *
+		 * @since  1.0.0
+		 * @return void
+		 */
+		public function actions() {
+			add_action( 'init', array( $this, 'load_textdomain' ), -1 );
+			add_action( 'customize_register', array( $this, 'load_customizer_controls' ), 11 );
+			add_action( 'wp_head', array( $this, 'version_in_header' ) );
+			add_action( 'init', array( $this, 'redirect_to_custom_page' ) );
+			add_action( 'admin_menu', array( $this, 'register_options_page' ) );
+		}
 
 		/**
 		 * Register Customizer Controls.
 		 *
-		 * @access private
-		 * @since 1.4
+		 * @access public
+		 * @since 1.0.0
 		 * @return void
 		 */
 		public function load_customizer_controls() {
@@ -180,11 +184,37 @@ if ( ! class_exists( 'Loginly' ) ) :
 		 * Add the plugin version to the header.
 		 *
 		 * @access public
-		 * @since 1.4
+		 * @since 1.0.0
 		 * @return void
 		 */
 		public function version_in_header() {
 			echo '<meta name="generator" content="Loginly ' . esc_html( LOGINLY_VERSION ). '" />' . "\n";
+		}
+
+		/**
+		 * Add a page under the "Apperance" menu, that links to the Customizer.
+		 *
+		 * @access public
+		 * @since 1.0.0
+		 * @return void
+		 */
+	    public function register_options_page() {
+	    	add_theme_page( esc_html__( 'Loginly', '@@textdomain' ), esc_html__( 'Loginly', '@@textdomain' ), 'manage_options', 'loginly_customizer', '__return_null' );
+	    }
+
+		/**
+		 * Hook to Redirect Page for Customize.
+		 *
+		 * @access public
+		 * @since 1.0.0
+		 * @return void
+		 */
+		public function redirect_to_custom_page() {
+			if ( ! empty( $_GET['page'] ) ) {
+				if ( ( 'loginly_customizer' == $_GET['page'] ) ) {
+					wp_redirect( get_admin_url().'customize.php?url='.wp_login_url() );
+				}
+			}
 		}
 
 		/**
