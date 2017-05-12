@@ -143,8 +143,10 @@ if ( ! class_exists( 'Loginly' ) ) :
 		private function includes() {
 
 			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-scripts.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-frontend.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-frontend-css.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-esc-login.php';
 			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/customizer.php';
-			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/customizer-css.php';
 			require_once LOGINLY_PLUGIN_DIR . 'includes/misc-functions.php';
 
 			if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
@@ -161,10 +163,10 @@ if ( ! class_exists( 'Loginly' ) ) :
 		 */
 		public function actions() {
 			add_action( 'init', array( $this, 'load_textdomain' ), -1 );
-			add_action( 'customize_register', array( $this, 'load_customizer_controls' ), 11 );
-			add_action( 'wp_head', array( $this, 'version_in_header' ) );
 			add_action( 'init', array( $this, 'redirect_to_custom_page' ) );
+			add_action( 'wp_head', array( $this, 'version_in_header' ) );
 			add_action( 'admin_menu', array( $this, 'register_options_page' ) );
+			add_action( 'customize_register', array( $this, 'load_customizer_controls' ), 11 );
 		}
 
 		/**

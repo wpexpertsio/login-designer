@@ -319,6 +319,66 @@
 * @Last Modified by:   Home
 * @Last Modified time: 2017-05-10 10:25:38
 */
+#sub-accordion-section-loginly__section--styles .customize-control-color {
+  position: relative;
+}
+
+#sub-accordion-section-loginly__section--styles .customize-control-color .customize-control-title {
+  font-weight: normal;
+  margin: 0;
+}
+
+#sub-accordion-section-loginly__section--styles .customize-control-color .customize-control-content {
+  margin-bottom: -20px;
+}
+
+#sub-accordion-section-loginly__section--styles .customize-control-color label {
+  cursor: default;
+}
+
+#sub-accordion-section-loginly__section--styles .customize-control-color .wp-picker-container,
+#sub-accordion-section-loginly__section--styles .customize-control-color .wp-picker-container .iris-picker {
+  width: 100% !important;
+}
+
+#sub-accordion-section-loginly__section--styles .customize-control-color .wp-picker-holder {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  z-index: 99999;
+}
+
+#sub-accordion-section-loginly__section--styles .customize-control-color .wp-picker-open + .wp-picker-input-wrap {
+  background: #eee;
+  position: absolute;
+  top: 7px;
+}
+
+#sub-accordion-section-loginly__section--styles .customize-control-color .wp-color-result {
+  border-radius: 100%;
+  box-shadow: 0 0 0 !important;
+  height: 20px;
+  margin: 0;
+  padding-left: 20px;
+  position: absolute;
+  right: 0;
+  top: 2px;
+}
+
+#sub-accordion-section-loginly__section--styles .customize-control-color .wp-color-result:hover, #sub-accordion-section-loginly__section--styles .customize-control-color .wp-color-result:focus {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+#sub-accordion-section-loginly__section--styles .customize-control-color .wp-color-result::after {
+  display: none;
+}
+
+#customize-control-loginly__custom-logo {
+  border-top: 1px solid #ddd;
+  margin-top: 10px;
+  padding-top: 17px;
+}
+
 #sub-accordion-section-loginly__section--styles .customize-control-image {
   position: relative;
   margin-bottom: 15px;

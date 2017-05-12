@@ -13,11 +13,19 @@
 // Background Control
 @import "modules/background";
 
+// Colors
+@import "modules/colors";
 
 
 
 
 
+
+#customize-control-loginly__custom-logo {
+	border-top: 1px solid #ddd;
+	margin-top: 10px;
+	padding-top: 17px;
+}
 
 
 #sub-accordion-section-loginly__section--styles {

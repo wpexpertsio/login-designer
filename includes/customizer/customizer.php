@@ -141,7 +141,7 @@ function loginly_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'loginly__custom-background-color', array(
-			// 'label'                 => esc_html__( 'Background', '@@textdomain' ),
+			'label'                 => esc_html__( 'Color', '@@textdomain' ),
 			'section'               => 'loginly__section--styles',
 		) ) );
 
@@ -181,25 +181,7 @@ function loginly_customize_register( $wp_customize ) {
 			)
 		) );
 
-		$wp_customize->add_setting( 'loginly__login-redirect', array(
-			'default'           => '',
-			'sanitize_callback' => 'absint',
-			'transport'         => 'postMessage',
-		) );
-
-		$wp_customize->add_control( 'loginly__login-redirect', array(
-			'label'          => esc_html__( 'Login Redirect', '@@textdomain' ),
-			'section'        => 'loginly__section--styles',
-			'type'           => 'dropdown-pages',
-			'allow_addition' => true,
-		) );
-
-
-
-
-
-
-
+	
 
 
 
@@ -217,46 +199,62 @@ function loginly_customize_register( $wp_customize ) {
 	 * "Loginly Editor" > "Settings" settings and controls.
 	 */
 
-		$wp_customize->add_setting( 'loginly__login-page', array(
-			'default'           => 'Log In',
+		$wp_customize->add_setting( 'loginly__logo-url', array(
+			'default'           => '',
 			'sanitize_callback' => 'absint',
 			'transport'         => 'postMessage',
 		) );
 
-		$wp_customize->add_control( 'loginly__login-page', array(
-			'label'          => esc_html__( 'Login Page', '@@textdomain' ),
+		$wp_customize->add_control( 'loginly__logo-url', array(
+			'label'          => esc_html__( 'Logo URL', '@@textdomain' ),
 			'section'        => 'loginly__section--settings',
 			'type'           => 'dropdown-pages',
 			'allow_addition' => true,
 		) );
 
-
-		$wp_customize->add_setting( 'loginly__test', array(
-			'default'               => '',
-			'sanitize_callback'     => '',
+		$wp_customize->add_setting( 'loginly__login-redirect', array(
+			'default'           => '',
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
 		) );
 
-		$wp_customize->add_control( 'loginly__test', array(
-			'type'                  => 'checkbox',
-			'label'                 => esc_html__( 'Show Checkout', '@@textdomain' ),
-			'description'           => '',
-			'section'               => 'loginly__section--settings',
+		$wp_customize->add_control( 'loginly__login-redirect', array(
+			'label'          => esc_html__( 'Login Redirect', '@@textdomain' ),
+			'section'        => 'loginly__section--settings',
+			'type'           => 'dropdown-pages',
+			'allow_addition' => true,
 		) );
+
+		$wp_customize->add_setting( 'loginly__logout-redirect', array(
+			'default'           => '',
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		) );
+
+		$wp_customize->add_control( 'loginly__logout-redirect', array(
+			'label'          => esc_html__( 'Logout Redirect', '@@textdomain' ),
+			'section'        => 'loginly__section--settings',
+			'type'           => 'dropdown-pages',
+			'allow_addition' => true,
+		) );
+
+		$wp_customize->add_setting( 'loginly__login-message', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_textarea',
+			'transport'         => '',
+		) );
+
+		$wp_customize->add_control( 'loginly__login-message', array(
+			'label'          => esc_html__( 'Login Message', '@@textdomain' ),
+			'section'        => 'loginly__section--settings',
+			'type'           => 'textarea',
+		) );
+
+
+
 }
 
 add_action( 'customize_register', 'loginly_customize_register', 11 );
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
