@@ -228,8 +228,8 @@ class Loginly_Background_Control extends WP_Customize_Upload_Control {
 	public static function get_button_labels() {
 
 		$button_labels = array(
-			'select'       => __( 'Select Background', '@@textdomain' ),
-			'change'       => __( 'Change Image', '@@textdomain' ),
+			'select'       => __( 'Upload Background Image', '@@textdomain' ),
+			'change'       => __( 'Change', '@@textdomain' ),
 			'remove'       => __( 'Remove', '@@textdomain' ),
 			'default'      => __( 'Default', '@@textdomain' ),
 			'placeholder'  => __( 'No image selected', '@@textdomain' ),

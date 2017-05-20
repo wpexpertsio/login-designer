@@ -136,7 +136,7 @@ function loginly_customize_register( $wp_customize ) {
 		 */
 		$wp_customize->add_setting( 'loginly__custom-background-color', array(
 			'default'               => '',
-			'transport'             => '',
+			'transport'             => 'postMessage',
 			'sanitize_callback'     => 'sanitize_hex_color',
 		) );
 

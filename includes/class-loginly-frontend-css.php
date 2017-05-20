@@ -36,10 +36,18 @@ if ( ! class_exists( 'Loginly_Frontend_CSS' ) ) :
 		 * @access public
 		 */
 		public function login_enqueue_scripts() {
-			$logo_maxwidth = get_theme_mod( 'loginly__custom-logo-maxwidth', '100' );
+
+			$logo_maxwidth 						= get_theme_mod( 'loginly__custom-logo-maxwidth', '100' );
+			$login_background_color 			= get_theme_mod( 'loginly__custom-background-color', '' );
 
 			$custom_css = ' 
-			#login h1 a { width: '. esc_attr( $logo_maxwidth ).'px; }
+
+			body.login {
+				background-color: '. esc_attr( $login_background_color ).';
+			}
+			#login h1 a { 
+				width: '. esc_attr( $logo_maxwidth ).'px;
+			}
 			';
 
 			wp_add_inline_style( 'login', wp_strip_all_tags( $custom_css ) );

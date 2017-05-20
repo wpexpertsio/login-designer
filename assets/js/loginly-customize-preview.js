@@ -20,6 +20,7 @@
 	}
 
 	loginly_css_property('loginly__custom-logo-maxwidth', '#login h1 a', 'width' );
+	loginly_css_property('loginly__custom-background-color', 'body.login', 'background-color' );
 
 	$(window).on('load', function() {
 	    $("<style type='text/css' id='loginly-customize'></style>").appendTo( $('#customize-preview iframe').contents().find('head') );
