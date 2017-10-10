@@ -103,9 +103,6 @@ class Loginly_Background_Control extends WP_Customize_Upload_Control {
 		// Use minified libraries if SCRIPT_DEBUG is turned off.
 		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-		// Custom control styles.
-		wp_enqueue_style( 'loginly-background-control', $css_dir . 'loginly-customize-background-control' . $suffix . '.css', LOGINLY_VERSION, 'all' );
-
 		// Custom control scripts.
 		wp_enqueue_script( 'loginly-background-control', $js_dir . 'loginly-customize-background-control' . $suffix . '.js', array( 'jquery' ), LOGINLY_VERSION, 'all' );
 

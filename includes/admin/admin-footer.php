@@ -29,7 +29,7 @@ function loginly_admin_rate_us( $footer_text ) {
 	if ( 'download' == $typenow ) {
 		// @todo - What page should this be on? If any?
 		$rate_text = sprintf( __( 'Thank you for using <a href="%1$s" target="_blank">Loginly</a>! Please <a href="%2$s" target="_blank">rate us</a> on <a href="%2$s" target="_blank">WordPress.org</a>', '@@textdomain' ),
-			'https://loginly.xyz',
+			'https://loginlywp.com',
 			'https://wordpress.org/support/view/plugin-reviews/loginly?filter=5#postform'
 		);
 

@@ -44,7 +44,7 @@ if ( ! class_exists( 'Loginly_Scripts' ) ) :
 			// Use minified libraries if SCRIPT_DEBUG is turned off.
 			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '';
 
-			wp_enqueue_style( 'loginly-customize-preview', $css_dir . 'loginly-customize-preview' . $suffix . '.css', null );
+			wp_enqueue_style( 'loginly-customizer', $css_dir . 'customizer' . $suffix . '.css', null );
 		}
 
 		/**

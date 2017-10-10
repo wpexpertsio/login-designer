@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name: Loginly
- * Plugin URI: https://loginlywp.com
+ * Plugin URI: https://loginly.xyz
  * Description: @@pkg.description
  * Author: @@pkg.author
- * Author URI: https://loginlywp.com
+ * Author URI: https://loginly.xyz
  * Version: @@pkg.version
  * Text Domain: @@pkg.textdomain
  * Domain Path: languages

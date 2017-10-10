@@ -11,14 +11,15 @@ var license                	= pkg.license;
 var copyright              	= pkg.copyright;
 var author                 	= pkg.author;
 var plugin_uri              	= pkg.plugin_uri;
-var projectURL              	= 'http://wp-avatar-logo.dev/wp-admin/customize.php';
+var projectURL              	= 'http://'+ slug +'.dev/wp-admin/customize.php';
 
 var styleCustomizerSRC  	= './assets/scss/customizer/'+ slug +'-customize-preview.scss';
-var styleTemplateControlSRC  	= './assets/scss/customizer/'+ slug +'-template-control.scss';
-var styleRangeControlSRC  	= './assets/scss/customizer/'+ slug +'-range-control.scss';
+var styleTemplateControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-template-control.scss';
+var styleRangeControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-range-control.scss';
 
-var template_1SRC  		= './assets/scss/templates/'+ slug +'-template-1.scss';
-var template_2SRC  		= './assets/scss/templates/'+ slug +'-template-2.scss';
+var template_1SRC  		= './assets/scss/templates/'+ slug +'-template-01.scss';
+var template_2SRC  		= './assets/scss/templates/'+ slug +'-template-02.scss';
+var templateDestination  	= './assets/css/templates/'; // Path to place the compiled CSS file.
 
 var styleDestination  		= './assets/css/'; // Path to place the compiled CSS file.
 var styleWatchFiles   		= './assets/scss/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
@@ -34,6 +35,9 @@ var scriptRangeControlSRC   	= './assets/js/'+ scriptRangeControlFile +'.js'; //
 
 var scriptTemplateControlFile  	= slug +'-customize-template-control'; // JS file name.
 var scriptTemplateControlSRC   	= './assets/js/'+ scriptTemplateControlFile +'.js'; // The JS file src.
+
+var scriptBackgroundControlFile = slug +'-customize-background-control'; // JS file name.
+var scriptBackgroundControlSRC  = './assets/js/'+ scriptBackgroundControlFile +'.js'; // The JS file src.
 
 var scriptDestination 		= './assets/js/'; // Path to place the compiled JS custom scripts file.
 var scriptWatchFiles  		= './assets/js/*.js'; // Path to all *.scss files inside css folder and inside them.
@@ -224,7 +228,7 @@ gulp.task('template_1', function () {
 
 	.pipe( csscomb() )
 
-	.pipe( gulp.dest( styleDestination ) )
+	.pipe( gulp.dest( templateDestination ) )
 
 	.pipe( browserSync.stream() )
 
@@ -234,7 +238,7 @@ gulp.task('template_1', function () {
 		maxLineLen: 10
 	}))
 
-	.pipe( gulp.dest( styleDestination ) )
+	.pipe( gulp.dest( templateDestination ) )
 
 	.pipe( browserSync.stream() )
 });
@@ -254,7 +258,7 @@ gulp.task('template_2', function () {
 
 	.pipe( csscomb() )
 
-	.pipe( gulp.dest( styleDestination ) )
+	.pipe( gulp.dest( templateDestination ) )
 
 	.pipe( browserSync.stream() )
 
@@ -264,7 +268,7 @@ gulp.task('template_2', function () {
 		maxLineLen: 10
 	}))
 
-	.pipe( gulp.dest( styleDestination ) )
+	.pipe( gulp.dest( templateDestination ) )
 
 	.pipe( browserSync.stream() )
 });
@@ -304,6 +308,16 @@ gulp.task( 'scripts', function() {
 	gulp.src( scriptTemplateControlSRC )
 	.pipe( rename( {
 		basename: scriptTemplateControlFile,
+		suffix: '.min'
+	}))
+	.pipe( uglify() )
+	.pipe( lineec() )
+	.pipe( gulp.dest( scriptDestination ) )
+
+	// slug-customize-background-control.js
+	gulp.src( scriptBackgroundControlSRC )
+	.pipe( rename( {
+		basename: scriptBackgroundControlFile,
 		suffix: '.min'
 	}))
 	.pipe( uglify() )
@@ -403,6 +417,10 @@ gulp.task( 'default', [ 'clear', 'template_1', 'template_2', 'styles_customize_p
 	gulp.watch( projectPHPWatchFiles, reload );
 	gulp.watch( styleWatchFiles, [ 'styles_customizer_template_control' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_customizer_range' ] );
+	gulp.watch( styleWatchFiles, [ 'styles_customize_preview' ] );
+	gulp.watch( styleWatchFiles, [ 'template_1' ] );
+	gulp.watch( styleWatchFiles, [ 'template_2' ] );
+
 	gulp.watch( scriptWatchFiles, [ 'scripts' ] );
 });
 

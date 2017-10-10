@@ -1,0 +1,100 @@
+.layout {
+	display: none !important;
+}
+
+.customize-control-layout {
+	margin-bottom: 0;
+	margin-top: 0;
+	position: relative;
+}
+
+.customize-control-layout label {
+	border: 1px solid transparent;
+	cursor: pointer;
+	display: block;
+	margin: 0 0 5px;
+	-webkit-transition: border-color 0.2s, background-color 0.2s;
+	transition: border-color 0.2s, background-color 0.2s;
+}
+
+.customize-control-layout label:first-of-type {
+	margin-top: 0;
+}
+
+.customize-control-layout label:last-of-type {
+	margin-bottom: 10px;
+}
+
+.customize-control-layout label:hover {
+	border-color: #555;
+}
+
+#layout-switcher {
+	width: 100%;
+}
+
+.layout-switcher__wrapper {
+	max-height: 0;
+	overflow-y: hidden;
+	-webkit-transition: all 600ms ease-in-out;
+	transition: all 600ms ease-in-out;
+}
+
+.layout-switcher__wrapper.open {
+	max-height: 800px;
+}
+
+.layout-switcher:focus,
+.layout-switcher:active {
+	border-color: #ccc !important;
+	box-shadow: 0 0 0 #000 !important;
+	outline: none;
+}
+
+.intrinsic {
+	line-height: 0;
+	margin-bottom: 0;
+	overflow: hidden;
+	position: relative;
+}
+
+.intrinsic:after {
+	content: "";
+	display: block;
+	padding-top: 37.367%;
+}
+
+.layout-screenshot {
+	background-color: rgba(255, 255, 255, 0.7);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	-webkit-transition: background-color 0.2s;
+	transition: background-color 0.2s;
+}
+
+.layout:checked + label .layout-screenshot {
+	background-color: #fff;
+}
+
+.layout:checked + label,
+.customize-control-layout label:focus {
+	border-color: #0085ba;
+}
+
+.layout:checked + label:hover .layout-screenshot img {
+	opacity: 1;
+}
+
+.layout:checked + label .more-details .preview {
+	opacity: 0;
+}
+
+.layout:checked + label .more-details .active {
+	opacity: 1;
+}

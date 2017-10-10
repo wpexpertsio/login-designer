@@ -284,6 +284,23 @@ if ( ! class_exists( 'Loginly_Customizer' ) ) :
 				),
 			) );
 		}
+
+		/**
+		 * Custom CSS.
+		 */
+		public function css() {
+
+			$gravatar_width = get_theme_mod( 'wp_gravatar_logo__width', '50' );
+
+			$css =
+			'
+			body .custom-logo-link.custom-logo-link--avatar img {
+				width: ' . esc_attr( $gravatar_width ) . 'px;
+			}
+			';
+
+			wp_add_inline_style( 'wp-gravatar-logo-frontend', wp_strip_all_tags( $css ) );
+		}
 	}
 
 endif;
