@@ -2,12 +2,14 @@
 /**
  * Plugin Name: Loginly
  * Plugin URI: https://loginly.xyz
- * Description: The easiest way to customize your WordPress login.
- * Author: Loginly
+ * Description: @@pkg.description
+ * Author: @@pkg.author
  * Author URI: https://loginly.xyz
- * Version: 1.0.0
- * Text Domain: loginly
+ * Version: @@pkg.version
+ * Text Domain: @@pkg.textdomain
  * Domain Path: languages
+ * Requires at least: 4.7
+ * Tested up to: 4.9
  *
  * Loginly is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,9 +25,9 @@
  * along with Loginly. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package   @@pkg.name
- * @copyright @@pkg.copyright
  * @author    @@pkg.author
  * @license   @@pkg.license
+ * @version   @@pkg.version
  */
 
 // Exit if accessed directly.
@@ -38,7 +40,7 @@ if ( ! class_exists( 'Loginly' ) ) :
 	/**
 	 * Main Loginly Class.
 	 *
-	 * @since 1.4
+	 * @since 1.0.0
 	 */
 	final class Loginly {
 		/** Singleton *************************************************************/
@@ -56,7 +58,7 @@ if ( ! class_exists( 'Loginly' ) ) :
 		 * Insures that only one instance of Loginly exists in memory at any one
 		 * time. Also prevents needing to define globals all over the place.
 		 *
-		 * @since 1.4
+		 * @since 1.0.0
 		 * @static
 		 * @staticvar array $instance
 		 * @uses Loginly::setup_constants() Setup the constants needed.
@@ -68,9 +70,10 @@ if ( ! class_exists( 'Loginly' ) ) :
 		public static function instance() {
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Loginly ) ) {
 				self::$instance = new Loginly;
-				self::$instance->setup_constants();
+				self::$instance->constants();
 				self::$instance->actions();
 				self::$instance->includes();
+				self::$instance->load_textdomain();
 			}
 
 			return self::$instance;
@@ -82,54 +85,50 @@ if ( ! class_exists( 'Loginly' ) ) :
 		 * The whole idea of the singleton design pattern is that there is a single
 		 * object therefore, we don't want the object to be cloned.
 		 *
-		 * @since 1.6
+		 * @since 1.0.0
 		 * @access protected
 		 * @return void
 		 */
 		public function __clone() {
 			// Cloning instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', '@@textdomain' ), '1.6' );
+			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', '@@textdomain' ), '1.0' );
 		}
 
 		/**
 		 * Disable unserializing of the class.
 		 *
-		 * @since 1.6
+		 * @since 1.0.0
 		 * @access protected
 		 * @return void
 		 */
 		public function __wakeup() {
 			// Unserializing instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', '@@textdomain' ), '1.6' );
+			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', '@@textdomain' ), '1.0' );
 		}
 
 		/**
 		 * Setup plugin constants.
 		 *
 		 * @access private
-		 * @since 1.4
 		 * @return void
 		 */
-		private function setup_constants() {
+		private function constants() {
+			$this->define( 'LOGINLY_VERSION', '@@pkg.version' );
+			$this->define( 'LOGINLY_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+			$this->define( 'LOGINLY_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+			$this->define( 'LOGINLY_PLUGIN_FILE', __FILE__ );
+			$this->define( 'LOGINLY_ABSPATH', dirname( __FILE__ ) . '/' );
+		}
 
-			// Plugin version.
-			if ( ! defined( 'LOGINLY_VERSION' ) ) {
-				define( 'LOGINLY_VERSION', '1.0.0' );
-			}
-
-			// Plugin Folder Path.
-			if ( ! defined( 'LOGINLY_PLUGIN_DIR' ) ) {
-				define( 'LOGINLY_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-			}
-
-			// Plugin Folder URL.
-			if ( ! defined( 'LOGINLY_PLUGIN_URL' ) ) {
-				define( 'LOGINLY_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-			}
-
-			// Plugin Root File.
-			if ( ! defined( 'LOGINLY_PLUGIN_FILE' ) ) {
-				define( 'LOGINLY_PLUGIN_FILE', __FILE__ );
+		/**
+		 * Define constant if not already set.
+		 *
+		 * @param  string|string $name Name of the definition.
+		 * @param  string|bool   $value Default value.
+		 */
+		private function define( $name, $value ) {
+			if ( ! defined( $name ) ) {
+				define( $name, $value );
 			}
 		}
 
@@ -137,19 +136,17 @@ if ( ! class_exists( 'Loginly' ) ) :
 		 * Include required files.
 		 *
 		 * @access private
-		 * @since 1.4
+		 * @since  1.0.0
 		 * @return void
 		 */
 		private function includes() {
-
 			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-scripts.php';
-			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-frontend.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-frontend-settings.php';
 			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-frontend-css.php';
 			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-esc-login.php';
-			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/customizer.php';
-			require_once LOGINLY_PLUGIN_DIR . 'includes/misc-functions.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-customizer.php';
 
-			if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
+			if ( is_admin() ) {
 				require_once LOGINLY_PLUGIN_DIR . 'includes/admin/admin-footer.php';
 				require_once LOGINLY_PLUGIN_DIR . 'includes/admin/admin-action-links.php';
 			}
@@ -162,24 +159,9 @@ if ( ! class_exists( 'Loginly' ) ) :
 		 * @return void
 		 */
 		public function actions() {
-			add_action( 'init', array( $this, 'load_textdomain' ), -1 );
-			add_action( 'init', array( $this, 'redirect_to_custom_page' ) );
+			add_action( 'init', array( $this, 'redirect_customizer' ) );
 			add_action( 'wp_head', array( $this, 'version_in_header' ) );
-			add_action( 'admin_menu', array( $this, 'register_options_page' ) );
-			add_action( 'customize_register', array( $this, 'load_customizer_controls' ), 11 );
-		}
-
-		/**
-		 * Register Customizer Controls.
-		 *
-		 * @access public
-		 * @since 1.0.0
-		 * @return void
-		 */
-		public function load_customizer_controls() {
-			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/class-loginly-range-control.php';
-			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/class-loginly-templates-control.php';
-			require_once LOGINLY_PLUGIN_DIR . 'includes/customizer/class-loginly-background-control.php';
+			add_action( 'admin_menu', array( $this, 'options_page' ) );
 		}
 
 		/**
@@ -190,7 +172,7 @@ if ( ! class_exists( 'Loginly' ) ) :
 		 * @return void
 		 */
 		public function version_in_header() {
-			echo '<meta name="generator" content="Loginly ' . esc_html( LOGINLY_VERSION ). '" />' . "\n";
+			echo '<meta name="generator" content="Loginly ' . esc_attr( LOGINLY_VERSION ). '" />' . "\n";
 		}
 
 		/**
@@ -200,21 +182,21 @@ if ( ! class_exists( 'Loginly' ) ) :
 		 * @since 1.0.0
 		 * @return void
 		 */
-	    public function register_options_page() {
-	    	add_theme_page( esc_html__( 'Loginly', '@@textdomain' ), esc_html__( 'Loginly', '@@textdomain' ), 'manage_options', 'loginly_customizer', '__return_null' );
-	    }
+		public function options_page() {
+			add_theme_page( esc_html__( 'Loginly', '@@textdomain' ), esc_html__( 'Login Editor', '@@textdomain' ), 'manage_options', 'loginly_customizer', '__return_null' );
+		}
 
 		/**
-		 * Hook to Redirect Page for Customize.
+		 * Hook to redirect the page for the Customizer.
 		 *
 		 * @access public
 		 * @since 1.0.0
 		 * @return void
 		 */
-		public function redirect_to_custom_page() {
+		public function redirect_customizer() {
 			if ( ! empty( $_GET['page'] ) ) {
 				if ( ( 'loginly_customizer' == $_GET['page'] ) ) {
-					wp_redirect( admin_url( '/customize.php?url='.wp_login_url( '/' ) ) );
+					wp_redirect( admin_url( '/customize.php?autofocus[panel]=loginly__panel&url='.home_url( '/loginly' ) ) );
 				}
 			}
 		}
@@ -223,11 +205,11 @@ if ( ! class_exists( 'Loginly' ) ) :
 		 * Loads the plugin language files.
 		 *
 		 * @access public
-		 * @since 1.4
+		 * @since 1.0.0
 		 * @return void
 		 */
 		public function load_textdomain() {
-			load_plugin_textdomain( 'loginly', false, dirname( plugin_basename( LOGINLY_PLUGIN_DIR ) ) . '/languages/' );
+			load_plugin_textdomain( '@@textdomain', false, dirname( plugin_basename( LOGINLY_PLUGIN_DIR ) ) . '/languages/' );
 		}
 	}
 
@@ -245,7 +227,7 @@ endif; // End if class_exists check.
  *
  * Example: <?php $loginly = loginly(); ?>
  *
- * @since 1.4
+ * @since 1.0.0
  * @return object|Loginly The one true Loginly Instance.
  */
 function loginly() {

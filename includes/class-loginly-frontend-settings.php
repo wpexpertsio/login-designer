@@ -13,12 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Loginly_Frontend' ) ) :
+if ( ! class_exists( 'Loginly_Frontend_Settings' ) ) :
 
 	/**
 	 * Enqueues JS & CSS assets
 	 */
-	class Loginly_Frontend {
+	class Loginly_Frontend_Settings {
 
 		/**
 		 * The class constructor.
@@ -132,4 +132,4 @@ if ( ! class_exists( 'Loginly_Frontend' ) ) :
 
 endif;
 
-new Loginly_Frontend();
+new Loginly_Frontend_Settings();

@@ -28,6 +28,18 @@ if ( ! class_exists( 'Loginly_Frontend_CSS' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'login_enqueue_scripts', array( $this, 'login_enqueue_scripts' ) );
+			add_action( 'login_body_class', array( $this, 'template_classes' ) );
+		}
+
+		/**
+		 * Adds the associated template to the body.
+		 *
+		 * @access public
+		 * @param array $classes Existing body classes to be filtered.
+		 */
+		public function template_classes( $classes ) {
+			$classes[] = get_theme_mod( 'loginly__template-selector' );
+			return $classes;
 		}
 
 		/**
@@ -37,15 +49,22 @@ if ( ! class_exists( 'Loginly_Frontend_CSS' ) ) :
 		 */
 		public function login_enqueue_scripts() {
 
-			$logo_maxwidth 						= get_theme_mod( 'loginly__custom-logo-maxwidth', '100' );
-			$login_background_color 			= get_theme_mod( 'loginly__custom-background-color', '' );
+			$logo 					= get_theme_mod( 'loginly__custom-logo', '' );
+			$logo_maxwidth 				= get_theme_mod( 'loginly__custom-logo-maxwidth', '100' );
+			$login_background_color 		= get_theme_mod( 'loginly__custom-background-color', '#f1f1f1' );
 
-			$custom_css = ' 
+			$custom_css = '
 
 			body.login {
 				background-color: '. esc_attr( $login_background_color ).';
 			}
-			#login h1 a { 
+
+			body.login div#login h1 a {
+				background-image: url("'. esc_url( $logo ).'");
+				background-size: cover;
+			}
+
+			#login h1 a {
 				width: '. esc_attr( $logo_maxwidth ).'px;
 			}
 			';

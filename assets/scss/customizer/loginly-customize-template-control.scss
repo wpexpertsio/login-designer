@@ -1,19 +1,22 @@
-.layout { 
-   display: none!important; 
+// Variables.
+@import "variables";
+
+.layout {
+   display: none!important;
 }
 
 .customize-control-layout {
 	margin-top: 0;
 	margin-bottom: 0;
 	position: relative;
-	
+
 	label {
 		border: 1px solid transparent;
 		cursor: pointer;
 		display: block;
 		margin: 0 0 5px;
 		transition: border-color 0.2s, background-color 0.2s;
-		
+
 		&:first-of-type {
 			margin-top: 0;
 		}
@@ -28,12 +31,6 @@
 	}
 }
 
-
-
-
-
-
-
 #layout-switcher {
 	width: 100%;
 }
@@ -42,7 +39,7 @@
 	overflow-y: hidden;
 	max-height: 0;
 	transition: all 600ms ease-in-out;
-	
+
 	&.open {
 		max-height: 800px;
 	}
@@ -56,19 +53,10 @@
 }
 
 
-
-
-
-
-
-
-
 .intrinsic {
-
-		overflow: hidden;
+	overflow: hidden;
 	line-height: 0;
 	margin-bottom: 0;
-
 	position: relative;
 }
 

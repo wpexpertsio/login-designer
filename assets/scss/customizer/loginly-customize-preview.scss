@@ -1,39 +1,23 @@
-// Variables
+// Variables.
 @import "variables";
 
-// Mixins
-@import "mixins";
+// Color Controls.
+// @import "modules/color-control";
 
-// Template Selector Control
-@import "modules/template-selector";
-
-// Range Control
-@import "modules/range";
-
-// Background Control
-@import "modules/background";
-
-// Colors
-@import "modules/colors";
-
-
-
-
-
-
+// Logo.
 #customize-control-loginly__custom-logo {
 	border-top: 1px solid #ddd;
 	margin-top: 10px;
 	padding-top: 17px;
 }
 
-
+// Modifications for the Styles section.
 #sub-accordion-section-loginly__section--styles {
-	
+
 	.customize-control-image {
 		position: relative;
 		margin-bottom: 15px;
-	
+
 		.placeholder {
 			display: none;
 		}

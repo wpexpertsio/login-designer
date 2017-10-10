@@ -18,8 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Add links to the settings page to the plugin.
  *
- * @since	    1.8.5
- * @param		string $links The links.
+ * @since	1.0.0
+ * @param	string $links The links.
  * @param       string $file The plugin.
  * @return      string
  */

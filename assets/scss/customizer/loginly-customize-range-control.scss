@@ -1,5 +1,20 @@
-.customize-control-loginly-range {
+// Variables.
+@import "variables";
+
+.customize-control-wp-gravatar-logo-range {
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 15px;
+	padding-bottom: 15px;
 	position: relative;
+
+	.relative {
+		position: relative;
+	}
+
+	.notice {
+		padding: 8px 12px;
+		border-radius: 2px;
+	}
 
 	&:hover {
 		label {
@@ -21,7 +36,6 @@
 
 	span {
 		margin: 0;
-		// transform: translate3d(0, 0, 0);
 	}
 
 	.track {
@@ -34,7 +48,7 @@
 		top: 50%;
 		transform: translatey(-50%);
 		transition: opacity $range--opacity-speed $range--opacity-cubic;
-		width: 72%;
+		width: 74%;
 	}
 
 	.value {
@@ -59,10 +73,10 @@
 			text-align: right;
 			width: 25px;
 
-			&::-webkit-inner-spin-button, 
-			&::-webkit-outer-spin-button { 
-				appearance: none; 
-				margin: 0; 
+			&::-webkit-inner-spin-button,
+			&::-webkit-outer-spin-button {
+				appearance: none;
+				margin: 0;
 			}
 
 			&:hover {

@@ -90,23 +90,25 @@ class Loginly_Background_Control extends WP_Customize_Upload_Control {
 	}
 
 	/**
-	 * Enqueue scripts/styles.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
+	 * Enqueue neccessary custom control stylesheet.
 	 */
 	public function enqueue() {
 
 		parent::enqueue();
 
+		// Define where the control's scripts are.
 		$js_dir = LOGINLY_PLUGIN_URL . 'assets/js/';
+		$css_dir = LOGINLY_PLUGIN_URL . 'assets/css/';
 
 		// Use minified libraries if SCRIPT_DEBUG is turned off.
-		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '';
+		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-		wp_register_script( 'loginly-background-control', $js_dir . 'loginly-background' . $suffix . '.js', array( 'customize-controls' ), LOGINLY_VERSION, 'all' );
-		wp_enqueue_script( 'loginly-background-control' );
+		// Custom control styles.
+		wp_enqueue_style( 'loginly-background-control', $css_dir . 'loginly-customize-background-control' . $suffix . '.css', LOGINLY_VERSION, 'all' );
+
+		// Custom control scripts.
+		wp_enqueue_script( 'loginly-background-control', $js_dir . 'loginly-customize-background-control' . $suffix . '.js', array( 'jquery' ), LOGINLY_VERSION, 'all' );
+
 	}
 
 	/**

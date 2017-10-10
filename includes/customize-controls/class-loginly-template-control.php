@@ -25,7 +25,7 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) {
  *
  * @access  public
  */
-class Loginly_Templates_Control extends WP_Customize_Control {
+class Loginly_Template_Control extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -40,13 +40,19 @@ class Loginly_Templates_Control extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
+		// Define where the control's scripts are.
 		$js_dir = LOGINLY_PLUGIN_URL . 'assets/js/';
+		$css_dir = LOGINLY_PLUGIN_URL . 'assets/css/';
 
 		// Use minified libraries if SCRIPT_DEBUG is turned off.
-		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '';
+		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-		wp_register_script( 'loginly-template-selector', $js_dir . 'loginly-template-selector' . $suffix . '.js', array( 'jquery' ), LOGINLY_VERSION, 'all' );
-		wp_enqueue_script( 'loginly-template-selector' );
+		// Custom control styles.
+		wp_enqueue_style( 'loginly-template-control', $css_dir . 'loginly-customize-template-control' . $suffix . '.css', LOGINLY_VERSION, 'all' );
+
+		// Custom control scripts.
+		wp_enqueue_script( 'loginly-template-control', $js_dir . 'loginly-customize-template-control' . $suffix . '.js', array( 'jquery' ), LOGINLY_VERSION, 'all' );
+
 	}
 
 	/**
@@ -61,22 +67,22 @@ class Loginly_Templates_Control extends WP_Customize_Control {
 		if ( isset( $this->description ) ) {
 			echo '<span class="description customize-control-description">' . esc_html( $this->description ) . '</span>';
 		} ?>
-		
+
 		<div class="layout-switcher__wrapper">
 			<?php foreach ( $this->choices as $value => $label ) { ?>
 
 			   <input id="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $value ); ?>" class="layout" type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $name ); ?>" <?php $this->link(); checked( $this->value(), $value ); ?> />
 					<label for="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $value ); ?>">
 					<div class="intrinsic">
-						<div class="layout-screenshot" style="background-image: url( <?php echo esc_html( $this->choices[$value] ); ?> );"></div>
-					</div>
+						<div class="layout-screenshot" style="background-image: url( <?php echo esc_html( $this->choices[ $value ] ); ?> );"></div>
 			   </label>
+					</div>
 
 			<?php } ?>
 		</div>
 
 		<button id="layout-switcher" class="button layout-switcher"><?php esc_html_e( 'Install New Template', '@@textdomain' ); ?></button>
-		
+
 		<?php
 	}
 }
