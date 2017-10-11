@@ -1,0 +1,11 @@
+.customize-control-loginly-title {
+	margin-bottom: 2px;
+}
+
+.customize-control-loginly-title .customize-control-title {
+	font-weight: 600 !important;
+}
+
+.accordion-section-content li.customize-control:nth-child(2) {
+	margin-top: 0;
+}

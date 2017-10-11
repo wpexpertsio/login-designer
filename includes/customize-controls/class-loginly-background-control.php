@@ -105,7 +105,6 @@ class Loginly_Background_Control extends WP_Customize_Upload_Control {
 
 		// Custom control scripts.
 		wp_enqueue_script( 'loginly-background-control', $js_dir . 'loginly-customize-background-control' . $suffix . '.js', array( 'jquery' ), LOGINLY_VERSION, 'all' );
-
 	}
 
 	/**
@@ -227,7 +226,7 @@ class Loginly_Background_Control extends WP_Customize_Upload_Control {
 	public static function get_button_labels() {
 
 		$button_labels = array(
-			'select'       => __( 'Upload Background Image', '@@textdomain' ),
+			'select'       => __( 'Select Image', '@@textdomain' ),
 			'change'       => __( 'Change', '@@textdomain' ),
 			'remove'       => __( 'Remove', '@@textdomain' ),
 			'default'      => __( 'Default', '@@textdomain' ),
@@ -248,10 +247,10 @@ class Loginly_Background_Control extends WP_Customize_Upload_Control {
 	public static function get_field_labels() {
 
 		$field_labels = array(
-			'repeat'	=> __( 'Background Repeat', '@@textdomain' ),
-			'size'		=> __( 'Background Size', '@@textdomain' ),
-			'position'	=> __( 'Background Position', '@@textdomain' ),
-			'attach'	=> __( 'Background Attachment', '@@textdomain' ),
+			'repeat'	=> __( 'Repeat', '@@textdomain' ),
+			'size'		=> __( 'Size', '@@textdomain' ),
+			'position'	=> __( 'Position', '@@textdomain' ),
+			'attach'	=> __( 'Attachment', '@@textdomain' ),
 		);
 
 		return $field_labels;

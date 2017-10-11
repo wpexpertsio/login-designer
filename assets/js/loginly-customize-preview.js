@@ -51,6 +51,81 @@
 		} );
 	} );
 
+	// Login page background image url.
+	wp.customize( 'loginly__custom-background-image--url', function( value ) {
+		value.bind( function( to ) {
+			$( 'body.login' ).css( 'background-image', 'url( ' + to + ')' );
+		} );
+	} );
+
+	// Login page background image repeat.
+	wp.customize( 'loginly__custom-background-image--repeat', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="loginly__custom-background-image--repeat"> body.login { background-repeat: ' + to + '; } </style>';
+
+			el =  $( '.loginly__custom-background-image--repeat' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Login page background image size.
+	wp.customize( 'loginly__custom-background-image--size', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="loginly__custom-background-image--size"> body.login { background-size: ' + to + '; } </style>';
+
+			el =  $( '.loginly__custom-background-image--size' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Login page background image position.
+	wp.customize( 'loginly__custom-background-image--position', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+
+			var to = to;
+			var to = to.replace(/-/g, ' ');
+
+			style = '<style class="loginly__custom-background-image--position"> body.login { background-position: ' + to + '; } </style>';
+
+			el =  $( '.loginly__custom-background-image--position' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Login page background attachment position.
+	wp.customize( 'loginly__custom-background-image--attach', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="loginly__custom-background-image--attach"> body.login { background-attachment: ' + to + '; } </style>';
+
+			el =  $( '.loginly__custom-background-image--attach' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
 	// Custom logo.
 	wp.customize( 'loginly_custom_logo', function( value ) {
 
@@ -70,7 +145,7 @@
 				img.onload = function(){
 
 					// We're dividing by 2, in order to make the logo's look nice on retina devices.
-					var width 	= img.width /2,
+					var width 	= img.width / 2,
 					    height 	= img.height / 2;
 
 		           		$( '#loginly-logo' ).css({
@@ -78,8 +153,8 @@
 						height: height,
 					});
 
-		           		// Setting the background size of the custom logo.
-					style 		= '<style class="loginly_custom_logo"> #loginly-logo { background-size: ' + height +'px ' + width +'px; } </style>';
+					// Setting the background size of the custom logo.
+					var style = '<style class="loginly_custom_logo"> #loginly-logo { background-size:'+width+'px; } </style>';
 				}
 
 				img.src = to;
@@ -88,6 +163,8 @@
 				// If a logo is removed, fallback to the default WordPress logo + sizes.
 				style = '<style class="loginly_custom_logo"> #loginly-logo { height: 84px !important; width: 84px !important; background-size: 84px !important; background-image: none, url(" ' + loginly_script.admin_url + '/images/wordpress-logo.svg ") !important; } </style>';
 			}
+
+			// alert( style );
 
 			// Outut the style changes (for background sizes).
 			element =  $( '.loginly_custom_logo' );
@@ -116,7 +193,37 @@
 		} );
 	} );
 
+	// Login form background color.
+	wp.customize( 'loginly_form_background_color', function( value ) {
+		value.bind( function( to ) {
+			$( 'body.login #loginform' ).css( 'background-color', to );
+		} );
+	} );
 
+	// Login form border radius.
+	wp.customize( 'loginly_form_border_radius', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="loginly_form_border_radius"> body.login #loginform, body.login #loginform:after { border-radius: ' + to + 'px; } </style>';
+
+			el =  $( '.loginly_form_border_radius' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Login form width.
+	wp.customize( 'loginly_form_width', function( value ) {
+		value.bind( function( to ) {
+			$( 'body.login #login' ).css({
+				width: to,
+			});
+		} );
+	} );
 
 	wp.customize( 'loginly__logo-url', function( value ) {
 		value.bind( function( to ) {

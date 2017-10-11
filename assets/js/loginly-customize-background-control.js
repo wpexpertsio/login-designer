@@ -20,6 +20,7 @@
 			control.container.on( 'click keydown', '.remove-button',
 				function() {
 					jQuery( '.background-image-fields' ).hide();
+					jQuery( '.background-image-fields' ).addClass('hidden');
 				}
 			);
 

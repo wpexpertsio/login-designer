@@ -38,10 +38,24 @@ if ( ! class_exists( 'Loginly_Customizer_CSS' ) ) :
 			$logo 					= get_theme_mod( 'loginly_custom_logo', '' );
 			$logo_margin_bottom 			= get_theme_mod( 'loginly_custom_logo_margin_bottom', '25' );
 			$login_background_color 		= get_theme_mod( 'loginly__custom-background-color', null );
+			$login_background_image_url 		= get_theme_mod( 'loginly__custom-background-image--url', null );
+			$login_background_image_repeat 		= get_theme_mod( 'loginly__custom-background-image--repeat', 'no-repeat' );
+			$login_background_image_position 	= get_theme_mod( 'loginly__custom-background-image--position', 'center-center' );
+			$login_background_image_position 	= str_replace( '-', ' ', $login_background_image_position );
+			$login_background_image_size 		= get_theme_mod( 'loginly__custom-background-image--size', 'cover' );
+			$login_background_image_attachment 	= get_theme_mod( 'loginly__custom-background-image--attach', 'fixed' );
+
+			$form_background_color 			= get_theme_mod( 'loginly_form_background_color', null );
+			$form_width				= get_theme_mod( 'loginly_form_width_css', null );
+			$form_border_radius			= get_theme_mod( 'loginly_form_border_radius', null );
 
 			$logo_css = null;
 			$logo_margin_bottom_css = null;
 			$login_background_color_css = null;
+			$login_background_image_css = null;
+			$form_background_color_css = null;
+			$form_width_css = null;
+			$form_border_radius_css = null;
 
 			if ( $logo ) {
 				$size = getimagesize( $logo );
@@ -70,16 +84,70 @@ if ( ! class_exists( 'Loginly_Customizer_CSS' ) ) :
 
 			if ( $login_background_color ) {
 				$login_background_color_css = '
-					body.login.login-action-login {
+					body.login {
 						background-color: '. esc_attr( $login_background_color ).';
 					}
 				';
 			}
 
-			wp_add_inline_style( 'login', wp_strip_all_tags( $logo_css . $logo_margin_bottom_css . $login_background_color_css ) );
+			if ( $login_background_image_url ) {
+				$login_background_image_css = '
+					body.login {
+						background-image: url("'. esc_attr( $login_background_image_url ).'");
+						background-repeat: '. esc_attr( $login_background_image_repeat ).';
+						background-position: '. esc_attr( $login_background_image_position ).';
+						background-size: '. esc_attr( $login_background_image_size ).';
+						background-attachment: '. esc_attr( $login_background_image_attachment ).';
+					}
+				';
+			}
+
+			if ( $login_background_color ) {
+				$form_background_color_css = '
+					#loginform {
+						background-color: '. esc_attr( $form_background_color ).';
+					}
+				';
+			}
+
+			if ( $form_border_radius ) {
+				$form_border_radius_css = '
+					#loginform,
+					#loginform::after {
+						border-radius: '. esc_attr( $form_border_radius ).'px;
+					}
+				';
+			}
+
+			if ( $form_width ) {
+				$form_width_css = '
+					#login {
+						width: '. esc_attr( $form_width ).';
+					}
+				';
+			}
+
+			wp_add_inline_style( 'login', wp_strip_all_tags( $logo_css . $logo_margin_bottom_css . $login_background_color_css . $login_background_image_css . $form_background_color_css . $form_border_radius_css . $form_width_css ) );
 		}
 	}
 
 endif;
 
 new Loginly_Customizer_CSS();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
