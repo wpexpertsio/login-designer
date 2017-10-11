@@ -45,7 +45,7 @@ if ( ! class_exists( 'Loginly_Customizer' ) ) :
 			 * Add the main panel and sections.
 			 */
 			$wp_customize->add_panel( 'loginly__panel', array(
-				'title'           => esc_html__( 'Loginly Editor', '@@textdomain' ),
+				'title'           => esc_html__( 'Loginly', '@@textdomain' ),
 				'priority'        => 150,
 			) );
 
@@ -133,7 +133,7 @@ if ( ! class_exists( 'Loginly_Customizer' ) ) :
 			 * Add the background color selector.
 			 */
 			$wp_customize->add_setting( 'loginly__custom-background-color', array(
-				'default'               => '#f1f1f1',
+				'default'               => null,
 				'transport'             => 'postMessage',
 				'sanitize_callback'     => 'sanitize_hex_color',
 			) );
@@ -146,41 +146,35 @@ if ( ! class_exists( 'Loginly_Customizer' ) ) :
 			/**
 			 * Add the custom logo uploader.
 			 */
-			$wp_customize->add_setting( 'loginly__custom-logo', array(
+			$wp_customize->add_setting( 'loginly_custom_logo', array(
 				'transport'             => 'postMessage',
 			) );
 
-			$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'loginly__custom-logo', array(
+			$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'loginly_custom_logo', array(
 				'label'                => esc_html__( 'Logo', '@@textdomain' ),
 				'section'              => 'loginly__section--styles',
-				'settings'             => 'loginly__custom-logo',
+				'settings'             => 'loginly_custom_logo',
 			) ) );
-
-			$wp_customize->selective_refresh->add_partial( 'loginly__custom-logo', array(
-				'settings'            	=> 'loginly__custom-logo',
-				'selector'		=> '#loginly-logo',
-				'render_callback' 	=> function() { return get_theme_mod( 'loginly__custom-logo' ); },
-			) );
 
 			/**
 			 * Add the max width option, to be applied to the custom logo.
 			 */
-			$wp_customize->add_setting( 'loginly__custom-logo-maxwidth', array(
-				'default'               => '100',
+			$wp_customize->add_setting( 'loginly_custom_logo_margin_bottom', array(
+				'default'               => '25',
 				'transport'             => 'postMessage',
 				'sanitize_callback'     => '',
 			) );
 
-			$wp_customize->add_control( new Loginly_Range_Control( $wp_customize, 'loginly__custom-logo-maxwidth', array(
+			$wp_customize->add_control( new Loginly_Range_Control( $wp_customize, 'loginly_custom_logo_margin_bottom', array(
 				'type'                  => 'loginly-range',
-				'label'                 => esc_html__( 'Logo Width', '@@textdomain' ),
+				'label'                 => esc_html__( 'Bottom Spacing', '@@textdomain' ),
 				'section'               => 'loginly__section--styles',
 				'description'           => 'px',
-				'default'               => '100',
+				'default'               => '25',
 				'input_attrs'           => array(
 					'min'               => 0,
-					'max'               => 200,
-					'step'              => 2,
+					'max'               => 100,
+					'step'              => 1,
 					),
 				)
 			) );
@@ -274,11 +268,15 @@ if ( ! class_exists( 'Loginly_Customizer' ) ) :
 			$image_dir  = LOGINLY_PLUGIN_URL . 'assets/images/';
 
 			return apply_filters( 'loginly_templates', array(
-				'loginly__template--01' => array(
+				'default' => array(
+					'title' => esc_html__( 'Default', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . 'default.jpg',
+				),
+				'01' => array(
 					'title' => esc_html__( 'Template 01', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
 				),
-				'loginly__template--02' => array(
+				'02' => array(
 					'title' => esc_html__( 'Template 02', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
 				),

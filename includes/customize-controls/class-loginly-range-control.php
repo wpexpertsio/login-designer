@@ -60,7 +60,6 @@ class Loginly_Range_Control extends WP_Customize_Control {
 
 		// Custom control scripts.
 		wp_enqueue_script( 'loginly-range-control', $js_dir . 'loginly-customize-range-control' . $suffix . '.js', array( 'jquery' ), LOGINLY_VERSION, 'all' );
-
 	}
 
 	/**

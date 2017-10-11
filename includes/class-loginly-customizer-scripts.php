@@ -15,12 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Loginly_Scripts' ) ) :
+if ( ! class_exists( 'Loginly_Customizer_Scripts' ) ) :
 
 	/**
 	 * Enqueues JS & CSS assets
 	 */
-	class Loginly_Scripts {
+	class Loginly_Customizer_Scripts {
 
 		/**
 		 * The class constructor.
@@ -58,6 +58,14 @@ if ( ! class_exists( 'Loginly_Scripts' ) ) :
 			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '';
 
 			wp_enqueue_script( 'loginly-customize-preview', $js_dir . 'loginly-customize-preview' . $suffix . '.js', array( 'customize-preview' ), LOGINLY_VERSION, true );
+
+			// Localization.
+			$loginly_localize = array(
+				'admin_url'         => admin_url(),
+				'plugin_url'        => plugins_url(),
+			);
+
+			wp_localize_script( 'loginly-customize-preview', 'loginly_script', $loginly_localize );
 		}
 
 		/**
@@ -76,4 +84,4 @@ if ( ! class_exists( 'Loginly_Scripts' ) ) :
 
 endif;
 
-new Loginly_Scripts();
+new Loginly_Customizer_Scripts();

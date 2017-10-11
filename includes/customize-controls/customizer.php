@@ -8,7 +8,6 @@
  * @license   @@pkg.license
  */
 
-
 // Add theme support for selective refresh for widgets.
 add_theme_support( 'customize-selective-refresh-widgets' );
 
@@ -120,8 +119,8 @@ function loginly_customize_register( $wp_customize ) {
 		$wp_customize->add_control( new Loginly_Background_Control( $wp_customize, 'loginly__custom-background-image', array(
 				'label'				=> esc_html__( 'Background', '@@textdomain' ),
 				'section'			=> 'loginly__section--styles',
-				'settings'    		=> array(
-					'image_url' 	=> 'loginly__custom-background-image--url',
+				'settings'    			=> array(
+					'image_url' 		=> 'loginly__custom-background-image--url',
 					'image_id' 		=> 'loginly__custom-background-image--id',
 					'repeat' 		=> 'loginly__custom-background-image--repeat',
 					'size' 			=> 'loginly__custom-background-image--size',
@@ -148,26 +147,26 @@ function loginly_customize_register( $wp_customize ) {
 		/**
 		 * Add the custom logo uploader.
 		 */
-		$wp_customize->add_setting( 'loginly__custom-logo', array(
+		$wp_customize->add_setting( 'loginly_custom_logo', array(
 			'sanitize_callback'     => '',
 		) );
 
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'loginly__custom-logo', array(
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'loginly_custom_logo', array(
 			'label'                => esc_html__( 'Logo', '@@textdomain' ),
 			'section'              => 'loginly__section--styles',
-			'settings'             => 'loginly__custom-logo',
+			'settings'             => 'loginly_custom_logo',
 		) ) );
 
 		/**
 		 * Add the max width option, to be applied to the custom logo.
 		 */
-		$wp_customize->add_setting( 'loginly__custom-logo-maxwidth', array(
+		$wp_customize->add_setting( 'loginly_custom_logo_margin_bottom', array(
 			'default'               => '100',
 			'transport'             => 'postMessage',
 			'sanitize_callback'     => '',
 		) );
 
-		$wp_customize->add_control( new Loginly_Range_Control( $wp_customize, 'loginly__custom-logo-maxwidth', array(
+		$wp_customize->add_control( new Loginly_Range_Control( $wp_customize, 'loginly_custom_logo_margin_bottom', array(
 			'type'                  => 'loginly-range',
 			'label'                 => esc_html__( 'Logo Width', '@@textdomain' ),
 			'section'               => 'loginly__section--styles',

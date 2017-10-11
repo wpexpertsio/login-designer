@@ -140,11 +140,13 @@ if ( ! class_exists( 'Loginly' ) ) :
 		 * @return void
 		 */
 		private function includes() {
-			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-scripts.php';
-			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-frontend-settings.php';
-			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-frontend-css.php';
-			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-esc-login.php';
 			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-customizer.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-customizer-css.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-customizer-scripts.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-frontend-settings.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-templates.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/class-loginly-esc-login.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/admin/admin-bar.php';
 
 			if ( is_admin() ) {
 				require_once LOGINLY_PLUGIN_DIR . 'includes/admin/admin-footer.php';
@@ -183,7 +185,7 @@ if ( ! class_exists( 'Loginly' ) ) :
 		 * @return void
 		 */
 		public function options_page() {
-			add_theme_page( esc_html__( 'Loginly', '@@textdomain' ), esc_html__( 'Login Editor', '@@textdomain' ), 'manage_options', 'loginly_customizer', '__return_null' );
+			add_theme_page( esc_html__( 'Loginly', '@@textdomain' ), esc_html__( 'Loginly', '@@textdomain' ), 'manage_options', 'loginly_customizer', '__return_null' );
 		}
 
 		/**
@@ -194,8 +196,8 @@ if ( ! class_exists( 'Loginly' ) ) :
 		 * @return void
 		 */
 		public function redirect_customizer() {
-			if ( ! empty( $_GET['page'] ) ) {
-				if ( ( 'loginly_customizer' == $_GET['page'] ) ) {
+			if ( ! empty( $_GET['page'] ) ) { // Input var okay.
+				if ( 'loginly_customizer' === $_GET['page'] ) { // Input var okay.
 					wp_redirect( admin_url( '/customize.php?autofocus[panel]=loginly__panel&url='.home_url( '/loginly' ) ) );
 				}
 			}

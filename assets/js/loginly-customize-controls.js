@@ -17,5 +17,23 @@
 
 			} );
 		} );
+
+		// Add a body class based on the current template.
+		wp.customize( 'loginly__template-selector', function( value ) {
+			value.bind( function( to ) {
+
+				if ( '01' === to ) {
+					color = '#00F';
+				} else if ( to === '02' ) {
+					color = '#F00';
+				} else {
+					color = '#f1f1f1';
+				}
+
+				// If we have a custom background color, let's put it back to default.
+				// @todo In the future, maybe we'll make this color change based on the template's default background color.
+				wp.customize( 'loginly__custom-background-color' ).set( color );
+			} );
+		} );
 	});
 })( jQuery );

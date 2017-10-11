@@ -1,3 +1,7 @@
-body {
-	background: blue;
+body.loginly-template-02 {
+
+	&,
+	&.has-template-applied {
+		background: blue;
+	}
 }
