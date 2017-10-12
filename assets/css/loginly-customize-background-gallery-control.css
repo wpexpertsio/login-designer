@@ -1,0 +1,111 @@
+.layout {
+	display: none !important;
+}
+
+.customize-control-loginly-background-gallery .customize-control-description {
+	font-style: normal;
+	margin-bottom: 15px;
+}
+
+.background-gallery__item {
+	float: left;
+	width: 25%;
+}
+
+.background-gallery {
+	margin-left: -3px;
+	width: calc( 100% + 6px);
+}
+
+.checkbox {
+	display: none !important;
+}
+
+.background-gallery--intrinsic {
+	border: 2px solid #eee;
+	border-radius: 2px;
+	box-shadow: 0 0 0 0 #5b9dd9, 0 0 0 0 rgba(30, 140, 190, 0.8);
+	display: block;
+	line-height: 0;
+	margin-bottom: 0;
+	margin-bottom: 4px;
+	margin-left: 2px;
+	margin-right: 2px;
+	overflow: hidden;
+	position: relative;
+	-webkit-transition: box-shadow 150ms ease;
+	transition: box-shadow 150ms ease;
+}
+
+@media screen and (min-width: 1667px) {
+	.background-gallery--intrinsic {
+		margin-bottom: 6px;
+		margin-right: 3px;
+		margin-right: 3px;
+	}
+}
+
+.checkbox:checked + label .background-gallery--intrinsic {
+	-webkit-animation: portfolio_pro_likes_animation 300ms;
+	animation: portfolio_pro_likes_animation 300ms;
+	box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
+	-webkit-transform-origin: center;
+	-ms-transform-origin: center;
+	transform-origin: center;
+}
+
+.background-gallery--intrinsic:after {
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+
+@-webkit-keyframes portfolio_pro_likes_animation {
+	0% {
+		-webkit-transform: scale(1) translate3d(0, 0, 0);
+		transform: scale(1) translate3d(0, 0, 0);
+	}
+	50% {
+		-webkit-transform: scale(1.1) translate3d(0, 0, 0);
+		transform: scale(1.1) translate3d(0, 0, 0);
+	}
+	100% {
+		-webkit-transform: scale(1) translate3d(0, 0, 0);
+		transform: scale(1) translate3d(0, 0, 0);
+	}
+}
+
+@keyframes portfolio_pro_likes_animation {
+	0% {
+		-webkit-transform: scale(1) translate3d(0, 0, 0);
+		transform: scale(1) translate3d(0, 0, 0);
+	}
+	50% {
+		-webkit-transform: scale(1.1) translate3d(0, 0, 0);
+		transform: scale(1.1) translate3d(0, 0, 0);
+	}
+	100% {
+		-webkit-transform: scale(1) translate3d(0, 0, 0);
+		transform: scale(1) translate3d(0, 0, 0);
+	}
+}
+
+.background-gallery--img {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 2px;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.checkbox:checked + label .layout-screenshot {
+	background-color: #fff;
+}
+
+.checkbox:checked + label {
+	border-color: #0085ba;
+}

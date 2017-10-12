@@ -44,6 +44,7 @@ if ( ! class_exists( 'Loginly_Customizer' ) ) :
 			require_once LOGINLY_PLUGIN_DIR . 'includes/customize-controls/class-loginly-template-control.php';
 			require_once LOGINLY_PLUGIN_DIR . 'includes/customize-controls/class-loginly-title-control.php';
 			require_once LOGINLY_PLUGIN_DIR . 'includes/customize-controls/class-loginly-background-control.php';
+			require_once LOGINLY_PLUGIN_DIR . 'includes/customize-controls/class-loginly-background-gallery-control.php';
 
 			/**
 			 * Add the main panel and sections.
@@ -121,7 +122,7 @@ if ( ! class_exists( 'Loginly_Customizer' ) ) :
 			return apply_filters( 'loginly_templates', array(
 				'default' => array(
 					'title' => esc_html__( 'Default', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . 'default.jpg',
+					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
 				),
 				'01' => array(
 					'title' => esc_html__( 'Template 01', '@@textdomain' ),
@@ -130,6 +131,49 @@ if ( ! class_exists( 'Loginly_Customizer' ) ) :
 				'02' => array(
 					'title' => esc_html__( 'Template 02', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
+				),
+			) );
+		}
+
+		/**
+		 * Register header layouts.
+		 */
+		function get_background_images() {
+
+			$image_dir  = LOGINLY_PLUGIN_URL . 'assets/images/backgrounds/';
+
+			return apply_filters( 'loginly_templates', array(
+				'01' => array(
+					'title' => esc_html__( '01', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . '01.jpg',
+				),
+				'02' => array(
+					'title' => esc_html__( '02', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . '02.jpg',
+				),
+				'03' => array(
+					'title' => esc_html__( '03', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . '03.jpg',
+				),
+				'04' => array(
+					'title' => esc_html__( '04', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . '04.jpg',
+				),
+				'05' => array(
+					'title' => esc_html__( '05', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . '05.jpg',
+				),
+				'06' => array(
+					'title' => esc_html__( '06', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . '06.jpg',
+				),
+				'07' => array(
+					'title' => esc_html__( '07', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . '07.jpg',
+				),
+				'08' => array(
+					'title' => esc_html__( '08', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . '08.jpg',
 				),
 			) );
 		}

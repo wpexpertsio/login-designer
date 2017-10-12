@@ -13,10 +13,11 @@ var author                 	= pkg.author;
 var plugin_uri              	= pkg.plugin_uri;
 var projectURL              	= 'http://'+ slug +'.dev/wp-admin/customize.php';
 
-var styleCustomizerSRC  	= './assets/scss/customizer/'+ slug +'-customize-preview.scss';
-var styleTemplateControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-template-control.scss';
-var styleRangeControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-range-control.scss';
-var styleTitleControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-title-control.scss';
+var styleCustomizerSRC  		= './assets/scss/customizer/'+ slug +'-customize-preview.scss';
+var styleTemplateControlSRC  		= './assets/scss/customizer/'+ slug +'-customize-template-control.scss';
+var styleRangeControlSRC  		= './assets/scss/customizer/'+ slug +'-customize-range-control.scss';
+var styleTitleControlSRC  		= './assets/scss/customizer/'+ slug +'-customize-title-control.scss';
+var styleBackgroundGalleryControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-background-gallery-control.scss';
 
 var template_1SRC  		= './assets/scss/templates/'+ slug +'-template-01.scss';
 var template_2SRC  		= './assets/scss/templates/'+ slug +'-template-02.scss';
@@ -39,6 +40,9 @@ var scriptTemplateControlSRC   	= './assets/js/'+ scriptTemplateControlFile +'.j
 
 var scriptBackgroundControlFile = slug +'-customize-background-control'; // JS file name.
 var scriptBackgroundControlSRC  = './assets/js/'+ scriptBackgroundControlFile +'.js'; // The JS file src.
+
+var scriptBackgroundGalleryControlFile  = slug +'-customize-background-gallery-control'; // JS file name.
+var scriptBackgroundGalleryControlSRC   		= './assets/js/'+ scriptBackgroundGalleryControlFile +'.js'; // The JS file src.
 
 var scriptDestination 		= './assets/js/'; // Path to place the compiled JS custom scripts file.
 var scriptWatchFiles  		= './assets/js/*.js'; // Path to all *.scss files inside css folder and inside them.
@@ -214,6 +218,40 @@ gulp.task('styles_customizer_title', function () {
 	.pipe( browserSync.stream() )
 });
 
+gulp.task('styles_customizer_background_gallery', function () {
+	gulp.src( styleBackgroundGalleryControlSRC )
+
+	.pipe( sass( {
+		errLogToConsole: true,
+		outputStyle: 'expanded',
+		precision: 10
+	} ) )
+
+	.on( 'error', console.error.bind( console ) )
+
+	.pipe( autoprefixer( AUTOPREFIXER_BROWSERS ) )
+
+	.pipe( csscomb() )
+
+	.pipe( gulp.dest( styleDestination ) )
+
+	.pipe( browserSync.stream() )
+
+	.pipe( rename( { suffix: '.min' } ) )
+
+	.pipe( minifycss( {
+		maxLineLen: 10
+	}))
+
+	.pipe( gulp.dest( styleDestination ) )
+
+	.pipe( browserSync.stream() )
+});
+
+
+
+
+
 gulp.task('styles_customize_preview', function () {
 	gulp.src( styleCustomizerSRC )
 
@@ -354,6 +392,16 @@ gulp.task( 'scripts', function() {
 	.pipe( uglify() )
 	.pipe( lineec() )
 	.pipe( gulp.dest( scriptDestination ) )
+
+	// slug-customize-background-gallery-control.js
+	gulp.src( scriptBackgroundGalleryControlSRC )
+	.pipe( rename( {
+		basename: scriptBackgroundGalleryControlFile,
+		suffix: '.min'
+	}))
+	.pipe( uglify() )
+	.pipe( lineec() )
+	.pipe( gulp.dest( scriptDestination ) )
 });
 
 /**
@@ -444,17 +492,18 @@ gulp.task( 'build-notification', function () {
  * Commands
  */
 
-gulp.task( 'default', [ 'clear', 'template_1', 'template_2', 'styles_customize_preview', 'styles_customizer_title', 'styles_customizer_template_control', 'styles_customizer_range', 'scripts', 'browser_sync' ], function () {
+gulp.task( 'default', [ 'clear', 'template_1', 'template_2', 'styles_customize_preview', 'styles_customizer_background_gallery', 'styles_customizer_title', 'styles_customizer_template_control', 'styles_customizer_range', 'scripts', 'browser_sync' ], function () {
 	gulp.watch( projectPHPWatchFiles, reload );
 	gulp.watch( styleWatchFiles, [ 'styles_customizer_template_control' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_customizer_range' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_customize_preview' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_customizer_title' ] );
+	gulp.watch( styleWatchFiles, [ 'styles_customizer_background_gallery' ] );
 	gulp.watch( styleWatchFiles, [ 'template_1' ] );
 	gulp.watch( styleWatchFiles, [ 'template_2' ] );
 	gulp.watch( scriptWatchFiles, [ 'scripts' ] );
 });
 
 gulp.task('build', function(callback) {
-	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'styles_customize_preview', 'styles_customizer_title', 'styles_customizer_template_control', 'styles_customizer_range', 'scripts', 'build-translate'], 'build-clean-and-copy', 'build-variables', 'build-zip-and-clean', 'build-notification', callback);
+	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'styles_customize_preview', 'styles_customizer_background_gallery', 'styles_customizer_title', 'styles_customizer_template_control', 'styles_customizer_range', 'scripts', 'build-translate'], 'build-clean-and-copy', 'build-variables', 'build-zip-and-clean', 'build-notification', callback);
 });

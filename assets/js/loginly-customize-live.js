@@ -39,7 +39,7 @@
 				$logo.append( '<button class="loginly-event-button customizer-event-overlay" data-customizer-event="loginly-edit-logo"></button>' );
 
 				$loginform.append( '<div class="customizer__border customizer__border-btm"></div><div class="customizer__border customizer__border-top"></div><div class="customizer__border customizer__border-left"></div><div class="customizer__border customizer__border-right"></div>' );
-				$loginform.append( '<button class="loginly-event-button customizer-editlayout-button" data-customizer-event="loginly-edit-loginform"><span class="screen-reader-text">Edit</span></button>' );
+				$loginform.append( '<button class="loginly-event-button customizer-editlayout-button" data-customizer-event="loginly-edit-loginform">Edit</button>' );
 
 				$loginform_text.append( '<button class="loginly-event-button customizer-event-overlay" data-customizer-event="loginly-edit-loginform-fields"></button>' );
 				$loginform_pass.append( '<button class="loginly-event-button customizer-event-overlay" data-customizer-event="loginly-edit-loginform-fields"></button>' );

@@ -105,43 +105,23 @@ body.loginly-template-02.has-template-applied {
 }
 
 #loginform .customizer-editlayout-button {
-	background: transparent;
+	background: #0073aa;
 	border: 0;
+	color: #fff;
 	cursor: pointer;
 	font-size: 14px;
 	font-weight: 400;
-	left: -1px;
+	left: 0;
 	line-height: 0;
 	opacity: 0;
 	outline: none;
-	padding: 2px 5px;
+	padding: 12px 10px;
 	pointer-events: none;
 	position: absolute;
 	top: 0;
 	-webkit-transition: opacity 200ms cubic-bezier(0.33, 0, 0.2, 1) 50ms;
 	transition: opacity 200ms cubic-bezier(0.33, 0, 0.2, 1) 50ms;
 	z-index: 99999;
-}
-
-#loginform .customizer-editlayout-button::before {
-	color: #0073aa;
-	content: "\f464";
-	display: inline-block;
-	font: 400 22px/24px dashicons;
-	-webkit-transform: scale(0.6) translate3d(0, 0, 0);
-	transform: scale(0.6) translate3d(0, 0, 0);
-	-webkit-transition: opacity 100ms cubic-bezier(0.33, 0, 0.2, 1) 200ms, -webkit-transform 250ms cubic-bezier(0.33, 0, 0.2, 1) 50ms;
-	transition: opacity 100ms cubic-bezier(0.33, 0, 0.2, 1) 200ms, -webkit-transform 250ms cubic-bezier(0.33, 0, 0.2, 1) 50ms;
-	transition: opacity 100ms cubic-bezier(0.33, 0, 0.2, 1) 200ms, transform 250ms cubic-bezier(0.33, 0, 0.2, 1) 50ms;
-	transition: opacity 100ms cubic-bezier(0.33, 0, 0.2, 1) 200ms, transform 250ms cubic-bezier(0.33, 0, 0.2, 1) 50ms, -webkit-transform 250ms cubic-bezier(0.33, 0, 0.2, 1) 50ms;
-	vertical-align: top;
-
-	font-smoothing: antialiased;
-}
-
-#loginform .customizer-editlayout-button:hover,
-#loginform .customizer-editlayout-button:focus {
-	color: rgba(255, 255, 255, 0.75);
 }
 
 #loginform .customizer-editlayout-button:hover::before {
@@ -151,11 +131,6 @@ body.loginly-template-02.has-template-applied {
 #loginform:hover > .customizer-editlayout-button {
 	opacity: 1;
 	pointer-events: auto;
-}
-
-#loginform:hover > .customizer-editlayout-button:before {
-	-webkit-transform: scale(1) translate3d(0, 0, 0);
-	transform: scale(1) translate3d(0, 0, 0);
 }
 
 #loginform p {
@@ -189,7 +164,7 @@ body.loginly-template-02.has-template-applied {
 }
 
 .is-customize-preview #loginform:hover::after {
-	border-width: 1px;
+	border-width: 2px;
 	opacity: 1;
 }
 
@@ -211,6 +186,6 @@ body.loginly-template-02.has-template-applied {
 .customizer-event-overlay:hover,
 .customizer-event-overlay:focus {
 	border-color: #0073aa;
-	border-width: 1px;
+	border-width: 2px;
 	outline: none;
 }

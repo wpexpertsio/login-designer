@@ -58,6 +58,15 @@
 		} );
 	} );
 
+	// Login page background image url.
+	wp.customize( 'loginly__background-gallery', function( value ) {
+		value.bind( function( to ) {
+			$( 'body.login' ).css( 'background-image', 'url(" ' + loginly_script.plugin_url + '/' + to + '.jpg")' );
+
+			console.log(loginly_script.plugin_url);
+		} );
+	} );
+
 	// Login page background image repeat.
 	wp.customize( 'loginly__custom-background-image--repeat', function( value ) {
 		value.bind( function( to ) {

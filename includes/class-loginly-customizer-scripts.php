@@ -63,7 +63,7 @@ if ( ! class_exists( 'Loginly_Customizer_Scripts' ) ) :
 			// Localization.
 			$loginly_localize = array(
 				'admin_url'         => admin_url(),
-				'plugin_url'        => plugins_url(),
+				'plugin_url'        => LOGINLY_PLUGIN_URL . 'assets/images/backgrounds/',
 			);
 
 			wp_localize_script( 'loginly-customize-preview', 'loginly_script', $loginly_localize );
