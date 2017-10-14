@@ -11,35 +11,35 @@
 /**
  * Logo.
  */
-$wp_customize->add_setting( 'loginly_title_logo', array(
+$wp_customize->add_setting( 'login_designer_title_logo', array(
 	'sanitize_callback'     => 'sanitize_text_field',
 ) );
-$wp_customize->add_control( new Loginly_Title_Control( $wp_customize, 'loginly_title_logo', array(
-	'type'                  => 'loginly-title',
+$wp_customize->add_control( new LoginDesigner_Title_Control( $wp_customize, 'login_designer_title_logo', array(
+	'type'                  => 'login-designer-title',
 	'label'                 => esc_html__( 'Logo', '@@textdomain' ),
-	'section'               => 'loginly__section--styles',
+	'section'               => 'login_designer__section--styles',
 ) ) );
 
 
-$wp_customize->add_setting( 'loginly_custom_logo', array(
+$wp_customize->add_setting( 'login_designer_custom_logo', array(
 	'transport'             => 'postMessage',
 ) );
-$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'loginly_custom_logo', array(
+$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'login_designer_custom_logo', array(
 	'label'                => esc_html__( 'Upload Image', '@@textdomain' ),
-	'section'              => 'loginly__section--styles',
-	'settings'             => 'loginly_custom_logo',
+	'section'              => 'login_designer__section--styles',
+	'settings'             => 'login_designer_custom_logo',
 ) ) );
 
 
-$wp_customize->add_setting( 'loginly_custom_logo_margin_bottom', array(
+$wp_customize->add_setting( 'login_designer_custom_logo_margin_bottom', array(
 	'default'               => '25',
 	'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
-$wp_customize->add_control( new Loginly_Range_Control( $wp_customize, 'loginly_custom_logo_margin_bottom', array(
-	'type'                  => 'loginly-range',
+$wp_customize->add_control( new LoginDesigner_Range_Control( $wp_customize, 'login_designer_custom_logo_margin_bottom', array(
+	'type'                  => 'login-designer-range',
 	'label'                 => esc_html__( 'Bottom Spacing', '@@textdomain' ),
-	'section'               => 'loginly__section--styles',
+	'section'               => 'login_designer__section--styles',
 	'description'           => 'px',
 	'default'               => '25',
 	'input_attrs'           => array(
@@ -55,36 +55,36 @@ $wp_customize->add_control( new Loginly_Range_Control( $wp_customize, 'loginly_c
 /**
  * Form.
  */
-$wp_customize->add_setting( 'loginly_title_form', array(
+$wp_customize->add_setting( 'login_designer_title_form', array(
 	'sanitize_callback'     => 'sanitize_text_field',
 ) );
-$wp_customize->add_control( new Loginly_Title_Control( $wp_customize, 'loginly_title_form', array(
-	'type'                  => 'loginly-title',
+$wp_customize->add_control( new LoginDesigner_Title_Control( $wp_customize, 'login_designer_title_form', array(
+	'type'                  => 'login-designer-title',
 	'label'                 => esc_html__( 'Form', '@@textdomain' ),
-	'section'               => 'loginly__section--styles',
+	'section'               => 'login_designer__section--styles',
 ) ) );
 
 
-$wp_customize->add_setting( 'loginly_form_background_color', array(
+$wp_customize->add_setting( 'login_designer_form_background_color', array(
 	'default'               => null,
 	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'sanitize_hex_color',
 ) );
-$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'loginly_form_background_color', array(
+$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer_form_background_color', array(
 	'label'                 => esc_html__( 'Background', '@@textdomain' ),
-	'section'               => 'loginly__section--styles',
+	'section'               => 'login_designer__section--styles',
 ) ) );
 
 
-$wp_customize->add_setting( 'loginly_form_width', array(
+$wp_customize->add_setting( 'login_designer_form_width', array(
 	'default'               => '320',
 	'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
-$wp_customize->add_control( new Loginly_Range_Control( $wp_customize, 'loginly_form_width', array(
-	'type'                  => 'loginly-range',
+$wp_customize->add_control( new LoginDesigner_Range_Control( $wp_customize, 'login_designer_form_width', array(
+	'type'                  => 'login-designer-range',
 	'label'                 => esc_html__( 'Width', '@@textdomain' ),
-	'section'               => 'loginly__section--styles',
+	'section'               => 'login_designer__section--styles',
 	'description'           => 'px',
 	'default'               => '320',
 	'input_attrs'           => array(
@@ -97,15 +97,15 @@ $wp_customize->add_control( new Loginly_Range_Control( $wp_customize, 'loginly_f
 
 
 
-$wp_customize->add_setting( 'loginly_form_padding_left_right', array(
+$wp_customize->add_setting( 'login_designer_form_padding_left_right', array(
 	'default'               => '24',
 	'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
-$wp_customize->add_control( new Loginly_Range_Control( $wp_customize, 'loginly_form_padding_left_right', array(
-	'type'                  => 'loginly-range',
+$wp_customize->add_control( new LoginDesigner_Range_Control( $wp_customize, 'login_designer_form_padding_left_right', array(
+	'type'                  => 'login-designer-range',
 	'label'                 => esc_html__( 'Side Padding', '@@textdomain' ),
-	'section'               => 'loginly__section--styles',
+	'section'               => 'login_designer__section--styles',
 	'description'           => 'px',
 	'default'               => '24',
 	'input_attrs'           => array(
@@ -117,15 +117,15 @@ $wp_customize->add_control( new Loginly_Range_Control( $wp_customize, 'loginly_f
 ) );
 
 
-$wp_customize->add_setting( 'loginly_form_padding_top_bottom', array(
+$wp_customize->add_setting( 'login_designer_form_padding_top_bottom', array(
 	'default'               => '26',
 	'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
-$wp_customize->add_control( new Loginly_Range_Control( $wp_customize, 'loginly_form_padding_top_bottom', array(
-	'type'                  => 'loginly-range',
+$wp_customize->add_control( new LoginDesigner_Range_Control( $wp_customize, 'login_designer_form_padding_top_bottom', array(
+	'type'                  => 'login-designer-range',
 	'label'                 => esc_html__( 'Vertical Padding', '@@textdomain' ),
-	'section'               => 'loginly__section--styles',
+	'section'               => 'login_designer__section--styles',
 	'description'           => 'px',
 	'default'               => '26',
 	'input_attrs'           => array(
@@ -137,15 +137,15 @@ $wp_customize->add_control( new Loginly_Range_Control( $wp_customize, 'loginly_f
 ) );
 
 
-$wp_customize->add_setting( 'loginly_form_border_radius', array(
+$wp_customize->add_setting( 'login_designer_form_border_radius', array(
 	'default'               => '0',
 	'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
-$wp_customize->add_control( new Loginly_Range_Control( $wp_customize, 'loginly_form_border_radius', array(
-	'type'                  => 'loginly-range',
+$wp_customize->add_control( new LoginDesigner_Range_Control( $wp_customize, 'login_designer_form_border_radius', array(
+	'type'                  => 'login-designer-range',
 	'label'                 => esc_html__( 'Border Radius', '@@textdomain' ),
-	'section'               => 'loginly__section--styles',
+	'section'               => 'login_designer__section--styles',
 	'description'           => 'px',
 	'default'               => '0',
 	'input_attrs'           => array(
@@ -161,24 +161,24 @@ $wp_customize->add_control( new Loginly_Range_Control( $wp_customize, 'loginly_f
 /**
  * Form.
  */
-$wp_customize->add_setting( 'loginly_title_form_fields', array(
+$wp_customize->add_setting( 'login_designer_title_form_fields', array(
 	'sanitize_callback'     => 'sanitize_text_field',
 ) );
-$wp_customize->add_control( new Loginly_Title_Control( $wp_customize, 'loginly_title_form_fields', array(
-	'type'                  => 'loginly-title',
+$wp_customize->add_control( new LoginDesigner_Title_Control( $wp_customize, 'login_designer_title_form_fields', array(
+	'type'                  => 'login-designer-title',
 	'label'                 => esc_html__( 'Fields', '@@textdomain' ),
-	'section'               => 'loginly__section--styles',
+	'section'               => 'login_designer__section--styles',
 ) ) );
 
 
-$wp_customize->add_setting( 'loginly_form_field_background', array(
+$wp_customize->add_setting( 'login_designer_form_field_background', array(
 	'default'               => null,
 	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'sanitize_hex_color',
 ) );
-$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'loginly_form_field_background', array(
+$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer_form_field_background', array(
 	'label'                 => esc_html__( 'Background', '@@textdomain' ),
-	'section'               => 'loginly__section--styles',
+	'section'               => 'login_designer__section--styles',
 ) ) );
 
 

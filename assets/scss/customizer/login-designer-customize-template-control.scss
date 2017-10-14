@@ -1,0 +1,104 @@
+// Variables.
+@import "variables";
+
+.layout {
+   display: none!important;
+}
+
+.customize-control-layout {
+	margin-top: 0;
+	margin-bottom: 0;
+	position: relative;
+
+	label {
+		border: 1px solid transparent;
+		cursor: pointer;
+		display: block;
+		margin: 0 0 5px;
+		transition: border-color 0.2s, background-color 0.2s;
+
+		&:first-of-type {
+			margin-top: 0;
+		}
+
+		&:last-of-type {
+			margin-bottom: 10px;
+		}
+
+		&:hover {
+			border-color: #555;
+		}
+	}
+}
+
+.customize-control-login-designer-template-selector {
+
+	#layout-switcher {
+		width: 100%;
+	}
+
+	.layout-switcher__wrapper {
+		overflow-y: hidden;
+		max-height: 0;
+		transition: all 600ms ease-in-out;
+
+		&.open {
+			max-height: 800px;
+		}
+	}
+
+	.layout-switcher:focus,
+	.layout-switcher:active {
+		outline: none;
+		border-color: #ccc !important;
+		box-shadow: 0px 0px 0px #000 !important;
+	}
+
+
+	.intrinsic {
+		overflow: hidden;
+		line-height: 0;
+		margin-bottom: 0;
+		position: relative;
+	}
+
+	.intrinsic:after {
+		content: "";
+		display: block;
+		padding-top:  37.367%;
+	}
+
+	.layout-screenshot {
+		background-color: rgba(255, 255, 255, 0.7);
+		background-position: center center;
+		background-repeat: no-repeat;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		background-size: contain;
+		-webkit-transition: background-color 0.2s;
+		transition: background-color 0.2s;
+	}
+
+	.layout:checked + label .layout-screenshot {
+		background-color: #fff;
+	}
+
+	.layout:checked + label,
+	.customize-control-layout label:focus {
+		border-color: #0085ba;
+	}
+
+	.layout:checked + label:hover .layout-screenshot img {
+		opacity: 1;
+	}
+	.layout:checked + label .more-details .preview {
+	   opacity: 0;
+	}
+	.layout:checked + label .more-details .active {
+	   opacity: 1;
+	}
+}
+

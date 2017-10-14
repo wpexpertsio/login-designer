@@ -1,0 +1,79 @@
+body.login-designer-template-01 {
+	display: flex;
+	content: " ";
+
+	&,
+	&.has-template-applied {
+		background: red;
+	}
+
+	#login {
+		background: #fff;
+		flex-direction: column;
+		padding: 40px 30px;
+		width: 33.33333333%;
+		margin: 0;
+
+		h1 a:focus {
+			box-shadow: none;
+		}
+
+		form {
+			box-shadow: none;
+			padding: 0;
+			max-width: 480px;
+			margin: 20px auto 0;
+
+			label {
+				color: #484848;
+				font-weight: 500;
+				display: block;
+				font-size: 15px;
+				user-select: none;
+			}
+
+			input[type=text],
+			input[type=password] {
+				background: #fff;
+				box-shadow: none;
+				border: 2px solid #c9c9c9;
+				border-radius: 4px;
+				min-height: 52px;
+				font-size: 17px;
+				margin-top: 7px;
+				margin-bottom: 20px;
+				line-height: 20px;
+				padding: 0 15px;
+
+				&:hover {
+					border-color: #a6a6a6;
+				}
+
+				&:focus {
+					border-color: #0078ba;
+				}
+			}
+		}
+
+		.button.button-large {
+			border: 0;
+			border-radius: 4px;
+			padding: 0 42px;
+			font-size: 17px;
+			width: 100%;
+			height: 48px;
+			text-shadow: none;
+		}
+
+		#nav,
+		#backtoblog {
+			font-size: 14px;
+			padding: 0;
+			opacity: .7;
+		}
+
+		#backtoblog {
+			margin: 10px 0 0;
+		}
+	}
+}

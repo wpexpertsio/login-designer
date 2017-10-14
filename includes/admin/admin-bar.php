@@ -21,24 +21,24 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since	1.0.0
  * @param	string|string $wp_admin_bar The existing footer text.
  */
-function loginly_admin_bar_link( $wp_admin_bar ) {
+function login_designer_admin_bar_link( $wp_admin_bar ) {
 
-	if ( ! is_page_template( 'template-loginly.php' ) ) {
+	if ( ! is_page_template( 'template-login-designer.php' ) ) {
 		return;
 	}
 
 	$args = array(
-		'id' => 'loginly',
-		'title' => __( 'Open Loginly', '@@textdomain' ),
-		'href' => admin_url( '/customize.php?autofocus[panel]=loginly__panel&url='.home_url( '/loginly' ) ),
+		'id' => 'login-designer',
+		'title' => __( 'Open Login Designer', '@@textdomain' ),
+		'href' => admin_url( '/customize.php?autofocus[panel]=login_designer&url='.home_url( '/login-designer' ) ),
 		'meta' => array(
 			'target' => '_self',
-			'class' => 'loginly-link',
-			'title' => __( 'Loginly Login Designer', '@@textdomain' ),
+			'class' => 'login-designer-link',
+			'title' => __( 'Login Designer', '@@textdomain' ),
 		),
 	);
 
 	$wp_admin_bar->add_node( $args );
 
 }
-add_action( 'admin_bar_menu', 'loginly_admin_bar_link', 999 );
+add_action( 'admin_bar_menu', 'login_designer_admin_bar_link', 999 );

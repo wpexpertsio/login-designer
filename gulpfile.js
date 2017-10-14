@@ -17,7 +17,7 @@ var styleCustomizerSRC  		= './assets/scss/customizer/'+ slug +'-customize-previ
 var styleTemplateControlSRC  		= './assets/scss/customizer/'+ slug +'-customize-template-control.scss';
 var styleRangeControlSRC  		= './assets/scss/customizer/'+ slug +'-customize-range-control.scss';
 var styleTitleControlSRC  		= './assets/scss/customizer/'+ slug +'-customize-title-control.scss';
-var styleBackgroundGalleryControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-background-gallery-control.scss';
+var styleGalleryControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-gallery-control.scss';
 
 var template_1SRC  		= './assets/scss/templates/'+ slug +'-template-01.scss';
 var template_2SRC  		= './assets/scss/templates/'+ slug +'-template-02.scss';
@@ -41,8 +41,8 @@ var scriptTemplateControlSRC   	= './assets/js/'+ scriptTemplateControlFile +'.j
 var scriptBackgroundControlFile = slug +'-customize-background-control'; // JS file name.
 var scriptBackgroundControlSRC  = './assets/js/'+ scriptBackgroundControlFile +'.js'; // The JS file src.
 
-var scriptBackgroundGalleryControlFile  = slug +'-customize-background-gallery-control'; // JS file name.
-var scriptBackgroundGalleryControlSRC   		= './assets/js/'+ scriptBackgroundGalleryControlFile +'.js'; // The JS file src.
+var scriptGalleryControlFile  = slug +'-customize-gallery-control'; // JS file name.
+var scriptGalleryControlSRC   		= './assets/js/'+ scriptGalleryControlFile +'.js'; // The JS file src.
 
 var scriptDestination 		= './assets/js/'; // Path to place the compiled JS custom scripts file.
 var scriptWatchFiles  		= './assets/js/*.js'; // Path to all *.scss files inside css folder and inside them.
@@ -219,7 +219,7 @@ gulp.task('styles_customizer_title', function () {
 });
 
 gulp.task('styles_customizer_background_gallery', function () {
-	gulp.src( styleBackgroundGalleryControlSRC )
+	gulp.src( styleGalleryControlSRC )
 
 	.pipe( sass( {
 		errLogToConsole: true,
@@ -393,10 +393,10 @@ gulp.task( 'scripts', function() {
 	.pipe( lineec() )
 	.pipe( gulp.dest( scriptDestination ) )
 
-	// slug-customize-background-gallery-control.js
-	gulp.src( scriptBackgroundGalleryControlSRC )
+	// slug-customize-gallery-control.js
+	gulp.src( scriptGalleryControlSRC )
 	.pipe( rename( {
-		basename: scriptBackgroundGalleryControlFile,
+		basename: scriptGalleryControlFile,
 		suffix: '.min'
 	}))
 	.pipe( uglify() )

@@ -11,53 +11,53 @@
 /**
  * Settings Section.
  */
-$wp_customize->add_setting( 'loginly__logo-url', array(
+$wp_customize->add_setting( 'login_designer_logo_url', array(
 	'default'           => '',
 	'sanitize_callback' => 'absint',
 	'transport'         => 'postMessage',
 ) );
 
-$wp_customize->add_control( 'loginly__logo-url', array(
+$wp_customize->add_control( 'login_designer_logo_url', array(
 	'label'          => esc_html__( 'Logo URL', '@@textdomain' ),
-	'section'        => 'loginly__section--settings',
+	'section'        => 'login_designer__section--settings',
 	'type'           => 'dropdown-pages',
 	'allow_addition' => true,
 ) );
 
-$wp_customize->add_setting( 'loginly__login-redirect', array(
+$wp_customize->add_setting( 'login_designer_login_redirect', array(
 	'default'           => '',
 	'sanitize_callback' => 'absint',
 	'transport'         => 'postMessage',
 ) );
 
-$wp_customize->add_control( 'loginly__login-redirect', array(
+$wp_customize->add_control( 'login_designer_login_redirect', array(
 	'label'          => esc_html__( 'Login Redirect', '@@textdomain' ),
-	'section'        => 'loginly__section--settings',
+	'section'        => 'login_designer__section--settings',
 	'type'           => 'dropdown-pages',
 	'allow_addition' => true,
 ) );
 
-$wp_customize->add_setting( 'loginly__logout-redirect', array(
+$wp_customize->add_setting( 'login_designer__logout-redirect', array(
 	'default'           => '',
 	'sanitize_callback' => 'absint',
 	'transport'         => 'postMessage',
 ) );
 
-$wp_customize->add_control( 'loginly__logout-redirect', array(
+$wp_customize->add_control( 'login_designer__logout-redirect', array(
 	'label'          => esc_html__( 'Logout Redirect', '@@textdomain' ),
-	'section'        => 'loginly__section--settings',
+	'section'        => 'login_designer__section--settings',
 	'type'           => 'dropdown-pages',
 	'allow_addition' => true,
 ) );
 
-$wp_customize->add_setting( 'loginly__login-message', array(
+$wp_customize->add_setting( 'login_designer__login-message', array(
 	'default'           => '',
 	'sanitize_callback' => 'esc_textarea',
 	'transport'         => '',
 ) );
 
-$wp_customize->add_control( 'loginly__login-message', array(
+$wp_customize->add_control( 'login_designer__login-message', array(
 	'label'          => esc_html__( 'Login Message', '@@textdomain' ),
-	'section'        => 'loginly__section--settings',
+	'section'        => 'login_designer__section--settings',
 	'type'           => 'textarea',
 ) );
