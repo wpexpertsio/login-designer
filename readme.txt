@@ -1,4 +1,4 @@
-=== WP Gravatar Logo ===
+=== Login Designer ===
 Author URI: https://logindesigner.com
 Plugin URI: https://logindesigner.com
 Contributors: richtabor
