@@ -14,7 +14,7 @@
 $wp_customize->add_setting( 'login_designer_title_logo', array(
 	'sanitize_callback'     => 'sanitize_text_field',
 ) );
-$wp_customize->add_control( new LoginDesigner_Title_Control( $wp_customize, 'login_designer_title_logo', array(
+$wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer_title_logo', array(
 	'type'                  => 'login-designer-title',
 	'label'                 => esc_html__( 'Logo', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
@@ -36,7 +36,7 @@ $wp_customize->add_setting( 'login_designer_custom_logo_margin_bottom', array(
 	'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
-$wp_customize->add_control( new LoginDesigner_Range_Control( $wp_customize, 'login_designer_custom_logo_margin_bottom', array(
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_custom_logo_margin_bottom', array(
 	'type'                  => 'login-designer-range',
 	'label'                 => esc_html__( 'Bottom Spacing', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
@@ -58,7 +58,7 @@ $wp_customize->add_control( new LoginDesigner_Range_Control( $wp_customize, 'log
 $wp_customize->add_setting( 'login_designer_title_form', array(
 	'sanitize_callback'     => 'sanitize_text_field',
 ) );
-$wp_customize->add_control( new LoginDesigner_Title_Control( $wp_customize, 'login_designer_title_form', array(
+$wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer_title_form', array(
 	'type'                  => 'login-designer-title',
 	'label'                 => esc_html__( 'Form', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
@@ -81,7 +81,7 @@ $wp_customize->add_setting( 'login_designer_form_width', array(
 	'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
-$wp_customize->add_control( new LoginDesigner_Range_Control( $wp_customize, 'login_designer_form_width', array(
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_width', array(
 	'type'                  => 'login-designer-range',
 	'label'                 => esc_html__( 'Width', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
@@ -102,7 +102,7 @@ $wp_customize->add_setting( 'login_designer_form_padding_left_right', array(
 	'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
-$wp_customize->add_control( new LoginDesigner_Range_Control( $wp_customize, 'login_designer_form_padding_left_right', array(
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_padding_left_right', array(
 	'type'                  => 'login-designer-range',
 	'label'                 => esc_html__( 'Side Padding', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
@@ -122,7 +122,7 @@ $wp_customize->add_setting( 'login_designer_form_padding_top_bottom', array(
 	'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
-$wp_customize->add_control( new LoginDesigner_Range_Control( $wp_customize, 'login_designer_form_padding_top_bottom', array(
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_padding_top_bottom', array(
 	'type'                  => 'login-designer-range',
 	'label'                 => esc_html__( 'Vertical Padding', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
@@ -142,7 +142,7 @@ $wp_customize->add_setting( 'login_designer_form_border_radius', array(
 	'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
-$wp_customize->add_control( new LoginDesigner_Range_Control( $wp_customize, 'login_designer_form_border_radius', array(
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_border_radius', array(
 	'type'                  => 'login-designer-range',
 	'label'                 => esc_html__( 'Border Radius', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
@@ -164,7 +164,7 @@ $wp_customize->add_control( new LoginDesigner_Range_Control( $wp_customize, 'log
 $wp_customize->add_setting( 'login_designer_title_form_fields', array(
 	'sanitize_callback'     => 'sanitize_text_field',
 ) );
-$wp_customize->add_control( new LoginDesigner_Title_Control( $wp_customize, 'login_designer_title_form_fields', array(
+$wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer_title_form_fields', array(
 	'type'                  => 'login-designer-title',
 	'label'                 => esc_html__( 'Fields', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',

@@ -1,8 +1,8 @@
 # Copyright (C) 2017 Login Designer
-# This file is distributed under the same license as the LoginDesigner package.
+# This file is distributed under the same license as the Login_Designer package.
 msgid ""
 msgstr ""
-"Project-Id-Version: LoginDesigner\n"
+"Project-Id-Version: Login_Designer\n"
 "Report-Msgid-Bugs-To: https://themebeans.com\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,11 +26,11 @@ msgid "%1$s %3$s Go Pro %4$s %2$s"
 msgstr ""
 
 #: includes/admin/admin-footer.php:31
-msgid "Thank you for using <a href=\"%1$s\" target=\"_blank\">LoginDesigner</a>! Please <a href=\"%2$s\" target=\"_blank\">rate us</a> on <a href=\"%2$s\" target=\"_blank\">WordPress.org</a>"
+msgid "Thank you for using <a href=\"%1$s\" target=\"_blank\">Login_Designer</a>! Please <a href=\"%2$s\" target=\"_blank\">rate us</a> on <a href=\"%2$s\" target=\"_blank\">WordPress.org</a>"
 msgstr ""
 
 #: includes/class-login-designer-customizer.php:48
-msgid "LoginDesigner Editor"
+msgid "Login_Designer Editor"
 msgstr ""
 
 #: includes/class-login-designer-customizer.php:54, includes/customize-controls/customizer.php:42
@@ -218,5 +218,5 @@ msgid "Cheatin&#8217; huh?"
 msgstr ""
 
 #: loginly.php:186
-msgid "LoginDesigner"
+msgid "Login_Designer"
 msgstr ""

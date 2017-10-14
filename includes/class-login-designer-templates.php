@@ -15,12 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'LoginDesigner_Templates' ) ) :
+if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 
 	/**
 	 * Enqueues JS & CSS assets
 	 */
-	class LoginDesigner_Templates {
+	class Login_Designer_Templates {
 
 		/**
 		 * The class constructor.
@@ -97,7 +97,7 @@ if ( ! class_exists( 'LoginDesigner_Templates' ) ) :
 			$suffix 	= ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 			// Let's pull each option from the template selector in the Customizer.
-			$customizer 	= new LoginDesigner_Customizer();
+			$customizer 	= new Login_Designer_Customizer();
 
 			// And output each associated stylesheet to the Customizer window.
 			foreach ( $customizer->get_templates() as $option => $value ) :
@@ -117,4 +117,4 @@ if ( ! class_exists( 'LoginDesigner_Templates' ) ) :
 
 endif;
 
-new LoginDesigner_Templates();
+new Login_Designer_Templates();

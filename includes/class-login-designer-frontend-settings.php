@@ -13,12 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'LoginDesigner_Frontend_Settings' ) ) :
+if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 
 	/**
 	 * Enqueues JS & CSS assets
 	 */
-	class LoginDesigner_Frontend_Settings {
+	class Login_Designer_Frontend_Settings {
 
 		/**
 		 * The class constructor.
@@ -132,4 +132,4 @@ if ( ! class_exists( 'LoginDesigner_Frontend_Settings' ) ) :
 
 endif;
 
-new LoginDesigner_Frontend_Settings();
+new Login_Designer_Frontend_Settings();

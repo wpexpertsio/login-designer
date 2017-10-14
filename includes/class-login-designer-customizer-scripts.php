@@ -15,12 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'LoginDesigner_Customizer_Scripts' ) ) :
+if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 
 	/**
 	 * Enqueues JS & CSS assets
 	 */
-	class LoginDesigner_Customizer_Scripts {
+	class Login_Designer_Customizer_Scripts {
 
 		/**
 		 * The class constructor.
@@ -86,4 +86,4 @@ if ( ! class_exists( 'LoginDesigner_Customizer_Scripts' ) ) :
 
 endif;
 
-new LoginDesigner_Customizer_Scripts();
+new Login_Designer_Customizer_Scripts();

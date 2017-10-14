@@ -13,12 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'LoginDesigner_Esc_Login' ) ) :
+if ( ! class_exists( 'Login_Designer_Esc_Login' ) ) :
 
 	/**
 	 * Login via the 'escape' key.
 	 */
-	class LoginDesigner_Esc_Login {
+	class Login_Designer_Esc_Login {
 
 		/**
 		 * The class constructor.
@@ -95,4 +95,4 @@ if ( ! class_exists( 'LoginDesigner_Esc_Login' ) ) :
 
 endif;
 
-new LoginDesigner_Esc_Login();
+new Login_Designer_Esc_Login();

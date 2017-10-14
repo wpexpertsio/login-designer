@@ -15,7 +15,7 @@
 /**
  * Custom Title Control
  */
-class LoginDesigner_Title_Control extends WP_Customize_Control {
+class Login_Designer_Title_Control extends WP_Customize_Control {
 	/**
 	 * Set the control type.
 	 *

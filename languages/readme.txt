@@ -4,9 +4,9 @@
   ============================
 
   Do not put custom translations here. They will be deleted
-  on LoginDesigner updates.
+  on Login Designer updates.
 
-  Keep custom LoginDesigner translations in /wp-content/languages/login-designer/
+  Keep custom Login Designer translations in /wp-content/languages/login-designer/
 
   You want to translate, help, or improve a translation.
 

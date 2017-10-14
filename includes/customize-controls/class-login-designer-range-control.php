@@ -25,7 +25,7 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) {
  *
  * @access  public
  */
-class LoginDesigner_Range_Control extends WP_Customize_Control {
+class Login_Designer_Range_Control extends WP_Customize_Control {
 
 	/**
 	 * The control type.

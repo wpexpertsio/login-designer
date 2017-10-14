@@ -1,6 +1,6 @@
 <?php
 /**
- * Customize API: LoginDesigner_Background_Control class
+ * Customize API: Login_Designer_Background_Control class
  *
  * @package Customizer Custom Background
  * @since 1.0.0
@@ -13,7 +13,7 @@
  *
  * @see WP_Customize_Upload_Control
  */
-class LoginDesigner_Background_Control extends WP_Customize_Upload_Control {
+class Login_Designer_Background_Control extends WP_Customize_Upload_Control {
 
 	/**
 	 * The type of customize control being rendered.

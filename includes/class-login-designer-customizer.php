@@ -13,12 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'LoginDesigner_Customizer' ) ) :
+if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 	/**
 	 * Enqueues JS & CSS assets
 	 */
-	class LoginDesigner_Customizer {
+	class Login_Designer_Customizer {
 
 		/**
 		 * The class constructor.
@@ -35,7 +35,7 @@ if ( ! class_exists( 'LoginDesigner_Customizer' ) ) :
 		function customize_register( $wp_customize ) {
 
 			// Register background control JS template.
-			$wp_customize->register_control_type( 'LoginDesigner_Background_Control' );
+			$wp_customize->register_control_type( 'Login_Designer_Background_Control' );
 
 			/**
 			 * Add custom controls.
@@ -181,4 +181,4 @@ if ( ! class_exists( 'LoginDesigner_Customizer' ) ) :
 
 endif;
 
-new LoginDesigner_Customizer();
+new Login_Designer_Customizer();

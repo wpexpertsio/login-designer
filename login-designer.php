@@ -35,41 +35,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'LoginDesigner' ) ) :
+if ( ! class_exists( 'Login_Designer' ) ) :
 
 	/**
 	 * Main Login Designer Class.
 	 *
 	 * @since 1.0.0
 	 */
-	final class LoginDesigner {
+	final class Login_Designer {
 		/** Singleton *************************************************************/
 
 		/**
-		 * LoginDesigner The one true LoginDesigner
+		 * Login_Designer The one true Login_Designer
 		 *
 		 * @var string $instance
 		 */
 		private static $instance;
 
 		/**
-		 * Main LoginDesigner Instance.
+		 * Main Login_Designer Instance.
 		 *
-		 * Insures that only one instance of LoginDesigner exists in memory at any one
+		 * Insures that only one instance of Login_Designer exists in memory at any one
 		 * time. Also prevents needing to define globals all over the place.
 		 *
 		 * @since 1.0.0
 		 * @static
 		 * @staticvar array $instance
-		 * @uses LoginDesigner::setup_constants() Setup the constants needed.
-		 * @uses LoginDesigner::includes() Include the required files.
-		 * @uses LoginDesigner::load_textdomain() load the language files.
+		 * @uses Login_Designer::setup_constants() Setup the constants needed.
+		 * @uses Login_Designer::includes() Include the required files.
+		 * @uses Login_Designer::load_textdomain() load the language files.
 		 * @see LOGIN_DESIGNER()
-		 * @return object|LoginDesigner The one true LoginDesigner
+		 * @return object|Login_Designer The one true Login_Designer
 		 */
 		public static function instance() {
-			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof LoginDesigner ) ) {
-				self::$instance = new LoginDesigner;
+			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Login_Designer ) ) {
+				self::$instance = new Login_Designer;
 				self::$instance->constants();
 				self::$instance->actions();
 				self::$instance->includes();
@@ -218,9 +218,9 @@ endif; // End if class_exists check.
 
 
 /**
- * The main function for that returns LoginDesigner
+ * The main function for that returns Login_Designer
  *
- * The main function responsible for returning the one true LoginDesigner
+ * The main function responsible for returning the one true Login_Designer
  * Instance to functions everywhere.
  *
  * Use this function like you would a global variable, except without needing
@@ -229,11 +229,11 @@ endif; // End if class_exists check.
  * Example: <?php $login_designer = login_designer(); ?>
  *
  * @since 1.0.0
- * @return object|LoginDesigner The one true LoginDesigner Instance.
+ * @return object|Login_Designer The one true Login_Designer Instance.
  */
 function login_designer() {
-	return LoginDesigner::instance();
+	return Login_Designer::instance();
 }
 
-// Get LoginDesigner Running.
+// Get Login_Designer Running.
 login_designer();

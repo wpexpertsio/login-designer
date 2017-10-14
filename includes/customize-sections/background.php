@@ -56,7 +56,7 @@ $wp_customize->add_setting( 'login_designer_body_bg_img__position', array(
 	'sanitize_callback' 	=> 'sanitize_text_field',
 ) );
 
-$wp_customize->add_control( new LoginDesigner_Background_Control( $wp_customize, 'login_designer__custom-background-image', array(
+$wp_customize->add_control( new Login_Designer_Background_Control( $wp_customize, 'login_designer__custom-background-image', array(
 		'label'				=> esc_html__( 'Background Image', '@@textdomain' ),
 		'section'			=> 'login_designer__section--background',
 		'settings'    			=> array(
@@ -75,7 +75,7 @@ $wp_customize->add_setting( 'login_designer__gallery', array(
 	'transport'             => 'postMessage',
 ) );
 
-$wp_customize->add_control( new LoginDesigner_Background_Gallery_Control( $wp_customize, 'login_designer__gallery', array(
+$wp_customize->add_control( new Login_Designer_Background_Gallery_Control( $wp_customize, 'login_designer__gallery', array(
 	'label'			=> esc_html__( 'Background Gallery', '@@textdomain' ),
 	'description'		=> esc_html__( 'Or choose an image from our human-curated collection of beautiful backgrounds.', '@@textdomain' ),
 	'type'                  => 'login-designer-gallery',
