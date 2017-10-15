@@ -1,224 +1,113 @@
-#sub-accordion-section-login_designer__section--styles .customize-control-color,
-#sub-accordion-section-login_designer__section--background .customize-control-color {
+.customize-partial--loginform {
+	left: -10px !important;
+	top: 0 !important;
+}
+
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 0;
+	overflow: hidden;
+	position: absolute !important;
+	width: 0;
+	word-wrap: normal;
+
+	-webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+	clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+}
+
+.screen-reader-text:focus {
+	border-radius: 3px;
+	clip: auto;
+	display: block;
+	font-size: 15px;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 0.9375rem;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+
+#wp-a11y-speak-polite {
+	display: none;
+}
+
+#loginform,
+#login-designer-logo-h1,
+#login-designer--username,
+#login-designer--password {
 	position: relative;
 }
 
-#sub-accordion-section-login_designer__section--styles .customize-control-color .customize-control-title,
-#sub-accordion-section-login_designer__section--background .customize-control-color .customize-control-title {
-	line-height: 18px;
-	margin: 0 0 3px;
+#login-designer--username,
+#login-designer--password {
+	margin-bottom: 16px;
 }
 
-#sub-accordion-section-login_designer__section--styles .customize-control-color .customize-control-content,
-#sub-accordion-section-login_designer__section--background .customize-control-color .customize-control-content {
-	margin-bottom: -20px;
+#login-designer--username input,
+#login-designer--password input {
+	margin-bottom: 0;
+	-webkit-transition: border-color 50ms cubic-bezier(0.33, 0, 0.2, 1);
+	transition: border-color 50ms cubic-bezier(0.33, 0, 0.2, 1);
 }
 
-#sub-accordion-section-login_designer__section--styles .customize-control-color label,
-#sub-accordion-section-login_designer__section--background .customize-control-color label {
-	cursor: default;
-}
-
-#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-picker-container,
-#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-picker-container .iris-picker,
-#sub-accordion-section-login_designer__section--background .customize-control-color .wp-picker-container,
-#sub-accordion-section-login_designer__section--background .customize-control-color .wp-picker-container .iris-picker {
-	width: 100% !important;
-}
-
-#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-picker-open + .wp-picker-input-wrap,
-#sub-accordion-section-login_designer__section--background .customize-control-color .wp-picker-open + .wp-picker-input-wrap {
-	margin-top: 1px;
-}
-
-#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-color-result,
-#sub-accordion-section-login_designer__section--background .customize-control-color .wp-color-result {
-	border: 0 !important;
-	border-radius: 100%;
-	box-shadow: 0 0 0 !important;
-	height: 20px;
-	margin: 0;
-	padding-left: 20px;
-	position: absolute;
-	right: 0;
+#login-designer--username .customizer-event-overlay,
+#login-designer--password .customizer-event-overlay {
+	border: 0;
+	opacity: 0 !important;
 	top: 2px;
 }
 
-#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-color-result::before,
-#sub-accordion-section-login_designer__section--background .customize-control-color .wp-color-result::before {
-	border-radius: 100%;
-	bottom: 1px;
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
-	content: "";
-	height: calc( 100% -2px);
-	left: 1px;
-	position: absolute;
-	right: 1px;
-	top: 1px;
-	-webkit-transition: box-shadow 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
-	transition: box-shadow 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
-	width: calc( 100% -2px);
+#login-designer--username:hover input,
+#login-designer--password:hover input {
+	border-color: #0085ba;
 }
 
-#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-color-result:hover::before,
-#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-color-result:focus::before,
-#sub-accordion-section-login_designer__section--background .customize-control-color .wp-color-result:hover::before,
-#sub-accordion-section-login_designer__section--background .customize-control-color .wp-color-result:focus::before {
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+#login-designer--username:hover .customizer-event-overlay,
+#login-designer--password:hover .customizer-event-overlay {
+	background: rgba(0, 167, 233, 0.05);
+	opacity: 1 !important;
 }
 
-#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-color-result::after,
-#sub-accordion-section-login_designer__section--background .customize-control-color .wp-color-result::after {
-	display: none;
+#login-designer-logo:focus {
+	box-shadow: none;
 }
 
-#customize-control-login_designer_custom_logo .customize-control-title {
-	display: none;
+#loginform p {
+	z-index: 44;
 }
 
-#sub-accordion-section-login_designer__section--styles .customize-control-title {
-	font-weight: 500;
+.hide-customize-borders .customizer-editlayout-button {
+	opacity: 0 !important;
+	-webkit-transition: opacity 50ms cubic-bezier(0.33, 0, 0.2, 1);
+	transition: opacity 50ms cubic-bezier(0.33, 0, 0.2, 1);
 }
 
-#sub-accordion-section-login_designer__section--styles .customize-control-background-image .actions button.remove-button,
-#sub-accordion-section-login_designer__section--background .customize-control-background-image .actions button.remove-button,
-#sub-accordion-section-login_designer__section--settings .customize-control-background-image .actions button.remove-button {
-	margin-bottom: 18px;
+#loginform.hide-customize-borders::after {
+	opacity: 0 !important;
+	-webkit-transition: opacity 50ms cubic-bezier(0.33, 0, 0.2, 1), border-width 75ms ease-in-out 75ms;
+	transition: opacity 50ms cubic-bezier(0.33, 0, 0.2, 1), border-width 75ms ease-in-out 75ms;
 }
 
-#sub-accordion-section-login_designer__section--styles .customize-control-background-image .actions button,
-#sub-accordion-section-login_designer__section--background .customize-control-background-image .actions button,
-#sub-accordion-section-login_designer__section--settings .customize-control-background-image .actions button {
-	margin-top: 3px;
-	width: 49.3%;
-}
-
-#sub-accordion-section-login_designer__section--styles .customize-control-background-image .thumbnail,
-#sub-accordion-section-login_designer__section--background .customize-control-background-image .thumbnail,
-#sub-accordion-section-login_designer__section--settings .customize-control-background-image .thumbnail {
-	border-radius: 3px;
-	max-height: 70px;
-}
-
-#sub-accordion-section-login_designer__section--styles .customize-control-background-image img,
-#sub-accordion-section-login_designer__section--background .customize-control-background-image img,
-#sub-accordion-section-login_designer__section--settings .customize-control-background-image img {
-	-webkit-transform: translate3d(0, -40%, 0);
-	transform: translate3d(0, -40%, 0);
-	width: 100%;
-}
-
-#sub-accordion-section-login_designer__section--styles .customize-control-image,
-#sub-accordion-section-login_designer__section--background .customize-control-image,
-#sub-accordion-section-login_designer__section--settings .customize-control-image {
-	margin-bottom: 15px;
-	position: relative;
-}
-
-#sub-accordion-section-login_designer__section--styles .customize-control-image .placeholder,
-#sub-accordion-section-login_designer__section--background .customize-control-image .placeholder,
-#sub-accordion-section-login_designer__section--settings .customize-control-image .placeholder {
-	display: none;
-}
-
-#sub-accordion-section-login_designer__section--styles .customize-control-image button:not(.control-focus):not(.remove-button),
-#sub-accordion-section-login_designer__section--background .customize-control-image button:not(.control-focus):not(.remove-button),
-#sub-accordion-section-login_designer__section--settings .customize-control-image button:not(.control-focus):not(.remove-button) {
+.customizer-event-overlay {
 	background: transparent;
-	border: 1px dashed #b4b9be;
-	border-radius: 0;
-	box-shadow: none;
-	color: #555d66;
-	font-size: 14px;
-	margin-top: 1px;
-	padding: 7px 0;
-	-webkit-transition: border-color 200ms cubic-bezier(0.19, 1, 0.22, 1), color 200ms cubic-bezier(0.19, 1, 0.22, 1);
-	transition: border-color 200ms cubic-bezier(0.19, 1, 0.22, 1), color 200ms cubic-bezier(0.19, 1, 0.22, 1);
-	width: 100%;
-}
-
-#sub-accordion-section-login_designer__section--styles .customize-control-image button:not(.control-focus):not(.remove-button):hover,
-#sub-accordion-section-login_designer__section--background .customize-control-image button:not(.control-focus):not(.remove-button):hover,
-#sub-accordion-section-login_designer__section--settings .customize-control-image button:not(.control-focus):not(.remove-button):hover {
-	border-color: #0073aa;
-	color: #0073aa;
-}
-
-#sub-accordion-section-login_designer__section--styles .customize-control-image button:not(.control-focus):not(.remove-button):active,
-#sub-accordion-section-login_designer__section--background .customize-control-image button:not(.control-focus):not(.remove-button):active,
-#sub-accordion-section-login_designer__section--settings .customize-control-image button:not(.control-focus):not(.remove-button):active {
-	-webkit-transform: translateY(0);
-	-ms-transform: translateY(0);
-	transform: translateY(0);
-}
-
-#sub-accordion-section-login_designer__section--styles .customize-control-image .button.upload-button.control-focus,
-#sub-accordion-section-login_designer__section--background .customize-control-image .button.upload-button.control-focus,
-#sub-accordion-section-login_designer__section--settings .customize-control-image .button.upload-button.control-focus {
-	margin-left: -8px;
-}
-
-/* Customizer Select */
-#sub-accordion-section-login_designer__section--background .background-image-fields:not(.hidden) {
-	border-bottom: 1px solid #ddd;
-	margin-bottom: 3px;
-	padding-bottom: 18px;
-}
-
-#sub-accordion-section-login_designer__section--background .background-image-fields li {
-	margin-bottom: 8px;
-	position: relative;
-}
-
-#sub-accordion-section-login_designer__section--background .background-image-fields .customize-control-title {
-	font-weight: normal;
-	margin-bottom: 0;
-	position: relative;
-	top: 6px;
-	width: 50%;
-}
-
-#sub-accordion-section-login_designer__section--background .background-image-fields select {
-	background: #f0f0f0;
-	border-radius: 5px;
-	box-shadow: none;
-	color: #555d66;
+	border: 2px solid transparent;
+	bottom: 0;
 	cursor: pointer;
-	font-size: 13px;
-	font-weight: normal;
-	height: 26px;
-	line-height: 22px;
-	margin: 0;
-	padding: 0;
-	padding-left: 7px;
+	left: 0;
 	position: absolute;
-	right: 0;
-	top: 4px;
-	-webkit-transition: 50ms border-color cubic-bezier(0.19, 1, 0.22, 1), 50ms color cubic-bezier(0.19, 1, 0.22, 1), 50ms background cubic-bezier(0.19, 1, 0.22, 1);
-	transition: 50ms border-color cubic-bezier(0.19, 1, 0.22, 1), 50ms color cubic-bezier(0.19, 1, 0.22, 1), 50ms background cubic-bezier(0.19, 1, 0.22, 1);
-	width: 50%;
-
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+	text-indent: -9999em;
+	top: 0;
+	-webkit-transition: opacity 50ms cubic-bezier(0.33, 0, 0.2, 1);
+	transition: opacity 50ms cubic-bezier(0.33, 0, 0.2, 1);
+	width: 100%;
+	z-index: 22;
 }
 
-#sub-accordion-section-login_designer__section--background .background-image-fields select::after {
-	content: "\f341";
-	font: 400 20px/72px dashicons;
-	left: 9px;
-	position: relative;
-}
-
-#sub-accordion-section-login_designer__section--background .background-image-fields select:hover {
-	background: #f5f5f5;
-	border-color: #ccc;
-}
-
-#sub-accordion-section-login_designer__section--background .background-image-fields select select::-ms-expand {
-	display: none;
-}
-
-#sub-accordion-section-login_designer__section--background .background-image-fields select option {
-	text-align: right;
+.customizer-event-overlay:hover,
+.customizer-event-overlay:focus {
+	border-color: #0085ba;
+	outline: none;
 }

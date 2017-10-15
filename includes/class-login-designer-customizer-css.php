@@ -26,6 +26,22 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'login_enqueue_scripts', array( $this, 'customizer_css' ) );
+			add_action( 'body_class', array( $this, 'body_class' ) );
+		}
+
+		/**
+		 * Adds the associated template to the body.
+		 *
+		 * @access public
+		 * @param array $classes Existing body classes to be filtered.
+		 */
+		public function body_class( $classes ) {
+
+			if ( is_customize_preview() ) {
+				$classes[] = 'customize-partial-edit-shortcuts-shown';
+			}
+
+			return $classes;
 		}
 
 		/**
@@ -71,8 +87,22 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 					padding: 0;
 					margin: 10px 0;
 				}
+
+				#loginform {
+					overflow: visible;
+				}
+
+				#loginform p.submit {
+					padding-bottom: 25px !important;
+				}
+
 				.login form .forgetmenot {
 					margin-top: 5px;
+				}
+
+				h1#login-designer-logo-h1 {
+					margin: 0 auto;
+					width: 84px;
 				}
 			';
 
@@ -84,6 +114,10 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 						background-image: url("'. esc_url( $logo ) .'");
 						background-size: '. esc_attr( $size[0] / 2 ) .'px '. esc_attr( $size[1] / 2 ) .'px ;
 						background-position: center center;
+					}
+
+					h1#login-designer-logo-h1 {
+						width: '. esc_attr( $size[0] / 2 ) .'px;
 					}
 
 					#login h1 a {

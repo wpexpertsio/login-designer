@@ -14,6 +14,7 @@ var plugin_uri              	= pkg.plugin_uri;
 var projectURL              	= 'http://demo.logindesigner.dev/login-designer';
 
 var styleCustomizerSRC  		= './assets/scss/customizer/'+ slug +'-customize-preview.scss';
+var styleCustomizerControlsSRC  	= './assets/scss/customizer/'+ slug +'-customize-controls.scss';
 var styleTemplateControlSRC  		= './assets/scss/customizer/'+ slug +'-customize-template-control.scss';
 var styleRangeControlSRC  		= './assets/scss/customizer/'+ slug +'-customize-range-control.scss';
 var styleTitleControlSRC  		= './assets/scss/customizer/'+ slug +'-customize-title-control.scss';
@@ -248,12 +249,38 @@ gulp.task('styles_customizer_background_gallery', function () {
 	.pipe( browserSync.stream() )
 });
 
-
-
-
-
 gulp.task('styles_customize_preview', function () {
 	gulp.src( styleCustomizerSRC )
+
+	.pipe( sass( {
+		errLogToConsole: true,
+		outputStyle: 'expanded',
+		precision: 10
+	} ) )
+
+	.on( 'error', console.error.bind( console ) )
+
+	.pipe( autoprefixer( AUTOPREFIXER_BROWSERS ) )
+
+	.pipe( csscomb() )
+
+	.pipe( gulp.dest( styleDestination ) )
+
+	.pipe( browserSync.stream() )
+
+	.pipe( rename( { suffix: '.min' } ) )
+
+	.pipe( minifycss( {
+		maxLineLen: 10
+	}))
+
+	.pipe( gulp.dest( styleDestination ) )
+
+	.pipe( browserSync.stream() )
+});
+
+gulp.task('styles_customize_controls', function () {
+	gulp.src( styleCustomizerControlsSRC )
 
 	.pipe( sass( {
 		errLogToConsole: true,
@@ -492,8 +519,9 @@ gulp.task( 'build-notification', function () {
  * Commands
  */
 
-gulp.task( 'default', [ 'clear', 'template_1', 'template_2', 'styles_customize_preview', 'styles_customizer_background_gallery', 'styles_customizer_title', 'styles_customizer_template_control', 'styles_customizer_range', 'scripts', 'browser_sync' ], function () {
+gulp.task( 'default', [ 'clear', 'template_1', 'template_2', 'styles_customize_preview', 'styles_customize_controls', 'styles_customizer_background_gallery', 'styles_customizer_title', 'styles_customizer_template_control', 'styles_customizer_range', 'scripts', 'browser_sync' ], function () {
 	gulp.watch( projectPHPWatchFiles, reload );
+	gulp.watch( styleWatchFiles, [ 'styles_customize_controls' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_customizer_template_control' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_customizer_range' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_customize_preview' ] );
@@ -505,5 +533,5 @@ gulp.task( 'default', [ 'clear', 'template_1', 'template_2', 'styles_customize_p
 });
 
 gulp.task('build', function(callback) {
-	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'styles_customize_preview', 'styles_customizer_background_gallery', 'styles_customizer_title', 'styles_customizer_template_control', 'styles_customizer_range', 'scripts', 'build-translate'], 'build-clean-and-copy', 'build-variables', 'build-zip-and-clean', 'build-notification', callback);
+	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'styles_customize_preview', 'styles_customize_controls', 'styles_customizer_background_gallery', 'styles_customizer_title', 'styles_customizer_template_control', 'styles_customizer_range', 'scripts', 'build-translate'], 'build-clean-and-copy', 'build-variables', 'build-zip-and-clean', 'build-notification', callback);
 });

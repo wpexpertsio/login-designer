@@ -63,7 +63,7 @@
 		});
 	}
 
-	// Customizer Previewer
+	//  Customizer Previewer
 	api.myCustomizerPreviewer = {
 
 		init: function () {

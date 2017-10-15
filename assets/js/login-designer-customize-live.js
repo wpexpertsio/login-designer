@@ -4,13 +4,13 @@
 ( function ( wp, $ ) {
 	"use strict";
 
-	$( '#login-designer--username').hover(function() {
-		$( '#loginform').toggleClass( 'hide-customize-borders' );
-	});
+	// $( '#login-designer--username').hover(function() {
+	// 	$( '#loginform').toggleClass( 'hide-customize-borders' );
+	// });
 
-	$( '#login-designer--password').hover(function() {
-		$( '#loginform').toggleClass( 'hide-customize-borders' );
-	});
+	// $( '#login-designer--password').hover(function() {
+	// 	$( '#loginform').toggleClass( 'hide-customize-borders' );
+	// });
 
 	// Bail if the Customizer isn't initialized
 	if ( ! wp || ! wp.customize ) {
@@ -38,8 +38,10 @@
 
 				$logo.append( '<button class="login-designer-event-button customizer-event-overlay" data-customizer-event="login-designer-edit-logo"></button>' );
 
-				$loginform.append( '<div class="customizer__border customizer__border-btm"></div><div class="customizer__border customizer__border-top"></div><div class="customizer__border customizer__border-left"></div><div class="customizer__border customizer__border-right"></div>' );
-				$loginform.append( '<button class="login-designer-event-button customizer-editlayout-button" data-customizer-event="login-designer-edit-loginform">Edit</button>' );
+				// $loginform.append( '<div class="customizer__border customizer__border-btm"></div><div class="customizer__border customizer__border-top"></div><div class="customizer__border customizer__border-left"></div><div class="customizer__border customizer__border-right"></div>' );
+				// $loginform.append( '<button class="login-designer-event-button customizer-editlayout-button" data-customizer-event="login-designer-edit-loginform">Edit</button>' );
+
+				$loginform.append( '<span class="customize-partial--loginform customize-partial-edit-shortcut"><button class="login-designer-event-button customize-partial-edit-shortcut-button" data-customizer-event="login-designer-edit-loginform"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13.89 3.39l2.71 2.72c.46.46.42 1.24.03 1.64l-8.01 8.02-5.56 1.16 1.16-5.58s7.6-7.63 7.99-8.03c.39-.39 1.22-.39 1.68.07zm-2.73 2.79l-5.59 5.61 1.11 1.11 5.54-5.65zm-2.97 8.23l5.58-5.6-1.07-1.08-5.59 5.6z"></path></svg></button></span>' );
 
 				$loginform_text.append( '<button class="login-designer-event-button customizer-event-overlay" data-customizer-event="login-designer-edit-loginform-fields"></button>' );
 				$loginform_pass.append( '<button class="login-designer-event-button customizer-event-overlay" data-customizer-event="login-designer-edit-loginform-fields"></button>' );

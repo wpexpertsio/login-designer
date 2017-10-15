@@ -1,169 +1,315 @@
 // Variables.
 @import "variables";
 
-// Color Controls.
-@import "modules/color-control";
-
-#customize-control-login_designer_custom_logo {
-	.customize-control-title {
-		display: none;
-	}
-
-	// .attachment-media-view {
-	// 	margin-top: 8px;
-	// }
+// .customize-partial-edit-shortcut button {
+// animation: x;
+// opacity: 1;
+// }
+.customize-partial--loginform {
+	top: 0 !important;
+	left: -10px!important;
 }
 
 
 
-// .control-section:not(.open) {
 
-	// #customize-control-login_designer_custom_logo_margin_bottom,
-	// #customize-control-login_designer_form_background_color {
-	// 	border-bottom: 1px solid #ddd;
-	// 	padding-bottom: 18px;
-	// 	margin-bottom: 15px;
-	// }
+
+// Text meant only for screen readers.
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+	height: 0;
+	overflow: hidden;
+	position: absolute !important;
+	width: 0;
+	word-wrap: normal;
+
+	&:focus {
+		font-size: 15px;
+		border-radius: 3px;
+		clip: auto;
+		display: block;
+		height: auto;
+		left: 5px;
+		line-height: normal;
+		padding: 0.9375rem;
+		text-decoration: none;
+		top: 5px;
+		width: auto;
+		z-index: 100000;
+	}
+}
+
+#wp-a11y-speak-polite {
+	display: none;
+}
+
+#loginform,
+#login-designer-logo-h1,
+#login-designer--username,
+#login-designer--password {
+	position: relative;
+}
+
+#login-designer--username,
+#login-designer--password {
+	margin-bottom: 16px;
+
+	input {
+		margin-bottom: 0;
+		transition: border-color 50ms cubic-bezier(0.33,0,0.2,1);
+	}
+
+	.customizer-event-overlay {
+		top: 2px;
+		border: 0;
+		opacity: 0 ! important;
+	}
+
+	&:hover {
+		input {
+			border-color: $customizer_blue;
+		}
+
+		.customizer-event-overlay {
+			opacity: 1 !important;
+			background: $customizer_blue_bg;
+		}
+	}
+}
+
+
+
+
+
+
+#login-designer-logo {
+
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+// #loginform {
+// 	overflow: visible;
+
+// 	p.submit {
+// 		padding-bottom: 20px !important;
+// 	}
+
+// 	.customizer__border {
+// 		display: none !important;
+// 		background-color: #0073aa;
+// 		height: 1px;
+// 		opacity: 0;
+// 		position: absolute;
+// 		width: 100%;
+// 		z-index: 99999;
+
+// 		&-btm {
+// 			bottom: 0;
+// 			left: 0;
+// 		}
+
+// 		&-top {
+// 			top: 0;
+// 			left: 0;
+// 		}
+
+// 		&-left {
+// 			bottom: 0;
+// 			left: 0;
+// 			top: 0;
+// 			height: 100%;
+// 			width: 1px;
+// 		}
+
+// 		&-right {
+// 			bottom: 0;
+// 			right: 0;
+// 			top: 0;
+// 			height: 100%;
+// 			width: 1px;
+// 		}
+
+// 	}
+
+// 	&:hover > .customizer__border {
+// 		opacity: 1;
+// 	}
+
+// 	.customizer-editlayout-button {
+// 		background: #0073aa;
+// 		color: #fff;
+// 		border: 0;
+// 		cursor: pointer;
+// 		font-size: 14px;
+// 		font-weight: 400;
+// 		left: 0;
+// 		line-height: 0;
+// 		opacity: 0;
+// 		outline: none;
+// 		padding: 12px 10px;
+// 		pointer-events: none;
+// 		position: absolute;
+// 		top: 0;
+// 		z-index: 99999;
+// 		transition: opacity 100ms cubic-bezier(0.33,0,0.2,1) 50ms;
+
+// 		// &::before {
+// 		// 	content: "\f464";
+// 		// 	display: inline-block;
+// 		// 	font-smoothing: antialiased;
+// 		// 	font: 400 22px/24px dashicons;
+// 		// 	vertical-align: top;
+// 		// 	color: #0073aa;
+// 		// 	transform: scale(.6) translate3d(0, 0, 0);
+// 		// 	transition: opacity 100ms cubic-bezier(0.33,0,0.2,1) 200ms, transform 250ms cubic-bezier(0.33,0,0.2,1) 50ms;
+// 		// }
+
+// 		&:hover,
+// 		&:focus {
+
+// 		}
+
+// 		&:hover::before {
+// 			color: #0085ba;
+// 		}
+// 	}
+
+// 	&:hover > .customizer-editlayout-button {
+// 		// opacity: 1;
+// 		// pointer-events: auto;
+// 	}
+
+// 	// &:hover > .customizer-editlayout-button:before {
+// 	// 	transform: scale(1) translate3d(0, 0, 0);
+// 	// }
+
 // }
 
-// Image uploader control mods.
-#sub-accordion-section-login_designer__section--styles {
 
-	.customize-control-title {
-		font-weight: 500;
-	}
+// $space: -12px;
+
+// Specific to the login form.
+// #loginform {
+
+// 	.customizer__border {
+
+// 		&-btm {
+// 			bottom: $space;
+// 			left: $space;
+// 			width: calc( 100% + 24px );
+// 		}
+
+// 		&-top {
+// 			top: $space;
+// 			left: $space;
+// 			width: calc( 100% + 24px );
+// 		}
+
+// 		&-left {
+// 			bottom: $space;
+// 			left: $space;
+// 			top: $space;
+// 			height: calc( 100% + 24px );
+// 		}
+
+// 		&-right {
+// 			bottom: $space;
+// 			right: $space;
+// 			top: $space;
+// 			height: calc( 100% + 24px );
+// 		}
+
+// 	}
+
+// 	.customizer-editlayout-button {
+// 		left: $space;
+// 		top: $space;
+// 	}
+
+// }
+
+#loginform p {
+	z-index: 44;
 }
 
-// Image uploader control mods.
-#sub-accordion-section-login_designer__section--styles,
-#sub-accordion-section-login_designer__section--background,
-#sub-accordion-section-login_designer__section--settings {
 
-	.customize-control-background-image {
+.hide-customize-borders {
 
-		.actions {
-
-			button.remove-button {
-				margin-bottom: 18px;
-			}
-
-			button {
-				width: 49.3%;
-				margin-top: 3px;
-			}
-		}
-
-		.thumbnail {
-			border-radius: 3px;
-			max-height: 70px;
-		}
-
-		img {
-			width: 100%;
-			transform: translate3d(0, -40%, 0);
-		}
+	.customizer-editlayout-button {
+		opacity: 0 !important;
+		transition: opacity 50ms cubic-bezier(0.33,0,0.2,1);
 	}
 
-	.customize-control-image {
-		position: relative;
-		margin-bottom: 15px;
-
-		.placeholder {
-			display: none;
-		}
-
-		button:not(.control-focus):not(.remove-button) {
-			background: transparent;
-			// border-radius: 6px;
-			border-radius: 0;
-			border: 1px dashed $border-color;
-			box-shadow: none;
-			color: #555d66;
-			font-size: 14px;
-			margin-top: 1px;
-			padding: 7px 0;
-			transition: border-color 200ms cubic-bezier(0.19, 1, 0.22, 1), color 200ms cubic-bezier(0.19, 1, 0.22, 1);
-			width: 100%;
-
-			&:hover {
-				border-color: $blue;
-				color: $blue;
-			}
-
-			&:active {
-				transform: translateY(0);
-			}
-		}
-
-		.button.upload-button.control-focus {
-			margin-left: -8px;
-		}
-	}
 }
 
-/* Customizer Select */
-#sub-accordion-section-login_designer__section--background {
-
-	.background-image-fields {
-
-		&:not(.hidden) {
-			border-bottom: 1px solid #ddd;
-			padding-bottom: 18px;
-			margin-bottom: 3px;
-		}
-
-		li {
-			position: relative;
-			margin-bottom: 8px;
-		}
-
-		.customize-control-title {
-			font-weight: normal;
-			width: 50%;
-			margin-bottom: 0;
-			position: relative;
-			top: 6px;
-		}
-
-		select {
-			width: 50%;
-			position: absolute;
-			box-shadow: none;
-			top: 4px;
-			right: 0;
-			margin: 0;
-			background: #f0f0f0;
-			padding: 0;
-			line-height: 22px;
-			height: 26px;
-			appearance: none;
-			color: #555d66;
-			padding-left: 7px;
-			cursor: pointer;
-			font-weight: normal;
-			font-size: 13px;
-			border-radius: 5px;
-			transition: 50ms border-color cubic-bezier(0.19, 1, 0.22, 1), 50ms color cubic-bezier(0.19, 1, 0.22, 1), 50ms background cubic-bezier(0.19, 1, 0.22, 1);
-
-			&::after {
-				font: 400 20px/72px dashicons;
-				content: "\f341";
-				position: relative;
-				left: 9px;
-			}
-
-			&:hover {
-				border-color: #ccc;
-				background: #f5f5f5;
-			}
-
-			select::-ms-expand {
-				display: none;
-			}
-
-			option {
-				text-align: right;
-			}
-		}
-	}
+#loginform.hide-customize-borders::after {
+	opacity: 0 !important;
+	transition: opacity 50ms cubic-bezier(0.33,0,0.2,1), border-width 75ms ease-in-out 75ms;
 }
+
+
+
+
+
+// .is-customize-preview {
+
+//     #loginform::after {
+//         content: '';
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         bottom: 0;
+//         // z-index: -1;
+//         opacity: 0;
+//         bottom: 0;
+//         right: 0;
+//         border: 2px solid #0073aa;
+//         transition: opacity 100ms cubic-bezier(0.33,0,0.2,1) 50ms, border-width 75ms ease-in-out 75ms;
+//     }
+
+//     #loginform:hover::after {
+//     	border-width: 2px;
+//         opacity: 1;
+//     }
+
+// }
+
+
+
+
+
+
+
+.customizer-event-overlay {
+	background: transparent;
+	border: 2px solid transparent;
+	bottom: 0;
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	text-indent: -9999em;
+	top: 0;
+	width: 100%;
+	z-index: 22;
+	transition: opacity 50ms cubic-bezier(0.33,0,0.2,1);
+
+	&:hover,
+	&:focus {
+		border-color: $customizer_blue;
+		outline: none;
+	}
+
+	// #login-designer-logo-h1 & {
+	// 	opacity: 0;
+	// }
+}
+
+
+
+
+
+
+

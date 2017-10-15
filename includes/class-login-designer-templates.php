@@ -45,6 +45,7 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 
 			if ( is_customize_preview() ) {
 				$classes[] = 'is-customize-preview';
+				$classes[] = 'customize-partial-edit-shortcuts-shown';
 			}
 
 			return $classes;
