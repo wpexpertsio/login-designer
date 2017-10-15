@@ -6,7 +6,64 @@
 
 	var api = wp.customize, OldPreviewer;
 
-	// Custom Customizer Previewer class (attached to the Customize API)
+	var all_controls = {
+		'logo' : [
+			'login_designer_title_logo',
+			'login_designer_custom_logo',
+			'login_designer_custom_logo_margin_bottom'
+		],
+		'form' : [
+			'login_designer_title_form',
+			'login_designer_form_width',
+			'login_designer_form_border_radius',,
+			'login_designer_form_background_color',
+			'login_designer_form_padding_top_bottom',
+			'login_designer_form_padding_side',
+			'login_designer_form_box_shadow',
+			'login_designer_form_box_shadow_opacity',
+		],
+		'fields' : [
+			'login_designer_title_form_fields',
+			'login_designer_form_field_background',
+		],
+	};
+
+	function active_control( section ) {
+
+		all_controls.logo.forEach(function(item, index, array) {
+			control_visibility( all_controls.logo, 'deactivate' );
+		});
+
+		all_controls.form.forEach(function(item, index, array) {
+			control_visibility( all_controls.form, 'deactivate' );
+		});
+
+		all_controls.fields.forEach(function(item, index, array) {
+			control_visibility( all_controls.fields, 'deactivate' );
+		});
+
+		control_visibility( section, 'activate' );
+	}
+
+	function control_visibility( controls, action ) {
+
+		controls.forEach( function( item, index, array ) {
+
+			if ( action == 'activate' ) {
+				wp.customize.control( item ).activate();
+			} else {
+				wp.customize.control( item ).deactivate();
+			}
+
+			if ( controls[0] ) {
+				wp.customize.control( item ).container.addClass( 'is-active' );
+			}
+
+			// console.log(item, index);
+		});
+	}
+
+	// Customizer Previewer
 	api.myCustomizerPreviewer = {
 
 		init: function () {
@@ -17,73 +74,29 @@
 			// Logo
 			this.preview.bind( 'login-designer-edit-logo', function() {
 
-				// Focus on this option.
+				// Visibility.
+				active_control( all_controls.logo );
+
+				// Focus.
 				wp.customize.control( 'login_designer_custom_logo' ).focus();
-
-				// Activate these associated options.
-				wp.customize.control( 'login_designer_title_logo' ).activate();
-				wp.customize.control( 'login_designer_custom_logo' ).activate();
-				wp.customize.control( 'login_designer_custom_logo_margin_bottom' ).activate();
-
-				// Deactivate all other options in the Style Editor.
-				wp.customize.control( 'login_designer_title_form' ).deactivate();
-				wp.customize.control( 'login_designer_form_width' ).deactivate();
-				wp.customize.control( 'login_designer_form_border_radius' ).deactivate();
-				wp.customize.control( 'login_designer_form_background_color' ).deactivate();
-				wp.customize.control( 'login_designer_form_padding_top_bottom' ).deactivate();
-				wp.customize.control( 'login_designer_form_padding_left_right' ).deactivate();
-
-				// Fields
-				wp.customize.control( 'login_designer_title_form_fields' ).deactivate();
-				wp.customize.control( 'login_designer_form_field_background' ).deactivate();
 
 			} );
 
 			this.preview.bind( 'login-designer-edit-loginform', function() {
 
-				// Focus on this option.
+				// Visibility.
+				active_control( all_controls.form );
+
+				// Focus.
 				wp.customize.control( 'login_designer_form_background_color' ).focus();
-
-				// Activate these associated options.
-				wp.customize.control( 'login_designer_title_form' ).activate();
-				wp.customize.control( 'login_designer_form_width' ).activate();
-				wp.customize.control( 'login_designer_form_border_radius' ).activate();
-				wp.customize.control( 'login_designer_form_background_color' ).activate();
-				wp.customize.control( 'login_designer_form_padding_top_bottom' ).activate();
-				wp.customize.control( 'login_designer_form_padding_left_right' ).activate();
-
-				// Deactivate all other options in the Style Editor.
-				wp.customize.control( 'login_designer_title_logo' ).deactivate();
-				wp.customize.control( 'login_designer_custom_logo' ).deactivate();
-				wp.customize.control( 'login_designer_custom_logo_margin_bottom' ).deactivate();
-
-				// Fields
-				wp.customize.control( 'login_designer_title_form_fields' ).deactivate();
-				wp.customize.control( 'login_designer_form_field_background' ).deactivate();
-
 			} );
 
 			this.preview.bind( 'login-designer-edit-loginform-fields', function() {
 
+				// Visibility.
+				active_control( all_controls.fields );
+
 				wp.customize.control( 'login_designer_title_form_fields' ).focus();
-
-				// Focus on this option.
-				wp.customize.control( 'login_designer_title_form_fields' ).activate();
-				wp.customize.control( 'login_designer_form_field_background' ).activate();
-
-				// Activate these associated options.
-				wp.customize.control( 'login_designer_title_form' ).deactivate();
-				wp.customize.control( 'login_designer_form_width' ).deactivate();
-				wp.customize.control( 'login_designer_form_border_radius' ).deactivate();
-				wp.customize.control( 'login_designer_form_background_color' ).deactivate();
-				wp.customize.control( 'login_designer_form_padding_top_bottom' ).deactivate();
-				wp.customize.control( 'login_designer_form_padding_left_right' ).deactivate();
-
-				// Deactivate all other options in the Style Editor.
-				wp.customize.control( 'login_designer_title_logo' ).deactivate();
-				wp.customize.control( 'login_designer_custom_logo' ).deactivate();
-				wp.customize.control( 'login_designer_custom_logo_margin_bottom' ).deactivate();
-
 			} );
 		}
 	};

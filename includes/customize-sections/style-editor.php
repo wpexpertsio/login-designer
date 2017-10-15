@@ -16,13 +16,14 @@ $wp_customize->add_setting( 'login_designer_title_logo', array(
 ) );
 $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer_title_logo', array(
 	'type'                  => 'login-designer-title',
-	'label'                 => esc_html__( 'Logo', '@@textdomain' ),
+	'label'                 => esc_html__( 'Login Logo', '@@textdomain' ),
+	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
 
 
 $wp_customize->add_setting( 'login_designer_custom_logo', array(
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 ) );
 $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'login_designer_custom_logo', array(
 	'label'                => esc_html__( 'Upload Image', '@@textdomain' ),
@@ -33,7 +34,7 @@ $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'logi
 
 $wp_customize->add_setting( 'login_designer_custom_logo_margin_bottom', array(
 	'default'               => '25',
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_custom_logo_margin_bottom', array(
@@ -61,24 +62,14 @@ $wp_customize->add_setting( 'login_designer_title_form', array(
 $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer_title_form', array(
 	'type'                  => 'login-designer-title',
 	'label'                 => esc_html__( 'Form', '@@textdomain' ),
-	'section'               => 'login_designer__section--styles',
-) ) );
-
-
-$wp_customize->add_setting( 'login_designer_form_background_color', array(
-	'default'               => null,
-	'transport'             => 'postMessage',
-	'sanitize_callback'     => 'sanitize_hex_color',
-) );
-$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer_form_background_color', array(
-	'label'                 => esc_html__( 'Background', '@@textdomain' ),
+	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
 
 
 $wp_customize->add_setting( 'login_designer_form_width', array(
 	'default'               => '320',
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_width', array(
@@ -96,13 +87,12 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 ) );
 
 
-
-$wp_customize->add_setting( 'login_designer_form_padding_left_right', array(
+$wp_customize->add_setting( 'login_designer_form_padding_side', array(
 	'default'               => '24',
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
-$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_padding_left_right', array(
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_padding_side', array(
 	'type'                  => 'login-designer-range',
 	'label'                 => esc_html__( 'Side Padding', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
@@ -119,7 +109,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 
 $wp_customize->add_setting( 'login_designer_form_padding_top_bottom', array(
 	'default'               => '26',
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_padding_top_bottom', array(
@@ -139,7 +129,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 
 $wp_customize->add_setting( 'login_designer_form_border_radius', array(
 	'default'               => '0',
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_border_radius', array(
@@ -157,6 +147,58 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 ) );
 
 
+$wp_customize->add_setting( 'login_designer_form_box_shadow', array(
+	'default'               => '3',
+	// 'transport'             => 'postMessage',
+	'sanitize_callback'     => '',
+) );
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_box_shadow', array(
+	'type'                  => 'login-designer-range',
+	'label'                 => esc_html__( 'Shadow', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+	'description'           => 'px',
+	'default'               => '3',
+	'input_attrs'           => array(
+		'min'               => 0,
+		'max'               => 50,
+		'step'              => 1,
+		),
+	)
+) );
+
+
+$wp_customize->add_setting( 'login_designer_form_box_shadow_opacity', array(
+	'default'               => '13',
+	// 'transport'             => 'postMessage',
+	'sanitize_callback'     => '',
+) );
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_box_shadow_opacity', array(
+	'type'                  => 'login-designer-range',
+	'label'                 => esc_html__( 'Shadow Opacity', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+	'description'           => '%',
+	'default'               => '13',
+	'input_attrs'           => array(
+		'min'               => 0,
+		'max'               => 100,
+		'step'              => 1,
+		),
+	)
+) );
+
+
+$wp_customize->add_setting( 'login_designer_form_background_color', array(
+	'default'               => null,
+	// 'transport'             => 'postMessage',
+	'sanitize_callback'     => 'sanitize_hex_color',
+) );
+$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer_form_background_color', array(
+	'label'                 => esc_html__( 'Background', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+) ) );
+
+
+
 
 /**
  * Form.
@@ -167,13 +209,14 @@ $wp_customize->add_setting( 'login_designer_title_form_fields', array(
 $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer_title_form_fields', array(
 	'type'                  => 'login-designer-title',
 	'label'                 => esc_html__( 'Fields', '@@textdomain' ),
+	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
 
 
 $wp_customize->add_setting( 'login_designer_form_field_background', array(
 	'default'               => null,
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 	'sanitize_callback'     => 'sanitize_hex_color',
 ) );
 $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer_form_field_background', array(

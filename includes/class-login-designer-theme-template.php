@@ -58,8 +58,7 @@ if ( ! class_exists( 'Login_Designer_Theme_Template' ) ) :
 			add_filter( 'theme_page_templates', array( $this, 'add_new_template' ) );
 
 			// Add a filter to the save post to inject out template into the page cache.
-			add_filter( 'wp_insert_post_data', array( $this, 'register_project_templates' )
-			);
+			add_filter( 'wp_insert_post_data', array( $this, 'register_project_templates' ) );
 
 			// Add a filter to the template include to determine if the page has our template assigned and return it's path.
 			add_filter( 'template_include', array( $this, 'view_project_template' ) );

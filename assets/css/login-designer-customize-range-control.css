@@ -80,6 +80,7 @@
 	box-shadow: 0 0 0;
 	color: #555d66;
 	display: inline-block;
+	height: 26px;
 	line-height: 14px;
 	padding: 2px 0;
 	position: relative;
@@ -107,6 +108,7 @@
 	cursor: default;
 	display: inline-block;
 	font-style: normal;
+	margin-left: -2px;
 }
 
 .customize-control-login-designer-range .range-reset {

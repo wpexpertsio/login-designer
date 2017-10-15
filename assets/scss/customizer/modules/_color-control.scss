@@ -5,8 +5,8 @@
 		position: relative;
 
 		.customize-control-title {
-			font-weight: normal;
-			margin: 0;
+			margin: 0 0 3px;
+			line-height: 18px;
 		}
 
 		.customize-control-content {
@@ -25,17 +25,18 @@
 			}
 		}
 
-		.wp-picker-holder {
-			position: absolute;
-			top: 30px;
-			width: 100%;
-			z-index: 99999;
-		}
+		// .wp-picker-holder {
+		// 	position: absolute;
+		// 	top: 30px;
+		// 	width: 100%;
+		// 	z-index: 99999;
+		// }
 
 		.wp-picker-open+.wp-picker-input-wrap {
-			background: #eee;
-			position: absolute;
-			top: 7px;
+			// background: #eee;
+			// position: absolute;
+			// top: 7px;
+			margin-top: 1px;
 		}
 
 		.wp-color-result {
@@ -43,14 +44,29 @@
 			box-shadow: 0 0 0!important;
 			height: 20px;
 			margin: 0;
+			border: 0 !important;
 			padding-left: 20px;
 			position: absolute;
 			right: 0;
 			top: 2px;
 
-			&:hover,
-			&:focus {
-				border: 1px solid rgba(0, 0, 0, 0.3);
+			&::before {
+				box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+				height: calc( 100% -2px );
+				width: calc( 100% -2px );
+				top: 1px;
+				border-radius: 100%;
+				left: 1px;
+				right: 1px;
+				bottom: 1px;
+				content: '';
+				position: absolute;
+				transition: box-shadow $range--opacity-speed $range--opacity-cubic;
+			}
+
+			&:hover::before,
+			&:focus::before {
+				box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
 			}
 
 			&::after {

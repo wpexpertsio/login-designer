@@ -9,22 +9,28 @@
 		display: none;
 	}
 
-	.attachment-media-view {
-		margin-top: 8px;
-	}
+	// .attachment-media-view {
+	// 	margin-top: 8px;
+	// }
 }
 
-#customize-control-login_designer_custom_logo_margin_bottom {
-	border-bottom: 1px solid #ddd;
-	padding-bottom: 18px;
-	margin-bottom: 15px;
-}
+
+
+// .control-section:not(.open) {
+
+	// #customize-control-login_designer_custom_logo_margin_bottom,
+	// #customize-control-login_designer_form_background_color {
+	// 	border-bottom: 1px solid #ddd;
+	// 	padding-bottom: 18px;
+	// 	margin-bottom: 15px;
+	// }
+// }
 
 // Image uploader control mods.
 #sub-accordion-section-login_designer__section--styles {
 
 	.customize-control-title {
-		font-weight: 400;
+		font-weight: 500;
 	}
 }
 
@@ -68,7 +74,8 @@
 
 		button:not(.control-focus):not(.remove-button) {
 			background: transparent;
-			border-radius: 6px;
+			// border-radius: 6px;
+			border-radius: 0;
 			border: 1px dashed $border-color;
 			box-shadow: none;
 			color: #555d66;

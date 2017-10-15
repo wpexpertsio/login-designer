@@ -13,7 +13,7 @@
  */
 $wp_customize->add_setting( 'login_designer_body_bg_color', array(
 	'default'               => null,
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 	'sanitize_callback'     => 'sanitize_hex_color',
 ) );
 
@@ -23,36 +23,36 @@ $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logi
 ) ) );
 
 $wp_customize->add_setting( 'login_designer_body_bg_img__url', array(
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 	'sanitize_callback' 	=> 'esc_url',
 ) );
 
 $wp_customize->add_setting( 'login_designer_body_bg_img__id', array(
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 	'sanitize_callback' 	=> 'absint',
 ) );
 
 $wp_customize->add_setting( 'login_designer_body_bg_img__repeat', array(
 	'default' 		=> 'repeat',
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 	'sanitize_callback' 	=> 'sanitize_text_field',
 ) );
 
 $wp_customize->add_setting( 'login_designer_body_bg_img__size', array(
 	'default' 		=> 'cover',
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 	'sanitize_callback' 	=> 'sanitize_text_field',
 ) );
 
 $wp_customize->add_setting( 'login_designer_body_bg_img__attach', array(
 	'default' 		=> 'center-center',
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 	'sanitize_callback' 	=> 'sanitize_text_field',
 ) );
 
 $wp_customize->add_setting( 'login_designer_body_bg_img__position', array(
 	'default' 		=> 'fixed',
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 	'sanitize_callback' 	=> 'sanitize_text_field',
 ) );
 
@@ -72,7 +72,7 @@ $wp_customize->add_control( new Login_Designer_Background_Control( $wp_customize
 
 $wp_customize->add_setting( 'login_designer__gallery', array(
 	'default'               => null,
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Background_Gallery_Control( $wp_customize, 'login_designer__gallery', array(

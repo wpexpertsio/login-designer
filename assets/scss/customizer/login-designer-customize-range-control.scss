@@ -79,6 +79,7 @@
 			border: none;
 			box-shadow: 0 0 0;
 			color: $gray;
+			height: 26px;
 			display: inline-block;
 			line-height: 14px;
 			padding: 2px 0;
@@ -105,6 +106,7 @@
 			cursor: default;
 			display: inline-block;
 			font-style: normal;
+			margin-left: -2px;
 		}
 	}
 

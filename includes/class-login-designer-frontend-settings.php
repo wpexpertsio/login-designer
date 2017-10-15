@@ -28,8 +28,8 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 			add_action( 'login_headertitle', array( $this, 'login_headertitle' ) );
 			add_action( 'login_headerurl', array( $this, 'login_headerurl' ) );
 			add_filter( 'login_message', array( $this, 'login_message' ) );
-			add_filter( 'login_redirect', array( $this, 'login_redirect' ) , 10, 3 );
-			add_filter( 'logout_redirect', array( $this, 'logout_redirect' ) );
+			// add_filter( 'login_redirect', array( $this, 'login_redirect' ) , 10, 3 );
+			// add_filter( 'logout_redirect', array( $this, 'logout_redirect' ) );
 		}
 
 		/**
@@ -53,7 +53,7 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 		 * @return string
 		 */
 		public function login_headerurl() {
-			return get_page_link( get_theme_mod( 'login_designer_logo_url', home_url() ) );
+			// return get_page_link( get_theme_mod( 'login_designer_logo_url', home_url() ) );
 		}
 
 		/**
@@ -125,7 +125,7 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 					return home_url();
 				}
 			} else {
-				return get_page_link( get_theme_mod( 'login_designer__logout-redirect', home_url() ) );
+				return get_page_link( get_theme_mod( 'login_designer_logout_redirect', home_url() ) );
 			}
 		}
 	}

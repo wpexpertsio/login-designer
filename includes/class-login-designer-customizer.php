@@ -52,6 +52,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			$wp_customize->add_panel( 'login_designer', array(
 				'title'           => esc_html__( 'Login Designer', '@@textdomain' ),
 				'priority'        => 150,
+				'priority'        => 1,
 			) );
 
 			// Section.
@@ -84,7 +85,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/templates.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/style-editor.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/background.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/settings.php';
+			// require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/settings.php';
 		}
 
 		/**

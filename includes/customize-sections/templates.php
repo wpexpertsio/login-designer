@@ -10,7 +10,7 @@
 
 $wp_customize->add_setting( 'login_designer__template-selector', array(
 	'default'               => 'login_designer__template--01',
-	'transport'             => 'postMessage',
+	// 'transport'             => 'postMessage',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Template_Control( $wp_customize, 'login_designer__template-selector', array(

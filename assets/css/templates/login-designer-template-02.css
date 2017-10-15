@@ -60,10 +60,6 @@ body.login-designer-template-02.has-template-applied {
 	box-shadow: none;
 }
 
-.login form {
-	overflow: visible;
-}
-
 #loginform .customizer__border {
 	background-color: #0073aa;
 	display: none !important;

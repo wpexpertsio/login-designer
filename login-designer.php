@@ -152,12 +152,13 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			if ( is_admin() ) {
 				require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/admin/admin-action-links.php';
 			}
+
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/install.php';
 		}
 
 		/**
 		 * Load the actions
 		 *
-		 * @since  1.0.0
 		 * @return void
 		 */
 		public function actions() {
@@ -170,7 +171,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * Add the plugin version to the header.
 		 *
 		 * @access public
-		 * @since 1.0.0
 		 * @return void
 		 */
 		public function version_in_header() {
@@ -181,7 +181,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * Add a page under the "Apperance" menu, that links to the Customizer.
 		 *
 		 * @access public
-		 * @since 1.0.0
 		 * @return void
 		 */
 		public function options_page() {
@@ -192,13 +191,15 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * Hook to redirect the page for the Customizer.
 		 *
 		 * @access public
-		 * @since 1.0.0
 		 * @return void
 		 */
 		public function redirect_customizer() {
 			if ( ! empty( $_GET['page'] ) ) { // Input var okay.
 				if ( 'login-designer' === $_GET['page'] ) { // Input var okay.
-					wp_redirect( admin_url( '/customize.php?autofocus[panel]=login_designer&url='.home_url( '/login-designer' ) ) );
+
+					$page = get_page_by_title( 'Login Designer' );
+
+					wp_redirect( admin_url( '/customize.php?autofocus[panel]=login_designer&url='.get_permalink( $page ) ) );
 				}
 			}
 		}

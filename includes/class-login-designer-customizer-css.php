@@ -45,9 +45,13 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 			$login_background_image_size 		= get_theme_mod( 'login_designer_body_bg_img__size', 'cover' );
 			$login_background_image_attachment 	= get_theme_mod( 'login_designer_body_bg_img__attach', 'fixed' );
 
+			$form_padding_side			= get_theme_mod( 'login_designer_form_padding_side', null ) . 'px';
+			$form_padding_top_bottom 		= get_theme_mod( 'login_designer_form_padding_top_bottom', null ) . 'px';
 			$form_background_color 			= get_theme_mod( 'login_designer_form_background_color', null );
-			$form_width				= get_theme_mod( 'login_designer_form_width_css', null );
+			$form_width				= get_theme_mod( 'login_designer_form_width', null ) . 'px';
 			$form_border_radius			= get_theme_mod( 'login_designer_form_border_radius', null );
+			$form_box_shadow			= get_theme_mod( 'login_designer_form_box_shadow', null ) . 'px';
+			$form_box_shadow_opacity		= get_theme_mod( 'login_designer_form_box_shadow_opacity', null ) * .01;
 
 			$logo_css = null;
 			$logo_margin_bottom_css = null;
@@ -56,14 +60,29 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 			$form_background_color_css = null;
 			$form_width_css = null;
 			$form_border_radius_css = null;
+			$form_padding_side_css = null;
+			$form_padding_top_bottom_css = null;
+			$form_box_shadow_css = null;
+
+			// Styles that fix the default form.
+			$default = '
+				#login > p {
+					text-align: center;
+					padding: 0;
+					margin: 10px 0;
+				}
+				.login form .forgetmenot {
+					margin-top: 5px;
+				}
+			';
 
 			if ( $logo ) {
 				$size = getimagesize( $logo );
 
 				$logo_css = '
 					body.login #login h1 a {
-						background-image: url("'. esc_url( $logo ).'");
-						background-size: '. esc_attr( $size[0] / 2 ).'px '. esc_attr( $size[1] / 2 ).'px ;
+						background-image: url("'. esc_url( $logo ) .'");
+						background-size: '. esc_attr( $size[0] / 2 ) .'px '. esc_attr( $size[1] / 2 ) .'px ;
 						background-position: center center;
 					}
 
@@ -77,7 +96,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 
 				$logo_margin_bottom_css = '
 					body.login #login h1 a {
-						margin-bottom: '. esc_attr( $logo_margin_bottom ).'px;
+						margin-bottom: '. esc_attr( $logo_margin_bottom ) .'px;
 					}
 				';
 			}
@@ -85,7 +104,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 			if ( $login_background_color ) {
 				$login_background_color_css = '
 					body.login {
-						background-color: '. esc_attr( $login_background_color ).';
+						background-color: '. esc_attr( $login_background_color ) .';
 					}
 				';
 			}
@@ -93,19 +112,19 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 			if ( $login_background_image_url ) {
 				$login_background_image_css = '
 					body.login {
-						background-image: url("'. esc_attr( $login_background_image_url ).'");
-						background-repeat: '. esc_attr( $login_background_image_repeat ).';
-						background-position: '. esc_attr( $login_background_image_position ).';
-						background-size: '. esc_attr( $login_background_image_size ).';
-						background-attachment: '. esc_attr( $login_background_image_attachment ).';
+						background-image: url("'. esc_attr( $login_background_image_url ) .'");
+						background-repeat: '. esc_attr( $login_background_image_repeat ) .';
+						background-position: '. esc_attr( $login_background_image_position ) .';
+						background-size: '. esc_attr( $login_background_image_size ) .';
+						background-attachment: '. esc_attr( $login_background_image_attachment ) .';
 					}
 				';
 			}
 
-			if ( $login_background_color ) {
+			if ( $form_background_color ) {
 				$form_background_color_css = '
 					#loginform {
-						background-color: '. esc_attr( $form_background_color ).';
+						background-color: '. esc_attr( $form_background_color ) .';
 					}
 				';
 			}
@@ -114,7 +133,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 				$form_border_radius_css = '
 					#loginform,
 					#loginform::after {
-						border-radius: '. esc_attr( $form_border_radius ).'px;
+						border-radius: '. esc_attr( $form_border_radius ) .'px;
 					}
 				';
 			}
@@ -122,12 +141,72 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 			if ( $form_width ) {
 				$form_width_css = '
 					#login {
-						width: '. esc_attr( $form_width ).';
+						width: '. esc_attr( $form_width ) .';
 					}
 				';
 			}
 
-			wp_add_inline_style( 'login', wp_strip_all_tags( $logo_css . $logo_margin_bottom_css . $login_background_color_css . $login_background_image_css . $form_background_color_css . $form_border_radius_css . $form_width_css ) );
+			if ( $form_padding_side ) {
+				$form_padding_side_css = '
+					#loginform {
+						padding-left: '. esc_attr( $form_padding_side ) .';
+						padding-right: '. esc_attr( $form_padding_side ) .';
+					}
+				';
+			}
+
+			if ( $form_padding_top_bottom ) {
+				$form_padding_top_bottom_css = '
+					#loginform {
+						padding-top: '. esc_attr( $form_padding_top_bottom ) .';
+						padding-bottom: '. esc_attr( $form_padding_top_bottom ) .';
+					}
+				';
+			}
+
+			if ( $form_box_shadow || $form_box_shadow_opacity ) {
+
+				$opacity = ( $form_box_shadow_opacity ) ? $form_box_shadow_opacity : 0;
+
+				$form_box_shadow_css = '
+					#loginform {
+						box-shadow: 0 1px '. esc_attr( $form_box_shadow ) .' rgba(0, 0, 0, '. esc_attr( $opacity ) .');
+					}
+				';
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+			/**
+			* Combine the values from above and minifiy them.
+			*/
+			$minified_css = $default .
+					$logo_css .
+					$logo_margin_bottom_css .
+					$login_background_color_css .
+					$login_background_image_css .
+					$form_background_color_css .
+					$form_border_radius_css .
+					$form_width_css .
+					$form_padding_side_css .
+					$form_padding_top_bottom_css .
+					$form_box_shadow_css;
+
+			// $minified_css = preg_replace( '#/\*.*?\*/#s', '', $minified_css );
+			// $minified_css = preg_replace( '/\s*([{}|:;,])\s+/', '$1', $minified_css );
+			// $minified_css = preg_replace( '/\s\s+(.*)/', '$1', $minified_css );
+
+			wp_add_inline_style( 'login', wp_strip_all_tags( $minified_css ) );
 		}
 	}
 

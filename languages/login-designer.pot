@@ -209,14 +209,14 @@ msgstr ""
 msgid "Install New Template"
 msgstr ""
 
-#: includes/customize-controls/customizer.php:34, loginly.php:186
+#: includes/customize-controls/customizer.php:34, login-designer.php:186
 msgid "Login Editor"
 msgstr ""
 
-#: loginly.php:94, loginly.php:106
+#: login-designer.php:94, login-designer.php:106
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: loginly.php:186
+#: login-designer.php:186
 msgid "Login_Designer"
 msgstr ""

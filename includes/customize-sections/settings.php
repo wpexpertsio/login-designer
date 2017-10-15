@@ -37,13 +37,13 @@ $wp_customize->add_control( 'login_designer_login_redirect', array(
 	'allow_addition' => true,
 ) );
 
-$wp_customize->add_setting( 'login_designer__logout-redirect', array(
+$wp_customize->add_setting( 'login_designer_logout_redirect', array(
 	'default'           => '',
 	'sanitize_callback' => 'absint',
 	'transport'         => 'postMessage',
 ) );
 
-$wp_customize->add_control( 'login_designer__logout-redirect', array(
+$wp_customize->add_control( 'login_designer_logout_redirect', array(
 	'label'          => esc_html__( 'Logout Redirect', '@@textdomain' ),
 	'section'        => 'login_designer__section--settings',
 	'type'           => 'dropdown-pages',

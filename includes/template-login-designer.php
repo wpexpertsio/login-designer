@@ -3,6 +3,7 @@
  * Template Name: Login Designer
  *
  * Template to display the WordPress login form in the Customizer.
+ * This is essentially a stripped down version of wp-login.php
  *
  * @package   @@pkg.name
  * @copyright @@pkg.copyright
@@ -31,6 +32,7 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 
 	// Shake it!
 	$shake_error_codes = array( 'empty_password', 'empty_email', 'invalid_email', 'invalidcombo', 'empty_username', 'invalid_username', 'incorrect_password' );
+
 	/**
 	 * Filters the error codes array for shaking the login form.
 	 *
@@ -39,9 +41,13 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 	 * @param array $shake_error_codes Error codes that shake the login form.
 	 */
 	$shake_error_codes = apply_filters( 'shake_error_codes', $shake_error_codes );
-	if ( $shake_error_codes && $wp_error->get_error_code() && in_array( $wp_error->get_error_code(), $shake_error_codes ) )
+
+	if ( $shake_error_codes && $wp_error->get_error_code() && in_array( $wp_error->get_error_code(), $shake_error_codes ) ) {
 		add_action( 'login_head', 'wp_shake_js', 12 );
+	}
+
 	$login_title = get_bloginfo( 'name', 'display' );
+
 	/* translators: Login screen title. 1: Login screen name, 2: Network or site name */
 	$login_title = sprintf( __( '%1$s &lsaquo; %2$s &#8212; WordPress' ), $title, $login_title );
 	/**
@@ -54,17 +60,9 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 	 */
 	$login_title = apply_filters( 'login_title', $login_title, $title );
 	?><!DOCTYPE html>
-	<!--[if IE 8]>
-		<html xmlns="http://www.w3.org/1999/xhtml" class="ie8" <?php language_attributes(); ?>>
-	<![endif]-->
-	<!--[if !(IE 8) ]><!-->
-		<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
-	<!--<![endif]-->
 	<head>
-	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
-	<title><?php echo $login_title; ?></title>
-	<?php
-	wp_enqueue_style( 'login' );
+	<title><?php echo esc_attr( $login_title ); ?></title>
+	<?php wp_enqueue_style( 'login' );
 
 	/**
 	 * Enqueue scripts and styles for the login page.
@@ -79,6 +77,7 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 	 * @since 2.1.0
 	 */
 	do_action( 'login_head' );
+
 	if ( is_multisite() ) {
 		$login_header_url   = network_home_url();
 		$login_header_title = get_network()->site_name;
@@ -86,6 +85,7 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 		$login_header_url   = __( 'https://wordpress.org/' );
 		$login_header_title = __( 'Powered by WordPress' );
 	}
+
 	/**
 	 * Filters link URL of the header logo above login form.
 	 *
@@ -94,6 +94,7 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 	 * @param string $login_header_url Login header logo URL.
 	 */
 	$login_header_url = apply_filters( 'login_headerurl', $login_header_url );
+
 	/**
 	 * Filters the title attribute of the header logo above login form.
 	 *
@@ -103,17 +104,23 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 	 */
 	$login_header_title = apply_filters( 'login_headertitle', $login_header_title );
 	$classes = array( 'login-action-' . $action, 'wp-core-ui' );
-	if ( is_rtl() )
+
+	if ( is_rtl() ) {
 		$classes[] = 'rtl';
+	}
+
 	if ( $interim_login ) {
 		$classes[] = 'interim-login';
 		?>
 		<style type="text/css">html{background-color: transparent;}</style>
 		<?php
-		if ( 'success' ===  $interim_login )
+		if ( 'success' ===  $interim_login ) {
 			$classes[] = 'interim-login-success';
+		}
 	}
+
 	$classes[] =' locale-' . sanitize_html_class( strtolower( str_replace( '_', '-', get_locale() ) ) );
+
 	/**
 	 * Filters the login page body classes.
 	 *
@@ -125,7 +132,9 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 	$classes = apply_filters( 'login_body_class', $classes, $action );
 	?>
 	</head>
+
 	<body class="login <?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+
 	<?php
 	/**
 	 * Fires in the login page header after the body tag is opened.
@@ -135,7 +144,7 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 	do_action( 'login_header' );
 	?>
 	<div id="login">
-		<h1 id="loginly-logo-h1"><a id="loginly-logo" class="customize-unpreviewable" href="<?php echo esc_url( $login_header_url ); ?>" title="<?php echo esc_attr( $login_header_title ); ?>" tabindex="-1"><?php bloginfo( 'name' ); ?></a></h1>
+		<h1 id="login-designer-logo-h1"><a id="login-designer-logo" class="customize-unpreviewable" href="<?php echo esc_url( $login_header_url ); ?>" title="<?php echo esc_attr( $login_header_title ); ?>" tabindex="-1"><?php bloginfo( 'name' ); ?></a></h1>
 	<?php
 	unset( $login_header_url, $login_header_title );
 	/**
@@ -829,14 +838,14 @@ default:
 <form name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
 	<p>
 		<label for="user_login"><?php _e( 'Username or Email Address' ); ?><br />
-		<div id="loginly--username">
+		<div id="login-designer--username">
 			<input type="text" name="log" id="user_login"<?php echo $aria_describedby_error; ?> class="input" value="email@address.com" size="20" /></label>
 		</div>
 	</p>
 	<p>
 
 		<label for="user_pass"><?php _e( 'Password' ); ?><br />
-			<div id="loginly--password">
+			<div id="login-designer--password">
 		<input type="password" name="pwd" id="user_pass"<?php echo $aria_describedby_error; ?> class="input" value="password" size="20" /></label>
 	</div>
 	</p>

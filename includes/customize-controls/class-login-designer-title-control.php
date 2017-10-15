@@ -50,7 +50,7 @@ class Login_Designer_Title_Control extends WP_Customize_Control {
 		}
 
 		if ( ! empty( $this->description ) ) {
-			echo '<div class="customize-control-tooltip-wrapper"><span class="customize-control-tooltip hint hint--top" data-hint="' . esc_html( $this->description ) . '"><span class="customize-control-tooltip-icon"></span></span></div>';
+			echo '<span class="customize-control-description">' . esc_html( $this->description ) . '</span>';
 		}
 
 	}
