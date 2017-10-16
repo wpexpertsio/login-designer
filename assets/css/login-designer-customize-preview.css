@@ -43,14 +43,13 @@
 
 #login-designer--username,
 #login-designer--password {
+	border-width: 2px;
 	margin-bottom: 16px;
 }
 
 #login-designer--username input,
 #login-designer--password input {
 	margin-bottom: 0;
-	-webkit-transition: border-color 50ms cubic-bezier(0.33, 0, 0.2, 1);
-	transition: border-color 50ms cubic-bezier(0.33, 0, 0.2, 1);
 }
 
 #login-designer--username .customizer-event-overlay,
@@ -60,14 +59,9 @@
 	top: 2px;
 }
 
-#login-designer--username:hover input,
-#login-designer--password:hover input {
-	border-color: #0085ba;
-}
-
 #login-designer--username:hover .customizer-event-overlay,
 #login-designer--password:hover .customizer-event-overlay {
-	background: rgba(0, 167, 233, 0.05);
+	background: rgba(0, 167, 233, 0.066);
 	opacity: 1 !important;
 }
 
