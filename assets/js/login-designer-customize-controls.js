@@ -8,6 +8,63 @@
 (function() {
 	wp.customize.bind( 'ready', function() {
 
+		/**
+		 * Function to hide/show Customizer options, based on another control.
+		 *
+		 * Parent option, Affected Control, Value which affects the control.
+		 */
+		function customizer_image_option_display( parent_setting, affected_control ) {
+			wp.customize( parent_setting, function( setting ) {
+				wp.customize.control( affected_control, function( control ) {
+					var visibility = function() {
+						if ( setting.get() ) {
+							control.container.slideDown( 180 );
+						} else {
+							control.container.slideUp( 180 );
+						}
+					};
+
+					visibility();
+					setting.bind( visibility );
+				});
+			});
+		}
+
+		/**
+		 * Function to hide/show Customizer options, based on a range control value.
+		 *
+		 * Parent option, Affected Control, Value which affects the control.
+		 */
+		function customizer_range_option_display( parent_setting, affected_control, value ) {
+			wp.customize( parent_setting, function( setting ) {
+				wp.customize.control( affected_control, function( control ) {
+					var visibility = function() {
+						if ( value < setting.get() ) {
+							control.container.slideDown( 180 );
+						} else {
+							control.container.slideUp( 180 );
+						}
+					};
+
+					visibility();
+					setting.bind( visibility );
+				});
+			});
+		}
+
+		// Only show the Twitter profile option, if social sharing is enabled.
+		customizer_image_option_display( 'login_designer_custom_logo', 'login_designer_custom_logo_margin_bottom' );
+
+		// Only show the border color style option, if the border is greater than zero.
+		customizer_range_option_display( 'login_designer_form_field_border_size', 'login_designer_form_field_border_color', '0' );
+
+		// Only show the shadow opacity style option, if the shadow is greater than zero.
+		customizer_range_option_display( 'login_designer_form_box_shadow', 'login_designer_form_box_shadow_opacity', '0' );
+
+		// Only show the shadow opacity and inset style options, if the shadow is greater than zero.
+		customizer_range_option_display( 'login_designer_form_field_box_shadow', 'login_designer_form_field_box_shadow_opacity', '0' );
+		customizer_range_option_display( 'login_designer_form_field_box_shadow', 'login_designer_form_field_box_shadow_inset', '0' );
+
 		// Detect when the front page sections section is expanded (or closed) so we can adjust the preview accordingly.
 		wp.customize.panel( 'login_designer', function( section ) {
 			section.expanded.bind( function( isExpanding ) {

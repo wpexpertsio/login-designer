@@ -1,0 +1,32 @@
+.customize-control-checkbox {
+
+	label {
+		line-height: 20px;
+		display: block;
+		margin-left: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+		font-size: 14px;
+		font-weight: 500;
+		transform: translate3d(0, 0, 0);
+	}
+
+	input {
+		margin-left: 0;
+		margin-right: 0;
+		position: absolute;
+		right: 1px;
+		top: 2px;
+		border-radius: 100%;
+		height: 22px;
+		width: 22px;
+	}
+
+	input[type=checkbox]:checked:before {
+		margin: 0px 0 0 -2px;
+
+		@media screen and (max-width: 782px) {
+			margin: -3px 0 0 -6px !important;
+		}
+	}
+}

@@ -69,6 +69,18 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 			$form_box_shadow			= get_theme_mod( 'login_designer_form_box_shadow', null ) . 'px';
 			$form_box_shadow_opacity		= get_theme_mod( 'login_designer_form_box_shadow_opacity', null ) * .01;
 
+			$form_field_background_color		= get_theme_mod( 'login_designer_form_field_background', null );
+			$form_field_border_size			= get_theme_mod( 'login_designer_form_field_border_size', '1' ) . 'px';
+			$form_field_border_color		= get_theme_mod( 'login_designer_form_field_border_color', null );
+
+			$form_field_side_padding		= get_theme_mod( 'login_designer_form_field_side_padding', null ) . 'px';
+			$form_field_text_size			= get_theme_mod( 'login_designer_form_field_text_size', null ) . 'px';
+			$form_field_text_color			= get_theme_mod( 'login_designer_form_field_text_color', null );
+
+			$form_field_box_shadow			= get_theme_mod( 'login_designer_form_field_box_shadow', null ) . 'px';
+			$form_field_box_shadow_opacity		= get_theme_mod( 'login_designer_form_field_box_shadow_opacity', null ) * .01;
+			$form_field_box_shadow_inset		= get_theme_mod( 'login_designer_form_field_box_shadow_inset', true );
+
 			$logo_css = null;
 			$logo_margin_bottom_css = null;
 			$login_background_color_css = null;
@@ -79,6 +91,14 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 			$form_padding_side_css = null;
 			$form_padding_top_bottom_css = null;
 			$form_box_shadow_css = null;
+
+			$form_field_background_css = null;
+			$form_field_border_size_css = null;
+			$form_field_border_color_css = null;
+			$form_field_side_padding_css = null;
+			$form_field_text_size_css = null;
+			$form_field_text_color_css = null;
+			$form_field_box_shadow_css = null;
 
 			// Styles that fix the default form.
 			$default = '
@@ -209,7 +229,70 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 				';
 			}
 
+			if ( $form_field_background_color ) {
+				$form_field_background_css = '
+					#loginform .input {
+						background-color: '. esc_attr( $form_field_background_color ) .';
+					}
+				';
+			}
 
+			if ( $form_field_border_size ) {
+
+				$form_field_border_size_css = '
+					#loginform .input {
+						border-style: solid;
+						border-width:  '. esc_attr( $form_field_border_size ) .';
+					}
+				';
+			}
+
+			if ( $form_field_border_color ) {
+
+				$form_field_border_color_css = '
+					#loginform .input {
+						border-color: '. esc_attr( $form_field_border_color ) .';
+					}
+				';
+			}
+
+			if ( $form_field_side_padding ) {
+				$form_field_side_padding_css = '
+					#loginform .input {
+						padding-left: '. esc_attr( $form_field_side_padding ) .';
+						padding-right: '. esc_attr( $form_field_side_padding ) .';
+					}
+				';
+			}
+
+			if ( $form_field_text_size ) {
+				$form_field_text_size_css = '
+					#loginform .input {
+						font-size: '. esc_attr( $form_field_text_size ) .';
+					}
+				';
+			}
+
+			if ( $form_field_text_color ) {
+				$form_field_text_color_css = '
+					#loginform .input {
+						color: '. esc_attr( $form_field_text_color ) .';
+					}
+				';
+			}
+
+			if ( $form_field_box_shadow || $form_field_box_shadow_opacity ) {
+
+				$opacity = ( $form_field_box_shadow_opacity ) ? $form_field_box_shadow_opacity : 0;
+
+				$inset = ( $form_field_box_shadow_inset ) ? 'inset' : null;
+
+				$form_field_box_shadow_css = '
+					#loginform .input  {
+						box-shadow: '. esc_attr( $inset ) .' 0 0 '. esc_attr( $form_field_box_shadow ) .' rgba(0, 0, 0, '. esc_attr( $opacity ) .');
+					}
+				';
+			}
 
 
 
@@ -234,7 +317,14 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 					$form_width_css .
 					$form_padding_side_css .
 					$form_padding_top_bottom_css .
-					$form_box_shadow_css;
+					$form_box_shadow_css .
+					$form_field_background_css .
+					$form_field_border_size_css .
+					$form_field_border_color_css .
+					$form_field_side_padding_css .
+					$form_field_text_size_css .
+					$form_field_text_color_css .
+					$form_field_box_shadow_css;
 
 			// $minified_css = preg_replace( '#/\*.*?\*/#s', '', $minified_css );
 			// $minified_css = preg_replace( '/\s*([{}|:;,])\s+/', '$1', $minified_css );

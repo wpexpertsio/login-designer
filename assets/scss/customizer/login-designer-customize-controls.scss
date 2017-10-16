@@ -4,44 +4,15 @@
 // Color Controls.
 @import "modules/color-control";
 
-
-
-
-// .customize-partial--loginform {
-// 	top: 0 !important;
-// 	left: 0!important;
-// }
-
-// .login-designer-event-button.customize-partial-edit-shortcut-button.customize-partial--loginform {
-// 	display: none;
-// }
-
-
-
-
+// Checkbox.
+@import "modules/checkbox";
 
 #customize-control-login_designer_custom_logo {
 
 	.customize-control-title {
 		display: none;
 	}
-
-	// .attachment-media-view {
-	// 	margin-top: 8px;
-	// }
 }
-
-
-
-// .control-section:not(.open) {
-
-	// #customize-control-login_designer_custom_logo_margin_bottom,
-	// #customize-control-login_designer_form_background_color {
-	// 	border-bottom: 1px solid #ddd;
-	// 	padding-bottom: 18px;
-	// 	margin-bottom: 15px;
-	// }
-// }
 
 // Image uploader control mods.
 #sub-accordion-section-login_designer__section--styles {

@@ -25,6 +25,14 @@
 		'fields' : [
 			'login_designer_title_form_fields',
 			'login_designer_form_field_background',
+			'login_designer_form_field_border_size',
+			'login_designer_form_field_border_color',
+			'login_designer_form_field_text_size',
+			'login_designer_form_field_text_color',
+			'login_designer_form_field_side_padding',
+			'login_designer_form_field_box_shadow',
+			'login_designer_form_field_box_shadow_opacity',
+			'login_designer_form_field_box_shadow_inset',
 		],
 	};
 
@@ -50,7 +58,120 @@
 		controls.forEach( function( item, index, array ) {
 
 			if ( action == 'activate' ) {
-				wp.customize.control( item ).activate();
+
+				// For this particular control, let's check to see if corresponding options are visible.
+				// We only want to show relevant options based on the user's contextual design decisions.
+				if ( item === 'login_designer_custom_logo_margin_bottom' ) {
+
+					wp.customize( 'login_designer_custom_logo', function( setting ) {
+						wp.customize.control( 'login_designer_custom_logo_margin_bottom', function( control ) {
+							var visibility = function() {
+
+								if ( setting.get() ) {
+									// If there is a custom logo uploaded, let's show the bottom positioning option.
+									wp.customize.control( item ).activate();
+								} else {
+									// If not, let's quickly hide it.
+									control.container.slideUp( 0 );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
+				} else if ( item === 'login_designer_form_box_shadow_opacity' ) {
+
+					wp.customize( 'login_designer_form_box_shadow', function( setting ) {
+						wp.customize.control( 'login_designer_form_box_shadow_opacity', function( control ) {
+							var visibility = function() {
+
+								if ( '0' < setting.get() ) {
+									// If there is a custom logo uploaded, let's show the bottom positioning option.
+									wp.customize.control( item ).activate();
+								} else {
+									// If not, let's quickly hide it.
+									control.container.slideUp( 0 );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
+				} else if ( item === 'login_designer_form_field_box_shadow_opacity' ) {
+
+					wp.customize( 'login_designer_form_field_box_shadow', function( setting ) {
+						wp.customize.control( 'login_designer_form_field_box_shadow_opacity', function( control ) {
+							var visibility = function() {
+
+								if ( '0' < setting.get() ) {
+									// If there is a custom logo uploaded, let's show the bottom positioning option.
+									wp.customize.control( item ).activate();
+								} else {
+									// If not, let's quickly hide it.
+									control.container.slideUp( 0 );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
+				} else if ( item === 'login_designer_form_field_box_shadow_inset' ) {
+
+					wp.customize( 'login_designer_form_field_box_shadow', function( setting ) {
+						wp.customize.control( 'login_designer_form_field_box_shadow_inset', function( control ) {
+							var visibility = function() {
+
+								if ( '0' < setting.get() ) {
+									// If there is a custom logo uploaded, let's show the bottom positioning option.
+									wp.customize.control( item ).activate();
+									console.log( 'has a shadow' );
+								} else {
+									// If not, let's quickly hide it.
+									control.container.slideUp( 0 );
+									console.log( 'no shadow' );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
+				}
+
+				else if ( item === 'login_designer_form_field_border_color' ) {
+
+					wp.customize( 'login_designer_form_field_border_size', function( setting ) {
+						wp.customize.control( 'login_designer_form_field_border_color', function( control ) {
+							var visibility = function() {
+
+								if ( '0' < setting.get() ) {
+									// If there is a custom logo uploaded, let's show the bottom positioning option.
+									wp.customize.control( item ).activate();
+									console.log( 'border' );
+								} else {
+									// If not, let's quickly hide it.
+									control.container.slideUp( 0 );
+									console.log( 'no border' );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
+				} else {
+					// Activate all others.
+					wp.customize.control( item ).activate();
+				}
+
 			} else {
 				wp.customize.control( item ).deactivate();
 			}
@@ -58,8 +179,6 @@
 			if ( controls[0] ) {
 				wp.customize.control( item ).container.addClass( 'is-active' );
 			}
-
-			// console.log(item, index);
 		});
 	}
 

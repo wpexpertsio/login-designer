@@ -1,7 +1,5 @@
 .customize-control-login-designer-title {
 	margin-top: 25px;
-	-webkit-transition: margin 200ms cubic-bezier(0.19, 1, 0.22, 1);
-	transition: margin 200ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .customize-control-login-designer-title.is-active {

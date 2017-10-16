@@ -72,6 +72,39 @@
 	display: none;
 }
 
+.customize-control-checkbox label {
+	display: block;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+	margin-left: 0;
+	padding-bottom: 0;
+	padding-top: 0;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.customize-control-checkbox input {
+	border-radius: 100%;
+	height: 22px;
+	margin-left: 0;
+	margin-right: 0;
+	position: absolute;
+	right: 1px;
+	top: 2px;
+	width: 22px;
+}
+
+.customize-control-checkbox input[type=checkbox]:checked:before {
+	margin: 0 0 0 -2px;
+}
+
+@media screen and (max-width: 782px) {
+	.customize-control-checkbox input[type=checkbox]:checked:before {
+		margin: -3px 0 0 -6px !important;
+	}
+}
+
 #customize-control-login_designer_custom_logo .customize-control-title {
 	display: none;
 }
