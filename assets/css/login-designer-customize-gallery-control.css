@@ -1,11 +1,84 @@
 .customize-control-login-designer-gallery .customize-control-description {
-	font-style: normal;
-	margin-bottom: 15px;
+	display: none;
+}
+
+#customize-control-login_designer_bg_image {
+	max-height: 160px;
+	overflow-y: hidden;
+	-webkit-transition: all 300ms;
+	transition: all 300ms;
+}
+
+#customize-control-login_designer_bg_image.gallery-is-open {
+	margin: 0 !important;
+	max-height: 0;
+}
+
+#customize-control-login_designer_bg_image .button.upload-button.control-focus {
+	display: none;
+}
+
+#customize-control-login_designer_bg_image .button.remove-button {
+	background: #0085ba !important;
+	border: 2px solid #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 1px rgba(46, 68, 83, 0.15);
+	color: #0085ba !important;
+	height: 30px !important;
+	margin: 0 !important;
+	position: absolute;
+	right: 8px;
+	top: 8px;
+	width: 30px !important;
+}
+
+#customize-control-login_designer_bg_image .button.remove-button:hover {
+	background: #008ec2 !important;
+}
+
+#customize-control-login_designer_bg_image .button.remove-button::after {
+	color: #fff;
+	content: "\f335";
+	font: 400 19px/72px dashicons;
+	position: absolute;
+	right: 3px;
+	top: -23px;
+	-webkit-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+
+#customize-control-login_designer_bg_image_gallery.gallery-is-open {
+	margin-top: -13px !important;
+}
+
+#gallery-button {
+	margin-bottom: 10px;
+	margin-top: -10px;
+	-webkit-transition: all 200ms;
+	transition: all 200ms;
+}
+
+.gallery-is-open #gallery-button {
+	margin-bottom: 10px;
+	margin-top: 9px;
+}
+
+#login-designer-gallery {
+	max-height: 0;
+	overflow-y: hidden;
+	padding-top: 5px;
+	-webkit-transition: all 300ms ease 100ms;
+	transition: all 300ms ease 100ms;
+}
+
+#login-designer-gallery.open {
+	max-height: 140px;
 }
 
 .gallery__item {
 	float: left;
-	width: 25%;
+	width: 20%;
 }
 
 .gallery {
@@ -41,13 +114,8 @@
 	}
 }
 
-.checkbox:checked + label .gallery--intrinsic {
-	-webkit-animation: portfolio_pro_likes_animation 300ms;
-	animation: portfolio_pro_likes_animation 300ms;
+#login-designer-gallery.open .checkbox:checked + label .gallery--intrinsic {
 	box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-	-webkit-transform-origin: center;
-	-ms-transform-origin: center;
-	transform-origin: center;
 }
 
 .gallery--intrinsic:after {
@@ -62,8 +130,8 @@
 		transform: scale(1) translate3d(0, 0, 0);
 	}
 	50% {
-		-webkit-transform: scale(1.1) translate3d(0, 0, 0);
-		transform: scale(1.1) translate3d(0, 0, 0);
+		-webkit-transform: scale(1.05) translate3d(0, 0, 0);
+		transform: scale(1.05) translate3d(0, 0, 0);
 	}
 	100% {
 		-webkit-transform: scale(1) translate3d(0, 0, 0);
@@ -77,8 +145,8 @@
 		transform: scale(1) translate3d(0, 0, 0);
 	}
 	50% {
-		-webkit-transform: scale(1.1) translate3d(0, 0, 0);
-		transform: scale(1.1) translate3d(0, 0, 0);
+		-webkit-transform: scale(1.05) translate3d(0, 0, 0);
+		transform: scale(1.05) translate3d(0, 0, 0);
 	}
 	100% {
 		-webkit-transform: scale(1) translate3d(0, 0, 0);

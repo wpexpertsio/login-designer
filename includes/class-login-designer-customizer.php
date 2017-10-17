@@ -145,35 +145,43 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			return apply_filters( 'login_designer_templates', array(
 				'01' => array(
 					'title' => esc_html__( '01', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '01.jpg',
+					'image' => esc_url( $image_dir ) . '01-sml.jpg',
 				),
 				'02' => array(
 					'title' => esc_html__( '02', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '02.jpg',
+					'image' => esc_url( $image_dir ) . '01-sml.jpg',
 				),
 				'03' => array(
 					'title' => esc_html__( '03', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '03.jpg',
+					'image' => esc_url( $image_dir ) . '01-sml.jpg',
 				),
 				'04' => array(
 					'title' => esc_html__( '04', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '04.jpg',
+					'image' => esc_url( $image_dir ) . '01-sml.jpg',
 				),
 				'05' => array(
 					'title' => esc_html__( '05', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '05.jpg',
+					'image' => esc_url( $image_dir ) . '01-sml.jpg',
 				),
 				'06' => array(
 					'title' => esc_html__( '06', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '06.jpg',
+					'image' => esc_url( $image_dir ) . '01-sml.jpg',
 				),
 				'07' => array(
 					'title' => esc_html__( '07', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '07.jpg',
+					'image' => esc_url( $image_dir ) . '01-sml.jpg',
 				),
 				'08' => array(
 					'title' => esc_html__( '08', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '08.jpg',
+					'image' => esc_url( $image_dir ) . '01-sml.jpg',
+				),
+				'09' => array(
+					'title' => esc_html__( '08', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . '01-sml.jpg',
+				),
+				'none' => array(
+					'title' => esc_html__( 'None', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . '01-sml.jpg',
 				),
 			) );
 		}

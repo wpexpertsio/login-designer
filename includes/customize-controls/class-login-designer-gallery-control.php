@@ -49,6 +49,9 @@ class Login_Designer_Background_Gallery_Control extends WP_Customize_Control {
 
 		// Custom control styles.
 		wp_enqueue_style( 'login-designer-gallery-control', $css_dir . 'login-designer-customize-gallery-control' . $suffix . '.css', LOGIN_DESIGNER_VERSION, 'all' );
+
+		// Custom control scripts.
+		wp_enqueue_script( 'login-designer-gallery-control', $js_dir . 'login-designer-customize-gallery-control' . $suffix . '.js', array( 'jquery' ), LOGIN_DESIGNER_VERSION, 'all' );
 	}
 
 	/**
@@ -68,7 +71,7 @@ class Login_Designer_Background_Gallery_Control extends WP_Customize_Control {
 			echo '<span class="description customize-control-description">' . esc_html( $this->description ) . '</span>';
 		} ?>
 
-		<div class="gallery">
+		<div id="login-designer-gallery" class="gallery">
 			<?php foreach ( $this->choices as $value => $label ) { ?>
 
 				<div class="gallery__item">
@@ -83,6 +86,8 @@ class Login_Designer_Background_Gallery_Control extends WP_Customize_Control {
 
 			<?php } ?>
 		</div>
+
+		<button id="gallery-button" class="button"><?php esc_html_e( 'Open Gallery', '@@textdomain' ); ?></button>
 
 		<?php
 	}

@@ -55,6 +55,7 @@
 			'login_designer_bg_image_size',
 			'login_designer_bg_image_attach',
 			'login_designer_bg_image_position',
+			'login_designer_bg_image_gallery',
 		],
 	};
 

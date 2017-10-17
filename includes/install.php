@@ -61,10 +61,10 @@ function login_designer_run_install() {
 	// Customizable Login Designer page.
 	$page = array(
 		'post_title'	 => 'Login Designer',
-		'post_content'   => __( 'This page is used by Login Designer to preview the login forms in the Customizer.', '@@textdomain' ),
-		'post_status'	=> 'publish',
-		'post_author'	=> 1,
-		'post_type'	  => 'page',
+		'post_content'   => esc_html__( 'This page is used by Login Designer to preview the login forms in the Customizer.', '@@textdomain' ),
+		'post_status'	 => 'publish',
+		'post_author'	 => 1,
+		'post_type'	 => 'page',
 		'comment_status' => 'closed',
 	);
 

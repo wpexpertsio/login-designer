@@ -2,17 +2,88 @@
 @import "variables";
 
 .customize-control-login-designer-gallery .customize-control-description {
-	font-style: normal;
-	margin-bottom: 15px;
+	display: none;
 }
+
+#customize-control-login_designer_bg_image {
+	overflow-y: hidden;
+	transition: all 300ms;
+	max-height: 160px;
+	// transform: scale(1) translate3d(0, 0, 0);
+
+	&.gallery-is-open {
+		margin: 0 !important;
+		max-height: 0;
+		// transform: scale(0) translate3d(0, 0, 0);
+	}
+
+	.button.upload-button.control-focus {
+		display: none;
+	}
+
+	.button.remove-button {
+		position: absolute;
+		top: 8px;
+		right: 8px;
+		margin: 0 !important;
+		height: 30px !important;
+		width: 30px !important;
+		border: 2px solid #fff;
+		border-radius: 100%;
+		color: #0085ba !important;
+		background: #0085ba !important;
+		box-shadow: 0 2px 1px rgba(46, 68, 83, .15);
+
+		&:hover {
+			background: #008ec2 !important;
+		}
+
+		&::after {
+			font: 400 19px/72px dashicons;
+			content: "\f335";
+			position: absolute;
+			right: 3px;
+			color: #fff;
+			top: -23px;
+			transform: rotate(-90deg);
+		}
+	}
+}
+
+
+#customize-control-login_designer_bg_image_gallery {
+
+	&.gallery-is-open {
+		margin-top: -13px !important;
+	}
+}
+
+#gallery-button {
+	transition: all 200ms;
+	margin-top: -10px;
+	margin-bottom: 10px;
+
+	.gallery-is-open & {
+		margin-top: 9px;
+		margin-bottom: 10px;
+	}
+}
+
+#login-designer-gallery {
+	overflow-y: hidden;
+	max-height: 0;
+	transition: all 300ms ease 100ms;
+	padding-top: 5px;
+
+	&.open {
+		max-height: 140px;
+	}
+}
+
 
 .gallery__item {
 	float: left;
-	width: 25%;
-
-	&:nth-child(4n) .gallery--intrinsic {
-		// margin-right: 0;
-	}
+	width: 20%;
 }
 
 .gallery {
@@ -44,11 +115,14 @@
 		margin-bottom: 6px;
 	}
 
-	.checkbox:checked + label & {
+	#login-designer-gallery.open .checkbox:checked + label & {
 		box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, .8);
-		animation: portfolio_pro_likes_animation 300ms;
-		transform-origin: center;
 	}
+
+	// .open .checkbox:checked + label & {
+	// 	animation: portfolio_pro_likes_animation 300ms;
+	// 	transform-origin: center;
+	// }
 
 	&:after {
 		content: "";
@@ -62,7 +136,7 @@
 		transform: scale(1) translate3d(0, 0, 0);
 	}
 	50% {
-  		transform: scale(1.1) translate3d(0, 0, 0);
+  		transform: scale(1.05) translate3d(0, 0, 0);
 	}
 	100% {
 		transform: scale(1) translate3d(0, 0, 0);

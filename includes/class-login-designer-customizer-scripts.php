@@ -102,6 +102,14 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 
 			wp_enqueue_script( 'login-designer-customize-controls', $js_dir . 'login-designer-customize-controls' . $suffix . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
 			wp_enqueue_script( 'login-designer-customize-events', $js_dir . 'login-designer-customize-events' . $suffix . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
+
+			// Localization.
+			$login_designer_localize = array(
+				'admin_url'         => admin_url(),
+				'plugin_url'        => LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
+			);
+
+			wp_localize_script( 'login-designer-customize-controls', 'login_designer_script', $login_designer_localize );
 		}
 	}
 

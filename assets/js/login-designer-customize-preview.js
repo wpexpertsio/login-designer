@@ -41,6 +41,14 @@
 		} );
 	} );
 
+
+
+
+
+
+
+
+
 	// Login page background color.
 	wp.customize( 'login_designer_bg_color', function( value ) {
 		value.bind( function( to ) {
@@ -52,20 +60,20 @@
 	} );
 
 	// Login page background image url.
-	wp.customize( 'login_designer_body_bg_img__url', function( value ) {
+	wp.customize( 'login_designer_bg_image', function( value ) {
 		value.bind( function( to ) {
 			$( 'body.login' ).css( 'background-image', 'url( ' + to + ')' );
 		} );
 	} );
 
 	// Login page background image url.
-	wp.customize( 'login_designer__gallery', function( value ) {
-		value.bind( function( to ) {
-			$( 'body.login' ).css( 'background-image', 'url(" ' + login_designer_script.plugin_url + '/' + to + '.jpg")' );
+	// wp.customize( 'login_designer_bg_image_gallery', function( value ) {
+	// 	value.bind( function( to ) {
+	// 		$( 'body.login' ).css( 'background-image', 'url(" ' + login_designer_script.plugin_url + '/' + to + '.jpg")' );
 
-			console.log(login_designer_script.plugin_url);
-		} );
-	} );
+	// 		console.log(login_designer_script.plugin_url);
+	// 	} );
+	// } );
 
 	// Login page background image repeat.
 	wp.customize( 'login_designer_bg_image_repeat', function( value ) {
@@ -134,6 +142,17 @@
 			}
 		} );
 	} );
+
+
+
+
+
+
+
+
+
+
+
 
 	// Custom logo.
 	wp.customize( 'login_designer_custom_logo', function( value ) {

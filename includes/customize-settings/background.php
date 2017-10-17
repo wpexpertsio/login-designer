@@ -20,22 +20,32 @@ $wp_customize->add_setting( 'login_designer_title_bg', array(
 $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer_title_bg', array(
 	'type'                  => 'login-designer-title',
 	'label'                 => esc_html__( 'Background', '@@textdomain' ),
-	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
+	'description'           => esc_html__( 'Choose your own, or pick one from this curated collection of beautiful images.', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
 
 $wp_customize->add_setting( 'login_designer_bg_image', array(
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 ) );
 $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'login_designer_bg_image', array(
-	'label'                => esc_html__( 'Upload Image', '@@textdomain' ),
 	'section'              => 'login_designer__section--styles',
 	'settings'             => 'login_designer_bg_image',
 ) ) );
 
+$wp_customize->add_setting( 'login_designer_bg_image_gallery', array(
+	'default'               => null,
+	'transport'             => 'postMessage',
+) );
+
+$wp_customize->add_control( new Login_Designer_Background_Gallery_Control( $wp_customize, 'login_designer_bg_image_gallery', array(
+	'type'                  => 'login-designer-gallery',
+	'section'               => 'login_designer__section--styles',
+	'choices'               => $this->get_choices( $this->get_background_images() ),
+) ) );
+
 $wp_customize->add_setting( 'login_designer_bg_image_repeat', array(
 	'default'               => 'no-repeat',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => '',
 ) );
 $wp_customize->add_control( 'login_designer_bg_image_repeat', array(
@@ -47,7 +57,7 @@ $wp_customize->add_control( 'login_designer_bg_image_repeat', array(
 
 $wp_customize->add_setting( 'login_designer_bg_image_size', array(
 	'default'               => 'cover',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'sanitize_text_field',
 ) );
 $wp_customize->add_control( 'login_designer_bg_image_size', array(
@@ -59,7 +69,7 @@ $wp_customize->add_control( 'login_designer_bg_image_size', array(
 
 $wp_customize->add_setting( 'login_designer_bg_image_attach', array(
 	'default'               => 'center-center',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'sanitize_text_field',
 ) );
 $wp_customize->add_control( 'login_designer_bg_image_attach', array(
@@ -71,7 +81,7 @@ $wp_customize->add_control( 'login_designer_bg_image_attach', array(
 
 $wp_customize->add_setting( 'login_designer_bg_image_position', array(
 	'default'               => 'fixed',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'sanitize_text_field',
 ) );
 $wp_customize->add_control( 'login_designer_bg_image_position', array(
@@ -83,7 +93,7 @@ $wp_customize->add_control( 'login_designer_bg_image_position', array(
 
 $wp_customize->add_setting( 'login_designer_bg_color', array(
 	'default'               => null,
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'sanitize_hex_color',
 ) );
 
@@ -91,18 +101,3 @@ $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logi
 	'label'                 => esc_html__( 'Background Color', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
-
-$wp_customize->add_setting( 'login_designer__gallery', array(
-	'default'               => null,
-	// 'transport'             => 'postMessage',
-) );
-
-$wp_customize->add_control( new Login_Designer_Background_Gallery_Control( $wp_customize, 'login_designer__gallery', array(
-	'label'			=> esc_html__( 'Background Gallery', '@@textdomain' ),
-	'description'		=> esc_html__( 'Or choose an image from our human-curated collection of beautiful backgrounds.', '@@textdomain' ),
-	'type'                  => 'login-designer-gallery',
-	'section'               => 'login_designer__section--styles',
-	'choices'               => $this->get_choices( $this->get_background_images() ),
-) ) );
-
-

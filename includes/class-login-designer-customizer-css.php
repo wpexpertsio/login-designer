@@ -183,6 +183,10 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 			$login_background_image_size 		= get_theme_mod( 'login_designer_bg_image_size', 'cover' );
 			$login_background_image_attachment 	= get_theme_mod( 'login_designer_bg_image_attach', 'fixed' );
 
+			$assets_url 				= LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/';
+			$login_background_gallery_image_url 	= get_theme_mod( 'login_designer_bg_image_gallery', null );
+			$login_background_gallery_image_url 	= esc_url( $assets_url . $login_background_gallery_image_url . '.jpg' );
+
 			$form_padding_side			= get_theme_mod( 'login_designer_form_padding_side', '24' ) . 'px';
 			$form_padding_top_bottom 		= get_theme_mod( 'login_designer_form_padding_top_bottom', '26' ) . 'px';
 			$form_background_color 			= get_theme_mod( 'login_designer_form_background_color', null );
@@ -289,6 +293,18 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 				$login_background_color_css = '
 					body.login {
 						background-color: '. esc_attr( $login_background_color ) .';
+					}
+				';
+			}
+
+			if ( 'none' !== $login_background_gallery_image_url ) {
+				$login_background_image_css = '
+					body.login {
+						background-image: url("'. esc_attr( $login_background_gallery_image_url ) .'");
+						background-repeat: '. esc_attr( $login_background_image_repeat ) .';
+						background-position: '. esc_attr( $login_background_image_position ) .';
+						background-size: '. esc_attr( $login_background_image_size ) .';
+						background-attachment: '. esc_attr( $login_background_image_attachment ) .';
 					}
 				';
 			}

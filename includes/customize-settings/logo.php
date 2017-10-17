@@ -17,7 +17,7 @@ $wp_customize->add_setting( 'login_designer_title_logo', array(
 
 $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer_title_logo', array(
 	'type'                  => 'login-designer-title',
-	'label'                 => esc_html__( 'Login Logo', '@@textdomain' ),
+	'label'                => esc_html__( 'Login Logo', '@@textdomain' ),
 	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
@@ -27,7 +27,6 @@ $wp_customize->add_setting( 'login_designer_custom_logo', array(
 ) );
 
 $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'login_designer_custom_logo', array(
-	'label'                => esc_html__( 'Upload Image', '@@textdomain' ),
 	'section'              => 'login_designer__section--styles',
 	'settings'             => 'login_designer_custom_logo',
 ) ) );

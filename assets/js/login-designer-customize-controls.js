@@ -98,5 +98,23 @@
 				wp.customize( 'login_designer_bg_color' ).set( color );
 			} );
 		} );
+
+		wp.customize( 'login_designer_bg_image_gallery', function( value ) {
+			value.bind( function( to ) {
+				if ( 'none' === to ) {
+					wp.customize( 'login_designer_bg_image' ).set( ' ' );
+				} else {
+					wp.customize( 'login_designer_bg_image' ).set( login_designer_script.plugin_url + '/' + to + '.jpg' );
+				}
+			} );
+		} );
+
+		// wp.customize( 'login_designer_bg_image', function( value ) {
+		// 	value.bind( function( to ) {
+		// 		if ( to ) {
+		// 			wp.customize( 'login_designer_bg_image_gallery' ).set( '' );
+		// 		}
+		// 	} );
+		// } );
 	});
 })( jQuery );
