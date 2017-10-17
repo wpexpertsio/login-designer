@@ -78,13 +78,13 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			/**
 			 * Add sections.
 			 */
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/templates.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/logo.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/background.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/form.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/fields.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/labels.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/button.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/templates.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/logo.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/background.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/form.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/fields.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/labels.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/button.php';
 		}
 
 		/**

@@ -39,9 +39,6 @@ var scriptRangeControlSRC   	= './assets/js/'+ scriptRangeControlFile +'.js'; //
 var scriptTemplateControlFile  	= slug +'-customize-template-control'; // JS file name.
 var scriptTemplateControlSRC   	= './assets/js/'+ scriptTemplateControlFile +'.js'; // The JS file src.
 
-var scriptBackgroundControlFile = slug +'-customize-background-control'; // JS file name.
-var scriptBackgroundControlSRC  = './assets/js/'+ scriptBackgroundControlFile +'.js'; // The JS file src.
-
 var scriptGalleryControlFile  = slug +'-customize-gallery-control'; // JS file name.
 var scriptGalleryControlSRC   		= './assets/js/'+ scriptGalleryControlFile +'.js'; // The JS file src.
 
@@ -404,16 +401,6 @@ gulp.task( 'scripts', function() {
 	gulp.src( scriptTemplateControlSRC )
 	.pipe( rename( {
 		basename: scriptTemplateControlFile,
-		suffix: '.min'
-	}))
-	.pipe( uglify() )
-	.pipe( lineec() )
-	.pipe( gulp.dest( scriptDestination ) )
-
-	// slug-customize-background-control.js
-	gulp.src( scriptBackgroundControlSRC )
-	.pipe( rename( {
-		basename: scriptBackgroundControlFile,
 		suffix: '.min'
 	}))
 	.pipe( uglify() )
