@@ -1,6 +1,6 @@
 <?php
 /**
- * Background Customizer Section.
+ * Settings Customizer Section.
  *
  * @package   @@pkg.name
  * @copyright @@pkg.copyright

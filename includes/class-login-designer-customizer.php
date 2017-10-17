@@ -79,7 +79,12 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			 * Add sections.
 			 */
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/templates.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/style-editor.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/logo.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/background.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/form.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/fields.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/labels.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/button.php';
 		}
 
 		/**
@@ -92,11 +97,11 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		}
 
 		/**
-		 * Returns an array of theme layout choices registered for @@pkg.name.
+		 * Returns an array of layout choices.
 		 *
-		 * @return array of theme skins.
+		 * @param array|array $choices Template option.
 		 */
-		function get_choices( $choices ) {
+		public static function get_choices( $choices ) {
 			$layouts = $choices;
 			$layouts_control_options = array();
 
@@ -110,7 +115,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		/**
 		 * Register header layouts.
 		 */
-		function get_templates() {
+		public static function get_templates() {
 
 			$image_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/';
 
@@ -133,7 +138,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		/**
 		 * Register header layouts.
 		 */
-		function get_background_images() {
+		public static function get_background_images() {
 
 			$image_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/';
 
@@ -183,30 +188,30 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 			$choices = array(
 				'repeat' => array(
-					'no-repeat' => __( 'No Repeat', '@@textdomain' ),
-					'repeat'    => __( 'Tile', '@@textdomain' ),
-					'repeat-x'  => __( 'Tile Horizontally', '@@textdomain' ),
-					'repeat-y'  => __( 'Tile Vertically', '@@textdomain' ),
+					'no-repeat' => esc_html__( 'No Repeat', '@@textdomain' ),
+					'repeat'    => esc_html__( 'Tile', '@@textdomain' ),
+					'repeat-x'  => esc_html__( 'Tile Horizontally', '@@textdomain' ),
+					'repeat-y'  => esc_html__( 'Tile Vertically', '@@textdomain' ),
 				),
 				'size' => array(
-					'auto'    => __( 'Default', '@@textdomain' ),
-					'cover'   => __( 'Cover', '@@textdomain' ),
-					'contain' => __( 'Contain', '@@textdomain' ),
+					'auto'    => esc_html__( 'Default', '@@textdomain' ),
+					'cover'   => esc_html__( 'Cover', '@@textdomain' ),
+					'contain' => esc_html__( 'Contain', '@@textdomain' ),
 				),
 				'position' => array(
-					'left-top'      => __( 'Left Top', '@@textdomain' ),
-					'left-center'   => __( 'Left Center', '@@textdomain' ),
-					'left-bottom'   => __( 'Left Bottom', '@@textdomain' ),
-					'right-top'     => __( 'Right Top', '@@textdomain' ),
-					'right-center'  => __( 'Right Center', '@@textdomain' ),
-					'right-bottom'  => __( 'Right Bottom', '@@textdomain' ),
-					'center-top'    => __( 'Center Top', '@@textdomain' ),
-					'center-center' => __( 'Center Center', '@@textdomain' ),
-					'center-bottom' => __( 'Center Bottom', '@@textdomain' ),
+					'left-top'      => esc_html__( 'Left Top', '@@textdomain' ),
+					'left-center'   => esc_html__( 'Left Center', '@@textdomain' ),
+					'left-bottom'   => esc_html__( 'Left Bottom', '@@textdomain' ),
+					'right-top'     => esc_html__( 'Right Top', '@@textdomain' ),
+					'right-center'  => esc_html__( 'Right Center', '@@textdomain' ),
+					'right-bottom'  => esc_html__( 'Right Bottom', '@@textdomain' ),
+					'center-top'    => esc_html__( 'Center Top', '@@textdomain' ),
+					'center-center' => esc_html__( 'Center Center', '@@textdomain' ),
+					'center-bottom' => esc_html__( 'Center Bottom', '@@textdomain' ),
 				),
 				'attach' => array(
-					'fixed'   => __( 'Fixed', '@@textdomain' ),
-					'scroll'  => __( 'Scroll', '@@textdomain' ),
+					'fixed'   => esc_html__( 'Fixed', '@@textdomain' ),
+					'scroll'  => esc_html__( 'Scroll', '@@textdomain' ),
 				),
 			);
 
@@ -219,7 +224,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		 *
 		 * @return array of font styles.
 		 */
-		function get_fonts() {
+		public static function get_fonts() {
 
 			$fonts = array(
 				'default' 		=> esc_html__( 'Default', '@@textdomain' ),
