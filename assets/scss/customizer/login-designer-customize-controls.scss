@@ -7,7 +7,44 @@
 // Checkbox.
 @import "modules/checkbox";
 
-#customize-control-login_designer_custom_logo {
+
+// 50/50, Small text input fields
+#customize-control-login_designer_form_label_username_text,
+#customize-control-login_designer_form_label_password_text {
+	position: relative;
+	margin-bottom: 6px;
+
+	.customize-control-title {
+		width: 50%;
+		margin-bottom: 0;
+		position: relative;
+	}
+
+	input {
+		width: 50%;
+		position: absolute;
+		right: 0;
+		top: 0;
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+		margin: 0;
+		border-radius: 5px;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#customize-control-login_designer_custom_logo,
+#customize-control-login_designer_bg_image {
 
 	.customize-control-title {
 		display: none;
@@ -90,7 +127,61 @@
 }
 
 /* Customizer Select */
+#sub-accordion-section-login_designer__section--styles,
 #sub-accordion-section-login_designer__section--background {
+
+	.customize-control-select {
+		position: relative;
+
+		label::after {
+				font: 400 11px/72px dashicons;
+				content: "\f341";
+				position: absolute;
+				right: 5px;
+				top: -23px;
+				transform: rotate(-90deg);
+		}
+
+		.customize-control-title {
+			width: 50%;
+			margin-bottom: 0;
+			position: relative;
+		}
+
+		select {
+			width: 50%;
+			position: absolute;
+			box-shadow: none;
+			top: 0;
+			right: 0;
+			margin: 0;
+			background: #f6f6f6;
+			padding: 0;
+			line-height: 22px;
+			height: 26px;
+			appearance: none;
+			color: #555d66;
+			padding-left: 7px;
+			cursor: pointer;
+			font-weight: normal;
+			font-size: 13px;
+			border-radius: 5px;
+			transition: border-color $range--opacity-speed $range--opacity-cubic, background $range--opacity-speed $range--opacity-cubic;
+
+			&:hover {
+				border-color: #bbb;
+				background: #f9f9f9;
+			}
+
+			select::-ms-expand {
+				display: none;
+			}
+
+			option {
+				text-align: right;
+			}
+		}
+	}
 
 	.background-image-fields {
 
@@ -103,55 +194,6 @@
 		li {
 			position: relative;
 			margin-bottom: 8px;
-		}
-
-		.customize-control-title {
-			font-weight: normal;
-			width: 50%;
-			margin-bottom: 0;
-			position: relative;
-			top: 6px;
-		}
-
-		select {
-			width: 50%;
-			position: absolute;
-			box-shadow: none;
-			top: 4px;
-			right: 0;
-			margin: 0;
-			background: #f0f0f0;
-			padding: 0;
-			line-height: 22px;
-			height: 26px;
-			appearance: none;
-			color: #555d66;
-			padding-left: 7px;
-			cursor: pointer;
-			font-weight: normal;
-			font-size: 13px;
-			border-radius: 5px;
-			transition: 50ms border-color cubic-bezier(0.19, 1, 0.22, 1), 50ms color cubic-bezier(0.19, 1, 0.22, 1), 50ms background cubic-bezier(0.19, 1, 0.22, 1);
-
-			&::after {
-				font: 400 20px/72px dashicons;
-				content: "\f341";
-				position: relative;
-				left: 9px;
-			}
-
-			&:hover {
-				border-color: #ccc;
-				background: #f5f5f5;
-			}
-
-			select::-ms-expand {
-				display: none;
-			}
-
-			option {
-				text-align: right;
-			}
 		}
 	}
 }

@@ -65,6 +65,12 @@
 		customizer_range_option_display( 'login_designer_form_field_box_shadow', 'login_designer_form_field_box_shadow_opacity', '0' );
 		customizer_range_option_display( 'login_designer_form_field_box_shadow', 'login_designer_form_field_box_shadow_inset', '0' );
 
+		// Only show the background optios, if there is a background image uploaded.
+		customizer_image_option_display( 'login_designer_bg_image', 'login_designer_bg_image_repeat' );
+		customizer_image_option_display( 'login_designer_bg_image', 'login_designer_bg_image_size' );
+		customizer_image_option_display( 'login_designer_bg_image', 'login_designer_bg_image_attach' );
+		customizer_image_option_display( 'login_designer_bg_image', 'login_designer_bg_image_position' );
+
 		// Detect when the front page sections section is expanded (or closed) so we can adjust the preview accordingly.
 		wp.customize.panel( 'login_designer', function( section ) {
 			section.expanded.bind( function( isExpanding ) {
@@ -89,7 +95,7 @@
 
 				// If we have a custom background color, let's put it back to default.
 				// @todo In the future, maybe we'll make this color change based on the template's default background color.
-				wp.customize( 'login_designer_body_bg_color' ).set( color );
+				wp.customize( 'login_designer_bg_color' ).set( color );
 			} );
 		} );
 	});

@@ -30,7 +30,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			add_action( 'customize_controls_print_styles', array( $this, 'control_styles' ), 99 );
 			add_action( 'customize_preview_init', array( $this, 'customize_preview' ) );
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'customize_controls' ) );
-			add_action( 'login_enqueue_scripts', array( $this, 'styles' ), 99 );
+			add_action( 'login_enqueue_scripts', array( $this, 'customize_styles' ), 99 );
 		}
 
 		/**
@@ -53,7 +53,11 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 		 *
 		 * @access public
 		 */
-		public function styles() {
+		public function customize_styles() {
+
+			if ( ! is_customize_preview() ) {
+				return;
+			}
 
 			$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/';
 

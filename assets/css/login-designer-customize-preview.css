@@ -3,6 +3,11 @@
 	top: 0 !important;
 }
 
+.customize-partial--login-designer-background {
+	right: 3vw !important;
+	top: 2.8vw !important;
+}
+
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
 	height: 0;
@@ -34,6 +39,15 @@
 	display: none;
 }
 
+#login-designer-logo:focus {
+	box-shadow: none;
+}
+
+#login-designer-logo-h1 {
+	margin: 0 auto;
+	width: 84px;
+}
+
 #loginform,
 #login-designer-logo-h1,
 #login-designer--username,
@@ -57,32 +71,65 @@
 	border: 0;
 	opacity: 0 !important;
 	top: 2px;
+	-webkit-transition: opacity 100ms cubic-bezier(0.33, 0, 0.2, 1), background 100ms cubic-bezier(0.33, 0, 0.2, 1);
+	transition: opacity 100ms cubic-bezier(0.33, 0, 0.2, 1), background 100ms cubic-bezier(0.33, 0, 0.2, 1);
 }
 
 #login-designer--username:hover .customizer-event-overlay,
-#login-designer--password:hover .customizer-event-overlay {
-	background: rgba(0, 167, 233, 0.066);
+#loginform.input-hover #login-designer--username .customizer-event-overlay,
+#login-designer--password:hover .customizer-event-overlay,
+#loginform.input-hover
+#login-designer--password .customizer-event-overlay {
+	background: rgba(0, 167, 233, 0.1) !important;
 	opacity: 1 !important;
 }
 
-#login-designer-logo:focus {
-	box-shadow: none;
+#login-designer--username-label,
+#login-designer--password-label {
+	position: relative;
 }
 
-#loginform p {
-	z-index: 44;
+#login-designer--username-label:hover,
+#loginform.label-hover #login-designer--username-label,
+#login-designer--password-label:hover,
+#loginform.label-hover
+#login-designer--password-label {
+	color: #0085ba !important;
 }
 
-.hide-customize-borders .customizer-editlayout-button {
+#login-designer--username-label .customizer-event-overlay,
+#login-designer--password-label .customizer-event-overlay {
+	border: 0 !important;
+	bottom: -2px;
+	left: -2px;
 	opacity: 0 !important;
-	-webkit-transition: opacity 50ms cubic-bezier(0.33, 0, 0.2, 1);
-	transition: opacity 50ms cubic-bezier(0.33, 0, 0.2, 1);
+	right: -2px;
+	top: -2px;
+	width: calc( 100% + 4px);
 }
 
-#loginform.hide-customize-borders::after {
-	opacity: 0 !important;
-	-webkit-transition: opacity 50ms cubic-bezier(0.33, 0, 0.2, 1), border-width 75ms ease-in-out 75ms;
-	transition: opacity 50ms cubic-bezier(0.33, 0, 0.2, 1), border-width 75ms ease-in-out 75ms;
+#login-designer--button {
+	float: right;
+	position: relative;
+}
+
+#login-designer--button .customizer-event-overlay {
+	border: 0 !important;
+	border-radius: 3px;
+	bottom: -4px;
+	left: -3px;
+	opacity: 1 !important;
+	right: -3px;
+	top: -3px;
+	-webkit-transition: opacity 100ms cubic-bezier(0.33, 0, 0.2, 1), background 100ms cubic-bezier(0.33, 0, 0.2, 1);
+	transition: opacity 100ms cubic-bezier(0.33, 0, 0.2, 1), background 100ms cubic-bezier(0.33, 0, 0.2, 1);
+	width: calc( 100% + 7px);
+	z-index: 99999;
+}
+
+#login-designer--button:hover .customizer-event-overlay {
+	background: rgba(0, 167, 233, 0.25) !important;
+	opacity: 1 !important;
 }
 
 .customizer-event-overlay {
@@ -94,8 +141,8 @@
 	position: absolute;
 	text-indent: -9999em;
 	top: 0;
-	-webkit-transition: opacity 50ms cubic-bezier(0.33, 0, 0.2, 1);
-	transition: opacity 50ms cubic-bezier(0.33, 0, 0.2, 1);
+	-webkit-transition: border-color 100ms cubic-bezier(0.33, 0, 0.2, 1);
+	transition: border-color 100ms cubic-bezier(0.33, 0, 0.2, 1);
 	width: 100%;
 	z-index: 22;
 }

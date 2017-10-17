@@ -837,14 +837,14 @@ default:
 
 <form name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
 	<p>
-		<label for="user_login"><?php _e( 'Username or Email Address' ); ?><br />
+		<label id="login-designer--username-label" for="user_login"><?php _e( 'Username or Email Address' ); ?><br />
 		<div id="login-designer--username">
 			<input type="text" name="log" id="user_login"<?php echo $aria_describedby_error; ?> class="input" value="email@address.com" size="20" /></label>
 		</div>
 	</p>
 	<p>
 
-		<label for="user_pass"><?php _e( 'Password' ); ?><br />
+		<label id="login-designer--password-label" for="user_pass"><?php _e( 'Password' ); ?><br />
 			<div id="login-designer--password">
 		<input type="password" name="pwd" id="user_pass"<?php echo $aria_describedby_error; ?> class="input" value="password" size="20" /></label>
 	</div>
@@ -859,16 +859,9 @@ default:
 	?>
 	<p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever" <?php checked( $rememberme ); ?> /> <?php esc_html_e( 'Remember Me' ); ?></label></p>
 	<p class="submit">
-		<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php esc_attr_e('Log In'); ?>" />
-<?php	if ( $interim_login ) { ?>
-		<input type="hidden" name="interim-login" value="1" />
-<?php	} else { ?>
-		<input type="hidden" name="redirect_to" value="<?php echo esc_attr($redirect_to); ?>" />
-<?php 	} ?>
-<?php   if ( $customize_login ) : ?>
-		<input type="hidden" name="customize-login" value="1" />
-<?php   endif; ?>
-		<input type="hidden" name="testcookie" value="1" />
+		<span id="login-designer--button">
+			<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php esc_attr_e('Log In'); ?>" />
+		</span>
 	</p>
 </form>
 

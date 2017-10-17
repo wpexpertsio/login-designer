@@ -1,47 +1,57 @@
 // Variables.
 @import "variables";
 
-// .customize-partial-edit-shortcut button {
-// animation: x;
-// opacity: 1;
-// }
 .customize-partial--loginform {
 	top: 0 !important;
 	left: -10px!important;
 }
 
+.customize-partial--login-designer-background {
+	top: 2.8vw !important;
+	right: 3vw !important;
+}
 
-
-
-
-// Text meant only for screen readers.
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: polygon(0 0, 0 0, 0 0, 0 0);
 	height: 0;
 	overflow: hidden;
 	position: absolute !important;
 	width: 0;
 	word-wrap: normal;
+	clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+}
 
-	&:focus {
-		font-size: 15px;
-		border-radius: 3px;
-		clip: auto;
-		display: block;
-		height: auto;
-		left: 5px;
-		line-height: normal;
-		padding: 0.9375rem;
-		text-decoration: none;
-		top: 5px;
-		width: auto;
-		z-index: 100000;
-	}
+.screen-reader-text:focus {
+	border-radius: 3px;
+	clip: auto;
+	display: block;
+	font-size: 15px;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 0.9375rem;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
 }
 
 #wp-a11y-speak-polite {
 	display: none;
+}
+
+
+// Logo.
+#login-designer-logo {
+
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+#login-designer-logo-h1 {
+	margin: 0 auto;
+	width: 84px;
 }
 
 #loginform,
@@ -51,6 +61,7 @@
 	position: relative;
 }
 
+// Fields.
 #login-designer--username,
 #login-designer--password {
 	border-width: 2px;
@@ -58,225 +69,72 @@
 
 	input {
 		margin-bottom: 0;
-		// transition: border-color 50ms cubic-bezier(0.33,0,0.2,1);
 	}
 
 	.customizer-event-overlay {
 		top: 2px;
 		border: 0;
 		opacity: 0 ! important;
+		transition: opacity 100ms cubic-bezier(0.33,0,0.2,1), background 100ms cubic-bezier(0.33,0,0.2,1);
 	}
 
-	&:hover {
-		// input {
-		// 	border-color: $customizer_blue;
-		// }
+	&:hover,
+	#loginform.input-hover & {
 
 		.customizer-event-overlay {
 			opacity: 1 !important;
-			background: $customizer_blue_bg;
+			background: rgba(0, 167, 233, 0.1) !important;
 		}
 	}
 }
 
+// Labels.
+#login-designer--username-label,
+#login-designer--password-label {
+	position: relative;
 
+	&:hover,
+	#loginform.label-hover & {
+		color: $customizer_blue !important;
+	}
 
-
-
-
-#login-designer-logo {
-
-	&:focus {
-		box-shadow: none;
+	.customizer-event-overlay {
+		top: -2px;
+		bottom: -2px;
+		left: -2px;
+		right: -2px;
+		width: calc( 100% + 4px);
+		border: 0 ! important;
+		opacity: 0 ! important;
 	}
 }
 
-// #loginform {
-// 	overflow: visible;
+// Button.
+#login-designer--button {
+	position: relative;
+	float: right;
 
-// 	p.submit {
-// 		padding-bottom: 20px !important;
-// 	}
-
-// 	.customizer__border {
-// 		display: none !important;
-// 		background-color: #0073aa;
-// 		height: 1px;
-// 		opacity: 0;
-// 		position: absolute;
-// 		width: 100%;
-// 		z-index: 99999;
-
-// 		&-btm {
-// 			bottom: 0;
-// 			left: 0;
-// 		}
-
-// 		&-top {
-// 			top: 0;
-// 			left: 0;
-// 		}
-
-// 		&-left {
-// 			bottom: 0;
-// 			left: 0;
-// 			top: 0;
-// 			height: 100%;
-// 			width: 1px;
-// 		}
-
-// 		&-right {
-// 			bottom: 0;
-// 			right: 0;
-// 			top: 0;
-// 			height: 100%;
-// 			width: 1px;
-// 		}
-
-// 	}
-
-// 	&:hover > .customizer__border {
-// 		opacity: 1;
-// 	}
-
-// 	.customizer-editlayout-button {
-// 		background: #0073aa;
-// 		color: #fff;
-// 		border: 0;
-// 		cursor: pointer;
-// 		font-size: 14px;
-// 		font-weight: 400;
-// 		left: 0;
-// 		line-height: 0;
-// 		opacity: 0;
-// 		outline: none;
-// 		padding: 12px 10px;
-// 		pointer-events: none;
-// 		position: absolute;
-// 		top: 0;
-// 		z-index: 99999;
-// 		transition: opacity 100ms cubic-bezier(0.33,0,0.2,1) 50ms;
-
-// 		// &::before {
-// 		// 	content: "\f464";
-// 		// 	display: inline-block;
-// 		// 	font-smoothing: antialiased;
-// 		// 	font: 400 22px/24px dashicons;
-// 		// 	vertical-align: top;
-// 		// 	color: #0073aa;
-// 		// 	transform: scale(.6) translate3d(0, 0, 0);
-// 		// 	transition: opacity 100ms cubic-bezier(0.33,0,0.2,1) 200ms, transform 250ms cubic-bezier(0.33,0,0.2,1) 50ms;
-// 		// }
-
-// 		&:hover,
-// 		&:focus {
-
-// 		}
-
-// 		&:hover::before {
-// 			color: #0085ba;
-// 		}
-// 	}
-
-// 	&:hover > .customizer-editlayout-button {
-// 		// opacity: 1;
-// 		// pointer-events: auto;
-// 	}
-
-// 	// &:hover > .customizer-editlayout-button:before {
-// 	// 	transform: scale(1) translate3d(0, 0, 0);
-// 	// }
-
-// }
-
-
-// $space: -12px;
-
-// Specific to the login form.
-// #loginform {
-
-// 	.customizer__border {
-
-// 		&-btm {
-// 			bottom: $space;
-// 			left: $space;
-// 			width: calc( 100% + 24px );
-// 		}
-
-// 		&-top {
-// 			top: $space;
-// 			left: $space;
-// 			width: calc( 100% + 24px );
-// 		}
-
-// 		&-left {
-// 			bottom: $space;
-// 			left: $space;
-// 			top: $space;
-// 			height: calc( 100% + 24px );
-// 		}
-
-// 		&-right {
-// 			bottom: $space;
-// 			right: $space;
-// 			top: $space;
-// 			height: calc( 100% + 24px );
-// 		}
-
-// 	}
-
-// 	.customizer-editlayout-button {
-// 		left: $space;
-// 		top: $space;
-// 	}
-
-// }
-
-#loginform p {
-	z-index: 44;
-}
-
-
-.hide-customize-borders {
-
-	.customizer-editlayout-button {
-		opacity: 0 !important;
-		transition: opacity 50ms cubic-bezier(0.33,0,0.2,1);
+	.customizer-event-overlay {
+		border: 0 !important;
+		border-radius: 3px;
+		bottom: -4px;
+		left: -3px;
+		opacity: 1 !important;
+		right: -3px;
+		top: -3px;
+		width: calc( 100% + 7px);
+		z-index: 99999;
+		transition: opacity 100ms cubic-bezier(0.33,0,0.2,1), background 100ms cubic-bezier(0.33,0,0.2,1);
 	}
 
+	&:hover {
+
+		.customizer-event-overlay {
+			opacity: 1 !important;
+			background: rgba(0, 167, 233, 0.25) !important;
+		}
+	}
 }
-
-#loginform.hide-customize-borders::after {
-	opacity: 0 !important;
-	transition: opacity 50ms cubic-bezier(0.33,0,0.2,1), border-width 75ms ease-in-out 75ms;
-}
-
-
-
-
-
-// .is-customize-preview {
-
-//     #loginform::after {
-//         content: '';
-//         position: absolute;
-//         top: 0;
-//         left: 0;
-//         bottom: 0;
-//         // z-index: -1;
-//         opacity: 0;
-//         bottom: 0;
-//         right: 0;
-//         border: 2px solid #0073aa;
-//         transition: opacity 100ms cubic-bezier(0.33,0,0.2,1) 50ms, border-width 75ms ease-in-out 75ms;
-//     }
-
-//     #loginform:hover::after {
-//     	border-width: 2px;
-//         opacity: 1;
-//     }
-
-// }
 
 
 
@@ -295,17 +153,14 @@
 	top: 0;
 	width: 100%;
 	z-index: 22;
-	transition: opacity 50ms cubic-bezier(0.33,0,0.2,1);
+	transition: border-color 100ms cubic-bezier(0.33,0,0.2,1);
+	// transition: opacity 50ms cubic-bezier(0.33,0,0.2,1);
 
 	&:hover,
 	&:focus {
 		border-color: $customizer_blue;
 		outline: none;
 	}
-
-	// #login-designer-logo-h1 & {
-	// 	opacity: 0;
-	// }
 }
 
 

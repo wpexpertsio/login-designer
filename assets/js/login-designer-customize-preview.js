@@ -42,7 +42,7 @@
 	} );
 
 	// Login page background color.
-	wp.customize( 'login_designer_body_bg_color', function( value ) {
+	wp.customize( 'login_designer_bg_color', function( value ) {
 		value.bind( function( to ) {
 
 			$( 'body.login' ).removeClass( 'class', 'has-template-applied' );
@@ -68,12 +68,12 @@
 	} );
 
 	// Login page background image repeat.
-	wp.customize( 'login_designer_body_bg_img__repeat', function( value ) {
+	wp.customize( 'login_designer_bg_image_repeat', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_body_bg_img__repeat"> body.login { background-repeat: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_image_repeat"> body.login { background-repeat: ' + to + '; } </style>';
 
-			el =  $( '.login_designer_body_bg_img__repeat' );
+			el =  $( '.login_designer_bg_image_repeat' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it
@@ -84,12 +84,12 @@
 	} );
 
 	// Login page background image size.
-	wp.customize( 'login_designer_body_bg_img__size', function( value ) {
+	wp.customize( 'login_designer_bg_image_size', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_body_bg_img__size"> body.login { background-size: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_image_size"> body.login { background-size: ' + to + '; } </style>';
 
-			el =  $( '.login_designer_body_bg_img__size' );
+			el =  $( '.login_designer_bg_image_size' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it
@@ -100,16 +100,16 @@
 	} );
 
 	// Login page background image position.
-	wp.customize( 'login_designer_body_bg_img__position', function( value ) {
+	wp.customize( 'login_designer_bg_image_position', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
 
 			var to = to;
 			var to = to.replace(/-/g, ' ');
 
-			style = '<style class="login_designer_body_bg_img__position"> body.login { background-position: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_image_position"> body.login { background-position: ' + to + '; } </style>';
 
-			el =  $( '.login_designer_body_bg_img__position' );
+			el =  $( '.login_designer_bg_image_position' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it
@@ -120,12 +120,12 @@
 	} );
 
 	// Login page background attachment position.
-	wp.customize( 'login_designer_body_bg_img__attach', function( value ) {
+	wp.customize( 'login_designer_bg_image_attach', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_body_bg_img__attach"> body.login { background-attachment: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_image_attach"> body.login { background-attachment: ' + to + '; } </style>';
 
-			el =  $( '.login_designer_body_bg_img__attach' );
+			el =  $( '.login_designer_bg_image_attach' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it

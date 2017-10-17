@@ -53,6 +53,142 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 
 
 
+
+
+
+
+
+
+
+/**
+ * Add the background color selector.
+ */
+$wp_customize->add_setting( 'login_designer_title_bg', array(
+	'sanitize_callback'     => 'sanitize_text_field',
+) );
+$wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer_title_bg', array(
+	'type'                  => 'login-designer-title',
+	'label'                 => esc_html__( 'Background', '@@textdomain' ),
+	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+) ) );
+
+$wp_customize->add_setting( 'login_designer_bg_image', array(
+	// 'transport'             => 'postMessage',
+) );
+$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'login_designer_bg_image', array(
+	'label'                => esc_html__( 'Upload Image', '@@textdomain' ),
+	'section'              => 'login_designer__section--styles',
+	'settings'             => 'login_designer_bg_image',
+) ) );
+
+
+// Set background choices from the Customize class.
+$background_choices = $this->get_background_choices();
+
+$wp_customize->add_setting( 'login_designer_bg_image_repeat', array(
+	'default'               => 'no-repeat',
+	// 'transport'             => 'postMessage',
+	'sanitize_callback'     => '',
+) );
+$wp_customize->add_control( 'login_designer_bg_image_repeat', array(
+	'type'              => 'select',
+	'label'             => esc_html__( 'Repeat', '@@textdomain' ),
+	'section'           => 'login_designer__section--styles',
+	'choices'           => $background_choices['repeat'],
+) );
+
+$wp_customize->add_setting( 'login_designer_bg_image_size', array(
+	'default'               => 'cover',
+	// 'transport'             => 'postMessage',
+	'sanitize_callback'     => 'sanitize_text_field',
+) );
+$wp_customize->add_control( 'login_designer_bg_image_size', array(
+	'type'              => 'select',
+	'label'             => esc_html__( 'Size', '@@textdomain' ),
+	'section'           => 'login_designer__section--styles',
+	'choices'           => $background_choices['size'],
+) );
+
+$wp_customize->add_setting( 'login_designer_bg_image_attach', array(
+	'default'               => 'center-center',
+	// 'transport'             => 'postMessage',
+	'sanitize_callback'     => 'sanitize_text_field',
+) );
+$wp_customize->add_control( 'login_designer_bg_image_attach', array(
+	'type'              => 'select',
+	'label'             => esc_html__( 'Attachment', '@@textdomain' ),
+	'section'           => 'login_designer__section--styles',
+	'choices'           => $background_choices['attach'],
+) );
+
+$wp_customize->add_setting( 'login_designer_bg_image_position', array(
+	'default'               => 'fixed',
+	// 'transport'             => 'postMessage',
+	'sanitize_callback'     => 'sanitize_text_field',
+) );
+$wp_customize->add_control( 'login_designer_bg_image_position', array(
+	'type'              => 'select',
+	'label'             => esc_html__( 'Position', '@@textdomain' ),
+	'section'           => 'login_designer__section--styles',
+	'choices'           => $background_choices['position'],
+) );
+
+$wp_customize->add_setting( 'login_designer_bg_color', array(
+	'default'               => null,
+	// 'transport'             => 'postMessage',
+	'sanitize_callback'     => 'sanitize_hex_color',
+) );
+
+$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer_bg_color', array(
+	'label'                 => esc_html__( 'Background Color', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+) ) );
+
+
+
+
+
+
+
+
+
+
+
+
+
+// $wp_customize->add_setting( 'login_designer__gallery', array(
+// 	'default'               => null,
+// 	// 'transport'             => 'postMessage',
+// ) );
+
+// $wp_customize->add_control( new Login_Designer_Background_Gallery_Control( $wp_customize, 'login_designer__gallery', array(
+// 	'label'			=> esc_html__( 'Background Gallery', '@@textdomain' ),
+// 	'description'		=> esc_html__( 'Or choose an image from our human-curated collection of beautiful backgrounds.', '@@textdomain' ),
+// 	'type'                  => 'login-designer-gallery',
+// 	'section'               => 'login_designer__section--styles',
+// 	'choices'               => $this->get_choices( $this->get_background_images() ),
+// ) ) );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Form.
  */
@@ -215,7 +351,7 @@ $wp_customize->add_setting( 'login_designer_title_form_fields', array(
 ) );
 $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer_title_form_fields', array(
 	'type'                  => 'login-designer-title',
-	'label'                 => esc_html__( 'Form Fields', '@@textdomain' ),
+	'label'                 => esc_html__( 'Fields', '@@textdomain' ),
 	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
@@ -273,7 +409,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 
 
 $wp_customize->add_setting( 'login_designer_form_field_border_color', array(
-	'default'               => null,
+	'default'               => '#dddddd',
 	// 'transport'             => 'postMessage',
 	'sanitize_callback'     => 'sanitize_hex_color',
 ) );
@@ -281,45 +417,6 @@ $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logi
 	'label'                 => esc_html__( 'Border Color', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
-
-
-$wp_customize->add_setting( 'login_designer_form_field_text_size', array(
-	'default'               => '24',
-	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
-) );
-$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_field_text_size', array(
-	'type'                  => 'login-designer-range',
-	'label'                 => esc_html__( 'Text', '@@textdomain' ),
-	'section'               => 'login_designer__section--styles',
-	'description'           => 'px',
-	'default'               => '24',
-	'input_attrs'           => array(
-		'min'               => 13,
-		'max'               => 40,
-		'step'              => 1,
-		),
-	)
-) );
-
-$wp_customize->add_setting( 'login_designer_form_field_text_color', array(
-	'default'               => null,
-	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => 'sanitize_hex_color',
-) );
-$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer_form_field_text_color', array(
-	'label'                 => esc_html__( 'Text Color', '@@textdomain' ),
-	'section'               => 'login_designer__section--styles',
-) ) );
-
-
-
-
-
-
-
-
-
 
 
 $wp_customize->add_setting( 'login_designer_form_field_box_shadow', array(
@@ -368,9 +465,211 @@ $wp_customize->add_setting( 'login_designer_form_field_box_shadow_inset', array(
 
 $wp_customize->add_control( 'login_designer_form_field_box_shadow_inset', array(
 	'type'                  => 'checkbox',
-	'label'                 => esc_html__( 'Inset Shadow', '@@textdomain' ),
+	'label'                 => esc_html__( 'Shadow Inset', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) );
+
+
+
+
+
+
+/**
+ * Form Fields.
+ */
+$wp_customize->add_setting( 'login_designer_title_form_field_text', array(
+	'sanitize_callback'     => 'sanitize_text_field',
+) );
+$wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer_title_form_field_text', array(
+	'type'                  => 'login-designer-title',
+	'label'                 => esc_html__( 'Fields Text', '@@textdomain' ),
+	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+) ) );
+
+
+$wp_customize->add_setting( 'login_designer_form_field_font', array(
+	'default'               => 'default',
+	// 'transport'             => 'postMessage',
+	'sanitize_callback'     => '',
+) );
+
+$wp_customize->add_control( 'login_designer_form_field_font', array(
+	'type'              => 'select',
+	'label'             => esc_html__( 'Font', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+	'choices'           => $this->get_fonts(),
+) );
+
+
+$wp_customize->add_setting( 'login_designer_form_field_text_size', array(
+	'default'               => '24',
+	// 'transport'             => 'postMessage',
+	'sanitize_callback'     => '',
+) );
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_field_text_size', array(
+	'type'                  => 'login-designer-range',
+	'label'                 => esc_html__( 'Font Size', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+	'description'           => 'px',
+	'default'               => '24',
+	'input_attrs'           => array(
+		'min'               => 13,
+		'max'               => 40,
+		'step'              => 1,
+		),
+	)
+) );
+
+$wp_customize->add_setting( 'login_designer_form_field_text_color', array(
+	'default'               => null,
+	// 'transport'             => 'postMessage',
+	'sanitize_callback'     => 'sanitize_hex_color',
+) );
+$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer_form_field_text_color', array(
+	'label'                 => esc_html__( 'Font Color', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+) ) );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Labels.
+ */
+$wp_customize->add_setting( 'login_designer_title_form_labels', array(
+	'sanitize_callback'     => 'sanitize_text_field',
+) );
+$wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer_title_form_labels', array(
+	'type'                  => 'login-designer-title',
+	'label'                 => esc_html__( 'Form Labels', '@@textdomain' ),
+	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+) ) );
+
+
+$wp_customize->add_setting( 'login_designer_form_label_username_text', array(
+	'default'           	=> esc_html__( 'Username or Email Address', '@@textdomain' ),
+	'sanitize_callback' 	=> 'esc_html',
+	// 'transport'         	=> '',
+) );
+
+$wp_customize->add_control( 'login_designer_form_label_username_text', array(
+	'label'          => esc_html__( 'Username', '@@textdomain' ),
+	'section'        => 'login_designer__section--styles',
+	'type'           => 'text',
+) );
+
+$wp_customize->add_setting( 'login_designer_form_label_password_text', array(
+	'default'           	=> esc_html__( 'Password', '@@textdomain' ),
+	'sanitize_callback' 	=> 'esc_html',
+	// 'transport'         	=> '',
+) );
+
+$wp_customize->add_control( 'login_designer_form_label_password_text', array(
+	'label'          => esc_html__( 'Password', '@@textdomain' ),
+	'section'        => 'login_designer__section--styles',
+	'type'           => 'text',
+) );
+
+$wp_customize->add_setting( 'login_designer_form_label_font', array(
+	'default'               => 'default',
+	// 'transport'             => 'postMessage',
+	'sanitize_callback'     => '',
+) );
+
+$wp_customize->add_control( 'login_designer_form_label_font', array(
+	'type'              => 'select',
+	'label'             => esc_html__( 'Font', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+	'choices'           => $this->get_fonts(),
+) );
+
+$wp_customize->add_setting( 'login_designer_form_label_size', array(
+	'default'               => '14',
+	// 'transport'             => 'postMessage',
+	'sanitize_callback'     => '',
+) );
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_label_size', array(
+	'type'                  => 'login-designer-range',
+	'label'                 => esc_html__( 'Size', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+	'description'           => 'px',
+	'default'               => '14',
+	'input_attrs'           => array(
+		'min'               => 13,
+		'max'               => 40,
+		'step'              => 1,
+		),
+	)
+) );
+
+$wp_customize->add_setting( 'login_designer_form_label_color', array(
+	'default'               => null,
+	// 'transport'             => 'postMessage',
+	'sanitize_callback'     => 'sanitize_hex_color',
+) );
+$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer_form_label_color', array(
+	'label'                 => esc_html__( 'Color', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+) ) );
+
+
+
+
+
+/**
+ * Button.
+ */
+$wp_customize->add_setting( 'login_designer_title_button', array(
+	'sanitize_callback'     => 'sanitize_text_field',
+) );
+$wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer_title_button', array(
+	'type'                  => 'login-designer-title',
+	'label'                 => esc_html__( 'Submit Button', '@@textdomain' ),
+	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+) ) );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

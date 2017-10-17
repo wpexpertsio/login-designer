@@ -34,16 +34,12 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		 */
 		function customize_register( $wp_customize ) {
 
-			// Register background control JS template.
-			$wp_customize->register_control_type( 'Login_Designer_Background_Control' );
-
 			/**
 			 * Add custom controls.
 			 */
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-range-control.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-template-control.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-title-control.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-background-control.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-gallery-control.php';
 
 			/**
@@ -84,8 +80,6 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			 */
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/templates.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/style-editor.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/background.php';
-			// require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-sections/settings.php';
 		}
 
 		/**
@@ -177,6 +171,82 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 					'image' => esc_url( $image_dir ) . '08.jpg',
 				),
 			) );
+		}
+
+		/**
+		 * Returns the background choices.
+		 *
+		 * @since 1.0.0
+		 * @return array
+		 */
+		public static function get_background_choices() {
+
+			$choices = array(
+				'repeat' => array(
+					'no-repeat' => __( 'No Repeat', '@@textdomain' ),
+					'repeat'    => __( 'Tile', '@@textdomain' ),
+					'repeat-x'  => __( 'Tile Horizontally', '@@textdomain' ),
+					'repeat-y'  => __( 'Tile Vertically', '@@textdomain' ),
+				),
+				'size' => array(
+					'auto'    => __( 'Default', '@@textdomain' ),
+					'cover'   => __( 'Cover', '@@textdomain' ),
+					'contain' => __( 'Contain', '@@textdomain' ),
+				),
+				'position' => array(
+					'left-top'      => __( 'Left Top', '@@textdomain' ),
+					'left-center'   => __( 'Left Center', '@@textdomain' ),
+					'left-bottom'   => __( 'Left Bottom', '@@textdomain' ),
+					'right-top'     => __( 'Right Top', '@@textdomain' ),
+					'right-center'  => __( 'Right Center', '@@textdomain' ),
+					'right-bottom'  => __( 'Right Bottom', '@@textdomain' ),
+					'center-top'    => __( 'Center Top', '@@textdomain' ),
+					'center-center' => __( 'Center Center', '@@textdomain' ),
+					'center-bottom' => __( 'Center Bottom', '@@textdomain' ),
+				),
+				'attach' => array(
+					'fixed'   => __( 'Fixed', '@@textdomain' ),
+					'scroll'  => __( 'Scroll', '@@textdomain' ),
+				),
+			);
+
+			return apply_filters( 'login_designer_background_choices', $choices );
+
+		}
+
+		/**
+		 * Returns an array of Google Font options
+		 *
+		 * @return array of font styles.
+		 */
+		function get_fonts() {
+
+			$fonts = array(
+				'default' 		=> esc_html__( 'Default', '@@textdomain' ),
+				'Abril Fatface'         => 'Abril Fatface',
+				'georgia'               => 'Georgia',
+				'helvetica'             => 'Helvetica',
+				'Lato'                  => 'Lato',
+				'Lora'                  => 'Lora',
+				'Karla'                 => 'Karla',
+				'Josefin Sans'          => 'Josefin Sans',
+				'Montserrat'            => 'Montserrat',
+				'Open Sans'             => 'Open Sans',
+				'Oswald'                => 'Oswald',
+				'Overpass'              => 'Overpass',
+				'Poppins'               => 'Poppins',
+				'PT Sans'               => 'PT Sans',
+				'Roboto'                => 'Roboto',
+				'Fira Sans Condensed'   => 'Fira Sans',
+				'times'                 => 'Times New Roman',
+				'Nunito'                => 'Nunito',
+				'Merriweather'          => 'Merriweather',
+				'Rubik'                 => 'Rubik',
+				'Playfair Display'      => 'Playfair Display',
+				'Spectral'              => 'Spectral',
+			);
+
+			return apply_filters( 'login_designer_fonts', $fonts );
 		}
 	}
 
