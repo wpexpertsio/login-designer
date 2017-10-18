@@ -1,5 +1,17 @@
+.customize-control-login-designer-title {
+	margin-top: 15px;
+}
+
+.customize-control-login-designer-title.is-active {
+	margin-top: 0;
+}
+
 .customize-control-login-designer-title#customize-control-login_designer_title_form_field_text {
-	margin-top: 20px;
+	margin-top: 15px;
+}
+
+.customize-control-login-designer-title#customize-control-login_designer_title_logo {
+	margin-top: 0;
 }
 
 .customize-control-login-designer-title + .customize-control-image {

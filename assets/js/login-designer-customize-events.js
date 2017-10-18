@@ -92,6 +92,10 @@
 
 		controls.forEach( function( item, index, array ) {
 
+			if ( item[0] ) {
+				wp.customize.control( item ).container.addClass( 'is-active' );
+			}
+
 			if ( action == 'activate' ) {
 
 				// For this particular control, let's check to see if corresponding options are visible.
@@ -322,10 +326,6 @@
 
 			} else {
 				wp.customize.control( item ).deactivate();
-			}
-
-			if ( controls[0] ) {
-				wp.customize.control( item ).container.addClass( 'is-active' );
 			}
 		});
 	}

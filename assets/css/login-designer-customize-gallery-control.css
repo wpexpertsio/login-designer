@@ -1,3 +1,7 @@
+#customize-control-login_designer_bg_image_gallery .customize-control-title {
+	margin-top: 12px;
+}
+
 #gallery-button {
 	display: none;
 }
@@ -8,8 +12,24 @@
 }
 
 .gallery {
+	margin-bottom: 10px;
 	margin-left: -3px;
+	margin-top: 13px;
 	width: calc( 100% + 6px);
+}
+
+.gallery {
+	*zoom: 1;
+}
+
+.gallery:before,
+.gallery:after {
+	content: "";
+	display: table;
+}
+
+.gallery:after {
+	clear: both;
 }
 
 .checkbox {

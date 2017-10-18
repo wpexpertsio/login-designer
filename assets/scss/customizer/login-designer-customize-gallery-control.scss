@@ -50,6 +50,12 @@
 // 	}
 // }
 
+#customize-control-login_designer_bg_image_gallery {
+
+	.customize-control-title {
+		margin-top: 12px;
+	}
+}
 
 // #customize-control-login_designer_bg_image_gallery {
 
@@ -92,7 +98,25 @@
 .gallery {
 	margin-left: -3px;
 	width: calc( 100% + 6px );
+	margin-top: 13px;
+	margin-bottom: 10px;
 }
+
+.gallery {
+  *zoom: 1;
+}
+
+.gallery:before, .gallery:after {
+  content: "";
+  display: table;
+}
+
+.gallery:after {
+  clear: both;
+}
+
+
+
 
 .checkbox {
 	display: none !important;

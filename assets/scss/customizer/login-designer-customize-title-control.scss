@@ -1,15 +1,19 @@
 .customize-control-login-designer-title {
 	// transition: margin 200ms cubic-bezier(0.19, 1, 0.22, 1);
-	// margin-bottom: 15px;
+	margin-top: 15px;
 	// &,
 
-	&#customize-control-login_designer_title_form_field_text {
-		margin-top: 20px;
+	&.is-active {
+		margin-top: 0;
 	}
 
-	// &.is-active {
-	// 	margin-top: 0;
-	// }
+	&#customize-control-login_designer_title_form_field_text {
+		margin-top: 15px;
+	}
+
+	&#customize-control-login_designer_title_logo {
+		margin-top: 0;
+	}
 
 	& + .customize-control-image {
 		margin-top: -7px;
