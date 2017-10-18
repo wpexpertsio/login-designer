@@ -41,14 +41,6 @@
 		} );
 	} );
 
-
-
-
-
-
-
-
-
 	// Login page background color.
 	wp.customize( 'login_designer_bg_color', function( value ) {
 		value.bind( function( to ) {
@@ -59,23 +51,10 @@
 		} );
 	} );
 
-
-	// Whether a header image is available.
+	// Return a background image, if there is available.
 	function customBackground() {
 		return wp.customize( 'login_designer_bg_image' )();
 	}
-
-	// wp.customize( 'login_designer_bg_image', function( setting ) {
-	// 	setting.bind(function() {
-	// 		if ( hasGalleryImage() ) {
-	// 			$( document.body ).addClass( 'has-header-image' );
-	// 		} else {
-	// 			$( document.body ).removeClass( 'has-header-image' );
-	// 		}
-	// 	} );
-	// } );
-
-
 
 	// Login page background image url.
 	wp.customize( 'login_designer_bg_image', function( value ) {
@@ -195,6 +174,55 @@
 		} );
 	} );
 
+	// Return the form's shadow size value.
+	function formBoxShadowSize() {
+		return wp.customize( 'login_designer_form_box_shadow' )();
+	}
+
+	// Return the form's shadow opacity value.
+	function formBoxShadowOpacity() {
+		return wp.customize( 'login_designer_form_box_shadow_opacity' )() * .01;
+	}
+
+	// Form Box Shadow.
+	wp.customize( 'login_designer_form_box_shadow', function( value ) {
+		value.bind( function( to ) {
+			var style, shadow_opacity, el;
+			style = '<style class="login_designer_form_box_shadow"> #loginform { box-shadow: 0 0 ' + to + 'px rgba(0, 0, 0, ' + formBoxShadowOpacity() + '); } </style>';
+
+			el =  $( '.login_designer_form_box_shadow' );
+			// shadow_opacity =  $( '.login_designer_form_box_shadow_opacity' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Form Box Shadow.
+	wp.customize( 'login_designer_form_box_shadow_opacity', function( value ) {
+		value.bind( function( to ) {
+			var style, el, shadow_size, opacity;
+
+			opacity = to * .01;
+
+			style = '<style class="login_designer_form_box_shadow"> #loginform { box-shadow: 0 0 ' + formBoxShadowSize() + 'px rgba(0, 0, 0, ' + opacity + '); } </style>';
+
+			el =  $( '.login_designer_form_box_shadow' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+
+
+
 
 
 
@@ -284,7 +312,7 @@
 	wp.customize( 'login_designer_form_border_radius', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_form_border_radius"> body.login #loginform, body.login #loginform:after { border-radius: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_form_border_radius"> body.login #loginform { border-radius: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_form_border_radius' );
 
@@ -302,6 +330,38 @@
 			$( 'body.login #login' ).css({
 				width: to,
 			});
+		} );
+	} );
+
+	// Form padding: left/right.
+	wp.customize( 'login_designer_form_padding_side', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_form_padding_side"> body.login #loginform { padding-left: ' + to + 'px; padding-right: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_form_padding_side' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Form padding: top/bottom.
+	wp.customize( 'login_designer_form_padding_top_bottom', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_form_padding_top_bottom"> body.login #loginform { padding-top: ' + to + 'px; padding-bottom: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_form_padding_top_bottom' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
 		} );
 	} );
 

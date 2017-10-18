@@ -17,7 +17,7 @@ $wp_customize->add_setting( 'login_designer_title_form_labels', array(
 
 $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer_title_form_labels', array(
 	'type'                  => 'login-designer-title',
-	'label'                 => esc_html__( 'Form Labels', '@@textdomain' ),
+	'label'                 => esc_html__( 'Field Labels', '@@textdomain' ),
 	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
