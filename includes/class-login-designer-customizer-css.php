@@ -257,6 +257,10 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 					.login form .forgetmenot {
 						margin-top: 5px;
 					}
+
+					h1#login-designer-logo-h1 {
+						margin: 0 auto;
+					}
 				';
 
 			if ( $logo ) {
@@ -299,7 +303,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 
 			if ( 'none' !== $login_background_gallery_image_url ) {
 				$login_background_image_css = '
-					body.login {
+					body.login,
+					#login-designer-background {
 						background-image: url("'. esc_attr( $login_background_gallery_image_url ) .'");
 						background-repeat: '. esc_attr( $login_background_image_repeat ) .';
 						background-position: '. esc_attr( $login_background_image_position ) .';
@@ -311,7 +316,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 
 			if ( $login_background_image_url ) {
 				$login_background_image_css = '
-					body.login {
+					body.login,
+					#login-designer-background {
 						background-image: url("'. esc_attr( $login_background_image_url ) .'");
 						background-repeat: '. esc_attr( $login_background_image_repeat ) .';
 						background-position: '. esc_attr( $login_background_image_position ) .';
@@ -370,7 +376,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 
 				$form_box_shadow_css = '
 					#loginform {
-						box-shadow: 0 1px '. esc_attr( $form_box_shadow ) .' rgba(0, 0, 0, '. esc_attr( $opacity ) .');
+						box-shadow: 0 0 '. esc_attr( $form_box_shadow ) .' rgba(0, 0, 0, '. esc_attr( $opacity ) .');
 					}
 				';
 			}
@@ -472,7 +478,6 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 				';
 			}
 
-
 			/**
 			* Combine the values from above and minifiy them.
 			*/
@@ -510,20 +515,3 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 endif;
 
 new Login_Designer_Customizer_CSS();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

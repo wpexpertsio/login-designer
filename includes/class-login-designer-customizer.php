@@ -3,7 +3,7 @@
  * Customizer functionality
  *
  * @package   @@pkg.name
- * @author    @@pkg.author
+ * @author	@@pkg.author
  * @license   @@pkg.license
  * @version   @@pkg.version
  */
@@ -46,33 +46,33 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			 * Add the main panel and sections.
 			 */
 			$wp_customize->add_panel( 'login_designer', array(
-				'title'           => esc_html__( 'Login Designer', '@@textdomain' ),
-				'priority'        => 150,
-				'priority'        => 1,
+				'title'		   => esc_html__( 'Login Designer', '@@textdomain' ),
+				'priority'		=> 150,
+				'priority'		=> 1,
 			) );
 
 			// Section.
 			$wp_customize->add_section( 'login_designer__section--templates', array(
-				'title'           => esc_html__( 'Templates', '@@textdomain' ),
-				'panel'           => 'login_designer',
+				'title'		   => esc_html__( 'Templates', '@@textdomain' ),
+				'panel'		   => 'login_designer',
 			) );
 
 			// Section.
 			$wp_customize->add_section( 'login_designer__section--styles', array(
-				'title'           => esc_html__( 'Style Editor', '@@textdomain' ),
-				'panel'           => 'login_designer',
+				'title'		   => esc_html__( 'Style Editor', '@@textdomain' ),
+				'panel'		   => 'login_designer',
 			) );
 
 			// Section.
 			$wp_customize->add_section( 'login_designer__section--background', array(
-				'title'           => esc_html__( 'Background', '@@textdomain' ),
-				'panel'           => 'login_designer',
+				'title'		   => esc_html__( 'Background', '@@textdomain' ),
+				'panel'		   => 'login_designer',
 			) );
 
 			// Section.
 			$wp_customize->add_section( 'login_designer__section--settings', array(
-				'title'           => esc_html__( 'Settings', '@@textdomain' ),
-				'panel'           => 'login_designer',
+				'title'		   => esc_html__( 'Settings', '@@textdomain' ),
+				'panel'		   => 'login_designer',
 			) );
 
 			/**
@@ -94,6 +94,40 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		 */
 		public function sanitize_checkbox( $checked ) {
 			return ( ( isset( $checked ) && true === $checked ) ? true : false );
+		}
+
+		/**
+		 * Image sanitization callback.
+		 *
+		 * Checks the image's file extension and mime type against a whitelist. If they're allowed,
+		 * send back the filename, otherwise, return the setting default.
+		 *
+		 * - Sanitization: image file extension
+		 * - Control: text, WP_Customize_Image_Control
+		 *
+		 * @see wp_check_filetype() https://developer.wordpress.org/reference/functions/wp_check_filetype/
+		 *
+		 * @param string|string        $image Image filename.
+		 * @param WP_Customize_Setting $setting Setting instance.
+		 * @return string The image filename if the extension is allowed; otherwise, the setting default.
+		 */
+		public static function sanitize_image( $image, $setting ) {
+
+			// The array includes image mime types that are included in wp_get_mime_types().
+			$mimes = array(
+				'jpg|jpeg|jpe' 	=> 'image/jpeg',
+				'gif'		=> 'image/gif',
+				'png'		=> 'image/png',
+				'bmp'		=> 'image/bmp',
+				'tif|tiff'	=> 'image/tiff',
+				'ico'		=> 'image/x-icon',
+			);
+
+			// Return an array with file extension and mime_type.
+			$file = wp_check_filetype( $image, $mimes );
+
+			// If $image has a valid mime_type, return it; otherwise, return the default.
+			return ( $file['ext'] ? $image : $setting->default );
 		}
 
 		/**
@@ -142,48 +176,50 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 			$image_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/';
 
-			return apply_filters( 'login_designer_templates', array(
+			$backgrounds = array(
+				'none' => array(
+					'title' => esc_html__( 'None', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . '00.jpg',
+				),
 				'01' => array(
 					'title' => esc_html__( '01', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . '01-sml.jpg',
 				),
 				'02' => array(
 					'title' => esc_html__( '02', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '01-sml.jpg',
+					'image' => esc_url( $image_dir ) . '02-sml.jpg',
 				),
 				'03' => array(
 					'title' => esc_html__( '03', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '01-sml.jpg',
+					'image' => esc_url( $image_dir ) . '03-sml.jpg',
 				),
 				'04' => array(
 					'title' => esc_html__( '04', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '01-sml.jpg',
+					'image' => esc_url( $image_dir ) . '04-sml.jpg',
 				),
 				'05' => array(
 					'title' => esc_html__( '05', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '01-sml.jpg',
+					'image' => esc_url( $image_dir ) . '05-sml.jpg',
 				),
 				'06' => array(
 					'title' => esc_html__( '06', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '01-sml.jpg',
+					'image' => esc_url( $image_dir ) . '06-sml.jpg',
 				),
 				'07' => array(
 					'title' => esc_html__( '07', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '01-sml.jpg',
+					'image' => esc_url( $image_dir ) . '07-sml.jpg',
 				),
 				'08' => array(
 					'title' => esc_html__( '08', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '01-sml.jpg',
+					'image' => esc_url( $image_dir ) . '08-sml.jpg',
 				),
 				'09' => array(
 					'title' => esc_html__( '08', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '01-sml.jpg',
+					'image' => esc_url( $image_dir ) . '09-sml.jpg',
 				),
-				'none' => array(
-					'title' => esc_html__( 'None', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '01-sml.jpg',
-				),
-			) );
+			);
+
+			return apply_filters( 'login_designer_backgrounds', $backgrounds );
 		}
 
 		/**
@@ -197,23 +233,23 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			$choices = array(
 				'repeat' => array(
 					'no-repeat' => esc_html__( 'No Repeat', '@@textdomain' ),
-					'repeat'    => esc_html__( 'Tile', '@@textdomain' ),
+					'repeat'	=> esc_html__( 'Tile', '@@textdomain' ),
 					'repeat-x'  => esc_html__( 'Tile Horizontally', '@@textdomain' ),
 					'repeat-y'  => esc_html__( 'Tile Vertically', '@@textdomain' ),
 				),
 				'size' => array(
-					'auto'    => esc_html__( 'Default', '@@textdomain' ),
+					'auto'	=> esc_html__( 'Default', '@@textdomain' ),
 					'cover'   => esc_html__( 'Cover', '@@textdomain' ),
 					'contain' => esc_html__( 'Contain', '@@textdomain' ),
 				),
 				'position' => array(
-					'left-top'      => esc_html__( 'Left Top', '@@textdomain' ),
+					'left-top'	  => esc_html__( 'Left Top', '@@textdomain' ),
 					'left-center'   => esc_html__( 'Left Center', '@@textdomain' ),
 					'left-bottom'   => esc_html__( 'Left Bottom', '@@textdomain' ),
-					'right-top'     => esc_html__( 'Right Top', '@@textdomain' ),
+					'right-top'	 => esc_html__( 'Right Top', '@@textdomain' ),
 					'right-center'  => esc_html__( 'Right Center', '@@textdomain' ),
 					'right-bottom'  => esc_html__( 'Right Bottom', '@@textdomain' ),
-					'center-top'    => esc_html__( 'Center Top', '@@textdomain' ),
+					'center-top'	=> esc_html__( 'Center Top', '@@textdomain' ),
 					'center-center' => esc_html__( 'Center Center', '@@textdomain' ),
 					'center-bottom' => esc_html__( 'Center Bottom', '@@textdomain' ),
 				),
@@ -236,27 +272,27 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 			$fonts = array(
 				'default' 		=> esc_html__( 'Default', '@@textdomain' ),
-				'Abril Fatface'         => 'Abril Fatface',
-				'georgia'               => 'Georgia',
-				'helvetica'             => 'Helvetica',
-				'Lato'                  => 'Lato',
-				'Lora'                  => 'Lora',
-				'Karla'                 => 'Karla',
-				'Josefin Sans'          => 'Josefin Sans',
-				'Montserrat'            => 'Montserrat',
-				'Open Sans'             => 'Open Sans',
-				'Oswald'                => 'Oswald',
-				'Overpass'              => 'Overpass',
-				'Poppins'               => 'Poppins',
-				'PT Sans'               => 'PT Sans',
-				'Roboto'                => 'Roboto',
+				'Abril Fatface'		 => 'Abril Fatface',
+				'georgia'			   => 'Georgia',
+				'helvetica'			 => 'Helvetica',
+				'Lato'				  => 'Lato',
+				'Lora'				  => 'Lora',
+				'Karla'				 => 'Karla',
+				'Josefin Sans'		  => 'Josefin Sans',
+				'Montserrat'			=> 'Montserrat',
+				'Open Sans'			 => 'Open Sans',
+				'Oswald'				=> 'Oswald',
+				'Overpass'			  => 'Overpass',
+				'Poppins'			   => 'Poppins',
+				'PT Sans'			   => 'PT Sans',
+				'Roboto'				=> 'Roboto',
 				'Fira Sans Condensed'   => 'Fira Sans',
-				'times'                 => 'Times New Roman',
-				'Nunito'                => 'Nunito',
-				'Merriweather'          => 'Merriweather',
-				'Rubik'                 => 'Rubik',
-				'Playfair Display'      => 'Playfair Display',
-				'Spectral'              => 'Spectral',
+				'times'				 => 'Times New Roman',
+				'Nunito'				=> 'Nunito',
+				'Merriweather'		  => 'Merriweather',
+				'Rubik'				 => 'Rubik',
+				'Playfair Display'	  => 'Playfair Display',
+				'Spectral'			  => 'Spectral',
 			);
 
 			return apply_filters( 'login_designer_fonts', $fonts );

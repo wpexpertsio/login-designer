@@ -147,6 +147,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-templates.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-theme-template.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-esc-login.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/seasonal-backgrounds.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/admin/admin-bar.php';
 
 			if ( is_admin() ) {

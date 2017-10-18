@@ -24,6 +24,7 @@ $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'lo
 
 $wp_customize->add_setting( 'login_designer_custom_logo', array(
 	// 'transport'             => 'postMessage',
+	'sanitize_callback'     => array( $this, 'sanitize_image' ),
 ) );
 
 $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'login_designer_custom_logo', array(
@@ -35,7 +36,7 @@ $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'logi
 $wp_customize->add_setting( 'login_designer_custom_logo_margin_bottom', array(
 	'default'               => '25',
 	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
+	'sanitize_callback'     => 'absint',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_custom_logo_margin_bottom', array(

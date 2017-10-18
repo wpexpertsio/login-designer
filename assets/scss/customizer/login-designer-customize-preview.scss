@@ -7,9 +7,30 @@
 }
 
 .customize-partial--login-designer-background {
-	top: 2.8vw !important;
-	right: 3vw !important;
+	top: 10px !important;
+	left: 42px !important;
 }
+
+#login-designer-background {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+	transition: opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.transitioning {
+	opacity: 0;
+}
+
+
+
+
+
 
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);

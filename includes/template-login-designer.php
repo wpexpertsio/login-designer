@@ -228,6 +228,7 @@ function login_footer($input_id = '') {
 	 */
 	do_action( 'login_footer' ); ?>
 	<div class="clear"></div>
+	<div id="login-designer-background"></div>
 	</body>
 	</html>
 	<?php

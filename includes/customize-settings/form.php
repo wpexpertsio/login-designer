@@ -36,7 +36,7 @@ $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logi
 $wp_customize->add_setting( 'login_designer_form_width', array(
 	'default'               => '320',
 	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
+	'sanitize_callback'     => 'absint',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_width', array(
@@ -56,7 +56,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer_form_padding_side', array(
 	'default'               => '24',
 	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
+	'sanitize_callback'     => 'absint',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_padding_side', array(
@@ -76,7 +76,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer_form_padding_top_bottom', array(
 	'default'               => '26',
 	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
+	'sanitize_callback'     => 'absint',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_padding_top_bottom', array(
@@ -96,7 +96,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer_form_border_radius', array(
 	'default'               => '0',
 	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
+	'sanitize_callback'     => 'absint',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_border_radius', array(
@@ -116,7 +116,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer_form_box_shadow', array(
 	'default'               => '3',
 	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
+	'sanitize_callback'     => 'absint',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_box_shadow', array(
@@ -136,7 +136,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer_form_box_shadow_opacity', array(
 	'default'               => '13',
 	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
+	'sanitize_callback'     => 'absint',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_box_shadow_opacity', array(

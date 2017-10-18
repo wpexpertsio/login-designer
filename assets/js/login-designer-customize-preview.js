@@ -59,27 +59,79 @@
 		} );
 	} );
 
+
+	// Whether a header image is available.
+	function customBackground() {
+		return wp.customize( 'login_designer_bg_image' )();
+	}
+
+	// wp.customize( 'login_designer_bg_image', function( setting ) {
+	// 	setting.bind(function() {
+	// 		if ( hasGalleryImage() ) {
+	// 			$( document.body ).addClass( 'has-header-image' );
+	// 		} else {
+	// 			$( document.body ).removeClass( 'has-header-image' );
+	// 		}
+	// 	} );
+	// } );
+
+
+
 	// Login page background image url.
 	wp.customize( 'login_designer_bg_image', function( value ) {
 		value.bind( function( to ) {
-			$( 'body.login' ).css( 'background-image', 'url( ' + to + ')' );
+
+			$( 'body.login' ).css( 'background-image', 'none' );
+
+			$( '#login-designer-background' ).addClass( 'transitioning' );
+
+			setTimeout( function() {
+				$( '#login-designer-background' ).css( 'background-image', 'url( ' + to + ')' );
+			}, 200);
+
+			setTimeout( function() {
+				$( '#login-designer-background' ).removeClass( 'transitioning' );
+			}, 400 );
 		} );
 	} );
 
 	// Login page background image url.
-	// wp.customize( 'login_designer_bg_image_gallery', function( value ) {
-	// 	value.bind( function( to ) {
-	// 		$( 'body.login' ).css( 'background-image', 'url(" ' + login_designer_script.plugin_url + '/' + to + '.jpg")' );
+	wp.customize( 'login_designer_bg_image_gallery', function( value ) {
+		value.bind( function( to ) {
 
-	// 		console.log(login_designer_script.plugin_url);
-	// 	} );
-	// } );
+			if ( 'none' === to ) {
+
+				$( '#login-designer-background' ).addClass( 'transitioning' );
+
+				setTimeout( function() {
+					$( '#login-designer-background' ).css( 'background-image', 'url( ' + customBackground() + ')' );
+				}, 200);
+
+				setTimeout( function() {
+					$( '#login-designer-background' ).removeClass( 'transitioning' );
+				}, 400 );
+			} else {
+
+				$( 'body.login' ).css( 'background-image', 'none' );
+
+				$( '#login-designer-background' ).addClass( 'transitioning' );
+
+				setTimeout( function() {
+					$( '#login-designer-background' ).css( 'background-image', 'url( ' + login_designer_script.plugin_url + to + '.jpg' + ')' );
+				}, 200);
+
+				setTimeout( function() {
+					$( '#login-designer-background' ).removeClass( 'transitioning' );
+				}, 400 );
+			}
+		} );
+	} );
 
 	// Login page background image repeat.
 	wp.customize( 'login_designer_bg_image_repeat', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_bg_image_repeat"> body.login { background-repeat: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_image_repeat"> #login-designer-background { background-repeat: ' + to + '; } </style>';
 
 			el =  $( '.login_designer_bg_image_repeat' );
 
@@ -95,7 +147,7 @@
 	wp.customize( 'login_designer_bg_image_size', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_bg_image_size"> body.login { background-size: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_image_size"> #login-designer-background { background-size: ' + to + '; } </style>';
 
 			el =  $( '.login_designer_bg_image_size' );
 
@@ -115,7 +167,7 @@
 			var to = to;
 			var to = to.replace(/-/g, ' ');
 
-			style = '<style class="login_designer_bg_image_position"> body.login { background-position: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_image_position"> #login-designer-background { background-position: ' + to + '; } </style>';
 
 			el =  $( '.login_designer_bg_image_position' );
 
@@ -131,7 +183,7 @@
 	wp.customize( 'login_designer_bg_image_attach', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_bg_image_attach"> body.login { background-attachment: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_image_attach"> #login-designer-background { background-attachment: ' + to + '; } </style>';
 
 			el =  $( '.login_designer_bg_image_attach' );
 

@@ -24,8 +24,8 @@ $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'lo
 
 $wp_customize->add_setting( 'login_designer_form_label_username_text', array(
 	'default'           	=> esc_html__( 'Username or Email Address', '@@textdomain' ),
+	// 'transport'             => 'postMessage',
 	'sanitize_callback' 	=> 'esc_html',
-	// 'transport'         	=> '',
 ) );
 
 $wp_customize->add_control( 'login_designer_form_label_username_text', array(
@@ -36,8 +36,8 @@ $wp_customize->add_control( 'login_designer_form_label_username_text', array(
 
 $wp_customize->add_setting( 'login_designer_form_label_password_text', array(
 	'default'           	=> esc_html__( 'Password', '@@textdomain' ),
+	// 'transport'             => 'postMessage',
 	'sanitize_callback' 	=> 'esc_html',
-	// 'transport'         	=> '',
 ) );
 
 $wp_customize->add_control( 'login_designer_form_label_password_text', array(
@@ -49,7 +49,7 @@ $wp_customize->add_control( 'login_designer_form_label_password_text', array(
 $wp_customize->add_setting( 'login_designer_form_label_font', array(
 	'default'               => 'default',
 	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
+	'sanitize_callback'     => 'wp_filter_nohtml_kses',
 ) );
 
 $wp_customize->add_control( 'login_designer_form_label_font', array(
@@ -62,7 +62,7 @@ $wp_customize->add_control( 'login_designer_form_label_font', array(
 $wp_customize->add_setting( 'login_designer_form_label_size', array(
 	'default'               => '14',
 	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
+	'sanitize_callback'     => 'absint',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_label_size', array(

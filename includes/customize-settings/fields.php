@@ -37,7 +37,7 @@ $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logi
 $wp_customize->add_setting( 'login_designer_form_field_side_padding', array(
 	'default'               => '3',
 	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
+	'sanitize_callback'     => 'absint',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_field_side_padding', array(
@@ -57,7 +57,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer_form_field_border_size', array(
 	'default'               => '1',
 	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
+	'sanitize_callback'     => 'absint',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_field_border_size', array(
@@ -88,7 +88,7 @@ $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logi
 $wp_customize->add_setting( 'login_designer_form_field_box_shadow', array(
 	'default'               => '2',
 	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
+	'sanitize_callback'     => 'absint',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_field_box_shadow', array(
@@ -108,7 +108,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer_form_field_box_shadow_opacity', array(
 	'default'               => '7',
 	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
+	'sanitize_callback'     => 'absint',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_field_box_shadow_opacity', array(
@@ -155,7 +155,7 @@ $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer_form_field_font', array(
 	'default'               => 'default',
 	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
+	'sanitize_callback'     => 'wp_filter_nohtml_kses',
 ) );
 
 $wp_customize->add_control( 'login_designer_form_field_font', array(
@@ -168,7 +168,7 @@ $wp_customize->add_control( 'login_designer_form_field_font', array(
 $wp_customize->add_setting( 'login_designer_form_field_text_size', array(
 	'default'               => '24',
 	// 'transport'             => 'postMessage',
-	'sanitize_callback'     => '',
+	'sanitize_callback'     => 'absint',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_field_text_size', array(
