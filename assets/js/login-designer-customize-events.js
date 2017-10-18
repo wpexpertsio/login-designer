@@ -99,7 +99,7 @@
 				if ( item === 'login_designer_custom_logo_margin_bottom' ) {
 
 					wp.customize( 'login_designer_custom_logo', function( setting ) {
-						wp.customize.control( 'login_designer_custom_logo_margin_bottom', function( control ) {
+						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
 								if ( setting.get() ) {
@@ -117,18 +117,18 @@
 					});
 
 				// BG
-				} else if ( item === 'login_designer_bg_image_repeat' ) {
+				} else if ( item === 'login_designer_bg_image_gallery' ) {
 
 					wp.customize( 'login_designer_bg_image', function( setting ) {
-						wp.customize.control( 'login_designer_bg_image_repeat', function( control ) {
+						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
 								if ( setting.get() ) {
-									// If there is a custom logo uploaded, let's show the bottom positioning option.
-									wp.customize.control( item ).activate();
-								} else {
-									// If not, let's quickly hide it.
+									// If set, let's quickly hide it.
 									control.container.slideUp( 0 );
+								} else {
+									// If there's no custom background image, let's show the gallery.
+									wp.customize.control( item ).activate();
 								}
 							};
 
@@ -136,71 +136,103 @@
 							setting.bind( visibility );
 						});
 					});
+
+				} else if ( item === 'login_designer_bg_image_repeat' ) {
+
+					$.each( [ 'login_designer_bg_image', 'login_designer_bg_image_gallery' ], function( index, settingId ) {
+
+						wp.customize( settingId, function( setting ) {
+							wp.customize.control( item, function( control ) {
+								var visibility = function() {
+
+									if ( setting.get() && 'none' !== setting.get() ) {
+										// If there is a background image or gallery image, but neither are set to "none".
+										wp.customize.control( item ).activate();
+									} else {
+										// If not, let's quickly hide it.
+										control.container.slideUp( 0 );
+									}
+								};
+
+								visibility();
+								setting.bind( visibility );
+							} );
+						} );
+					} );
 
 				} else if ( item === 'login_designer_bg_image_size' ) {
 
-					wp.customize( 'login_designer_bg_image', function( setting ) {
-						wp.customize.control( 'login_designer_bg_image_size', function( control ) {
-							var visibility = function() {
+					$.each( [ 'login_designer_bg_image', 'login_designer_bg_image_gallery' ], function( index, settingId ) {
 
-								if ( setting.get() ) {
-									// If there is a custom logo uploaded, let's show the bottom positioning option.
-									wp.customize.control( item ).activate();
-								} else {
-									// If not, let's quickly hide it.
-									control.container.slideUp( 0 );
-								}
-							};
+						wp.customize( settingId, function( setting ) {
+							wp.customize.control( item, function( control ) {
+								var visibility = function() {
 
-							visibility();
-							setting.bind( visibility );
-						});
-					});
+									if ( setting.get() && 'none' !== setting.get() ) {
+										// If there is a background image or gallery image, but neither are set to "none".
+										wp.customize.control( item ).activate();
+									} else {
+										// If not, let's quickly hide it.
+										control.container.slideUp( 0 );
+									}
+								};
+
+								visibility();
+								setting.bind( visibility );
+							} );
+						} );
+					} );
 
 				} else if ( item === 'login_designer_bg_image_attach' ) {
 
-					wp.customize( 'login_designer_bg_image', function( setting ) {
-						wp.customize.control( 'login_designer_bg_image_size', function( control ) {
-							var visibility = function() {
+					$.each( [ 'login_designer_bg_image', 'login_designer_bg_image_gallery' ], function( index, settingId ) {
 
-								if ( setting.get() ) {
-									// If there is a custom logo uploaded, let's show the bottom positioning option.
-									wp.customize.control( item ).activate();
-								} else {
-									// If not, let's quickly hide it.
-									control.container.slideUp( 0 );
-								}
-							};
+						wp.customize( settingId, function( setting ) {
+							wp.customize.control( item, function( control ) {
+								var visibility = function() {
 
-							visibility();
-							setting.bind( visibility );
-						});
-					});
+									if ( setting.get() && 'none' !== setting.get() ) {
+										// If there is a background image or gallery image, but neither are set to "none".
+										wp.customize.control( item ).activate();
+									} else {
+										// If not, let's quickly hide it.
+										control.container.slideUp( 0 );
+									}
+								};
+
+								visibility();
+								setting.bind( visibility );
+							} );
+						} );
+					} );
 
 				} else if ( item === 'login_designer_bg_image_position' ) {
 
-					wp.customize( 'login_designer_bg_image', function( setting ) {
-						wp.customize.control( 'login_designer_bg_image_position', function( control ) {
-							var visibility = function() {
+					$.each( [ 'login_designer_bg_image', 'login_designer_bg_image_gallery' ], function( index, settingId ) {
 
-								if ( setting.get() ) {
-									// If there is a custom logo uploaded, let's show the bottom positioning option.
-									wp.customize.control( item ).activate();
-								} else {
-									// If not, let's quickly hide it.
-									control.container.slideUp( 0 );
-								}
-							};
+						wp.customize( settingId, function( setting ) {
+							wp.customize.control( item, function( control ) {
+								var visibility = function() {
 
-							visibility();
-							setting.bind( visibility );
-						});
-					});
+									if ( setting.get() && 'none' !== setting.get() ) {
+										// If there is a background image or gallery image, but neither are set to "none".
+										wp.customize.control( item ).activate();
+									} else {
+										// If not, let's quickly hide it.
+										control.container.slideUp( 0 );
+									}
+								};
+
+								visibility();
+								setting.bind( visibility );
+							} );
+						} );
+					} );
 
 				} else if ( item === 'login_designer_form_box_shadow_opacity' ) {
 
 					wp.customize( 'login_designer_form_box_shadow', function( setting ) {
-						wp.customize.control( 'login_designer_form_box_shadow_opacity', function( control ) {
+						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
 								if ( '0' < setting.get() ) {
@@ -220,7 +252,7 @@
 				} else if ( item === 'login_designer_form_field_box_shadow_opacity' ) {
 
 					wp.customize( 'login_designer_form_field_box_shadow', function( setting ) {
-						wp.customize.control( 'login_designer_form_field_box_shadow_opacity', function( control ) {
+						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
 								if ( '0' < setting.get() ) {
@@ -240,7 +272,7 @@
 				} else if ( item === 'login_designer_form_field_box_shadow_inset' ) {
 
 					wp.customize( 'login_designer_form_field_box_shadow', function( setting ) {
-						wp.customize.control( 'login_designer_form_field_box_shadow_inset', function( control ) {
+						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
 								if ( '0' < setting.get() ) {
@@ -264,7 +296,7 @@
 				else if ( item === 'login_designer_form_field_border_color' ) {
 
 					wp.customize( 'login_designer_form_field_border_size', function( setting ) {
-						wp.customize.control( 'login_designer_form_field_border_color', function( control ) {
+						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
 								if ( '0' < setting.get() ) {

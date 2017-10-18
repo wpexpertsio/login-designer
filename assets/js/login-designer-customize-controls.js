@@ -17,10 +17,8 @@
 			wp.customize( parent_setting, function( setting ) {
 				wp.customize.control( affected_control, function( control ) {
 					var visibility = function() {
-						if ( setting.get() ) {
+						if ( setting.get() && 'none' !== setting.get() ) {
 							control.container.slideDown( 180 );
-						} else if ( 'none' === setting.get() ) {
-							control.container.slideUp( 180 );
 						} else {
 							control.container.slideUp( 180 );
 						}
@@ -76,50 +74,6 @@
 			});
 		}
 
-		/**
-		 * Function to hide/show Customizer options, based on another control.
-		 *
-		 * Parent option, Affected Control, Value which affects the control.
-		 */
-		function customizer_gallery_option_display( parent_setting, affected_control ) {
-			wp.customize( parent_setting, function( setting ) {
-				wp.customize.control( affected_control, function( control ) {
-					var visibility = function() {
-
-						console.log( setting.get() );
-
-						if (// setting.get() ||
-							'none' === setting.get() ||
-							login_designer_script.plugin_url + '01.jpg' === setting.get() ||
-							login_designer_script.plugin_url + '02.jpg' === setting.get() ||
-							login_designer_script.plugin_url + '03.jpg' === setting.get() ||
-							login_designer_script.plugin_url + '04.jpg' === setting.get() ||
-							login_designer_script.plugin_url + '05.jpg' === setting.get() ||
-							login_designer_script.plugin_url + '06.jpg' === setting.get() ||
-							login_designer_script.plugin_url + '07.jpg' === setting.get() ||
-							login_designer_script.plugin_url + '08.jpg' === setting.get() ||
-							login_designer_script.plugin_url + '09.jpg' === setting.get() ||
-							login_designer_script.plugin_url + '10.jpg' === setting.get() ||
-							login_designer_script.plugin_url + '11.jpg' === setting.get() ||
-							login_designer_script.plugin_url + '12.jpg' === setting.get() ||
-							login_designer_script.plugin_url + '13.jpg' === setting.get() ||
-							login_designer_script.plugin_url + '14.jpg' === setting.get() ||
-							login_designer_script.plugin_url + '15.jpg' === setting.get() ) {
-						} else {
-							control.container.slideUp( 180 );
-							// control.container.slideDown( 180 );
-						}
-
-
-						// console.log( wp.customize( 'login_designer_bg_image' ).get() );
-					};
-
-					visibility();
-					setting.bind( visibility );
-				});
-			});
-		}
-
 		// Only show the Twitter profile option, if social sharing is enabled.
 		customizer_image_option_display( 'login_designer_custom_logo', 'login_designer_custom_logo_margin_bottom' );
 
@@ -139,6 +93,13 @@
 		customizer_image_option_display( 'login_designer_bg_image', 'login_designer_bg_image_attach' );
 		customizer_image_option_display( 'login_designer_bg_image', 'login_designer_bg_image_position' );
 
+		// Only show the gallery if there is a gallery background image selected and it's not set to "none".
+		customizer_image_option_display( 'login_designer_bg_image_gallery', 'login_designer_bg_image_repeat' );
+		customizer_image_option_display( 'login_designer_bg_image_gallery', 'login_designer_bg_image_size' );
+		customizer_image_option_display( 'login_designer_bg_image_gallery', 'login_designer_bg_image_attach' );
+		customizer_image_option_display( 'login_designer_bg_image_gallery', 'login_designer_bg_image_position' );
+
+		// Only show the gallery if there is no custom background image uploaded.
 		customizer_no_image_option_display( 'login_designer_bg_image', 'login_designer_bg_image_gallery' );
 
 		// Detect when the front page sections section is expanded (or closed) so we can adjust the preview accordingly.
@@ -169,7 +130,6 @@
 		// 	} );
 		// } );
 
-
 		// Only show the color hue control when there's a custom color scheme.
 		// wp.customize( 'login_designer_bg_image', function( setting ) {
 		// 	wp.customize.control( 'login_designer_bg_image_gallery', function( control ) {
@@ -178,41 +138,6 @@
 		// 				control.container.slideDown( 180 );
 		// 				console.log( 'sliding down' );
 		// 			}
-		// 		};
-
-		// 		visibility();
-		// 		setting.bind( visibility );
-		// 	});
-		// });
-
-
-		// wp.customize( 'login_designer_bg_image', function( setting ) {
-		// 	wp.customize.control( 'login_designer_bg_image_gallery', function( control ) {
-		// 		var visibility = function() {
-
-		// 			if (// setting.get() ||
-		// 				'none' === setting.get() ||
-		// 				login_designer_script.plugin_url + '01.jpg' === setting.get() ||
-		// 				login_designer_script.plugin_url + '02.jpg' === setting.get() ||
-		// 				login_designer_script.plugin_url + '03.jpg' === setting.get() ||
-		// 				login_designer_script.plugin_url + '04.jpg' === setting.get() ||
-		// 				login_designer_script.plugin_url + '05.jpg' === setting.get() ||
-		// 				login_designer_script.plugin_url + '06.jpg' === setting.get() ||
-		// 				login_designer_script.plugin_url + '07.jpg' === setting.get() ||
-		// 				login_designer_script.plugin_url + '08.jpg' === setting.get() ||
-		// 				login_designer_script.plugin_url + '09.jpg' === setting.get() ||
-		// 				login_designer_script.plugin_url + '10.jpg' === setting.get() ||
-		// 				login_designer_script.plugin_url + '11.jpg' === setting.get() ||
-		// 				login_designer_script.plugin_url + '12.jpg' === setting.get() ||
-		// 				login_designer_script.plugin_url + '13.jpg' === setting.get() ||
-		// 				login_designer_script.plugin_url + '14.jpg' === setting.get() ||
-		// 				login_designer_script.plugin_url + '15.jpg' === setting.get() ) {
-		// 			} else {
-		// 				wp.customize( 'login_designer_bg_image_gallery' ).set('');
-		// 				console.log( 'has a gallery image but we removed it' );
-		// 			}
-
-
 		// 		};
 
 		// 		visibility();
