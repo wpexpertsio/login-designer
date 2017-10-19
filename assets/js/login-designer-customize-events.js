@@ -109,9 +109,6 @@
 								if ( setting.get() ) {
 									// If there is a custom logo uploaded, let's show the bottom positioning option.
 									wp.customize.control( item ).activate();
-								} else {
-									// If not, let's quickly hide it.
-									control.container.slideUp( 0 );
 								}
 							};
 
@@ -127,10 +124,7 @@
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
-								if ( setting.get() ) {
-									// If set, let's quickly hide it.
-									control.container.slideUp( 0 );
-								} else {
+								if ( ! setting.get() ) {
 									// If there's no custom background image, let's show the gallery.
 									wp.customize.control( item ).activate();
 								}
@@ -335,77 +329,58 @@
 
 		init: function () {
 
-			// Store a reference to "this" in case callback functions need to reference it.
-			var self = this;
+			var
+			self = this,
+			active_state,
+			logo_event  		= 'login-designer-edit-logo',
+			form_event  		= 'login-designer-edit-loginform',
+			fields_event 		= 'login-designer-edit-loginform-fields',
+			username_label_event 	= 'login-designer-edit-loginform-labels-username',
+			password_label_event 	= 'login-designer-edit-loginform-labels-password',
+			button_event 		= 'login-designer-edit-button',
+			background_event 	= 'login-designer-edit-background';
 
-			// Logo
-			this.preview.bind( 'login-designer-edit-logo', function() {
+			// Function used for contextually aware Customizer options.
+			function bind_control_visibility_event( event, active_controls, focus_control ) {
 
-				// Visibility.
-				active_control( all_controls.logo );
+				api.myCustomizerPreviewer.preview.bind( event, function() {
 
-				// Focus.
-				wp.customize.control( 'login_designer_custom_logo' ).focus();
+					//If the current event is active, there's no need to run it.
+					if ( active_state !== event ) {
 
-			} );
+						// Visibility.
+						active_control( active_controls );
 
-			this.preview.bind( 'login-designer-edit-loginform', function() {
+						// Focus.
+						wp.customize.control( focus_control ).focus();
 
-				// Visibility.
-				active_control( all_controls.form );
+					}
 
-				// Focus.
-				wp.customize.control( 'login_designer_form_background_color' ).focus();
-			} );
+					active_state = event;
 
-			this.preview.bind( 'login-designer-edit-loginform-fields', function() {
+					console.log( active_state );
 
-				// Visibility.
-				active_control( all_controls.fields );
+				} );
+			}
 
-				wp.customize.control( 'login_designer_title_form_fields' ).focus();
-			} );
-
-			this.preview.bind( 'login-designer-edit-loginform-labels-username', function() {
-
-				// Visibility.
-				active_control( all_controls.labels );
-
-				wp.customize.control( 'login_designer_form_label_username_text' ).focus();
-			} );
-
-			this.preview.bind( 'login-designer-edit-loginform-labels-password', function() {
-
-				// Visibility.
-				active_control( all_controls.labels );
-
-				wp.customize.control( 'login_designer_form_label_password_text' ).focus();
-			} );
-
-			this.preview.bind( 'login-designer-edit-button', function() {
-
-				// Visibility.
-				active_control( all_controls.button );
-
-				wp.customize.control( 'login_designer_title_button' ).focus();
-			} );
-
-			this.preview.bind( 'login-designer-edit-background', function() {
-
-				// Visibility.
-				active_control( all_controls.background );
-
-				wp.customize.control( 'login_designer_title_bg' ).focus();
-			} );
+			// Only show visible options when necessary.
+			bind_control_visibility_event( logo_event, all_controls.logo, 'login_designer_custom_logo' );
+			bind_control_visibility_event( form_event, all_controls.form, 'login_designer_title_form' );
+			bind_control_visibility_event( fields_event, all_controls.fields, 'login_designer_title_form' );
+			bind_control_visibility_event( username_label_event, all_controls.labels, 'login_designer_form_label_username_text' );
+			bind_control_visibility_event( password_label_event, all_controls.labels, 'login_designer_form_label_password_text' );
+			bind_control_visibility_event( button_event, all_controls.buttons, 'login_designer_title_button' );
+			bind_control_visibility_event( background_event, all_controls.background, 'login_designer_title_bg' );
 		}
 	};
 
 	/**
-	 * Capture the instance of the Preview since it is private (this has changed in WordPress 4.0)
+	 * Capture the instance of the Preview since it is private.
 	 */
 	OldPreviewer = api.Previewer;
 	api.Previewer = OldPreviewer.extend( {
 		initialize: function( params, options ) {
+
 			// Store a reference to the Previewer
 			api.myCustomizerPreviewer.preview = this;
 

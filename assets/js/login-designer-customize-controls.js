@@ -18,9 +18,9 @@
 				wp.customize.control( affected_control, function( control ) {
 					var visibility = function() {
 						if ( setting.get() && 'none' !== setting.get() ) {
-							control.container.slideDown( 180 );
+							control.container.slideDown( 100 );
 						} else {
-							control.container.slideUp( 180 );
+							control.container.slideUp( 100 );
 						}
 					};
 
@@ -105,8 +105,6 @@
 		// Detect when the front page sections section is expanded (or closed) so we can adjust the preview accordingly.
 		wp.customize.panel( 'login_designer', function( section ) {
 			section.expanded.bind( function( isExpanding ) {
-
-				// Value of isExpanding will = true if you're entering the section, false if you're leaving it.
 				wp.customize.previewer.send( 'login-designer-url-switcher', { expanded: isExpanding });
 
 			} );
