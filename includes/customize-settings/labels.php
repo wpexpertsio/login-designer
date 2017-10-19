@@ -48,7 +48,7 @@ $wp_customize->add_control( 'login_designer_form_label_password_text', array(
 
 $wp_customize->add_setting( 'login_designer_form_label_font', array(
 	'default'               => 'default',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'wp_filter_nohtml_kses',
 ) );
 

@@ -7,11 +7,72 @@
 
 ( function( $ ) {
 
-	// Whether a custom logo image is available.
+	// Check whether a custom logo image is available.
 	function hasLogo() {
 		var image = wp.customize( 'login_designer_custom_logo' )();
 		return '' !== image;
 	}
+
+	// Return the form's shadow size value.
+	function formBoxShadowSize() {
+		return wp.customize( 'login_designer_form_box_shadow' )();
+	}
+
+	// Return the form's shadow opacity value.
+	function formBoxShadowOpacity() {
+		return wp.customize( 'login_designer_form_box_shadow_opacity' )() * .01;
+	}
+
+	// Output live font-family changes and link to the relevant Google Fonts stylesheet, if applicable.
+	function live_font_family( control, style_element ) {
+
+		wp.customize( control, function( value ) {
+
+			value.bind( function( to ) {
+
+				var
+				el,
+				style,
+				old_stylesheet;
+
+				style = '<style class=" ' + control + ' "> ' + style_element + ' { font-family: ' + to + '; } </style>';
+
+				el =  $( '.' + control );
+
+				if ( el.length ) {
+					el.replaceWith( style ); // style element already exists, so replace it
+				} else {
+					$( 'head' ).append( style ); // style element doesn't exist so add it
+				}
+
+				// Don't link to fonts that don't have Google Fonts.
+				if ( 'default' != to && 'Times New Roman' != to && 'Helvetica' != to && 'Georgia' != to ) {
+
+					// Convert the value into the correct url args.
+					font_family = '?family=' + to;
+
+					// Generate and link the new stylesheet.
+					stylesheet = $( '<link rel="stylesheet" id="login-designer-' + control + '" href=" ' + login_designer_script.font_url + font_family + login_designer_script.font_subset +' " type="text/css" media="all" >' ).appendTo( 'head' );
+
+					// Look for the old font stylesheet so we may replace it on the fly.
+					old_stylesheet =  $( '#login-designer-' + control );
+
+					if ( old_stylesheet.length ) {
+						// Style element already exists, so replace it
+						old_stylesheet.replaceWith( stylesheet );
+					} else {
+						// Style element doesn't exist so add it
+						$( 'head' ).append( stylesheet );
+					}
+
+				}
+
+			} );
+		} );
+	}
+
+	live_font_family( 'login_designer_form_label_font', '#loginform label:not([for=rememberme])' );
+	live_font_family( 'login_designer_form_field_font', '#loginform .input' );
 
 	// Switch to the /login-designer/ page, where we can live-preview Customizer options.
 	wp.customize.bind( 'preview-ready', function() {
@@ -174,16 +235,6 @@
 		} );
 	} );
 
-	// Return the form's shadow size value.
-	function formBoxShadowSize() {
-		return wp.customize( 'login_designer_form_box_shadow' )();
-	}
-
-	// Return the form's shadow opacity value.
-	function formBoxShadowOpacity() {
-		return wp.customize( 'login_designer_form_box_shadow_opacity' )() * .01;
-	}
-
 	// Form Box Shadow.
 	wp.customize( 'login_designer_form_box_shadow', function( value ) {
 		value.bind( function( to ) {
@@ -231,16 +282,6 @@
 			$( '#login-designer--password-label span' ).html( newval );
 		} );
 	} );
-
-
-
-
-
-
-
-
-
-
 
 	// Custom logo.
 	wp.customize( 'login_designer_custom_logo', function( value ) {

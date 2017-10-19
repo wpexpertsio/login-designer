@@ -154,7 +154,7 @@ $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'lo
 
 $wp_customize->add_setting( 'login_designer_form_field_font', array(
 	'default'               => 'default',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'wp_filter_nohtml_kses',
 ) );
 

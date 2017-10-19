@@ -153,7 +153,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 			$image_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/';
 
-			return apply_filters( 'login_designer_templates', array(
+			$templates = array(
 				'default' => array(
 					'title' => esc_html__( 'Default', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
@@ -166,7 +166,9 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 					'title' => esc_html__( 'Template 02', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
 				),
-			) );
+			);
+
+			return apply_filters( 'login_designer_templates', $templates );
 		}
 
 		/**
@@ -232,21 +234,21 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 			$choices = array(
 				'repeat' => array(
-					'no-repeat' => esc_html__( 'No Repeat', '@@textdomain' ),
+					'no-repeat' 	=> esc_html__( 'No Repeat', '@@textdomain' ),
 					'repeat'	=> esc_html__( 'Tile', '@@textdomain' ),
-					'repeat-x'  => esc_html__( 'Tile Horizontally', '@@textdomain' ),
-					'repeat-y'  => esc_html__( 'Tile Vertically', '@@textdomain' ),
+					'repeat-x'  	=> esc_html__( 'Tile Horizontally', '@@textdomain' ),
+					'repeat-y'  	=> esc_html__( 'Tile Vertically', '@@textdomain' ),
 				),
 				'size' => array(
-					'auto'	=> esc_html__( 'Default', '@@textdomain' ),
-					'cover'   => esc_html__( 'Cover', '@@textdomain' ),
-					'contain' => esc_html__( 'Contain', '@@textdomain' ),
+					'auto'		=> esc_html__( 'Auto', '@@textdomain' ),
+					'cover'   	=> esc_html__( 'Cover', '@@textdomain' ),
+					'contain' 	=> esc_html__( 'Contain', '@@textdomain' ),
 				),
 				'position' => array(
-					'left-top'	  => esc_html__( 'Left Top', '@@textdomain' ),
+					'left-top'	=> esc_html__( 'Left Top', '@@textdomain' ),
 					'left-center'   => esc_html__( 'Left Center', '@@textdomain' ),
 					'left-bottom'   => esc_html__( 'Left Bottom', '@@textdomain' ),
-					'right-top'	 => esc_html__( 'Right Top', '@@textdomain' ),
+					'right-top'	=> esc_html__( 'Right Top', '@@textdomain' ),
 					'right-center'  => esc_html__( 'Right Center', '@@textdomain' ),
 					'right-bottom'  => esc_html__( 'Right Bottom', '@@textdomain' ),
 					'center-top'	=> esc_html__( 'Center Top', '@@textdomain' ),
@@ -254,8 +256,8 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 					'center-bottom' => esc_html__( 'Center Bottom', '@@textdomain' ),
 				),
 				'attach' => array(
-					'fixed'   => esc_html__( 'Fixed', '@@textdomain' ),
-					'scroll'  => esc_html__( 'Scroll', '@@textdomain' ),
+					'fixed'   	=> esc_html__( 'Fixed', '@@textdomain' ),
+					'scroll'  	=> esc_html__( 'Scroll', '@@textdomain' ),
 				),
 			);
 
@@ -272,27 +274,27 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 			$fonts = array(
 				'default' 		=> esc_html__( 'Default', '@@textdomain' ),
-				'Abril Fatface'		 => 'Abril Fatface',
-				'georgia'			   => 'Georgia',
-				'helvetica'			 => 'Helvetica',
-				'Lato'				  => 'Lato',
-				'Lora'				  => 'Lora',
-				'Karla'				 => 'Karla',
-				'Josefin Sans'		  => 'Josefin Sans',
-				'Montserrat'			=> 'Montserrat',
-				'Open Sans'			 => 'Open Sans',
-				'Oswald'				=> 'Oswald',
-				'Overpass'			  => 'Overpass',
-				'Poppins'			   => 'Poppins',
-				'PT Sans'			   => 'PT Sans',
-				'Roboto'				=> 'Roboto',
+				'Abril Fatface'		=> 'Abril Fatface',
+				'Georgia'		=> 'Georgia',
+				'Helvetica'		=> 'Helvetica',
+				'Lato'			=> 'Lato',
+				'Lora'			=> 'Lora',
+				'Karla'			=> 'Karla',
+				'Josefin Sans'		=> 'Josefin Sans',
+				'Montserrat'		=> 'Montserrat',
+				'Open Sans'		=> 'Open Sans',
+				'Oswald'		=> 'Oswald',
+				'Overpass'		=> 'Overpass',
+				'Poppins'		=> 'Poppins',
+				'PT Sans'		=> 'PT Sans',
+				'Roboto'		=> 'Roboto',
 				'Fira Sans Condensed'   => 'Fira Sans',
-				'times'				 => 'Times New Roman',
-				'Nunito'				=> 'Nunito',
-				'Merriweather'		  => 'Merriweather',
-				'Rubik'				 => 'Rubik',
-				'Playfair Display'	  => 'Playfair Display',
-				'Spectral'			  => 'Spectral',
+				'Times New Roman'	=> 'Times New Roman',
+				'Nunito'		=> 'Nunito',
+				'Merriweather'		=> 'Merriweather',
+				'Rubik'			=> 'Rubik',
+				'Playfair Display'	=> 'Playfair Display',
+				'Spectral'		=> 'Spectral',
 			);
 
 			return apply_filters( 'login_designer_fonts', $fonts );

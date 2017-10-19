@@ -83,8 +83,10 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 
 			// Localization.
 			$login_designer_localize = array(
-				'admin_url'         => admin_url(),
-				'plugin_url'        => LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
+				'admin_url'        => admin_url(),
+				'plugin_url'       => LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
+				'font_url'         => esc_url_raw( 'https://fonts.googleapis.com/css' ),
+				'font_subset'      => '&latin,latin-ext',
 			);
 
 			wp_localize_script( 'login-designer-customize-preview', 'login_designer_script', $login_designer_localize );

@@ -29,12 +29,12 @@ function login_designer_admin_bar_link( $wp_admin_bar ) {
 
 	$args = array(
 		'id' => 'login-designer',
-		'title' => __( 'Open Login Designer', '@@textdomain' ),
+		'title' => esc_html__( 'Login Designer', '@@textdomain' ),
 		'href' => admin_url( '/customize.php?autofocus[panel]=login_designer&url='.home_url( '/login-designer' ) ),
 		'meta' => array(
 			'target' => '_self',
 			'class' => 'login-designer-link',
-			'title' => __( 'Login Designer', '@@textdomain' ),
+			'title' => esc_html__( 'Login Designer', '@@textdomain' ),
 		),
 	);
 
