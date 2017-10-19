@@ -1,0 +1,281 @@
+.customize-control-alpha-color {
+	position: relative;
+}
+
+.customize-control-alpha-color .customize-control-title {
+	margin: 0 0 3px;
+}
+
+.customize-control-alpha-color .customize-control-content {
+	margin-bottom: -20px;
+}
+
+.customize-control-alpha-color label {
+	cursor: default;
+}
+
+.customize-control-alpha-color .customize-control-notifications-container {
+	display: none;
+}
+
+.customize-control-alpha-color .wp-picker-container {
+	display: block;
+	height: 0;
+}
+
+.customize-control-alpha-color .wp-picker-container,
+.customize-control-alpha-color .wp-picker-container .iris-picker {
+	width: 100% !important;
+}
+
+.customize-control-alpha-color .wp-picker-container.wp-picker-active {
+	display: block;
+	height: auto;
+	margin-bottom: 25px;
+	margin-top: -24px;
+}
+
+.customize-control-alpha-color .wp-picker-open + .wp-picker-input-wrap {
+	margin-top: -2px;
+}
+
+.customize-control-alpha-color .wp-color-result {
+	border: 0 !important;
+	border-radius: 100%;
+	box-shadow: 0 0 0 !important;
+	height: 20px;
+	margin: 0;
+	padding-left: 20px;
+	position: absolute;
+	right: 0;
+	top: 2px;
+}
+
+.customize-control-alpha-color .wp-color-result::before {
+	border-radius: 100%;
+	bottom: 1px;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+	content: "";
+	height: calc( 100% -2px);
+	left: 1px;
+	position: absolute;
+	right: 1px;
+	top: 1px;
+	-webkit-transition: box-shadow 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+	transition: box-shadow 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+	width: calc( 100% -2px);
+}
+
+.customize-control-alpha-color .wp-color-result:hover::before,
+.customize-control-alpha-color .wp-color-result:focus::before {
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+.customize-control-alpha-color .wp-color-result::after {
+	display: none;
+}
+
+.customize-control-alpha-color .iris-border {
+	border-radius: 3px 3px 0 0;
+}
+
+.customize-control-alpha-color .iris-border .iris-picker-inner {
+	bottom: 8px;
+	left: 8px;
+	right: 8px;
+	top: 8px;
+}
+
+.customize-control-alpha-color .iris-border .iris-palette-container {
+	bottom: 9px;
+	left: 8px;
+}
+
+.customize-control-alpha-color .iris-picker {
+	margin-top: 3px;
+}
+
+.customize-control-alpha-color .iris-picker .iris-strip {
+	height: 217px !important;
+	width: 33px !important;
+}
+
+.customize-control-alpha-color .iris-picker .iris-square,
+.customize-control-alpha-color .iris-picker .iris-slider,
+.customize-control-alpha-color .iris-picker .iris-square-inner,
+.customize-control-alpha-color .iris-picker .iris-palette {
+	border-radius: 2px;
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.075);
+}
+
+.customize-control-alpha-color .iris-picker .iris-square {
+	margin-right: 8px;
+}
+
+.customize-control-alpha-color .wp-picker-container .iris-picker {
+	border-bottom: none;
+}
+
+.customize-control-alpha-color .wp-picker-container {
+	max-width: 240px;
+}
+
+@media screen and (min-width: 1667px) {
+	.customize-control-alpha-color .wp-picker-container {
+		max-width: 300px;
+	}
+}
+
+.customize-control-alpha-color .wp-picker-open + .wp-picker-input-wrap {
+	width: 100%;
+}
+
+.customize-control-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker.alpha-color-control {
+	border: 1px solid #ddd !important;
+	border-radius: 3px;
+	box-shadow: 0 0 0 0 transparent;
+	float: left;
+	font-size: 12px;
+	padding-left: 7px;
+	width: calc( 100% - 54px);
+}
+
+.customize-control-alpha-color .wp-picker-input-wrap .button {
+	float: right;
+	margin-left: 10px;
+	margin-right: -2px;
+}
+
+.wp-picker-container .wp-picker-open ~ .wp-picker-holder .alpha-color-picker-container {
+	display: block;
+}
+
+.alpha-color-picker-container {
+	background: #fff;
+	border: 1px solid #dfdfdf;
+	border-radius: 0 0 3px 3px;
+	border-top: none;
+	display: none;
+	padding: 0 8px 8px;
+	position: relative;
+	width: calc(100% - 16px);
+}
+
+.alpha-color-picker-container .ui-widget-content,
+.alpha-color-picker-container .ui-widget-header,
+.alpha-color-picker-wrap .ui-state-focus {
+	background: transparent;
+	border: none;
+}
+
+.alpha-color-picker-wrap a.iris-square-value:focus {
+	box-shadow: none;
+}
+
+.alpha-color-picker-container .ui-slider {
+	height: 20px;
+	margin: 0 auto;
+	position: relative;
+	text-align: center;
+	width: 88%;
+	width: calc( 100% - 28px);
+	z-index: 1;
+}
+
+.alpha-color-picker-container .ui-slider-handle,
+.alpha-color-picker-container .ui-widget-content .ui-state-default {
+	background: 0 0;
+	border: 2px solid white;
+	border-radius: 50%;
+	box-shadow: 0 2px 0 rgba(46, 68, 83, 0.075);
+	cursor: ew-resize;
+	font-size: 0;
+	height: 10px;
+	margin-left: -10px;
+	margin-top: 1px;
+	padding: 0;
+	position: absolute;
+	text-decoration: none;
+	top: 0;
+	width: 10px;
+	z-index: 2;
+}
+
+.alpha-color-picker-container .ui-slider-handle:hover,
+.alpha-color-picker-container .ui-widget-content .ui-state-default:hover {
+	background: #fff;
+	border-color: #fff;
+}
+
+.alpha-color-picker-container .ui-slider-handle:focus,
+.alpha-color-picker-container .ui-widget-content .ui-state-default:focus {
+	border-color: #fff;
+}
+
+.customize-control-alpha-color .iris-picker .iris-square-value {
+	box-shadow: none;
+}
+
+.customize-control-alpha-color .iris-picker .iris-square-handle {
+	border-color: #fff;
+	border-width: 3px;
+}
+
+.customize-control-alpha-color .iris-picker .iris-square-handle:hover {
+	background: #fff;
+	border-color: #fff;
+}
+
+.customize-control-alpha-color .iris-picker .iris-square-handle::after {
+	content: "";
+	display: none;
+}
+
+.customize-control-alpha-color .iris-picker .iris-square-handle:hover,
+.customize-control-alpha-color .iris-picker .iris-square-value:focus .iris-square-handle,
+.customize-control-alpha-color .customize-control-alpha-color .iris-picker .iris-square-handle:hover,
+.customize-control-alpha-color .customize-control-alpha-color .iris-picker .iris-square-value:focus .iris-square-handle {
+	box-shadow: 0 2px 0 rgba(46, 68, 83, 0.075);
+	opacity: 1;
+}
+
+.alpha-color-picker-container .ui-slider-handle.show-opacity {
+	font-size: 0;
+}
+
+.alpha-color-picker-container .click-zone {
+	display: block;
+	height: 24px;
+	left: 10px;
+	position: absolute;
+	width: 14px;
+}
+
+.alpha-color-picker-container .max-click-zone {
+	left: auto;
+	right: 10px;
+}
+
+.alpha-color-picker-container .transparency {
+	background-color: #fff;
+	background-image: url(../images/customizer/transparency-grid.png);
+	border-radius: 2px;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+	height: 20px;
+	margin-top: -22px;
+	padding: 0;
+	width: 100%;
+}
+
+@media only screen and (max-width: 782px) {
+	.customize-control-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker.alpha-color-control {
+		width: 184px;
+	}
+}
+
+@media only screen and (max-width: 640px) {
+	.customize-control-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker.alpha-color-control {
+		height: 33px;
+		width: 172px;
+	}
+}

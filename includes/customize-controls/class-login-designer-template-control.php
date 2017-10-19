@@ -2,7 +2,7 @@
 /**
  * Layout Customizer Control
  *
- * @see ttps://developer.wordpress.org/reference/classes/wp_customize_control/
+ * @see https://developer.wordpress.org/reference/classes/wp_customize_control/
  *
  * @package   @@pkg.name
  * @copyright @@pkg.copyright

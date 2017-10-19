@@ -85,6 +85,26 @@ $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logi
 	'section'               => 'login_designer__section--styles',
 ) ) );
 
+$wp_customize->add_setting( 'login_designer_form_field_border_radius', array(
+	'default'               => '0',
+	'transport'             => 'postMessage',
+	'sanitize_callback'     => 'absint',
+) );
+
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer_form_field_border_radius', array(
+	'type'                  => 'login-designer-range',
+	'label'                 => esc_html__( 'Border Radius', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+	'description'           => 'px',
+	'default'               => '0',
+	'input_attrs'           => array(
+		'min'               => 0,
+		'max'               => 60,
+		'step'              => 1,
+		),
+	)
+) );
+
 $wp_customize->add_setting( 'login_designer_form_field_box_shadow', array(
 	'default'               => '2',
 	// 'transport'             => 'postMessage',

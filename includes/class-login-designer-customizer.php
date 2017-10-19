@@ -41,6 +41,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-template-control.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-title-control.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-gallery-control.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-alpha-color-control.php';
 
 			/**
 			 * Add the main panel and sections.
@@ -128,6 +129,25 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 			// If $image has a valid mime_type, return it; otherwise, return the default.
 			return ( $file['ext'] ? $image : $setting->default );
+		}
+
+		/**
+		 * Sanitize RGBA colors
+		 *
+		 * @param string|string $value Color value.
+		 * @return string
+		 */
+		public static function sanitize_rgba( $value ) {
+
+			// If empty or an array return transparent.
+			if ( empty( $value ) || is_array( $value ) ) {
+				return 'rgba(0,0,0,0)';
+			}
+
+			// By now we know the string is formatted as an rgba color so we need to further sanitize it.
+			$value = str_replace( ' ', '', $value );
+			sscanf( $value, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
+			return 'rgba('.$red.','.$green.','.$blue.','.$alpha.')';
 		}
 
 		/**

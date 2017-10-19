@@ -198,6 +198,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 			$form_field_background_color		= get_theme_mod( 'login_designer_form_field_background', null );
 			$form_field_border_size			= get_theme_mod( 'login_designer_form_field_border_size', '1' ) . 'px';
 			$form_field_border_color		= get_theme_mod( 'login_designer_form_field_border_color', null );
+			$form_field_border_radius		= get_theme_mod( 'login_designer_form_field_border_radius', null ) . 'px';
 
 			$form_field_side_padding		= get_theme_mod( 'login_designer_form_field_side_padding', null ) . 'px';
 			$form_field_text_size			= get_theme_mod( 'login_designer_form_field_text_size', null ) . 'px';
@@ -227,6 +228,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 			$form_field_background_css = null;
 			$form_field_border_size_css = null;
 			$form_field_border_color_css = null;
+			$form_field_border_radius_css = null;
 			$form_field_side_padding_css = null;
 			$form_field_text_size_css = null;
 			$form_field_text_color_css = null;
@@ -314,7 +316,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 				';
 			}
 
-			if ( $login_background_image_url ) {
+			if ( 'none' !== $login_background_image_url ) {
 				$login_background_image_css = '
 					body.login,
 					#login-designer-background {
@@ -390,7 +392,6 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 			}
 
 			if ( $form_field_border_size ) {
-
 				$form_field_border_size_css = '
 					#loginform .input {
 						border-style: solid;
@@ -400,10 +401,17 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 			}
 
 			if ( $form_field_border_color ) {
-
 				$form_field_border_color_css = '
 					#loginform .input {
 						border-color: '. esc_attr( $form_field_border_color ) .';
+					}
+				';
+			}
+
+			if ( $form_field_border_radius ) {
+				$form_field_border_radius_css = '
+					#loginform .input {
+						border-radius: '. esc_attr( $form_field_border_radius ) .';
 					}
 				';
 			}
@@ -495,6 +503,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 					$form_field_background_css .
 					$form_field_border_size_css .
 					$form_field_border_color_css .
+					$form_field_border_radius_css .
 					$form_field_side_padding_css .
 					$form_field_text_size_css .
 					$form_field_text_color_css .

@@ -12,10 +12,23 @@
  * @version     @@pkg.version
  */
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+// Exit if WP_Customize_Control does not exsist.
+if ( ! class_exists( 'WP_Customize_Control' ) ) {
+	return null;
+}
+
 /**
- * Custom Title Control
+ * This class is for the title control in the Customizer.
+ *
+ * @access  public
  */
 class Login_Designer_Title_Control extends WP_Customize_Control {
+
 	/**
 	 * Set the control type.
 	 *

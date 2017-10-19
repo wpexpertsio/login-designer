@@ -455,4 +455,31 @@
 		} );
 	} );
 
+
+
+
+
+
+
+
+
+
+
+	// Field border radius.
+	wp.customize( 'login_designer_form_field_border_radius', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_form_field_border_radius"> body.login #loginform .input { border-radius: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_form_field_border_radius' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+
 } )( jQuery );

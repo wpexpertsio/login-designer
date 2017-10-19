@@ -2,7 +2,7 @@
 /**
  * Layout Customizer Control
  *
- * @see ttps://developer.wordpress.org/reference/classes/wp_customize_control/
+ * @see https://developer.wordpress.org/reference/classes/wp_customize_control/
  *
  * @package   @@pkg.name
  * @copyright @@pkg.copyright
@@ -21,7 +21,7 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) {
 }
 
 /**
- * This class is for the template selector in the Customizer.
+ * This class is for the gallery selector in the Customizer.
  *
  * @access  public
  */

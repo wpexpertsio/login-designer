@@ -52,10 +52,10 @@ $wp_customize->add_setting( 'login_designer_bg_image_repeat', array(
 	'sanitize_callback'     => 'sanitize_text_field',
 ) );
 $wp_customize->add_control( 'login_designer_bg_image_repeat', array(
-	'type'              => 'select',
-	'label'             => esc_html__( 'Repeat', '@@textdomain' ),
-	'section'           => 'login_designer__section--styles',
-	'choices'           => $background_choices['repeat'],
+	'type'              	=> 'select',
+	'label'             	=> esc_html__( 'Repeat', '@@textdomain' ),
+	'section'           	=> 'login_designer__section--styles',
+	'choices'           	=> $background_choices['repeat'],
 ) );
 
 $wp_customize->add_setting( 'login_designer_bg_image_size', array(
@@ -64,10 +64,10 @@ $wp_customize->add_setting( 'login_designer_bg_image_size', array(
 	'sanitize_callback'     => 'sanitize_text_field',
 ) );
 $wp_customize->add_control( 'login_designer_bg_image_size', array(
-	'type'              => 'select',
-	'label'             => esc_html__( 'Size', '@@textdomain' ),
-	'section'           => 'login_designer__section--styles',
-	'choices'           => $background_choices['size'],
+	'type'              	=> 'select',
+	'label'             	=> esc_html__( 'Size', '@@textdomain' ),
+	'section'           	=> 'login_designer__section--styles',
+	'choices'           	=> $background_choices['size'],
 ) );
 
 $wp_customize->add_setting( 'login_designer_bg_image_attach', array(
@@ -76,10 +76,10 @@ $wp_customize->add_setting( 'login_designer_bg_image_attach', array(
 	'sanitize_callback'     => 'sanitize_text_field',
 ) );
 $wp_customize->add_control( 'login_designer_bg_image_attach', array(
-	'type'              => 'select',
-	'label'             => esc_html__( 'Attachment', '@@textdomain' ),
-	'section'           => 'login_designer__section--styles',
-	'choices'           => $background_choices['attach'],
+	'type'             	=> 'select',
+	'label'             	=> esc_html__( 'Attachment', '@@textdomain' ),
+	'section'           	=> 'login_designer__section--styles',
+	'choices'           	=> $background_choices['attach'],
 ) );
 
 $wp_customize->add_setting( 'login_designer_bg_image_position', array(
@@ -88,19 +88,30 @@ $wp_customize->add_setting( 'login_designer_bg_image_position', array(
 	'sanitize_callback'     => 'sanitize_text_field',
 ) );
 $wp_customize->add_control( 'login_designer_bg_image_position', array(
-	'type'              => 'select',
-	'label'             => esc_html__( 'Position', '@@textdomain' ),
-	'section'           => 'login_designer__section--styles',
-	'choices'           => $background_choices['position'],
+	'type'              	=> 'select',
+	'label'             	=> esc_html__( 'Position', '@@textdomain' ),
+	'section'           	=> 'login_designer__section--styles',
+	'choices'           	=> $background_choices['position'],
 ) );
 
 $wp_customize->add_setting( 'login_designer_bg_color', array(
-	'default'               => null,
-	'transport'             => 'postMessage',
-	'sanitize_callback'     => 'sanitize_hex_color',
+	'default'    		=> null,
+	'transport'   		=> 'postMessage',
+	'sanitize_callback'     => 'sanitize_text_field',
 ) );
 
-$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer_bg_color', array(
-	'label'                 => esc_html__( 'Background Color', '@@textdomain' ),
-	'section'               => 'login_designer__section--styles',
+$wp_customize->add_control( new Login_Designer_Alpha_Color_Control( $wp_customize, 'login_designer_bg_color', array(
+	'label'         	=> esc_html__( 'Background', 'yourtextdomain' ),
+	'settings'              => 'login_designer_bg_color',
+	'section'       	=> 'login_designer__section--styles',
+	'show_opacity'  	=> true,
+	'palette'		=> array(
+		// RGB, RGBa, and hex values supported.
+		'rgb(150, 50, 220)',
+		'rgba(50,50,50,0.8)',
+		'rgba(50,50,50,0.8)',
+		'rgba(50,50,50,0.8)',
+		'rgba( 255, 255, 255, 0.2 )',
+		'#00CC99',
+	),
 ) ) );

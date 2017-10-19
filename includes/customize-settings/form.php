@@ -23,14 +23,24 @@ $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'lo
 ) ) );
 
 $wp_customize->add_setting( 'login_designer_form_background_color', array(
-	'default'               => null,
-	'transport'             => 'postMessage',
-	'sanitize_callback'     => 'sanitize_hex_color',
+	'default'    		=> null,
+	'transport'   		=> 'postMessage',
+	'sanitize_callback'     => array( $this, 'sanitize_rgba' ),
 ) );
 
-$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer_form_background_color', array(
-	'label'                 => esc_html__( 'Background', '@@textdomain' ),
-	'section'               => 'login_designer__section--styles',
+$wp_customize->add_control( new Login_Designer_Alpha_Color_Control( $wp_customize, 'login_designer_form_background_color', array(
+	'label'         	=> esc_html__( 'Background', 'yourtextdomain' ),
+	'settings'              => 'login_designer_form_background_color',
+	'section'       	=> 'login_designer__section--styles',
+	'show_opacity'  	=> true,
+	'palette'		=> array(
+		'rgba( 255, 255, 255, 0 )',
+		'#f1f1f1',
+		'rgba(50,50,50,0.8)',
+		'rgba(50,50,50,0.8)',
+		'rgba( 255, 255, 255, 0.2 )',
+		'#00CC99',
+	),
 ) ) );
 
 $wp_customize->add_setting( 'login_designer_form_width', array(
