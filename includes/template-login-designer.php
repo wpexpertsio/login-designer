@@ -838,14 +838,14 @@ default:
 
 <form name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
 	<p>
-		<label id="login-designer--username-label" for="user_login"><?php _e( 'Username or Email Address' ); ?><br />
+		<label id="login-designer--username-label" for="user_login"><span><?php _e( 'Username or Email Address' ); ?></span><br />
 		<div id="login-designer--username">
 			<input type="text" name="log" id="user_login"<?php echo $aria_describedby_error; ?> class="input" value="email@address.com" size="20" /></label>
 		</div>
 	</p>
 	<p>
 
-		<label id="login-designer--password-label" for="user_pass"><?php _e( 'Password' ); ?><br />
+		<label id="login-designer--password-label" for="user_pass"><span><?php _e( 'Password' ); ?></span><br />
 			<div id="login-designer--password">
 		<input type="password" name="pwd" id="user_pass"<?php echo $aria_describedby_error; ?> class="input" value="password" size="20" /></label>
 	</div>

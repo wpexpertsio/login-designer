@@ -220,9 +220,17 @@
 		} );
 	} );
 
+	wp.customize( 'login_designer_form_label_username_text', function( value ) {
+		value.bind( function( newval ) {
+			$( '#login-designer--username-label span' ).html( newval );
+		} );
+	} );
 
-
-
+	wp.customize( 'login_designer_form_label_password_text', function( value ) {
+		value.bind( function( newval ) {
+			$( '#login-designer--password-label span' ).html( newval );
+		} );
+	} );
 
 
 

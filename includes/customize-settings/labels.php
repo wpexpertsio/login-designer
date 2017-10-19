@@ -24,7 +24,7 @@ $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'lo
 
 $wp_customize->add_setting( 'login_designer_form_label_username_text', array(
 	'default'           	=> esc_html__( 'Username or Email Address', '@@textdomain' ),
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback' 	=> 'esc_html',
 ) );
 
@@ -36,7 +36,7 @@ $wp_customize->add_control( 'login_designer_form_label_username_text', array(
 
 $wp_customize->add_setting( 'login_designer_form_label_password_text', array(
 	'default'           	=> esc_html__( 'Password', '@@textdomain' ),
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback' 	=> 'esc_html',
 ) );
 
