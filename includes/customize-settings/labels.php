@@ -80,7 +80,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 ) );
 
 $wp_customize->add_setting( 'login_designer_form_label_color', array(
-	'default'               => null,
+	'default'               => '#72777c',
 	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'sanitize_hex_color',
 ) );

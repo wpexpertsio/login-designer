@@ -162,11 +162,11 @@
 
 			setTimeout( function() {
 				$( '#login-designer-background' ).css( 'background-image', 'url( ' + to + ')' );
-			}, 200);
+			}, 500);
 
 			setTimeout( function() {
 				$( '#login-designer-background' ).removeClass( 'transitioning' );
-			}, 400 );
+			}, 550 );
 		} );
 	} );
 
@@ -180,11 +180,11 @@
 
 				setTimeout( function() {
 					$( '#login-designer-background' ).css( 'background-image', 'url( ' + customBackground() + ')' );
-				}, 200);
+				}, 500);
 
 				setTimeout( function() {
 					$( '#login-designer-background' ).removeClass( 'transitioning' );
-				}, 400 );
+				}, 550 );
 			} else {
 
 				$( 'body.login' ).css( 'background-image', 'none' );
@@ -193,11 +193,11 @@
 
 				setTimeout( function() {
 					$( '#login-designer-background' ).css( 'background-image', 'url( ' + login_designer_script.plugin_url + to + '.jpg' + ')' );
-				}, 200);
+				}, 500);
 
 				setTimeout( function() {
 					$( '#login-designer-background' ).removeClass( 'transitioning' );
-				}, 400 );
+				}, 550 );
 			}
 		} );
 	} );

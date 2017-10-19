@@ -120,12 +120,6 @@
 	max-width: 240px;
 }
 
-@media screen and (min-width: 1667px) {
-	.customize-control-alpha-color .wp-picker-container {
-		max-width: 300px;
-	}
-}
-
 .customize-control-alpha-color .wp-picker-open + .wp-picker-input-wrap {
 	width: 100%;
 }
@@ -137,7 +131,7 @@
 	float: left;
 	font-size: 12px;
 	padding-left: 7px;
-	width: calc( 100% - 54px);
+	width: calc( 100% - 56px);
 }
 
 .customize-control-alpha-color .wp-picker-input-wrap .button {

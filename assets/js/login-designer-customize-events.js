@@ -27,6 +27,7 @@
 			'login_designer_form_field_background',
 			'login_designer_form_field_border_size',
 			'login_designer_form_field_border_color',
+			'login_designer_form_field_border_radius',
 			'login_designer_form_field_side_padding',
 			'login_designer_form_field_box_shadow',
 			'login_designer_form_field_box_shadow_opacity',

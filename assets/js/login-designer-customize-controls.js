@@ -110,23 +110,51 @@
 			} );
 		} );
 
-		// Add a body class based on the current template.
-		// wp.customize( 'login_designer__template-selector', function( value ) {
-		// 	value.bind( function( to ) {
+		// Modify the background color based on the gallery image selected.
+		wp.customize( 'login_designer_bg_image_gallery', function( value ) {
 
-		// 		if ( '01' === to ) {
-		// 			color = '#00F';
-		// 		} else if ( to === '02' ) {
-		// 			color = '#F00';
-		// 		} else {
-		// 			color = '#f1f1f1';
-		// 		}
+			value.bind( function( to ) {
 
-		// 		// If we have a custom background color, let's put it back to default.
-		// 		// @todo In the future, maybe we'll make this color change based on the template's default background color.
-		// 		wp.customize( 'login_designer_bg_color' ).set( color );
-		// 	} );
-		// } );
+				if ( '01' === to ) {
+					color = '#616264';
+				} else if ( to === '02' ) {
+					color = '#d0f1ec';
+				} else if ( to === '03' ) {
+					color = '#cccfd4';
+				} else if ( to === '04' ) {
+					color = '#d5aabb';
+				} else if ( to === '05' ) {
+					color = '#141611';
+				} else if ( to === '06' ) {
+					color = '#151515';
+				} else if ( to === '07' ) {
+					color = '#d0e4ec';
+				} else if ( to === '08' ) {
+					color = '#4b2d3f';
+				} else if ( to === '09' ) {
+					color = '#ed4844';
+				} else if ( to === 'christmas-01' ) {
+					color = '#dfe0e2'; // Seasonal #1
+				} else if ( to === 'christmas-02' ) {
+					color = '#131522'; // Seasonal #2
+				} else if ( to === 'christmas-03' ) {
+					color = '#000c1a'; // Seasonal #3
+				} else if ( to === 'christmas-04' ) {
+					color = '#1f2214'; // Seasonal #4
+				} else if ( to === 'christmas-05' ) {
+					color = '#dadad8'; // Seasonal #5
+				} else {
+					color = '#f1f1f1';
+				}
+
+				// If we have a custom background color, let's put it back to default.
+				wp.customize( 'login_designer_bg_color' ).set( color );
+			} );
+		} );
+
+
+
+
 
 		// Only show the color hue control when there's a custom color scheme.
 		// wp.customize( 'login_designer_bg_image', function( setting ) {

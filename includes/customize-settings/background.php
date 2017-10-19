@@ -94,24 +94,14 @@ $wp_customize->add_control( 'login_designer_bg_image_position', array(
 	'choices'           	=> $background_choices['position'],
 ) );
 
+
 $wp_customize->add_setting( 'login_designer_bg_color', array(
-	'default'    		=> null,
-	'transport'   		=> 'postMessage',
-	'sanitize_callback'     => 'sanitize_text_field',
+	'default'               => '#f1f1f1',
+	'transport'             => 'postMessage',
+	'sanitize_callback'     => 'sanitize_hex_color',
 ) );
 
-$wp_customize->add_control( new Login_Designer_Alpha_Color_Control( $wp_customize, 'login_designer_bg_color', array(
-	'label'         	=> esc_html__( 'Background', 'yourtextdomain' ),
-	'settings'              => 'login_designer_bg_color',
-	'section'       	=> 'login_designer__section--styles',
-	'show_opacity'  	=> true,
-	'palette'		=> array(
-		// RGB, RGBa, and hex values supported.
-		'rgb(150, 50, 220)',
-		'rgba(50,50,50,0.8)',
-		'rgba(50,50,50,0.8)',
-		'rgba(50,50,50,0.8)',
-		'rgba( 255, 255, 255, 0.2 )',
-		'#00CC99',
-	),
+$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer_bg_color', array(
+	'label'                 => esc_html__( 'Background Color', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
 ) ) );

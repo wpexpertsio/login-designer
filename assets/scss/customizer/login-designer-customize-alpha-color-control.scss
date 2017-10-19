@@ -131,9 +131,9 @@
 .customize-control-alpha-color .wp-picker-container {
 	max-width: 240px;
 
-	@media screen and (min-width: 1667px) {
-		max-width: 300px;
-	}
+	// @media screen and (min-width: 1667px) {
+	// 	max-width: 300px;
+	// }
 }
 
 
@@ -147,7 +147,7 @@
 
 .customize-control-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker.alpha-color-control {
 	float: left;
-	width: calc( 100% - 54px );
+	width: calc( 100% - 56px );
 	font-size: 12px;
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
 	border-radius: 3px;

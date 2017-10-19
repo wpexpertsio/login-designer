@@ -303,7 +303,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 				';
 			}
 
-			if ( 'none' !== $login_background_gallery_image_url ) {
+			if ( $login_background_gallery_image_url ) {
 				$login_background_image_css = '
 					body.login,
 					#login-designer-background {
@@ -316,7 +316,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_CSS' ) ) :
 				';
 			}
 
-			if ( 'none' !== $login_background_image_url ) {
+			if ( $login_background_image_url ) {
 				$login_background_image_css = '
 					body.login,
 					#login-designer-background {
