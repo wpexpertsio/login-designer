@@ -26,6 +26,11 @@
 	width: 100% !important;
 }
 
+#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-picker-container.wp-picker-active,
+#sub-accordion-section-login_designer__section--background .customize-control-color .wp-picker-container.wp-picker-active {
+	margin-bottom: 25px;
+}
+
 #sub-accordion-section-login_designer__section--styles .customize-control-color .wp-picker-open + .wp-picker-input-wrap,
 #sub-accordion-section-login_designer__section--background .customize-control-color .wp-picker-open + .wp-picker-input-wrap {
 	margin-top: 1px;

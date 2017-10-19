@@ -25,17 +25,11 @@
 			}
 		}
 
-		// .wp-picker-holder {
-		// 	position: absolute;
-		// 	top: 30px;
-		// 	width: 100%;
-		// 	z-index: 99999;
-		// }
+		.wp-picker-container.wp-picker-active {
+			margin-bottom: 25px;
+		}
 
 		.wp-picker-open+.wp-picker-input-wrap {
-			// background: #eee;
-			// position: absolute;
-			// top: 7px;
 			margin-top: 1px;
 		}
 

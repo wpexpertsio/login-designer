@@ -35,6 +35,11 @@
 				style,
 				old_stylesheet;
 
+				// Default is the WordPress admin's default.
+				if ( 'default' === to ) {
+					to == '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;'
+				}
+
 				style = '<style class=" ' + control + ' "> ' + style_element + ' { font-family: ' + to + '; } </style>';
 
 				el =  $( '.' + control );
@@ -73,6 +78,36 @@
 
 	live_font_family( 'login_designer_form_label_font', '#loginform label:not([for=rememberme])' );
 	live_font_family( 'login_designer_form_field_font', '#loginform .input' );
+
+	// Label font size.
+	wp.customize( 'login_designer_form_label_size', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_form_label_size"> #loginform label:not([for=rememberme]) { font-size: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_form_label_size' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Label color.
+	wp.customize( 'login_designer_form_label_color', function( value ) {
+		value.bind( function( to ) {
+			$( '#loginform label:not([for=rememberme])' ).css( 'color', to );
+		} );
+	} );
+
+
+
+
+
+
+
 
 	// Switch to the /login-designer/ page, where we can live-preview Customizer options.
 	wp.customize.bind( 'preview-ready', function() {

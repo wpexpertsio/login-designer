@@ -29,9 +29,9 @@ $wp_customize->add_setting( 'login_designer_form_label_username_text', array(
 ) );
 
 $wp_customize->add_control( 'login_designer_form_label_username_text', array(
-	'label'          => esc_html__( 'Username', '@@textdomain' ),
-	'section'        => 'login_designer__section--styles',
-	'type'           => 'text',
+	'label'          	=> esc_html__( 'Username', '@@textdomain' ),
+	'section'        	=> 'login_designer__section--styles',
+	'type'           	=> 'text',
 ) );
 
 $wp_customize->add_setting( 'login_designer_form_label_password_text', array(
@@ -41,9 +41,9 @@ $wp_customize->add_setting( 'login_designer_form_label_password_text', array(
 ) );
 
 $wp_customize->add_control( 'login_designer_form_label_password_text', array(
-	'label'          => esc_html__( 'Password', '@@textdomain' ),
-	'section'        => 'login_designer__section--styles',
-	'type'           => 'text',
+	'label'         	=> esc_html__( 'Password', '@@textdomain' ),
+	'section'       	=> 'login_designer__section--styles',
+	'type'           	=> 'text',
 ) );
 
 $wp_customize->add_setting( 'login_designer_form_label_font', array(
@@ -53,15 +53,15 @@ $wp_customize->add_setting( 'login_designer_form_label_font', array(
 ) );
 
 $wp_customize->add_control( 'login_designer_form_label_font', array(
-	'type'              => 'select',
-	'label'             => esc_html__( 'Font', '@@textdomain' ),
-	'section'               => 'login_designer__section--styles',
-	'choices'           => $this->get_fonts(),
+	'type'              	=> 'select',
+	'label'             	=> esc_html__( 'Font', '@@textdomain' ),
+	'section'          	=> 'login_designer__section--styles',
+	'choices'           	=> $this->get_fonts(),
 ) );
 
 $wp_customize->add_setting( 'login_designer_form_label_size', array(
 	'default'               => '14',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'absint',
 ) );
 
@@ -81,7 +81,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 
 $wp_customize->add_setting( 'login_designer_form_label_color', array(
 	'default'               => null,
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'sanitize_hex_color',
 ) );
 
