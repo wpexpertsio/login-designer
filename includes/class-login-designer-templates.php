@@ -45,8 +45,11 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			$options   = new Login_Designer_Customizer_Output();
 			$option    = $options->option_wrapper( 'template' );
 
-			$template = 'login-designer-template-' . esc_attr( $option );
-			$classes[] = $template;
+			// No need to ouput a class for the default template.
+			if ( ! $option || 'default' !== $option ) {
+				$template = 'login-designer-template-' . esc_attr( $option );
+				$classes[] = $template;
+			}
 
 			return $classes;
 		}
@@ -62,8 +65,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			$options   	= new Login_Designer_Customizer_Output();
 			$template    	= $options->option_wrapper( 'template' );
 
-			// We don't need to add a stylesheet if the default option is set.
-			if ( 'default' === $template ) {
+			// Return early if no template is set.
+			if ( ! $template || 'default' === $template ) {
 				return;
 			}
 

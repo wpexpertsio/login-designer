@@ -26,7 +26,7 @@ $wp_customize->add_setting( 'login_designer[form_bg]', array(
 	'default'               => $defaults['form_bg'],
 	'type' 			=> 'option',
 	'transport'   		=> 'postMessage',
-	'sanitize_callback'     => array( $this, 'sanitize_rgba' ),
+	'sanitize_callback'     => 'esc_html',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Alpha_Color_Control( $wp_customize, 'login_designer[form_bg]', array(

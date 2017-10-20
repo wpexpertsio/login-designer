@@ -53,13 +53,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		private static $instance;
 
 		/**
-		 * Translation handle
-		 *
-		 * @var string
-		 */
-		public $plugin_slug = 'login-designer';
-
-		/**
 		 * Main Login_Designer Instance.
 		 *
 		 * Insures that only one instance of Login_Designer exists in memory at any one
@@ -183,15 +176,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 */
 		public function version_in_header() {
 			echo '<meta name="generator" content="Login Designer ' . esc_attr( LOGIN_DESIGNER_VERSION ). '" />' . "\n";
-		}
-
-		/**
-		 * Return the plugin slug.
-		 *
-		 * @return Plugin slug variable.
-		 */
-		public function get_plugin_slug() {
-			return $this->plugin_slug;
 		}
 
 		/**

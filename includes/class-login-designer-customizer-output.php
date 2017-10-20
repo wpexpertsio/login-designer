@@ -47,12 +47,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				return false;
 			}
 
-			// Get the option.
-			$option = $options[ $option ];
-
 			// Check if the option exists.
-			if ( isset( $option ) ) {
-				return $option;
+			if ( isset( $options[ $option ] ) ) {
+				return $options[ $option ];
 			} else {
 				return false;
 			}
@@ -101,11 +98,11 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 			/**
 			 * Get fonts from the Customizer.
 			 */
-			if ( 'default' !== $this->option_wrapper( 'field_font' ) ) {
+			if ( $this->option_wrapper( 'field_font' ) ) {
 				$fonts[] = $this->option_wrapper( 'field_font' );
 			}
 
-			if ( 'default' !== $this->option_wrapper( 'label_font' ) ) {
+			if ( $this->option_wrapper( 'label_font' ) ) {
 				$fonts[] = $this->option_wrapper( 'label_font' );
 			}
 
@@ -176,7 +173,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'template' 		=> 'default',
 
 				'bg_image' 		=> '',
-				'bg_image_gallery' 	=> 'none',
+				'bg_image_gallery' 	=> '',
 				'bg_repeat' 		=> 'no-repeat',
 				'bg_size' 		=> 'cover',
 				'bg_position' 		=> 'center-center',
@@ -202,19 +199,19 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'field_shadow' 		=> '2',
 				'field_shadow_opacity' 	=> '7',
 				'field_shadow_inset' 	=> '',
-				'field_font' 		=> 'default',
+				'field_font' 		=> '',
 				'field_font_size' 	=> '24',
-				'field_color' 		=> '#72777c',
+				'field_color' 		=> '#32373c',
 
 				'username_label' 	=> esc_html__( 'Username or Email Address', '@@textdomain' ),
 				'password_label' 	=> esc_html__( 'Password', '@@textdomain' ),
-				'label_font' 		=> 'default',
+				'label_font' 		=> '',
 				'label_font_size' 	=> '14',
 				'label_color' 		=> '#72777c',
 
-				'logo_url' 		=> esc_url( home_url( '/' ) ),
-				'login_redirect' 	=> esc_url( home_url( '/' ) ),
-				'logout_redirect' 	=> esc_url( home_url( '/' ) ),
+				'logo_url' 		=> '',
+				'login_redirect' 	=> '',
+				'logout_redirect' 	=> '',
 				'login_message' 	=> '',
 
 			);

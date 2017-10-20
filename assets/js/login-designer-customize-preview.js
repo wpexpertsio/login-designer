@@ -7,6 +7,33 @@
 
 ( function( $ ) {
 
+	// Switch to the /login-designer/ page, where we can live-preview Customizer options.
+	wp.customize.bind( 'preview-ready', function() {
+
+		wp.customize.preview.bind( 'login-designer-url-switcher', function( data ) {
+
+			// When the section is expanded, open the fake login page.
+			if ( true === data.expanded ) {
+
+				url = '/login-designer/';
+
+				// if ( url != '/login-designer/' ) {
+					wp.customize.preview.send( 'url', url );
+				// }
+
+				// current_url = wp.customize.previewer.previewUrl();
+				// console.log( current_url );
+
+			}
+		});
+
+		wp.customize.preview.bind( 'login-designer-back-to-home', function( data ) {
+
+			console.log( 'sent back to home' );
+			wp.customize.preview.send( 'url', data.home_url );
+		});
+	});
+
 	// Check whether a custom logo image is available.
 	function hasLogo() {
 		var image = wp.customize( 'login_designer[logo]' )();
@@ -101,29 +128,6 @@
 			$( '#loginform label:not([for=rememberme])' ).css( 'color', to );
 		} );
 	} );
-
-
-
-
-
-
-
-
-	// Switch to the /login-designer/ page, where we can live-preview Customizer options.
-	wp.customize.bind( 'preview-ready', function() {
-
-		wp.customize.preview.bind( 'login-designer-url-switcher', function( data ) {
-
-			// When the section is expanded, open the fake login page.
-			if ( true === data.expanded ) {
-
-				url = '/login-designer/';
-
-				wp.customize.preview.send( 'url', url );
-
-			}
-		});
-	});
 
 	// Add a body class based on the current template.
 	wp.customize( 'login_designer[template]', function( value ) {

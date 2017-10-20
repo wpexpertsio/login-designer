@@ -8,6 +8,32 @@
 @import "modules/checkbox";
 
 
+
+
+#zoom-reset {
+	opacity: 0;
+	margin-top: 9px;
+	transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1);
+
+	.style-editor-open & {
+		opacity: 1;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 50/50, Small text input fields
 #customize-control-login_designer[username_label],
 #customize-control-login_designer[password_label] {
@@ -42,7 +68,6 @@
 
 // Image uploader control mods.
 #sub-accordion-section-login_designer__section--styles,
-#sub-accordion-section-login_designer__section--background,
 #sub-accordion-section-login_designer__section--settings {
 
 	.customize-control-background-image {

@@ -5,8 +5,52 @@
  * when users open or close the front page sections section.
  */
 
-(function() {
+( function( $ ) {
 	wp.customize.bind( 'ready', function() {
+
+		// Detect when the Login Designer panel is expanded (or closed) so we can preview the login form easily.
+		wp.customize.panel( 'login_designer', function( section ) {
+			section.expanded.bind( function( isExpanding ) {
+				// Value of isExpanding will = true if you're entering the section, false if you're leaving it.
+				if ( isExpanding ) {
+
+					// Only send the previewer to the login designer page, if we're not already on it.
+					var current_url = wp.customize.previewer.previewUrl();
+					var current_url = current_url.includes( '/login-designer/' );
+
+					if ( ! current_url ) {
+
+						wp.customize.previewer.send( 'login-designer-url-switcher', { expanded: isExpanding } );
+
+						// console.log( 'sent!');
+
+					} else {
+						// console.log( 'Not sent!');
+					}
+
+				} else {
+					wp.customize.previewer.send( 'login-designer-back-to-home', { home_url: wp.customize.settings.url.home } );
+					console.log( 'Returning!');
+
+					url = wp.customize.settings.url.home;
+                			// wp.customize.previewUrl.set( url );
+                			console.log( url );
+
+				}
+			} );
+		} );
+
+		// Detect when the Style Editor is expanded (or closed) so we can show the Reset button accordingly.
+		wp.customize.section( 'login_designer__section--styles', function( section ) {
+			section.expanded.bind( function( isExpanding ) {
+				// Value of isExpanding will = true if you're entering the section, false if you're leaving it.
+				if ( isExpanding ) {
+					$( '#customize-header-actions' ).addClass( 'style-editor-open' );
+				} else {
+					$( '#customize-header-actions' ).removeClass( 'style-editor-open' );
+				}
+			} );
+		} );
 
 		/**
 		 * Function to hide/show Customizer options, based on another control.
@@ -101,14 +145,6 @@
 
 		// Only show the gallery if there is no custom background image uploaded.
 		customizer_no_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' );
-
-		// Detect when the front page sections section is expanded (or closed) so we can adjust the preview accordingly.
-		wp.customize.panel( 'login_designer', function( section ) {
-			section.expanded.bind( function( isExpanding ) {
-				wp.customize.previewer.send( 'login-designer-url-switcher', { expanded: isExpanding });
-
-			} );
-		} );
 
 		// Modify the background color based on the gallery image selected.
 		wp.customize( 'login_designer[bg_image_gallery]', function( value ) {

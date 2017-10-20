@@ -73,25 +73,19 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 				'priority'		=> 1,
 			) );
 
-			// Section.
+			// Templates.
 			$wp_customize->add_section( 'login_designer__section--templates', array(
 				'title'		   => esc_html__( 'Templates', '@@textdomain' ),
 				'panel'		   => 'login_designer',
 			) );
 
-			// Section.
+			// Style Editor.
 			$wp_customize->add_section( 'login_designer__section--styles', array(
 				'title'		   => esc_html__( 'Style Editor', '@@textdomain' ),
 				'panel'		   => 'login_designer',
 			) );
 
-			// Section.
-			$wp_customize->add_section( 'login_designer__section--background', array(
-				'title'		   => esc_html__( 'Background', '@@textdomain' ),
-				'panel'		   => 'login_designer',
-			) );
-
-			// Section.
+			// Settings.
 			$wp_customize->add_section( 'login_designer__section--settings', array(
 				'title'		   => esc_html__( 'Settings', '@@textdomain' ),
 				'panel'		   => 'login_designer',

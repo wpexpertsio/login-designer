@@ -57,7 +57,12 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 			$options   = new Login_Designer_Customizer_Output();
 			$option    = $options->option_wrapper( 'logo_url' );
 
-			return get_page_link( $option );
+			if ( $option ) {
+				return get_page_link( $option );
+			} else {
+				return esc_url( home_url( '/' ) );
+			}
+
 		}
 
 		/**
@@ -99,7 +104,9 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 			$options   = new Login_Designer_Customizer_Output();
 			$option    = $options->option_wrapper( 'login_redirect' );
 
-			return get_page_link( $option );
+			if ( $option ) {
+				return get_page_link( $option );
+			}
 		}
 
 		/**
@@ -119,7 +126,9 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 			$options   = new Login_Designer_Customizer_Output();
 			$option    = $options->option_wrapper( 'logout_redirect' );
 
-			return get_page_link( $option );
+			if ( $option ) {
+				return get_page_link( $option );
+			}
 		}
 	}
 
