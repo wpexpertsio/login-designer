@@ -110,21 +110,21 @@
 	}
 }
 
-#customize-control-login_designer_form_label_username_text,
-#customize-control-login_designer_form_label_password_text {
+#customize-control-login_designer[username_label],
+#customize-control-login_designer[password_label] {
 	margin-bottom: 6px;
 	position: relative;
 }
 
-#customize-control-login_designer_form_label_username_text .customize-control-title,
-#customize-control-login_designer_form_label_password_text .customize-control-title {
+#customize-control-login_designer[username_label] .customize-control-title,
+#customize-control-login_designer[password_label] .customize-control-title {
 	margin-bottom: 0;
 	position: relative;
 	width: 50%;
 }
 
-#customize-control-login_designer_form_label_username_text input,
-#customize-control-login_designer_form_label_password_text input {
+#customize-control-login_designer[username_label] input,
+#customize-control-login_designer[password_label] input {
 	border-radius: 5px;
 	box-shadow: 0 0 0 0 transparent;
 	margin: 0;

@@ -25,22 +25,23 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 		 * Adds actions to enqueue our assets.
 		 */
 		public function __construct() {
-			add_action( 'login_headertitle', array( $this, 'login_headertitle' ) );
-			add_action( 'login_headerurl', array( $this, 'login_headerurl' ) );
+			add_action( 'login_headertitle', array( $this, 'logo_title' ) );
+			add_action( 'login_headerurl', array( $this, 'logo_url' ) );
 			add_filter( 'login_message', array( $this, 'login_message' ) );
-			// add_filter( 'login_redirect', array( $this, 'login_redirect' ) , 10, 3 );
-			// add_filter( 'logout_redirect', array( $this, 'logout_redirect' ) );
+			add_filter( 'login_redirect', array( $this, 'login_redirect' ) , 10, 3 );
+			add_filter( 'logout_redirect', array( $this, 'logout_redirect' ) , 10, 3 );
 		}
 
 		/**
-		 * Filters the title attribute of the header logo above login form.
+		 * Filters the logo image title attribute.
 		 *
 		 * @see https://developer.wordpress.org/reference/hooks/login_headertitle/
 		 *
 		 * @access public
 		 */
-		public function login_headertitle() {
-			return sprintf( esc_html__( 'Login to %s', '@@textdomain' ), get_bloginfo( 'name' ) );
+		public function logo_title() {
+
+			return sprintf( esc_html__( 'Log in to %s', '@@textdomain' ), get_bloginfo( 'name' ) );
 		}
 
 		/**
@@ -49,11 +50,14 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 		 * @see https://developer.wordpress.org/reference/hooks/login_headerurl/
 		 *
 		 * @access public
-		 * @since 1.0.0
-		 * @return string
 		 */
-		public function login_headerurl() {
-			// return get_page_link( get_theme_mod( 'login_designer_logo_url', home_url() ) );
+		public function logo_url() {
+
+			// Check for the option.
+			$options   = new Login_Designer_Customizer_Output();
+			$option    = $options->option_wrapper( 'logo_url' );
+
+			return get_page_link( $option );
 		}
 
 		/**
@@ -63,70 +67,59 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 		 * @see https://developer.wordpress.org/reference/hooks/login_message/
 		 *
 		 * @access public
-		 * @param string $message Login message text.
-		 * @since 1.0.0
-		 * @return string
+		 * @param string|string $message Login message text.
 		 */
 		public function login_message( $message ) {
-			if ( empty( $message ) ) {
-				if ( get_theme_mod( 'login_designer__login-message' ) ) {
-					return sprintf( '<p>%s</p>', esc_textarea( get_theme_mod( 'login_designer__login-message' ) ) );
-				}
+
+			// Check for the option.
+			$options   = new Login_Designer_Customizer_Output();
+			$option    = $options->option_wrapper( 'login_message' );
+
+			if ( ! empty( $option ) ) {
+				return sprintf( '<p>%s</p>', esc_textarea( $option ) );
 			} else {
 				return $message;
 			}
 		}
 
 		/**
-		 * Redirect user after successful login.
+		 * Redirect after successful login.
 		 *
 		 * @see https://developer.wordpress.org/reference/hooks/login_redirect/
 		 *
 		 * @access public
-		 * @param string $redirect_to URL to redirect to.
-		 * @param string $requested_redirect_to URL the user is coming from.
-		 * @param object $user Logged user's data.
-		 * @return string
+		 * @param string|string $redirect_to URL to redirect to.
+		 * @param string|string $requested_redirect_to URL the user is coming from.
+		 * @param object|object $user Logged user's data.
+		 * @return string|string
 		 */
 		public function login_redirect( $redirect_to, $requested_redirect_to, $user ) {
-			// Is there a user to check?
-			if ( isset( $user->roles ) && is_array( $user->roles ) ) {
-				// Check for admins.
-				if ( in_array( 'administrator', $user->roles ) ) {
-					// Redirect them to the default place.
-					return $redirect_to;
-				} else {
-					return home_url();
-				}
-			} else {
-				return get_page_link( get_theme_mod( 'login_designer_login_redirect', home_url() ) );
-			}
+
+			// Check for the option.
+			$options   = new Login_Designer_Customizer_Output();
+			$option    = $options->option_wrapper( 'login_redirect' );
+
+			return get_page_link( $option );
 		}
 
 		/**
-		 * Redirect user after successful login.
+		 * Redirect after successful login.
 		 *
-		 * @see https://developer.wordpress.org/reference/hooks/login_redirect/
+		 * @see https://developer.wordpress.org/reference/hooks/logout_redirect/
 		 *
 		 * @access public
-		 * @param string $redirect_to URL to redirect to.
-		 * @param string $requested_redirect_to URL the user is coming from.
-		 * @param object $user Logged user's data.
-		 * @return string
+		 * @param string|string $redirect_to URL to redirect to.
+		 * @param string|string $requested_redirect_to URL the user is coming from.
+		 * @param object|object $user Logged user's data.
+		 * @return string|string
 		 */
 		public function logout_redirect( $redirect_to, $requested_redirect_to, $user ) {
-			// Is there a user to check?
-			if ( isset( $user->roles ) && is_array( $user->roles ) ) {
-				// Check for admins.
-				if ( in_array( 'administrator', $user->roles ) ) {
-					// Redirect them to the default place.
-					return $redirect_to;
-				} else {
-					return home_url();
-				}
-			} else {
-				return get_page_link( get_theme_mod( 'login_designer_logout_redirect', home_url() ) );
-			}
+
+			// Check for the option.
+			$options   = new Login_Designer_Customizer_Output();
+			$option    = $options->option_wrapper( 'logout_redirect' );
+
+			return get_page_link( $option );
 		}
 	}
 

@@ -75,32 +75,32 @@
 		}
 
 		// Only show the Twitter profile option, if social sharing is enabled.
-		customizer_image_option_display( 'login_designer_custom_logo', 'login_designer_custom_logo_margin_bottom' );
+		customizer_image_option_display( 'login_designer[logo]', 'login_designer[logo_margin_bottom]' );
 
 		// Only show the border color style option, if the border is greater than zero.
-		customizer_range_option_display( 'login_designer_form_field_border_size', 'login_designer_form_field_border_color', '0' );
+		customizer_range_option_display( 'login_designer[field_border]', 'login_designer[field_border_color]', '0' );
 
 		// Only show the shadow opacity style option, if the shadow is greater than zero.
-		customizer_range_option_display( 'login_designer_form_box_shadow', 'login_designer_form_box_shadow_opacity', '0' );
+		customizer_range_option_display( 'login_designer[form_shadow]', 'login_designer[form_shadow_opacity]', '0' );
 
 		// Only show the shadow opacity and inset style options, if the shadow is greater than zero.
-		customizer_range_option_display( 'login_designer_form_field_box_shadow', 'login_designer_form_field_box_shadow_opacity', '0' );
-		customizer_range_option_display( 'login_designer_form_field_box_shadow', 'login_designer_form_field_box_shadow_inset', '0' );
+		customizer_range_option_display( 'login_designer[field_shadow]', 'login_designer[field_shadow_opacity]', '0' );
+		customizer_range_option_display( 'login_designer[field_shadow]', 'login_designer[field_shadow_inset]', '0' );
 
 		// Only show the background optios, if there is a background image uploaded.
-		customizer_image_option_display( 'login_designer_bg_image', 'login_designer_bg_image_repeat' );
-		customizer_image_option_display( 'login_designer_bg_image', 'login_designer_bg_image_size' );
-		customizer_image_option_display( 'login_designer_bg_image', 'login_designer_bg_image_attach' );
-		customizer_image_option_display( 'login_designer_bg_image', 'login_designer_bg_image_position' );
+		customizer_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_repeat]' );
+		customizer_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_size]' );
+		customizer_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_attach]' );
+		customizer_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_position]' );
 
 		// Only show the gallery if there is a gallery background image selected and it's not set to "none".
-		customizer_image_option_display( 'login_designer_bg_image_gallery', 'login_designer_bg_image_repeat' );
-		customizer_image_option_display( 'login_designer_bg_image_gallery', 'login_designer_bg_image_size' );
-		customizer_image_option_display( 'login_designer_bg_image_gallery', 'login_designer_bg_image_attach' );
-		customizer_image_option_display( 'login_designer_bg_image_gallery', 'login_designer_bg_image_position' );
+		customizer_image_option_display( 'login_designer[bg_image_gallery]', 'login_designer[bg_repeat]' );
+		customizer_image_option_display( 'login_designer[bg_image_gallery]', 'login_designer[bg_size]' );
+		customizer_image_option_display( 'login_designer[bg_image_gallery]', 'login_designer[bg_attach]' );
+		customizer_image_option_display( 'login_designer[bg_image_gallery]', 'login_designer[bg_position]' );
 
 		// Only show the gallery if there is no custom background image uploaded.
-		customizer_no_image_option_display( 'login_designer_bg_image', 'login_designer_bg_image_gallery' );
+		customizer_no_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' );
 
 		// Detect when the front page sections section is expanded (or closed) so we can adjust the preview accordingly.
 		wp.customize.panel( 'login_designer', function( section ) {
@@ -111,7 +111,7 @@
 		} );
 
 		// Modify the background color based on the gallery image selected.
-		wp.customize( 'login_designer_bg_image_gallery', function( value ) {
+		wp.customize( 'login_designer[bg_image_gallery]', function( value ) {
 
 			value.bind( function( to ) {
 
@@ -148,40 +148,8 @@
 				}
 
 				// If we have a custom background color, let's put it back to default.
-				wp.customize( 'login_designer_bg_color' ).set( color );
+				wp.customize( 'login_designer[bg_color]' ).set( color );
 			} );
 		} );
-
-
-
-
-
-		// Only show the color hue control when there's a custom color scheme.
-		// wp.customize( 'login_designer_bg_image', function( setting ) {
-		// 	wp.customize.control( 'login_designer_bg_image_gallery', function( control ) {
-		// 		var visibility = function() {
-		// 			if ( 'none' === setting.get() ) {
-		// 				control.container.slideDown( 180 );
-		// 				console.log( 'sliding down' );
-		// 			}
-		// 		};
-
-		// 		visibility();
-		// 		setting.bind( visibility );
-		// 	});
-		// });
-
-		// wp.customize( 'login_designer_bg_image_gallery', function( value ) {
-		// 	value.bind( function( to ) {
-
-		// 		if ( 'none' === to ) {
-		// 			wp.customize( 'login_designer_bg_image' ).set( 'none' );
-		// 		} else {
-		// 			wp.customize( 'login_designer_bg_image' ).set( login_designer_script.plugin_url + to + '.jpg' );
-		// 		}
-
-		// 		console.log( wp.customize( 'login_designer_bg_image' ).get() );
-		// 	} );
-		// } );
-	});
-})( jQuery );
+	} );
+} )( jQuery );

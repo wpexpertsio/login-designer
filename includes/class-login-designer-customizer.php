@@ -24,7 +24,24 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		 * The class constructor.
 		 */
 		public function __construct() {
+			add_action( 'body_class', array( $this, 'body_class' ) );
+			add_action( 'login_body_class', array( $this, 'body_class' ) );
 			add_action( 'customize_register', array( $this, 'customize_register' ), 11 );
+		}
+
+		/**
+		 * Adds the associated template to the body.
+		 *
+		 * @access public
+		 * @param array $classes Existing body classes to be filtered.
+		 */
+		public function body_class( $classes ) {
+
+			if ( is_customize_preview() ) {
+				$classes[] = 'customize-partial-edit-shortcuts-shown';
+			}
+
+			return $classes;
 		}
 
 		/**
@@ -42,6 +59,10 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-title-control.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-gallery-control.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-alpha-color-control.php';
+
+			// Get the default options.
+			$defaults 	= new Login_Designer_Customizer_Output();
+			$defaults 	= $defaults->defaults();
 
 			/**
 			 * Add the main panel and sections.
@@ -86,6 +107,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/fields.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/labels.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/button.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/settings.php';
 		}
 
 		/**

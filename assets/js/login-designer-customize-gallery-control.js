@@ -7,8 +7,8 @@
 			e.preventDefault();
 
 			$( '#login-designer-gallery' ).toggleClass( 'open' );
-			$( '#customize-control-login_designer_bg_image' ).toggleClass( 'gallery-is-open' );
-			$( '#customize-control-login_designer_bg_image_gallery' ).toggleClass( 'gallery-is-open' );
+			$( '#customize-control-login_designer[bg_image]' ).toggleClass( 'gallery-is-open' );
+			$( '#customize-control-login_designer[bg_image_gallery]' ).toggleClass( 'gallery-is-open' );
 
 			if ( $( this ).text() === 'Open Gallery' ) {
 				$( this ).text( 'Close' );

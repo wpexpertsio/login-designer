@@ -34,19 +34,19 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 		}
 
 		/**
-		 * Adds the associated template to the body.
+		 * Adds the associated template to the body on our fake login customizer page and the real login page.
 		 *
 		 * @access public
 		 * @param array $classes Existing body classes to be filtered.
 		 */
 		public function template_classes( $classes ) {
-			$template = 'login-designer-template-' . get_theme_mod( 'login_designer__template-selector', 'default' );
-			$classes[] = $template;
 
-			if ( is_customize_preview() ) {
-				$classes[] = 'is-customize-preview';
-				$classes[] = 'customize-partial-edit-shortcuts-shown';
-			}
+			// Check for the option.
+			$options   = new Login_Designer_Customizer_Output();
+			$option    = $options->option_wrapper( 'template' );
+
+			$template = 'login-designer-template-' . esc_attr( $option );
+			$classes[] = $template;
 
 			return $classes;
 		}
@@ -58,8 +58,9 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 		 */
 		public function template_frontend_styles() {
 
-			// Get the template Customizer option.
-			$template 	= get_theme_mod( 'login_designer__template-selector', 'default' );
+			// Check for the option.
+			$options   	= new Login_Designer_Customizer_Output();
+			$template    	= $options->option_wrapper( 'template' );
 
 			// We don't need to add a stylesheet if the default option is set.
 			if ( 'default' === $template ) {

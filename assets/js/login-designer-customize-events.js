@@ -8,55 +8,55 @@
 
 	var all_controls = {
 		'logo' : [
-			'login_designer_title_logo',
-			'login_designer_custom_logo',
-			'login_designer_custom_logo_margin_bottom'
+			'login_designer[logo_title]',
+			'login_designer[logo]',
+			'login_designer[logo_margin_bottom]'
 		],
 		'form' : [
-			'login_designer_title_form',
-			'login_designer_form_width',
-			'login_designer_form_border_radius',,
-			'login_designer_form_background_color',
-			'login_designer_form_padding_top_bottom',
-			'login_designer_form_padding_side',
-			'login_designer_form_box_shadow',
-			'login_designer_form_box_shadow_opacity',
+			'login_designer[form_title]',
+			'login_designer[form_width]',
+			'login_designer[form_radius]',
+			'login_designer[form_bg]',
+			'login_designer[form_vertical_padding]',
+			'login_designer[form_side_padding]',
+			'login_designer[form_shadow]',
+			'login_designer[form_shadow_opacity]',
 		],
 		'fields' : [
-			'login_designer_title_form_fields',
-			'login_designer_form_field_background',
-			'login_designer_form_field_border_size',
-			'login_designer_form_field_border_color',
-			'login_designer_form_field_border_radius',
-			'login_designer_form_field_side_padding',
-			'login_designer_form_field_box_shadow',
-			'login_designer_form_field_box_shadow_opacity',
-			'login_designer_form_field_box_shadow_inset',
-			'login_designer_title_form_field_text',
-			'login_designer_form_field_font',
-			'login_designer_form_field_text_size',
-			'login_designer_form_field_text_color',
+			'login_designer[fields_title]',
+			'login_designer[field_bg]',
+			'login_designer[field_border]',
+			'login_designer[field_border_color]',
+			'login_designer[field_radius]',
+			'login_designer[field_side_padding]',
+			'login_designer[field_shadow]',
+			'login_designer[field_shadow_opacity]',
+			'login_designer[field_shadow_inset]',
+			'login_designer[field_text_title]',
+			'login_designer[field_font]',
+			'login_designer[field_font_size]',
+			'login_designer[field_color]',
 		],
 		'labels' : [
-			'login_designer_title_form_labels',
-			'login_designer_form_label_font',
-			'login_designer_form_label_size',
-			'login_designer_form_label_color',
-			'login_designer_form_label_username_text',
-			'login_designer_form_label_password_text',
+			'login_designer[labels_title]',
+			'login_designer[label_font]',
+			'login_designer[label_font_size]',
+			'login_designer[label_color]',
+			'login_designer[username_label]',
+			'login_designer[password_label]',
 		],
 		'button' : [
-			'login_designer_title_button',
+			'login_designer[button_title]',
 		],
 		'background' : [
-			'login_designer_title_bg',
-			'login_designer_bg_image',
-			'login_designer_bg_color',
-			'login_designer_bg_image_repeat',
-			'login_designer_bg_image_size',
-			'login_designer_bg_image_attach',
-			'login_designer_bg_image_position',
-			'login_designer_bg_image_gallery',
+			'login_designer[bg_title]',
+			'login_designer[bg_image]',
+			'login_designer[bg_color]',
+			'login_designer[bg_repeat]',
+			'login_designer[bg_size]',
+			'login_designer[bg_attach]',
+			'login_designer[bg_position]',
+			'login_designer[bg_image_gallery]',
 		],
 	};
 
@@ -101,15 +101,18 @@
 
 				// For this particular control, let's check to see if corresponding options are visible.
 				// We only want to show relevant options based on the user's contextual design decisions.
-				if ( item === 'login_designer_custom_logo_margin_bottom' ) {
+				if ( item === 'login_designer[logo_margin_bottom]' ) {
 
-					wp.customize( 'login_designer_custom_logo', function( setting ) {
+					wp.customize( 'login_designer[logo]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
 								if ( setting.get() ) {
 									// If there is a custom logo uploaded, let's show the bottom positioning option.
 									wp.customize.control( item ).activate();
+								} else {
+									// If not, let's quickly hide it.
+									control.container.slideUp( 0 );
 								}
 							};
 
@@ -119,15 +122,18 @@
 					});
 
 				// BG
-				} else if ( item === 'login_designer_bg_image_gallery' ) {
+				} else if ( item === 'login_designer[bg_image_gallery]' ) {
 
-					wp.customize( 'login_designer_bg_image', function( setting ) {
+					wp.customize( 'login_designer[bg_image]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
 								if ( ! setting.get() ) {
 									// If there's no custom background image, let's show the gallery.
 									wp.customize.control( item ).activate();
+								} else {
+									// If not, let's quickly hide it.
+									control.container.slideUp( 0 );
 								}
 							};
 
@@ -136,32 +142,9 @@
 						});
 					});
 
-				} else if ( item === 'login_designer_bg_image_repeat' ) {
+				} else if ( item === 'login_designer[bg_repeat]' ) {
 
-					$.each( [ 'login_designer_bg_image', 'login_designer_bg_image_gallery' ], function( index, settingId ) {
-
-						wp.customize( settingId, function( setting ) {
-							wp.customize.control( item, function( control ) {
-								var visibility = function() {
-
-									if ( setting.get() && 'none' !== setting.get() ) {
-										// If there is a background image or gallery image, but neither are set to "none".
-										wp.customize.control( item ).activate();
-									} else {
-										// If not, let's quickly hide it.
-										control.container.slideUp( 0 );
-									}
-								};
-
-								visibility();
-								setting.bind( visibility );
-							} );
-						} );
-					} );
-
-				} else if ( item === 'login_designer_bg_image_size' ) {
-
-					$.each( [ 'login_designer_bg_image', 'login_designer_bg_image_gallery' ], function( index, settingId ) {
+					$.each( [ 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' ], function( index, settingId ) {
 
 						wp.customize( settingId, function( setting ) {
 							wp.customize.control( item, function( control ) {
@@ -182,32 +165,9 @@
 						} );
 					} );
 
-				} else if ( item === 'login_designer_bg_image_attach' ) {
+				} else if ( item === 'login_designer[bg_size]' ) {
 
-					$.each( [ 'login_designer_bg_image', 'login_designer_bg_image_gallery' ], function( index, settingId ) {
-
-						wp.customize( settingId, function( setting ) {
-							wp.customize.control( item, function( control ) {
-								var visibility = function() {
-
-									if ( setting.get() && 'none' !== setting.get() ) {
-										// If there is a background image or gallery image, but neither are set to "none".
-										wp.customize.control( item ).activate();
-									} else {
-										// If not, let's quickly hide it.
-										control.container.slideUp( 0 );
-									}
-								};
-
-								visibility();
-								setting.bind( visibility );
-							} );
-						} );
-					} );
-
-				} else if ( item === 'login_designer_bg_image_position' ) {
-
-					$.each( [ 'login_designer_bg_image', 'login_designer_bg_image_gallery' ], function( index, settingId ) {
+					$.each( [ 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' ], function( index, settingId ) {
 
 						wp.customize( settingId, function( setting ) {
 							wp.customize.control( item, function( control ) {
@@ -228,9 +188,55 @@
 						} );
 					} );
 
-				} else if ( item === 'login_designer_form_box_shadow_opacity' ) {
+				} else if ( item === 'login_designer[bg_attach]' ) {
 
-					wp.customize( 'login_designer_form_box_shadow', function( setting ) {
+					$.each( [ 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' ], function( index, settingId ) {
+
+						wp.customize( settingId, function( setting ) {
+							wp.customize.control( item, function( control ) {
+								var visibility = function() {
+
+									if ( setting.get() && 'none' !== setting.get() ) {
+										// If there is a background image or gallery image, but neither are set to "none".
+										wp.customize.control( item ).activate();
+									} else {
+										// If not, let's quickly hide it.
+										control.container.slideUp( 0 );
+									}
+								};
+
+								visibility();
+								setting.bind( visibility );
+							} );
+						} );
+					} );
+
+				} else if ( item === 'login_designer[bg_position]' ) {
+
+					$.each( [ 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' ], function( index, settingId ) {
+
+						wp.customize( settingId, function( setting ) {
+							wp.customize.control( item, function( control ) {
+								var visibility = function() {
+
+									if ( setting.get() && 'none' !== setting.get() ) {
+										// If there is a background image or gallery image, but neither are set to "none".
+										wp.customize.control( item ).activate();
+									} else {
+										// If not, let's quickly hide it.
+										control.container.slideUp( 0 );
+									}
+								};
+
+								visibility();
+								setting.bind( visibility );
+							} );
+						} );
+					} );
+
+				} else if ( item === 'login_designer[form_shadow_opacity]' ) {
+
+					wp.customize( 'login_designer[form_shadow]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
@@ -248,9 +254,9 @@
 						});
 					});
 
-				} else if ( item === 'login_designer_form_field_box_shadow_opacity' ) {
+				} else if ( item === 'login_designer[field_shadow_opacity]' ) {
 
-					wp.customize( 'login_designer_form_field_box_shadow', function( setting ) {
+					wp.customize( 'login_designer[field_shadow]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
@@ -268,9 +274,9 @@
 						});
 					});
 
-				} else if ( item === 'login_designer_form_field_box_shadow_inset' ) {
+				} else if ( item === 'login_designer[field_shadow_inset]' ) {
 
-					wp.customize( 'login_designer_form_field_box_shadow', function( setting ) {
+					wp.customize( 'login_designer[field_shadow]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
@@ -292,9 +298,9 @@
 
 				}
 
-				else if ( item === 'login_designer_form_field_border_color' ) {
+				else if ( item === 'login_designer[field_border_color]' ) {
 
-					wp.customize( 'login_designer_form_field_border_size', function( setting ) {
+					wp.customize( 'login_designer[field_border]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
@@ -365,13 +371,13 @@
 			}
 
 			// Only show visible options when necessary.
-			bind_control_visibility_event( logo_event, all_controls.logo, 'login_designer_custom_logo' );
-			bind_control_visibility_event( form_event, all_controls.form, 'login_designer_title_form' );
-			bind_control_visibility_event( fields_event, all_controls.fields, 'login_designer_title_form' );
-			bind_control_visibility_event( username_label_event, all_controls.labels, 'login_designer_form_label_username_text' );
-			bind_control_visibility_event( password_label_event, all_controls.labels, 'login_designer_form_label_password_text' );
-			bind_control_visibility_event( button_event, all_controls.buttons, 'login_designer_title_button' );
-			bind_control_visibility_event( background_event, all_controls.background, 'login_designer_title_bg' );
+			bind_control_visibility_event( logo_event, all_controls.logo, 'login_designer[logo]' );
+			bind_control_visibility_event( form_event, all_controls.form, 'login_designer[form_title]' );
+			bind_control_visibility_event( fields_event, all_controls.fields, 'login_designer[form_title]' );
+			bind_control_visibility_event( username_label_event, all_controls.labels, 'login_designer[username_label]' );
+			bind_control_visibility_event( password_label_event, all_controls.labels, 'login_designer[password_label]' );
+			bind_control_visibility_event( button_event, all_controls.buttons, 'login_designer[button_title]' );
+			bind_control_visibility_event( background_event, all_controls.background, 'login_designer[bg_title]' );
 		}
 	};
 
