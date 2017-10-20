@@ -264,6 +264,7 @@
 .alpha-color-picker-container .transparency {
 	background-color: #fff;
 	background-image: url(../images/customizer/transparency-grid.png);
+	background-size: 224px 20px;
 	border-radius: 2px;
 	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
 	height: 20px;
