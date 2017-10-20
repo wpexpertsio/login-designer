@@ -11,7 +11,7 @@
 			'login_designer[logo_title]',
 			'login_designer[logo]',
 			'login_designer[logo_margin_bottom]',
-			'login_designer[logo_url]',
+			'login_designer_admin[logo_url]',
 		],
 		'form' : [
 			'login_designer[form_title]',

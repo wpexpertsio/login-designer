@@ -28,6 +28,12 @@ var templateDestination  	= './assets/css/templates/'; // Path to place the comp
 var styleDestination  		= './assets/css/'; // Path to place the compiled CSS file.
 var styleWatchFiles   		= './assets/scss/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
 
+var scriptCustomizeEventsFile  = slug +'-customize-events'; // JS file name.
+var scriptCustomizeEventsSRC   = './assets/js/'+ scriptCustomizeEventsFile +'.js'; // The JS file src.
+
+var scriptCustomizeLiveFile  = slug +'-customize-live'; // JS file name.
+var scriptCustomizeLiveSRC   = './assets/js/'+ scriptCustomizeLiveFile +'.js'; // The JS file src.
+
 var scriptCustomizePreviewFile  = slug +'-customize-preview'; // JS file name.
 var scriptCustomizePreviewSRC   = './assets/js/'+ scriptCustomizePreviewFile +'.js'; // The JS file src.
 
@@ -460,6 +466,26 @@ gulp.task( 'scripts', function() {
 	.pipe( uglify() )
 	.pipe( lineec() )
 	.pipe( gulp.dest( scriptDestination ) )
+
+	// slug-customize-events.js
+	gulp.src( scriptCustomizeEventsSRC )
+	.pipe( rename( {
+		basename: scriptCustomizeEventsFile,
+		suffix: '.min'
+	}))
+	.pipe( uglify() )
+	.pipe( lineec() )
+	.pipe( gulp.dest( scriptDestination ) )
+
+	// slug-customize-live.js
+	gulp.src( scriptCustomizeLiveSRC )
+	.pipe( rename( {
+		basename: scriptCustomizeLiveFile,
+		suffix: '.min'
+	}))
+	.pipe( uglify() )
+	.pipe( lineec() )
+	.pipe( gulp.dest( scriptDestination ) )
 });
 
 /**
@@ -488,14 +514,12 @@ gulp.task( 'build-clean', function () {
 	.pipe(cleaner());
 });
 
-gulp.task( 'build-copy', ['build-clean'], function() {
+gulp.task( 'build-copy', function() {
     return gulp.src( buildFiles )
     .pipe( copy( buildDestination ) );
 });
 
-gulp.task( 'build-clean-and-copy', ['build-clean', 'build-copy' ], function () { } );
-
-gulp.task('build-variables', ['build-clean-and-copy'], function () {
+gulp.task('build-variables', function () {
 	return gulp.src( distributionFiles )
 	.pipe( replace( {
 		patterns: [
@@ -528,18 +552,18 @@ gulp.task('build-variables', ['build-clean-and-copy'], function () {
 	.pipe( gulp.dest( buildDestination ) );
 });
 
-gulp.task( 'build-zip', ['build-variables'], function() {
-    return gulp.src( buildDestination+'/**' )
+gulp.task( 'build-zip', function() {
+    return gulp.src( buildDestination+'/**', {base: 'dist'} )
     .pipe( zip( slug +'.zip' ) )
     .pipe( gulp.dest( './dist/' ) );
 });
 
-gulp.task( 'build-clean-after-zip', ['build-zip'], function () {
+gulp.task( 'build-clean-after-zip', function () {
 	return gulp.src( [ buildDestination, '!/dist/' + slug + '.zip'] , { read: false } )
 	.pipe(cleaner());
 });
 
-gulp.task( 'build-zip-and-clean', ['build-zip', 'build-clean-after-zip' ], function () { } );
+gulp.task( 'build-zip-and-clean', function () { } );
 
 gulp.task( 'build-notification', function () {
 	return gulp.src( '' )
@@ -547,7 +571,7 @@ gulp.task( 'build-notification', function () {
 });
 
 /**
- * Commands
+ * Commands.
  */
 
 gulp.task( 'default', [ 'clear', 'template_1', 'template_2', 'styles_customize_preview', 'styles_customize_controls', 'styles_customizer_background_gallery', 'styles_customizer_title', 'styles_customizer_template_control', 'styles_customizer_alpha_control', 'styles_customizer_range', 'scripts', 'browser_sync' ], function () {
@@ -561,9 +585,9 @@ gulp.task( 'default', [ 'clear', 'template_1', 'template_2', 'styles_customize_p
 	gulp.watch( styleWatchFiles, [ 'styles_customizer_background_gallery' ] );
 	gulp.watch( styleWatchFiles, [ 'template_1' ] );
 	gulp.watch( styleWatchFiles, [ 'template_2' ] );
-	gulp.watch( scriptWatchFiles, [ 'scripts' ] );
+	// gulp.watch( scriptWatchFiles, [ 'scripts' ] );
 });
 
 gulp.task('build', function(callback) {
-	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'styles_customize_preview', 'styles_customize_controls', 'styles_customizer_background_gallery', 'styles_customizer_title', 'styles_customizer_template_control', 'styles_customizer_alpha_control', 'styles_customizer_range', 'scripts', 'build-translate'], 'build-clean-and-copy', 'build-variables', 'build-zip-and-clean', 'build-notification', callback);
+	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'styles_customize_preview', 'styles_customize_controls', 'styles_customizer_background_gallery', 'styles_customizer_title', 'styles_customizer_template_control', 'styles_customizer_alpha_control', 'styles_customizer_range', 'scripts', 'build-translate'], 'build-copy', 'build-variables', 'build-zip', 'build-clean-after-zip', 'build-notification', callback);
 });

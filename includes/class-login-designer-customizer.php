@@ -64,6 +64,10 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			$defaults 	= new Login_Designer_Customizer_Output();
 			$defaults 	= $defaults->defaults();
 
+			// Get the admin default options.
+			$admin_defaults 	= new Login_Designer_Customizer_Output();
+			$admin_defaults 	= $admin_defaults->admin_defaults();
+
 			/**
 			 * Add the main panel and sections.
 			 */

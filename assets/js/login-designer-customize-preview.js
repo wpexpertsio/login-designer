@@ -444,7 +444,7 @@
 		} );
 	} );
 
-	wp.customize( 'login_designer[logo_url]', function( value ) {
+	wp.customize( 'login_designer_admin[logo_url]', function( value ) {
 		value.bind( function( to ) {
 			$( '#login-designer-logo' ).attr( 'href', to );
 		} );

@@ -55,14 +55,14 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 	)
 ) );
 
-$wp_customize->add_setting( 'login_designer[logo_url]', array(
-	'default'               => $defaults['logo_url'],
+$wp_customize->add_setting( 'login_designer_admin[logo_url]', array(
+	'default'               => $admin_defaults['logo_url'],
 	'type' 			=> 'option',
 	'transport'         	=> 'postMessage',
 	'sanitize_callback' 	=> 'absint',
 ) );
 
-$wp_customize->add_control( 'login_designer[logo_url]', array(
+$wp_customize->add_control( 'login_designer_admin[logo_url]', array(
 	'label'          	=> esc_html__( 'Logo URL', '@@textdomain' ),
 	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
 	'section'        	=> 'login_designer__section--styles',

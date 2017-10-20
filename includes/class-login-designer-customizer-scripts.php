@@ -43,7 +43,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/';
 
 			// Use minified libraries if SCRIPT_DEBUG is turned off.
-			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '';
+			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 			wp_enqueue_style( 'login-designer-customize-controls', $css_dir . 'login-designer-customize-controls' . $suffix . '.css', null );
 		}
@@ -62,7 +62,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/';
 
 			// Use minified libraries if SCRIPT_DEBUG is turned off.
-			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '';
+			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 			wp_enqueue_style( 'login-designer-customize-preview', $css_dir . 'login-designer-customize-preview' . $suffix . '.css', LOGIN_DESIGNER_VERSION, 'all' );
 		}
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/';
 
 			// Use minified libraries if SCRIPT_DEBUG is turned off.
-			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '';
+			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 			wp_enqueue_script( 'login-designer-customize-live', $js_dir . 'login-designer-customize-live' . $suffix . '.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
 			wp_enqueue_script( 'login-designer-customize-preview', $js_dir . 'login-designer-customize-preview' . $suffix . '.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
@@ -104,7 +104,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			$js_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/';
 
 			// Use minified libraries if SCRIPT_DEBUG is turned off.
-			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '';
+			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 			wp_enqueue_script( 'login-designer-customize-controls', $js_dir . 'login-designer-customize-controls' . $suffix . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
 			wp_enqueue_script( 'login-designer-customize-events', $js_dir . 'login-designer-customize-events' . $suffix . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );

@@ -200,7 +200,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 
 					$page = get_page_by_title( 'Login Designer' );
 
-					wp_redirect( admin_url( '/customize.php?autofocus[panel]=login_designer&url='.get_permalink( $page ) ) );
+					wp_safe_redirect( admin_url( '/customize.php?autofocus[panel]=login_designer&url='.get_permalink( $page ) ) );
 				}
 			}
 		}

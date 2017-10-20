@@ -53,9 +53,9 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 		 */
 		public function logo_url() {
 
-			// Check for the option.
+			// Check for the admin option.
 			$options   = new Login_Designer_Customizer_Output();
-			$option    = $options->option_wrapper( 'logo_url' );
+			$option    = $options->admin_option_wrapper( 'logo_url' );
 
 			if ( $option ) {
 				return get_page_link( $option );
@@ -76,9 +76,9 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 		 */
 		public function login_message( $message ) {
 
-			// Check for the option.
+			// Check for the admin option.
 			$options   = new Login_Designer_Customizer_Output();
-			$option    = $options->option_wrapper( 'login_message' );
+			$option    = $options->admin_option_wrapper( 'login_message' );
 
 			if ( ! empty( $option ) ) {
 				return sprintf( '<p>%s</p>', esc_textarea( $option ) );
@@ -100,9 +100,9 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 		 */
 		public function login_redirect( $redirect_to, $requested_redirect_to, $user ) {
 
-			// Check for the option.
+			// Check for the admin option.
 			$options   = new Login_Designer_Customizer_Output();
-			$option    = $options->option_wrapper( 'login_redirect' );
+			$option    = $options->admin_option_wrapper( 'login_redirect' );
 
 			if ( $option ) {
 				return get_page_link( $option );
@@ -122,9 +122,9 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 		 */
 		public function logout_redirect( $redirect_to, $requested_redirect_to, $user ) {
 
-			// Check for the option.
+			// Check for the admin option.
 			$options   = new Login_Designer_Customizer_Output();
-			$option    = $options->option_wrapper( 'logout_redirect' );
+			$option    = $options->admin_option_wrapper( 'logout_redirect' );
 
 			if ( $option ) {
 				return get_page_link( $option );

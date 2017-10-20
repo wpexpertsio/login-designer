@@ -56,6 +56,29 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		}
 
 		/**
+		 * Admin options wrapper.
+		 *
+		 * @param string|string $option The option in question.
+		 * @return string
+		 */
+		public function admin_option_wrapper( $option ) {
+
+			$options = get_option( 'login_designer_admin' );
+
+			// Check if options exist.
+			if ( ! $options ) {
+				return false;
+			}
+
+			// Check if the option exists.
+			if ( isset( $options[ $option ] ) ) {
+				return $options[ $option ];
+			} else {
+				return false;
+			}
+		}
+
+		/**
 		 * Add preconnect for Google Fonts.
 		 *
 		 * @param  array|array   $urls           URLs to print for resource hints.
@@ -161,9 +184,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		}
 
 		/**
-		 * Set default colors
-		 *
-		 * @since 1.0.0
+		 * Set default options.
 		 *
 		 * @return array $defaults
 		 */
@@ -208,7 +229,20 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'label_font' 		=> '',
 				'label_font_size' 	=> '14',
 				'label_color' 		=> '#72777c',
+			);
 
+			return apply_filters( 'login_designer_defaults', $defaults );
+		}
+
+		/**
+		 * Set admin defaults.
+		 * Admin settings are separated because we don't want to reset them if the reset Customizer action is triggered.
+		 *
+		 * @return array $defaults
+		 */
+		function admin_defaults() {
+
+			$admin_defaults = array(
 				'logo_url' 		=> '',
 				'login_redirect' 	=> '',
 				'logout_redirect' 	=> '',
@@ -216,8 +250,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 			);
 
-			return apply_filters( 'login_designer_defaults', $defaults );
-
+			return apply_filters( 'login_designer_admin_defaults', $admin_defaults );
 		}
 
 

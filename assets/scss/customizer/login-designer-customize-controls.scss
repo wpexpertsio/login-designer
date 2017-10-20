@@ -1,14 +1,19 @@
 // Variables.
 @import "variables";
 
-// Color Controls.
-@import "modules/color-control";
-
 // Checkbox.
 @import "modules/checkbox";
 
+// Color Controls.
+@import "modules/colors";
 
+// Image.
+@import "modules/image";
 
+// Reset.
+@import "modules/reset";
+
+// Title spacing.
 #customize-control-login_designer-logo_url,
 #customize-control-login_designer-bg_color,
 #customize-control-login_designer-form_shadow_opacity,
@@ -17,35 +22,6 @@
 #customize-control-login_designer-label_color {
 	margin-bottom: 25px;
 }
-
-
-
-
-
-
-#login-designer-reset {
-	opacity: 0;
-	margin-top: 9px;
-	transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1);
-
-	.style-editor-open & {
-		opacity: 1;
-	}
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // 50/50, Small text input fields
 #customize-control-login_designer[username_label],
@@ -68,81 +44,6 @@
 		margin: 0;
 		border-radius: 5px;
 	}
-
-}
-
-// Image uploader control mods.
-// #sub-accordion-section-login_designer__section--styles {
-
-// 	.customize-control-title {
-// 		font-weight: 500;
-// 	}
-// }
-
-// Image uploader control mods.
-#sub-accordion-section-login_designer__section--styles,
-#sub-accordion-section-login_designer__section--settings {
-
-	.customize-control-background-image {
-
-		.actions {
-
-			button.remove-button {
-				margin-bottom: 18px;
-			}
-
-			button {
-				width: 49.3%;
-				margin-top: 3px;
-			}
-		}
-
-		.thumbnail {
-			border-radius: 3px;
-			max-height: 70px;
-		}
-
-		img {
-			width: 100%;
-			transform: translate3d(0, -40%, 0);
-		}
-	}
-
-	.customize-control-image {
-		position: relative;
-		margin-bottom: 25px;
-
-		.placeholder {
-			display: none;
-		}
-
-		button:not(.control-focus):not(.remove-button) {
-			background: transparent;
-			// border-radius: 6px;
-			border-radius: 0;
-			border: 1px dashed $border-color;
-			box-shadow: none;
-			color: #555d66;
-			font-size: 14px;
-			margin-top: 5px;
-			padding: 7px 0;
-			transition: border-color 200ms cubic-bezier(0.19, 1, 0.22, 1), color 200ms cubic-bezier(0.19, 1, 0.22, 1);
-			width: 100%;
-
-			&:hover {
-				border-color: $blue;
-				color: $blue;
-			}
-
-			&:active {
-				transform: translateY(0);
-			}
-		}
-
-		.button.upload-button.control-focus {
-			margin-left: -8px;
-		}
-	}
 }
 
 /* Customizer Select */
@@ -156,11 +57,11 @@
 		}
 
 		label::after {
-			font: 400 11px/72px dashicons;
+			font: 400 11px/11px dashicons;
 			content: "\f341";
 			position: absolute;
 			right: 5px;
-			bottom: -24px;
+			bottom: 7px;
 			transform: rotate(-90deg);
 		}
 
@@ -204,12 +105,12 @@
 		position: relative;
 
 		label::after {
-				font: 400 11px/72px dashicons;
-				content: "\f341";
-				position: absolute;
-				right: 5px;
-				top: -23px;
-				transform: rotate(-90deg);
+			font: 400 11px/11px dashicons;
+			content: "\f341";
+			position: absolute;
+			right: 5px;
+			top: 8px;
+			transform: rotate(-90deg);
 		}
 
 		.customize-control-title {
@@ -250,20 +151,6 @@
 			option {
 				text-align: right;
 			}
-		}
-	}
-
-	.background-image-fields {
-
-		&:not(.hidden) {
-			border-bottom: 1px solid #ddd;
-			padding-bottom: 18px;
-			margin-bottom: 3px;
-		}
-
-		li {
-			position: relative;
-			margin-bottom: 8px;
 		}
 	}
 }

@@ -42,7 +42,7 @@
 	z-index: -1;
 }
 
-.transitioning {
+#login-designer-background.transitioning {
 	opacity: 0;
 }
 
