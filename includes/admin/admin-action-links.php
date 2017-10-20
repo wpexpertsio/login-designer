@@ -38,7 +38,7 @@ function logindesigner_action_links( $links, $file ) {
 
 		array_unshift( $links, $settings_link );
 
-		$pro_link = sprintf( esc_html__( '%1$s %3$s Go Pro %4$s %2$s', '@@textdomain' ),  '<a href="https://logindesigner.com/?utm_source=login-designer-lite&utm_medium=plugin-action-link&utm_campaign=pro" target="_blank">', '</a>', '<span style="color: #006505;">', '</span>' );
+		$pro_link = sprintf( esc_html__( '%1$s %3$s Get Extensions %4$s %2$s', '@@textdomain' ),  '<a href="https://logindesigner.com/?utm_source=login-designer-plugin&utm_medium=plugin-action-link&utm_campaign=get-extensions" target="blank">', '</a>', '<span style="color: #006505;">', '</span>' );
 
 		array_push( $links, $pro_link );
 	}

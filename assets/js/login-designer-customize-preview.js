@@ -101,9 +101,9 @@
 	wp.customize( 'login_designer[label_font_size]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer[label_font_size]"> #loginform label:not([for=rememberme]) { font-size: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_label_font_size"> #loginform label:not([for=rememberme]) { font-size: ' + to + 'px; } </style>';
 
-			el =  $( '.login_designer[label_font_size]' );
+			el =  $( '.login_designer_label_font_size' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it
@@ -201,9 +201,9 @@
 	wp.customize( 'login_designer[bg_repeat]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer[bg_repeat]"> #login-designer-background { background-repeat: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_repeat"> #login-designer-background { background-repeat: ' + to + '; } </style>';
 
-			el =  $( '.login_designer[bg_repeat]' );
+			el =  $( '.login_designer_bg_repeat' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it
@@ -217,9 +217,9 @@
 	wp.customize( 'login_designer[bg_size]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer[bg_size]"> #login-designer-background { background-size: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_size"> #login-designer-background { background-size: ' + to + '; } </style>';
 
-			el =  $( '.login_designer[bg_size]' );
+			el =  $( '.login_designer_bg_size' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it
@@ -237,9 +237,9 @@
 			var to = to;
 			var to = to.replace(/-/g, ' ');
 
-			style = '<style class="login_designer[bg_position]"> #login-designer-background { background-position: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_position"> #login-designer-background { background-position: ' + to + '; } </style>';
 
-			el =  $( '.login_designer[bg_position]' );
+			el =  $( '.login_designer_bg_position' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it
@@ -253,9 +253,9 @@
 	wp.customize( 'login_designer[bg_attach]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer[bg_attach]"> #login-designer-background { background-attachment: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_attach"> #login-designer-background { background-attachment: ' + to + '; } </style>';
 
-			el =  $( '.login_designer[bg_attach]' );
+			el =  $( '.login_designer_bg_attach' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it
@@ -269,9 +269,9 @@
 	wp.customize( 'login_designer[form_shadow]', function( value ) {
 		value.bind( function( to ) {
 			var style, shadow_opacity, el;
-			style = '<style class="login_designer[form_shadow]"> #loginform { box-shadow: 0 0 ' + to + 'px rgba(0, 0, 0, ' + formBoxShadowOpacity() + '); } </style>';
+			style = '<style class="login_designer_form_shadow"> #loginform { box-shadow: 0 0 ' + to + 'px rgba(0, 0, 0, ' + formBoxShadowOpacity() + '); } </style>';
 
-			el =  $( '.login_designer[form_shadow]' );
+			el =  $( '.login_designer_form_shadow' );
 			// shadow_opacity =  $( '.login_designer[form_shadow_opacity]' );
 
 			if ( el.length ) {
@@ -289,9 +289,9 @@
 
 			opacity = to * .01;
 
-			style = '<style class="login_designer[form_shadow]"> #loginform { box-shadow: 0 0 ' + formBoxShadowSize() + 'px rgba(0, 0, 0, ' + opacity + '); } </style>';
+			style = '<style class="login_designer_form_shadow"> #loginform { box-shadow: 0 0 ' + formBoxShadowSize() + 'px rgba(0, 0, 0, ' + opacity + '); } </style>';
 
-			el =  $( '.login_designer[form_shadow]' );
+			el =  $( '.login_designer_form_shadow' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it
@@ -341,20 +341,20 @@
 					});
 
 					// Setting the background size of the custom logo.
-					var style = '<style class="login_designer[logo]"> #login-designer-logo { background-size:'+width+'px; } </style>';
+					var style = '<style class="login_designer_logo"> #login-designer-logo { background-size:'+width+'px; } </style>';
 				}
 
 				img.src = to;
 
 			} else {
 				// If a logo is removed, fallback to the default WordPress logo + sizes.
-				style = '<style class="login_designer[logo]"> #login-designer-logo { height: 84px !important; width: 84px !important; background-size: 84px !important; background-image: none, url(" ' + login_designer_script.admin_url + '/images/wordpress-logo.svg ") !important; } </style>';
+				style = '<style class="login_designer_logo"> #login-designer-logo { height: 84px !important; width: 84px !important; background-size: 84px !important; background-image: none, url(" ' + login_designer_script.admin_url + '/images/wordpress-logo.svg ") !important; } </style>';
 			}
 
 			// alert( style );
 
 			// Outut the style changes (for background sizes).
-			element =  $( '.login_designer[logo]' );
+			element =  $( '.login_designer_logo' );
 
 			if ( element.length ) {
 				element.replaceWith( style );
@@ -368,9 +368,9 @@
 	wp.customize( 'login_designer[logo_margin_bottom]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer[logo_margin_bottom]"> body.login #login h1 a { margin-bottom: ' + to + 'px !important; } </style>';
+			style = '<style class="login_designer_logo_margin_bottom"> body.login #login h1 a { margin-bottom: ' + to + 'px !important; } </style>';
 
-			el =  $( '.login_designer[logo_margin_bottom]' );
+			el =  $( '.login_designer_logo_margin_bottom' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it
@@ -391,9 +391,9 @@
 	wp.customize( 'login_designer[form_radius]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer[form_radius]"> body.login #loginform { border-radius: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_form_radius"> body.login #loginform { border-radius: ' + to + 'px; } </style>';
 
-			el =  $( '.login_designer[form_radius]' );
+			el =  $( '.login_designer_form_radius' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it
@@ -416,9 +416,9 @@
 	wp.customize( 'login_designer[form_side_padding]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer[form_side_padding]"> body.login #loginform { padding-left: ' + to + 'px; padding-right: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_form_side_padding"> body.login #loginform { padding-left: ' + to + 'px; padding-right: ' + to + 'px; } </style>';
 
-			el =  $( '.login_designer[form_side_padding]' );
+			el =  $( '.login_designer_form_side_padding' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it
@@ -432,9 +432,9 @@
 	wp.customize( 'login_designer[form_vertical_padding]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer[form_vertical_padding]"> body.login #loginform { padding-top: ' + to + 'px; padding-bottom: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_form_vertical_padding"> body.login #loginform { padding-top: ' + to + 'px; padding-bottom: ' + to + 'px; } </style>';
 
-			el =  $( '.login_designer[form_vertical_padding]' );
+			el =  $( '.login_designer_form_vertical_padding' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it
@@ -454,9 +454,9 @@
 	wp.customize( 'login_designer[field_radius]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer[field_radius]"> body.login #loginform .input { border-radius: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_field_radius"> body.login #loginform .input { border-radius: ' + to + 'px; } </style>';
 
-			el =  $( '.login_designer[field_radius]' );
+			el =  $( '.login_designer_field_radius' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it

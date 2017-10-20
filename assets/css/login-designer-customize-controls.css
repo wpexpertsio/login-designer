@@ -106,14 +106,14 @@
 	margin-bottom: 25px;
 }
 
-#zoom-reset {
+#login-designer-reset {
 	margin-top: 9px;
 	opacity: 0;
 	-webkit-transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1);
 	transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1);
 }
 
-.style-editor-open #zoom-reset {
+.style-editor-open #login-designer-reset {
 	opacity: 1;
 }
 
