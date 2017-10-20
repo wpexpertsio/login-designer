@@ -1,11 +1,3 @@
-.customize-control-login-designer-title {
-	margin-top: 15px;
-}
-
-.customize-control-login-designer-title.is-active {
-	margin-top: 0 !important;
-}
-
 .customize-control-login-designer-title#customize-control-login_designer[field_text_title] {
 	margin-top: 15px !important;
 }

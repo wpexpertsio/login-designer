@@ -9,6 +9,19 @@
 
 
 
+#customize-control-login_designer-logo_url,
+#customize-control-login_designer-bg_color,
+#customize-control-login_designer-form_shadow_opacity,
+#customize-control-login_designer-field_shadow_inset,
+#customize-control-login_designer-field_color,
+#customize-control-login_designer-label_color {
+	margin-bottom: 25px;
+}
+
+
+
+
+
 
 #zoom-reset {
 	opacity: 0;
@@ -97,7 +110,7 @@
 
 	.customize-control-image {
 		position: relative;
-		margin-bottom: 15px;
+		margin-bottom: 25px;
 
 		.placeholder {
 			display: none;

@@ -3,7 +3,7 @@
 }
 
 .customize-control-alpha-color .customize-control-title {
-	margin: 0 0 3px;
+	margin: 0;
 }
 
 .customize-control-alpha-color .customize-control-content {
@@ -31,7 +31,7 @@
 .customize-control-alpha-color .wp-picker-container.wp-picker-active {
 	display: block;
 	height: auto;
-	margin-bottom: 25px;
+	margin-bottom: 7px;
 	margin-top: -24px;
 }
 
@@ -95,6 +95,17 @@
 	margin-top: 3px;
 }
 
+.customize-control-alpha-color .iris-picker .ui-slider-handle {
+	border-color: #fff !important;
+	opacity: 1 !important;
+}
+
+.customize-control-alpha-color .iris-picker .ui-slider-handle:focus {
+	background: #fff;
+	border-color: #fff;
+	box-shadow: 0 2px 0 rgba(46, 68, 83, 0.1) !important;
+}
+
 .customize-control-alpha-color .iris-picker .iris-strip {
 	height: 217px !important;
 	width: 33px !important;
@@ -131,12 +142,12 @@
 	float: left;
 	font-size: 12px;
 	padding-left: 7px;
-	width: calc( 100% - 56px);
+	width: calc(100% - 66px);
 }
 
 .customize-control-alpha-color .wp-picker-input-wrap .button {
 	float: right;
-	margin-left: 10px;
+	margin-left: 0;
 	margin-right: -2px;
 }
 

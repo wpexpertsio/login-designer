@@ -97,6 +97,15 @@
 	}
 }
 
+#customize-control-login_designer-logo_url,
+#customize-control-login_designer-bg_color,
+#customize-control-login_designer-form_shadow_opacity,
+#customize-control-login_designer-field_shadow_inset,
+#customize-control-login_designer-field_color,
+#customize-control-login_designer-label_color {
+	margin-bottom: 25px;
+}
+
 #zoom-reset {
 	margin-top: 9px;
 	opacity: 0;
@@ -158,7 +167,7 @@
 
 #sub-accordion-section-login_designer__section--styles .customize-control-image,
 #sub-accordion-section-login_designer__section--settings .customize-control-image {
-	margin-bottom: 15px;
+	margin-bottom: 25px;
 	position: relative;
 }
 
