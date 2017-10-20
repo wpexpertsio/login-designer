@@ -133,8 +133,59 @@
 }
 
 /* Customizer Select */
-#sub-accordion-section-login_designer__section--styles,
-#sub-accordion-section-login_designer__section--background {
+#sub-accordion-section-login_designer__section--styles {
+
+	.customize-control-dropdown-pages {
+		position: relative;
+
+		label {
+			display: block;
+		}
+
+		label::after {
+			font: 400 11px/72px dashicons;
+			content: "\f341";
+			position: absolute;
+			right: 5px;
+			bottom: -24px;
+			transform: rotate(-90deg);
+		}
+
+		.description {
+			margin-bottom: 15px;
+		}
+
+		select {
+			box-shadow: none;
+			margin: 0;
+			background: #f6f6f6;
+			padding: 0;
+			line-height: 22px;
+			height: 26px;
+			appearance: none;
+			color: #555d66;
+			padding-left: 7px;
+			cursor: pointer;
+			font-weight: normal;
+			font-size: 13px;
+			border-radius: 5px;
+			transition: border-color $range--opacity-speed $range--opacity-cubic, background $range--opacity-speed $range--opacity-cubic;
+
+			&:hover {
+				border-color: #bbb;
+				background: #f9f9f9;
+			}
+
+			select::-ms-expand {
+				display: none;
+			}
+
+			option {
+				text-align: right;
+			}
+		}
+	}
+
 
 	.customize-control-select {
 		position: relative;

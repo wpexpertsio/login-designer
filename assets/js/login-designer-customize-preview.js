@@ -12,18 +12,9 @@
 
 		wp.customize.preview.bind( 'login-designer-url-switcher', function( data ) {
 
-			// When the section is expanded, open the fake login page.
+			// When the section is expanded, open the login designer page.
 			if ( true === data.expanded ) {
-
-				url = '/login-designer/';
-
-				// if ( url != '/login-designer/' ) {
-					wp.customize.preview.send( 'url', url );
-				// }
-
-				// current_url = wp.customize.previewer.previewUrl();
-				// console.log( current_url );
-
+				wp.customize.preview.send( 'url', login_designer_script.login_designer_page );
 			}
 		});
 

@@ -201,13 +201,68 @@
 }
 
 /* Customizer Select */
-#sub-accordion-section-login_designer__section--styles .customize-control-select,
-#sub-accordion-section-login_designer__section--background .customize-control-select {
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages {
 	position: relative;
 }
 
-#sub-accordion-section-login_designer__section--styles .customize-control-select label::after,
-#sub-accordion-section-login_designer__section--background .customize-control-select label::after {
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages label {
+	display: block;
+}
+
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages label::after {
+	bottom: -24px;
+	content: "\f341";
+	font: 400 11px/72px dashicons;
+	position: absolute;
+	right: 5px;
+	-webkit-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages .description {
+	margin-bottom: 15px;
+}
+
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages select {
+	background: #f6f6f6;
+	border-radius: 5px;
+	box-shadow: none;
+	color: #555d66;
+	cursor: pointer;
+	font-size: 13px;
+	font-weight: normal;
+	height: 26px;
+	line-height: 22px;
+	margin: 0;
+	padding: 0;
+	padding-left: 7px;
+	-webkit-transition: border-color 200ms cubic-bezier(0.694, 0.0482, 0.335, 1), background 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+	transition: border-color 200ms cubic-bezier(0.694, 0.0482, 0.335, 1), background 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages select:hover {
+	background: #f9f9f9;
+	border-color: #bbb;
+}
+
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages select select::-ms-expand {
+	display: none;
+}
+
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages select option {
+	text-align: right;
+}
+
+#sub-accordion-section-login_designer__section--styles .customize-control-select {
+	position: relative;
+}
+
+#sub-accordion-section-login_designer__section--styles .customize-control-select label::after {
 	content: "\f341";
 	font: 400 11px/72px dashicons;
 	position: absolute;
@@ -218,15 +273,13 @@
 	transform: rotate(-90deg);
 }
 
-#sub-accordion-section-login_designer__section--styles .customize-control-select .customize-control-title,
-#sub-accordion-section-login_designer__section--background .customize-control-select .customize-control-title {
+#sub-accordion-section-login_designer__section--styles .customize-control-select .customize-control-title {
 	margin-bottom: 0;
 	position: relative;
 	width: 50%;
 }
 
-#sub-accordion-section-login_designer__section--styles .customize-control-select select,
-#sub-accordion-section-login_designer__section--background .customize-control-select select {
+#sub-accordion-section-login_designer__section--styles .customize-control-select select {
 	background: #f6f6f6;
 	border-radius: 5px;
 	box-shadow: none;
@@ -251,31 +304,26 @@
 	appearance: none;
 }
 
-#sub-accordion-section-login_designer__section--styles .customize-control-select select:hover,
-#sub-accordion-section-login_designer__section--background .customize-control-select select:hover {
+#sub-accordion-section-login_designer__section--styles .customize-control-select select:hover {
 	background: #f9f9f9;
 	border-color: #bbb;
 }
 
-#sub-accordion-section-login_designer__section--styles .customize-control-select select select::-ms-expand,
-#sub-accordion-section-login_designer__section--background .customize-control-select select select::-ms-expand {
+#sub-accordion-section-login_designer__section--styles .customize-control-select select select::-ms-expand {
 	display: none;
 }
 
-#sub-accordion-section-login_designer__section--styles .customize-control-select select option,
-#sub-accordion-section-login_designer__section--background .customize-control-select select option {
+#sub-accordion-section-login_designer__section--styles .customize-control-select select option {
 	text-align: right;
 }
 
-#sub-accordion-section-login_designer__section--styles .background-image-fields:not(.hidden),
-#sub-accordion-section-login_designer__section--background .background-image-fields:not(.hidden) {
+#sub-accordion-section-login_designer__section--styles .background-image-fields:not(.hidden) {
 	border-bottom: 1px solid #ddd;
 	margin-bottom: 3px;
 	padding-bottom: 18px;
 }
 
-#sub-accordion-section-login_designer__section--styles .background-image-fields li,
-#sub-accordion-section-login_designer__section--background .background-image-fields li {
+#sub-accordion-section-login_designer__section--styles .background-image-fields li {
 	margin-bottom: 8px;
 	position: relative;
 }

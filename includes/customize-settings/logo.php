@@ -34,7 +34,6 @@ $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'logi
 	'settings'             => 'login_designer[logo]',
 ) ) );
 
-
 $wp_customize->add_setting( 'login_designer[logo_margin_bottom]', array(
 	'default'               => $defaults['logo_margin_bottom'],
 	'type' 			=> 'option',
@@ -54,4 +53,19 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 		'step'              => 1,
 		),
 	)
+) );
+
+$wp_customize->add_setting( 'login_designer[logo_url]', array(
+	'default'               => $defaults['logo_url'],
+	'type' 			=> 'option',
+	'transport'         	=> 'postMessage',
+	'sanitize_callback' 	=> 'absint',
+) );
+
+$wp_customize->add_control( 'login_designer[logo_url]', array(
+	'label'          	=> esc_html__( 'Logo URL', '@@textdomain' ),
+	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
+	'section'        	=> 'login_designer__section--styles',
+	'type'           	=> 'dropdown-pages',
+	'allow_addition' 	=> false,
 ) );

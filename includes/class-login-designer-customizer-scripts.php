@@ -81,12 +81,16 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			wp_enqueue_script( 'login-designer-customize-live', $js_dir . 'login-designer-customize-live' . $suffix . '.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
 			wp_enqueue_script( 'login-designer-customize-preview', $js_dir . 'login-designer-customize-preview' . $suffix . '.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
 
+			// Get the page that has the Login Designer template assigned.
+			$login_designer_page = get_page_by_title( 'Login Designer' );
+
 			// Localization.
 			$login_designer_localize = array(
-				'admin_url'        => admin_url(),
-				'plugin_url'       => LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
-				'font_url'         => esc_url_raw( 'https://fonts.googleapis.com/css' ),
-				'font_subset'      => '&latin,latin-ext',
+				'admin_url'		=> admin_url(),
+				'plugin_url'       	=> LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
+				'login_designer_page'   => esc_url( get_permalink( $login_designer_page ) ),
+				'font_url'         	=> esc_url_raw( 'https://fonts.googleapis.com/css' ),
+				'font_subset'      	=> '&latin,latin-ext',
 			);
 
 			wp_localize_script( 'login-designer-customize-preview', 'login_designer_script', $login_designer_localize );
@@ -105,10 +109,14 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			wp_enqueue_script( 'login-designer-customize-controls', $js_dir . 'login-designer-customize-controls' . $suffix . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
 			wp_enqueue_script( 'login-designer-customize-events', $js_dir . 'login-designer-customize-events' . $suffix . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
 
+			// Get the page that has the Login Designer template assigned.
+			$login_designer_page = get_page_by_title( 'Login Designer' );
+
 			// Localization.
 			$login_designer_localize = array(
-				'admin_url'         => admin_url(),
-				'plugin_url'        => LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
+				'admin_url'         	=> admin_url(),
+				'plugin_url'        	=> LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
+				'login_designer_page'   => esc_url( get_permalink( $login_designer_page ) ),
 			);
 
 			wp_localize_script( 'login-designer-customize-controls', 'login_designer_script', $login_designer_localize );

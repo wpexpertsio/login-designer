@@ -12,20 +12,6 @@
  * Settings Section.
  */
 
-$wp_customize->add_setting( 'login_designer[logo_url]', array(
-	'default'               => $defaults['logo_url'],
-	'type' 			=> 'option',
-	'transport'         	=> 'postMessage',
-	'sanitize_callback' 	=> 'absint',
-) );
-
-$wp_customize->add_control( 'login_designer[logo_url]', array(
-	'label'          	=> esc_html__( 'Logo URL', '@@textdomain' ),
-	'section'        	=> 'login_designer__section--settings',
-	'type'           	=> 'dropdown-pages',
-	'allow_addition' 	=> true,
-) );
-
 $wp_customize->add_setting( 'login_designer[login_redirect]', array(
 	'default'               => $defaults['login_redirect'],
 	'type' 			=> 'option',

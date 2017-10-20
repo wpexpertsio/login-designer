@@ -16,26 +16,17 @@
 
 					// Only send the previewer to the login designer page, if we're not already on it.
 					var current_url = wp.customize.previewer.previewUrl();
-					var current_url = current_url.includes( '/login-designer/' );
+					var current_url = current_url.includes( login_designer_script.login_designer_page );
 
 					if ( ! current_url ) {
-
 						wp.customize.previewer.send( 'login-designer-url-switcher', { expanded: isExpanding } );
-
-						// console.log( 'sent!');
-
-					} else {
-						// console.log( 'Not sent!');
 					}
 
 				} else {
+					// Head back to the home page, if we leave the Login Designer panel.
 					wp.customize.previewer.send( 'login-designer-back-to-home', { home_url: wp.customize.settings.url.home } );
-					console.log( 'Returning!');
-
 					url = wp.customize.settings.url.home;
-                			// wp.customize.previewUrl.set( url );
-                			console.log( url );
-
+                			// Debug: console.log( url );
 				}
 			} );
 		} );

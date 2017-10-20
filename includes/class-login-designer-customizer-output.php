@@ -266,6 +266,10 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				h1#login-designer-logo-h1 {
 					margin: 0 auto;
 				}
+
+				#login h1 a:focus {
+					box-shadow: none;
+				}
 			';
 
 			if ( ! empty( $options ) ) :

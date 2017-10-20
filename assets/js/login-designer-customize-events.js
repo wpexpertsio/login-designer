@@ -10,7 +10,8 @@
 		'logo' : [
 			'login_designer[logo_title]',
 			'login_designer[logo]',
-			'login_designer[logo_margin_bottom]'
+			'login_designer[logo_margin_bottom]',
+			'login_designer[logo_url]',
 		],
 		'form' : [
 			'login_designer[form_title]',
@@ -109,7 +110,7 @@
 
 								if ( setting.get() ) {
 									// If there is a custom logo uploaded, let's show the bottom positioning option.
-									wp.customize.control( item ).activate();
+									wp.customize.control( item ).activate( { duration: 0 } );
 								} else {
 									// If not, let's quickly hide it.
 									control.container.slideUp( 0 );
@@ -130,7 +131,7 @@
 
 								if ( ! setting.get() ) {
 									// If there's no custom background image, let's show the gallery.
-									wp.customize.control( item ).activate();
+									wp.customize.control( item ).activate( { duration: 0 } );
 								} else {
 									// If not, let's quickly hide it.
 									control.container.slideUp( 0 );
@@ -152,7 +153,7 @@
 
 									if ( setting.get() && 'none' !== setting.get() ) {
 										// If there is a background image or gallery image, but neither are set to "none".
-										wp.customize.control( item ).activate();
+										wp.customize.control( item ).activate( { duration: 0 } );
 									} else {
 										// If not, let's quickly hide it.
 										control.container.slideUp( 0 );
@@ -175,7 +176,7 @@
 
 									if ( setting.get() && 'none' !== setting.get() ) {
 										// If there is a background image or gallery image, but neither are set to "none".
-										wp.customize.control( item ).activate();
+										wp.customize.control( item ).activate( { duration: 0 } );
 									} else {
 										// If not, let's quickly hide it.
 										control.container.slideUp( 0 );
@@ -198,7 +199,7 @@
 
 									if ( setting.get() && 'none' !== setting.get() ) {
 										// If there is a background image or gallery image, but neither are set to "none".
-										wp.customize.control( item ).activate();
+										wp.customize.control( item ).activate( { duration: 0 } );
 									} else {
 										// If not, let's quickly hide it.
 										control.container.slideUp( 0 );
@@ -221,7 +222,7 @@
 
 									if ( setting.get() && 'none' !== setting.get() ) {
 										// If there is a background image or gallery image, but neither are set to "none".
-										wp.customize.control( item ).activate();
+										wp.customize.control( item ).activate( { duration: 0 } );
 									} else {
 										// If not, let's quickly hide it.
 										control.container.slideUp( 0 );
@@ -242,7 +243,7 @@
 
 								if ( '0' < setting.get() ) {
 									// If there is a custom logo uploaded, let's show the bottom positioning option.
-									wp.customize.control( item ).activate();
+									wp.customize.control( item ).activate( { duration: 0 } );
 								} else {
 									// If not, let's quickly hide it.
 									control.container.slideUp( 0 );
@@ -262,7 +263,7 @@
 
 								if ( '0' < setting.get() ) {
 									// If there is a custom logo uploaded, let's show the bottom positioning option.
-									wp.customize.control( item ).activate();
+									wp.customize.control( item ).activate( { duration: 0 } );
 								} else {
 									// If not, let's quickly hide it.
 									control.container.slideUp( 0 );
@@ -282,7 +283,7 @@
 
 								if ( '0' < setting.get() ) {
 									// If there is a custom logo uploaded, let's show the bottom positioning option.
-									wp.customize.control( item ).activate();
+									wp.customize.control( item ).activate( { duration: 0 } );
 									console.log( 'has a shadow' );
 								} else {
 									// If not, let's quickly hide it.
@@ -306,7 +307,7 @@
 
 								if ( '0' < setting.get() ) {
 									// If there is a custom logo uploaded, let's show the bottom positioning option.
-									wp.customize.control( item ).activate();
+									wp.customize.control( item ).activate( { duration: 0 } );
 									console.log( 'border' );
 								} else {
 									// If not, let's quickly hide it.
@@ -322,11 +323,11 @@
 
 				} else {
 					// Activate all others.
-					wp.customize.control( item ).activate();
+					wp.customize.control( item ).activate( { duration: 0 } );
 				}
 
 			} else {
-				wp.customize.control( item ).deactivate();
+				wp.customize.control( item ).deactivate( { duration: 0 } );
 			}
 		});
 	}
@@ -353,7 +354,7 @@
 				api.myCustomizerPreviewer.preview.bind( event, function() {
 
 					//If the current event is active, there's no need to run it.
-					if ( active_state !== event ) {
+					// if ( active_state !== event ) {
 
 						// Visibility.
 						active_control( active_controls );
@@ -361,11 +362,12 @@
 						// Focus.
 						wp.customize.control( focus_control ).focus();
 
-					}
+					// }
 
-					active_state = event;
+					// active_state = event;
 
-					console.log( active_state );
+					// For debugging purposes.
+					// console.log( active_state );
 
 				} );
 			}
@@ -383,7 +385,7 @@
 			this.preview.bind( 'login-designer-edit-settings', function() {
 				var section = wp.customize.section( 'login_designer__section--settings' );
 				if ( ! section.expanded() ) {
-					section.expand();
+					section.expand( { duration: 0 } );
 				}
 			} );
 		}
