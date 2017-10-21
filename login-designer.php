@@ -198,11 +198,25 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			if ( ! empty( $_GET['page'] ) ) { // Input var okay.
 				if ( 'login-designer' === $_GET['page'] ) { // Input var okay.
 
-					$page = get_page_by_title( 'Login Designer' );
+					// Pull the Login Designer page from options.
+					$page = get_permalink( $this->get_login_designer_page() );
 
-					wp_safe_redirect( admin_url( '/customize.php?autofocus[panel]=login_designer&url='.get_permalink( $page ) ) );
+					wp_safe_redirect( admin_url( '/customize.php?autofocus[panel]=login_designer&url=' . $page ) );
 				}
 			}
+		}
+
+		/**
+		 * Pull the Login Designer page from options.
+		 *
+		 * @access public
+		 */
+		public function get_login_designer_page() {
+
+			$admin_options 	= get_option( 'login_designer_admin', array() );
+			$page 		= array_key_exists( 'login_designer_page', $admin_options ) ? get_post( $admin_options['login_designer_page'] ) : false;
+
+			return $page;
 		}
 
 		/**

@@ -41,7 +41,7 @@ class Login_Designer_Background_Gallery_Control extends WP_Customize_Control {
 	public function enqueue() {
 
 		// Define where the control's scripts are.
-		$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/';
+		$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
 		$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/';
 
 		// Use minified libraries if SCRIPT_DEBUG is turned off.

@@ -182,6 +182,23 @@
 	visibility: visible;
 }
 
+/* Upgrade to the pro version button */
+#customize-controls .control-section-upgrade .accordion-section-title:hover,
+#customize-controls .control-section-upgrade .accordion-section-title:focus {
+	background-color: #fff;
+}
+
+.control-section-upgrade .accordion-section-title .button {
+	font-weight: 400;
+	margin-left: 8px;
+	margin-top: -4px !important;
+}
+
+.rtl .control-section-upgrade .accordion-section-title .button {
+	margin-left: 0;
+	margin-right: 8px;
+}
+
 #customize-control-login_designer-logo_url,
 #customize-control-login_designer-bg_color,
 #customize-control-login_designer-form_shadow_opacity,

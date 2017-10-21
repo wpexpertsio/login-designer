@@ -52,7 +52,7 @@ var scriptGalleryControlSRC   		= './assets/js/'+ scriptGalleryControlFile +'.js
 var scriptAlphaControlFile  	= slug +'-customize-alpha-color-control'; // JS file name.
 var scriptAlphaControlSRC   	= './assets/js/'+ scriptAlphaControlFile +'.js'; // The JS file src.
 
-var scriptDestination 		= './assets/js/'; // Path to place the compiled JS custom scripts file.
+var scriptDestination 		= './assets/js/dist/'; // Path to place the compiled JS custom scripts file.
 var scriptWatchFiles  		= './assets/js/*.js'; // Path to all *.scss files inside css folder and inside them.
 
 var projectPHPWatchFiles    	= ['./**/*.php', '!_dist', '!_dist/**', '!_dist/**/*.php', '!_demo', '!_demo/**','!_demo/**/*.php'];
@@ -585,7 +585,7 @@ gulp.task( 'default', [ 'clear', 'template_1', 'template_2', 'styles_customize_p
 	gulp.watch( styleWatchFiles, [ 'styles_customizer_background_gallery' ] );
 	gulp.watch( styleWatchFiles, [ 'template_1' ] );
 	gulp.watch( styleWatchFiles, [ 'template_2' ] );
-	// gulp.watch( scriptWatchFiles, [ 'scripts' ] );
+	gulp.watch( scriptWatchFiles, [ 'scripts' ] );
 });
 
 gulp.task('build', function(callback) {

@@ -123,12 +123,12 @@
 	margin-right: 8px;
 }
 
-.customize-control-alpha-color .wp-picker-container .iris-picker {
-	border-bottom: none;
-}
-
 .customize-control-alpha-color .wp-picker-container {
 	max-width: 240px;
+}
+
+.customize-control-alpha-color .wp-picker-container .iris-picker {
+	border-bottom: none;
 }
 
 .customize-control-alpha-color .wp-picker-open + .wp-picker-input-wrap {

@@ -72,7 +72,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 		 */
 		public function customize_preview() {
 
-			$js_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/';
+			$js_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
 			$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/';
 
 			// Use minified libraries if SCRIPT_DEBUG is turned off.
@@ -81,14 +81,14 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			wp_enqueue_script( 'login-designer-customize-live', $js_dir . 'login-designer-customize-live' . $suffix . '.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
 			wp_enqueue_script( 'login-designer-customize-preview', $js_dir . 'login-designer-customize-preview' . $suffix . '.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
 
-			// Get the page that has the Login Designer template assigned.
-			$login_designer_page = get_page_by_title( 'Login Designer' );
+			// Pull the Login Designer page from options.
+			$page = Login_Designer()->get_login_designer_page();
 
 			// Localization.
 			$login_designer_localize = array(
 				'admin_url'		=> admin_url(),
 				'plugin_url'       	=> LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
-				'login_designer_page'   => esc_url( get_permalink( $login_designer_page ) ),
+				'login_designer_page'   => get_permalink( $page ),
 				'font_url'         	=> esc_url_raw( 'https://fonts.googleapis.com/css' ),
 				'font_subset'      	=> '&latin,latin-ext',
 			);
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 		 */
 		public function customize_controls() {
 
-			$js_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/';
+			$js_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
 
 			// Use minified libraries if SCRIPT_DEBUG is turned off.
 			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
@@ -109,17 +109,17 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			wp_enqueue_script( 'login-designer-customize-controls', $js_dir . 'login-designer-customize-controls' . $suffix . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
 			wp_enqueue_script( 'login-designer-customize-events', $js_dir . 'login-designer-customize-events' . $suffix . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
 
-			// Get the page that has the Login Designer template assigned.
-			$login_designer_page = get_page_by_title( 'Login Designer' );
+			// Pull the Login Designer page from options.
+			$page = Login_Designer()->get_login_designer_page();
 
 			// Localization.
 			$login_designer_localize = array(
 				'admin_url'         	=> admin_url(),
 				'plugin_url'        	=> LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
-				'login_designer_page'   => esc_url( get_permalink( $login_designer_page ) ),
+				'login_designer_page'   => get_permalink( $page ),
 			);
 
-			wp_localize_script( 'login-designer-customize-controls', 'login_designer_script', $login_designer_localize );
+			wp_localize_script( 'login-designer-customize-controls', 'login_designer_controls', $login_designer_localize );
 		}
 	}
 

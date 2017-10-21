@@ -58,41 +58,62 @@ register_activation_hook( LOGIN_DESIGNER_PLUGIN_FILE, 'login_designer_install' )
  */
 function login_designer_run_install() {
 
-	set_transient( '_welcome_screen_activation_redirect', true, 30 );
+	set_transient( '_login_designer_activation_redirect', true, 30 );
 
-	$allowed_html_array = array(
-		'a' => array(
-			'href' => array(),
-			'target' => array(),
-		),
-	);
+	// Setup some default options.
+	$options = array();
 
-	$post_content = sprintf( wp_kses( __( '<p>This page is used by <a href="%1$s">%2$s</a> to preview the login forms in the Customizer. Please don\'t delete this page. Thanks!</p>', '@@textdomain' ), $allowed_html_array ), 'https://logindesigner.com', 'Login Designer' );
+	// Pull options from WP.
+	$admin_options = get_option( 'login_designer_admin', array() );
 
-	// Customizable Login Designer page.
-	$page = array(
-		'post_title'	 => 'Login Designer',
-		'post_content'	 => $post_content,
-		'post_status'	 => 'draft',
-		'post_author'	 => 1,
-		'post_type'	 => 'page',
-		'comment_status' => 'closed',
-	);
+	// Checks if the Login Designer page option exists.
+	$login_designer_page = array_key_exists( 'login_designer_page', $admin_options ) ? get_post( $admin_options['login_designer_page'] ) : false;
 
-	if ( ! get_page_by_title( 'Login Designer' ) ) {
-		wp_insert_post( $page );
+	if ( empty( $login_designer_page ) ) {
+
+		// Array of allowed HTML in the page content.
+		$allowed_html_array = array(
+			'a' => array(
+				'href' => array(),
+				'target' => array(),
+			),
+		);
+
+		$post_content = sprintf( wp_kses( __( '<p>This page is used by <a href="%1$s">%2$s</a> to preview the login forms in the Customizer. Please don\'t delete this page. Thanks!</p>', '@@textdomain' ), $allowed_html_array ), 'https://logindesigner.com', 'Login Designer' );
+
+		// Create the page.
+		$page = wp_insert_post(
+			array(
+				'post_title'	 => 'Login Designer',
+				'post_content'	 => $post_content,
+				'post_status'	 => 'draft',
+				'post_author'	 => 1,
+				'post_type'	 => 'page',
+				'comment_status' => 'closed',
+			)
+		);
+
+		$options['login_designer_page'] = $page;
 	}
 
-	login_designer_attach_template_to_page( 'Login Designer', 'template-login-designer.php' );
+	$page = isset( $page ) ? $page : $admin_options['login_designer_page'];
+
+	$merged_options   = array_merge( $admin_options, $options );
+	$admin_options    = $merged_options;
+
+	update_option( 'login_designer_admin', $admin_options );
+
+	// Assign the Login Designer template.
+	login_designer_attach_template_to_page( $page, 'template-login-designer.php' );
 }
 
 /**
  * Redirect to the Customizer upon plugin activation.
  */
-function welcome_screen_do_activation_redirect() {
+function login_designer_activation_redirect() {
 
 	// Bail if no activation redirect.
-	if ( ! get_transient( '_welcome_screen_activation_redirect' ) ) {
+	if ( ! get_transient( '_login_designer_activation_redirect' ) ) {
 		return;
 	}
 
@@ -104,24 +125,25 @@ function welcome_screen_do_activation_redirect() {
 		return;
 	}
 
-	// Get the login designer templated page we just created.
-	$page = get_page_by_title( 'Login Designer' );
+	// Pull the Login Designer page from options.
+	$admin_options 	= get_option( 'login_designer_admin', array() );
+	$page 		= array_key_exists( 'login_designer_page', $admin_options ) ? $admin_options['login_designer_page'] : false;
 
+	// Redirect to the Customizer > Login Designer panel.
 	wp_safe_redirect( admin_url( '/customize.php?autofocus[panel]=login_designer&url='.get_permalink( $page ) ) );
 
 }
-add_action( 'admin_init', 'welcome_screen_do_activation_redirect' );
-
+add_action( 'admin_init', 'login_designer_activation_redirect' );
 
 /**
  * When a new Blog is created in multisite, see if EDD is network activated, and run the installer
  *
- * @param	int|int		 $blog_id The Blog ID created.
- * @param	int|int		 $user_id The User ID set as the admin.
- * @param	string|string $domain	The URL.
- * @param	string|string $path	Site Path.
- * @param	int|int	 	 $site_id The Site ID.
- * @param	array|array	 $meta	Blog Meta.
+ * @param int|int       $blog_id The Blog ID created.
+ * @param int|int       $user_id The User ID set as the admin.
+ * @param string|string $domain	The URL.
+ * @param string|string $path	Site Path.
+ * @param int|int       $site_id The Site ID.
+ * @param array|array	$meta	Blog Meta.
  * @return void
  */
 function login_designer_new_blog_created( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
@@ -140,28 +162,17 @@ add_action( 'wpmu_new_blog', 'login_designer_new_blog_created', 10, 6 );
 /**
  * Attaches the specified template to the page identified by the specified name.
  *
- * @params $page_name		The name of the page to attach the template.
- * @params $template_path	The template's filename (assumes .php' is specified)
+ * @param int|int $page The id of the page to attach the template.
+ * @param int|int $template The template's filename (assumes .php' is specified).
  *
- * @returns	 -1 if the page does not exist; otherwise, the ID of the page.
+ * @returns -1 if the page does not exist; otherwise, the ID of the page.
  */
-function login_designer_attach_template_to_page( $page_name, $template_file_name ) {
-
-	// Look for the page by the specified title. Set the ID to -1 if it doesn't exist.
-	// Otherwise, set it to the page's ID.
-	$page = get_page_by_title( $page_name, OBJECT, 'page' );
-	$page_id = null === $page ? -1 : $page->ID;
+function login_designer_attach_template_to_page( $page, $template ) {
 
 	// Only attach the template if the page exists.
-	if ( -1 !== $page_id ) {
-		update_post_meta( $page_id, '_wp_page_template', $template_file_name );
+	if ( -1 !== $page ) {
+		update_post_meta( $page, '_wp_page_template', $template );
 	}
 
-	return $page_id;
+	return $page;
 }
-
-
-
-
-
-

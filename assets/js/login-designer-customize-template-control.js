@@ -2,22 +2,20 @@
 
 	$( document ).ready( function ( $ ) {
 
-		$( '.layout-switcher' ).on( 'click', function (e) {
+		$( '#layout-switcher' ).on( 'click', function (e) {
 
 			e.preventDefault();
 
 			$('.layout-switcher__wrapper').toggleClass( 'open' );
 
-			if ( $( this ).text() === 'Switch Template' ) {
-				$( this ).text( 'Close' );
+			if ( $( this ).text() === login_designer_script.btn_default ) {
+				$( this ).text( login_designer_script.btn_close );
+			} else {
+				$( this ).text( login_designer_script.btn_default );
 			}
 
-			else {
-				$(this).text( 'Install New Template' );
-			}
+		} );
 
-		});
-
-	});
+	} );
 
 } ) ( jQuery );

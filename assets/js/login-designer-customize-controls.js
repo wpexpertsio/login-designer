@@ -6,6 +6,19 @@
  */
 
 ( function( $ ) {
+
+	// Extends our custom "upgrade" section.
+	wp.customize.sectionConstructor['upgrade'] = wp.customize.Section.extend( {
+
+		// No events for this type of section.
+		attachEvents: function () {},
+
+		// Always make the section active.
+		isContextuallyActive: function () {
+			return true;
+		}
+	} );
+
 	wp.customize.bind( 'ready', function() {
 
 		// We need to modify the Customizer's close link, if the user manually uploaded the plugin.
@@ -21,12 +34,13 @@
 		// Detect when the Login Designer panel is expanded (or closed) so we can preview the login form easily.
 		wp.customize.panel( 'login_designer', function( section ) {
 			section.expanded.bind( function( isExpanding ) {
+
 				// Value of isExpanding will = true if you're entering the section, false if you're leaving it.
 				if ( isExpanding ) {
 
 					// Only send the previewer to the login designer page, if we're not already on it.
 					var current_url = wp.customize.previewer.previewUrl();
-					var current_url = current_url.includes( login_designer_script.login_designer_page );
+					var current_url = current_url.includes( login_designer_controls.login_designer_page );
 
 					if ( ! current_url ) {
 						wp.customize.previewer.send( 'login-designer-url-switcher', { expanded: isExpanding } );

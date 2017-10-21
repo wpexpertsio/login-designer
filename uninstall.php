@@ -16,13 +16,15 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 // Load the Login Designer file.
 include_once( 'login-designer.php' );
 
-// Remove the Login Designer template.
-if ( get_page_by_title( 'Login Designer' ) ) {
 
-	$login_designer_page = get_page_by_title( 'Login Designer' );
+// Pull the Login Designer page from options.
+$page = Login_Designer()->get_login_designer_page();
+
+// Remove the Login Designer template.
+if ( $page ) {
 
 	// Set to true to force delete. There's no need to keep it around.
-	wp_delete_post( $login_designer_page->ID, true );
+	wp_delete_post( $page, true );
 }
 
 // Remove all plugin settings.

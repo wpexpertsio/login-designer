@@ -135,41 +135,36 @@
 
 
 
-.customize-control-alpha-color .wp-picker-container .iris-picker {
-	border-bottom:none;
-}
+.customize-control-alpha-color {
 
-.customize-control-alpha-color .wp-picker-container {
-	max-width: 240px;
+	.wp-picker-container {
+		max-width: 240px;
 
-	// @media screen and (min-width: 1667px) {
-	// 	max-width: 300px;
-	// }
-}
+		.iris-picker {
+			border-bottom:none;
+		}
+	}
 
+	.wp-picker-open + .wp-picker-input-wrap {
+		width: 100%;
+	}
 
+	.wp-picker-input-wrap input[type="text"].wp-color-picker.alpha-color-control {
+		float: left;
+		width: calc(100% - 66px);
+		font-size: 12px;
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+		border-radius: 3px;
+		padding-left: 7px;
+		border: 1px solid #ddd !important;
+	}
 
+	.wp-picker-input-wrap .button {
+		margin-left: 0;
+		float: right;
+		margin-right: -2px;
+	}
 
-
-
-.customize-control-alpha-color .wp-picker-open + .wp-picker-input-wrap {
-	width: 100%;
-}
-
-.customize-control-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker.alpha-color-control {
-	float: left;
-	width: calc(100% - 66px);
-	font-size: 12px;
-	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-	border-radius: 3px;
-	padding-left: 7px;
-	border: 1px solid #ddd !important;
-}
-
-.customize-control-alpha-color .wp-picker-input-wrap .button {
-	margin-left: 0;
-	float: right;
-	margin-right: -2px;
 }
 
 .wp-picker-container .wp-picker-open ~ .wp-picker-holder .alpha-color-picker-container {
@@ -237,7 +232,6 @@
 	}
 }
 
-
 .customize-control-alpha-color {
 
 	.iris-picker .iris-square-value {
@@ -267,12 +261,6 @@
 		box-shadow: 0 2px 0 rgba(46, 68, 83, .075);
 	}
 }
-
-
-
-
-
-
 
 .alpha-color-picker-container .ui-slider-handle.show-opacity {
 	font-size: 0;
