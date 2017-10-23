@@ -1,10 +1,6 @@
 // Variables.
 @import "variables";
 
-.layout {
-	display: none!important;
-}
-
 .customize-control-layout {
 	margin-top: 0;
 	margin-bottom: 0;
@@ -29,6 +25,11 @@
 			border-color: #555;
 		}
 	}
+
+	.layout {
+		display: none !important;
+	}
+
 }
 
 .customize-control-login-designer-template-selector {

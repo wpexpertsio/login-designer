@@ -25,7 +25,7 @@ $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer[logo]', array(
 	'default'               => $defaults['logo'],
 	'type' 			=> 'option',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => array( $this, 'sanitize_image' ),
 ) );
 

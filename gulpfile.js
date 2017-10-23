@@ -13,13 +13,13 @@ var author                 	= pkg.author;
 var plugin_uri              	= pkg.plugin_uri;
 var projectURL              	= 'http://demo.logindesigner.dev/login-designer';
 
-var styleCustomizerSRC  		= './assets/scss/customizer/'+ slug +'-customize-preview.scss';
-var styleCustomizerControlsSRC  	= './assets/scss/customizer/'+ slug +'-customize-controls.scss';
-var styleTemplateControlSRC  		= './assets/scss/customizer/'+ slug +'-customize-template-control.scss';
-var styleRangeControlSRC  		= './assets/scss/customizer/'+ slug +'-customize-range-control.scss';
-var styleTitleControlSRC  		= './assets/scss/customizer/'+ slug +'-customize-title-control.scss';
-var styleGalleryControlSRC  		= './assets/scss/customizer/'+ slug +'-customize-gallery-control.scss';
-var styleAlphaControlSRC  		= './assets/scss/customizer/'+ slug +'-customize-alpha-color-control.scss';
+var styleCustomizerSRC  	= './assets/scss/customizer/'+ slug +'-customize-preview.scss';
+var styleCustomizerControlsSRC  = './assets/scss/customizer/'+ slug +'-customize-controls.scss';
+var styleTemplateControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-template-control.scss';
+var styleRangeControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-range-control.scss';
+var styleTitleControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-title-control.scss';
+var styleGalleryControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-gallery-control.scss';
+var styleAlphaControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-alpha-color-control.scss';
 
 var template_1SRC  		= './assets/scss/templates/'+ slug +'-template-01.scss';
 var template_2SRC  		= './assets/scss/templates/'+ slug +'-template-02.scss';
@@ -28,17 +28,17 @@ var templateDestination  	= './assets/css/templates/'; // Path to place the comp
 var styleDestination  		= './assets/css/'; // Path to place the compiled CSS file.
 var styleWatchFiles   		= './assets/scss/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
 
-var scriptCustomizeEventsFile  = slug +'-customize-events'; // JS file name.
-var scriptCustomizeEventsSRC   = './assets/js/'+ scriptCustomizeEventsFile +'.js'; // The JS file src.
+var scriptCustomizeEventsFile  	= slug +'-customize-events'; // JS file name.
+var scriptCustomizeEventsSRC   	= './assets/js/'+ scriptCustomizeEventsFile +'.js'; // The JS file src.
 
-var scriptCustomizeLiveFile  = slug +'-customize-live'; // JS file name.
-var scriptCustomizeLiveSRC   = './assets/js/'+ scriptCustomizeLiveFile +'.js'; // The JS file src.
+var scriptCustomizeLiveFile 	= slug +'-customize-live'; // JS file name.
+var scriptCustomizeLiveSRC   	= './assets/js/'+ scriptCustomizeLiveFile +'.js'; // The JS file src.
 
 var scriptCustomizePreviewFile  = slug +'-customize-preview'; // JS file name.
 var scriptCustomizePreviewSRC   = './assets/js/'+ scriptCustomizePreviewFile +'.js'; // The JS file src.
 
-var scriptCustomizeControlsFile  = slug +'-customize-controls'; // JS file name.
-var scriptCustomizeControlsSRC   = './assets/js/'+ scriptCustomizeControlsFile +'.js'; // The JS file src.
+var scriptCustomizeControlsFile = slug +'-customize-controls'; // JS file name.
+var scriptCustomizeControlsSRC  = './assets/js/'+ scriptCustomizeControlsFile +'.js'; // The JS file src.
 
 var scriptRangeControlFile  	= slug +'-customize-range-control'; // JS file name.
 var scriptRangeControlSRC   	= './assets/js/'+ scriptRangeControlFile +'.js'; // The JS file src.
@@ -66,10 +66,9 @@ var team                    	= pkg.author_shop;
 var translatePath           	= './languages';
 var translatableFiles       	= ['./**/*.php'];
 
-var buildFiles      	    = ['./**', '!dist/', '!.gitattributes', '!.csscomb.json', '!node_modules/**', '!'+ slug +'.sublime-project', '!package.json', '!gulpfile.js', '!assets/scss/**', '!*.json', '!*.map', '!*.xml', '!*.sublime-workspace', '!*.sublime-gulp.cache', '!*.log', '!*.DS_Store','!*.gitignore', '!TODO', '!*.git' ];
-var buildDestination        = './dist/'+ slug +'/';
-var distributionFiles       = './dist/'+ slug +'/**/*';
-
+var buildFiles      	    	= ['./**', '!dist/', '!.gitattributes', '!.csscomb.json', '!node_modules/**', '!'+ slug +'.sublime-project', '!package.json', '!gulpfile.js', '!assets/scss/**', '!*.json', '!*.map', '!*.xml', '!*.sublime-workspace', '!*.sublime-gulp.cache', '!*.log', '!*.DS_Store','!*.gitignore', '!TODO', '!*.git' ];
+var buildDestination        	= './dist/'+ slug +'/';
+var distributionFiles       	= './dist/'+ slug +'/**/*';
 
 /**
  * Browsers you care about for autoprefixing. https://github.com/ai/browserslist
@@ -553,7 +552,7 @@ gulp.task('build-variables', function () {
 });
 
 gulp.task( 'build-zip', function() {
-    return gulp.src( buildDestination+'/**', {base: 'dist'} )
+    return gulp.src( buildDestination+'/**', { base: 'dist'} )
     .pipe( zip( slug +'.zip' ) )
     .pipe( gulp.dest( './dist/' ) );
 });

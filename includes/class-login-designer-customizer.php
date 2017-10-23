@@ -97,20 +97,21 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			) );
 
 			/**
-			 * Add the theme upgrade section.
+			 * Add the theme upgrade section, only if the pro version is available.
 			 *
 			 * @see https://github.com/justintadlock/trt-customizer-pro
 			 */
+			if ( Login_Designer()->has_pro() ) {
+				$wp_customize->register_section_type( 'Login_Designer_Upgrade_Control' );
 
-			$wp_customize->register_section_type( 'Login_Designer_Upgrade_Control' );
-
-			$wp_customize->add_section( new Login_Designer_Upgrade_Control( $wp_customize, 'upgrade', array(
-				'type'                  => 'upgrade',
-				'panel'		  	=> 'login_designer',
-				'title'    		=> esc_html__( 'Add Extensions', '@@textdomain' ),
-				'pro_text' 		=> esc_html__( 'Learn More', '@@textdomain' ),
-				'pro_url'  		=> 'https://logindesigner.com/extensions',
-			) ) );
+				$wp_customize->add_section( new Login_Designer_Upgrade_Control( $wp_customize, 'upgrade', array(
+					'type'                  => 'upgrade',
+					'panel'		  	=> 'login_designer',
+					'title'    		=> esc_html__( 'Add Extensions', '@@textdomain' ),
+					'pro_text' 		=> esc_html__( 'Learn More', '@@textdomain' ),
+					'pro_url'  		=> 'https://logindesigner.com/extensions',
+				) ) );
+			}
 
 			/**
 			 * Add sections.

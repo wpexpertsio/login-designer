@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Add rating links to the admin dashboard.
  *
  * @since	1.0.0
- * @param	string|string $wp_admin_bar The existing footer text.
+ * @param	string|string $wp_admin_bar The admin bar.
  */
 function login_designer_admin_bar_link( $wp_admin_bar ) {
 

@@ -118,6 +118,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			$this->define( 'LOGIN_DESIGNER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 			$this->define( 'LOGIN_DESIGNER_PLUGIN_FILE', __FILE__ );
 			$this->define( 'LOGIN_DESIGNER_ABSPATH', dirname( __FILE__ ) . '/' );
+			$this->define( 'LOGIN_DESIGNER_HAS_PRO', false );
 		}
 
 		/**
@@ -147,7 +148,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-templates.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-theme-template.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-esc-login.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/seasonal-backgrounds.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/admin/admin-bar.php';
 
 			if ( is_admin() ) {
@@ -217,6 +217,20 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			$page 		= array_key_exists( 'login_designer_page', $admin_options ) ? get_post( $admin_options['login_designer_page'] ) : false;
 
 			return $page;
+		}
+
+		/**
+		 * Pull the Login Designer page from options.
+		 *
+		 * @access public
+		 */
+		public function has_pro() {
+
+			if ( true === LOGIN_DESIGNER_HAS_PRO ) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 		/**

@@ -85,3 +85,40 @@ function logindesigner_plugin_row_meta( $input, $file ) {
 	return $input;
 }
 add_filter( 'plugin_row_meta', 'logindesigner_plugin_row_meta', 10, 2 );
+
+
+/**
+ * Plugin row meta links for extentions.
+ *
+ * @param array|array   $input already defined meta links.
+ * @param string|string $file plugin file path and name being processed.
+ * @return array $input
+ */
+function logindesigner_extention_plugin_row_meta( $input, $file ) {
+
+	if (
+		'login-designer-reset/login-designer-reset.php' !== $file &&
+		'login-designer-seasonal-backgrounds/login-designer-seasonal-backgrounds.php' !== $file ) {
+
+		return $input;
+	}
+
+	$utm_content_plugin_name = substr( $file, 0, strpos( $file, '/' ) );
+
+	$extensions_link = esc_url( add_query_arg( array(
+			'utm_source'   => 'plugins-page',
+			'utm_medium'   => 'plugin-row',
+			'utm_campaign' => 'admin',
+			'utm_content'  => 'add-more-extensions-'.$utm_content_plugin_name,
+		), 'https://logindesigner.com/extensions/' )
+	);
+
+	$links = array(
+		'<a href="' . esc_url( $extensions_link ) . '">' . esc_html__( 'Add more extensions', '@@textdomain' ) . '</a>',
+	);
+
+	$input = array_merge( $input, $links );
+
+	return $input;
+}
+add_filter( 'plugin_row_meta', 'logindesigner_extention_plugin_row_meta', 10, 2 );

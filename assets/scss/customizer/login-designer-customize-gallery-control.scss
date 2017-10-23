@@ -21,6 +21,10 @@
 	margin-left: -3px;
 	width: calc( 100% + 6px );
 	margin-top: 13px;
+	max-height: 170px;
+	overflow-x: hidden;
+  	overflow-y: scroll;
+	padding-right: 20px;
 }
 
 .gallery {

@@ -19,7 +19,6 @@
 		});
 
 		wp.customize.preview.bind( 'login-designer-back-to-home', function( data ) {
-
 			console.log( 'sent back to home' );
 			wp.customize.preview.send( 'url', data.home_url );
 		});
@@ -169,6 +168,16 @@
 	wp.customize( 'login_designer[bg_image_gallery]', function( value ) {
 		value.bind( function( to ) {
 
+			var url;
+
+			if ( '01' != to && '02' != to && '03' != to && '04' != to && '05' != to && '06' != to && '07' != to && '08' != to && '09' != to ) {
+				// If we're viewing a seasonal background, use it.
+				url = login_designer_script.seasonal_plugin_url;
+			} else {
+				// If we're viewing a default background, use it.
+				url = login_designer_script.plugin_url;
+			}
+
 			if ( 'none' === to ) {
 
 				$( '#login-designer-background' ).addClass( 'transitioning' );
@@ -187,7 +196,7 @@
 				$( '#login-designer-background' ).addClass( 'transitioning' );
 
 				setTimeout( function() {
-					$( '#login-designer-background' ).css( 'background-image', 'url( ' + login_designer_script.plugin_url + to + '.jpg' + ')' );
+					$( '#login-designer-background' ).css( 'background-image', 'url( ' + url + to + '.jpg' + ')' );
 				}, 500);
 
 				setTimeout( function() {
@@ -320,6 +329,9 @@
 
 			var style, element;
 
+			// Output the style changes (for background sizes).
+			element =  $( '.login_designer_logo' );
+
 			// If we have a custom logo uploaded.
 			if ( hasLogo() ) {
 
@@ -328,6 +340,10 @@
 
 				// Grab the height & width attributes, so we can resize the logo appropriately.
 				var img = new Image();
+
+				img.src = to;
+
+				var style;
 
 				img.onload = function(){
 
@@ -341,20 +357,18 @@
 					});
 
 					// Setting the background size of the custom logo.
-					var style = '<style class="login_designer_logo"> #login-designer-logo { background-size:'+width+'px; } </style>';
+					style = '<style class="login_designer_logo"> #login-designer-logo { background-size:'+width+'px '+height+'px; }, #login-designer-logo-h1 { '+width+'px; } </style>';
 				}
 
-				img.src = to;
+				$( 'head' ).append( style );
+
 
 			} else {
 				// If a logo is removed, fallback to the default WordPress logo + sizes.
 				style = '<style class="login_designer_logo"> #login-designer-logo { height: 84px !important; width: 84px !important; background-size: 84px !important; background-image: none, url(" ' + login_designer_script.admin_url + '/images/wordpress-logo.svg ") !important; } </style>';
 			}
 
-			// alert( style );
-
-			// Outut the style changes (for background sizes).
-			element =  $( '.login_designer_logo' );
+			console.log( style );
 
 			if ( element.length ) {
 				element.replaceWith( style );

@@ -84,10 +84,14 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			// Pull the Login Designer page from options.
 			$page = Login_Designer()->get_login_designer_page();
 
+			// Check for seasonal backgrounds.
+			$seasonal_url = ( defined( 'LOGIN_DESIGNER_SEASONAL_BACKGROUNDS_PLUGIN_URL' ) ) ? LOGIN_DESIGNER_SEASONAL_BACKGROUNDS_PLUGIN_URL : '';
+
 			// Localization.
 			$login_designer_localize = array(
 				'admin_url'		=> admin_url(),
 				'plugin_url'       	=> LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
+				'seasonal_plugin_url' 	=> $seasonal_url . 'assets/images/',
 				'login_designer_page'   => get_permalink( $page ),
 				'font_url'         	=> esc_url_raw( 'https://fonts.googleapis.com/css' ),
 				'font_subset'      	=> '&latin,latin-ext',

@@ -377,7 +377,7 @@
 			bind_control_visibility_event( button_event, all_controls.buttons, 'login_designer[button_title]' );
 			bind_control_visibility_event( background_event, all_controls.background, 'login_designer[bg_title]' );
 
-			// Open settings panel when the settings icoon is clicked.
+			// Open settings panel when the settings icon is clicked.
 			this.preview.bind( 'login-designer-edit-settings', function() {
 				var section = wp.customize.section( 'login_designer__section--settings' );
 				if ( ! section.expanded() ) {
