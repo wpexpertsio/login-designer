@@ -6,3 +6,4 @@ node_modules
 TODO
 *.sublime-project
 *.sublime-workspace
+dist/login-designer.zip
