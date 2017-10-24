@@ -48,7 +48,10 @@ function logindesigner_action_links( $links, $file ) {
 
 		$pro_link = sprintf( esc_html__( '%1$s %3$s Get Extensions %4$s %2$s', '@@textdomain' ),  '<a href="' . esc_url( $extensions_link ) . '" target="_blank">', '</a>', '<span style="color: #006505;">', '</span>' );
 
-		array_push( $links, $pro_link );
+		// Check if we have a pro version is available.
+		if ( Login_Designer()->has_pro() ) {
+			array_push( $links, $pro_link );
+		}
 	}
 
 	return $links;
@@ -63,6 +66,11 @@ add_action( 'plugin_action_links', 'logindesigner_action_links' , 10, 2 );
  * @return array $input
  */
 function logindesigner_plugin_row_meta( $input, $file ) {
+
+	// Return early, if a pro version is not available.
+	if ( ! Login_Designer()->has_pro() ) {
+		return $input;
+	}
 
 	if ( 'login-designer/login-designer.php' !== $file ) {
 		return $input;
@@ -95,6 +103,11 @@ add_filter( 'plugin_row_meta', 'logindesigner_plugin_row_meta', 10, 2 );
  * @return array $input
  */
 function logindesigner_extention_plugin_row_meta( $input, $file ) {
+
+	// Return early, if a pro version is not available.
+	if ( ! Login_Designer()->has_pro() ) {
+		return $input;
+	}
 
 	if (
 		'login-designer-reset/login-designer-reset.php' !== $file &&

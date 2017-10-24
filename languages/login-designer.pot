@@ -25,11 +25,11 @@ msgstr ""
 msgid "%1$s %3$s Get Extensions %4$s %2$s"
 msgstr ""
 
-#: includes/admin/admin-action-links.php:80
+#: includes/admin/admin-action-links.php:88
 msgid "Extensions"
 msgstr ""
 
-#: includes/admin/admin-action-links.php:117
+#: includes/admin/admin-action-links.php:130
 msgid "Add more extensions"
 msgstr ""
 
