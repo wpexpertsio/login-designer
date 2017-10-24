@@ -118,7 +118,7 @@ function login_designer_activation_redirect() {
 	}
 
 	// Delete the redirect transient.
-	delete_transient( '_welcome_screen_activation_redirect' );
+	delete_transient( '_login_designer_activation_redirect' );
 
 	// Bail if activating from network, or bulk.
 	if ( is_network_admin() || isset( $_GET['activate-multi'] ) ) {
