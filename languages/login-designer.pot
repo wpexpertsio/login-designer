@@ -29,147 +29,159 @@ msgstr ""
 msgid "Extensions"
 msgstr ""
 
-#: includes/admin/admin-bar.php:32, includes/admin/admin-bar.php:37, includes/class-login-designer-customizer.php:71, includes/class-login-designer-theme-template.php:68, login-designer.php:188
+#: includes/admin/admin-action-links.php:117
+msgid "Add more extensions"
+msgstr ""
+
+#: includes/admin/admin-bar.php:32, includes/admin/admin-bar.php:37, includes/class-login-designer-customizer.php:76, includes/class-login-designer-theme-template.php:68, login-designer.php:188
 msgid "Login Designer"
 msgstr ""
 
-#: includes/class-login-designer-customizer-output.php:206
+#: includes/class-login-designer-customizer-output.php:227
 msgid "Username or Email Address"
 msgstr ""
 
-#: includes/class-login-designer-customizer-output.php:207, includes/customize-settings/labels.php:46
+#: includes/class-login-designer-customizer-output.php:228, includes/customize-settings/labels.php:46
 msgid "Password"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:78
+#: includes/class-login-designer-customizer.php:83
 msgid "Templates"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:84
+#: includes/class-login-designer-customizer.php:89
 msgid "Style Editor"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:90
+#: includes/class-login-designer-customizer.php:95
 msgid "Settings"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:194, includes/class-login-designer-customizer.php:312
+#: includes/class-login-designer-customizer.php:110
+msgid "Add Extensions"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:111
+msgid "Learn More"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:216, includes/class-login-designer-customizer.php:334
 msgid "Default"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:198
+#: includes/class-login-designer-customizer.php:220
 msgid "Template 01"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:202
+#: includes/class-login-designer-customizer.php:224
 msgid "Template 02"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:219
+#: includes/class-login-designer-customizer.php:241
 msgid "None"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:223
+#: includes/class-login-designer-customizer.php:245
 msgid "01"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:227
+#: includes/class-login-designer-customizer.php:249
 msgid "02"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:231
+#: includes/class-login-designer-customizer.php:253
 msgid "03"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:235
+#: includes/class-login-designer-customizer.php:257
 msgid "04"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:239
+#: includes/class-login-designer-customizer.php:261
 msgid "05"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:243
+#: includes/class-login-designer-customizer.php:265
 msgid "06"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:247
+#: includes/class-login-designer-customizer.php:269
 msgid "07"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:251, includes/class-login-designer-customizer.php:255
+#: includes/class-login-designer-customizer.php:273, includes/class-login-designer-customizer.php:277
 msgid "08"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:273
+#: includes/class-login-designer-customizer.php:295
 msgid "No Repeat"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:274
+#: includes/class-login-designer-customizer.php:296
 msgid "Tile"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:275
+#: includes/class-login-designer-customizer.php:297
 msgid "Tile Horizontally"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:276
+#: includes/class-login-designer-customizer.php:298
 msgid "Tile Vertically"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:279
+#: includes/class-login-designer-customizer.php:301
 msgid "Auto"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:280
+#: includes/class-login-designer-customizer.php:302
 msgid "Cover"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:281
+#: includes/class-login-designer-customizer.php:303
 msgid "Contain"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:284
+#: includes/class-login-designer-customizer.php:306
 msgid "Left Top"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:285
+#: includes/class-login-designer-customizer.php:307
 msgid "Left Center"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:286
+#: includes/class-login-designer-customizer.php:308
 msgid "Left Bottom"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:287
+#: includes/class-login-designer-customizer.php:309
 msgid "Right Top"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:288
+#: includes/class-login-designer-customizer.php:310
 msgid "Right Center"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:289
+#: includes/class-login-designer-customizer.php:311
 msgid "Right Bottom"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:290
+#: includes/class-login-designer-customizer.php:312
 msgid "Center Top"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:291
+#: includes/class-login-designer-customizer.php:313
 msgid "Center Center"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:292
+#: includes/class-login-designer-customizer.php:314
 msgid "Center Bottom"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:295
+#: includes/class-login-designer-customizer.php:317
 msgid "Fixed"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:296
+#: includes/class-login-designer-customizer.php:318
 msgid "Scroll"
 msgstr ""
 
@@ -181,8 +193,12 @@ msgstr ""
 msgid "Open Gallery"
 msgstr ""
 
-#: includes/customize-controls/class-login-designer-template-control.php:84
+#: includes/customize-controls/class-login-designer-template-control.php:58, includes/customize-controls/class-login-designer-template-control.php:92
 msgid "Install New Template"
+msgstr ""
+
+#: includes/customize-controls/class-login-designer-template-control.php:59
+msgid "Close"
 msgstr ""
 
 #: includes/customize-settings/background.php:23
@@ -329,28 +345,8 @@ msgstr ""
 msgid "You can switch templates at any time. Previewing a template allows you to make style changes without changing the live template visitors see."
 msgstr ""
 
-#: includes/install.php:70
+#: includes/install.php:82
 msgid "<p>This page is used by <a href=\"%1$s\">%2$s</a> to preview the login forms in the Customizer. Please don't delete this page. Thanks!</p>"
-msgstr ""
-
-#: includes/seasonal-backgrounds.php:28
-msgid "Christmas 01"
-msgstr ""
-
-#: includes/seasonal-backgrounds.php:32
-msgid "Christmas 02"
-msgstr ""
-
-#: includes/seasonal-backgrounds.php:36
-msgid "Christmas 03"
-msgstr ""
-
-#: includes/seasonal-backgrounds.php:40
-msgid "Christmas 04"
-msgstr ""
-
-#: includes/seasonal-backgrounds.php:44
-msgid "Christmas 05"
 msgstr ""
 
 #: login-designer.php:94, login-designer.php:106
