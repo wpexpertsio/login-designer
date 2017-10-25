@@ -379,23 +379,24 @@
 					});
 
 					// Setting the background size of the custom logo.
-					style = '<style class="login_designer_logo"> #login-designer-logo { background-size:'+width+'px '+height+'px; }, #login-designer-logo-h1 { '+width+'px; } </style>';
+					style = '<style class="login_designer_logo"> #login-designer-logo, body.login #login h1 a { background-size:'+width+'px '+height+'px; } h1#login-designer-logo-h1 { width: '+width+'px !important; height: '+height+'px !important; } </style>';
+
+					if ( element.length ) {
+						element.replaceWith( style );
+					} else {
+						$( 'head' ).append( style );
+					}
 				}
-
-				$( 'head' ).append( style );
-
 
 			} else {
 				// If a logo is removed, fallback to the default WordPress logo + sizes.
-				style = '<style class="login_designer_logo"> #login-designer-logo { height: 84px !important; width: 84px !important; background-size: 84px !important; background-image: none, url(" ' + login_designer_script.admin_url + '/images/wordpress-logo.svg ") !important; } </style>';
-			}
+				style = '<style class="login_designer_logo"> body.login #login h1 a, body.login h1#login-designer-logo-h1 { margin-bottom: 0px !important; } h1#login-designer-logo-h1 { width: 84px !important; height: 84px !important; } #login-designer-logo { height: 84px !important; width: 84px !important; background-size: 84px !important; background-image: none, url(" ' + login_designer_script.admin_url + '/images/wordpress-logo.svg ") !important; } </style>';
 
-			console.log( style );
-
-			if ( element.length ) {
-				element.replaceWith( style );
-			} else {
-				$( 'head' ).append( style );
+				if ( element.length ) {
+					element.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
 			}
 		} );
 	} );
@@ -404,7 +405,7 @@
 	wp.customize( 'login_designer[logo_margin_bottom]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_logo_margin_bottom"> body.login #login h1 a { margin-bottom: ' + to + 'px !important; } </style>';
+			style = '<style class="login_designer_logo_margin_bottom"> body.login #login h1 a, h1#login-designer-logo-h1 { margin-bottom: ' + to + 'px !important; } </style>';
 
 			el =  $( '.login_designer_logo_margin_bottom' );
 

@@ -203,6 +203,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				'logo' 			=> '',
 				'logo_margin_bottom' 	=> '25',
+				'logo_max_height' 	=> '300',
+				'logo_max_width' 	=> '300',
 
 				'form_bg' 		=> '#ffffff',
 				'form_width' 		=> '320',
@@ -312,6 +314,10 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					margin: 0 auto;
 				}
 
+				h1#login-designer-logo-h1 a {
+					transition-duration: 0;
+				}
+
 				#login h1 a:focus {
 					box-shadow: none;
 				}
@@ -373,11 +379,13 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 						#login-designer-logo,
 						body.login #login h1 a {
 							background-image: url(" ' . esc_url( $options['logo'] ) . ' ");
+							background-size: 100%;
 							background-size: '. esc_attr( $size[0] / 2 ) .'px '. esc_attr( $size[1] / 2 ) .'px ;
 							background-position: center center;
 						}
 
-						h1#login-designer-logo-h1 {
+						h1#login-designer-logo-h1,
+						body.login #login h1 a {
 							margin: 0 auto;
 							width: '. esc_attr( $size[0] / 2 ) .'px;
 						}
@@ -387,8 +395,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				}
 
 				// Logo margin bottom.
-				if ( isset( $options['logo_margin_bottom'] ) ) {
-					$css .= 'body.login #login h1 a { margin-bottom: ' . esc_attr( $options['logo_margin_bottom'] ) . 'px; }';
+				if ( isset( $options['logo_margin_bottom'] ) && ! empty( $options['logo'] ) ) {
+					$css .= 'body.login #login h1 a, h1#login-designer-logo-h1 { margin-bottom: ' . esc_attr( $options['logo_margin_bottom'] ) . 'px; }';
 				}
 
 				// Form background color.

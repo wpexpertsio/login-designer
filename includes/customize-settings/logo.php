@@ -37,7 +37,7 @@ $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'logi
 $wp_customize->add_setting( 'login_designer[logo_margin_bottom]', array(
 	'default'               => $defaults['logo_margin_bottom'],
 	'type' 			=> 'option',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'absint',
 ) );
 
