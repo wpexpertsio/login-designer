@@ -70,14 +70,14 @@ $wp_customize->add_control( 'login_designer_admin[logo_url]', array(
 	'allow_addition' 	=> false,
 ) );
 
-$wp_customize->add_setting( 'login_designer[hide_logo]', array(
-	'default'               => $defaults['hide_logo'],
+$wp_customize->add_setting( 'login_designer[disable_logo]', array(
+	'default'               => $defaults['disable_logo'],
 	'type' 			=> 'option',
 	'transport'             => 'postMessage',
 	'sanitize_callback'     => array( $this, 'sanitize_checkbox' ),
 ) );
 
-$wp_customize->add_control( 'login_designer[hide_logo]', array(
+$wp_customize->add_control( 'login_designer[disable_logo]', array(
 	'type'                  => 'checkbox',
 	'label'                 => esc_html__( 'Disable Logo', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',

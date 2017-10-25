@@ -203,7 +203,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				'logo' 			=> '',
 				'logo_margin_bottom' 	=> '25',
-				'hide_logo' 		=> false,
+				'disable_logo' 		=> false,
 
 				'form_bg' 		=> '#ffffff',
 				'form_width' 		=> '320',
@@ -394,7 +394,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				}
 
 				// Logo display.
-				if ( isset( $options['hide_logo'] ) && true === $options['hide_logo'] ) {
+				if ( isset( $options['disable_logo'] ) && true === $options['disable_logo'] ) {
 					$css .= 'body.login #login h1 a { display: none; }';
 					$css .= 'body.login #login h1 a, body h1#login-designer-logo-h1 { margin-bottom: 0 }';
 				}
@@ -430,7 +430,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				}
 
 				// Form box-shadow.
-				if ( isset( $options['form_shadow'] ) || isset( $options['form_shadow_opacity'] ) ) {
+				if ( isset( $options['form_shadow'] ) && isset( $options['form_shadow_opacity'] ) ) {
 
 					$opacity = ( $options['form_shadow_opacity'] * .01 ) ? $options['form_shadow_opacity'] * .01 : 0;
 

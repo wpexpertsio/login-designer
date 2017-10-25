@@ -183,10 +183,10 @@
 		customizer_no_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' );
 
 		// Only show the login logo bits, if the login logo is not hidden.
-		customizer_checkbox_option_display( 'login_designer[hide_logo]', 'login_designer[logo]', false );
-		customizer_checkbox_option_display( 'login_designer[hide_logo]', 'login_designer[logo_title]', false );
-		customizer_checkbox_option_display( 'login_designer[hide_logo]', 'login_designer_admin[logo_url]', false );
-		// customizer_checkbox_option_display( 'login_designer[hide_logo]', 'login_designer[logo_margin_bottom]', false );
+		customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer[logo]', false );
+		customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer[logo_title]', false );
+		customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer_admin[logo_url]', false );
+		// customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer[logo_margin_bottom]', false );
 
 		// Only show the Twitter profile option, if social sharing is enabled.
 		customizer_image_option_display( 'login_designer[logo]', 'login_designer[logo_margin_bottom]' );
@@ -236,7 +236,7 @@
 		} );
 
 		// Modify the background color based on the gallery image selected.
-		wp.customize( 'login_designer[hide_logo]', function( value ) {
+		wp.customize( 'login_designer[disable_logo]', function( value ) {
 
 			value.bind( function( to ) {
 

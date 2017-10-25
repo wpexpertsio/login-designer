@@ -12,6 +12,7 @@
 			'login_designer[logo]',
 			'login_designer[logo_margin_bottom]',
 			'login_designer_admin[logo_url]',
+			'login_designer[disable_logo]',
 		],
 		'form' : [
 			'login_designer[form_title]',
@@ -118,7 +119,7 @@
 						});
 					});
 
-					wp.customize( 'login_designer[hide_logo]', function( setting ) {
+					wp.customize( 'login_designer[disable_logo]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
@@ -136,7 +137,7 @@
 
 				} else if ( item === 'login_designer[logo]' ) {
 
-					wp.customize( 'login_designer[hide_logo]', function( setting ) {
+					wp.customize( 'login_designer[disable_logo]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
@@ -156,7 +157,7 @@
 
 				} else if ( item === 'login_designer[logo_title]' ) {
 
-					wp.customize( 'login_designer[hide_logo]', function( setting ) {
+					wp.customize( 'login_designer[disable_logo]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 
@@ -176,7 +177,7 @@
 
 				} else if ( item === 'login_designer_admin[logo_url]' ) {
 
-					wp.customize( 'login_designer[hide_logo]', function( setting ) {
+					wp.customize( 'login_designer[disable_logo]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
 

@@ -411,7 +411,7 @@
 
 		var logo_display;
 
-		var logo_display = wp.customize( 'login_designer[hide_logo]' )();
+		var logo_display = wp.customize( 'login_designer[disable_logo]' )();
 
 		if ( logo_display === true ) {
 
@@ -435,17 +435,17 @@
 	});
 
 	// Hide the logo.
-	wp.customize( 'login_designer[hide_logo]', function( value ) {
+	wp.customize( 'login_designer[disable_logo]', function( value ) {
 		value.bind( function( to ) {
 
 			var style, el;
 
-			el =  $( '.login_designer_logo_hide_logo' );
+			el =  $( '.login_designer_logo_disable_logo' );
 
 			if ( true === to ) {
-				style = '<style class="login_designer_logo_hide_logo">#login-designer-logo { display: none !important; } body h1#login-designer-logo-h1 { margin-bottom: 0 !important; } body h1#login-designer-logo-h1, body #login-designer-logo-h1 #login-designer-logo { height: 0 !important; width: 0 !important; } </style>';
+				style = '<style class="login_designer_logo_disable_logo">#login-designer-logo { display: none !important; } body h1#login-designer-logo-h1 { margin-bottom: 0 !important; } body h1#login-designer-logo-h1, body #login-designer-logo-h1 #login-designer-logo { height: 0 !important; width: 0 !important; } </style>';
 			} else {
-				style = '<style class="login_designer_logo_hide_logo">#login-designer-logo { display: block !important; } </style>';
+				style = '<style class="login_designer_logo_disable_logo">#login-designer-logo { display: block !important; } </style>';
 			}
 
 			if ( el.length ) {
