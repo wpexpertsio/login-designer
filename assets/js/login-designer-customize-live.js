@@ -57,6 +57,9 @@
 				// Settings
 				$body_bg.append( '<span class="customize-partial--login-designer-settings customize-partial-edit-shortcut"><button class="login-designer-event-button customize-partial-edit-shortcut-button" data-customizer-event="login-designer-edit-settings"></button></span>' );
 
+				// Templates
+				$body_bg.append( '<span class="customize-partial--login-designer-template customize-partial-edit-shortcut"><button class="login-designer-event-button customize-partial-edit-shortcut-button" data-customizer-event="login-designer-edit-template"></button></span>' );
+
 
 				// Listen for events on the new previewer buttons
 				$document.on( 'touch click', '.login-designer-event-button', function( e ) {

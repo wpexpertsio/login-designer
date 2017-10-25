@@ -384,6 +384,14 @@
 					section.expand( { duration: 0 } );
 				}
 			} );
+
+			// Open settings panel when the settings icon is clicked.
+			this.preview.bind( 'login-designer-edit-template', function() {
+				var section = wp.customize.section( 'login_designer__section--templates' );
+				if ( ! section.expanded() ) {
+					section.expand( { duration: 0 } );
+				}
+			} );
 		}
 	};
 
