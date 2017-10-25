@@ -430,9 +430,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				}
 
 				// Form box-shadow.
-				if ( isset( $options['form_shadow'] ) && isset( $options['form_shadow_opacity'] ) ) {
+				if ( isset( $options['form_shadow'] ) || isset( $options['form_shadow_opacity'] ) ) {
 
-					$opacity = ( $options['form_shadow_opacity'] * .01 ) ? $options['form_shadow_opacity'] * .01 : 0;
+					$opacity = ( isset( $options['form_shadow_opacity'] ) * .01 ) ? isset( $options['form_shadow_opacity'] ) * .01 : 0;
 
 					$css .= '#loginform { box-shadow: 0 0 '. esc_attr( $options['form_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
 				}
@@ -465,7 +465,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Field box-shadow.
 				if ( isset( $options['field_shadow'] ) || isset( $options['field_shadow_opacity'] ) ) {
 
-					$opacity = ( $options['field_shadow_opacity'] * .01 ) ? $options['field_shadow_opacity'] * .01 : 0;
+					$opacity = ( isset( $options['field_shadow_opacity'] ) * .01 ) ? isset( $options['field_shadow_opacity'] ) * .01 : 0;
 
 					$inset = isset( $options['field_shadow_inset'] ) ? 'inset' : '';
 
