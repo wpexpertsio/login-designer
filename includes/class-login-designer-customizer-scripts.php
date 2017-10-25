@@ -73,7 +73,6 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 		public function customize_preview() {
 
 			$js_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
-			$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/';
 
 			// Use minified libraries if SCRIPT_DEBUG is turned off.
 			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
