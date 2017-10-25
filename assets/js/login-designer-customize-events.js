@@ -468,6 +468,7 @@
 					section.expand( { duration: 0 } );
 				}
 			} );
+
 		}
 	};
 

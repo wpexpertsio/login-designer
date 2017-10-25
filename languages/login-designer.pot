@@ -37,11 +37,11 @@ msgstr ""
 msgid "Login Designer"
 msgstr ""
 
-#: includes/class-login-designer-customizer-output.php:227
+#: includes/class-login-designer-customizer-output.php:228
 msgid "Username or Email Address"
 msgstr ""
 
-#: includes/class-login-designer-customizer-output.php:228, includes/customize-settings/labels.php:46
+#: includes/class-login-designer-customizer-output.php:229, includes/customize-settings/labels.php:46
 msgid "Password"
 msgstr ""
 
@@ -331,6 +331,10 @@ msgstr ""
 
 #: includes/customize-settings/logo.php:66
 msgid "Logo URL"
+msgstr ""
+
+#: includes/customize-settings/logo.php:82
+msgid "Disable Logo"
 msgstr ""
 
 #: includes/customize-settings/settings.php:23
