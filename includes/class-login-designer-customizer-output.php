@@ -203,8 +203,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				'logo' 			=> '',
 				'logo_margin_bottom' 	=> '25',
-				'logo_max_height' 	=> '300',
-				'logo_max_width' 	=> '300',
+				'hide_logo' 		=> false,
 
 				'form_bg' 		=> '#ffffff',
 				'form_width' 		=> '320',
@@ -392,6 +391,12 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 						#login h1 a { width: auto; }
 					';
+				}
+
+				// Logo display.
+				if ( isset( $options['hide_logo'] ) && true === $options['hide_logo'] ) {
+					$css .= 'body.login #login h1 a { display: none; }';
+					$css .= 'body.login #login h1 a, body h1#login-designer-logo-h1 { margin-bottom: 0 }';
 				}
 
 				// Logo margin bottom.

@@ -1,7 +1,7 @@
 .customize-control-checkbox label {
 	display: block;
 	font-size: 14px;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 20px;
 	margin-left: 0;
 	padding-bottom: 0;
@@ -199,13 +199,16 @@
 	margin-right: 8px;
 }
 
-#customize-control-login_designer-logo_url,
 #customize-control-login_designer-bg_color,
 #customize-control-login_designer-form_shadow_opacity,
 #customize-control-login_designer-field_shadow_inset,
 #customize-control-login_designer-field_color,
 #customize-control-login_designer-label_color {
 	margin-bottom: 40px;
+}
+
+#customize-control-login_designer_admin-logo_url {
+	margin-bottom: 25px;
 }
 
 #customize-control-login_designer[username_label],

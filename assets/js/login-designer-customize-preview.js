@@ -30,6 +30,61 @@
 		return '' !== image;
 	}
 
+	function hasLogoAction( to ) {
+
+		var style, element;
+
+		// Output the style changes (for background sizes).
+		element =  $( '.login_designer_logo' );
+
+		// If we have a custom logo uploaded.
+		if ( hasLogo() ) {
+
+			// Set the background image of the logo.
+			$( '#login-designer-logo' ).css( 'background-image', 'url( ' + to + ')' );
+
+			// Grab the height & width attributes, so we can resize the logo appropriately.
+			var img = new Image();
+
+			img.src = to;
+
+			var style;
+
+			img.onload = function(){
+
+				// We're dividing by 2, in order to make the logo's look nice on retina devices.
+				var width 	= img.width / 2,
+				    height 	= img.height / 2;
+
+	           		$( '#login-designer-logo' ).css({
+	           			width: width,
+					height: height,
+				});
+
+				// Setting the background size of the custom logo.
+				style = '<style class="login_designer_logo">body.login #login h1 a { display: block; } #login-designer-logo, body.login #login h1 a { background-size:'+width+'px '+height+'px; } h1#login-designer-logo-h1 { width: '+width+'px !important; height: '+height+'px !important; } </style>';
+
+				if ( element.length ) {
+					element.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			}
+
+		} else {
+
+			// If a logo is removed, fallback to the default WordPress logo + sizes.
+			style = '<style class="login_designer_logo">body.login #login h1 a { display: block; } body.login #login h1 a, body.login h1#login-designer-logo-h1 { margin-bottom: 0px !important; } h1#login-designer-logo-h1 { width: 84px !important; height: 84px !important; } #login-designer-logo { height: 84px !important; width: 84px !important; background-size: 84px !important; background-image: none, url(" ' + login_designer_script.admin_url + '/images/wordpress-logo.svg ") !important; } </style>';
+
+			if ( element.length ) {
+				element.replaceWith( style );
+			} else {
+				$( 'head' ).append( style );
+			}
+		}
+	}
+
+
 	// Return the form's shadow size value.
 	function formBoxShadowSize() {
 		return wp.customize( 'login_designer[form_shadow]' )();
@@ -346,60 +401,72 @@
 
 	// Custom logo.
 	wp.customize( 'login_designer[logo]', function( value ) {
-
 		value.bind( function( to ) {
-
-			var style, element;
-
-			// Output the style changes (for background sizes).
-			element =  $( '.login_designer_logo' );
-
-			// If we have a custom logo uploaded.
-			if ( hasLogo() ) {
-
-				// Set the background image of the logo.
-				$( '#login-designer-logo' ).css( 'background-image', 'url( ' + to + ')' );
-
-				// Grab the height & width attributes, so we can resize the logo appropriately.
-				var img = new Image();
-
-				img.src = to;
-
-				var style;
-
-				img.onload = function(){
-
-					// We're dividing by 2, in order to make the logo's look nice on retina devices.
-					var width 	= img.width / 2,
-					    height 	= img.height / 2;
-
-		           		$( '#login-designer-logo' ).css({
-		           			width: width,
-						height: height,
-					});
-
-					// Setting the background size of the custom logo.
-					style = '<style class="login_designer_logo"> #login-designer-logo, body.login #login h1 a { background-size:'+width+'px '+height+'px; } h1#login-designer-logo-h1 { width: '+width+'px !important; height: '+height+'px !important; } </style>';
-
-					if ( element.length ) {
-						element.replaceWith( style );
-					} else {
-						$( 'head' ).append( style );
-					}
-				}
-
-			} else {
-				// If a logo is removed, fallback to the default WordPress logo + sizes.
-				style = '<style class="login_designer_logo"> body.login #login h1 a, body.login h1#login-designer-logo-h1 { margin-bottom: 0px !important; } h1#login-designer-logo-h1 { width: 84px !important; height: 84px !important; } #login-designer-logo { height: 84px !important; width: 84px !important; background-size: 84px !important; background-image: none, url(" ' + login_designer_script.admin_url + '/images/wordpress-logo.svg ") !important; } </style>';
-
-				if ( element.length ) {
-					element.replaceWith( style );
-				} else {
-					$( 'head' ).append( style );
-				}
-			}
+			hasLogoAction( to );
 		} );
 	} );
+
+	// Check whether a custom logo image is available.
+	function logoVisibility() {
+
+		var logo_display;
+
+		var logo_display = wp.customize( 'login_designer[hide_logo]' )();
+
+		if ( logo_display === true ) {
+
+			setTimeout( function() {
+				$( '#login-designer-logo-h1 .login-designer-event-button' ).wrap( '<span class="customize-partial--login-designer-add-logo customize-partial-edit-shortcut"></span>' );
+				$( '#login-designer-logo-h1 .login-designer-event-button' ).removeClass( 'customizer-event-overlay' );
+			}, 70);
+
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	wp.customize.bind( 'preview-ready', function() {
+
+		logoVisibility();
+
+		// console.log(logoVisibility());
+
+	});
+
+	// Hide the logo.
+	wp.customize( 'login_designer[hide_logo]', function( value ) {
+		value.bind( function( to ) {
+
+			var style, el;
+
+			el =  $( '.login_designer_logo_hide_logo' );
+
+			if ( true === to ) {
+				style = '<style class="login_designer_logo_hide_logo">#login-designer-logo { display: none !important; } body h1#login-designer-logo-h1 { margin-bottom: 0 !important; } body h1#login-designer-logo-h1, body #login-designer-logo-h1 #login-designer-logo { height: 0 !important; width: 0 !important; } </style>';
+			} else {
+				style = '<style class="login_designer_logo_hide_logo">#login-designer-logo { display: block !important; } </style>';
+			}
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+
+			var nib = '<span class="customize-partial--login-designer-add-logo customize-partial-edit-shortcut"></span>';
+
+			if ( true === to ) {
+				// If hidden;
+				$( '#login-designer-logo-h1 .login-designer-event-button' ).wrap( nib );
+				$( '#login-designer-logo-h1 .login-designer-event-button' ).removeClass( 'customizer-event-overlay' );
+			} else {
+				$( '#login-designer-logo-h1 .login-designer-event-button' ).unwrap( nib );
+				$( '#login-designer-logo-h1 .login-designer-event-button' ).addClass( 'customizer-event-overlay' );
+			}
+
+		});
+	});
 
 	// Custom logo margin bottom.
 	wp.customize( 'login_designer[logo_margin_bottom]', function( value ) {

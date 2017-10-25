@@ -118,7 +118,82 @@
 						});
 					});
 
-				// BG
+					wp.customize( 'login_designer[hide_logo]', function( setting ) {
+						wp.customize.control( item, function( control ) {
+							var visibility = function() {
+
+								if ( true === setting.get() ) {
+									// If not, let's quickly hide it.
+									control.container.slideUp( 0 );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
+
+				} else if ( item === 'login_designer[logo]' ) {
+
+					wp.customize( 'login_designer[hide_logo]', function( setting ) {
+						wp.customize.control( item, function( control ) {
+							var visibility = function() {
+
+								if ( true === setting.get() ) {
+									// If not, let's quickly hide it.
+									control.container.slideUp( 0 );
+								} else {
+									// If there's no custom background image, let's show the gallery.
+									wp.customize.control( item ).activate( { duration: 0 } );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
+				} else if ( item === 'login_designer[logo_title]' ) {
+
+					wp.customize( 'login_designer[hide_logo]', function( setting ) {
+						wp.customize.control( item, function( control ) {
+							var visibility = function() {
+
+								if ( true === setting.get() ) {
+									// If not, let's quickly hide it.
+									control.container.slideUp( 0 );
+								} else {
+									// If there's no custom background image, let's show the gallery.
+									wp.customize.control( item ).activate( { duration: 0 } );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
+				} else if ( item === 'login_designer_admin[logo_url]' ) {
+
+					wp.customize( 'login_designer[hide_logo]', function( setting ) {
+						wp.customize.control( item, function( control ) {
+							var visibility = function() {
+
+								if ( true === setting.get() ) {
+									// If not, let's quickly hide it.
+									control.container.slideUp( 0 );
+								} else {
+									// If there's no custom background image, let's show the gallery.
+									wp.customize.control( item ).activate( { duration: 0 } );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
 				} else if ( item === 'login_designer[bg_image_gallery]' ) {
 
 					wp.customize( 'login_designer[bg_image]', function( setting ) {

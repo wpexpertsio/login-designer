@@ -6,9 +6,6 @@
 	bottom: 42px !important;
 	right: 12px !important;
 
-	.login-designer-event-button {
-	}
-
 	.login-designer-event-button:before {
 		color: #fff;
 		box-shadow: none;
@@ -43,6 +40,35 @@
 	}
 }
 
+
+.customize-partial--login-designer-add-logo {
+	left: 0;
+	right: 0;
+	top: -35px;
+	margin: 0 auto;
+
+	.login-designer-event-button {
+		left: -15px;
+	}
+
+	.login-designer-event-button:before {
+		color: #fff;
+		box-shadow: none;
+		font: 400 16px/72px dashicons;
+		content: "\f128";
+		position: absolute;
+		right: 0.19em;
+		text-shadow: 0 -1px 1px #007ab6, 1px 0 1px #007ab6, 0 1px 1px #007ab6, -1px 0 1px #007ab6;
+		top: .17em;
+		height: 20px;
+		width: 20px;
+		line-height: 20px;
+	}
+}
+
+
+
+
 .customize-partial--loginform {
 	top: 0 !important;
 	left: -10px!important;
@@ -51,6 +77,10 @@
 .customize-partial--login-designer-background {
 	top: 10px !important;
 	left: 42px !important;
+}
+
+.hidden {
+	display: none !important;
 }
 
 // Background

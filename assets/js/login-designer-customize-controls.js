@@ -133,8 +133,29 @@
 			});
 		}
 
-		// Only show the Twitter profile option, if social sharing is enabled.
-		customizer_image_option_display( 'login_designer[logo]', 'login_designer[logo_margin_bottom]' );
+		/**
+		 * Function to hide/show Customizer options, based on a checkbox value.
+		 *
+		 * Parent option, Affected Control, Value which affects the control.
+		 */
+		function customizer_checkbox_option_display( parent_setting, affected_control, value ) {
+			wp.customize( parent_setting, function( setting ) {
+				wp.customize.control( affected_control, function( control ) {
+					var visibility = function() {
+						if ( value === setting.get() ) {
+							control.container.slideDown( 180 );
+						} else {
+							control.container.slideUp( 180 );
+						}
+					};
+
+					visibility();
+					setting.bind( visibility );
+				});
+			});
+		}
+
+
 
 		// Only show the border color style option, if the border is greater than zero.
 		customizer_range_option_display( 'login_designer[field_border]', 'login_designer[field_border_color]', '0' );
@@ -160,6 +181,15 @@
 
 		// Only show the gallery if there is no custom background image uploaded.
 		customizer_no_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' );
+
+		// Only show the login logo bits, if the login logo is not hidden.
+		customizer_checkbox_option_display( 'login_designer[hide_logo]', 'login_designer[logo]', false );
+		customizer_checkbox_option_display( 'login_designer[hide_logo]', 'login_designer[logo_title]', false );
+		customizer_checkbox_option_display( 'login_designer[hide_logo]', 'login_designer_admin[logo_url]', false );
+		// customizer_checkbox_option_display( 'login_designer[hide_logo]', 'login_designer[logo_margin_bottom]', false );
+
+		// Only show the Twitter profile option, if social sharing is enabled.
+		customizer_image_option_display( 'login_designer[logo]', 'login_designer[logo_margin_bottom]' );
 
 		// Modify the background color based on the gallery image selected.
 		wp.customize( 'login_designer[bg_image_gallery]', function( value ) {
@@ -202,6 +232,17 @@
 
 				// If we have a custom background color, let's put it back to default.
 				wp.customize( 'login_designer[bg_color]' ).set( color );
+			} );
+		} );
+
+		// Modify the background color based on the gallery image selected.
+		wp.customize( 'login_designer[hide_logo]', function( value ) {
+
+			value.bind( function( to ) {
+
+				if ( to === true ) {
+					wp.customize( 'login_designer[logo_margin_bottom]' ).set( 25 );
+				}
 			} );
 		} );
 	} );
