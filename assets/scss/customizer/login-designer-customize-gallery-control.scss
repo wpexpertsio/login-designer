@@ -25,6 +25,14 @@
 	overflow-x: hidden;
   	overflow-y: scroll;
 	padding-right: 20px;
+	padding-top: 4px;
+
+	@media screen and (min-width: 1667px) {
+		max-height: 10.1vw;
+	}
+	@media screen and (min-width: 1900px) {
+		max-height: 10.3vw;
+	}
 }
 
 .gallery {

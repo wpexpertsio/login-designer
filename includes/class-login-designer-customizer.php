@@ -230,7 +230,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		}
 
 		/**
-		 * Register header layouts.
+		 * Get background images.
 		 */
 		public static function get_background_images() {
 
@@ -241,40 +241,40 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 					'title' => esc_html__( 'None', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . '00.jpg',
 				),
-				'01' => array(
+				'bg_01' => array(
 					'title' => esc_html__( '01', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . '01-sml.jpg',
 				),
-				'02' => array(
+				'bg_02' => array(
 					'title' => esc_html__( '02', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . '02-sml.jpg',
 				),
-				'03' => array(
+				'bg_03' => array(
 					'title' => esc_html__( '03', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . '03-sml.jpg',
 				),
-				'04' => array(
+				'bg_04' => array(
 					'title' => esc_html__( '04', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . '04-sml.jpg',
 				),
-				'05' => array(
+				'bg_05' => array(
 					'title' => esc_html__( '05', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . '05-sml.jpg',
 				),
-				'06' => array(
+				'bg_06' => array(
 					'title' => esc_html__( '06', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . '06-sml.jpg',
 				),
-				'07' => array(
+				'bg_07' => array(
 					'title' => esc_html__( '07', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . '07-sml.jpg',
 				),
-				'08' => array(
+				'bg_08' => array(
 					'title' => esc_html__( '08', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . '08-sml.jpg',
 				),
-				'09' => array(
-					'title' => esc_html__( '08', '@@textdomain' ),
+				'bg_09' => array(
+					'title' => esc_html__( '09', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . '09-sml.jpg',
 				),
 			);

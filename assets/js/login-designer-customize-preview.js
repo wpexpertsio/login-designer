@@ -169,12 +169,31 @@
 		value.bind( function( to ) {
 
 			var url;
+			var values = [];
 
-			if ( '01' != to && '02' != to && '03' != to && '04' != to && '05' != to && '06' != to && '07' != to && '08' != to && '09' != to ) {
-				// If we're viewing a seasonal background, use it.
-				url = login_designer_script.seasonal_plugin_url;
+			if ( login_designer_script.extension_backgrounds ) {
+				values = Object.values( login_designer_script.extension_backgrounds );
+			}
+
+			if ( values.includes( to ) ) {
+
+				if ( to.indexOf( 'seasonal' ) >= 0 ) {
+
+					url = login_designer_script.seasonal_plugin_url;
+
+				} else {
+					// Remove hyphen from value.
+					bg_collection = to.replace(/-|\s/g,"");
+
+					// Remove numbers from value.
+					bg_collection = bg_collection.replace(/[0-9]/g, '');
+
+					// Generate the dynamic URL based on the value of the option selected.
+					url = login_designer_script.plugins_url + '/login-designer-' + bg_collection + '-backgrounds/assets/images/' ;
+				}
+
 			} else {
-				// If we're viewing a default background, use it.
+				// Or use a core background that's included in Login Designer core.
 				url = login_designer_script.plugin_url;
 			}
 
@@ -189,6 +208,9 @@
 				setTimeout( function() {
 					$( '#login-designer-background' ).removeClass( 'transitioning' );
 				}, 550 );
+
+				console.log( customBackground() );
+
 			} else {
 
 				$( 'body.login' ).css( 'background-image', 'none' );

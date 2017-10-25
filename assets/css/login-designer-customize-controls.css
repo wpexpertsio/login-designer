@@ -205,7 +205,7 @@
 #customize-control-login_designer-field_shadow_inset,
 #customize-control-login_designer-field_color,
 #customize-control-login_designer-label_color {
-	margin-bottom: 25px;
+	margin-bottom: 40px;
 }
 
 #customize-control-login_designer[username_label],
@@ -268,7 +268,7 @@
 	line-height: 22px;
 	margin: 0;
 	padding: 0;
-	padding-left: 7px;
+	padding: 0;
 	-webkit-transition: border-color 200ms cubic-bezier(0.694, 0.0482, 0.335, 1), background 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
 	transition: border-color 200ms cubic-bezier(0.694, 0.0482, 0.335, 1), background 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
 

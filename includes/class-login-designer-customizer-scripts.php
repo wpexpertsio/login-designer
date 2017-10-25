@@ -84,20 +84,23 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			// Pull the Login Designer page from options.
 			$page = Login_Designer()->get_login_designer_page();
 
-			// Check for seasonal backgrounds.
-			$seasonal_url = ( defined( 'LOGIN_DESIGNER_SEASONAL_BACKGROUNDS_PLUGIN_URL' ) ) ? LOGIN_DESIGNER_SEASONAL_BACKGROUNDS_PLUGIN_URL : '';
+			// Look for extension backgrounds.
+			$customizer = new Login_Designer_Customizer_Output();
 
 			// Localization.
-			$login_designer_localize = array(
+			$localize = array(
+				'extension_backgrounds' => $customizer->extension_backgrounds(),
 				'admin_url'		=> admin_url(),
+				'plugins_url'		=> plugins_url(),
 				'plugin_url'       	=> LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
-				'seasonal_plugin_url' 	=> $seasonal_url . 'assets/images/',
 				'login_designer_page'   => get_permalink( $page ),
 				'font_url'         	=> esc_url_raw( 'https://fonts.googleapis.com/css' ),
 				'font_subset'      	=> '&latin,latin-ext',
 			);
 
-			wp_localize_script( 'login-designer-customize-preview', 'login_designer_script', $login_designer_localize );
+			$localize = apply_filters( 'login_designer_customize_preview_localization', $localize );
+
+			wp_localize_script( 'login-designer-customize-preview', 'login_designer_script', $localize );
 		}
 
 		/**
@@ -117,13 +120,15 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			$page = Login_Designer()->get_login_designer_page();
 
 			// Localization.
-			$login_designer_localize = array(
+			$localize = array(
 				'admin_url'         	=> admin_url(),
 				'plugin_url'        	=> LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
 				'login_designer_page'   => get_permalink( $page ),
 			);
 
-			wp_localize_script( 'login-designer-customize-controls', 'login_designer_controls', $login_designer_localize );
+			$localize = apply_filters( 'login_designer_control_localization', $localize );
+
+			wp_localize_script( 'login-designer-customize-controls', 'login_designer_controls', $localize );
 		}
 	}
 

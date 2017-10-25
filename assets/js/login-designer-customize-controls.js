@@ -166,34 +166,36 @@
 
 			value.bind( function( to ) {
 
-				if ( '01' === to ) {
-					color = '#616264';
-				} else if ( to === '02' ) {
+				if ( to === 'bg_01' ) {
+					color = '#e3ebee';
+				} else if ( to === 'bg_02' ) {
 					color = '#d0f1ec';
-				} else if ( to === '03' ) {
+				} else if ( to === 'bg_03' ) {
 					color = '#cccfd4';
-				} else if ( to === '04' ) {
+				} else if ( to === 'bg_04' ) {
 					color = '#d5aabb';
-				} else if ( to === '05' ) {
+				} else if ( to === 'bg_05' ) {
 					color = '#141611';
-				} else if ( to === '06' ) {
+				} else if ( to === 'bg_06' ) {
 					color = '#151515';
-				} else if ( to === '07' ) {
+				} else if ( to === 'bg_07' ) {
 					color = '#d0e4ec';
-				} else if ( to === '08' ) {
+				} else if ( to === 'bg_08' ) {
 					color = '#4b2d3f';
-				} else if ( to === '09' ) {
+				} else if ( to === 'bg_09' ) {
 					color = '#ed4844';
-				} else if ( to === 'christmas-01' ) {
-					color = '#dfe0e2'; // Seasonal #1
-				} else if ( to === 'christmas-02' ) {
-					color = '#131522'; // Seasonal #2
-				} else if ( to === 'christmas-03' ) {
-					color = '#000c1a'; // Seasonal #3
-				} else if ( to === 'christmas-04' ) {
-					color = '#1f2214'; // Seasonal #4
-				} else if ( to === 'christmas-05' ) {
-					color = '#dadad8'; // Seasonal #5
+				} else if ( to === 'bg_10' ) {
+					color = '#e3ebee';
+				} else if ( to === login_designer_controls.seasonal_option_01 ) {
+					color = login_designer_controls.seasonal_bg_color_01;
+				} else if ( to === login_designer_controls.seasonal_option_02 ) {
+					color = login_designer_controls.seasonal_bg_color_02;
+				} else if ( to === login_designer_controls.seasonal_option_03 ) {
+					color = login_designer_controls.seasonal_bg_color_03;
+				} else if ( to === login_designer_controls.seasonal_option_04 ) {
+					color = login_designer_controls.seasonal_bg_color_04;
+				} else if ( to === login_designer_controls.seasonal_option_05 ) {
+					color = login_designer_controls.seasonal_bg_color_05;
 				} else {
 					color = '#f1f1f1';
 				}

@@ -254,9 +254,20 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 			return apply_filters( 'login_designer_admin_defaults', $admin_defaults );
 		}
 
+		/**
+		 * Create a filter to for extenstions to add background collections.
+		 *
+		 * @return array $backgrounds
+		 */
+		function extension_backgrounds() {
+
+			$backgrounds = array();
+
+			return apply_filters( 'login_designer_extension_background_options', $backgrounds );
+		}
 
 		/**
-		 * Enqueue the stylesheets required.
+		 * Enqueue Customizer styles.
 		 *
 		 * @access public
 		 */
@@ -318,21 +329,19 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					$css .= 'body.login, #login-designer-background { background-image: url(" ' . $options['bg_image'] . ' "); }';
 				}
 
-				// Background image gallery.
-				// Only display if there's no custom background image.
+				// Background image gallery. Only display if there's no custom background image.
 				if ( isset( $options['bg_image_gallery'] ) && 'none' !== $options['bg_image_gallery'] && empty( $options['bg_image'] ) ) {
 
-					if ( ! in_array( $options['bg_image_gallery'], array( '01', '02', '03', '04', '05', '06', '07', '08', '09' ), true ) ) {
-						// Check for seasonal backgrounds.
-						$image_dir = ( defined( 'LOGIN_DESIGNER_SEASONAL_BACKGROUNDS_PLUGIN_URL' ) ) ? LOGIN_DESIGNER_SEASONAL_BACKGROUNDS_PLUGIN_URL . 'assets/images/' : LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/';
-					} else {
+					// If this is an extenstion image, stop here. The extenstion takes over styling.
+					if ( ! in_array( $options['bg_image_gallery'], $this->extension_backgrounds(), true ) ) {
+
 						$image_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/';
+
+						// Get the image's url.
+						$url = $image_dir . $options['bg_image_gallery'] . '.jpg';
+
+						$css .= 'body.login, #login-designer-background { background-image: url(" ' . esc_url( $url ) . ' "); }';
 					}
-
-					// Get the image's url.
-					$url = $image_dir . $options['bg_image_gallery'] . '.jpg';
-
-					$css .= 'body.login, #login-designer-background { background-image: url(" ' . esc_url( $url ) . ' "); }';
 				}
 
 				// Background image repeat.

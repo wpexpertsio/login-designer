@@ -109,8 +109,12 @@ msgstr ""
 msgid "07"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:273, includes/class-login-designer-customizer.php:277
+#: includes/class-login-designer-customizer.php:273
 msgid "08"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:277
+msgid "09"
 msgstr ""
 
 #: includes/class-login-designer-customizer.php:295
