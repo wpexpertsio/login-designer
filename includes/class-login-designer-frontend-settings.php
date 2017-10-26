@@ -28,8 +28,6 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 			add_action( 'login_headertitle', array( $this, 'logo_title' ) );
 			add_action( 'login_headerurl', array( $this, 'logo_url' ) );
 			add_filter( 'login_message', array( $this, 'login_message' ) );
-			add_filter( 'login_redirect', array( $this, 'login_redirect' ) , 10, 3 );
-			add_filter( 'logout_redirect', array( $this, 'logout_redirect' ) , 10, 3 );
 		}
 
 		/**
@@ -84,50 +82,6 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 				return sprintf( '<p>%s</p>', esc_textarea( $option ) );
 			} else {
 				return $message;
-			}
-		}
-
-		/**
-		 * Redirect after successful login.
-		 *
-		 * @see https://developer.wordpress.org/reference/hooks/login_redirect/
-		 *
-		 * @access public
-		 * @param string|string $redirect_to URL to redirect to.
-		 * @param string|string $requested_redirect_to URL the user is coming from.
-		 * @param object|object $user Logged user's data.
-		 * @return string|string
-		 */
-		public function login_redirect( $redirect_to, $requested_redirect_to, $user ) {
-
-			// Check for the admin option.
-			$options   = new Login_Designer_Customizer_Output();
-			$option    = $options->admin_option_wrapper( 'login_redirect' );
-
-			if ( $option ) {
-				return get_page_link( $option );
-			}
-		}
-
-		/**
-		 * Redirect after successful login.
-		 *
-		 * @see https://developer.wordpress.org/reference/hooks/logout_redirect/
-		 *
-		 * @access public
-		 * @param string|string $redirect_to URL to redirect to.
-		 * @param string|string $requested_redirect_to URL the user is coming from.
-		 * @param object|object $user Logged user's data.
-		 * @return string|string
-		 */
-		public function logout_redirect( $redirect_to, $requested_redirect_to, $user ) {
-
-			// Check for the admin option.
-			$options   = new Login_Designer_Customizer_Output();
-			$option    = $options->admin_option_wrapper( 'logout_redirect' );
-
-			if ( $option ) {
-				return get_page_link( $option );
 			}
 		}
 	}

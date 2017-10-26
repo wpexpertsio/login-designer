@@ -3,7 +3,7 @@
  * Plugin Name: Login Designer
  * Plugin URI: https://logindesigner.com
  * Description: The easiest way to completly customize your WordPress login page. Create stunning login templates in seconds with the most beautiful and elegant login customizer WordPress plugin.
- * Author: Rich Tabor of ThemeBeans.com
+ * Author: Rich Tabor of ThemeBeans
  * Author URI: https://logindesigner.com
  * Version: @@pkg.version
  * Text Domain: @@pkg.textdomain
