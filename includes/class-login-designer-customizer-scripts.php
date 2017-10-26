@@ -88,13 +88,13 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 
 			// Localization.
 			$localize = array(
-				'extension_backgrounds' => $customizer->extension_backgrounds(),
 				'admin_url'		=> admin_url(),
 				'plugins_url'		=> plugins_url(),
 				'plugin_url'       	=> LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
 				'login_designer_page'   => get_permalink( $page ),
 				'font_url'         	=> esc_url_raw( 'https://fonts.googleapis.com/css' ),
 				'font_subset'      	=> '&latin,latin-ext',
+				'extension_backgrounds' => $customizer->extension_backgrounds(),
 			);
 
 			$localize = apply_filters( 'login_designer_customize_preview_localization', $localize );
@@ -118,11 +118,14 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			// Pull the Login Designer page from options.
 			$page = Login_Designer()->get_login_designer_page();
 
+			// Look for extension backgrounds.
+			$customizer = new Login_Designer_Customizer_Output();
+
 			// Localization.
 			$localize = array(
-				'admin_url'         	=> admin_url(),
 				'plugin_url'        	=> LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
 				'login_designer_page'   => get_permalink( $page ),
+				'extension_bg_colors' 	=> $customizer->extension_colors(),
 			);
 
 			$localize = apply_filters( 'login_designer_control_localization', $localize );

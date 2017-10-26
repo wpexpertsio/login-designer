@@ -268,6 +268,18 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		}
 
 		/**
+		 * Create a filter to for extenstions to add background collections.
+		 *
+		 * @return array $backgrounds
+		 */
+		function extension_colors() {
+
+			$colors = array();
+
+			return apply_filters( 'login_designer_extension_color_options', $colors );
+		}
+
+		/**
 		 * Enqueue Customizer styles.
 		 *
 		 * @access public

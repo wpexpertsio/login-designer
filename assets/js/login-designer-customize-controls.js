@@ -196,6 +196,43 @@
 
 			value.bind( function( to ) {
 
+				var keys = [];
+				var values = [];
+
+				if ( login_designer_script.extension_colors ) {
+					keys = Object.keys( login_designer_script.extension_colors );
+					values = Object.values( login_designer_script.extension_colors );
+				}
+
+				console.log( 'keys:' + keys );
+
+				if ( keys.includes( to ) ) {
+
+					// If we have a custom background color, let's put it back to default.
+					wp.customize( 'login_designer[bg_color]' ).set( color );
+
+					// console.log( 'keys:');
+
+				}
+
+
+				// 	if ( to.indexOf( 'seasonal' ) >= 0 ) {
+
+				// 		url = login_designer_script.seasonal_plugin_url;
+
+				// 	} else {
+				// 		// Remove hyphen from value.
+				// 		bg_collection = to.replace(/-|\s/g,"");
+
+				// 		// Remove numbers from value.
+				// 		bg_collection = bg_collection.replace(/[0-9]/g, '');
+
+				// 		// Generate the dynamic URL based on the value of the option selected.
+				// 		url = login_designer_script.plugins_url + '/login-designer-' + bg_collection + '-backgrounds/assets/images/' ;
+				// 	}
+
+				// }
+
 				if ( to === 'bg_01' ) {
 					color = '#e3ebee';
 				} else if ( to === 'bg_02' ) {
@@ -232,6 +269,10 @@
 
 				// If we have a custom background color, let's put it back to default.
 				wp.customize( 'login_designer[bg_color]' ).set( color );
+
+				console.log( login_designer_controls.extension_bg_colors );
+
+				console.log( to );
 			} );
 		} );
 

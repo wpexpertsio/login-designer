@@ -427,11 +427,7 @@
 	}
 
 	wp.customize.bind( 'preview-ready', function() {
-
 		logoVisibility();
-
-		// console.log(logoVisibility());
-
 	});
 
 	// Hide the logo.
