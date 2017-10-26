@@ -49,6 +49,16 @@
 		],
 		'button' : [
 			'login_designer[button_title]',
+			'login_designer[button_bg]',
+			'login_designer[button_border]',
+			'login_designer[button_border_color]',
+			'login_designer[button_radius]',
+			'login_designer[button_shadow]',
+			'login_designer[button_shadow_opacity]',
+			'login_designer[button_text_title]',
+			'login_designer[button_font]',
+			'login_designer[button_font_size]',
+			'login_designer[button_color]',
 		],
 		'background' : [
 			'login_designer[bg_title]',
@@ -450,7 +460,7 @@
 			bind_control_visibility_event( fields_event, all_controls.fields, 'login_designer[form_title]' );
 			bind_control_visibility_event( username_label_event, all_controls.labels, 'login_designer[username_label]' );
 			bind_control_visibility_event( password_label_event, all_controls.labels, 'login_designer[password_label]' );
-			bind_control_visibility_event( button_event, all_controls.buttons, 'login_designer[button_title]' );
+			bind_control_visibility_event( button_event, all_controls.button, 'login_designer[button_title]' );
 			bind_control_visibility_event( background_event, all_controls.background, 'login_designer[bg_title]' );
 
 			// Open settings panel when the settings icon is clicked.

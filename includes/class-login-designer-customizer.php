@@ -73,26 +73,28 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			 * Add the main panel and sections.
 			 */
 			$wp_customize->add_panel( 'login_designer', array(
-				'title'		   => esc_html__( 'Login Designer', '@@textdomain' ),
+				'title'		   	=> esc_html__( 'Login Designer', '@@textdomain' ),
+				'capability' 		=> 'edit_theme_options',
+				'description'		=> esc_html__( 'Click the Templates icon at the left left of the preview window to change your template. To customize further, simply click on any element, or it\'s corresponding shortcut icon, to edit it\'s styling. ', '@@textdomain' ),
 				'priority'		=> 150,
+			) );
+
+			// Style Editor (visually hidden from the Customizer).
+			$wp_customize->add_section( 'login_designer__section--styles', array(
+				'title'		   	=> esc_html__( 'Styles', '@@textdomain' ),
+				'panel'		  	=> 'login_designer',
 			) );
 
 			// Templates.
 			$wp_customize->add_section( 'login_designer__section--templates', array(
-				'title'		   => esc_html__( 'Templates', '@@textdomain' ),
-				'panel'		   => 'login_designer',
-			) );
-
-			// Style Editor.
-			$wp_customize->add_section( 'login_designer__section--styles', array(
-				'title'		   => esc_html__( 'Style Editor', '@@textdomain' ),
-				'panel'		   => 'login_designer',
+				'title'		   	=> esc_html__( 'Templates', '@@textdomain' ),
+				'panel'		   	=> 'login_designer',
 			) );
 
 			// Settings.
 			$wp_customize->add_section( 'login_designer__section--settings', array(
-				'title'		   => esc_html__( 'Settings', '@@textdomain' ),
-				'panel'		   => 'login_designer',
+				'title'		   	=> esc_html__( 'Settings', '@@textdomain' ),
+				'panel'		   	=> 'login_designer',
 			) );
 
 			/**

@@ -102,6 +102,19 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'label_font' 		=> '',
 				'label_font_size' 	=> '14',
 				'label_color' 		=> '#72777c',
+
+				'button_bg' 		=> '',
+				'button_border' 	=> '1',
+				'button_border_color' 	=> '#dddddd',
+				'button_radius' 	=> '0',
+				'button_shadow' 	=> '2',
+				'button_shadow_opacity' => '7',
+
+				'button_font' 		=> '',
+				'button_font_size' 	=> '24',
+				'button_color' 		=> '',
+
+
 			);
 
 			return apply_filters( 'login_designer_defaults', $defaults );
