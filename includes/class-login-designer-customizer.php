@@ -75,7 +75,6 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			$wp_customize->add_panel( 'login_designer', array(
 				'title'		   => esc_html__( 'Login Designer', '@@textdomain' ),
 				'priority'		=> 150,
-				'priority'		=> 1,
 			) );
 
 			// Templates.
