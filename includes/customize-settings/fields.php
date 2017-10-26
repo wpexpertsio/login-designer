@@ -25,7 +25,7 @@ $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer[field_bg]', array(
 	'default'               => $defaults['field_bg'],
 	'type' 			=> 'option',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'sanitize_hex_color',
 ) );
 
@@ -34,11 +34,10 @@ $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logi
 	'section'               => 'login_designer__section--styles',
 ) ) );
 
-
 $wp_customize->add_setting( 'login_designer[field_side_padding]', array(
 	'default'               => $defaults['field_side_padding'],
 	'type' 			=> 'option',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'absint',
 ) );
 
@@ -59,7 +58,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer[field_border]', array(
 	'default'               => $defaults['field_border'],
 	'type' 			=> 'option',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'absint',
 ) );
 
@@ -80,7 +79,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer[field_border_color]', array(
 	'default'               => $defaults['field_border_color'],
 	'type' 			=> 'option',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'sanitize_hex_color',
 ) );
 
@@ -113,7 +112,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer[field_shadow]', array(
 	'default'               => $defaults['field_shadow'],
 	'type' 			=> 'option',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'absint',
 ) );
 
@@ -134,7 +133,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer[field_shadow_opacity]', array(
 	'default'               => $defaults['field_shadow_opacity'],
 	'type' 			=> 'option',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'absint',
 ) );
 
@@ -155,7 +154,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer[field_shadow_inset]', array(
 	'default'               => $defaults['field_shadow_inset'],
 	'type' 			=> 'option',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => array( $this, 'sanitize_checkbox' ),
 ) );
 
@@ -197,7 +196,7 @@ $wp_customize->add_control( 'login_designer[field_font]', array(
 $wp_customize->add_setting( 'login_designer[field_font_size]', array(
 	'default'               => $defaults['field_font_size'],
 	'type' 			=> 'option',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'absint',
 ) );
 
@@ -218,7 +217,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 $wp_customize->add_setting( 'login_designer[field_color]', array(
 	'default'               => $defaults['field_color'],
 	'type' 			=> 'option',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'sanitize_hex_color',
 ) );
 

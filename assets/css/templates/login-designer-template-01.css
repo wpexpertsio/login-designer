@@ -1,4 +1,4 @@
-body.login-designer-template-01 {
+body.login.login-designer-template-01 {
 	content: " ";
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -6,87 +6,14 @@ body.login-designer-template-01 {
 	display: flex;
 }
 
-body.login-designer-template-01,
-body.login-designer-template-01.has-template-applied {
-	background: red;
-}
-
-body.login-designer-template-01 #login {
+body.login.login-designer-template-01 #login {
 	background: #fff;
 	flex-direction: column;
 	margin: 0;
-	padding: 40px 30px;
 	width: 33.33333333%;
 
 	-webkit-box-direction: normal;
 	-webkit-box-orient: vertical;
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
-}
-
-body.login-designer-template-01 #login h1 a:focus {
-	box-shadow: none;
-}
-
-body.login-designer-template-01 #login form {
-	box-shadow: none;
-	margin: 20px auto 0;
-	max-width: 480px;
-	padding: 0;
-}
-
-body.login-designer-template-01 #login form label {
-	color: #484848;
-	display: block;
-	font-size: 15px;
-	font-weight: 500;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-body.login-designer-template-01 #login form input[type=text],
-body.login-designer-template-01 #login form input[type=password] {
-	background: #fff;
-	border: 2px solid #c9c9c9;
-	border-radius: 4px;
-	box-shadow: none;
-	font-size: 17px;
-	line-height: 20px;
-	margin-bottom: 20px;
-	margin-top: 7px;
-	min-height: 52px;
-	padding: 0 15px;
-}
-
-body.login-designer-template-01 #login form input[type=text]:hover,
-body.login-designer-template-01 #login form input[type=password]:hover {
-	border-color: #a6a6a6;
-}
-
-body.login-designer-template-01 #login form input[type=text]:focus,
-body.login-designer-template-01 #login form input[type=password]:focus {
-	border-color: #0078ba;
-}
-
-body.login-designer-template-01 #login .button.button-large {
-	border: 0;
-	border-radius: 4px;
-	font-size: 17px;
-	height: 48px;
-	padding: 0 42px;
-	text-shadow: none;
-	width: 100%;
-}
-
-body.login-designer-template-01 #login #nav,
-body.login-designer-template-01 #login #backtoblog {
-	font-size: 14px;
-	opacity: 0.7;
-	padding: 0;
-}
-
-body.login-designer-template-01 #login #backtoblog {
-	margin: 10px 0 0;
 }

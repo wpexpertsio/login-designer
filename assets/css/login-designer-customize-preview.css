@@ -18,8 +18,8 @@
 }
 
 .customize-partial--login-designer-template {
-	bottom: 78px !important;
-	right: 12px !important;
+	left: 42px !important;
+	top: 46px !important;
 }
 
 .customize-partial--login-designer-template .login-designer-event-button:before {
@@ -69,6 +69,10 @@
 .customize-partial--login-designer-background {
 	left: 42px !important;
 	top: 10px !important;
+}
+
+.login-designer-template-01 .customize-partial--login-designer-background {
+	left: calc( 33.33333333% + 42px) !important;
 }
 
 .hidden {

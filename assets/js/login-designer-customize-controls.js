@@ -204,7 +204,7 @@
 					values = Object.values( login_designer_script.extension_colors );
 				}
 
-				console.log( 'keys:' + keys );
+				// console.log( 'keys:' + keys );
 
 				if ( keys.includes( to ) ) {
 
@@ -270,9 +270,9 @@
 				// If we have a custom background color, let's put it back to default.
 				wp.customize( 'login_designer[bg_color]' ).set( color );
 
-				console.log( login_designer_controls.extension_bg_colors );
+				// console.log( login_designer_controls.extension_bg_colors );
 
-				console.log( to );
+				// console.log( to );
 			} );
 		} );
 

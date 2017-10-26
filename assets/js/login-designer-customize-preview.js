@@ -19,10 +19,187 @@
 		});
 
 		wp.customize.preview.bind( 'login-designer-back-to-home', function( data ) {
-			console.log( 'sent back to home' );
 			wp.customize.preview.send( 'url', data.home_url );
 		});
 	});
+
+	// Field background color.
+	wp.customize( 'login_designer[field_bg]', function( value ) {
+		value.bind( function( to ) {
+			$( '#loginform .input' ).css( 'background-color', to );
+		} );
+	} );
+
+	// Field padding-left.
+	wp.customize( 'login_designer[field_side_padding]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_field_side_padding">#loginform .input { padding-left: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_field_side_padding' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Field border.
+	wp.customize( 'login_designer[field_border]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_field_border">#loginform .input { border-style: solid; border-width: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_field_border' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Field border color.
+	wp.customize( 'login_designer[field_border_color]', function( value ) {
+		value.bind( function( to ) {
+			$( '#loginform .input' ).css( 'border-color', to );
+		} );
+	} );
+
+	// Field border radius.
+	wp.customize( 'login_designer[field_radius]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_field_radius">#loginform div .login-designer-event-button, #loginform .input { border-radius: ' + to + 'px !important; } </style>';
+
+			el =  $( '.login_designer_field_radius' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Return the field's shadow size value.
+	function fieldBoxShadowSize() {
+		return wp.customize( 'login_designer[field_shadow]' )();
+	}
+
+	// Return the field's shadow opacity value.
+	function fieldBoxShadowOpacity() {
+		return wp.customize( 'login_designer[field_shadow_opacity]' )() * .01;
+	}
+
+	// Return the field's shadow inset value.
+	function fieldBoxShadowInset() {
+		if ( true === wp.customize( 'login_designer[field_shadow_inset]' )() ) {
+			return 'inset';
+		} else {
+			return '';
+		}
+	}
+
+	// Field Box Shadow.
+	wp.customize( 'login_designer[field_shadow]', function( value ) {
+		value.bind( function( to ) {
+			var style, shadow_opacity, el;
+			style = '<style class="login_designer_field_shadow"> #loginform .input { box-shadow: ' + fieldBoxShadowInset() + ' 0 0 ' + to + 'px rgba(0, 0, 0, ' + fieldBoxShadowOpacity() + '); } </style>';
+
+			el =  $( '.login_designer_field_shadow' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Field Box Shadow.
+	wp.customize( 'login_designer[field_shadow_opacity]', function( value ) {
+		value.bind( function( to ) {
+			var style, el, shadow_size, opacity;
+
+			opacity = to * .01;
+
+			style = '<style class="login_designer_field_shadow"> #loginform .input { box-shadow: ' + fieldBoxShadowInset() + ' 0 0 ' + fieldBoxShadowSize() + 'px rgba(0, 0, 0, ' + opacity + '); } </style>';
+
+			el =  $( '.login_designer_field_shadow' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Field Box Shadow.
+	wp.customize( 'login_designer[field_shadow_inset]', function( value ) {
+		value.bind( function( to ) {
+			var style, el, shadow_size, inset;
+
+			if ( true === to ) {
+				inset = 'inset';
+			} else {
+				inset = '';
+			}
+
+			style = '<style class="login_designer_field_shadow"> #loginform .input { box-shadow: ' + inset + ' 0 0 ' + fieldBoxShadowSize() + 'px rgba(0, 0, 0, ' + fieldBoxShadowOpacity() + '); } </style>';
+
+			el =  $( '.login_designer_field_shadow' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Field font size.
+	wp.customize( 'login_designer[field_font_size]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_field_font_size"> #loginform .input { font-size: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_field_font_size' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Field color.
+	wp.customize( 'login_designer[field_color]', function( value ) {
+		value.bind( function( to ) {
+			$( '#loginform .input' ).css( 'color', to );
+		} );
+	} );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	// Check whether a custom logo image is available.
 	function hasLogo() {
@@ -264,7 +441,7 @@
 					$( '#login-designer-background' ).removeClass( 'transitioning' );
 				}, 550 );
 
-				console.log( customBackground() );
+				// console.log( customBackground() );
 
 			} else {
 
@@ -547,22 +724,6 @@
 	wp.customize( 'login_designer_admin[logo_url]', function( value ) {
 		value.bind( function( to ) {
 			$( '#login-designer-logo' ).attr( 'href', to );
-		} );
-	} );
-
-	// Field border radius.
-	wp.customize( 'login_designer[field_radius]', function( value ) {
-		value.bind( function( to ) {
-			var style, el;
-			style = '<style class="login_designer_field_radius"> body.login #loginform .input { border-radius: ' + to + 'px; } </style>';
-
-			el =  $( '.login_designer_field_radius' );
-
-			if ( el.length ) {
-				el.replaceWith( style ); // style element already exists, so replace it
-			} else {
-				$( 'head' ).append( style ); // style element doesn't exist so add it
-			}
 		} );
 	} );
 

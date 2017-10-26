@@ -56,134 +56,6 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		}
 
 		/**
-		 * Admin options wrapper.
-		 *
-		 * @param string|string $option The option in question.
-		 * @return string
-		 */
-		public function admin_option_wrapper( $option ) {
-
-			$options = get_option( 'login_designer_admin' );
-
-			// Check if options exist.
-			if ( ! $options ) {
-				return false;
-			}
-
-			// Check if the option exists.
-			if ( isset( $options[ $option ] ) ) {
-				return $options[ $option ];
-			} else {
-				return false;
-			}
-		}
-
-		/**
-		 * Add preconnect for Google Fonts.
-		 *
-		 * @param  array|array   $urls           URLs to print for resource hints.
-		 * @param  string|string $relation_type  The relation type the URLs are printed.
-		 * @return array|array   $urls           URLs to print for resource hints.
-		 */
-		function fonts_resource_hints( $urls, $relation_type ) {
-
-			if ( wp_style_is( 'login-designer-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
-				$urls[] = array(
-					'href' => 'https://fonts.gstatic.com',
-					'crossorigin',
-				);
-			}
-
-			return $urls;
-		}
-
-		/**
-		 * Register Google fonts from the Customizer.
-		 */
-		function enqueue_fonts() {
-
-			$field_font = $this->option_wrapper( 'field_font' );
-			$label_font = $this->option_wrapper( 'label_font' );
-
-			wp_enqueue_style( 'login-designer-fonts', $this->fonts(), array(), null );
-		}
-
-		/**
-		 * Retreive Google fonts from the Customizer options.
-		 *
-		 * @return string Google fonts URL for the theme.
-		 */
-		function fonts() {
-
-			$fonts_url = '';
-			$fonts     = array();
-
-			/**
-			 * Get fonts from the Customizer.
-			 */
-			if ( $this->option_wrapper( 'field_font' ) ) {
-				$fonts[] = $this->option_wrapper( 'field_font' );
-			}
-
-			if ( $this->option_wrapper( 'label_font' ) ) {
-				$fonts[] = $this->option_wrapper( 'label_font' );
-			}
-
-			if ( $fonts ) {
-				$fonts_url = add_query_arg( array(
-					'family' => urlencode( implode( '|', array_unique( $fonts ) ) ),
-					'subset' => urlencode( 'latin,latin-ext' ),
-				), 'https://fonts.googleapis.com/css' );
-			}
-
-			return esc_url_raw( $fonts_url );
-		}
-
-		/**
-		 * Customizer output for custom username label.
-		 *
-		 * @param string|string $translated_text The translated text.
-		 * @param string|string $text The label we want to replace.
-		 * @param string|string $domain The domain of the site.
-		 * @return string
-		 */
-		public function custom_username_label( $translated_text, $text, $domain ) {
-
-			// If the option does not exist, return.
-			if ( ! $this->option_wrapper( 'username_label' ) ) {
-				return $translated_text;
-			}
-
-			if ( 'Username or Email Address' === $text ) {
-				$translated_text = esc_html( $this->option_wrapper( 'username_label' ) );
-			}
-
-			return $translated_text;
-		}
-
-		/**
-		 * Customizer output for custom password label.
-		 *
-		 * @param string|string $translated_text The translated text.
-		 * @param string|string $text The label we want to replace.
-		 * @param string|string $domain The domain of the site.
-		 * @return string
-		 */
-		public function custom_password_label( $translated_text, $text, $domain ) {
-
-			// If the option does not exist, return.
-			if ( ! $this->option_wrapper( 'password_label' ) ) {
-				return $translated_text;
-			}
-
-			if ( 'Password' === $text ) {
-				$translated_text = esc_html( $this->option_wrapper( 'password_label' ) );
-			}
-
-			return $translated_text;
-		}
-
-		/**
 		 * Set default options.
 		 *
 		 * @return array $defaults
@@ -236,6 +108,29 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		}
 
 		/**
+		 * Admin options wrapper.
+		 *
+		 * @param string|string $option The option in question.
+		 * @return string
+		 */
+		public function admin_option_wrapper( $option ) {
+
+			$options = get_option( 'login_designer_admin' );
+
+			// Check if options exist.
+			if ( ! $options ) {
+				return false;
+			}
+
+			// Check if the option exists.
+			if ( isset( $options[ $option ] ) ) {
+				return $options[ $option ];
+			} else {
+				return false;
+			}
+		}
+
+		/**
 		 * Set admin defaults.
 		 * Admin settings are separated because we don't want to reset them if the reset Customizer action is triggered.
 		 *
@@ -277,6 +172,114 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 			$colors = array();
 
 			return apply_filters( 'login_designer_extension_color_options', $colors );
+		}
+
+		/**
+		 * Retreive Google fonts from the Customizer options.
+		 *
+		 * @return string Google fonts URL for the theme.
+		 */
+		function fonts() {
+
+			$fonts_url = '';
+			$fonts     = array();
+
+			$field_font = $this->option_wrapper( 'field_font' );
+			$label_font = $this->option_wrapper( 'label_font' );
+
+			/**
+			 * Get fonts from the Customizer.
+			 */
+			if ( $field_font ) {
+				if ( 'default' !== $field_font ) {
+					$fonts[] = $field_font;
+				}
+			}
+
+			if ( $label_font ) {
+				if ( 'default' !== $label_font ) {
+					$fonts[] = $label_font;
+				}
+			}
+
+			if ( $fonts ) {
+				$fonts_url = add_query_arg( array(
+					'family' => urlencode( implode( '|', array_unique( $fonts ) ) ),
+					'subset' => urlencode( 'latin,latin-ext' ),
+				), 'https://fonts.googleapis.com/css' );
+			}
+
+			return esc_url_raw( $fonts_url );
+		}
+
+		/**
+		 * Register Google fonts from the Customizer.
+		 */
+		function enqueue_fonts() {
+			wp_enqueue_style( 'login-designer-fonts', $this->fonts(), array(), null );
+		}
+
+		/**
+		 * Add preconnect for Google Fonts.
+		 *
+		 * @param  array|array   $urls           URLs to print for resource hints.
+		 * @param  string|string $relation_type  The relation type the URLs are printed.
+		 * @return array|array   $urls           URLs to print for resource hints.
+		 */
+		function fonts_resource_hints( $urls, $relation_type ) {
+
+			if ( wp_style_is( 'login-designer-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+				$urls[] = array(
+					'href' => 'https://fonts.gstatic.com',
+					'crossorigin',
+				);
+			}
+
+			return $urls;
+		}
+
+		/**
+		 * Customizer output for custom username label.
+		 *
+		 * @param string|string $translated_text The translated text.
+		 * @param string|string $text The label we want to replace.
+		 * @param string|string $domain The domain of the site.
+		 * @return string
+		 */
+		public function custom_username_label( $translated_text, $text, $domain ) {
+
+			// If the option does not exist, return.
+			if ( ! $this->option_wrapper( 'username_label' ) ) {
+				return $translated_text;
+			}
+
+			if ( 'Username or Email Address' === $text ) {
+				$translated_text = esc_html( $this->option_wrapper( 'username_label' ) );
+			}
+
+			return $translated_text;
+		}
+
+		/**
+		 * Customizer output for custom password label.
+		 *
+		 * @param string|string $translated_text The translated text.
+		 * @param string|string $text The label we want to replace.
+		 * @param string|string $domain The domain of the site.
+		 * @return string
+		 */
+		public function custom_password_label( $translated_text, $text, $domain ) {
+
+			// If the option does not exist, return.
+			if ( ! $this->option_wrapper( 'password_label' ) ) {
+				return $translated_text;
+			}
+
+			if ( 'Password' === $text ) {
+				$translated_text = esc_html( $this->option_wrapper( 'password_label' ) );
+			}
+
+			return $translated_text;
 		}
 
 		/**
@@ -442,9 +445,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				}
 
 				// Form box-shadow.
-				if ( isset( $options['form_shadow'] ) || isset( $options['form_shadow_opacity'] ) ) {
+				if ( isset( $options['form_shadow'] ) ) {
 
-					$opacity = ( isset( $options['form_shadow_opacity'] ) * .01 ) ? isset( $options['form_shadow_opacity'] ) * .01 : 0;
+					$opacity = ( isset( $options['form_shadow_opacity'] ) * .01 ) ? $options['form_shadow_opacity'] * .01 : 0;
 
 					$css .= '#loginform { box-shadow: 0 0 '. esc_attr( $options['form_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
 				}
@@ -456,7 +459,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Field side padding.
 				if ( isset( $options['field_side_padding'] ) ) {
-					$css .= '#loginform .input { padding-left: ' . esc_attr( $options['field_side_padding'] ) . 'px; padding-right: ' . esc_attr( $options['field_side_padding'] ) . 'px; }';
+					$css .= '#loginform .input { padding-left: ' . esc_attr( $options['field_side_padding'] ) . 'px; }';
 				}
 
 				// Field border width.
@@ -471,13 +474,13 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Field border radius.
 				if ( isset( $options['field_radius'] ) ) {
-					$css .= '#loginform .input { border-radius: ' . esc_attr( $options['field_radius'] ) . 'px; }';
+					$css .= '#loginform .input, #loginform div .login-designer-event-button { border-radius: ' . esc_attr( $options['field_radius'] ) . 'px; }';
 				}
 
 				// Field box-shadow.
-				if ( isset( $options['field_shadow'] ) || isset( $options['field_shadow_opacity'] ) ) {
+				if ( isset( $options['field_shadow'] ) ) {
 
-					$opacity = ( isset( $options['field_shadow_opacity'] ) * .01 ) ? isset( $options['field_shadow_opacity'] ) * .01 : 0;
+					$opacity = ( isset( $options['field_shadow_opacity'] ) * .01 ) ? $options['field_shadow_opacity'] * .01 : 0;
 
 					$inset = isset( $options['field_shadow_inset'] ) ? 'inset' : '';
 
@@ -485,7 +488,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				}
 
 				// Field font, as long as it's not 'default'.
-				if ( isset( $options['field_font'] ) && ! 'default' !== $options['field_font'] ) {
+				if ( isset( $options['field_font'] ) && 'default' !== $options['field_font'] ) {
 					$css .= '#loginform .input { font-family: ' . esc_attr( $options['field_font'] ) . '; }';
 				}
 
@@ -500,7 +503,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				}
 
 				// Label font, as long as it's not 'default'.
-				if ( isset( $options['label_font'] ) && ! 'default' !== $options['label_font'] ) {
+				if ( isset( $options['label_font'] ) && 'default' !== $options['label_font'] ) {
 					$css .= '#loginform label:not([for=rememberme]) { font-family: ' . esc_attr( $options['label_font'] ) . '; }';
 				}
 

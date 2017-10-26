@@ -22,8 +22,8 @@
 }
 
 .customize-partial--login-designer-template {
-	bottom: 78px !important;
-	right: 12px !important;
+	left: 42px !important;
+	top: 46px !important;
 
 	.login-designer-event-button:before {
 		color: #fff;
@@ -39,7 +39,6 @@
 		line-height: 20px;
 	}
 }
-
 
 .customize-partial--login-designer-add-logo {
 	left: 0;
@@ -74,6 +73,11 @@
 .customize-partial--login-designer-background {
 	top: 10px !important;
 	left: 42px !important;
+
+
+	.login-designer-template-01 & {
+		left: calc( 33.33333333% + 42px ) !important;
+	}
 }
 
 .hidden {

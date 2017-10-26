@@ -356,11 +356,11 @@
 								if ( '0' < setting.get() ) {
 									// If there is a custom logo uploaded, let's show the bottom positioning option.
 									wp.customize.control( item ).activate( { duration: 0 } );
-									console.log( 'has a shadow' );
+									// console.log( 'has a shadow' );
 								} else {
 									// If not, let's quickly hide it.
 									control.container.slideUp( 0 );
-									console.log( 'no shadow' );
+									// console.log( 'no shadow' );
 								}
 							};
 
@@ -380,11 +380,11 @@
 								if ( '0' < setting.get() ) {
 									// If there is a custom logo uploaded, let's show the bottom positioning option.
 									wp.customize.control( item ).activate( { duration: 0 } );
-									console.log( 'border' );
+									// console.log( 'border' );
 								} else {
 									// If not, let's quickly hide it.
 									control.container.slideUp( 0 );
-									console.log( 'no border' );
+									// console.log( 'no border' );
 								}
 							};
 
