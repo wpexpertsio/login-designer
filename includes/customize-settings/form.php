@@ -116,7 +116,7 @@ $wp_customize->add_setting( 'login_designer[form_radius]', array(
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer[form_radius]', array(
 	'type'                  => 'login-designer-range',
-	'label'                 => esc_html__( 'Border Radius', '@@textdomain' ),
+	'label'                 => esc_html__( 'Radius', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 	'description'           => 'px',
 	'default'               => $defaults['form_radius'],

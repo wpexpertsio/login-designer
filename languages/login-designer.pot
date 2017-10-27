@@ -266,7 +266,7 @@ msgid "Border Color"
 msgstr ""
 
 #: includes/customize-settings/fields.php:101, includes/customize-settings/form.php:119
-msgid "Border Radius"
+msgid "Radius"
 msgstr ""
 
 #: includes/customize-settings/fields.php:122, includes/customize-settings/form.php:140

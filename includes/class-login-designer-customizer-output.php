@@ -103,16 +103,16 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'label_font_size' 	=> '14',
 				'label_color' 		=> '#72777c',
 
-				'button_bg' 		=> '',
+				'button_bg' 		=> '#0085ba',
 				'button_border' 	=> '1',
-				'button_border_color' 	=> '#dddddd',
-				'button_radius' 	=> '0',
-				'button_shadow' 	=> '2',
-				'button_shadow_opacity' => '7',
+				'button_border_color' 	=> '#0073aa',
+				'button_radius' 	=> '3',
+				'button_shadow' 	=> '0',
+				'button_shadow_opacity' => '0',
 
 				'button_font' 		=> '',
-				'button_font_size' 	=> '24',
-				'button_color' 		=> '',
+				'button_font_size' 	=> '13',
+				'button_color' 		=> '#fff',
 
 
 			);
@@ -333,20 +333,24 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					padding-bottom: 25px !important;
 				}
 
-				.login form .forgetmenot {
+				#loginform .forgetmenot {
 					margin-top: 5px;
 				}
 
-				h1#login-designer-logo-h1 {
+				#login-designer-logo-h1 {
 					margin: 0 auto;
 				}
 
-				h1#login-designer-logo-h1 a {
+				#login-designer-logo {
 					transition-duration: 0;
 				}
 
 				#login h1 a:focus {
 					box-shadow: none;
+				}
+
+				#loginform .submit .button {
+					text-shadow: none;
 				}
 			';
 
@@ -411,7 +415,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 							background-position: center center;
 						}
 
-						h1#login-designer-logo-h1,
+						#login-designer-logo-h1,
 						body.login #login h1 a {
 							margin: 0 auto;
 							width: '. esc_attr( $size[0] / 2 ) .'px;
@@ -424,12 +428,12 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Logo display.
 				if ( isset( $options['disable_logo'] ) && true === $options['disable_logo'] ) {
 					$css .= 'body.login #login h1 a { display: none; }';
-					$css .= 'body.login #login h1 a, body h1#login-designer-logo-h1 { margin-bottom: 0 }';
+					$css .= 'body.login #login h1 a, body #login-designer-logo-h1 { margin-bottom: 0 }';
 				}
 
 				// Logo margin bottom.
 				if ( isset( $options['logo_margin_bottom'] ) && ! empty( $options['logo'] ) ) {
-					$css .= 'body.login #login h1 a, h1#login-designer-logo-h1 { margin-bottom: ' . esc_attr( $options['logo_margin_bottom'] ) . 'px; }';
+					$css .= 'body.login #login h1 a, #login-designer-logo-h1 { margin-bottom: ' . esc_attr( $options['logo_margin_bottom'] ) . 'px; }';
 				}
 
 				// Form background color.
@@ -530,15 +534,58 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					$css .= '#loginform label:not([for=rememberme]) { color: ' . esc_attr( $options['label_color'] ) . ' }';
 				}
 
-				// Combine the values from above and minifiy them.
-				$css = preg_replace( '#/\*.*?\*/#s', '', $css );
-				$css = preg_replace( '/\s*([{}|:;,])\s+/', '$1', $css );
-				$css = preg_replace( '/\s\s+(.*)/', '$1', $css );
+				// Button background color.
+				if ( isset( $options['button_bg'] ) ) {
+					$css .= '#loginform .submit .button { background-color: ' . $options['button_bg'] . '; }';
+				}
 
-				// Add inline style.
-				wp_add_inline_style( 'login', wp_strip_all_tags( $css ) );
+				// Button border width.
+				if ( isset( $options['button_border'] ) ) {
+					$css .= '#loginform .submit .button { border-style: solid; border-width: ' . esc_attr( $options['button_border'] ) . 'px; }';
+				}
+
+				// Button border color.
+				if ( isset( $options['button_border_color'] ) ) {
+					$css .= '#loginform .submit .button { border-color: ' . $options['button_border_color'] . '; }';
+				}
+
+				// Button border radius.
+				if ( isset( $options['button_radius'] ) ) {
+					$css .= '#loginform .submit .button, #loginform .submit .login-designer-event-button { border-radius: ' . esc_attr( $options['button_radius'] ) . 'px; }';
+				}
+
+				// Field box-shadow.
+				if ( isset( $options['button_shadow'] ) ) {
+
+					$opacity = ( isset( $options['button_shadow_opacity'] ) * .01 ) ? $options['button_shadow_opacity'] * .01 : 0;
+
+					$css .= '#loginform .submit .button { box-shadow: 0 0 '. esc_attr( $options['button_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
+				}
+
+				// Button font, as long as it's not 'default'.
+				if ( isset( $options['button_font'] ) && 'default' !== $options['button_font'] ) {
+					$css .= '#loginform .submit .button { font-family: ' . esc_attr( $options['button_font'] ) . '; }';
+				}
+
+				// Button font size.
+				if ( isset( $options['button_font_size'] ) ) {
+					$css .= '#loginform .submit .button { font-size: ' . esc_attr( $options['button_font_size'] ) . 'px }';
+				}
+
+				// Button font color.
+				if ( isset( $options['button_color'] ) ) {
+					$css .= '#loginform .submit .button { color: ' . esc_attr( $options['button_color'] ) . ' }';
+				}
 
 			endif;
+
+			// Combine the values from above and minifiy them.
+			$css = preg_replace( '#/\*.*?\*/#s', '', $css );
+			$css = preg_replace( '/\s*([{}|:;,])\s+/', '$1', $css );
+			$css = preg_replace( '/\s\s+(.*)/', '$1', $css );
+
+			// Add inline style.
+			wp_add_inline_style( 'login', wp_strip_all_tags( $css ) );
 		}
 	}
 
