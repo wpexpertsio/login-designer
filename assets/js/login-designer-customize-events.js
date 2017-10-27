@@ -30,6 +30,7 @@
 			'login_designer[field_border]',
 			'login_designer[field_border_color]',
 			'login_designer[field_radius]',
+			'login_designer[field_height]',
 			'login_designer[field_side_padding]',
 			'login_designer[field_shadow]',
 			'login_designer[field_shadow_opacity]',

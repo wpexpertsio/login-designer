@@ -86,6 +86,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'form_shadow_opacity' 	=> '13',
 
 				'field_bg' 		=> '#fbfbfb',
+				'field_height' 		=> '3',
 				'field_side_padding' 	=> '3',
 				'field_border' 		=> '1',
 				'field_border_color' 	=> '#dddddd',
@@ -472,6 +473,11 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Field background.
 				if ( isset( $options['field_bg'] ) ) {
 					$css .= '#loginform .input { background-color: ' . esc_attr( $options['field_bg'] ) . '; }';
+				}
+
+				// Field height.
+				if ( isset( $options['field_height'] ) ) {
+					$css .= '#loginform .input { padding-top: ' . esc_attr( $options['field_height'] ) . 'px; padding-bottom: ' . esc_attr( $options['field_height'] ) . 'px; }';
 				}
 
 				// Field side padding.

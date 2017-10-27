@@ -34,7 +34,7 @@
 	wp.customize( 'login_designer[button_border]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_button_border">#loginform .submit .button { border-style: solid; border-width: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_button_border"> #loginform .submit .button { border-style: solid; border-width: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_button_border' );
 
@@ -57,7 +57,7 @@
 	wp.customize( 'login_designer[button_radius]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_button_radius">#loginform .submit .login-designer-event-button, #loginform .submit .button { border-radius: ' + to + 'px !important; } </style>';
+			style = '<style class="login_designer_button_radius"> #loginform .submit .login-designer-event-button, #loginform .submit .button { border-radius: ' + to + 'px !important; } </style>';
 
 			el =  $( '.login_designer_button_radius' );
 
@@ -144,11 +144,27 @@
 		} );
 	} );
 
+	// Field height.
+	wp.customize( 'login_designer[field_height]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_field_height"> #loginform .input { padding-top: ' + to + 'px; padding-bottom: ' + to + 'px;  }</style>';
+
+			el =  $( '.login_designer_field_height' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
 	// Field padding-left.
 	wp.customize( 'login_designer[field_side_padding]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_field_side_padding">#loginform .input { padding-left: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_field_side_padding"> #loginform .input { padding-left: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_field_side_padding' );
 
@@ -164,7 +180,7 @@
 	wp.customize( 'login_designer[field_border]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_field_border">#loginform .input { border-style: solid; border-width: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_field_border"> #loginform .input { border-style: solid; border-width: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_field_border' );
 
@@ -187,7 +203,7 @@
 	wp.customize( 'login_designer[field_radius]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_field_radius">#loginform div .login-designer-event-button, #loginform .input { border-radius: ' + to + 'px !important; } </style>';
+			style = '<style class="login_designer_field_radius"> #loginform div .login-designer-event-button, #loginform .input { border-radius: ' + to + 'px !important; } </style>';
 
 			el =  $( '.login_designer_field_radius' );
 
@@ -731,9 +747,9 @@
 			el =  $( '.login_designer_logo_disable_logo' );
 
 			if ( true === to ) {
-				style = '<style class="login_designer_logo_disable_logo">#login-designer-logo { display: none !important; } body #login-designer-logo-h1 { margin-bottom: 0 !important; } body #login-designer-logo-h1, body #login-designer-logo-h1 #login-designer-logo { height: 0 !important; width: 0 !important; } </style>';
+				style = '<style class="login_designer_logo_disable_logo"> #login-designer-logo { display: none !important; } body #login-designer-logo-h1 { margin-bottom: 0 !important; } body #login-designer-logo-h1, body #login-designer-logo-h1 #login-designer-logo { height: 0 !important; width: 0 !important; } </style>';
 			} else {
-				style = '<style class="login_designer_logo_disable_logo">#login-designer-logo { display: block !important; } </style>';
+				style = '<style class="login_designer_logo_disable_logo"> #login-designer-logo { display: block !important; } </style>';
 			}
 
 			if ( el.length ) {
