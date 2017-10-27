@@ -34,6 +34,48 @@ $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logi
 	'section'               => 'login_designer__section--styles',
 ) ) );
 
+$wp_customize->add_setting( 'login_designer[button_height]', array(
+	'default'               => $defaults['button_height'],
+	'type' 			=> 'option',
+	'transport'             => 'postMessage',
+	'sanitize_callback'     => 'absint',
+) );
+
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer[button_height]', array(
+	'type'                  => 'login-designer-range',
+	'label'                 => esc_html__( 'Height', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+	'description'           => 'px',
+	'default'               => $defaults['button_height'],
+	'input_attrs'           => array(
+		'min'               => 1,
+		'max'               => 20,
+		'step'              => 1,
+		),
+	)
+) );
+
+$wp_customize->add_setting( 'login_designer[button_side_padding]', array(
+	'default'               => $defaults['button_side_padding'],
+	'type' 			=> 'option',
+	'transport'             => 'postMessage',
+	'sanitize_callback'     => 'absint',
+) );
+
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer[button_side_padding]', array(
+	'type'                  => 'login-designer-range',
+	'label'                 => esc_html__( 'Padding', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+	'description'           => 'px',
+	'default'               => $defaults['button_side_padding'],
+	'input_attrs'           => array(
+		'min'               => 0,
+		'max'               => 60,
+		'step'              => 1,
+		),
+	)
+) );
+
 $wp_customize->add_setting( 'login_designer[button_border]', array(
 	'default'               => $defaults['button_border'],
 	'type' 			=> 'option',

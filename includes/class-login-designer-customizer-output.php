@@ -87,7 +87,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				'field_bg' 		=> '#fbfbfb',
 				'field_height' 		=> '3',
-				'field_side_padding' 	=> '3',
+				'field_side_padding' 	=> '12',
 				'field_border' 		=> '1',
 				'field_border_color' 	=> '#dddddd',
 				'field_radius' 		=> '0',
@@ -105,6 +105,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'label_color' 		=> '#72777c',
 
 				'button_bg' 		=> '#0085ba',
+				'button_height' 	=> '4',
+				'button_side_padding' 	=> '12',
 				'button_border' 	=> '1',
 				'button_border_color' 	=> '#0073aa',
 				'button_radius' 	=> '3',
@@ -351,7 +353,10 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				}
 
 				#loginform .submit .button {
+					box-shadow: 0 0 0;
 					text-shadow: none;
+					height: auto !important;
+					line-height: inherit;
 				}
 			';
 
@@ -543,6 +548,16 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Button background color.
 				if ( isset( $options['button_bg'] ) ) {
 					$css .= '#loginform .submit .button { background-color: ' . $options['button_bg'] . '; }';
+				}
+
+				// Button height.
+				if ( isset( $options['button_height'] ) ) {
+					$css .= '#loginform .submit .button { padding-top: ' . esc_attr( $options['button_height'] ) . 'px; padding-bottom: ' . esc_attr( $options['button_height'] ) . 'px; }';
+				}
+
+				// Button side padding.
+				if ( isset( $options['button_side_padding'] ) ) {
+					$css .= '#loginform .submit .button { padding-left: ' . esc_attr( $options['button_side_padding'] ) . 'px; padding-right: ' . esc_attr( $options['button_side_padding'] ) . 'px; }';
 				}
 
 				// Button border width.

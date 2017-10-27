@@ -51,6 +51,8 @@
 		'button' : [
 			'login_designer[button_title]',
 			'login_designer[button_bg]',
+			'login_designer[button_height]',
+			'login_designer[button_side_padding]',
 			'login_designer[button_border]',
 			'login_designer[button_border_color]',
 			'login_designer[button_radius]',

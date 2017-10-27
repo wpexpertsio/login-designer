@@ -30,6 +30,38 @@
 		} );
 	} );
 
+	// Button side padding.
+	wp.customize( 'login_designer[button_height]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_button_height"> #loginform .submit .button { padding-top: ' + to + 'px; padding-bottom: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_button_height' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Button side padding.
+	wp.customize( 'login_designer[button_side_padding]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_button_side_padding"> #loginform .submit .button { padding-left: ' + to + 'px; padding-right: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_button_side_padding' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
 	// Button border.
 	wp.customize( 'login_designer[button_border]', function( value ) {
 		value.bind( function( to ) {
