@@ -60,7 +60,7 @@ function login_designer_run_install() {
 
 	set_transient( '_login_designer_activation_redirect', true, 30 );
 
-	// Setup some default options.
+	// Set up options.
 	$options = array();
 
 	// Pull options from WP.

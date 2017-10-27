@@ -147,7 +147,6 @@
 						});
 					});
 
-
 				} else if ( item === 'login_designer[logo]' ) {
 
 					wp.customize( 'login_designer[disable_logo]', function( setting ) {
@@ -406,7 +405,30 @@
 						});
 					});
 
-				} else {
+				} else if ( item === 'login_designer[button_border_color]' ) {
+
+					wp.customize( 'login_designer[button_border]', function( setting ) {
+						wp.customize.control( item, function( control ) {
+							var visibility = function() {
+
+								if ( '0' < setting.get() ) {
+									// If there is a custom logo uploaded, let's show the bottom positioning option.
+									wp.customize.control( item ).activate( { duration: 0 } );
+									// console.log( 'border' );
+								} else {
+									// If not, let's quickly hide it.
+									control.container.slideUp( 0 );
+									// console.log( 'no border' );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+				}
+
+				else {
 					// Activate all others.
 					wp.customize.control( item ).activate( { duration: 0 } );
 				}
