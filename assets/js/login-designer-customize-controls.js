@@ -67,6 +67,19 @@
 			} );
 		} );
 
+		// Detect when the templates section is expanded (or closed) so we can hide the templates shortcut when it's open.
+		wp.customize.section( 'login_designer__section--templates', function( section ) {
+			section.expanded.bind( function( isExpanding ) {
+
+				// Value of isExpanding will = true if you're entering the section, false if you're leaving it.
+				if ( isExpanding ) {
+					wp.customize.previewer.send( 'login-designer-template-switcher', { expanded: isExpanding } );
+				} else {
+					wp.customize.previewer.send( 'login-designer-template-switcher', { expanded: false } );
+				}
+			} );
+		} );
+
 		/**
 		 * Function to hide/show Customizer options, based on another control.
 		 *

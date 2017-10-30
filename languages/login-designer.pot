@@ -33,7 +33,7 @@ msgstr ""
 msgid "Add more extensions"
 msgstr ""
 
-#: includes/admin/admin-bar.php:32, includes/admin/admin-bar.php:37, includes/class-login-designer-customizer.php:76, includes/class-login-designer-theme-template.php:68, login-designer.php:188
+#: includes/admin/admin-bar.php:32, includes/admin/admin-bar.php:37, includes/class-login-designer-customizer.php:76, includes/class-login-designer-theme-template.php:68, login-designer.php:187
 msgid "Login Designer"
 msgstr ""
 
@@ -245,7 +245,7 @@ msgstr ""
 msgid "Button"
 msgstr ""
 
-#: includes/customize-settings/button.php:21, includes/customize-settings/button.php:144, includes/customize-settings/fields.php:21, includes/customize-settings/fields.php:199, includes/customize-settings/form.php:21, includes/customize-settings/labels.php:21, includes/customize-settings/logo.php:21, includes/customize-settings/logo.php:67, includes/customize-settings/settings.php:22
+#: includes/customize-settings/button.php:21, includes/customize-settings/button.php:186, includes/customize-settings/fields.php:21, includes/customize-settings/fields.php:199, includes/customize-settings/form.php:21, includes/customize-settings/labels.php:21, includes/customize-settings/logo.php:21, includes/customize-settings/logo.php:67, includes/customize-settings/settings.php:22
 msgid "Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis."
 msgstr ""
 
@@ -253,52 +253,52 @@ msgstr ""
 msgid "Background"
 msgstr ""
 
-#: includes/customize-settings/button.php:46, includes/customize-settings/fields.php:88
+#: includes/customize-settings/button.php:46, includes/customize-settings/fields.php:46
+msgid "Height"
+msgstr ""
+
+#: includes/customize-settings/button.php:67, includes/customize-settings/fields.php:67
+msgid "Padding"
+msgstr ""
+
+#: includes/customize-settings/button.php:88, includes/customize-settings/fields.php:88
 msgid "Border"
 msgstr ""
 
-#: includes/customize-settings/button.php:66, includes/customize-settings/fields.php:108
+#: includes/customize-settings/button.php:108, includes/customize-settings/fields.php:108
 msgid "Border Color"
 msgstr ""
 
-#: includes/customize-settings/button.php:79, includes/customize-settings/fields.php:121, includes/customize-settings/form.php:119
+#: includes/customize-settings/button.php:121, includes/customize-settings/fields.php:121, includes/customize-settings/form.php:119
 msgid "Radius"
 msgstr ""
 
-#: includes/customize-settings/button.php:100, includes/customize-settings/fields.php:142, includes/customize-settings/form.php:140
+#: includes/customize-settings/button.php:142, includes/customize-settings/fields.php:142, includes/customize-settings/form.php:140
 msgid "Shadow"
 msgstr ""
 
-#: includes/customize-settings/button.php:121, includes/customize-settings/fields.php:163, includes/customize-settings/form.php:161
+#: includes/customize-settings/button.php:163, includes/customize-settings/fields.php:163, includes/customize-settings/form.php:161
 msgid "Shadow Opacity"
 msgstr ""
 
-#: includes/customize-settings/button.php:143
+#: includes/customize-settings/button.php:185
 msgid "Button Text"
 msgstr ""
 
-#: includes/customize-settings/button.php:157, includes/customize-settings/fields.php:212, includes/customize-settings/labels.php:60
+#: includes/customize-settings/button.php:199, includes/customize-settings/fields.php:212, includes/customize-settings/labels.php:60
 msgid "Font"
 msgstr ""
 
-#: includes/customize-settings/button.php:171, includes/customize-settings/fields.php:226
+#: includes/customize-settings/button.php:213, includes/customize-settings/fields.php:226
 msgid "Font Size"
 msgstr ""
 
-#: includes/customize-settings/button.php:191, includes/customize-settings/fields.php:246
+#: includes/customize-settings/button.php:233, includes/customize-settings/fields.php:246
 msgid "Font Color"
 msgstr ""
 
 #: includes/customize-settings/fields.php:20
 msgid "Fields"
-msgstr ""
-
-#: includes/customize-settings/fields.php:46
-msgid "Height"
-msgstr ""
-
-#: includes/customize-settings/fields.php:67
-msgid "Padding"
 msgstr ""
 
 #: includes/customize-settings/fields.php:184
@@ -369,6 +369,6 @@ msgstr ""
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: login-designer.php:188
+#: login-designer.php:187
 msgid "Login"
 msgstr ""

@@ -16,15 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Install
  *
- * Runs on plugin install by setting up the post types, custom taxonomies,
- * flushing rewrite rules to initiate the new 'downloads' slug and also
- * creates the plugin and populates the settings fields for those plugin
- * pages. After successful install, the user is redirected to the EDD Welcome
- * screen.
+ * Runs on plugin install by setting up the Login Designer template.
+ * After successful install, the user is redirected to the Customizer.
  *
  * @global $wpdb
  * @global $login_designer_options
- * @param	bool|bool $network_wide If the plugin is being network-activated.
+ * @param  bool|bool $network_wide If the plugin is being network-activated.
  * @return void
  */
 function login_designer_install( $network_wide = false ) {

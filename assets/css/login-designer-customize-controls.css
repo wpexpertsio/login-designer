@@ -169,16 +169,16 @@
 	margin-top: 9px;
 	opacity: 0;
 	pointer-events: none;
-	-webkit-transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1) 300ms;
-	transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1) 300ms;
+	-webkit-transition: opacity 150ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1) 150ms;
+	transition: opacity 150ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1) 150ms;
 	visibility: hidden;
 }
 
 .style-editor-open #login-designer-reset {
 	opacity: 1;
 	pointer-events: auto;
-	-webkit-transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1);
-	transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1);
+	-webkit-transition: opacity 150ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1);
+	transition: opacity 150ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1);
 	visibility: visible;
 }
 

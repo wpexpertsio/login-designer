@@ -39,12 +39,12 @@ function logindesigner_action_links( $links, $file ) {
 		array_unshift( $links, $settings_link );
 
 		$extensions_link = esc_url( add_query_arg( array(
-				'utm_source'   => 'plugins-page',
-				'utm_medium'   => 'plugin-action-link',
-				'utm_campaign' => 'admin',
-				'utm_content' => 'get-extensions',
-			), 'https://logindesigner.com/extensions/' )
-		);
+			'utm_source'   => 'plugins-page',
+			'utm_medium'   => 'plugin-action-link',
+			'utm_campaign' => 'admin',
+			'utm_content' => 'get-extensions',
+			),
+		'https://logindesigner.com/extensions/' ) );
 
 		$pro_link = sprintf( esc_html__( '%1$s %3$s Get Extensions %4$s %2$s', '@@textdomain' ),  '<a href="' . esc_url( $extensions_link ) . '" target="_blank">', '</a>', '<span style="color: #006505;">', '</span>' );
 
@@ -77,12 +77,12 @@ function logindesigner_plugin_row_meta( $input, $file ) {
 	}
 
 	$extensions_link = esc_url( add_query_arg( array(
-			'utm_source'   => 'plugins-page',
-			'utm_medium'   => 'plugin-row',
-			'utm_campaign' => 'admin',
-			'utm_content'  => 'extensions',
-		), 'https://logindesigner.com/extensions/' )
-	);
+		'utm_source'   => 'plugins-page',
+		'utm_medium'   => 'plugin-row',
+		'utm_campaign' => 'admin',
+		'utm_content'  => 'extensions',
+		),
+	'https://logindesigner.com/extensions/' ) );
 
 	$links = array(
 		'<a href="' . esc_url( $extensions_link ) . '">' . esc_html__( 'Extensions', '@@textdomain' ) . '</a>',
@@ -93,7 +93,6 @@ function logindesigner_plugin_row_meta( $input, $file ) {
 	return $input;
 }
 add_filter( 'plugin_row_meta', 'logindesigner_plugin_row_meta', 10, 2 );
-
 
 /**
  * Plugin row meta links for extentions.
@@ -119,12 +118,12 @@ function logindesigner_extention_plugin_row_meta( $input, $file ) {
 	$utm_content_plugin_name = substr( $file, 0, strpos( $file, '/' ) );
 
 	$extensions_link = esc_url( add_query_arg( array(
-			'utm_source'   => 'plugins-page',
-			'utm_medium'   => 'plugin-row',
-			'utm_campaign' => 'admin',
-			'utm_content'  => 'add-more-extensions-'.$utm_content_plugin_name,
-		), 'https://logindesigner.com/extensions/' )
-	);
+		'utm_source'   => 'plugins-page',
+		'utm_medium'   => 'plugin-row',
+		'utm_campaign' => 'admin',
+		'utm_content'  => 'add-more-extensions-'.$utm_content_plugin_name,
+		),
+	'https://logindesigner.com/extensions/' ) );
 
 	$links = array(
 		'<a href="' . esc_url( $extensions_link ) . '">' . esc_html__( 'Add more extensions', '@@textdomain' ) . '</a>',

@@ -11,7 +11,6 @@
 	wp.customize.bind( 'preview-ready', function() {
 
 		wp.customize.preview.bind( 'login-designer-url-switcher', function( data ) {
-
 			// When the section is expanded, open the login designer page.
 			if ( true === data.expanded ) {
 				wp.customize.preview.send( 'url', login_designer_script.login_designer_page );
@@ -20,6 +19,15 @@
 
 		wp.customize.preview.bind( 'login-designer-back-to-home', function( data ) {
 			wp.customize.preview.send( 'url', data.home_url );
+		});
+
+		wp.customize.preview.bind( 'login-designer-template-switcher', function( data ) {
+			// When the section is expanded, open the login designer page.
+			if ( true === data.expanded ) {
+				$( 'body' ).addClass( 'customize-templates' );
+			} else {
+				$( 'body' ).removeClass( 'customize-templates' );
+			}
 		});
 	});
 
