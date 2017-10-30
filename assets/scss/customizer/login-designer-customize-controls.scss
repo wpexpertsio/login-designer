@@ -53,8 +53,37 @@
 	}
 }
 
-/* Customizer Select */
-#sub-accordion-section-login_designer__section--styles {
+#customize-control-login_designer_admin-login_redirect,
+#customize-control-login_designer_admin-logout_redirect {
+
+	.customize-control-title {
+		margin-bottom: 0;
+		float: left;
+		position: relative;
+		width: 35%;
+	}
+
+	select {
+		padding-right: 20px;
+		width: 65%;
+	}
+}
+
+#sub-accordion-section-login_designer__section--settings .customize-control-checkbox {
+
+	label {
+		font-weight: 600;
+	}
+
+	.description {
+		color: #656a6f;
+		font-weight: 400;
+	}
+}
+
+// Customizer Select
+#sub-accordion-section-login_designer__section--styles,
+#sub-accordion-section-login_designer__section--settings {
 
 	.customize-control-dropdown-pages {
 		position: relative;
@@ -80,6 +109,7 @@
 			box-shadow: none;
 			margin: 0;
 			background: #f6f6f6;
+			padding-left: 10px;
 			padding: 0;
 			line-height: 22px;
 			height: 26px;
@@ -106,7 +136,6 @@
 			}
 		}
 	}
-
 
 	.customize-control-select {
 		position: relative;

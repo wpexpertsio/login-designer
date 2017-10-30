@@ -41,6 +41,11 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 		 */
 		public function template_classes( $classes ) {
 
+			// Return if we're not on the Login Designer template.
+			if ( ! is_page_template( 'template-login-designer.php' ) ) {
+				return $classes;
+			}
+
 			// Check for the option.
 			$options   = new Login_Designer_Customizer_Output();
 			$option    = $options->option_wrapper( 'template' );

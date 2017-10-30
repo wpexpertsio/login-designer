@@ -75,7 +75,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			$wp_customize->add_panel( 'login_designer', array(
 				'title'		   	=> esc_html__( 'Login Designer', '@@textdomain' ),
 				'capability' 		=> 'edit_theme_options',
-				'description'		=> esc_html__( 'Click the Templates icon at the left left of the preview window to change your template. To customize further, simply click on any element, or it\'s corresponding shortcut icon, to edit it\'s styling. ', '@@textdomain' ),
+				'description'		=> esc_html__( 'Click the Templates icon at the top left of the preview window to change your template. To customize further, simply click on any element, or it\'s corresponding shortcut icon, to edit it\'s styling. ', '@@textdomain' ),
 				'priority'		=> 150,
 			) );
 
