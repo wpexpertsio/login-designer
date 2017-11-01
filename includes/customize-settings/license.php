@@ -1,6 +1,6 @@
 <?php
 /**
- * Settings Customizer Section.
+ * License Customizer Section.
  *
  * @package   @@pkg.name
  * @copyright @@pkg.copyright
@@ -9,7 +9,7 @@
  */
 
 /**
- * Settings Section.
+ * License Section.
  */
 
 $url = esc_url( add_query_arg( array(

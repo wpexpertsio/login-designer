@@ -44,6 +44,8 @@
 			// License activation AJAX request.
 			$.post( _login_designer_license.ajaxurl, activation_data, function ( r ) {
 
+				console.log( r.error );
+
 				// If the request has been performed.
 				if ( typeof r.done !== 'undefined' ) {
 
@@ -103,6 +105,8 @@
 
 			// License deactivation AJAX request.
 			$.post( _login_designer_license.ajaxurl, deactivation_data, function ( r ) {
+
+				console.log( r.error );
 
 				// If the request has been performed.
 				if ( typeof r.done !== 'undefined' ) {

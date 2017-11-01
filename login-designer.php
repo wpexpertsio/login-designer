@@ -162,6 +162,11 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-templates.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-theme-template.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/install.php';
+
+			if ( is_admin() ) {
+				require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/admin/class-login-designer-license-handler.php';
+				require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/admin/class-login-designer-extension-updater.php';
+			}
 		}
 
 		/**
