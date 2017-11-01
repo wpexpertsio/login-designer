@@ -55,7 +55,7 @@
 			} );
 		} );
 
-		// Detect when the Style Editor is expanded (or closed) so we can show the Reset button accordingly.
+		// Detect when the styles section is expanded (or closed) so we can show the Reset button accordingly.
 		wp.customize.section( 'login_designer__section--styles', function( section ) {
 			section.expanded.bind( function( isExpanding ) {
 				// Value of isExpanding will = true if you're entering the section, false if you're leaving it.
@@ -76,6 +76,19 @@
 					wp.customize.previewer.send( 'login-designer-template-switcher', { expanded: isExpanding } );
 				} else {
 					wp.customize.previewer.send( 'login-designer-template-switcher', { expanded: false } );
+				}
+			} );
+		} );
+
+		// Detect when the templates section is expanded (or closed) so we can hide the templates shortcut when it's open.
+		wp.customize.section( 'login_designer__section--settings', function( section ) {
+			section.expanded.bind( function( isExpanding ) {
+
+				// Value of isExpanding will = true if you're entering the section, false if you're leaving it.
+				if ( isExpanding ) {
+					wp.customize.previewer.send( 'login-designer-settings', { expanded: isExpanding } );
+				} else {
+					wp.customize.previewer.send( 'login-designer-settings', { expanded: false } );
 				}
 			} );
 		} );

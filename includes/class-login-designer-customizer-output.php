@@ -147,6 +147,29 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		}
 
 		/**
+		 * License options wrapper.
+		 *
+		 * @param string|string $option The option in question.
+		 * @return string
+		 */
+		public function license_option_wrapper( $option ) {
+
+			$options = get_option( 'login_designer_license' );
+
+			// Check if options exist.
+			if ( ! $options ) {
+				return false;
+			}
+
+			// Check if the option exists.
+			if ( isset( $options[ $option ] ) ) {
+				return $options[ $option ];
+			} else {
+				return false;
+			}
+		}
+
+		/**
 		 * Set admin defaults.
 		 * Admin settings are separated because we don't want to reset them if the reset Customizer action is triggered.
 		 *
@@ -164,6 +187,23 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 			);
 
 			return apply_filters( 'login_designer_admin_defaults', $admin_defaults );
+		}
+
+		/**
+		 * Set license defaults.
+		 *
+		 * @return array $defaults
+		 */
+		function license_defaults() {
+
+			$license_defaults = array(
+				'key'		=> '',
+				'status'	=> '',
+				'expiration'	=> '',
+
+			);
+
+			return apply_filters( 'login_designer_license', $license_defaults );
 		}
 
 		/**

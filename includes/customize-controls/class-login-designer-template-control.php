@@ -76,6 +76,8 @@ class Login_Designer_Template_Control extends WP_Customize_Control {
 			echo '<span class="description customize-control-description">' . esc_html( $this->description ) . '</span>';
 		} ?>
 
+		Your current template is:
+
 		<div class="layout-switcher__wrapper">
 			<?php foreach ( $this->choices as $value => $label ) { ?>
 

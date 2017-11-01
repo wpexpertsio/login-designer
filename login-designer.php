@@ -35,6 +35,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+
+/**
+ * Theme changelog in footer admin.
+ *
+ * @param boolean $url URL or not.
+ */
+function themebeans_get_theme( $url ) {
+
+	// Get the parent theme's name.
+	$theme = esc_attr( wp_get_theme( get_template() )->get( 'Name' ) );
+
+	// Replace spaces with hypens, and makes it lowercase for links.
+	if ( true === $url ) {
+		$theme  = strtolower( $theme );
+		$theme  = str_replace( ' ', '-', $theme );
+		$theme  = preg_replace( '#[ -]+#', '-', $theme );
+
+	}
+
+	return $theme;
+}
+
+
+
 if ( ! class_exists( 'Login_Designer' ) ) :
 
 	/**
@@ -118,7 +142,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			$this->define( 'LOGIN_DESIGNER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 			$this->define( 'LOGIN_DESIGNER_PLUGIN_FILE', __FILE__ );
 			$this->define( 'LOGIN_DESIGNER_ABSPATH', dirname( __FILE__ ) . '/' );
-			$this->define( 'LOGIN_DESIGNER_HAS_PRO', false );
+			$this->define( 'LOGIN_DESIGNER_HAS_PRO', true );
 		}
 
 		/**
@@ -148,6 +172,10 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-templates.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-theme-template.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/admin/admin-bar.php';
+
+			// Updater.
+			// require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/updater/updater-admin.php';
+			// require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/updater/updater.php';
 
 			if ( is_admin() ) {
 				require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/admin/admin-action-links.php';

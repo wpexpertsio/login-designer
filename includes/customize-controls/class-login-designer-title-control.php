@@ -4,12 +4,10 @@
  *
  * @see https://developer.wordpress.org/reference/classes/wp_customize_control/
  *
- * @package     @@pkg.name
- * @link        @@pkg.theme_uri
- * @author      @@pkg.author
- * @copyright   @@pkg.copyright
- * @license     @@pkg.license
- * @version     @@pkg.version
+ * @package   @@pkg.name
+ * @copyright @@pkg.copyright
+ * @author    @@pkg.author
+ * @license   @@pkg.license
  */
 
 // Exit if accessed directly.
@@ -58,12 +56,20 @@ class Login_Designer_Title_Control extends WP_Customize_Control {
 	 */
 	public function render_content() {
 
+		// Array of allowed HTML.
+		$allowed_html_array = array(
+			'a' => array(
+				'href' => array(),
+				'target' => array(),
+			),
+		);
+
 		if ( isset( $this->label ) ) {
 			echo '<span class="customize-control-title">' . esc_html( $this->label ) . '</span>';
 		}
 
 		if ( ! empty( $this->description ) ) {
-			echo '<span class="customize-control-description">' . esc_html( $this->description ) . '</span>';
+			echo '<span class="customize-control-description">' . wp_kses( $this->description, $allowed_html_array ) . '</span>';
 		}
 
 	}

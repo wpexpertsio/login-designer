@@ -71,13 +71,17 @@
 
 #sub-accordion-section-login_designer__section--settings .customize-control-checkbox {
 
+	input {
+		top: 4px;
+	}
+
 	label {
 		font-weight: 600;
 	}
 
 	.description {
-		color: #656a6f;
 		font-weight: 400;
+		width: 80%;
 	}
 }
 

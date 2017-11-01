@@ -1,6 +1,8 @@
 .customize-partial--login-designer-settings {
 	bottom: 42px !important;
 	right: 12px !important;
+	-webkit-transition: opacity 150ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1);
+	transition: opacity 150ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1);
 }
 
 .customize-partial--login-designer-settings .login-designer-event-button:before {
@@ -15,6 +17,14 @@
 	text-shadow: 0 -1px 1px #007ab6, 1px 0 1px #007ab6, 0 1px 1px #007ab6, -1px 0 1px #007ab6;
 	top: 0.15em;
 	width: 20px;
+}
+
+.customize-settings .customize-partial--login-designer-settings {
+	opacity: 0;
+	pointer-events: none;
+	-webkit-transition: opacity 150ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1) 150ms;
+	transition: opacity 150ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1) 150ms;
+	visibility: hidden;
 }
 
 .customize-partial--login-designer-template {

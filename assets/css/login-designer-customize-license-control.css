@@ -1,0 +1,134 @@
+#customize-control-login_designer_license-key {
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 25px;
+	padding-bottom: 20px;
+}
+
+#customize-control-login_designer_license-key form {
+	margin-top: 13px;
+}
+
+#customize-control-login_designer_license-key form {
+	*zoom: 1;
+}
+
+#customize-control-login_designer_license-key form:before,
+#customize-control-login_designer_license-key form:after {
+	content: "";
+	display: table;
+}
+
+#customize-control-login_designer_license-key form:after {
+	clear: both;
+}
+
+#customize-control-login_designer_license-key .spinner {
+	position: absolute;
+	right: 34px;
+}
+
+#customize-control-login_designer_license-key .spinner.visible {
+	visibility: visible;
+}
+
+#customize-control-login_designer_license-key .license {
+	border-radius: 3px;
+	float: left;
+	margin-bottom: 7px;
+	padding-bottom: 4px;
+	padding-top: 4px;
+	-webkit-transition: 50ms border-color ease-in-out, 50ms box-shadow ease-in-out;
+	transition: 50ms border-color ease-in-out, 50ms box-shadow ease-in-out;
+	width: calc( 100% - 88px);
+}
+
+#customize-control-login_designer_license-key .license.is-not-valid {
+	-webkit-animation: shake 0.5s linear;
+	animation: shake 0.5s linear;
+	border-color: #dc3232;
+	box-shadow: 0 0 2px rgba(220, 50, 50, 0.36);
+}
+
+#customize-control-login_designer_license-key .button {
+	float: right;
+	padding-left: 0;
+	padding-right: 0;
+	width: 84px;
+}
+
+#customize-control-login_designer_license-key .button:disabled {
+	color: #f7f7f7 !important;
+	text-shadow: none !important;
+}
+
+@-webkit-keyframes shake {
+	8%,
+	41% {
+		-webkit-transform: translateX(-4px);
+		transform: translateX(-4px);
+	}
+	25%,
+	58% {
+		-webkit-transform: translateX(4px);
+		transform: translateX(4px);
+	}
+	75% {
+		-webkit-transform: translateX(-2px);
+		transform: translateX(-2px);
+	}
+	92% {
+		-webkit-transform: translateX(2px);
+		transform: translateX(2px);
+	}
+	0%,
+	100% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+}
+
+@keyframes shake {
+	8%,
+	41% {
+		-webkit-transform: translateX(-4px);
+		transform: translateX(-4px);
+	}
+	25%,
+	58% {
+		-webkit-transform: translateX(4px);
+		transform: translateX(4px);
+	}
+	75% {
+		-webkit-transform: translateX(-2px);
+		transform: translateX(-2px);
+	}
+	92% {
+		-webkit-transform: translateX(2px);
+		transform: translateX(2px);
+	}
+	0%,
+	100% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+}
+
+#login-designer-activate-license.is-valid {
+	display: none;
+}
+
+#login-designer-deactivate-license.is-not-valid {
+	display: none;
+}
+
+#license-info {
+	margin-top: 15px;
+}
+
+#license-info.is-not-valid {
+	display: none;
+}
+
+#license-info li span {
+	text-transform: capitalize;
+}

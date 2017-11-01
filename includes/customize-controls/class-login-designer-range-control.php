@@ -5,9 +5,9 @@
  * @see https://developer.wordpress.org/reference/classes/wp_customize_control/
  *
  * @package   @@pkg.name
+ * @copyright @@pkg.copyright
  * @author    @@pkg.author
  * @license   @@pkg.license
- * @version   @@pkg.version
  */
 
 // Exit if accessed directly.

@@ -29,6 +29,15 @@
 				$( 'body' ).removeClass( 'customize-templates' );
 			}
 		});
+
+		wp.customize.preview.bind( 'login-designer-settings', function( data ) {
+			// When the section is expanded, open the login designer page.
+			if ( true === data.expanded ) {
+				$( 'body' ).addClass( 'customize-settings' );
+			} else {
+				$( 'body' ).removeClass( 'customize-settings' );
+			}
+		});
 	});
 
 	// Button background color.
