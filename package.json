@@ -5,9 +5,8 @@
   "version": "0.0.1",
   "downloadid": "null",
   "description": "The easiest way to customize your WordPress login.",
-  "theme_uri": "https://themebeans.com/themes/ava",
-  "author": "ThemeBeans <hello@themebeans.com>",
-  "author_uri": "https://themebeans.com",
-  "author_shop": "ThemeBeans",
+  "author": "ThatPluginCompany <rich@logindesigner.com>",
+  "author_uri": "https://logindesigner.com",
+  "author_shop": "ThatPluginCompany",
   "license": "http://www.gnu.org/licenses/gpl-2.0.html GNU Public License"
 }

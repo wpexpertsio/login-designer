@@ -54,14 +54,14 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			/**
 			 * Add custom controls.
 			 */
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-range-control.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-toggle-control.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-template-control.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-title-control.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-gallery-control.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-alpha-color-control.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-upgrade-control.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-license-control.php';
+			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-range-control.php';
+			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-toggle-control.php';
+			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-template-control.php';
+			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-title-control.php';
+			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-gallery-control.php';
+			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-alpha-color-control.php';
+			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-upgrade-control.php';
+			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-license-control.php';
 
 			// Get the default options.
 			$defaults 	= new Login_Designer_Customizer_Output();
@@ -129,14 +129,14 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			/**
 			 * Add sections.
 			 */
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/templates.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/logo.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/background.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/form.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/fields.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/labels.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/button.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/license.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/templates.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/logo.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/background.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/form.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/fields.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/labels.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/button.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/license.php';
 		}
 
 		/**

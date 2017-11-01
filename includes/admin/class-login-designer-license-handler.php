@@ -24,7 +24,6 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		 * The class constructor.
 		 */
 		public function __construct() {
-			add_action( 'customize_register', array( $this, 'license_control' ), 99 );
 			add_action( 'wp_ajax_activate_license', array( $this, 'ajax_activate_license' ) );
 			add_action( 'wp_ajax_deactivate_license', array( $this, 'ajax_deactivate_license' ) );
 		}
@@ -109,44 +108,6 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 			} else {
 				return false;
 			}
-		}
-
-		/**
-		 * Register Customizer Settings.
-		 *
-		 * @param WP_Customize_Manager $wp_customize the Customizer object.
-		 */
-		function license_control( $wp_customize ) {
-
-			/**
-			 * Add custom controls.
-			 */
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-license-control.php';
-
-			/**
-			 * Add the license control to the settings section.
-			 */
-			$url = esc_url( add_query_arg( array(
-				'utm_source'   => 'customizer',
-				'utm_medium'   => 'license-key-description',
-				'utm_campaign' => 'customizer',
-				'utm_content' => 'enter-a-license-key',
-				),
-			'https://logindesigner.com/pricing' ) );
-
-			$wp_customize->add_setting( 'login_designer_license[key]', array(
-				'default'             	=> '',
-				'transport'             => 'postMessage',
-				'type' 			=> 'option',
-				'sanitize_callback'     => 'sanitize_text_field',
-			) );
-
-			$wp_customize->add_control( new Login_Designer_License_Control( $wp_customize, 'login_designer_license[key]', array(
-				'priority' 		=> 1,
-				'label'                 => esc_html__( 'License', '@@textdomain' ),
-				'description'           => sprintf( esc_html__( 'Enter a %slicense key%s to enable remote updates, unlock premium templates and activate professional extensions.', '@@textdomain' ), '<a href="' . esc_url( $url ) . '" target="_blank">', '</a>' ),
-				'section'               => 'login_designer__section--settings',
-			) ) );
 		}
 
 		/**

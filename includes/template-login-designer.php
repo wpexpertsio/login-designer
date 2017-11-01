@@ -30,22 +30,6 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 		$wp_error = new WP_Error();
 	}
 
-	// Shake it!
-	$shake_error_codes = array( 'empty_password', 'empty_email', 'invalid_email', 'invalidcombo', 'empty_username', 'invalid_username', 'incorrect_password' );
-
-	/**
-	 * Filters the error codes array for shaking the login form.
-	 *
-	 * @since 3.0.0
-	 *
-	 * @param array $shake_error_codes Error codes that shake the login form.
-	 */
-	$shake_error_codes = apply_filters( 'shake_error_codes', $shake_error_codes );
-
-	if ( $shake_error_codes && $wp_error->get_error_code() && in_array( $wp_error->get_error_code(), $shake_error_codes ) ) {
-		add_action( 'login_head', 'wp_shake_js', 12 );
-	}
-
 	$login_title = get_bloginfo( 'name', 'display' );
 
 	/* translators: Login screen title. 1: Login screen name, 2: Network or site name */
@@ -213,12 +197,7 @@ function login_footer($input_id = '') {
 
 	</div>
 
-	<?php if ( !empty($input_id) ) : ?>
-	<script type="text/javascript">
-	try{document.getElementById('<?php echo $input_id; ?>').focus();}catch(e){}
-	if(typeof wpOnload=='function')wpOnload();
-	</script>
-	<?php endif; ?>
+
 
 	<?php
 	/**
@@ -233,20 +212,7 @@ function login_footer($input_id = '') {
 	</html>
 	<?php
 }
-/**
- * @since 3.0.0
- */
-function wp_shake_js() {
-?>
-<script type="text/javascript">
-addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
-function s(id,pos){g(id).left=pos+'px';}
-function g(id){return document.getElementById(id).style;}
-function shake(id,a,d){c=a.shift();s(id,c);if(a.length>0){setTimeout(function(){shake(id,a,d);},d);}else{try{g(id).position='static';wp_attempt_focus();}catch(e){}}}
-addLoadEvent(function(){ var p=new Array(15,30,15,0,-15,-30,-15,0);p=p.concat(p.concat(p));var i=document.forms[0].id;g(i).position='relative';shake(i,p,20);});
-</script>
-<?php
-}
+
 /**
  * Handles sending password retrieval email to user.
  *
