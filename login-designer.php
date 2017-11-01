@@ -35,30 +35,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
-/**
- * Theme changelog in footer admin.
- *
- * @param boolean $url URL or not.
- */
-function themebeans_get_theme( $url ) {
-
-	// Get the parent theme's name.
-	$theme = esc_attr( wp_get_theme( get_template() )->get( 'Name' ) );
-
-	// Replace spaces with hypens, and makes it lowercase for links.
-	if ( true === $url ) {
-		$theme  = strtolower( $theme );
-		$theme  = str_replace( ' ', '-', $theme );
-		$theme  = preg_replace( '#[ -]+#', '-', $theme );
-
-	}
-
-	return $theme;
-}
-
-
-
 if ( ! class_exists( 'Login_Designer' ) ) :
 
 	/**
@@ -84,8 +60,9 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 *
 		 * @since 1.0.0
 		 * @static
-		 * @staticvar array $instance
-		 * @uses Login_Designer::setup_constants() Setup the constants needed.
+		 * @static var array $instance
+		 * @uses Login_Designer::constants() Setup the constants needed.
+		 * @uses Login_Designer::init() Initiate actions and filters.
 		 * @uses Login_Designer::includes() Include the required files.
 		 * @uses Login_Designer::load_textdomain() load the language files.
 		 * @see LOGIN_DESIGNER()
@@ -95,7 +72,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Login_Designer ) ) {
 				self::$instance = new Login_Designer;
 				self::$instance->constants();
-				self::$instance->actions();
+				self::$instance->init();
 				self::$instance->includes();
 				self::$instance->load_textdomain();
 			}
@@ -114,7 +91,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		public function __clone() {
-			// Cloning instances of the class is forbidden.
 			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', '@@textdomain' ), '1.0' );
 		}
 
@@ -126,7 +102,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		public function __wakeup() {
-			// Unserializing instances of the class is forbidden.
 			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', '@@textdomain' ), '1.0' );
 		}
 
@@ -158,6 +133,21 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		}
 
 		/**
+		 * Load the actions
+		 *
+		 * @return void
+		 */
+		public function init() {
+			add_action( 'wp_head', array( $this, 'meta_version' ) );
+			add_action( 'init', array( $this, 'redirect_customizer' ) );
+			add_action( 'admin_menu', array( $this, 'options_page' ) );
+			add_action( 'admin_bar_menu', array( $this, 'admin_bar_link' ), 999 );
+			add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
+			add_filter( 'plugin_row_meta', array( $this, 'extension_plugin_row_meta' ), 10, 2 );
+			add_filter( 'plugin_action_links_' . plugin_basename( LOGIN_DESIGNER_PLUGIN_DIR . 'login-designer.php' ), array( $this, 'plugin_action_links' ) );
+		}
+
+		/**
 		 * Include required files.
 		 *
 		 * @access private
@@ -171,28 +161,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-frontend-settings.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-templates.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-theme-template.php';
-			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/admin/admin-bar.php';
-
-			// Updater.
-			// require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/updater/updater-admin.php';
-			// require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/updater/updater.php';
-
-			if ( is_admin() ) {
-				require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/admin/admin-action-links.php';
-			}
-
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/install.php';
-		}
-
-		/**
-		 * Load the actions
-		 *
-		 * @return void
-		 */
-		public function actions() {
-			add_action( 'init', array( $this, 'redirect_customizer' ) );
-			add_action( 'wp_head', array( $this, 'version_in_header' ) );
-			add_action( 'admin_menu', array( $this, 'options_page' ) );
 		}
 
 		/**
@@ -201,7 +170,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @access public
 		 * @return void
 		 */
-		public function version_in_header() {
+		public function meta_version() {
 			echo '<meta name="generator" content="Login Designer ' . esc_attr( LOGIN_DESIGNER_VERSION ). '" />' . "\n";
 		}
 
@@ -261,6 +230,146 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		}
 
 		/**
+		 * Add rating links to the admin dashboard.
+		 *
+		 * @since	1.0.0
+		 * @param	string|string $wp_admin_bar The admin bar.
+		 */
+		public function admin_bar_link( $wp_admin_bar ) {
+
+			if ( ! is_page_template( 'template-login-designer.php' ) ) {
+				return;
+			}
+
+			$args = array(
+				'id' => 'login-designer',
+				'title' => esc_html__( 'Login Designer', '@@textdomain' ),
+				'href' => admin_url( '/customize.php?autofocus[panel]=login_designer&url='.home_url( '/login-designer' ) ),
+				'meta' => array(
+					'target' => '_self',
+					'class' => 'login-designer-link',
+					'title' => esc_html__( 'Login Designer', '@@textdomain' ),
+				),
+			);
+
+			$wp_admin_bar->add_node( $args );
+
+		}
+
+		/**
+		 * Add links to the settings page to the plugin.
+		 *
+		 * @param       array|array $actions The plugin.
+		 * @return      array
+		 */
+		public function plugin_action_links( $actions ) {
+
+			$settings = array( 'settings' => sprintf( '<a href="%s">%s</a>', admin_url( 'themes.php?page=login-designer' ) , esc_html__( 'Settings', '@@textdomain' ) ) );
+
+			if ( $this->has_pro() ) {
+
+				$extensions_url = esc_url( add_query_arg( array(
+					'utm_source'   => 'plugins-page',
+					'utm_medium'   => 'plugin-action-link',
+					'utm_campaign' => 'admin',
+					'utm_content'  => 'extensions',
+					),
+				'https://logindesigner.com/extensions/' ) );
+
+				$support_url = esc_url( add_query_arg( array(
+					'utm_source'   => 'plugins-page',
+					'utm_medium'   => 'plugin-action-link',
+					'utm_campaign' => 'admin',
+					'utm_content'  => 'support',
+					),
+				'https://logindesigner.com/support/' ) );
+
+				return array_merge(
+					$settings,
+					array( 'extensions' => sprintf( '<a href="%s" target="_blank">%s</a>', esc_url( $extensions_url ) , esc_html__( 'Extensions', '@@textdomain' ) ) ),
+					array( 'support' => sprintf( '<a href="%s" target="_blank">%s</a>', esc_url( $support_url ) , esc_html__( 'Support', '@@textdomain' ) ) ),
+					$actions
+				);
+			}
+
+			return array_merge( $settings, $actions );
+		}
+
+		/**
+		 * Plugin row meta links
+		 *
+		 * @param array|array   $input already defined meta links.
+		 * @param string|string $file plugin file path and name being processed.
+		 * @return array $input
+		 */
+		public function plugin_row_meta( $input, $file ) {
+
+			// Return early, if a pro version is not available.
+			if ( ! Login_Designer()->has_pro() ) {
+				return $input;
+			}
+
+			if ( 'login-designer/login-designer.php' !== $file ) {
+				return $input;
+			}
+
+			$extensions_link = esc_url( add_query_arg( array(
+				'utm_source'   => 'plugins-page',
+				'utm_medium'   => 'plugin-row',
+				'utm_campaign' => 'admin',
+				'utm_content'  => 'extensions',
+				),
+			'https://logindesigner.com/extensions/' ) );
+
+			$links = array(
+				'<a href="' . esc_url( $extensions_link ) . '" target="_blank">' . esc_html__( 'Extensions', '@@textdomain' ) . '</a>',
+			);
+
+			$input = array_merge( $input, $links );
+
+			return $input;
+		}
+
+		/**
+		 * Plugin row meta links for extensions.
+		 *
+		 * @param array|array   $input already defined meta links.
+		 * @param string|string $file plugin file path and name being processed.
+		 * @return array $input
+		 */
+		public function extension_plugin_row_meta( $input, $file ) {
+
+			// Return early, if a pro version is not available.
+			if ( ! Login_Designer()->has_pro() ) {
+				return $input;
+			}
+
+			// Return early, if the file name does not contain "login-designer-", which is standard for extenstions.
+			if ( strpos( $file, 'login-designer-' ) === false ) {
+				return $input;
+			}
+
+			// Get the plugin name, so we can view the analytics properly.
+			$utm_content_plugin_name = substr( $file, 0, strpos( $file, '/' ) );
+
+			$extensions_link = esc_url( add_query_arg( array(
+				'utm_source'   => 'plugins-page',
+				'utm_medium'   => 'plugin-row',
+				'utm_campaign' => 'admin',
+				'utm_content'  => 'extensions-'.$utm_content_plugin_name,
+				),
+			'https://logindesigner.com/extensions/' ) );
+
+			$links = array(
+				'<a href="' . esc_url( $extensions_link ) . '" target="_blank">' . esc_html__( 'Extensions', '@@textdomain' ) . '</a>',
+			);
+
+			$input = array_merge( $input, $links );
+
+			return $input;
+		}
+
+		/**
 		 * Loads the plugin language files.
 		 *
 		 * @access public
@@ -273,7 +382,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 	}
 
 endif; // End if class_exists check.
-
 
 /**
  * The main function for that returns Login_Designer
