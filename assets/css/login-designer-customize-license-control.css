@@ -1,7 +1,7 @@
 #customize-control-login_designer_license-key {
 	border-bottom: 1px solid #ddd;
-	margin-bottom: 25px;
-	padding-bottom: 20px;
+	margin-bottom: 20px;
+	padding-bottom: 17px;
 }
 
 #customize-control-login_designer_license-key form {
@@ -45,6 +45,9 @@
 #customize-control-login_designer_license-key .license.is-not-valid {
 	-webkit-animation: shake 0.5s linear;
 	animation: shake 0.5s linear;
+}
+
+#customize-control-login_designer_license-key .license.is-not-valid:focus {
 	border-color: #dc3232;
 	box-shadow: 0 0 2px rgba(220, 50, 50, 0.36);
 }

@@ -10,7 +10,15 @@
 		valid 			= ( 'is-valid' ),
 		not_valid 		= ( 'is-not-valid' );
 
-		activation_button.on( 'click', function (e) {
+		// Removes the error class from the license input field, if necessary.
+		$( '#license-key' ).blur( function( ) {
+			val = $( this ).val();
+			if ( val == '') {
+				$( this ).removeClass( not_valid );
+			}
+		});
+
+		activation_button.on( 'click', function ( e ) {
 
 			// Prevent the button from refreshing.
 			e.preventDefault();

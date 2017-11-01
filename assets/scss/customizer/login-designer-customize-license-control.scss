@@ -3,8 +3,8 @@
 
 #customize-control-login_designer_license-key {
 	border-bottom: 1px solid #ddd;
-	padding-bottom: 20px;
-	margin-bottom: 25px;
+	padding-bottom: 17px;
+	margin-bottom: 20px;
 
 	form {
 		margin-top: 13px;
@@ -44,6 +44,9 @@
 
 		&.is-not-valid {
 			animation: shake .5s linear;
+		}
+
+		&.is-not-valid:focus {
 			border-color: $red;
 			box-shadow: 0 0 2px rgba(220, 50, 50, 0.36);
 		}

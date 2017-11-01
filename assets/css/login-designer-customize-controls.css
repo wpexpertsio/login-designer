@@ -19,7 +19,7 @@
 	margin-right: 0;
 	position: absolute;
 	right: 1px;
-	top: 2px;
+	top: 3px;
 	width: 22px;
 }
 
@@ -252,19 +252,6 @@
 #customize-control-login_designer_admin-logout_redirect select {
 	padding-right: 20px;
 	width: 65%;
-}
-
-#sub-accordion-section-login_designer__section--settings .customize-control-checkbox input {
-	top: 4px;
-}
-
-#sub-accordion-section-login_designer__section--settings .customize-control-checkbox label {
-	font-weight: 600;
-}
-
-#sub-accordion-section-login_designer__section--settings .customize-control-checkbox .description {
-	font-weight: 400;
-	width: 80%;
 }
 
 #sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages,

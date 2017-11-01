@@ -92,8 +92,8 @@ class Login_Designer_License_Control extends WP_Customize_Control {
 		}
 		?>
 
-		<form id="license-form">
-			<input id="license-key" class="license" spellcheck="false" type="text" <?php $this->input_attrs(); ?> value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); ?> />
+		<form id="license-form" name="license-form">
+			<input id="license-key" class="license" name="license-key" spellcheck="false" type="text" <?php $this->input_attrs(); ?> value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); ?> />
 			<input type="submit" name="login-designer-license" id="login-designer-activate-license" value="Activate" class="button-secondary button <?php echo esc_attr( $visibility ); ?>">
 			<input type="submit" name="login-designer-deactivate-license" id="login-designer-deactivate-license" value="Deactivate" class="button-secondary button <?php echo esc_attr( $visibility ); ?>">
 
