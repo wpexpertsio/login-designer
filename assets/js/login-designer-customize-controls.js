@@ -169,7 +169,9 @@
 				wp.customize.control( affected_control, function( control ) {
 					var visibility = function() {
 						if ( value === setting.get() ) {
-							control.container.slideDown( 180 );
+							setTimeout( function() {
+								control.container.slideDown( 180 );
+							}, 300);
 						} else {
 							control.container.slideUp( 180 );
 						}
@@ -180,8 +182,6 @@
 				});
 			});
 		}
-
-
 
 		// Only show the border color style option, if the border is greater than zero.
 		customizer_range_option_display( 'login_designer[field_border]', 'login_designer[field_border_color]', '0' );
@@ -213,7 +213,6 @@
 		customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer[logo]', false );
 		customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer[logo_title]', false );
 		customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer_admin[logo_url]', false );
-		// customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer[logo_margin_bottom]', false );
 
 		// Only show the Twitter profile option, if social sharing is enabled.
 		customizer_image_option_display( 'login_designer[logo]', 'login_designer[logo_margin_bottom]' );

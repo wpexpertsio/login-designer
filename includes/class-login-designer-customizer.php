@@ -343,6 +343,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			 * Add custom controls.
 			 */
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-range-control.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-toggle-control.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-template-control.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-title-control.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-controls/class-login-designer-gallery-control.php';
@@ -430,10 +431,6 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/labels.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/button.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/settings.php';
-
-			if ( Login_Designer()->has_pro() ) {
-				require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/customize-settings/license.php';
-			}
 		}
 
 		/**

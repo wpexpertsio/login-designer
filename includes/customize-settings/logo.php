@@ -77,8 +77,9 @@ $wp_customize->add_setting( 'login_designer[disable_logo]', array(
 	'sanitize_callback'     => array( $this, 'sanitize_checkbox' ),
 ) );
 
-$wp_customize->add_control( 'login_designer[disable_logo]', array(
-	'type'                  => 'checkbox',
-	'label'                 => esc_html__( 'Disable Logo', '@@textdomain' ),
-	'section'               => 'login_designer__section--styles',
-) );
+$wp_customize->add_control( new Login_Designer_Toggle_Control( $wp_customize, 'login_designer[disable_logo]', array(
+	'label'	      => esc_html__( 'Disable Logo', '@@textdomain' ),
+	'section'     => 'login_designer__section--styles',
+	'type'        => 'toggle',
+	'settings'    => 'login_designer[disable_logo]',
+) ) );
