@@ -19,7 +19,6 @@ var styleTemplateControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-t
 var styleRangeControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-range-control.scss';
 var styleTitleControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-title-control.scss';
 var styleGalleryControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-gallery-control.scss';
-var styleAlphaControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-alpha-color-control.scss';
 var styleLicenseControlSRC  	= './assets/scss/customizer/'+ slug +'-customize-license-control.scss';
 var styleToggleControlSRC  	= './assets/scss/customizer/'+ slug +'-toggle-control.scss';
 
@@ -50,9 +49,6 @@ var scriptTemplateControlSRC   	= './assets/js/'+ scriptTemplateControlFile +'.j
 
 var scriptGalleryControlFile  	= slug +'-customize-gallery-control'; // JS file name.
 var scriptGalleryControlSRC   		= './assets/js/'+ scriptGalleryControlFile +'.js'; // The JS file src.
-
-var scriptAlphaControlFile  	= slug +'-customize-alpha-color-control'; // JS file name.
-var scriptAlphaControlSRC   	= './assets/js/'+ scriptAlphaControlFile +'.js'; // The JS file src.
 
 var scriptLicenseControlFile  	= slug +'-customize-license-control'; // JS file name.
 var scriptLicenseControlSRC   	= './assets/js/'+ scriptLicenseControlFile +'.js'; // The JS file src.
@@ -202,36 +198,6 @@ gulp.task('styles_customizer_range', function () {
 
 gulp.task('styles_customizer_title', function () {
 	gulp.src( styleTitleControlSRC )
-
-	.pipe( sass( {
-		errLogToConsole: true,
-		outputStyle: 'expanded',
-		precision: 10
-	} ) )
-
-	.on( 'error', console.error.bind( console ) )
-
-	.pipe( autoprefixer( AUTOPREFIXER_BROWSERS ) )
-
-	.pipe( csscomb() )
-
-	.pipe( gulp.dest( styleDestination ) )
-
-	.pipe( browserSync.stream() )
-
-	.pipe( rename( { suffix: '.min' } ) )
-
-	.pipe( minifycss( {
-		maxLineLen: 10
-	}))
-
-	.pipe( gulp.dest( styleDestination ) )
-
-	.pipe( browserSync.stream() )
-});
-
-gulp.task('styles_customizer_alpha_control', function () {
-	gulp.src( styleAlphaControlSRC )
 
 	.pipe( sass( {
 		errLogToConsole: true,
@@ -521,16 +487,6 @@ gulp.task( 'scripts', function() {
 	.pipe( lineec() )
 	.pipe( gulp.dest( scriptDestination ) )
 
-	// slug-customize-alpha-color-control.js
-	gulp.src( scriptAlphaControlSRC )
-	.pipe( rename( {
-		basename: scriptAlphaControlFile,
-		suffix: '.min'
-	}))
-	.pipe( uglify() )
-	.pipe( lineec() )
-	.pipe( gulp.dest( scriptDestination ) )
-
 	// slug-customize-license-control.js
 	gulp.src( scriptLicenseControlSRC )
 	.pipe( rename( {
@@ -648,13 +604,12 @@ gulp.task( 'build-notification', function () {
  * Commands.
  */
 
-gulp.task( 'default', [ 'clear', 'template_1', 'template_2', 'styles_customizer_toggle_control', 'styles_customize_preview', 'styles_customize_controls', 'styles_customizer_background_gallery', 'styles_customizer_title', 'styles_customizer_template_control', 'styles_customizer_license_control', 'styles_customizer_alpha_control', 'styles_customizer_range', 'scripts', 'browser_sync' ], function () {
+gulp.task( 'default', [ 'clear', 'template_1', 'template_2', 'styles_customizer_toggle_control', 'styles_customize_preview', 'styles_customize_controls', 'styles_customizer_background_gallery', 'styles_customizer_title', 'styles_customizer_template_control', 'styles_customizer_license_control', 'styles_customizer_range', 'scripts', 'browser_sync' ], function () {
 	gulp.watch( projectPHPWatchFiles, reload );
 	gulp.watch( styleWatchFiles, [ 'styles_customize_controls' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_customizer_template_control' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_customizer_range' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_customize_preview' ] );
-	gulp.watch( styleWatchFiles, [ 'styles_customizer_alpha_control' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_customizer_license_control' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_customizer_title' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_customizer_background_gallery' ] );
@@ -665,5 +620,5 @@ gulp.task( 'default', [ 'clear', 'template_1', 'template_2', 'styles_customizer_
 });
 
 gulp.task('build', function(callback) {
-	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'styles_customizer_toggle_control', 'styles_customize_preview', 'styles_customize_controls', 'styles_customizer_background_gallery', 'styles_customizer_title', 'styles_customizer_template_control', 'styles_customizer_license_control', 'styles_customizer_alpha_control', 'styles_customizer_range', 'scripts', 'build-translate'], 'build-copy', 'build-variables', 'build-zip', 'build-clean-after-zip', 'build-notification', callback);
+	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'styles_customizer_toggle_control', 'styles_customize_preview', 'styles_customize_controls', 'styles_customizer_background_gallery', 'styles_customizer_title', 'styles_customizer_template_control', 'styles_customizer_license_control', 'styles_customizer_range', 'scripts', 'build-translate'], 'build-copy', 'build-variables', 'build-zip', 'build-clean-after-zip', 'build-notification', callback);
 });
