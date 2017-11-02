@@ -169,9 +169,7 @@
 				wp.customize.control( affected_control, function( control ) {
 					var visibility = function() {
 						if ( value === setting.get() ) {
-							setTimeout( function() {
-								control.container.slideDown( 180 );
-							}, 300);
+							control.container.slideDown( 180 );
 						} else {
 							control.container.slideUp( 180 );
 						}
@@ -227,9 +225,7 @@
 			wp.customize.control( 'login_designer[form_width]', function( control ) {
 				var visibility = function() {
 					if ( '01' === setting.get() ) {
-						setTimeout( function() {
-							control.container.slideUp( 180 );
-						}, 300);
+						control.container.slideUp( 180 );
 					} else {
 						control.container.slideDown( 180 );
 					}
@@ -259,11 +255,15 @@
 
 					wp.customize( 'login_designer[field_bg]' ).set( '#ffffff' );
 					wp.customize( 'login_designer[field_radius]' ).set( '0' );
-					wp.customize( 'login_designer[field_height]' ).set( '3' );
+					wp.customize( 'login_designer[field_side_padding]' ).set( '12' );
+					wp.customize( 'login_designer[field_padding_top]' ).set( '3' );
+					wp.customize( 'login_designer[field_padding_bottom]' ).set( '3' );
 					wp.customize( 'login_designer[field_border]' ).set( '1' );
 					wp.customize( 'login_designer[field_shadow]' ).set( '2' );
 					wp.customize( 'login_designer[field_shadow_inset]' ).set( true );
 					wp.customize( 'login_designer[field_color]' ).set( '#32373c' );
+					wp.customize( 'login_designer[field_font]' ).set( 'default' );
+					wp.customize( 'login_designer[field_font_size]' ).set( '24' );
 
 					wp.customize( 'login_designer[disable_logo]' ).set( false );
 
@@ -284,11 +284,15 @@
 
 					wp.customize( 'login_designer[field_bg]' ).set( '#ffffff' );
 					wp.customize( 'login_designer[field_radius]' ).set( '3' );
-					wp.customize( 'login_designer[field_height]' ).set( '6' );
+					wp.customize( 'login_designer[field_side_padding]' ).set( '12' );
+					wp.customize( 'login_designer[field_padding_top]' ).set( '6' );
+					wp.customize( 'login_designer[field_padding_bottom]' ).set( '6' );
 					wp.customize( 'login_designer[field_border]' ).set( '2' );
 					wp.customize( 'login_designer[field_shadow]' ).set( '0' );
 					wp.customize( 'login_designer[field_shadow_inset]' ).set( false );
 					wp.customize( 'login_designer[field_color]' ).set( '#32373c' );
+					wp.customize( 'login_designer[field_font]' ).set( 'default' );
+					wp.customize( 'login_designer[field_font_size]' ).set( '24' );
 
 					wp.customize( 'login_designer[disable_logo]' ).set( false );
 
@@ -298,10 +302,10 @@
 
 				} else if ( to === '02' ) {
 
-					wp.customize( 'login_designer[bg_color]' ).set( '#111' );
+					wp.customize( 'login_designer[bg_color]' ).set( '#000000' );
 					wp.customize( 'login_designer[bg_image_gallery]' ).set( 'none' );
 
-					wp.customize( 'login_designer[form_bg]' ).set( '#111' );
+					wp.customize( 'login_designer[form_bg]' ).set( '#000000' );
 					wp.customize( 'login_designer[form_width]' ).set( '320' );
 					wp.customize( 'login_designer[form_shadow]' ).set( '0' );
 					wp.customize( 'login_designer[form_side_padding]' ).set( '10' );
@@ -309,11 +313,15 @@
 
 					wp.customize( 'login_designer[field_bg]' ).set( '#212121' );
 					wp.customize( 'login_designer[field_radius]' ).set( '5' );
-					wp.customize( 'login_designer[field_height]' ).set( '7' );
+					wp.customize( 'login_designer[field_side_padding]' ).set( '10' );
+					wp.customize( 'login_designer[field_padding_top]' ).set( '9' );
+					wp.customize( 'login_designer[field_padding_bottom]' ).set( '9' );
 					wp.customize( 'login_designer[field_border]' ).set( '0' );
 					wp.customize( 'login_designer[field_shadow]' ).set( '0' );
 					wp.customize( 'login_designer[field_shadow_inset]' ).set( false );
 					wp.customize( 'login_designer[field_color]' ).set( '#b7b7b7' );
+					wp.customize( 'login_designer[field_font]' ).set( 'Rubik' );
+					wp.customize( 'login_designer[field_font_size]' ).set( '18' );
 
 					wp.customize( 'login_designer[disable_logo]' ).set( true );
 

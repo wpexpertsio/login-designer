@@ -24,9 +24,9 @@
 		wp.customize.preview.bind( 'login-designer-template-switcher', function( data ) {
 			// When the section is expanded, open the login designer page.
 			if ( true === data.expanded ) {
-				$( 'body' ).addClass( 'customize-templates' );
+				$( 'body' ).addClass( 'customize-templates template-section-option' );
 			} else {
-				$( 'body' ).removeClass( 'customize-templates' );
+				$( 'body' ).removeClass( 'customize-templates template-section-option' );
 			}
 		});
 
@@ -193,14 +193,31 @@
 		} );
 	} );
 
-	// Field height.
-	wp.customize( 'login_designer[field_height]', function( value ) {
+	// Field top padding.
+	wp.customize( 'login_designer[field_padding_top]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
 
-			style = '<style class="login_designer_field_height"> #loginform .input { padding-top: ' + to + 'px; padding-bottom: ' + to + 'px;  }</style>';
+			style = '<style class="login_designer_field_padding_top"> #loginform .input { padding-top: ' + to + 'px; }</style>';
 
-			el =  $( '.login_designer_field_height' );
+			el =  $( '.login_designer_field_padding_top' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Field bottom padding.
+	wp.customize( 'login_designer[field_padding_bottom]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+
+			style = '<style class="login_designer_field_padding_bottom"> #loginform .input { padding-bottom: ' + to + 'px; }</style>';
+
+			el =  $( '.login_designer_field_padding_bottom' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it
@@ -540,7 +557,7 @@
 	wp.customize( 'login_designer[template]', function( value ) {
 		value.bind( function( to ) {
 
-			$( 'body.login' ).attr( 'class', 'login login-action-login wp-core-ui locale-en-us has-template-applied customize-partial-edit-shortcuts-shown' );
+			$( 'body.login' ).attr( 'class', 'login login-action-login wp-core-ui locale-en-us has-template-applied template-section-option customize-partial-edit-shortcuts-shown' );
 			$( 'body.login' ).addClass( 'login-designer-template-' + to );
 
 			// If we have a custom background color, let's remove it so the templates can shine.

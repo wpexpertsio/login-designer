@@ -1,3 +1,8 @@
+body.login-designer-template-02 {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
 @media only screen and (min-height: 500px) {
 	body.login-designer-template-02 {
 		display: -webkit-box;

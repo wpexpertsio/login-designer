@@ -86,7 +86,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'form_shadow_opacity' 	=> '13',
 
 				'field_bg' 		=> '#fbfbfb',
-				'field_height' 		=> '3',
+				'field_padding_top' 	=> '3',
+				'field_padding_bottom' 	=> '3',
 				'field_side_padding' 	=> '12',
 				'field_border' 		=> '1',
 				'field_border_color' 	=> '#dddddd',
@@ -94,7 +95,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'field_shadow' 		=> '2',
 				'field_shadow_opacity' 	=> '7',
 				'field_shadow_inset' 	=> true,
-				'field_font' 		=> '',
+				'field_font' 		=> 'default',
 				'field_font_size' 	=> '24',
 				'field_color' 		=> '#32373c',
 
@@ -514,7 +515,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 					$css .= '#loginform { box-shadow: 0 0 '. esc_attr( $options['form_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
 				} else {
-					$css .= '#loginform { box-shadow: 0 0 0 }';
+					$css .= '#loginform { box-shadow: none; }';
 				}
 
 				// Field background.
@@ -522,9 +523,14 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					$css .= '#loginform .input { background-color: ' . esc_attr( $options['field_bg'] ) . '; }';
 				}
 
-				// Field height.
-				if ( isset( $options['field_height'] ) ) {
-					$css .= '#loginform .input { padding-top: ' . esc_attr( $options['field_height'] ) . 'px; padding-bottom: ' . esc_attr( $options['field_height'] ) . 'px; }';
+				// Field top padding.
+				if ( isset( $options['field_padding_top'] ) ) {
+					$css .= '#loginform .input { padding-top: ' . esc_attr( $options['field_padding_top'] ) . 'px; }';
+				}
+
+				// Field bottom padding.
+				if ( isset( $options['field_padding_bottom'] ) ) {
+					$css .= '#loginform .input { padding-bottom: ' . esc_attr( $options['field_padding_bottom'] ) . 'px; }';
 				}
 
 				// Field side padding.
@@ -558,7 +564,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 					$css .= '#loginform .input { box-shadow: ' . esc_attr( $inset ) . ' 0 0 '. esc_attr( $options['field_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
 				} else {
-					$css .= '#loginform .input { box-shadow: 0 0 0 }';
+					$css .= '#loginform .input { box-shadow: none; }';
 				}
 
 				// Field font, as long as it's not 'default'.

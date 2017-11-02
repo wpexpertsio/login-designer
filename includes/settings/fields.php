@@ -34,27 +34,6 @@ $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logi
 	'section'               => 'login_designer__section--styles',
 ) ) );
 
-$wp_customize->add_setting( 'login_designer[field_height]', array(
-	'default'               => $defaults['field_height'],
-	'type' 			=> 'option',
-	'transport'             => 'postMessage',
-	'sanitize_callback'     => 'absint',
-) );
-
-$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer[field_height]', array(
-	'type'                  => 'login-designer-range',
-	'label'                 => esc_html__( 'Height', '@@textdomain' ),
-	'section'               => 'login_designer__section--styles',
-	'description'           => 'px',
-	'default'               => $defaults['field_height'],
-	'input_attrs'           => array(
-		'min'               => 0,
-		'max'               => 40,
-		'step'              => 1,
-		),
-	)
-) );
-
 $wp_customize->add_setting( 'login_designer[field_side_padding]', array(
 	'default'               => $defaults['field_side_padding'],
 	'type' 			=> 'option',
@@ -68,6 +47,48 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 	'section'               => 'login_designer__section--styles',
 	'description'           => 'px',
 	'default'               => $defaults['field_side_padding'],
+	'input_attrs'           => array(
+		'min'               => 0,
+		'max'               => 40,
+		'step'              => 1,
+		),
+	)
+) );
+
+$wp_customize->add_setting( 'login_designer[field_padding_top]', array(
+	'default'               => $defaults['field_padding_top'],
+	'type' 			=> 'option',
+	'transport'             => 'postMessage',
+	'sanitize_callback'     => 'absint',
+) );
+
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer[field_padding_top]', array(
+	'type'                  => 'login-designer-range',
+	'label'                 => esc_html__( 'Padding Top', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+	'description'           => 'px',
+	'default'               => $defaults['field_padding_top'],
+	'input_attrs'           => array(
+		'min'               => 0,
+		'max'               => 40,
+		'step'              => 1,
+		),
+	)
+) );
+
+$wp_customize->add_setting( 'login_designer[field_padding_bottom]', array(
+	'default'               => $defaults['field_padding_top'],
+	'type' 			=> 'option',
+	'transport'             => 'postMessage',
+	'sanitize_callback'     => 'absint',
+) );
+
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer[field_padding_bottom]', array(
+	'type'                  => 'login-designer-range',
+	'label'                 => esc_html__( 'Padding Bottom', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+	'description'           => 'px',
+	'default'               => $defaults['field_padding_bottom'],
 	'input_attrs'           => array(
 		'min'               => 0,
 		'max'               => 40,
