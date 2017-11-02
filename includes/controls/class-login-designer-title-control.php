@@ -35,21 +35,6 @@ class Login_Designer_Title_Control extends WP_Customize_Control {
 	public $type = 'login-designer-title';
 
 	/**
-	 * Enqueue neccessary custom control stylesheet.
-	 */
-	public function enqueue() {
-
-		// Define where the control's scripts are.
-		$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/';
-
-		// Use minified libraries if SCRIPT_DEBUG is turned off.
-		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-
-		// Custom control styles.
-		wp_enqueue_style( 'login-designer-title-control', $css_dir . 'login-designer-customize-title-control' . $suffix . '.css', LOGIN_DESIGNER_VERSION, 'all' );
-	}
-
-	/**
 	 * Render the content.
 	 *
 	 * @see https://developer.wordpress.org/reference/classes/wp_customize_control/render_content/

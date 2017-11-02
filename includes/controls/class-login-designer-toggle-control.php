@@ -28,21 +28,6 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) {
 class Login_Designer_Toggle_Control extends WP_Customize_Control {
 
 	/**
-	 * Enqueue neccessary custom control stylesheet.
-	 */
-	public function enqueue() {
-
-		// Define where the control's scripts are.
-		$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/';
-
-		// Use minified libraries if SCRIPT_DEBUG is turned off.
-		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-
-		// Custom control styles.
-		wp_enqueue_style( 'login-designer-toggle-control', $css_dir . 'login-designer-toggle-control' . $suffix . '.css', LOGIN_DESIGNER_VERSION, 'all' );
-	}
-
-	/**
 	 * Render the control's content.
 	 *
 	 * @author soderlind

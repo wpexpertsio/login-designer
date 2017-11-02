@@ -13,8 +13,15 @@
 // Reset.
 @import "modules/reset";
 
-// Upgrade.
-@import "modules/upgrade";
+// Controls.
+@import "controls/gallery";
+@import "controls/license";
+@import "controls/range";
+@import "controls/template";
+@import "controls/title";
+@import "controls/toggle";
+@import "controls/upgrade";
+
 
 // Hide the Styles section.
 #accordion-section-login_designer__section--styles {

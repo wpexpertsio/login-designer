@@ -42,13 +42,9 @@ class Login_Designer_Background_Gallery_Control extends WP_Customize_Control {
 
 		// Define where the control's scripts are.
 		$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
-		$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/';
 
 		// Use minified libraries if SCRIPT_DEBUG is turned off.
 		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-
-		// Custom control styles.
-		wp_enqueue_style( 'login-designer-gallery-control', $css_dir . 'login-designer-customize-gallery-control' . $suffix . '.css', LOGIN_DESIGNER_VERSION, 'all' );
 
 		// Custom control scripts.
 		wp_enqueue_script( 'login-designer-gallery-control', $js_dir . 'login-designer-customize-gallery-control' . $suffix . '.js', array( 'jquery' ), LOGIN_DESIGNER_VERSION, 'all' );
