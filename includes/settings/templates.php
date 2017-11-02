@@ -11,7 +11,7 @@
 $wp_customize->add_setting( 'login_designer[template]', array(
 	'default'               => $defaults['template'],
 	'type' 			=> 'option',
-	// 'transport'             => 'postMessage',
+	'transport'             => 'postMessage',
 ) );
 
 $wp_customize->add_control( new Login_Designer_Template_Control( $wp_customize, 'login_designer[template]', array(

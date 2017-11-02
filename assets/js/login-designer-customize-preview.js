@@ -197,6 +197,7 @@
 	wp.customize( 'login_designer[field_height]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
+
 			style = '<style class="login_designer_field_height"> #loginform .input { padding-top: ' + to + 'px; padding-bottom: ' + to + 'px;  }</style>';
 
 			el =  $( '.login_designer_field_height' );
@@ -465,10 +466,14 @@
 
 				// Default is the WordPress admin's default.
 				if ( 'default' === to ) {
-					to == '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;'
+					to = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;'
 				}
 
-				style = '<style class=" ' + control + ' "> ' + style_element + ' { font-family: ' + to + '; } </style>';
+				// Remove the [] from the control, so we can use the control as a class.
+				control = control.replace( '[', '_' );
+				control = control.replace( ']', '' );
+
+				style = '<style class="' + control + '"> ' + style_element + ' { font-family: ' + to + '; } </style>';
 
 				el =  $( '.' + control );
 
@@ -479,7 +484,7 @@
 				}
 
 				// Don't link to fonts that don't have Google Fonts.
-				if ( 'default' != to && 'Times New Roman' != to && 'Helvetica' != to && 'Georgia' != to ) {
+				if ( '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;' !== to && 'Times New Roman' !== to && 'Helvetica' !== to && 'Georgia' != to ) {
 
 					// Convert the value into the correct url args.
 					font_family = '?family=' + to;
@@ -535,11 +540,15 @@
 	wp.customize( 'login_designer[template]', function( value ) {
 		value.bind( function( to ) {
 
-			$( 'body.login' ).attr( 'class', 'login login-action-login wp-core-ui locale-en-us has-template-applied' );
+			$( 'body.login' ).attr( 'class', 'login login-action-login wp-core-ui locale-en-us has-template-applied customize-partial-edit-shortcuts-shown' );
 			$( 'body.login' ).addClass( 'login-designer-template-' + to );
 
 			// If we have a custom background color, let's remove it so the templates can shine.
 			$( 'body.login' ).css( 'background-color', '' );
+
+			if ( to !== '01' ) {
+				$( '#login' ).css( 'background-color', '' );
+			}
 		} );
 	} );
 
@@ -547,7 +556,7 @@
 	wp.customize( 'login_designer[bg_color]', function( value ) {
 		value.bind( function( to ) {
 
-			$( 'body.login' ).removeClass( 'class', 'has-template-applied' );
+			// $( 'body.login' ).removeClass( 'class', 'has-template-applied' );
 
 			$( 'body.login' ).css( 'background-color', to );
 		} );
@@ -840,7 +849,7 @@
 	// Login form background color.
 	wp.customize( 'login_designer[form_bg]', function( value ) {
 		value.bind( function( to ) {
-			$( 'body.login #loginform' ).css( 'background-color', to );
+			$( 'body.login #loginform, body.login-designer-template-01 #login' ).css( 'background-color', to );
 		} );
 	} );
 

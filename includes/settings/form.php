@@ -26,22 +26,12 @@ $wp_customize->add_setting( 'login_designer[form_bg]', array(
 	'default'               => $defaults['form_bg'],
 	'type' 			=> 'option',
 	'transport'   		=> 'postMessage',
-	'sanitize_callback'     => 'esc_html',
+	'sanitize_callback'     => 'sanitize_hex_color',
 ) );
 
-$wp_customize->add_control( new Login_Designer_Alpha_Color_Control( $wp_customize, 'login_designer[form_bg]', array(
-	'label'         	=> esc_html__( 'Background', 'yourtextdomain' ),
-	'settings'              => 'login_designer[form_bg]',
-	'section'       	=> 'login_designer__section--styles',
-	'show_opacity'  	=> true,
-	'palette'		=> array(
-		'rgba( 255, 255, 255, 0 )',
-		'#f1f1f1',
-		'rgba(50,50,50,0.8)',
-		'rgba(50,50,50,0.8)',
-		'rgba( 255, 255, 255, 0.2 )',
-		'#00CC99',
-	),
+$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer[form_bg]', array(
+	'label'                 => esc_html__( 'Background', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
 ) ) );
 
 $wp_customize->add_setting( 'login_designer[form_width]', array(

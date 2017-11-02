@@ -93,7 +93,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'field_radius' 		=> '0',
 				'field_shadow' 		=> '2',
 				'field_shadow_opacity' 	=> '7',
-				'field_shadow_inset' 	=> '',
+				'field_shadow_inset' 	=> true,
 				'field_font' 		=> '',
 				'field_font_size' 	=> '24',
 				'field_color' 		=> '#32373c',
@@ -484,7 +484,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Form background color.
 				if ( isset( $options['form_bg'] ) ) {
-					$css .= '#loginform { background-color: ' . $options['form_bg'] . '; }';
+					$css .= '#loginform, .login-designer-template-01 #login { background-color: ' . $options['form_bg'] . '; }';
 				}
 
 				// Form width.
@@ -513,6 +513,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					$opacity = ( isset( $options['form_shadow_opacity'] ) * .01 ) ? $options['form_shadow_opacity'] * .01 : 0;
 
 					$css .= '#loginform { box-shadow: 0 0 '. esc_attr( $options['form_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
+				} else {
+					$css .= '#loginform { box-shadow: 0 0 0 }';
 				}
 
 				// Field background.
@@ -533,6 +535,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Field border width.
 				if ( isset( $options['field_border'] ) ) {
 					$css .= '#loginform .input { border-style: solid; border-width: ' . esc_attr( $options['field_border'] ) . 'px; }';
+				} else {
+					$css .= '#loginform .input { border: 0 }';
 				}
 
 				// Field border color.
@@ -553,6 +557,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					$inset = isset( $options['field_shadow_inset'] ) ? 'inset' : '';
 
 					$css .= '#loginform .input { box-shadow: ' . esc_attr( $inset ) . ' 0 0 '. esc_attr( $options['field_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
+				} else {
+					$css .= '#loginform .input { box-shadow: 0 0 0 }';
 				}
 
 				// Field font, as long as it's not 'default'.

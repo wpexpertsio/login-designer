@@ -426,6 +426,24 @@
 							setting.bind( visibility );
 						});
 					});
+
+				} else if ( item === 'login_designer[form_width]' ) {
+
+					wp.customize( 'login_designer[template]', function( setting ) {
+						wp.customize.control( item, function( control ) {
+							var visibility = function() {
+
+								if ( '01' !== setting.get() ) {
+									wp.customize.control( item ).activate( { duration: 0 } );
+								} else {
+									control.container.slideUp( 0 );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
 				}
 
 				else {

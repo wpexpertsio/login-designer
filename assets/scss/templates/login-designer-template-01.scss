@@ -3,9 +3,28 @@ body.login.login-designer-template-01 {
 	content: " ";
 
 	#login {
-		background: #fff;
-		flex-direction: column;
-		width: 33.33333333%;
-		margin: 0;
+
+		@media only screen and (min-width: 400px) {
+			flex-direction: column;
+			width: 85%;
+			margin: 0;
+			max-width: 540px;
+			padding: 40px 0 0;
+		}
+
+		@media only screen and (min-width: 800px) {
+			padding: 100px 0 0;
+		}
+
+		@media only screen and (max-width: 399px) {
+			width: 90%;
+		}
+	}
+
+	#loginform {
+		@media only screen and (max-width: 499px) {
+			padding-left: 25px;
+			padding-right: 25px;
+		}
 	}
 }

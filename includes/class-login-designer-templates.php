@@ -41,8 +41,10 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 		 */
 		public function template_classes( $classes ) {
 
+			global $pagenow;
+
 			// Return if we're not on the Login Designer template.
-			if ( ! is_page_template( 'template-login-designer.php' ) ) {
+			if ( 'wp-login.php' !== $GLOBALS['pagenow'] && ! is_page_template( 'template-login-designer.php' ) ) {
 				return $classes;
 			}
 
