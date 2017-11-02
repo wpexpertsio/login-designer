@@ -240,7 +240,6 @@
 			});
 		});
 
-
 		// Modify the background color based on the gallery image selected.
 		wp.customize( 'login_designer[template]', function( value ) {
 
@@ -271,6 +270,7 @@
 
 					wp.customize( 'login_designer[disable_logo]' ).set( false );
 
+					wp.customize( 'login_designer[username_label]' ).set( 'Username or Email Address' );
 					wp.customize( 'login_designer[label_font]' ).set( 'default' );
 					wp.customize( 'login_designer[label_font_size]' ).set( '14' );
 					wp.customize( 'login_designer[label_color]' ).set( '#72777c' );
@@ -301,6 +301,7 @@
 
 					wp.customize( 'login_designer[disable_logo]' ).set( false );
 
+					wp.customize( 'login_designer[username_label]' ).set( 'Username or Email Address' );
 					wp.customize( 'login_designer[label_font]' ).set( 'default' );
 					wp.customize( 'login_designer[label_font_size]' ).set( '14' );
 					wp.customize( 'login_designer[label_color]' ).set( '#72777c' );
@@ -331,6 +332,7 @@
 
 					wp.customize( 'login_designer[disable_logo]' ).set( true );
 
+					wp.customize( 'login_designer[username_label]' ).set( 'Username' );
 					wp.customize( 'login_designer[label_font]' ).set( 'Rubik' );
 					wp.customize( 'login_designer[label_font_size]' ).set( '14' );
 					wp.customize( 'login_designer[label_color]' ).set( '#4f4f4f' );
