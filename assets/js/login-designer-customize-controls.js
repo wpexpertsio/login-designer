@@ -220,6 +220,10 @@
 
 
 
+
+
+
+
 		// Hide the form width option if Template 2 is selected.
 		wp.customize( 'login_designer[template]', function( setting ) {
 			wp.customize.control( 'login_designer[form_width]', function( control ) {
@@ -270,6 +274,7 @@
 					wp.customize( 'login_designer[label_font]' ).set( 'default' );
 					wp.customize( 'login_designer[label_font_size]' ).set( '14' );
 					wp.customize( 'login_designer[label_color]' ).set( '#72777c' );
+					wp.customize( 'login_designer[label_position]' ).set( '2' );
 
 				} else if ( to === '01' ) {
 
@@ -296,9 +301,10 @@
 
 					wp.customize( 'login_designer[disable_logo]' ).set( false );
 
-					// wp.customize( 'login_designer[label_font]' ).set( 'Open Sans' );
-					// wp.customize( 'login_designer[label_font_size]' ).set( '15' );
-					// wp.customize( 'login_designer[label_color]' ).set( '#636875' );
+					wp.customize( 'login_designer[label_font]' ).set( 'default' );
+					wp.customize( 'login_designer[label_font_size]' ).set( '14' );
+					wp.customize( 'login_designer[label_color]' ).set( '#72777c' );
+					wp.customize( 'login_designer[label_position]' ).set( '2' );
 
 				} else if ( to === '02' ) {
 
@@ -311,23 +317,24 @@
 					wp.customize( 'login_designer[form_side_padding]' ).set( '10' );
 					wp.customize( 'login_designer[form_vertical_padding]' ).set( '0' );
 
-					wp.customize( 'login_designer[field_bg]' ).set( '#212121' );
+					wp.customize( 'login_designer[field_bg]' ).set( '#191919' );
 					wp.customize( 'login_designer[field_radius]' ).set( '5' );
-					wp.customize( 'login_designer[field_side_padding]' ).set( '10' );
+					wp.customize( 'login_designer[field_side_padding]' ).set( '13' );
 					wp.customize( 'login_designer[field_padding_top]' ).set( '9' );
 					wp.customize( 'login_designer[field_padding_bottom]' ).set( '9' );
 					wp.customize( 'login_designer[field_border]' ).set( '0' );
 					wp.customize( 'login_designer[field_shadow]' ).set( '0' );
 					wp.customize( 'login_designer[field_shadow_inset]' ).set( false );
-					wp.customize( 'login_designer[field_color]' ).set( '#b7b7b7' );
+					wp.customize( 'login_designer[field_color]' ).set( '#606060' );
 					wp.customize( 'login_designer[field_font]' ).set( 'Rubik' );
 					wp.customize( 'login_designer[field_font_size]' ).set( '18' );
 
 					wp.customize( 'login_designer[disable_logo]' ).set( true );
 
-					// wp.customize( 'login_designer[label_font]' ).set( 'Open Sans' );
-					// wp.customize( 'login_designer[label_font_size]' ).set( '15' );
-					// wp.customize( 'login_designer[label_color]' ).set( '#636875' );
+					wp.customize( 'login_designer[label_font]' ).set( 'Rubik' );
+					wp.customize( 'login_designer[label_font_size]' ).set( '14' );
+					wp.customize( 'login_designer[label_color]' ).set( '#4f4f4f' );
+					wp.customize( 'login_designer[label_position]' ).set( '5' );
 
 				}
 

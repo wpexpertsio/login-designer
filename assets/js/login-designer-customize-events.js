@@ -46,6 +46,7 @@
 			'login_designer[label_font]',
 			'login_designer[label_font_size]',
 			'login_designer[label_color]',
+			'login_designer[label_position]',
 			'login_designer[username_label]',
 			'login_designer[password_label]',
 		],

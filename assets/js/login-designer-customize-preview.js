@@ -553,6 +553,22 @@
 		} );
 	} );
 
+	// Label position.
+	wp.customize( 'login_designer[label_position]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_label_position">#loginform .input { margin-top: ' + to + 'px; } #loginform div .login-designer-event-button { top: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_label_position' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
 	// Add a body class based on the current template.
 	wp.customize( 'login_designer[template]', function( value ) {
 		value.bind( function( to ) {
@@ -571,11 +587,18 @@
 
 	// Login page background color.
 	wp.customize( 'login_designer[bg_color]', function( value ) {
+
 		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_bg_color">body.login { background-color: ' + to + '; } </style>';
 
-			// $( 'body.login' ).removeClass( 'class', 'has-template-applied' );
+			el =  $( '.login_designer_bg_color' );
 
-			$( 'body.login' ).css( 'background-color', to );
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
 		} );
 	} );
 

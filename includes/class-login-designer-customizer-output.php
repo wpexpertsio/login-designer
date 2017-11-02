@@ -101,7 +101,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				'username_label' 	=> esc_html__( 'Username or Email Address', '@@textdomain' ),
 				'password_label' 	=> esc_html__( 'Password', '@@textdomain' ),
-				'label_font' 		=> '',
+				'label_font' 		=> 'default',
+				'label_position' 	=> '2',
 				'label_font_size' 	=> '14',
 				'label_color' 		=> '#72777c',
 
@@ -114,7 +115,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'button_shadow' 	=> '0',
 				'button_shadow_opacity' => '0',
 
-				'button_font' 		=> '',
+				'button_font' 		=> 'default',
 				'button_font_size' 	=> '13',
 				'button_color' 		=> '#fff',
 
@@ -595,6 +596,15 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Label font color.
 				if ( isset( $options['label_color'] ) ) {
 					$css .= '#loginform label:not([for=rememberme]) { color: ' . esc_attr( $options['label_color'] ) . ' }';
+				}
+
+				// Label position.
+				if ( isset( $options['label_position'] ) ) {
+					$css .= '#loginform .input { margin-top: ' . esc_attr( $options['label_position'] ) . 'px }';
+
+					if ( is_customize_preview() ) {
+						$css .= '#loginform div .login-designer-event-button { top: ' . esc_attr( $options['label_position'] ) . 'px }';
+					}
 				}
 
 				// Button background color.
