@@ -1,28 +1,28 @@
 <?php
 /**
  * Plugin Name: Login Designer
- * Plugin URI: https://logindesigner.com
- * Description: The easiest way to completly customize your WordPress login page. Create stunning login templates in seconds with the most beautiful and elegant login customizer WordPress plugin.
- * Author: ThatPluginCompany
- * Author URI: https://thatplugincompany.com
+ * Plugin URI: @@pkg.plugin_uri
+ * Description: @@pkg.description
+ * Author: @@pkg.author
+ * Author URI: @@pkg.author_uri
  * Version: @@pkg.version
- * Text Domain: @@pkg.textdomain
+ * Text Domain: @@textdomain
  * Domain Path: languages
- * Requires at least: 4.7
- * Tested up to: 4.9
+ * Requires at least: @@pkg.requires
+ * Tested up to: @@pkg.tested_up_to
  *
- * Login Designer is free software: you can redistribute it and/or modify
+ * @@pkg.name is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 2 of the License, or
  * any later version.
  *
- * Login Designer is distributed in the hope that it will be useful,
+ * @@pkg.name is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Login Designer. If not, see <http://www.gnu.org/licenses/>.
+ * along with @@pkg.name. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package   @@pkg.name
  * @author    @@pkg.author
@@ -274,13 +274,13 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 
 			if ( $this->has_pro() ) {
 
-				$extensions_url = esc_url( add_query_arg( array(
+				$upgrade_url = esc_url( add_query_arg( array(
 					'utm_source'   => 'plugins-page',
 					'utm_medium'   => 'plugin-action-link',
 					'utm_campaign' => 'admin',
-					'utm_content'  => 'extensions',
+					'utm_content'  => 'pro',
 					),
-				'https://logindesigner.com/extensions/' ) );
+				'https://logindesigner.com/pricing/' ) );
 
 				$support_url = esc_url( add_query_arg( array(
 					'utm_source'   => 'plugins-page',
@@ -292,7 +292,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 
 				return array_merge(
 					$settings,
-					array( 'extensions' => sprintf( '<a href="%s" target="_blank">%s</a>', esc_url( $extensions_url ) , esc_html__( 'Extensions', '@@textdomain' ) ) ),
+					array( 'pro' => sprintf( '<a href="%s" target="_blank">%s</a>', esc_url( $upgrade_url ) , esc_html__( 'Pro', '@@textdomain' ) ) ),
 					array( 'support' => sprintf( '<a href="%s" target="_blank">%s</a>', esc_url( $support_url ) , esc_html__( 'Support', '@@textdomain' ) ) ),
 					$actions
 				);

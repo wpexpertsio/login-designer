@@ -6,9 +6,9 @@
  * This is essentially a stripped down version of wp-login.php
  *
  * @package   @@pkg.name
- * @copyright @@pkg.copyright
  * @author    @@pkg.author
  * @license   @@pkg.license
+ * @version   @@pkg.version
  */
 
 /**

@@ -380,16 +380,44 @@ gulp.task('build-variables', function () {
 			replacement: project
 		},
 		{
+			match: 'pkg.slug',
+			replacement: slug
+		},
+		{
+			match: 'pkg.downloadid',
+			replacement: pkg.downloadid
+		},
+		{
 			match: 'pkg.license',
 			replacement: pkg.license
+		},
+		{
+			match: 'pkg.plugin_uri',
+			replacement: pkg.plugin_uri
 		},
 		{
 			match: 'pkg.author',
 			replacement: pkg.author
 		},
 		{
+			match: 'pkg.author_uri',
+			replacement: pkg.author_uri
+		},
+		{
 			match: 'pkg.description',
 			replacement: pkg.description
+		},
+		{
+			match: 'pkg.requires',
+			replacement: pkg.requires
+		},
+		{
+			match: 'pkg.tested_up_to',
+			replacement: pkg.tested_up_to
+		},
+		{
+			match: 'pkg.tags',
+			replacement: pkg.tags
 		}
 		]
 	}))

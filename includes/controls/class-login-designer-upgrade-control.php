@@ -5,9 +5,9 @@
  * @see https://github.com/justintadlock/trt-customizer-pro
  *
  * @package   @@pkg.name
- * @copyright @@pkg.copyright
  * @author    @@pkg.author
  * @license   @@pkg.license
+ * @version   @@pkg.version
  */
 
 /**

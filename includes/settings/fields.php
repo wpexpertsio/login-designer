@@ -3,9 +3,9 @@
  * Fields Customizer Section.
  *
  * @package   @@pkg.name
- * @copyright @@pkg.copyright
  * @author    @@pkg.author
  * @license   @@pkg.license
+ * @version   @@pkg.version
  */
 
 /**
