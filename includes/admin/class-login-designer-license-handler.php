@@ -29,6 +29,24 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		}
 
 		/**
+		 * Get the shop.
+		 *
+		 * @access public
+		 */
+		public function shop_url() {
+			return 'https://logindesigner.com';
+		}
+
+		/**
+		 * Get the shop.
+		 *
+		 * @access public
+		 */
+		public function author() {
+			return 'ThatPluginCompany';
+		}
+
+		/**
 		 * Get the license key.
 		 *
 		 * @access public
@@ -158,8 +176,8 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		/**
 		 * Check the license and activate it.
 		 *
-		 * Development test license: 2feb6a374b47df1aa25ba5ac0073d040
-		 * https://logindesigner.com/?edd_action=activate_license&item_id=30&license=2feb6a374b47df1aa25ba5ac0073d040
+		 * Development test license: d2d430edb42c02297e999c604b29019e (All Access for Login Designer Pro)
+		 * https://logindesigner.com/?edd_action=check_license&item_id=30&license=d2d430edb42c02297e999c604b29019e
 		 */
 		public function activate_license() {
 
