@@ -215,7 +215,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 */
 		public function get_login_designer_page() {
 
-			$admin_options 	= get_option( 'login_designer_admin', array() );
+			$admin_options 	= get_option( 'login_designer_settings', array() );
 			$page 		= array_key_exists( 'login_designer_page', $admin_options ) ? get_post( $admin_options['login_designer_page'] ) : false;
 
 			return $page;

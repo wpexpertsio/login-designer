@@ -936,7 +936,7 @@
 	display: none !important;
 }
 
-#customize-control-login_designer_admin-logo_url {
+#customize-control-login_designer_settings-logo_url {
 	margin-bottom: 25px;
 }
 
@@ -969,16 +969,16 @@
 	width: 50%;
 }
 
-#customize-control-login_designer_admin-login_redirect .customize-control-title,
-#customize-control-login_designer_admin-logout_redirect .customize-control-title {
+#customize-control-login_designer_settings-login_redirect .customize-control-title,
+#customize-control-login_designer_settings-logout_redirect .customize-control-title {
 	float: left;
 	margin-bottom: 0;
 	position: relative;
 	width: 35%;
 }
 
-#customize-control-login_designer_admin-login_redirect select,
-#customize-control-login_designer_admin-logout_redirect select {
+#customize-control-login_designer_settings-login_redirect select,
+#customize-control-login_designer_settings-logout_redirect select {
 	padding-right: 20px;
 	width: 65%;
 }

@@ -210,7 +210,7 @@
 		// Only show the login logo bits, if the login logo is not hidden.
 		customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer[logo]', false );
 		customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer[logo_title]', false );
-		customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer_admin[logo_url]', false );
+		customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer_settings[logo_url]', false );
 
 		// Only show the Twitter profile option, if social sharing is enabled.
 		customizer_image_option_display( 'login_designer[logo]', 'login_designer[logo_margin_bottom]' );

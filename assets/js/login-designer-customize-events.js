@@ -11,7 +11,7 @@
 			'login_designer[logo_title]',
 			'login_designer[logo]',
 			'login_designer[logo_margin_bottom]',
-			'login_designer_admin[logo_url]',
+			'login_designer_settings[logo_url]',
 			'login_designer[disable_logo]',
 		],
 		'form' : [
@@ -189,7 +189,7 @@
 						});
 					});
 
-				} else if ( item === 'login_designer_admin[logo_url]' ) {
+				} else if ( item === 'login_designer_settings[logo_url]' ) {
 
 					wp.customize( 'login_designer[disable_logo]', function( setting ) {
 						wp.customize.control( item, function( control ) {

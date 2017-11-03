@@ -133,7 +133,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		 */
 		public function admin_option_wrapper( $option ) {
 
-			$options = get_option( 'login_designer_admin' );
+			$options = get_option( 'login_designer_settings' );
 
 			// Check if options exist.
 			if ( ! $options ) {
@@ -188,7 +188,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 			);
 
-			return apply_filters( 'login_designer_admin_defaults', $admin_defaults );
+			return apply_filters( 'login_designer_settings_defaults', $admin_defaults );
 		}
 
 		/**

@@ -61,7 +61,7 @@ function login_designer_run_install() {
 	$options = array();
 
 	// Pull options from WP.
-	$admin_options = get_option( 'login_designer_admin', array() );
+	$admin_options = get_option( 'login_designer_settings', array() );
 
 	// Checks if the Login Designer page option exists.
 	$login_designer_page = array_key_exists( 'login_designer_page', $admin_options ) ? get_post( $admin_options['login_designer_page'] ) : false;
@@ -98,7 +98,7 @@ function login_designer_run_install() {
 	$merged_options   = array_merge( $admin_options, $options );
 	$admin_options    = $merged_options;
 
-	update_option( 'login_designer_admin', $admin_options );
+	update_option( 'login_designer_settings', $admin_options );
 
 	// Assign the Login Designer template.
 	login_designer_attach_template_to_page( $page, 'template-login-designer.php' );
@@ -123,7 +123,7 @@ function login_designer_activation_redirect() {
 	}
 
 	// Pull the Login Designer page from options.
-	$admin_options 	= get_option( 'login_designer_admin', array() );
+	$admin_options 	= get_option( 'login_designer_settings', array() );
 	$page 		= array_key_exists( 'login_designer_page', $admin_options ) ? $admin_options['login_designer_page'] : false;
 
 	// Redirect to the Customizer > Login Designer panel.

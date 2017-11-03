@@ -29,5 +29,5 @@ if ( $page ) {
 
 // Remove all plugin settings.
 delete_option( 'login_designer' );
-delete_option( 'login_designer_admin' );
+delete_option( 'login_designer_settings' );
 delete_option( 'login_designer_license' );
