@@ -15,7 +15,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 
-Learn more at [logindesigner.com](https://logindesigner.com?utm_source=home&utm_medium=description_tab&utm_content=home&utm_campaign=readme-learn-more).
+Learn more at [logindesigner.com](https://logindesigner.com?utm_medium=login-designer-lite&utm_source=readme&utm_campaign=readme&utm_content=learn-more).
 
 == Installation ==
 

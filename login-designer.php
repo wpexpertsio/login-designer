@@ -112,7 +112,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		private function constants() {
-			$this->define( 'LOGIN_DESIGNER_HAS_PRO', false );
+			$this->define( 'LOGIN_DESIGNER_HAS_PRO', true );
 			$this->define( 'LOGIN_DESIGNER_VERSION', '@@pkg.version' );
 			$this->define( 'LOGIN_DESIGNER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 			$this->define( 'LOGIN_DESIGNER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -305,9 +305,16 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 */
 		public function plugin_action_links( $actions ) {
 
-			// If there's no pro version, return.
+			// Add the Settings link.
+			$settings = array( 'settings' => sprintf( '<a href="%s">%s</a>', admin_url( 'themes.php?page=login-designer' ) , esc_html__( 'Settings', '@@textdomain' ) ) );
+
+			// If there's no pro version, just return the settings link.
 			if ( ! $this->has_pro() ) {
-				return $actions;
+
+				return array_merge(
+					$settings,
+					$actions
+				);
 			}
 
 			// Check if a license is valid. If it is, show the support link and remove the upgrade link.
@@ -322,10 +329,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				$url = $this->get_store_url( 'pricing', array( 'utm_medium' => 'login-designer-lite', 'utm_source' => 'plugins-page', 'utm_campaign' => 'plugins-action-link', 'utm_content' => 'pro' ) );
 			}
 
-			// Add the Settings link.
-			$settings = array( 'settings' => sprintf( '<a href="%s">%s</a>', admin_url( 'themes.php?page=login-designer' ) , esc_html__( 'Settings', '@@textdomain' ) ) );
-
-			// Merge and display each.
+			// Merge and display each link.
 			return array_merge(
 				$settings,
 				array( 'url' => sprintf( '<a href="%s" target="_blank">%s</a>', esc_url( $url ) , $title ) ),
