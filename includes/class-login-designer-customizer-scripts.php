@@ -159,7 +159,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 
 			$js_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
 
-			wp_enqueue_script( 'login-designer-custom-controls', $js_dir . 'login-designer-custom-controls.min.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
+			wp_enqueue_script( 'login-designer-customize-custom-controls', $js_dir . 'login-designer-customize-custom-controls.min.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
 		}
 
 		/**
@@ -185,7 +185,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 				wp_localize_script( 'login-designer-license-control', 'login_designer_custom_controls', $localize );
 				wp_localize_script( 'login-designer-template-control', 'login_designer_custom_controls', $localize );
 			} else {
-				wp_localize_script( 'login-designer-custom-controls', 'login_designer_custom_controls', $localize );
+				wp_localize_script( 'login-designer-customize-custom-controls', 'login_designer_custom_controls', $localize );
 			}
 
 		}

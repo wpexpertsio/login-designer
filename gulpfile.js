@@ -47,13 +47,13 @@ var scriptGalleryControlSRC   		= './assets/js/'+ scriptGalleryControlFile +'.js
 var scriptLicenseControlFile  	= slug +'-license-control'; // JS file name.
 var scriptLicenseControlSRC   	= './assets/js/'+ scriptLicenseControlFile +'.js'; // The JS file src.
 
-var scriptDestination 		= './assets/js/dist/'; // Path to place the compiled JS custom scripts file.
-var scriptWatchFiles  		= './assets/js/*.js'; // Path to all *.scss files inside css folder and inside them.
+var scriptDestination 		= './assets/js/dist/';
+var scriptWatchFiles  		= './assets/js/*.js';
 
 // Vendor Javascript.
 var jsVendorSRC			= './assets/js/controls/*.js'; // Path to JS vendor folder.
 var jsVendorDestination	 	= './assets/js/dist/'; // Path to place the compiled JS vendors file.
-var jsVendorFile		= 'login-designer-custom-controls'; // Compiled JS vendors file name.
+var jsVendorFile		= 'login-designer-customize-custom-controls'; // Compiled JS vendors file name.
 var vendorJSWatchFiles	  	= './assets/js/controls/**/*.js'; // Path to all vendor JS files.
 
 var projectPHPWatchFiles    	= ['./**/*.php', '!_dist', '!_dist/**', '!_dist/**/*.php', '!_demo', '!_demo/**','!_demo/**/*.php'];
@@ -286,46 +286,6 @@ gulp.task( 'scripts', function() {
 	gulp.src( scriptCustomizeControlsSRC )
 	.pipe( rename( {
 		basename: scriptCustomizeControlsFile,
-		suffix: '.min'
-	}))
-	.pipe( uglify() )
-	.pipe( lineec() )
-	.pipe( gulp.dest( scriptDestination ) )
-
-	// slug-range-control.js
-	gulp.src( scriptRangeControlSRC )
-	.pipe( rename( {
-		basename: scriptRangeControlFile,
-		suffix: '.min'
-	}))
-	.pipe( uglify() )
-	.pipe( lineec() )
-	.pipe( gulp.dest( scriptDestination ) )
-
-	// slug-template-control.js
-	gulp.src( scriptTemplateControlSRC )
-	.pipe( rename( {
-		basename: scriptTemplateControlFile,
-		suffix: '.min'
-	}))
-	.pipe( uglify() )
-	.pipe( lineec() )
-	.pipe( gulp.dest( scriptDestination ) )
-
-	// slug-customize-gallery-control.js
-	gulp.src( scriptGalleryControlSRC )
-	.pipe( rename( {
-		basename: scriptGalleryControlFile,
-		suffix: '.min'
-	}))
-	.pipe( uglify() )
-	.pipe( lineec() )
-	.pipe( gulp.dest( scriptDestination ) )
-
-	// slug-customize-license-control.js
-	gulp.src( scriptLicenseControlSRC )
-	.pipe( rename( {
-		basename: scriptLicenseControlFile,
 		suffix: '.min'
 	}))
 	.pipe( uglify() )
