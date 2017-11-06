@@ -116,6 +116,6 @@ $wp_customize->add_setting( 'login_designer[bg_color]', array(
 ) );
 
 $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer[bg_color]', array(
-	'label'                 => esc_html__( 'Background Color', '@@textdomain' ),
+	'label'                 => esc_html__( 'Color', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );

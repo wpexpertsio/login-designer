@@ -9,7 +9,7 @@
 		}
 
 		.customize-control-content {
-			margin-bottom: -20px;
+			// margin-bottom: -20px;
 		}
 
 		label {
@@ -25,45 +25,29 @@
 		}
 
 		.wp-picker-container.wp-picker-active {
-			margin-bottom: 25px;
+			margin-top: -22px;
+			margin-bottom: 7px;
 		}
 
 		.wp-picker-open+.wp-picker-input-wrap {
-			margin-top: 1px;
+			background: $background;
+		}
+
+		.wp-color-result-text {
+			display: none;
 		}
 
 		.wp-color-result {
-			border-radius: 100%;
-			box-shadow: 0 0 0!important;
-			height: 20px;
-			margin: 0;
-			border: 0 !important;
-			padding-left: 20px;
 			position: absolute;
-			right: 0;
+			right: -1px;
 			top: -1px;
+			margin: 0;
+			border-width: 0;
+			box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+			transition: box-shadow $range--opacity-speed $range--opacity-cubic;
 
-			&::before {
-				box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
-				height: calc( 100% -2px );
-				width: calc( 100% -2px );
-				top: 1px;
-				border-radius: 100%;
-				left: 1px;
-				right: 1px;
-				bottom: 1px;
-				content: '';
-				position: absolute;
-				transition: box-shadow $range--opacity-speed $range--opacity-cubic;
-			}
-
-			&:hover::before,
-			&:focus::before {
-				box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
-			}
-
-			&::after {
-				display: none;
+			&:hover {
+				box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3);
 			}
 		}
 	}

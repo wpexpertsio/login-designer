@@ -210,7 +210,7 @@ $wp_customize->add_setting( 'login_designer[button_font_size]', array(
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer[button_font_size]', array(
 	'type'                  => 'login-designer-range',
-	'label'                 => esc_html__( 'Font Size', '@@textdomain' ),
+	'label'                 => esc_html__( 'Size', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 	'description'           => 'px',
 	'default'               => $defaults['button_font_size'],
@@ -230,7 +230,7 @@ $wp_customize->add_setting( 'login_designer[button_color]', array(
 ) );
 
 $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer[button_color]', array(
-	'label'                 => esc_html__( 'Font Color', '@@textdomain' ),
+	'label'                 => esc_html__( 'Color', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
 

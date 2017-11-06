@@ -57,18 +57,6 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 	)
 ) );
 
-$wp_customize->add_setting( 'login_designer[label_color]', array(
-	'default'               => $defaults['label_color'],
-	'type' 			=> 'option',
-	'transport'             => 'postMessage',
-	'sanitize_callback'     => 'sanitize_hex_color',
-) );
-
-$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer[label_color]', array(
-	'label'                 => esc_html__( 'Color', '@@textdomain' ),
-	'section'               => 'login_designer__section--styles',
-) ) );
-
 $wp_customize->add_setting( 'login_designer[label_position]', array(
 	'default'               => $defaults['label_position'],
 	'type' 			=> 'option',
@@ -89,6 +77,18 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 		),
 	)
 ) );
+
+$wp_customize->add_setting( 'login_designer[label_color]', array(
+	'default'               => $defaults['label_color'],
+	'type' 			=> 'option',
+	'transport'             => 'postMessage',
+	'sanitize_callback'     => 'sanitize_hex_color',
+) );
+
+$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer[label_color]', array(
+	'label'                 => esc_html__( 'Color', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+) ) );
 
 $wp_customize->add_setting( 'login_designer[username_label]', array(
 	'default'               => $defaults['username_label'],

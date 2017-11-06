@@ -84,17 +84,17 @@
 	.customize-control-dropdown-pages {
 		position: relative;
 
-		label {
-			display: block;
-		}
-
-		label::after {
+		&::after {
 			font: 400 11px/11px dashicons;
 			content: "\f341";
 			position: absolute;
-			right: 5px;
+			right: 6px;
 			bottom: 7px;
 			transform: rotate(-90deg);
+		}
+
+		label {
+			display: block;
 		}
 
 		.description {
@@ -115,7 +115,7 @@
 			cursor: pointer;
 			font-weight: normal;
 			font-size: 13px;
-			border-radius: 5px;
+			border-radius: 3px;
 			transition: border-color $range--opacity-speed $range--opacity-cubic, background $range--opacity-speed $range--opacity-cubic;
 
 			&:hover {
@@ -136,27 +136,27 @@
 	.customize-control-select {
 		position: relative;
 
-		label::after {
+		&::after {
 			font: 400 11px/11px dashicons;
 			content: "\f341";
 			position: absolute;
-			right: 5px;
+			right:6px;
 			top: 8px;
 			transform: rotate(-90deg);
 		}
 
 		.customize-control-title {
-			width: 50%;
+			width: 40%;
 			margin-bottom: 0;
 			position: relative;
 		}
 
 		select {
-			width: 50%;
+			width: 60%;
 			position: absolute;
 			box-shadow: none;
 			top: 0;
-			right: 0;
+			right: -1px;
 			margin: 0;
 			background: #f6f6f6;
 			padding: 0;
@@ -168,7 +168,7 @@
 			cursor: pointer;
 			font-weight: normal;
 			font-size: 13px;
-			border-radius: 5px;
+			border-radius: 3px;
 			transition: border-color $range--opacity-speed $range--opacity-cubic, background $range--opacity-speed $range--opacity-cubic;
 
 			&:hover {

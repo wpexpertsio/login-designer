@@ -112,17 +112,17 @@
 	.range-reset {
 		cursor: pointer;
 		height: 19px;
-		left: -4px;
+		left: 0;
 		opacity: 0;
 		position: absolute;
-		top: 1px;
+		top: 3px;
 		transition: opacity $range--opacity-speed $range--opacity-cubic;
 		width: 19px;
 
 		&::after {
-			content: "\f335";
+			content: "\f531";
 			cursor: pointer;
-			font: 100 20px/1 dashicons;
+			font: 100 13px/1 dashicons;
 			left: 0;
 			position: relative;
 			top: -1px;
