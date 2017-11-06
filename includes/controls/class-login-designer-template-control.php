@@ -37,26 +37,20 @@ class Login_Designer_Template_Control extends WP_Customize_Control {
 
 	/**
 	 * Enqueue neccessary custom control stylesheet.
+	 * Localization occurs in the Login_Designer_Customizer_Scripts() class (based on SCRIPT_DEBUG).
 	 */
 	public function enqueue() {
 
-		// Define where the control's scripts are.
-		$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
+		// Use this only if SCRIPT_DEBUG is turned on.
+		if ( defined( 'SCRIPT_DEBUG' ) && false === SCRIPT_DEBUG ) {
+			return;
+		}
 
-		// Use minified libraries if SCRIPT_DEBUG is turned off.
-		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+		// Define where the control's scripts are.
+		$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/controls/';
 
 		// Custom control scripts.
-		wp_enqueue_script( 'login-designer-template-control', $js_dir . 'login-designer-customize-template-control' . $suffix . '.js', array( 'jquery' ), LOGIN_DESIGNER_VERSION, 'all' );
-
-		// Localization.
-		$login_designer_localize = array(
-			'btn_default' 	=> esc_html__( 'Install New Template', '@@textdomain' ),
-			'btn_close' 	=> esc_html__( 'Close', '@@textdomain' ),
-		);
-
-		wp_localize_script( 'login-designer-template-control', 'login_designer_script', $login_designer_localize );
-
+		wp_enqueue_script( 'login-designer-template-control', $js_dir . 'login-designer-template-control.js', array( 'jquery' ), LOGIN_DESIGNER_VERSION, 'all' );
 	}
 
 	/**

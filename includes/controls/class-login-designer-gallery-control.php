@@ -36,18 +36,20 @@ class Login_Designer_Background_Gallery_Control extends WP_Customize_Control {
 	public $type = 'login-designer-gallery';
 
 	/**
-	 * Enqueue neccessary custom control stylesheet.
+	 * Enqueue neccessary custom control scripts.
 	 */
 	public function enqueue() {
 
-		// Define where the control's scripts are.
-		$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
+		// Use this only if SCRIPT_DEBUG is turned on.
+		if ( defined( 'SCRIPT_DEBUG' ) && false === SCRIPT_DEBUG ) {
+			return;
+		}
 
-		// Use minified libraries if SCRIPT_DEBUG is turned off.
-		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+		// Define where the control's scripts are.
+		$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/controls/';
 
 		// Custom control scripts.
-		wp_enqueue_script( 'login-designer-gallery-control', $js_dir . 'login-designer-customize-gallery-control' . $suffix . '.js', array( 'jquery' ), LOGIN_DESIGNER_VERSION, 'all' );
+		wp_enqueue_script( 'login-designer-gallery-control', $js_dir . 'login-designer-gallery-control.js', array( 'jquery' ), LOGIN_DESIGNER_VERSION, 'all' );
 	}
 
 	/**

@@ -107,21 +107,14 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 				$wp_customize->register_section_type( 'Login_Designer_Upgrade_Control' );
 
-				$url = esc_url( add_query_arg( array(
-					'utm_source'   => 'customizer',
-					'utm_medium'   => 'extensions-section',
-					'utm_campaign' => 'customizer',
-					'utm_content' => 'discover-add-ons',
-					),
-				'https://logindesigner.com/extensions' ) );
-
+				$url = Login_Designer()->get_store_url( 'extensions', array( 'utm_medium' => 'login-designer-lite', 'utm_source' => 'customizer', 'utm_campaign' => 'extensions-section', 'utm_content' => 'discover-add-ons' ) );
 
 				$wp_customize->add_section( new Login_Designer_Upgrade_Control( $wp_customize, 'upgrade', array(
 					'type'                  => 'upgrade',
 					'panel'		  	=> 'login_designer',
 					'title'    		=> esc_html__( 'Extensions', '@@textdomain' ),
 					'pro_text' 		=> esc_html__( 'Discover Add-ons', '@@textdomain' ),
-					'pro_url'  		=> esc_url( $url ),
+					'pro_url'  		=> $url,
 				) ) );
 			}
 

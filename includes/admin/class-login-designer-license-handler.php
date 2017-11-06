@@ -154,7 +154,7 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		 */
 		public function ajax_activate_license() {
 
-			if ( ! check_ajax_referer( 'login-designer-license', 'nonce', false ) ) {
+			if ( ! check_ajax_referer( 'login-designer-activate-license', 'nonce', false ) ) {
 				wp_send_json_error( 'invalid_nonce' );
 			}
 
@@ -182,7 +182,7 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		public function activate_license() {
 
 			// Veritfy and validate the request.
-			if ( isset( $_POST['key'], $_POST['login-designer-license'] ) && wp_verify_nonce( sanitize_key( $_POST['login-designer-license'] ), 'nonce' ) ) {  // Input var okay.
+			if ( isset( $_POST['key'], $_POST['login-designer-activate-license'] ) && wp_verify_nonce( sanitize_key( $_POST['login-designer-activate-license'] ), 'nonce' ) ) {  // Input var okay.
 				return;
 			}
 
@@ -201,7 +201,7 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 
 			// Make sure the response came back okay.
 			if ( ! isset( $response->license ) ) {
-				$message = __( 'An error occurred, please try again.' );
+				$message = esc_html__( 'An error occurred, please try again.', '@@textdomain' );
 			} else {
 				// If the license response is not successful.
 				if ( false === $response->success ) {
@@ -211,40 +211,40 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 						case 'expired' :
 
 							$message = sprintf(
-								__( 'Your license key expired on %s.' ),
+								esc_html__( 'Your license key expired on %s.', '@@textdomain' ),
 								date_i18n( get_option( 'date_format' ), strtotime( $response->expires, current_time( 'timestamp' ) ) )
 							);
 							break;
 
 						case 'revoked' :
 
-							$message = __( 'Your license key has been disabled.' );
+							$message = esc_html__( 'Your license key has been disabled.', '@@textdomain' );
 							break;
 
 						case 'missing' :
 
-							$message = __( 'Invalid license.' );
+							$message = esc_html__( 'Invalid license.', '@@textdomain' );
 							break;
 
 						case 'invalid' :
 						case 'site_inactive' :
 
-							$message = __( 'Your license is not active for this URL.' );
+							$message = esc_html__( 'Your license is not active for this URL.', '@@textdomain' );
 							break;
 
 						case 'item_name_mismatch' :
 
-							$message = __( 'This appears to be an invalid license key.' );
+							$message = esc_html__( 'This appears to be an invalid license key.', '@@textdomain' );
 							break;
 
 						case 'no_activations_left':
 
-							$message = __( 'Your license key has reached its activation limit.' );
+							$message = esc_html__( 'Your license key has reached its activation limit.', '@@textdomain' );
 							break;
 
 						default :
 
-							$message = __( 'An error occurred, please try again.' );
+							$message = esc_html__( 'An error occurred, please try again.', '@@textdomain' );
 							break;
 					}
 				}

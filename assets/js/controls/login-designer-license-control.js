@@ -1,4 +1,4 @@
-/* global jQuery, _login_designer_license, ajaxurl, wp */
+/* global jQuery, login_designer_custom_controls, ajaxurl, wp */
 
 ( function ( $ ) {
 
@@ -36,13 +36,13 @@
 			var activation_data = {
 				type: 'post',
 				action: 'activate_license',
-				nonce: _login_designer_license.nonce.license,
+				nonce: login_designer_custom_controls.nonce.activate,
 				wp_customize: 'on',
 				key: $( '#license-key' ).val(),
 			};
 
 			// License activation AJAX request.
-			$.post( _login_designer_license.ajaxurl, activation_data, function ( r ) {
+			$.post( login_designer_custom_controls.ajaxurl, activation_data, function ( r ) {
 
 				console.log( r.error );
 
@@ -99,12 +99,12 @@
 			var deactivation_data = {
 				type: 'post',
 				action: 'deactivate_license',
-				nonce: _login_designer_license.nonce.deactivate,
+				nonce: login_designer_custom_controls.nonce.deactivate,
 				wp_customize: 'on',
 			};
 
 			// License deactivation AJAX request.
-			$.post( _login_designer_license.ajaxurl, deactivation_data, function ( r ) {
+			$.post( login_designer_custom_controls.ajaxurl, deactivation_data, function ( r ) {
 
 				console.log( r.error );
 

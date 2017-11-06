@@ -16,13 +16,7 @@ if ( ! Login_Designer()->has_pro() ) {
 /**
  * License Section.
  */
-$url = esc_url( add_query_arg( array(
-	'utm_source'   => 'customizer',
-	'utm_medium'   => 'license-key-description',
-	'utm_campaign' => 'customizer',
-	'utm_content' => 'enter-a-license-key',
-	),
-'https://logindesigner.com/pricing' ) );
+$url = Login_Designer()->get_store_url( 'pricing', array( 'utm_medium' => 'login-designer-lite', 'utm_source' => 'customizer', 'utm_campaign' => 'license-control', 'utm_content' => 'license-key' ) );
 
 $wp_customize->add_setting( 'login_designer_license[key]', array(
 	'default'             	=> '',

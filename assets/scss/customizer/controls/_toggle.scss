@@ -3,7 +3,7 @@
 
 .customize-control-toggle {
 
-	.toggle-wrapper {
+	.toggle--wrapper {
 		display:flex;
 		flex-direction: row;
 		justify-content: flex-start;
@@ -38,23 +38,23 @@
 			}
 
 			&::after {
-				box-sizing: border-box;
-				top: 4px;
-				left: 4px;
-				width: 12px;
-				height: 12px;
-				border: 2px solid #555d66;
 				border-radius: 50%;
+				border: 2px solid #555d66;
+				box-sizing: border-box;
+				height: 12px;
+				left: 4px;
+				top: 4px;
 				transition: transform 0.2s ease, background 0.2s ease;
+				width: 12px;
 			}
 
 			&::before {
-				top: 2px;
-				left: 2px;
-				bottom: 2px;
-				right: 2px;
 				background-color: $background;
 				border-radius: 60px;
+				bottom: 2px;
+				left: 2px;
+				right: 2px;
+				top: 2px;
 				transition: background 0.2s ease;
 			}
 		}
@@ -63,9 +63,9 @@
 			background-color: $customizer_blue;
 
 			&::after {
-				transform: translateX(20px);
 				background-color: $customizer_blue;
 				border: 2px solid $white;
+				transform: translateX(20px);
 			}
 
 			&::before {
@@ -74,7 +74,7 @@
 		}
 	}
 
-	&:hover .toggle-wrapper label::before {
+	&:hover .toggle--wrapper label::before {
 		background-color: #d9dcdf;
 	}
 }

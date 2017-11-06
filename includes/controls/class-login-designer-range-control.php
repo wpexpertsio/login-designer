@@ -44,18 +44,20 @@ class Login_Designer_Range_Control extends WP_Customize_Control {
 	public $default = 'default';
 
 	/**
-	 * Enqueue neccessary custom control stylesheet.
+	 * Enqueue neccessary custom control scripts.
 	 */
 	public function enqueue() {
 
-		// Define where the control's scripts are.
-		$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
+		// Use this only if SCRIPT_DEBUG is turned on.
+		if ( defined( 'SCRIPT_DEBUG' ) && false === SCRIPT_DEBUG ) {
+			return;
+		}
 
-		// Use minified libraries if SCRIPT_DEBUG is turned off.
-		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+		// Define where the control's scripts are.
+		$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/controls/';
 
 		// Custom control scripts.
-		wp_enqueue_script( 'login-designer-range-control', $js_dir . 'login-designer-customize-range-control' . $suffix . '.js', array( 'jquery' ), LOGIN_DESIGNER_VERSION, 'all' );
+		wp_enqueue_script( 'login-designer-range-control', $js_dir . 'login-designer-range-control.js', array( 'jquery' ), LOGIN_DESIGNER_VERSION, 'all' );
 	}
 
 	/**

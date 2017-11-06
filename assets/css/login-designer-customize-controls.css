@@ -815,7 +815,7 @@
 	font-weight: 600 !important;
 }
 
-.customize-control-toggle .toggle-wrapper {
+.customize-control-toggle .toggle--wrapper {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -832,7 +832,7 @@
 	justify-content: flex-start;
 }
 
-.customize-control-toggle .toggle-wrapper .customize-control-title {
+.customize-control-toggle .toggle--wrapper .customize-control-title {
 	vertical-align: middle;
 
 	-webkit-box-flex: 2;
@@ -841,11 +841,11 @@
 	flex: 2 0 0;
 }
 
-.customize-control-toggle .toggle-wrapper input[type=checkbox] {
+.customize-control-toggle .toggle--wrapper input[type=checkbox] {
 	display: none;
 }
 
-.customize-control-toggle .toggle-wrapper label {
+.customize-control-toggle .toggle--wrapper label {
 	background-color: #555d66;
 	border-radius: 14px;
 	cursor: pointer;
@@ -863,14 +863,14 @@
 	width: 40px;
 }
 
-.customize-control-toggle .toggle-wrapper label::after,
-.customize-control-toggle .toggle-wrapper label::before {
+.customize-control-toggle .toggle--wrapper label::after,
+.customize-control-toggle .toggle--wrapper label::before {
 	content: "";
 	display: block;
 	position: absolute;
 }
 
-.customize-control-toggle .toggle-wrapper label::after {
+.customize-control-toggle .toggle--wrapper label::after {
 	border: 2px solid #555d66;
 	border-radius: 50%;
 	box-sizing: border-box;
@@ -884,7 +884,7 @@
 	width: 12px;
 }
 
-.customize-control-toggle .toggle-wrapper label::before {
+.customize-control-toggle .toggle--wrapper label::before {
 	background-color: #eee;
 	border-radius: 60px;
 	bottom: 2px;
@@ -895,11 +895,11 @@
 	transition: background 0.2s ease;
 }
 
-.customize-control-toggle .toggle-wrapper input[type=checkbox]:checked + label {
+.customize-control-toggle .toggle--wrapper input[type=checkbox]:checked + label {
 	background-color: #0085ba;
 }
 
-.customize-control-toggle .toggle-wrapper input[type=checkbox]:checked + label::after {
+.customize-control-toggle .toggle--wrapper input[type=checkbox]:checked + label::after {
 	background-color: #0085ba;
 	border: 2px solid #fff;
 	-webkit-transform: translateX(20px);
@@ -907,11 +907,11 @@
 	transform: translateX(20px);
 }
 
-.customize-control-toggle .toggle-wrapper input[type=checkbox]:checked + label::before {
+.customize-control-toggle .toggle--wrapper input[type=checkbox]:checked + label::before {
 	background-color: #0085ba;
 }
 
-.customize-control-toggle:hover .toggle-wrapper label::before {
+.customize-control-toggle:hover .toggle--wrapper label::before {
 	background-color: #d9dcdf;
 }
 

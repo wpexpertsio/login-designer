@@ -112,13 +112,14 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		private function constants() {
+			$this->define( 'LOGIN_DESIGNER_HAS_PRO', true );
 			$this->define( 'LOGIN_DESIGNER_VERSION', '@@pkg.version' );
 			$this->define( 'LOGIN_DESIGNER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 			$this->define( 'LOGIN_DESIGNER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 			$this->define( 'LOGIN_DESIGNER_PLUGIN_FILE', __FILE__ );
 			$this->define( 'LOGIN_DESIGNER_ABSPATH', dirname( __FILE__ ) . '/' );
 			$this->define( 'LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR', plugin_dir_path( __FILE__ ) . 'includes/controls/' );
-			$this->define( 'LOGIN_DESIGNER_HAS_PRO', true );
+			$this->define( 'LOGIN_DESIGNER_STORE_URL', 'https://logindesigner.com/' );
 		}
 
 		/**
@@ -263,6 +264,40 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		}
 
 		/**
+		 * Returns the URL to upgrade the plugin to the pro version.
+		 * Can be overridden by theme developers to use their affiliate
+		 * link using the login_designer_affiliate_id filter.
+		 *
+		 * @since	1.0.0
+		 * @return 	string
+		 */
+		public function get_affiliate_id() {
+
+			$id = array( 'ref' => apply_filters( 'login_designer_affiliate_id', null ) );
+
+			return $id;
+		}
+
+		/**
+		 * Returns a URL that points to the Beaver Builder store.
+		 *
+		 * @since 1.0.0
+		 * @param string|string $path A URL path to append to the store URL.
+		 * @param array|array   $params An array of key/value params to add to the query string.
+		 * @return string
+		 */
+		public function get_store_url( $path = '', $params = array() ) {
+
+			$id = $this->get_affiliate_id();
+
+			$params = array_merge( $params, $id );
+
+			$url = trailingslashit( LOGIN_DESIGNER_STORE_URL . $path ) . '?' . http_build_query( $params, '', '&#038;' );
+
+			return $url;
+		}
+
+		/**
 		 * Add links to the settings page to the plugin.
 		 *
 		 * @param       array|array $actions The plugin.
@@ -270,33 +305,32 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 */
 		public function plugin_action_links( $actions ) {
 
+			// If there's no pro version, return.
+			if ( ! $this->has_pro() ) {
+				return $actions;
+			}
+
+			// Check if a license is valid. If it is, show the support link and remove the upgrade link.
+			$license = new Login_Designer_License_Handler();
+
+			if ( $license->is_valid_license() && $this->has_pro() ) {
+				$title = esc_html__( 'Support', '@@textdomain' );
+				$url = $this->get_store_url( 'support', array( 'utm_medium' => 'login-designer-pro', 'utm_source' => 'plugins-page', 'utm_campaign' => 'plugins-action-link', 'utm_content' => 'support' ) );
+
+			} else {
+				$title = esc_html__( 'Pro', '@@textdomain' );
+				$url = $this->get_store_url( 'pricing', array( 'utm_medium' => 'login-designer-lite', 'utm_source' => 'plugins-page', 'utm_campaign' => 'plugins-action-link', 'utm_content' => 'pro' ) );
+			}
+
+			// Add the Settings link.
 			$settings = array( 'settings' => sprintf( '<a href="%s">%s</a>', admin_url( 'themes.php?page=login-designer' ) , esc_html__( 'Settings', '@@textdomain' ) ) );
 
-			if ( $this->has_pro() ) {
-
-				$upgrade_url = esc_url( add_query_arg( array(
-					'utm_source'   => 'plugins-page',
-					'utm_medium'   => 'plugin-action-link',
-					'utm_campaign' => 'admin',
-					'utm_content'  => 'pro',
-					),
-				'https://logindesigner.com/pricing/' ) );
-
-				$support_url = esc_url( add_query_arg( array(
-					'utm_source'   => 'plugins-page',
-					'utm_medium'   => 'plugin-action-link',
-					'utm_campaign' => 'admin',
-					'utm_content'  => 'support',
-					),
-				'https://logindesigner.com/support/' ) );
-
-				return array_merge(
-					$settings,
-					array( 'pro' => sprintf( '<a href="%s" target="_blank">%s</a>', esc_url( $upgrade_url ) , esc_html__( 'Pro', '@@textdomain' ) ) ),
-					array( 'support' => sprintf( '<a href="%s" target="_blank">%s</a>', esc_url( $support_url ) , esc_html__( 'Support', '@@textdomain' ) ) ),
-					$actions
-				);
-			}
+			// Merge and display each.
+			return array_merge(
+				$settings,
+				array( 'url' => sprintf( '<a href="%s" target="_blank">%s</a>', esc_url( $url ) , $title ) ),
+				$actions
+			);
 
 			return array_merge( $settings, $actions );
 		}
@@ -319,16 +353,10 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				return $input;
 			}
 
-			$extensions_link = esc_url( add_query_arg( array(
-				'utm_source'   => 'plugins-page',
-				'utm_medium'   => 'plugin-row',
-				'utm_campaign' => 'admin',
-				'utm_content'  => 'extensions',
-				),
-			'https://logindesigner.com/extensions/' ) );
+			$extensions_url = $this->get_store_url( 'extensions', array( 'utm_medium' => 'login-designer-lite', 'utm_source' => 'plugins-page', 'utm_campaign' => 'plugin-row', 'utm_content' => 'extensions' ) );
 
 			$links = array(
-				'<a href="' . esc_url( $extensions_link ) . '" target="_blank">' . esc_html__( 'Extensions', '@@textdomain' ) . '</a>',
+				'<a href="' . esc_url( $extensions_url ) . '" target="_blank">' . esc_html__( 'Extensions', '@@textdomain' ) . '</a>',
 			);
 
 			$input = array_merge( $input, $links );
@@ -356,18 +384,12 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			}
 
 			// Get the plugin name, so we can view the analytics properly.
-			$utm_content_plugin_name = substr( $file, 0, strpos( $file, '/' ) );
+			$plugin_name = substr( $file, 0, strpos( $file, '/' ) );
 
-			$extensions_link = esc_url( add_query_arg( array(
-				'utm_source'   => 'plugins-page',
-				'utm_medium'   => 'plugin-row',
-				'utm_campaign' => 'admin',
-				'utm_content'  => 'extensions-'.$utm_content_plugin_name,
-				),
-			'https://logindesigner.com/extensions/' ) );
+			$extensions_url = $this->get_store_url( 'extensions', array( 'utm_medium' => $plugin_name, 'utm_source' => 'plugins-page', 'utm_campaign' => 'plugin-row', 'utm_content' => 'extensions' ) );
 
 			$links = array(
-				'<a href="' . esc_url( $extensions_link ) . '" target="_blank">' . esc_html__( 'Extensions', '@@textdomain' ) . '</a>',
+				'<a href="' . esc_url( $extensions_url ) . '" target="_blank">' . esc_html__( 'Extensions', '@@textdomain' ) . '</a>',
 			);
 
 			$input = array_merge( $input, $links );

@@ -35,20 +35,26 @@ var scriptCustomizePreviewSRC   = './assets/js/'+ scriptCustomizePreviewFile +'.
 var scriptCustomizeControlsFile = slug +'-customize-controls'; // JS file name.
 var scriptCustomizeControlsSRC  = './assets/js/'+ scriptCustomizeControlsFile +'.js'; // The JS file src.
 
-var scriptRangeControlFile  	= slug +'-customize-range-control'; // JS file name.
+var scriptRangeControlFile  	= slug +'-range-control'; // JS file name.
 var scriptRangeControlSRC   	= './assets/js/'+ scriptRangeControlFile +'.js'; // The JS file src.
 
-var scriptTemplateControlFile  	= slug +'-customize-template-control'; // JS file name.
+var scriptTemplateControlFile  	= slug +'-template-control'; // JS file name.
 var scriptTemplateControlSRC   	= './assets/js/'+ scriptTemplateControlFile +'.js'; // The JS file src.
 
-var scriptGalleryControlFile  	= slug +'-customize-gallery-control'; // JS file name.
+var scriptGalleryControlFile  	= slug +'-gallery-control'; // JS file name.
 var scriptGalleryControlSRC   		= './assets/js/'+ scriptGalleryControlFile +'.js'; // The JS file src.
 
-var scriptLicenseControlFile  	= slug +'-customize-license-control'; // JS file name.
+var scriptLicenseControlFile  	= slug +'-license-control'; // JS file name.
 var scriptLicenseControlSRC   	= './assets/js/'+ scriptLicenseControlFile +'.js'; // The JS file src.
 
 var scriptDestination 		= './assets/js/dist/'; // Path to place the compiled JS custom scripts file.
 var scriptWatchFiles  		= './assets/js/*.js'; // Path to all *.scss files inside css folder and inside them.
+
+// Vendor Javascript.
+var jsVendorSRC			= './assets/js/controls/*.js'; // Path to JS vendor folder.
+var jsVendorDestination	 	= './assets/js/dist/'; // Path to place the compiled JS vendors file.
+var jsVendorFile		= 'login-designer-custom-controls'; // Compiled JS vendors file name.
+var vendorJSWatchFiles	  	= './assets/js/controls/**/*.js'; // Path to all vendor JS files.
 
 var projectPHPWatchFiles    	= ['./**/*.php', '!_dist', '!_dist/**', '!_dist/**/*.php', '!_demo', '!_demo/**','!_demo/**/*.php'];
 
@@ -87,6 +93,7 @@ const AUTOPREFIXER_BROWSERS = [
  */
 var gulp         = require('gulp');
 var sass         = require('gulp-sass');
+var concat       = require('gulp-concat');
 var cleaner      = require('gulp-clean');
 var minifycss    = require('gulp-clean-css');
 var autoprefixer = require('gulp-autoprefixer');
@@ -128,6 +135,20 @@ gulp.task( 'browser_sync', function() {
 	injectChanges: true,
 
 	});
+});
+
+gulp.task( 'vendorsJs', function() {
+	gulp.src( jsVendorSRC )
+	.pipe( concat( jsVendorFile + '.min.js' ) )
+	.pipe( lineec() )
+	.pipe( gulp.dest( jsVendorDestination ) )
+	.pipe( rename( {
+		basename: jsVendorFile,
+		suffix: '.min'
+	} ) )
+	.pipe( uglify() )
+	.pipe( lineec() )
+	.pipe( gulp.dest( jsVendorDestination ) )
 });
 
 gulp.task('styles_customize_preview', function () {
@@ -446,15 +467,16 @@ gulp.task( 'build-notification', function () {
  * Commands.
  */
 
-gulp.task( 'default', [ 'clear', 'template_1', 'template_2', 'styles_customize_preview', 'styles_customize_controls', 'scripts', 'browser_sync' ], function () {
+gulp.task( 'default', [ 'clear', 'vendorsJs', 'template_1', 'template_2', 'styles_customize_preview', 'styles_customize_controls', 'scripts', 'browser_sync' ], function () {
 	gulp.watch( projectPHPWatchFiles, reload );
 	gulp.watch( styleWatchFiles, [ 'styles_customize_preview' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_customize_controls' ] );
 	gulp.watch( styleWatchFiles, [ 'template_1' ] );
 	gulp.watch( styleWatchFiles, [ 'template_2' ] );
 	gulp.watch( scriptWatchFiles, [ 'scripts' ] );
+	gulp.watch( vendorJSWatchFiles, [ 'vendorsJs', reload ] );
 });
 
 gulp.task('build', function(callback) {
-	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'styles_customize_preview', 'styles_customize_controls', 'scripts', 'build-translate' ], 'build-copy', 'build-variables', 'build-zip', 'build-clean-after-zip', 'build-notification', callback);
+	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'styles_customize_preview', 'styles_customize_controls', 'scripts', 'vendorsJs', 'build-translate' ], 'build-copy', 'build-variables', 'build-zip', 'build-clean-after-zip', 'build-notification', callback);
 });

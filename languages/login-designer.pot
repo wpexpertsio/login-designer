@@ -17,6 +17,34 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
 
+#: includes/admin/class-login-designer-license-handler.php:204, includes/admin/class-login-designer-license-handler.php:247
+msgid "An error occurred, please try again."
+msgstr ""
+
+#: includes/admin/class-login-designer-license-handler.php:214
+msgid "Your license key expired on %s."
+msgstr ""
+
+#: includes/admin/class-login-designer-license-handler.php:221
+msgid "Your license key has been disabled."
+msgstr ""
+
+#: includes/admin/class-login-designer-license-handler.php:226
+msgid "Invalid license."
+msgstr ""
+
+#: includes/admin/class-login-designer-license-handler.php:232
+msgid "Your license is not active for this URL."
+msgstr ""
+
+#: includes/admin/class-login-designer-license-handler.php:237
+msgid "This appears to be an invalid license key."
+msgstr ""
+
+#: includes/admin/class-login-designer-license-handler.php:242
+msgid "Your license key has reached its activation limit."
+msgstr ""
+
 #: includes/class-login-designer-customizer-output.php:102
 msgid "Username or Email Address"
 msgstr ""
@@ -25,7 +53,19 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:77, includes/class-login-designer-theme-template.php:68, login-designer.php:190, login-designer.php:252, login-designer.php:257
+#: includes/class-login-designer-customizer-scripts.php:176, includes/controls/class-login-designer-template-control.php:84
+msgid "Install New Template"
+msgstr ""
+
+#: includes/class-login-designer-customizer-scripts.php:177
+msgid "Close"
+msgstr ""
+
+#: includes/class-login-designer-customizer-scripts.php:178
+msgid "Attention! You are attempting to reset all custom styling added to Login Designer. Please note that this action is irreversible. Proceed?"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:77, includes/class-login-designer-theme-template.php:68, login-designer.php:191, login-designer.php:253, login-designer.php:258
 msgid "Login Designer"
 msgstr ""
 
@@ -41,139 +81,139 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:97, login-designer.php:273
+#: includes/class-login-designer-customizer.php:97, login-designer.php:326
 msgid "Settings"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:122, login-designer.php:331, login-designer.php:370
+#: includes/class-login-designer-customizer.php:115, login-designer.php:359, login-designer.php:392
 msgid "Extensions"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:123
+#: includes/class-login-designer-customizer.php:116
 msgid "Discover Add-ons"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:209, includes/class-login-designer-customizer.php:327
+#: includes/class-login-designer-customizer.php:202, includes/class-login-designer-customizer.php:320
 msgid "Default"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:213
+#: includes/class-login-designer-customizer.php:206
 msgid "Template 01"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:217
+#: includes/class-login-designer-customizer.php:210
 msgid "Template 02"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:234
+#: includes/class-login-designer-customizer.php:227
 msgid "None"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:238
+#: includes/class-login-designer-customizer.php:231
 msgid "01"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:242
+#: includes/class-login-designer-customizer.php:235
 msgid "02"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:246
+#: includes/class-login-designer-customizer.php:239
 msgid "03"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:250
+#: includes/class-login-designer-customizer.php:243
 msgid "04"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:254
+#: includes/class-login-designer-customizer.php:247
 msgid "05"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:258
+#: includes/class-login-designer-customizer.php:251
 msgid "06"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:262
+#: includes/class-login-designer-customizer.php:255
 msgid "07"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:266
+#: includes/class-login-designer-customizer.php:259
 msgid "08"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:270
+#: includes/class-login-designer-customizer.php:263
 msgid "09"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:288
+#: includes/class-login-designer-customizer.php:281
 msgid "No Repeat"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:289
+#: includes/class-login-designer-customizer.php:282
 msgid "Tile"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:290
+#: includes/class-login-designer-customizer.php:283
 msgid "Tile Horizontally"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:291
+#: includes/class-login-designer-customizer.php:284
 msgid "Tile Vertically"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:294
+#: includes/class-login-designer-customizer.php:287
 msgid "Auto"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:295
+#: includes/class-login-designer-customizer.php:288
 msgid "Cover"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:296
+#: includes/class-login-designer-customizer.php:289
 msgid "Contain"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:299
+#: includes/class-login-designer-customizer.php:292
 msgid "Left Top"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:300
+#: includes/class-login-designer-customizer.php:293
 msgid "Left Center"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:301
+#: includes/class-login-designer-customizer.php:294
 msgid "Left Bottom"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:302
+#: includes/class-login-designer-customizer.php:295
 msgid "Right Top"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:303
+#: includes/class-login-designer-customizer.php:296
 msgid "Right Center"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:304
+#: includes/class-login-designer-customizer.php:297
 msgid "Right Bottom"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:305
+#: includes/class-login-designer-customizer.php:298
 msgid "Center Top"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:306
+#: includes/class-login-designer-customizer.php:299
 msgid "Center Center"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:307
+#: includes/class-login-designer-customizer.php:300
 msgid "Center Bottom"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:310
+#: includes/class-login-designer-customizer.php:303
 msgid "Fixed"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:311
+#: includes/class-login-designer-customizer.php:304
 msgid "Scroll"
 msgstr ""
 
@@ -181,20 +221,8 @@ msgstr ""
 msgid "Log in to %s"
 msgstr ""
 
-#: includes/controls/class-login-designer-gallery-control.php:86
+#: includes/controls/class-login-designer-gallery-control.php:88
 msgid "Open Gallery"
-msgstr ""
-
-#: includes/controls/class-login-designer-license-control.php:52
-msgid "Attention! You are attempting to reset all custom styling added to Login Designer. Please note that this action is irreversible. Proceed?"
-msgstr ""
-
-#: includes/controls/class-login-designer-template-control.php:54, includes/controls/class-login-designer-template-control.php:90
-msgid "Install New Template"
-msgstr ""
-
-#: includes/controls/class-login-designer-template-control.php:55
-msgid "Close"
 msgstr ""
 
 #: includes/install.php:79
@@ -337,11 +365,11 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: includes/settings/license.php:36
+#: includes/settings/license.php:30
 msgid "License"
 msgstr ""
 
-#: includes/settings/license.php:37
+#: includes/settings/license.php:31
 msgid "Enter a %slicense key%s to enable remote updates, unlock premium templates and activate professional extensions."
 msgstr ""
 
@@ -369,14 +397,14 @@ msgstr ""
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: login-designer.php:190
+#: login-designer.php:191
 msgid "Login"
 msgstr ""
 
-#: login-designer.php:295
-msgid "Pro"
+#: login-designer.php:317
+msgid "Support"
 msgstr ""
 
-#: login-designer.php:296
-msgid "Support"
+#: login-designer.php:321
+msgid "Pro"
 msgstr ""

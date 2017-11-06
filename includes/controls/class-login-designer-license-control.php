@@ -35,24 +35,20 @@ class Login_Designer_License_Control extends WP_Customize_Control {
 	public $type = 'login-designer-license';
 
 	/**
-	 * Enqueue neccessary custom control stylesheet.
+	 * Enqueue neccessary custom control scripts.
+	 * Localization occurs in the Login_Designer_Customizer_Scripts() class (based on SCRIPT_DEBUG).
 	 */
 	public function enqueue() {
 
+		// Use this only if SCRIPT_DEBUG is turned on.
+		if ( defined( 'SCRIPT_DEBUG' ) && false === SCRIPT_DEBUG ) {
+			return;
+		}
+
 		// Define where the control's scripts are.
-		$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
+		$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/controls/';
 
-		// Use minified libraries if SCRIPT_DEBUG is turned off.
-		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-
-		// Custom control scripts.
-		wp_enqueue_script( 'login-designer-license-control', $js_dir . 'login-designer-customize-license-control' . $suffix . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
-
-		wp_localize_script( 'login-designer-license-control', '_login_designer_license', array(
-			'confirm' 	=> esc_html__( 'Attention! You are attempting to reset all custom styling added to Login Designer. Please note that this action is irreversible. Proceed?', '@@textdomain' ),
-			'nonce'   	=> array( 'license' => wp_create_nonce( 'login-designer-license' ), 'deactivate' => wp_create_nonce( 'login-designer-deactivate-license' ) ),
-			'ajaxurl'   	=> admin_url( 'admin-ajax.php' ),
-		) );
+		wp_enqueue_script( 'login-designer-license-control', $js_dir . 'login-designer-license-control.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
 	}
 
 	/**

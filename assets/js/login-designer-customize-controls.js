@@ -50,7 +50,6 @@
 					// Head back to the home page, if we leave the Login Designer panel.
 					wp.customize.previewer.send( 'login-designer-back-to-home', { home_url: wp.customize.settings.url.home } );
 					url = wp.customize.settings.url.home;
-                			// Debug: console.log( url );
 				}
 			} );
 		} );
@@ -245,6 +244,8 @@
 
 			value.bind( function( to ) {
 
+				// url = login_designer_controls.plugin_url;
+
 				if ( to === 'default' ) {
 
 					wp.customize( 'login_designer[bg_color]' ).set( '#f1f1f1' );
@@ -279,7 +280,7 @@
 				} else if ( to === '01' ) {
 
 					wp.customize( 'login_designer[bg_color]' ).set( '#f1f1f1' );
-					wp.customize( 'login_designer[bg_image_gallery]' ).set( 'none' );
+					wp.customize( 'login_designer[bg_image_gallery]' ).set( 'bg_01' );
 
 					wp.customize( 'login_designer[form_bg]' ).set( '#fff' );
 					wp.customize( 'login_designer[form_width]' ).set( '' );
@@ -367,9 +368,9 @@
 				var keys = [];
 				var values = [];
 
-				if ( login_designer_script.extension_colors ) {
-					keys = Object.keys( login_designer_script.extension_colors );
-					values = Object.values( login_designer_script.extension_colors );
+				if ( login_designer_controls.extension_colors ) {
+					keys = Object.keys( login_designer_controls.extension_colors );
+					values = Object.values( login_designer_controls.extension_colors );
 				}
 
 				// console.log( 'keys:' + keys );
@@ -382,24 +383,6 @@
 					// console.log( 'keys:');
 
 				}
-
-
-				// 	if ( to.indexOf( 'seasonal' ) >= 0 ) {
-
-				// 		url = login_designer_script.seasonal_plugin_url;
-
-				// 	} else {
-				// 		// Remove hyphen from value.
-				// 		bg_collection = to.replace(/-|\s/g,"");
-
-				// 		// Remove numbers from value.
-				// 		bg_collection = bg_collection.replace(/[0-9]/g, '');
-
-				// 		// Generate the dynamic URL based on the value of the option selected.
-				// 		url = login_designer_script.plugins_url + '/login-designer-' + bg_collection + '-backgrounds/assets/images/' ;
-				// 	}
-
-				// }
 
 				if ( to === 'bg_01' ) {
 					color = '#e3ebee';
