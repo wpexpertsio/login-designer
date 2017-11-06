@@ -81,11 +81,11 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:97, login-designer.php:326
+#: includes/class-login-designer-customizer.php:97, login-designer.php:309
 msgid "Settings"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:115, login-designer.php:359, login-designer.php:392
+#: includes/class-login-designer-customizer.php:115, login-designer.php:363, login-designer.php:396
 msgid "Extensions"
 msgstr ""
 
@@ -245,7 +245,7 @@ msgstr ""
 msgid "Repeat"
 msgstr ""
 
-#: includes/settings/background.php:78, includes/settings/labels.php:48
+#: includes/settings/background.php:78, includes/settings/button.php:213, includes/settings/fields.php:248, includes/settings/labels.php:48
 msgid "Size"
 msgstr ""
 
@@ -253,19 +253,19 @@ msgstr ""
 msgid "Attachment"
 msgstr ""
 
-#: includes/settings/background.php:106, includes/settings/labels.php:81
+#: includes/settings/background.php:106, includes/settings/labels.php:69
 msgid "Position"
 msgstr ""
 
-#: includes/settings/background.php:119
-msgid "Background Color"
+#: includes/settings/background.php:119, includes/settings/button.php:233, includes/settings/fields.php:268, includes/settings/labels.php:89
+msgid "Color"
 msgstr ""
 
 #: includes/settings/button.php:20
 msgid "Button"
 msgstr ""
 
-#: includes/settings/button.php:21, includes/settings/button.php:186, includes/settings/fields.php:21, includes/settings/fields.php:220, includes/settings/form.php:21, includes/settings/labels.php:21, includes/settings/logo.php:21, includes/settings/logo.php:67
+#: includes/settings/button.php:21, includes/settings/button.php:186, includes/settings/fields.php:21, includes/settings/fields.php:221, includes/settings/form.php:21, includes/settings/labels.php:21, includes/settings/logo.php:21, includes/settings/logo.php:67
 msgid "Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis."
 msgstr ""
 
@@ -305,16 +305,8 @@ msgstr ""
 msgid "Button Text"
 msgstr ""
 
-#: includes/settings/button.php:199, includes/settings/fields.php:233, includes/settings/labels.php:34
+#: includes/settings/button.php:199, includes/settings/fields.php:234, includes/settings/labels.php:34
 msgid "Font"
-msgstr ""
-
-#: includes/settings/button.php:213, includes/settings/fields.php:247
-msgid "Font Size"
-msgstr ""
-
-#: includes/settings/button.php:233, includes/settings/fields.php:267
-msgid "Font Color"
 msgstr ""
 
 #: includes/settings/fields.php:20
@@ -329,11 +321,11 @@ msgstr ""
 msgid "Padding Bottom"
 msgstr ""
 
-#: includes/settings/fields.php:205
+#: includes/settings/fields.php:204
 msgid "Shadow Inset"
 msgstr ""
 
-#: includes/settings/fields.php:219
+#: includes/settings/fields.php:220
 msgid "Text"
 msgstr ""
 
@@ -355,10 +347,6 @@ msgstr ""
 
 #: includes/settings/labels.php:20
 msgid "Labels"
-msgstr ""
-
-#: includes/settings/labels.php:68
-msgid "Color"
 msgstr ""
 
 #: includes/settings/labels.php:101
@@ -401,10 +389,10 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: login-designer.php:317
+#: login-designer.php:324
 msgid "Support"
 msgstr ""
 
-#: login-designer.php:321
+#: login-designer.php:328
 msgid "Pro"
 msgstr ""
