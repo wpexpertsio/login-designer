@@ -18,7 +18,7 @@ $wp_customize->add_setting( 'login_designer[button_title]', array(
 $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer[button_title]', array(
 	'type'                  => 'login-designer-title',
 	'label'                 => esc_html__( 'Button', '@@textdomain' ),
-	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
+	'description'           => esc_html__( 'Customize the full display appearance of the login submit button.', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
 
@@ -183,7 +183,7 @@ $wp_customize->add_setting( 'login_designer[button_text_title]', array(
 $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer[button_text_title]', array(
 	'type'                  => 'login-designer-title',
 	'label'                 => esc_html__( 'Text', '@@textdomain' ),
-	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
+	'description'           => esc_html__( 'Change the button font, color and size.', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
 

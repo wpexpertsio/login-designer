@@ -18,7 +18,7 @@ $wp_customize->add_setting( 'login_designer[fields_title]', array(
 $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer[fields_title]', array(
 	'type'                  => 'login-designer-title',
 	'label'                 => esc_html__( 'Fields', '@@textdomain' ),
-	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
+	'description'           => esc_html__( 'Customize the full display appearance of the login form input fields.', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
 
@@ -218,7 +218,7 @@ $wp_customize->add_setting( 'login_designer[field_text_title]', array(
 $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer[field_text_title]', array(
 	'type'                  => 'login-designer-title',
 	'label'                 => esc_html__( 'Text', '@@textdomain' ),
-	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
+	'description'           => esc_html__( 'Change the text field font, color and size.', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
 

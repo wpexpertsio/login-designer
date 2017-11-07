@@ -18,7 +18,7 @@ $wp_customize->add_setting( 'login_designer[labels_title]', array(
 $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer[labels_title]', array(
 	'type'                  => 'login-designer-title',
 	'label'                 => esc_html__( 'Labels', '@@textdomain' ),
-	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
+	'description'           => esc_html__( 'Modify the text labels and style them however you like.', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
 

@@ -18,7 +18,7 @@ $wp_customize->add_setting( 'login_designer[logo_title]', array(
 $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer[logo_title]', array(
 	'type'                  => 'login-designer-title',
 	'label'                => esc_html__( 'Logo', '@@textdomain' ),
-	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
+	'description'           => esc_html__( 'Add your own logo. Logos will display at 50% height & width, to account for retina.', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
 
@@ -43,7 +43,7 @@ $wp_customize->add_setting( 'login_designer_settings[logo_url]', array(
 
 $wp_customize->add_control( 'login_designer_settings[logo_url]', array(
 	'label'          	=> esc_html__( 'Logo URL', '@@textdomain' ),
-	'description'           => esc_html__( 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis.', '@@textdomain' ),
+	'description'           => esc_html__( 'Select a page for your logo to link to. This is typically your site\'s home page.', '@@textdomain' ),
 	'section'        	=> 'login_designer__section--styles',
 	'type'           	=> 'dropdown-pages',
 	'allow_addition' 	=> false,
