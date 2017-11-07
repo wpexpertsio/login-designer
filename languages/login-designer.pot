@@ -45,23 +45,23 @@ msgstr ""
 msgid "Your license key has reached its activation limit."
 msgstr ""
 
-#: includes/class-login-designer-customizer-output.php:102
+#: includes/class-login-designer-customizer-output.php:97
 msgid "Username or Email Address"
 msgstr ""
 
-#: includes/class-login-designer-customizer-output.php:103, includes/settings/labels.php:114
+#: includes/class-login-designer-customizer-output.php:98, includes/settings/labels.php:46
 msgid "Password"
 msgstr ""
 
-#: includes/class-login-designer-customizer-scripts.php:176, includes/controls/class-login-designer-template-control.php:84
+#: includes/class-login-designer-customizer-scripts.php:184, includes/controls/class-login-designer-template-control.php:84
 msgid "Install New Template"
 msgstr ""
 
-#: includes/class-login-designer-customizer-scripts.php:177
+#: includes/class-login-designer-customizer-scripts.php:185
 msgid "Close"
 msgstr ""
 
-#: includes/class-login-designer-customizer-scripts.php:178
+#: includes/class-login-designer-customizer-scripts.php:186
 msgid "Attention! You are attempting to reset all custom styling added to Login Designer. Please note that this action is irreversible. Proceed?"
 msgstr ""
 
@@ -245,7 +245,7 @@ msgstr ""
 msgid "Repeat"
 msgstr ""
 
-#: includes/settings/background.php:78, includes/settings/button.php:213, includes/settings/fields.php:248, includes/settings/labels.php:48
+#: includes/settings/background.php:78, includes/settings/button.php:213, includes/settings/fields.php:248, includes/settings/labels.php:74
 msgid "Size"
 msgstr ""
 
@@ -253,11 +253,11 @@ msgstr ""
 msgid "Attachment"
 msgstr ""
 
-#: includes/settings/background.php:106, includes/settings/labels.php:69
+#: includes/settings/background.php:106, includes/settings/labels.php:95
 msgid "Position"
 msgstr ""
 
-#: includes/settings/background.php:119, includes/settings/button.php:233, includes/settings/fields.php:268, includes/settings/labels.php:89
+#: includes/settings/background.php:119, includes/settings/button.php:233, includes/settings/fields.php:268, includes/settings/labels.php:115
 msgid "Color"
 msgstr ""
 
@@ -305,7 +305,7 @@ msgstr ""
 msgid "Button Text"
 msgstr ""
 
-#: includes/settings/button.php:199, includes/settings/fields.php:234, includes/settings/labels.php:34
+#: includes/settings/button.php:199, includes/settings/fields.php:234, includes/settings/labels.php:60
 msgid "Font"
 msgstr ""
 
@@ -349,7 +349,7 @@ msgstr ""
 msgid "Labels"
 msgstr ""
 
-#: includes/settings/labels.php:101
+#: includes/settings/labels.php:33
 msgid "Username"
 msgstr ""
 
