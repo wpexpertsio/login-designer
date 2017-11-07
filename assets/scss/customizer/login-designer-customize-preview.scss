@@ -161,11 +161,15 @@
 	height: 100%;
 	width: 100%;
 	z-index: -1;
-	transition: opacity 500ms cubic-bezier(0.694, 0, 0.335, 1), transform 500ms cubic-bezier(0.694, 0, 0.335, 1);
+	transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1);
 
 	&.transitioning {
 		opacity: 0;
 	}
+
+	// .has-template-applied & {
+	// 	transition: opacity 0;
+	// }
 }
 
 // Accessibility

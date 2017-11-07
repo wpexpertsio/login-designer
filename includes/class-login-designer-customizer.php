@@ -191,31 +191,6 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		}
 
 		/**
-		 * Register header layouts.
-		 */
-		public static function get_templates() {
-
-			$image_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/';
-
-			$templates = array(
-				'default' => array(
-					'title' => esc_html__( 'Default', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
-				),
-				'01' => array(
-					'title' => esc_html__( 'Template 01', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
-				),
-				'02' => array(
-					'title' => esc_html__( 'Template 02', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
-				),
-			);
-
-			return apply_filters( 'login_designer_templates', $templates );
-		}
-
-		/**
 		 * Get background images.
 		 */
 		public static function get_background_images() {
@@ -289,15 +264,15 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 					'contain' 	=> esc_html__( 'Contain', '@@textdomain' ),
 				),
 				'position' => array(
-					'left-top'	=> esc_html__( 'Left Top', '@@textdomain' ),
-					'left-center'   => esc_html__( 'Left Center', '@@textdomain' ),
-					'left-bottom'   => esc_html__( 'Left Bottom', '@@textdomain' ),
-					'right-top'	=> esc_html__( 'Right Top', '@@textdomain' ),
-					'right-center'  => esc_html__( 'Right Center', '@@textdomain' ),
-					'right-bottom'  => esc_html__( 'Right Bottom', '@@textdomain' ),
-					'center-top'	=> esc_html__( 'Center Top', '@@textdomain' ),
-					'center-center' => esc_html__( 'Center Center', '@@textdomain' ),
-					'center-bottom' => esc_html__( 'Center Bottom', '@@textdomain' ),
+					'left top'	=> esc_html__( 'Left Top', '@@textdomain' ),
+					'left center'   => esc_html__( 'Left Center', '@@textdomain' ),
+					'left bottom'   => esc_html__( 'Left Bottom', '@@textdomain' ),
+					'right top'	=> esc_html__( 'Right Top', '@@textdomain' ),
+					'right center'  => esc_html__( 'Right Center', '@@textdomain' ),
+					'right bottom'  => esc_html__( 'Right Bottom', '@@textdomain' ),
+					'center top'	=> esc_html__( 'Center Top', '@@textdomain' ),
+					'center center' => esc_html__( 'Center Center', '@@textdomain' ),
+					'center bottom' => esc_html__( 'Center Bottom', '@@textdomain' ),
 				),
 				'attach' => array(
 					'fixed'   	=> esc_html__( 'Fixed', '@@textdomain' ),

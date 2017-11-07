@@ -18,6 +18,7 @@ var styleCustomizerControlsSRC  = './assets/scss/customizer/'+ slug +'-customize
 
 var template_1SRC  		= './assets/scss/templates/'+ slug +'-template-01.scss';
 var template_2SRC  		= './assets/scss/templates/'+ slug +'-template-02.scss';
+var template_3SRC  		= './assets/scss/templates/'+ slug +'-template-03.scss';
 var templateDestination  	= './assets/css/templates/'; // Path to place the compiled CSS file.
 
 var styleDestination  		= './assets/css/'; // Path to place the compiled CSS file.
@@ -271,6 +272,36 @@ gulp.task('template_2', function () {
 	.pipe( browserSync.stream() )
 });
 
+gulp.task('template_3', function () {
+	gulp.src( template_3SRC )
+
+	.pipe( sass( {
+		errLogToConsole: true,
+		outputStyle: 'expanded',
+		precision: 10
+	} ) )
+
+	.on( 'error', console.error.bind( console ) )
+
+	.pipe( autoprefixer( AUTOPREFIXER_BROWSERS ) )
+
+	.pipe( csscomb() )
+
+	.pipe( gulp.dest( templateDestination ) )
+
+	.pipe( browserSync.stream() )
+
+	.pipe( rename( { suffix: '.min' } ) )
+
+	.pipe( minifycss( {
+		maxLineLen: 10
+	}))
+
+	.pipe( gulp.dest( templateDestination ) )
+
+	.pipe( browserSync.stream() )
+});
+
 gulp.task( 'scripts', function() {
 	// slug-customize-preview.js
 	gulp.src( scriptCustomizePreviewSRC )
@@ -427,16 +458,17 @@ gulp.task( 'build-notification', function () {
  * Commands.
  */
 
-gulp.task( 'default', [ 'clear', 'vendorsJs', 'template_1', 'template_2', 'styles_customize_preview', 'styles_customize_controls', 'scripts', 'browser_sync' ], function () {
+gulp.task( 'default', [ 'clear', 'vendorsJs', 'template_1', 'template_2', 'template_3', 'styles_customize_preview', 'styles_customize_controls', 'scripts', 'browser_sync' ], function () {
 	gulp.watch( projectPHPWatchFiles, reload );
 	gulp.watch( styleWatchFiles, [ 'styles_customize_preview' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_customize_controls' ] );
 	gulp.watch( styleWatchFiles, [ 'template_1' ] );
 	gulp.watch( styleWatchFiles, [ 'template_2' ] );
+	gulp.watch( styleWatchFiles, [ 'template_3' ] );
 	gulp.watch( scriptWatchFiles, [ 'scripts' ] );
 	gulp.watch( vendorJSWatchFiles, [ 'vendorsJs', reload ] );
 });
 
 gulp.task('build', function(callback) {
-	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'styles_customize_preview', 'styles_customize_controls', 'scripts', 'vendorsJs', 'build-translate' ], 'build-copy', 'build-variables', 'build-zip', 'build-clean-after-zip', 'build-notification', callback);
+	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'template_3', 'styles_customize_preview', 'styles_customize_controls', 'scripts', 'vendorsJs', 'build-translate' ], 'build-copy', 'build-variables', 'build-zip', 'build-clean-after-zip', 'build-notification', callback);
 });

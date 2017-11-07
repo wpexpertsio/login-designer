@@ -211,7 +211,7 @@
 		customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer[logo_title]', false );
 		customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer_settings[logo_url]', false );
 
-		// Only show the Twitter profile option, if social sharing is enabled.
+		// Only show the logo margin bottom option, if the logo is enabled.
 		customizer_image_option_display( 'login_designer[logo]', 'login_designer[logo_margin_bottom]' );
 
 
@@ -222,197 +222,110 @@
 
 
 
-// Template functions.
 
 
 
 
 
-		// Hide the form width option if Template 2 is selected.
+
+
+
+
+
+
+
+
+
+
+
+
 		wp.customize( 'login_designer[template]', function( setting ) {
-			wp.customize.control( 'login_designer[form_width]', function( control ) {
-				var visibility = function() {
-					if ( '01' === setting.get() ) {
-						control.container.slideUp( 180 );
-					} else {
-						control.container.slideDown( 180 );
-					}
-				};
 
-				visibility();
-				setting.bind( visibility );
+			// Hide the form width option if "2" is selected.
+			wp.customize.control( 'login_designer[form_width]', function( control ) {
+				if ( '01' === setting.get() ) {
+					control.container.addClass( 'disabled' );
+				} else {
+					control.container.removeClass( 'disabled' );
+				}
+			});
+
+			// Hide the form background color option if "2" or "3" is selected.
+			wp.customize.control( 'login_designer[form_bg]', function( control ) {
+				if ( '02' === setting.get() || '03' === setting.get() ) {
+					control.container.addClass( 'disabled' );
+				} else {
+					control.container.removeClass( 'disabled' );
+				}
 			});
 		});
+
+		function template_reset_to_defaults() {
+
+			// console.log( 'Defaults Reset' );
+
+			$( '#customize-control-login_designer-bg_image .remove-button' ).click();
+			$( '#customize-control-login_designer-logo .remove-button' ).click();
+
+			for ( var key in login_designer_controls.template_defaults ) {
+
+				var control 	= key;
+				var value	= login_designer_controls.template_defaults[key];
+
+				wp.customize( 'login_designer[' + control + ']' ).set( value );
+
+			}
+		}
+
+		function template_set_defaults( template_defaults ) {
+
+			// Now apply the template's custom style.
+			for ( var key in template_defaults ) {
+
+				var control 	= key;
+				var value	= template_defaults[key];
+
+				wp.customize( 'login_designer[' + control + ']' ).set( value );
+
+			}
+		}
 
 		// Modify the background color based on the gallery image selected.
 		wp.customize( 'login_designer[template]', function( value ) {
 
-
-
-
-
-			// var controls = {
-			// 	'login_designer[bg_color]',
-			// };
-
-			// if ( login_designer_script.template_defaults_01 ) {
-			// 	values = Object.keys( login_designer_script.template_defaults_01 );
-			// }
-
-			// login_designer_controls.template_defaults_01.forEach( function( item, index, array ) {
-			// 	wp.customize( item ).set( item[key] );
-
-
-			// 	console.log( wp.customize( item ).set( item[key] ) );
-			// });
-
-
-
-
-
-
-
 			value.bind( function( to ) {
 
-
-
+				template_reset_to_defaults();
 
 				if ( to === 'default' ) {
-
-					console.log( login_designer_controls.template_defaults );
-
-					wp.customize( 'login_designer[bg_image_gallery]' ).set( 'none' );
-					wp.customize( 'login_designer[bg_color]' ).set( '#f1f1f1' );
-
-					wp.customize( 'login_designer[form_bg]' ).set( '#fff' );
-					wp.customize( 'login_designer[form_width]' ).set( '320' );
-					wp.customize( 'login_designer[form_shadow]' ).set( '3' );
-					wp.customize( 'login_designer[form_side_padding]' ).set( '24' );
-					wp.customize( 'login_designer[form_vertical_padding]' ).set( '26' );
-
-					wp.customize( 'login_designer[field_bg]' ).set( '#ffffff' );
-					wp.customize( 'login_designer[field_radius]' ).set( '0' );
-					wp.customize( 'login_designer[field_side_padding]' ).set( '12' );
-					wp.customize( 'login_designer[field_padding_top]' ).set( '3' );
-					wp.customize( 'login_designer[field_padding_bottom]' ).set( '3' );
-					wp.customize( 'login_designer[field_border]' ).set( '1' );
-					wp.customize( 'login_designer[field_shadow]' ).set( '2' );
-					wp.customize( 'login_designer[field_shadow_inset]' ).set( true );
-					wp.customize( 'login_designer[field_color]' ).set( '#32373c' );
-					wp.customize( 'login_designer[field_font]' ).set( 'default' );
-					wp.customize( 'login_designer[field_font_size]' ).set( '24' );
-
-					wp.customize( 'login_designer[disable_logo]' ).set( false );
-
-					wp.customize( 'login_designer[username_label]' ).set( 'Username or Email Address' );
-					wp.customize( 'login_designer[label_font]' ).set( 'default' );
-					wp.customize( 'login_designer[label_font_size]' ).set( '14' );
-					wp.customize( 'login_designer[label_color]' ).set( '#72777c' );
-					wp.customize( 'login_designer[label_position]' ).set( '2' );
-
+					template_set_defaults( login_designer_controls.template_defaults );
 				} else if ( to === '01' ) {
-
-
-					for (var k in login_designer_controls.template_defaults_01){
-					    if (typeof login_designer_controls.template_defaults_01[k] !== 'function') {
-					    	// wp.customize( k ).set( login_designer_controls.template_defaults_01[k] );
-
-					    	var control = k;
-					    	var value = login_designer_controls.template_defaults_01[k];
-
-					    	wp.customize( control ).set( value );
-
-					       // alert("Control is " + control + ", value is" + value);
-					    }
-					}
-
-
-
-
-					console.log( login_designer_controls.template_defaults_01 );
-
-					// wp.customize( 'login_designer[bg_color]' ).set( '#f1f1f1' );
-					// wp.customize( 'login_designer[bg_image_gallery]' ).set( 'bg_01' );
-
-					wp.customize( 'login_designer[form_bg]' ).set( '#fff' );
-					wp.customize( 'login_designer[form_width]' ).set( '' );
-					wp.customize( 'login_designer[form_shadow]' ).set( '0' );
-					wp.customize( 'login_designer[form_side_padding]' ).set( '42' );
-					wp.customize( 'login_designer[form_vertical_padding]' ).set( '26' );
-
-					wp.customize( 'login_designer[field_bg]' ).set( '#ffffff' );
-					wp.customize( 'login_designer[field_radius]' ).set( '3' );
-					wp.customize( 'login_designer[field_side_padding]' ).set( '12' );
-					wp.customize( 'login_designer[field_padding_top]' ).set( '6' );
-					wp.customize( 'login_designer[field_padding_bottom]' ).set( '6' );
-					wp.customize( 'login_designer[field_border]' ).set( '2' );
-					wp.customize( 'login_designer[field_shadow]' ).set( '0' );
-					wp.customize( 'login_designer[field_shadow_inset]' ).set( false );
-					wp.customize( 'login_designer[field_color]' ).set( '#32373c' );
-					wp.customize( 'login_designer[field_font]' ).set( 'default' );
-					wp.customize( 'login_designer[field_font_size]' ).set( '24' );
-
-					wp.customize( 'login_designer[disable_logo]' ).set( false );
-
-					wp.customize( 'login_designer[username_label]' ).set( 'Username or Email Address' );
-					wp.customize( 'login_designer[label_font]' ).set( 'default' );
-					wp.customize( 'login_designer[label_font_size]' ).set( '14' );
-					wp.customize( 'login_designer[label_color]' ).set( '#72777c' );
-					wp.customize( 'login_designer[label_position]' ).set( '2' );
-
+					template_set_defaults( login_designer_controls.template_defaults_01 );
 				} else if ( to === '02' ) {
-
-					wp.customize( 'login_designer[bg_image_gallery]' ).set( 'none' );
-					wp.customize( 'login_designer[bg_color]' ).set( '#000000' );
-
-					wp.customize( 'login_designer[form_bg]' ).set( '#000000' );
-					wp.customize( 'login_designer[form_width]' ).set( '320' );
-					wp.customize( 'login_designer[form_shadow]' ).set( '0' );
-					wp.customize( 'login_designer[form_side_padding]' ).set( '10' );
-					wp.customize( 'login_designer[form_vertical_padding]' ).set( '0' );
-
-					wp.customize( 'login_designer[field_bg]' ).set( '#191919' );
-					wp.customize( 'login_designer[field_radius]' ).set( '5' );
-					wp.customize( 'login_designer[field_side_padding]' ).set( '13' );
-					wp.customize( 'login_designer[field_padding_top]' ).set( '9' );
-					wp.customize( 'login_designer[field_padding_bottom]' ).set( '9' );
-					wp.customize( 'login_designer[field_border]' ).set( '0' );
-					wp.customize( 'login_designer[field_shadow]' ).set( '0' );
-					wp.customize( 'login_designer[field_shadow_inset]' ).set( false );
-					wp.customize( 'login_designer[field_color]' ).set( '#606060' );
-					wp.customize( 'login_designer[field_font]' ).set( 'Rubik' );
-					wp.customize( 'login_designer[field_font_size]' ).set( '18' );
-
-					wp.customize( 'login_designer[disable_logo]' ).set( true );
-
-					wp.customize( 'login_designer[username_label]' ).set( 'Username' );
-					wp.customize( 'login_designer[label_font]' ).set( 'Rubik' );
-					wp.customize( 'login_designer[label_font_size]' ).set( '14' );
-					wp.customize( 'login_designer[label_color]' ).set( '#4f4f4f' );
-					wp.customize( 'login_designer[label_position]' ).set( '5' );
-
+					template_set_defaults( login_designer_controls.template_defaults_02 );
+				} else if ( to === '03' ) {
+					template_set_defaults( login_designer_controls.template_defaults_03 );
+				} else if ( to === '04' ) {
+					template_set_defaults( login_designer_controls.template_defaults_04 );
+				} else if ( to === '05' ) {
+					template_set_defaults( login_designer_controls.template_defaults_05 );
+				} else if ( to === '06' ) {
+					template_set_defaults( login_designer_controls.template_defaults_06 );
+				} else if ( to === '07' ) {
+					template_set_defaults( login_designer_controls.template_defaults_07 );
+				} else if ( to === '08' ) {
+					template_set_defaults( login_designer_controls.template_defaults_08 );
+				} else if ( to === '09' ) {
+					template_set_defaults( login_designer_controls.template_defaults_09 );
+				} else if ( to === '10' ) {
+					template_set_defaults( login_designer_controls.template_defaults_10 );
 				}
-
 			} );
 		} );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		// Modify the background color based on the gallery image selected.
+		// @todo — Test this and push it live.
+
 		// wp.customize( 'login_designer[bg_image_gallery]', function( value ) {
 
 		// 	value.bind( function( to ) {

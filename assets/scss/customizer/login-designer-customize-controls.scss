@@ -22,6 +22,9 @@
 @import "controls/toggle";
 @import "controls/upgrade";
 
+.customize-control.disabled {
+	display: none !important;
+}
 
 // Hide the Styles section.
 #accordion-section-login_designer__section--styles {

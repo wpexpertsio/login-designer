@@ -662,29 +662,36 @@
 
 				$( '#login-designer-background' ).addClass( 'transitioning' );
 
-				setTimeout( function() {
+				if ( customBackground() ) {
+					setTimeout( function() {
 					$( '#login-designer-background' ).css( 'background-image', 'url( ' + customBackground() + ')' );
-				}, 500);
+					}, 300);
 
-				setTimeout( function() {
-					$( '#login-designer-background' ).removeClass( 'transitioning' );
-				}, 550 );
+					setTimeout( function() {
+						$( '#login-designer-background' ).removeClass( 'transitioning' );
+					}, 350 );
+				} else {
+					$( 'body.login, #login-designer-background' ).css( 'background-image', 'none' );
+				}
 
-				// console.log( customBackground() );
 
-			} else {
+			} else if ( '' === to ) {
+				$( 'body.login, #login-designer-background' ).css( 'background-image', 'none' );
+				console.log( 'No background' );
 
-				$( 'body.login' ).css( 'background-image', 'none' );
+			}  else {
+
+				$( 'body.login, #login-designer-background' ).css( 'background-image', 'none' );
 
 				$( '#login-designer-background' ).addClass( 'transitioning' );
 
 				setTimeout( function() {
 					$( '#login-designer-background' ).css( 'background-image', 'url( ' + url + to + '.jpg' + ')' );
-				}, 500);
+				}, 300);
 
 				setTimeout( function() {
 					$( '#login-designer-background' ).removeClass( 'transitioning' );
-				}, 550 );
+				}, 350 );
 			}
 		} );
 	} );
@@ -889,6 +896,18 @@
 	// Login form background color.
 	wp.customize( 'login_designer[form_bg]', function( value ) {
 		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_form_bg"> body.login #loginform, body.login-designer-template-01 #login { background-color: ' + to + ' !important; } </style>';
+
+			el =  $( '.login_designer_form_bg' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+
+
 			$( 'body.login #loginform, body.login-designer-template-01 #login' ).css( 'background-color', to );
 		} );
 	} );

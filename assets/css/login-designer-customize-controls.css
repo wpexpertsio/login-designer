@@ -876,6 +876,10 @@
 	margin-right: 8px;
 }
 
+.customize-control.disabled {
+	display: none !important;
+}
+
 #accordion-section-login_designer__section--styles {
 	display: none !important;
 }

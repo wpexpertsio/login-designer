@@ -63,12 +63,11 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		function defaults() {
 
 			$defaults = array(
-				'template' 		=> 'default',
 				'bg_image' 		=> '',
 				'bg_image_gallery' 	=> '',
 				'bg_repeat' 		=> 'no-repeat',
 				'bg_size' 		=> 'cover',
-				'bg_position' 		=> 'center-center',
+				'bg_position' 		=> 'center center',
 				'bg_attach' 		=> 'fixed',
 				'bg_color' 		=> '#f1f1f1',
 				'logo' 			=> '',

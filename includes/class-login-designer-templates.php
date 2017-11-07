@@ -27,42 +27,12 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 		 * Adds actions to enqueue our assets.
 		 */
 		public function __construct() {
-			add_action( 'login_enqueue_scripts', array( $this, 'template_frontend_styles' ) );
-			add_action( 'customize_preview_init', array( $this, 'template_customize_styles' ) );
-			add_action( 'login_body_class', array( $this, 'template_classes' ) );
-			add_action( 'body_class', array( $this, 'template_classes' ) );
-
-			// Filters.
-			// add_filter( 'login_designer_defaults', array( $this, 'template_01' ) );
+			add_action( 'login_body_class', array( $this, 'body_class' ) );
+			add_action( 'body_class', array( $this, 'body_class' ) );
+			add_action( 'login_enqueue_scripts', array( $this, 'frontend_styles' ) );
+			add_action( 'customize_preview_init', array( $this, 'customize_styles' ) );
+			add_filter( 'login_designer_control_localization', array( $this, 'template_defaults' ) );
 		}
-
-
-		/**
-		 * Adds the food background images to the custom gallery Customizer control.
-		 *
-		 * @param  array $defaults Default options.
-		 */
-		public function template_01( $defaults ) {
-
-			// Look for extension backgrounds.
-			$customizer = new Login_Designer_Customizer_Output();
-
-			$customizer->defaults();
-
-
-			// // Combine the two arrays.
-			// $backgrounds = array_merge( $backgrounds, $food_backgrounds );
-
-			// return $backgrounds;
-		}
-
-
-
-
-
-
-
-
 
 		/**
 		 * Adds the associated template to the body on our fake login customizer page and the real login page.
@@ -70,7 +40,7 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 		 * @access public
 		 * @param array $classes Existing body classes to be filtered.
 		 */
-		public function template_classes( $classes ) {
+		public function body_class( $classes ) {
 
 			global $pagenow;
 
@@ -97,7 +67,7 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 		 *
 		 * @access public
 		 */
-		public function template_frontend_styles() {
+		public function frontend_styles() {
 
 			// Check for the option.
 			$options   	= new Login_Designer_Customizer_Output();
@@ -122,28 +92,25 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 		}
 
 		/**
-		 * Enqueue the template stylesheets.
+		 * Enqueue the template stylesheets within the Customizer.
 		 *
 		 * @access public
 		 */
-		public function template_customize_styles() {
+		public function customize_styles() {
 
 			// Don't display the stylesheets if we're in the Customizer.
 			if ( ! is_customize_preview() ) {
 				return;
 			}
 
-			// Define where the control's scripts are.
+			// Define where the styles are.
 			$css_dir 	= LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/templates/';
 
 			// Use minified libraries if SCRIPT_DEBUG is turned off.
 			$suffix 	= ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-			// Let's pull each option from the template selector in the Customizer.
-			$customizer 	= new Login_Designer_Customizer();
-
 			// And output each associated stylesheet to the Customizer window.
-			foreach ( $customizer->get_templates() as $option => $value ) :
+			foreach ( $this->get_templates() as $option => $value ) :
 
 				// Set the stylesheet handle from the template.
 				$handle = 'login-designer-template-' . $option;
@@ -155,6 +122,151 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 
 			// Remove the default option. There's not one.
 			wp_dequeue_style( 'login-designer-template-default' );
+		}
+
+		/**
+		 * Register templates.
+		 */
+		public function get_templates() {
+
+			$image_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/';
+
+			$templates = array(
+				'default' => array(
+					'title' => esc_html__( 'Default', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
+				),
+				'01' => array(
+					'title' => esc_html__( 'Template 01', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
+				),
+				'02' => array(
+					'title' => esc_html__( 'Template 02', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
+				),
+				'03' => array(
+					'title' => esc_html__( 'Template 03', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
+				),
+			);
+
+			return apply_filters( 'login_designer_templates', $templates );
+		}
+
+		/**
+		 * Template defaults for the live previewer.
+		 *
+		 * @param  array $localize Default control localization.
+		 * @return array of default fonts, plus the new typekit additions.
+		 */
+		public function template_defaults( $localize ) {
+
+			// White on-the-site template.
+			$template_01 = apply_filters( 'login_designer_template_01_defaults', array(
+				'bg_image_gallery' 	=> 'bg_02',
+				'bg_color' 		=> '#f1f1f1',
+				'form_width' 		=> '',
+				'form_side_padding' 	=> '42',
+				'form_vertical_padding' => '26',
+				'form_radius' 		=> '0',
+				'form_shadow' 		=> '0',
+				'form_shadow_opacity' 	=> '0',
+				'field_bg' 		=> '#ffffff',
+				'field_padding_top' 	=> '6',
+				'field_padding_bottom' 	=> '6',
+				'field_side_padding' 	=> '12',
+				'field_border' 		=> '2',
+				'field_radius' 		=> '3',
+				'field_shadow' 		=> '0',
+				'field_shadow_opacity' 	=> '0',
+				'field_font' 		=> 'default',
+				'field_font_size' 	=> '24',
+				'field_color' 		=> '#32373c',
+				'label_font' 		=> 'default',
+				'label_position' 	=> '2',
+				'label_font_size' 	=> '14',
+				'label_color' 		=> '#72777c',
+			) );
+
+			// Dark template.
+			$template_02 = apply_filters( 'login_designer_template_02_defaults', array(
+				'bg_image_gallery' 	=> 'none',
+				'bg_color' 		=> '#000000',
+				'logo_margin_bottom' 	=> '0',
+				'disable_logo' 		=> true,
+				'form_bg' 		=> '#000000',
+				'form_side_padding' 	=> '10',
+				'form_vertical_padding' => '1',
+				'form_radius' 		=> '0',
+				'form_shadow' 		=> '0',
+				'form_shadow_opacity' 	=> '0',
+				'field_bg' 		=> '#191919',
+				'field_padding_top' 	=> '9',
+				'field_padding_bottom' 	=> '9',
+				'field_side_padding' 	=> '13',
+				'field_border' 		=> '0',
+				'field_radius' 		=> '5',
+				'field_shadow' 		=> '0',
+				'field_shadow_opacity' 	=> '0',
+				'field_font' 		=> 'Rubik',
+				'field_font_size' 	=> '18',
+				'field_color' 		=> '#606060',
+				'username_label' 	=> esc_html__( 'Username', '@@textdomain' ),
+				'label_font' 		=> 'Rubik',
+				'label_position' 	=> '5',
+				'label_color' 		=> '#4f4f4f',
+			) );
+
+			// White minimal template.
+			$template_03 = apply_filters( 'login_designer_template_03_defaults', array(
+				'bg_image_gallery' 	=> 'none',
+				'bg_color' 		=> '#ffffff',
+				'logo_margin_bottom' 	=> '0',
+				'disable_logo' 		=> true,
+				'form_bg' 		=> '#ffffff',
+				'form_side_padding' 	=> '10',
+				'form_vertical_padding' => '1',
+				'form_radius' 		=> '0',
+				'form_shadow' 		=> '0',
+				'form_shadow_opacity' 	=> '0',
+				'field_bg' 		=> '#e3e3e3',
+				'field_padding_top' 	=> '9',
+				'field_padding_bottom' 	=> '9',
+				'field_side_padding' 	=> '13',
+				'field_border' 		=> '0',
+				'field_radius' 		=> '5',
+				'field_shadow' 		=> '0',
+				'field_shadow_opacity' 	=> '0',
+				'field_font' 		=> 'Rubik',
+				'field_font_size' 	=> '18',
+				'field_color' 		=> '#434343',
+				'username_label' 	=> esc_html__( 'Username', '@@textdomain' ),
+				'label_font' 		=> 'Rubik',
+				'label_position' 	=> '5',
+				'label_color' 		=> '#8b8b8b',
+			) );
+
+			$customizer = new Login_Designer_Customizer_Output();
+
+			$defaults = array(
+				'template_defaults'	=> $customizer->defaults(),
+				'template_defaults_01'	=> $template_01,
+				'template_defaults_02'	=> $template_02,
+				'template_defaults_03'	=> $template_03,
+			);
+
+			// Combine the three arrays.
+			$localize = array_merge( $localize, $defaults );
+
+			return $localize;
+		}
+
+		/**
+		 * Adds the food background images to the custom gallery Customizer control.
+		 *
+		 * @param  array $defaults Default options.
+		 */
+		public function template_01( $defaults ) {
 		}
 	}
 

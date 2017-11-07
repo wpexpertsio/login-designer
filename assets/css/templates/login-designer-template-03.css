@@ -1,5 +1,5 @@
 @media only screen and (min-height: 500px) {
-	body.login-designer-template-02 {
+	body.login-designer-template-03 {
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: -ms-flexbox;
@@ -19,22 +19,22 @@
 	}
 }
 
-body.login-designer-template-02 #login {
+body.login-designer-template-03 #login {
 	margin: 0 auto;
 	padding: 30px 0 0 0;
 }
 
 @media only screen and (min-height: 500px) {
-	body.login-designer-template-02 #login {
+	body.login-designer-template-03 #login {
 		padding: 0;
 	}
 }
 
-body.login-designer-template-02 #login #loginform {
+body.login-designer-template-03 #login #loginform {
 	background: none !important;
 }
 
-body.login-designer-template-02 #login p {
+body.login-designer-template-03 #login p {
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 }
