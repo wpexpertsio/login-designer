@@ -222,6 +222,11 @@
 
 
 
+// Template functions.
+
+
+
+
 
 		// Hide the form width option if Template 2 is selected.
 		wp.customize( 'login_designer[template]', function( setting ) {
@@ -242,14 +247,42 @@
 		// Modify the background color based on the gallery image selected.
 		wp.customize( 'login_designer[template]', function( value ) {
 
+
+
+
+
+			// var controls = {
+			// 	'login_designer[bg_color]',
+			// };
+
+			// if ( login_designer_script.template_defaults_01 ) {
+			// 	values = Object.keys( login_designer_script.template_defaults_01 );
+			// }
+
+			// login_designer_controls.template_defaults_01.forEach( function( item, index, array ) {
+			// 	wp.customize( item ).set( item[key] );
+
+
+			// 	console.log( wp.customize( item ).set( item[key] ) );
+			// });
+
+
+
+
+
+
+
 			value.bind( function( to ) {
 
-				// url = login_designer_controls.plugin_url;
+
+
 
 				if ( to === 'default' ) {
 
-					wp.customize( 'login_designer[bg_color]' ).set( '#f1f1f1' );
+					console.log( login_designer_controls.template_defaults );
+
 					wp.customize( 'login_designer[bg_image_gallery]' ).set( 'none' );
+					wp.customize( 'login_designer[bg_color]' ).set( '#f1f1f1' );
 
 					wp.customize( 'login_designer[form_bg]' ).set( '#fff' );
 					wp.customize( 'login_designer[form_width]' ).set( '320' );
@@ -279,8 +312,27 @@
 
 				} else if ( to === '01' ) {
 
-					wp.customize( 'login_designer[bg_color]' ).set( '#f1f1f1' );
-					wp.customize( 'login_designer[bg_image_gallery]' ).set( 'bg_01' );
+
+					for (var k in login_designer_controls.template_defaults_01){
+					    if (typeof login_designer_controls.template_defaults_01[k] !== 'function') {
+					    	// wp.customize( k ).set( login_designer_controls.template_defaults_01[k] );
+
+					    	var control = k;
+					    	var value = login_designer_controls.template_defaults_01[k];
+
+					    	wp.customize( control ).set( value );
+
+					       // alert("Control is " + control + ", value is" + value);
+					    }
+					}
+
+
+
+
+					console.log( login_designer_controls.template_defaults_01 );
+
+					// wp.customize( 'login_designer[bg_color]' ).set( '#f1f1f1' );
+					// wp.customize( 'login_designer[bg_image_gallery]' ).set( 'bg_01' );
 
 					wp.customize( 'login_designer[form_bg]' ).set( '#fff' );
 					wp.customize( 'login_designer[form_width]' ).set( '' );
@@ -310,8 +362,8 @@
 
 				} else if ( to === '02' ) {
 
-					wp.customize( 'login_designer[bg_color]' ).set( '#000000' );
 					wp.customize( 'login_designer[bg_image_gallery]' ).set( 'none' );
+					wp.customize( 'login_designer[bg_color]' ).set( '#000000' );
 
 					wp.customize( 'login_designer[form_bg]' ).set( '#000000' );
 					wp.customize( 'login_designer[form_width]' ).set( '320' );
@@ -361,71 +413,71 @@
 
 
 		// Modify the background color based on the gallery image selected.
-		wp.customize( 'login_designer[bg_image_gallery]', function( value ) {
+		// wp.customize( 'login_designer[bg_image_gallery]', function( value ) {
 
-			value.bind( function( to ) {
+		// 	value.bind( function( to ) {
 
-				var keys = [];
-				var values = [];
+		// 		var keys = [];
+		// 		var values = [];
 
-				if ( login_designer_controls.extension_colors ) {
-					keys = Object.keys( login_designer_controls.extension_colors );
-					values = Object.values( login_designer_controls.extension_colors );
-				}
+		// 		if ( login_designer_controls.extension_colors ) {
+		// 			keys = Object.keys( login_designer_controls.extension_colors );
+		// 			values = Object.values( login_designer_controls.extension_colors );
+		// 		}
 
-				// console.log( 'keys:' + keys );
+		// 		// console.log( 'keys:' + keys );
 
-				if ( keys.includes( to ) ) {
+		// 		if ( keys.includes( to ) ) {
 
-					// If we have a custom background color, let's put it back to default.
-					wp.customize( 'login_designer[bg_color]' ).set( color );
+		// 			// If we have a custom background color, let's put it back to default.
+		// 			wp.customize( 'login_designer[bg_color]' ).set( color );
 
-					// console.log( 'keys:');
+		// 			// console.log( 'keys:');
 
-				}
+		// 		}
 
-				if ( to === 'bg_01' ) {
-					color = '#e3ebee';
-				} else if ( to === 'bg_02' ) {
-					color = '#d0f1ec';
-				} else if ( to === 'bg_03' ) {
-					color = '#cccfd4';
-				} else if ( to === 'bg_04' ) {
-					color = '#d5aabb';
-				} else if ( to === 'bg_05' ) {
-					color = '#141611';
-				} else if ( to === 'bg_06' ) {
-					color = '#151515';
-				} else if ( to === 'bg_07' ) {
-					color = '#d0e4ec';
-				} else if ( to === 'bg_08' ) {
-					color = '#4b2d3f';
-				} else if ( to === 'bg_09' ) {
-					color = '#ed4844';
-				} else if ( to === 'bg_10' ) {
-					color = '#e3ebee';
-				} else if ( to === login_designer_controls.seasonal_option_01 ) {
-					color = login_designer_controls.seasonal_bg_color_01;
-				} else if ( to === login_designer_controls.seasonal_option_02 ) {
-					color = login_designer_controls.seasonal_bg_color_02;
-				} else if ( to === login_designer_controls.seasonal_option_03 ) {
-					color = login_designer_controls.seasonal_bg_color_03;
-				} else if ( to === login_designer_controls.seasonal_option_04 ) {
-					color = login_designer_controls.seasonal_bg_color_04;
-				} else if ( to === login_designer_controls.seasonal_option_05 ) {
-					color = login_designer_controls.seasonal_bg_color_05;
-				} else {
-					color = '#f1f1f1';
-				}
+		// 		if ( to === 'bg_01' ) {
+		// 			color = '#e3ebee';
+		// 		} else if ( to === 'bg_02' ) {
+		// 			color = '#d0f1ec';
+		// 		} else if ( to === 'bg_03' ) {
+		// 			color = '#cccfd4';
+		// 		} else if ( to === 'bg_04' ) {
+		// 			color = '#d5aabb';
+		// 		} else if ( to === 'bg_05' ) {
+		// 			color = '#141611';
+		// 		} else if ( to === 'bg_06' ) {
+		// 			color = '#151515';
+		// 		} else if ( to === 'bg_07' ) {
+		// 			color = '#d0e4ec';
+		// 		} else if ( to === 'bg_08' ) {
+		// 			color = '#4b2d3f';
+		// 		} else if ( to === 'bg_09' ) {
+		// 			color = '#ed4844';
+		// 		} else if ( to === 'bg_10' ) {
+		// 			color = '#e3ebee';
+		// 		} else if ( to === login_designer_controls.seasonal_option_01 ) {
+		// 			color = login_designer_controls.seasonal_bg_color_01;
+		// 		} else if ( to === login_designer_controls.seasonal_option_02 ) {
+		// 			color = login_designer_controls.seasonal_bg_color_02;
+		// 		} else if ( to === login_designer_controls.seasonal_option_03 ) {
+		// 			color = login_designer_controls.seasonal_bg_color_03;
+		// 		} else if ( to === login_designer_controls.seasonal_option_04 ) {
+		// 			color = login_designer_controls.seasonal_bg_color_04;
+		// 		} else if ( to === login_designer_controls.seasonal_option_05 ) {
+		// 			color = login_designer_controls.seasonal_bg_color_05;
+		// 		} else {
+		// 			color = '#f1f1f1';
+		// 		}
 
-				// If we have a custom background color, let's put it back to default.
-				wp.customize( 'login_designer[bg_color]' ).set( color );
+		// 		// If we have a custom background color, let's put it back to default.
+		// 		wp.customize( 'login_designer[bg_color]' ).set( color );
 
-				// console.log( login_designer_controls.extension_bg_colors );
+		// 		// console.log( login_designer_controls.extension_bg_colors );
 
-				// console.log( to );
-			} );
-		} );
+		// 		// console.log( to );
+		// 	} );
+		// } );
 
 		// Modify the background color based on the gallery image selected.
 		wp.customize( 'login_designer[disable_logo]', function( value ) {

@@ -3,8 +3,8 @@
 }
 
 #sub-accordion-section-login_designer__section--styles .customize-control-color .customize-control-title {
-	line-height: 18px;
-	margin: 0 0 3px;
+	line-height: 20px;
+	margin: 0;
 }
 
 #sub-accordion-section-login_designer__section--styles .customize-control-color label {
@@ -889,28 +889,28 @@
 	margin-top: 15px;
 }
 
-#customize-control-login_designer[username_label],
-#customize-control-login_designer[password_label] {
+#customize-control-login_designer-username_label,
+#customize-control-login_designer-password_label {
 	margin-bottom: 6px;
 	position: relative;
 }
 
-#customize-control-login_designer[username_label] .customize-control-title,
-#customize-control-login_designer[password_label] .customize-control-title {
+#customize-control-login_designer-username_label .customize-control-title,
+#customize-control-login_designer-password_label .customize-control-title {
 	margin-bottom: 0;
 	position: relative;
-	width: 50%;
+	width: 40%;
 }
 
-#customize-control-login_designer[username_label] input,
-#customize-control-login_designer[password_label] input {
-	border-radius: 5px;
+#customize-control-login_designer-username_label input,
+#customize-control-login_designer-password_label input {
+	border-radius: 3px;
 	box-shadow: 0 0 0 0 transparent;
 	margin: 0;
 	position: absolute;
 	right: 0;
 	top: 0;
-	width: 50%;
+	width: 60%;
 }
 
 #customize-control-login_designer_settings-login_redirect .customize-control-title,

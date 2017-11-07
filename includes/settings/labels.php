@@ -22,6 +22,32 @@ $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'lo
 	'section'               => 'login_designer__section--styles',
 ) ) );
 
+$wp_customize->add_setting( 'login_designer[username_label]', array(
+	'default'               => $defaults['username_label'],
+	'type' 			=> 'option',
+	'transport'             => 'postMessage',
+	'sanitize_callback' 	=> 'esc_html',
+) );
+
+$wp_customize->add_control( 'login_designer[username_label]', array(
+	'label'          	=> esc_html__( 'Username', '@@textdomain' ),
+	'section'        	=> 'login_designer__section--styles',
+	'type'           	=> 'text',
+) );
+
+$wp_customize->add_setting( 'login_designer[password_label]', array(
+	'default'               => $defaults['password_label'],
+	'type' 			=> 'option',
+	'transport'             => 'postMessage',
+	'sanitize_callback' 	=> 'esc_html',
+) );
+
+$wp_customize->add_control( 'login_designer[password_label]', array(
+	'label'         	=> esc_html__( 'Password', '@@textdomain' ),
+	'section'       	=> 'login_designer__section--styles',
+	'type'           	=> 'text',
+) );
+
 $wp_customize->add_setting( 'login_designer[label_font]', array(
 	'default'               => $defaults['label_font'],
 	'type' 			=> 'option',
@@ -89,29 +115,3 @@ $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logi
 	'label'                 => esc_html__( 'Color', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 ) ) );
-
-$wp_customize->add_setting( 'login_designer[username_label]', array(
-	'default'               => $defaults['username_label'],
-	'type' 			=> 'option',
-	'transport'             => 'postMessage',
-	'sanitize_callback' 	=> 'esc_html',
-) );
-
-$wp_customize->add_control( 'login_designer[username_label]', array(
-	'label'          	=> esc_html__( 'Username', '@@textdomain' ),
-	'section'        	=> 'login_designer__section--styles',
-	'type'           	=> 'text',
-) );
-
-$wp_customize->add_setting( 'login_designer[password_label]', array(
-	'default'               => $defaults['password_label'],
-	'type' 			=> 'option',
-	'transport'             => 'postMessage',
-	'sanitize_callback' 	=> 'esc_html',
-) );
-
-$wp_customize->add_control( 'login_designer[password_label]', array(
-	'label'         	=> esc_html__( 'Password', '@@textdomain' ),
-	'section'       	=> 'login_designer__section--styles',
-	'type'           	=> 'text',
-) );

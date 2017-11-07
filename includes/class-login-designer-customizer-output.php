@@ -64,7 +64,6 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 			$defaults = array(
 				'template' 		=> 'default',
-
 				'bg_image' 		=> '',
 				'bg_image_gallery' 	=> '',
 				'bg_repeat' 		=> 'no-repeat',
@@ -72,11 +71,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'bg_position' 		=> 'center-center',
 				'bg_attach' 		=> 'fixed',
 				'bg_color' 		=> '#f1f1f1',
-
 				'logo' 			=> '',
 				'logo_margin_bottom' 	=> '25',
 				'disable_logo' 		=> false,
-
 				'form_bg' 		=> '#ffffff',
 				'form_width' 		=> '320',
 				'form_side_padding' 	=> '24',
@@ -84,7 +81,6 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'form_radius' 		=> '0',
 				'form_shadow' 		=> '3',
 				'form_shadow_opacity' 	=> '13',
-
 				'field_bg' 		=> '#fbfbfb',
 				'field_padding_top' 	=> '3',
 				'field_padding_bottom' 	=> '3',
@@ -98,14 +94,12 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'field_font' 		=> 'default',
 				'field_font_size' 	=> '24',
 				'field_color' 		=> '#32373c',
-
 				'username_label' 	=> esc_html__( 'Username or Email Address', '@@textdomain' ),
 				'password_label' 	=> esc_html__( 'Password', '@@textdomain' ),
 				'label_font' 		=> 'default',
 				'label_position' 	=> '2',
 				'label_font_size' 	=> '14',
 				'label_color' 		=> '#72777c',
-
 				'button_bg' 		=> '#0085ba',
 				'button_height' 	=> '4',
 				'button_side_padding' 	=> '12',
@@ -114,12 +108,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'button_radius' 	=> '3',
 				'button_shadow' 	=> '0',
 				'button_shadow_opacity' => '0',
-
 				'button_font' 		=> 'default',
 				'button_font_size' 	=> '13',
 				'button_color' 		=> '#fff',
-
-
 			);
 
 			return apply_filters( 'login_designer_defaults', $defaults );

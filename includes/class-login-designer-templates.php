@@ -31,7 +31,38 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			add_action( 'customize_preview_init', array( $this, 'template_customize_styles' ) );
 			add_action( 'login_body_class', array( $this, 'template_classes' ) );
 			add_action( 'body_class', array( $this, 'template_classes' ) );
+
+			// Filters.
+			// add_filter( 'login_designer_defaults', array( $this, 'template_01' ) );
 		}
+
+
+		/**
+		 * Adds the food background images to the custom gallery Customizer control.
+		 *
+		 * @param  array $defaults Default options.
+		 */
+		public function template_01( $defaults ) {
+
+			// Look for extension backgrounds.
+			$customizer = new Login_Designer_Customizer_Output();
+
+			$customizer->defaults();
+
+
+			// // Combine the two arrays.
+			// $backgrounds = array_merge( $backgrounds, $food_backgrounds );
+
+			// return $backgrounds;
+		}
+
+
+
+
+
+
+
+
 
 		/**
 		 * Adds the associated template to the body on our fake login customizer page and the real login page.

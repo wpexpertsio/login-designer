@@ -133,11 +133,19 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			// Look for extension backgrounds.
 			$customizer = new Login_Designer_Customizer_Output();
 
+			$template_01 = array(
+				'template' 		=> '01',
+				'bg_color' 		=> '#bbbbbb',
+			);
+
+
 			// Localization.
 			$localize = array(
 				'plugin_url'        	=> LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
 				'login_designer_page'   => get_permalink( $page ),
 				'extension_bg_colors' 	=> $customizer->extension_colors(),
+				'template_defaults' 	=> $customizer->defaults(),
+				'template_defaults_01' 	=> $template_01,
 			);
 
 			$localize = apply_filters( 'login_designer_control_localization', $localize );
