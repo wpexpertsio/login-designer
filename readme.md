@@ -3,8 +3,6 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Stars)](https://github.com/thatplugincompany/login-designer/stargazers)
 
-# 
-
 ![Plugin Version](https://img.shields.io/wordpress/plugin/v/login-designer.svg?maxAge=2592000)
 ![Total Downloads](https://img.shields.io/wordpress/plugin/dt/login-designer.svg?maxAge=2592000)
 ![WordPress Compatibility](https://img.shields.io/wordpress/v/login-designer.svg?maxAge=2592000)
