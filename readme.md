@@ -1,4 +1,9 @@
-# [Login Designer](https://logindesigner.com) #
+# [Login Designer](https://logindesigner.com) 
+[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Beautifully%20fast%20WordPress%20login%20customization%20—&url=https://logindesigner.com/&via=logindesigner&hashtags=WordPress)
+
+[![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Stars)](https://github.com/thatplugincompany/login-designer/stargazers)
+
+# 
 
 ![Plugin Version](https://img.shields.io/wordpress/plugin/v/login-designer.svg?maxAge=2592000)
 ![Total Downloads](https://img.shields.io/wordpress/plugin/dt/login-designer.svg?maxAge=2592000)
@@ -6,10 +11,6 @@
 [![License](https://img.shields.io/badge/license-GPL--2.0%2B-red.svg)](https://github.com/thatplugincompany/login-designer/blob/master/license.txt)
 
 Create stunning WordPress login pages in just seconds with the most beautiful and elegant login customizer WordPress plugin. 
-
-[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Beautifully%20fast%20WordPress%20login%20customization%20—&url=https://logindesigner.com/&via=logindesigner&hashtags=WordPress)
-
-[![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Stars)](https://github.com/thatplugincompany/login-designer/stargazers)
 
 ## Installation ##
 
