@@ -148,6 +148,10 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 					'title' => esc_html__( 'Template 03', '@@textdomain' ),
 					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
 				),
+				'04' => array(
+					'title' => esc_html__( 'Template 04', '@@textdomain' ),
+					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
+				),
 			);
 
 			return apply_filters( 'login_designer_templates', $templates );
@@ -166,7 +170,7 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				'bg_image_gallery' 	=> 'bg_02',
 				'bg_color' 		=> '#f1f1f1',
 				'form_width' 		=> '',
-				'form_side_padding' 	=> '42',
+				'form_side_padding' 	=> '40',
 				'form_vertical_padding' => '26',
 				'form_radius' 		=> '0',
 				'form_shadow' 		=> '0',
@@ -179,10 +183,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				'field_radius' 		=> '3',
 				'field_shadow' 		=> '0',
 				'field_shadow_opacity' 	=> '0',
-				'field_font' 		=> 'default',
 				'field_font_size' 	=> '24',
 				'field_color' 		=> '#32373c',
-				'label_font' 		=> 'default',
 				'label_position' 	=> '2',
 				'label_font_size' 	=> '14',
 				'label_color' 		=> '#72777c',
@@ -246,6 +248,32 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				'label_color' 		=> '#8b8b8b',
 			) );
 
+			// White 50/50 on-the-site template.
+			$template_04 = apply_filters( 'login_designer_template_04_defaults', array(
+				'bg_image_gallery' 	=> 'bg_01',
+				'bg_color' 		=> '#f4f5f7',
+				'form_width' 		=> '',
+				'form_side_padding' 	=> '40',
+				'form_vertical_padding' => '20',
+				'form_radius' 		=> '0',
+				'form_shadow' 		=> '0',
+				'form_shadow_opacity' 	=> '0',
+				'field_bg' 		=> '#f4f5f7',
+				'field_padding_top' 	=> '6',
+				'field_padding_bottom' 	=> '6',
+				'field_side_padding' 	=> '12',
+				'field_border' 		=> '2',
+				'field_border_color' 	=> '#e3e4e5',
+				'field_radius' 		=> '3',
+				'field_shadow' 		=> '0',
+				'field_shadow_opacity' 	=> '0',
+				'field_font' 		=> 'Karla',
+				'field_font_size' 	=> '22',
+				'field_color' 		=> '#3f473b',
+				'label_position' 	=> '5',
+				'label_font_size' 	=> '15',
+			) );
+
 			$customizer = new Login_Designer_Customizer_Output();
 
 			$defaults = array(
@@ -253,6 +281,7 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				'template_defaults_01'	=> $template_01,
 				'template_defaults_02'	=> $template_02,
 				'template_defaults_03'	=> $template_03,
+				'template_defaults_04'	=> $template_04,
 			);
 
 			// Combine the three arrays.

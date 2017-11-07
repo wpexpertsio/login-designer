@@ -897,7 +897,7 @@
 	wp.customize( 'login_designer[form_bg]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_form_bg"> body.login #loginform, body.login-designer-template-01 #login { background-color: ' + to + ' !important; } </style>';
+			style = '<style class="login_designer_form_bg"> body.login #loginform, body.login-designer-template-01 #login, body.login-designer-template-04 #login { background-color: ' + to + ' !important; } </style>';
 
 			el =  $( '.login_designer_form_bg' );
 
@@ -908,7 +908,7 @@
 			}
 
 
-			$( 'body.login #loginform, body.login-designer-template-01 #login' ).css( 'background-color', to );
+			$( 'body.login #loginform, body.login-designer-template-01 #login, body.login-designer-template-04 #login' ).css( 'background-color', to );
 		} );
 	} );
 

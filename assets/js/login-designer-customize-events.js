@@ -116,24 +116,6 @@
 				// We only want to show relevant options based on the user's contextual design decisions.
 				if ( item === 'login_designer[logo_margin_bottom]' ) {
 
-					wp.customize( 'login_designer[logo]', function( setting ) {
-						wp.customize.control( item, function( control ) {
-							var visibility = function() {
-
-								if ( setting.get() ) {
-									// If there is a custom logo uploaded, let's show the bottom positioning option.
-									wp.customize.control( item ).activate( { duration: 0 } );
-								} else {
-									// If not, let's quickly hide it.
-									control.container.slideUp( 0 );
-								}
-							};
-
-							visibility();
-							setting.bind( visibility );
-						});
-					});
-
 					wp.customize( 'login_designer[disable_logo]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
@@ -141,6 +123,9 @@
 								if ( true === setting.get() ) {
 									// If not, let's quickly hide it.
 									control.container.slideUp( 0 );
+								} else {
+									// If there's no custom background image, let's show the gallery.
+									wp.customize.control( item ).activate( { duration: 0 } );
 								}
 							};
 
@@ -437,10 +422,10 @@
 				// 		wp.customize.control( item, function( control ) {
 				// 			var visibility = function() {
 
-				// 				if ( '01' !== setting.get() ) {
-				// 					wp.customize.control( item ).activate( { duration: 0 } );
-				// 				} else {
+				// 				if ( '01' === setting.get() ) {
 				// 					control.container.slideUp( 0 );
+				// 				} else {
+				// 					wp.customize.control( item ).activate( { duration: 0 } );
 				// 				}
 				// 			};
 

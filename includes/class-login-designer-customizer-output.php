@@ -476,7 +476,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Form background color.
 				if ( isset( $options['form_bg'] ) ) {
-					$css .= '#loginform, .login-designer-template-01 #login { background-color: ' . $options['form_bg'] . '; }';
+					$css .= '#loginform, .login-designer-template-01 #login, .login-designer-template-04 #login { background-color: ' . $options['form_bg'] . '; }';
 				}
 
 				// Form width.

@@ -1,15 +1,18 @@
-body.login.login-designer-template-01 {
+body.login.login-designer-template-04 {
 	display: flex;
 	content: " ";
+	height: 100%;
+	flex-wrap: nowrap;
 	align-items: stretch;
+	justify-content: flex-end;
 
 	#login {
 
 		@media only screen and (min-width: 400px) {
 			flex-direction: column;
-			width: 85%;
+			justify-content: flex-end;
+			width: 50%;
 			margin: 0;
-			max-width: 580px;
 			padding: 40px 0 0;
 		}
 
@@ -23,8 +26,9 @@ body.login.login-designer-template-01 {
 	}
 
 	#loginform {
-		max-width: 420px;
+		max-width: 400px;
 		margin: 0 auto;
+
 		@media only screen and (max-width: 499px) {
 			padding-left: 25px;
 			padding-right: 25px;

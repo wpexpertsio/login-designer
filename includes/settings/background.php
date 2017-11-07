@@ -45,7 +45,7 @@ $wp_customize->add_setting( 'login_designer[bg_image_gallery]', array(
 
 $wp_customize->add_control( new Login_Designer_Background_Gallery_Control( $wp_customize, 'login_designer[bg_image_gallery]', array(
 	'label'                 => esc_html__( 'Background Gallery', '@@textdomain' ),
-	'description'           => esc_html__( 'Pick a background image from this curated collection of beautiful images.', '@@textdomain' ),
+	'description'           => esc_html__( 'Pick a background image from our curated collection of beautiful images.', '@@textdomain' ),
 	'type'                  => 'login-designer-gallery',
 	'section'               => 'login_designer__section--styles',
 	'choices'               => $this->get_choices( $this->get_background_images() ),
