@@ -128,6 +128,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/fields.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/labels.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/button.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/remember.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/license.php';
 		}
 

@@ -141,7 +141,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 */
 		public function init() {
 			add_action( 'wp_head', array( $this, 'meta_version' ) );
-			add_action( 'init', array( $this, 'redirect_customizer' ) );
+			add_action( 'admin_init', array( $this, 'redirect_customizer' ) );
 			add_action( 'admin_menu', array( $this, 'options_page' ) );
 			add_action( 'admin_bar_menu', array( $this, 'admin_bar_link' ), 999 );
 			add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );

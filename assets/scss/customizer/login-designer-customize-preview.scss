@@ -1,6 +1,33 @@
 // Variables.
 @import "variables";
 
+.forgetmenot {
+	position: relative;
+
+	&:hover label {
+		color: $customizer_blue !important;
+	}
+
+	.customizer-event-overlay {
+		top: -2px;
+		bottom: -2px;
+		left: -2px;
+		right: -2px;
+		width: calc( 100% + 4px);
+		border: 0 ! important;
+		opacity: 0 ! important;
+	}
+}
+
+
+
+
+
+
+
+
+
+
 .template-section-option {
 	.customize-partial-edit-shortcut {
 		transition: opacity 200ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1);

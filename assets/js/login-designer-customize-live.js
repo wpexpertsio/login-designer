@@ -38,7 +38,8 @@
 				$loginform_pass	= $( '#login-designer--password'),
 				$username_label	= $( '#login-designer--username-label'),
 				$password_label	= $( '#login-designer--password-label'),
-				$button		= $( '#login-designer--button');
+				$button		= $( '#login-designer--button'),
+				$remember_me	= $( '.forgetmenot');
 
 				$logo.append( '<button class="login-designer-event-button customizer-event-overlay" data-customizer-event="login-designer-edit-logo"></button>' );
 
@@ -59,6 +60,9 @@
 
 				// Templates
 				$body_bg.append( '<span class="customize-partial--login-designer-template customize-partial-edit-shortcut"><button class="login-designer-event-button customize-partial-edit-shortcut-button" data-customizer-event="login-designer-edit-template"></button></span>' );
+
+				// Remember Me
+				$remember_me.append( '<button class="login-designer-event-button customizer-event-overlay" data-customizer-event="login-designer-edit-remember-me"></button>' );
 
 
 				// Listen for events on the new previewer buttons
