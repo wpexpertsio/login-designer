@@ -193,6 +193,7 @@ function login_footer($input_id = '') {
 		/* translators: %s: site title */
 		printf( _x( '&larr; Back to %s', 'site' ), get_bloginfo( 'title', 'display' ) );
 	?></a></p>
+</div>
 	<?php endif; ?>
 
 	</div>
@@ -463,7 +464,7 @@ case 'retrievepassword' :
 	<input type="hidden" name="redirect_to" value="<?php echo esc_attr( $redirect_to ); ?>" />
 	<p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php esc_attr_e('Get New Password'); ?>" /></p>
 </form>
-
+<div id="login-designer--below-form">
 <p id="nav">
 <a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e('Log in') ?></a>
 <?php
@@ -579,6 +580,7 @@ case 'rp' :
 	<p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php esc_attr_e('Reset Password'); ?>" /></p>
 </form>
 
+<div id="login-designer--below-form">
 <p id="nav">
 <a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( 'Log in' ); ?></a>
 <?php
@@ -662,7 +664,7 @@ case 'register' :
 	<input type="hidden" name="redirect_to" value="<?php echo esc_attr( $redirect_to ); ?>" />
 	<p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php esc_attr_e('Register'); ?>" /></p>
 </form>
-
+<div id="login-designer--below-form">
 <p id="nav">
 <a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( 'Log in' ); ?></a>
 <?php echo esc_html( $login_link_separator ); ?>
@@ -833,6 +835,7 @@ default:
 </form>
 
 <?php if ( ! $interim_login ) { ?>
+<div id="login-designer--below-form">
 <p id="nav">
 <?php if ( ! isset( $_GET['checkemail'] ) || ! in_array( $_GET['checkemail'], array( 'confirm', 'newpass' ) ) ) :
 	if ( get_option( 'users_can_register' ) ) :

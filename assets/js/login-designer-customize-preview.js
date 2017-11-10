@@ -40,6 +40,59 @@
 		});
 	});
 
+	// Back to label — @todo Make this an option.
+	wp.customize( 'login_designer[back_to_label]', function( value ) {
+		value.bind( function( newval ) {
+			$( '#backtoblog a' ).html( newval );
+		} );
+	} );
+
+	// On/Off for the lost password text.
+	wp.customize( 'login_designer[lost_password]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+
+			if ( false === to ) {
+				display = 'none';
+			} else {
+				display = 'block';
+			}
+
+			style = '<style class="login_designer_lost_password"> #login #nav { display: ' + display + '; } </style>';
+
+			el =  $( '.login_designer_lost_password' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// On/Off for the lost back to blog text.
+	wp.customize( 'login_designer[back_to]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+
+			if ( false === to ) {
+				display = 'none';
+			} else {
+				display = 'block';
+			}
+
+			style = '<style class="login_designer_back_to"> #login #backtoblog { display: ' + display + '; } </style>';
+
+			el =  $( '.login_designer_back_to' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
 	// Button background color.
 	wp.customize( 'login_designer[button_bg]', function( value ) {
 		value.bind( function( to ) {

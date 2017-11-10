@@ -217,6 +217,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				'label_font' 		=> 'Rubik',
 				'label_position' 	=> '5',
 				'label_color' 		=> '#4f4f4f',
+				'lost_password' 	=> false,
+				'back_to' 		=> false,
 			) );
 
 			// White minimal template.
@@ -246,6 +248,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				'label_font' 		=> 'Rubik',
 				'label_position' 	=> '5',
 				'label_color' 		=> '#8b8b8b',
+				'lost_password' 	=> false,
+				'back_to' 		=> false,
 			) );
 
 			// White 50/50 on-the-site template.

@@ -110,6 +110,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'button_font' 		=> 'default',
 				'button_font_size' 	=> '13',
 				'button_color' 		=> '#fff',
+				'lost_password' 	=> true,
+				'back_to' 		=> true,
 			);
 
 			return apply_filters( 'login_designer_defaults', $defaults );
@@ -390,6 +392,10 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					height: auto !important;
 					line-height: inherit;
 				}
+
+				#login-designer--below-form {
+					text-align: center;
+				}
 			';
 
 			if ( ! empty( $options ) ) :
@@ -648,6 +654,16 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Button font color.
 				if ( isset( $options['button_color'] ) ) {
 					$css .= '#loginform .submit .button { color: ' . esc_attr( $options['button_color'] ) . ' }';
+				}
+
+				// Lost Password.
+				if ( false === isset( $options['lost_password'] ) ) {
+					$css .= '#login #nav { display: none; }';
+				}
+
+				// Back to blog.
+				if ( false === isset( $options['back_to'] ) ) {
+					$css .= '#login #backtoblog { display: none; }';
 				}
 
 			endif;

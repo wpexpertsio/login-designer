@@ -78,6 +78,11 @@
 		'remember' : [
 			'login_designer[remember_title]',
 		],
+		'below' : [
+			'login_designer[below_title]',
+			'login_designer[lost_password]',
+			'login_designer[back_to]',
+		],
 	};
 
 	function active_control( section ) {
@@ -108,6 +113,10 @@
 
 		all_controls.remember.forEach(function(item, index, array) {
 			control_visibility( all_controls.remember, 'deactivate' );
+		});
+
+		all_controls.below.forEach(function(item, index, array) {
+			control_visibility( all_controls.below, 'deactivate' );
 		});
 
 		control_visibility( section, 'activate' );
@@ -468,7 +477,8 @@
 			password_label_event 	= 'login-designer-edit-loginform-labels-password',
 			button_event 		= 'login-designer-edit-button',
 			background_event 	= 'login-designer-edit-background',
-			remember_event 		= 'login-designer-edit-remember-me';
+			remember_event 		= 'login-designer-edit-remember-me',
+			below_event 		= 'login-designer-edit-below';
 
 			// Function used for contextually aware Customizer options.
 			function bind_control_visibility_event( event, active_controls, focus_control ) {
@@ -503,6 +513,7 @@
 			bind_control_visibility_event( button_event, all_controls.button, 'login_designer[button_title]' );
 			bind_control_visibility_event( background_event, all_controls.background, 'login_designer[bg_title]' );
 			bind_control_visibility_event( remember_event, all_controls.remember, 'login_designer[remember_title]' );
+			bind_control_visibility_event( below_event, all_controls.below, 'login_designer[below_title]' );
 
 			// Open settings panel when the settings icon is clicked.
 			this.preview.bind( 'login-designer-edit-settings', function() {
