@@ -38,8 +38,3 @@ body.login-designer-template-02 #login p {
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 }
-
-body.login-designer-template-02 #login input[type=checkbox] {
-	border: 0;
-	border-radius: 3px;
-}

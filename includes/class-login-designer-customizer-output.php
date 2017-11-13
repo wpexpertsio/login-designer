@@ -109,12 +109,19 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'button_shadow_opacity' => '0',
 				'button_font' 		=> 'default',
 				'button_font_size' 	=> '13',
-				'button_color' 		=> '#fff',
+				'button_color' 		=> '#ffffff',
 				'lost_password' 	=> true,
 				'back_to' 		=> true,
 				'remember_color' 	=> '#72777c',
 				'remember_font' 	=> 'default',
 				'remember_font_size' 	=> '12',
+				'remember_position' 	=> '5',
+
+				'checkbox_size' 	=> '16',
+				'checkbox_bg' 	=> '#fbfbfb',
+				'checkbox_border' 	=> '1',
+				'checkbox_border_color' => '#b4b9be',
+				'checkbox_radius' 	=> '0',
 			);
 
 			return apply_filters( 'login_designer_defaults', $defaults );
@@ -387,11 +394,16 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					box-shadow: none;
 				}
 
+				#login input[type=checkbox] {
+					box-shadow: none;
+				}
+
 				#loginform .submit .button {
 					box-shadow: 0 0 0;
 					text-shadow: none;
 					height: auto !important;
 					line-height: inherit;
+					transform: translateY(0px) !important;
 				}
 
 				#login-designer--below-form {
@@ -518,7 +530,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Field background.
 				if ( isset( $options['field_bg'] ) ) {
-					$css .= '#loginform .input, .login-designer-template-02 #login form input[type=checkbox] { background-color: ' . esc_attr( $options['field_bg'] ) . '; }';
+					$css .= '#loginform .input { background-color: ' . esc_attr( $options['field_bg'] ) . '; }';
 				}
 
 				// Field top padding.
@@ -622,6 +634,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Button border width.
 				if ( isset( $options['button_border'] ) ) {
 					$css .= '#loginform .submit .button { border-style: solid; border-width: ' . esc_attr( $options['button_border'] ) . 'px; }';
+				} else {
+					$css .= '#loginform .submit .button { border: 0 }';
 				}
 
 				// Button border color.
@@ -631,7 +645,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Button border radius.
 				if ( isset( $options['button_radius'] ) ) {
-					$css .= '#loginform .submit .button, #loginform .submit .login-designer-event-button { border-radius: ' . esc_attr( $options['button_radius'] ) . 'px; }';
+					$css .= '#login #loginform .submit .button, #loginform .submit .login-designer-event-button { border-radius: ' . esc_attr( $options['button_radius'] ) . 'px; }';
 				}
 
 				// Field box-shadow.
@@ -659,12 +673,20 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Lost Password.
 				if ( false === isset( $options['lost_password'] ) ) {
-					$css .= '#login #nav { display: none; }';
+					if ( is_customize_preview() ) {
+						$css .= '#login #nav { opacity: 0; }';
+					} else {
+						$css .= '#login #nav { display: none; }';
+					}
 				}
 
 				// Back to blog.
 				if ( false === isset( $options['back_to'] ) ) {
-					$css .= '#login #backtoblog { display: none; }';
+					if ( is_customize_preview() ) {
+						$css .= '#login #backtoblog { opacity: 0; }';
+					} else {
+						$css .= '#login #backtoblog { display: none; }';
+					}
 				}
 
 				// Remember font, as long as it's not 'default'.
@@ -680,6 +702,38 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Remember color.
 				if ( isset( $options['remember_color'] ) ) {
 					$css .= '#login .forgetmenot label { color: ' . esc_attr( $options['remember_color'] ) . ' }';
+				}
+
+				// Remember positioning.
+				if ( isset( $options['remember_position'] ) ) {
+					$css .= '#login .forgetmenot { margin-top: ' . esc_attr( $options['remember_position'] ) . 'px }';
+				}
+
+				// Checkbox size.
+				if ( isset( $options['checkbox_size'] ) ) {
+					$css .= '#login form input[type=checkbox] { height: ' . esc_attr( $options['checkbox_size'] ) . 'px;  width: ' . esc_attr( $options['checkbox_size'] ) . 'px }';
+				}
+
+				// Checkbox border width.
+				if ( isset( $options['checkbox_border'] ) ) {
+					$css .= '#login form input[type=checkbox] { border-style: solid; border-width: ' . esc_attr( $options['checkbox_border'] ) . 'px; }';
+				} else {
+					$css .= '#login form input[type=checkbox] { border: 0 }';
+				}
+
+				// Checkbox border color.
+				if ( isset( $options['checkbox_border_color'] ) ) {
+					$css .= '#login form input[type=checkbox] { border-color: ' . $options['checkbox_border_color'] . '; }';
+				}
+
+				// Checkbox border radius.
+				if ( isset( $options['checkbox_radius'] ) ) {
+					$css .= '#login form input[type=checkbox] { border-radius: ' . esc_attr( $options['checkbox_radius'] ) . 'px; }';
+				}
+
+				// Checkbox background.
+				if ( isset( $options['checkbox_bg'] ) ) {
+					$css .= '#login form input[type=checkbox] { background-color: ' . esc_attr( $options['checkbox_bg'] ) . '; }';
 				}
 
 			endif;

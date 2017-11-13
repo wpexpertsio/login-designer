@@ -8,12 +8,29 @@
 
 .forgetmenot .customizer-event-overlay {
 	border: 0 !important;
-	bottom: -2px;
-	left: -2px;
 	opacity: 0 !important;
+}
+
+.forgetmenot button[data-customizer-event="login-designer-edit-remember-me"] {
+	bottom: -2px;
+	left: 16px;
 	right: -2px;
 	top: -2px;
 	width: calc( 100% + 4px);
+}
+
+.forgetmenot button[data-customizer-event="login-designer-edit-remember-me-checkbox"] {
+	bottom: 0;
+	height: 16px;
+	left: 0;
+	right: 0;
+	top: 1px;
+	width: 16px;
+}
+
+.forgetmenot button[data-customizer-event="login-designer-edit-remember-me-checkbox"]:hover {
+	background: rgba(0, 167, 233, 0.2) !important;
+	opacity: 1;
 }
 
 #login-designer--below-form {
@@ -278,14 +295,14 @@
 #login-designer--button .customizer-event-overlay {
 	border: 0 !important;
 	border-radius: 3px;
-	bottom: -3px;
-	left: -3px;
+	bottom: 0;
+	left: 0;
 	opacity: 1 !important;
-	right: -3px;
-	top: -3px;
+	right: 0;
+	top: 0;
 	-webkit-transition: opacity 100ms cubic-bezier(0.33, 0, 0.2, 1), background 100ms cubic-bezier(0.33, 0, 0.2, 1);
 	transition: opacity 100ms cubic-bezier(0.33, 0, 0.2, 1), background 100ms cubic-bezier(0.33, 0, 0.2, 1);
-	width: calc( 100% + 7px);
+	width: 100%;
 	z-index: 99999;
 }
 

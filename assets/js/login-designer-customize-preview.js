@@ -40,6 +40,68 @@
 		});
 	});
 
+	// Checkbox size.
+	wp.customize( 'login_designer[checkbox_size]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_checkbox_size">#login form input[type=checkbox] { height: ' + to + 'px; width: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_checkbox_size' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Checkbox background.
+	wp.customize( 'login_designer[checkbox_bg]', function( value ) {
+		value.bind( function( to ) {
+			$( '#login form input[type=checkbox]' ).css( 'background-color', to );
+		} );
+	} );
+
+	// Checkbox border.
+	wp.customize( 'login_designer[checkbox_border]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_checkbox_border">#login form input[type=checkbox] { border-style: solid; border-width: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_checkbox_border' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Checkbox border color.
+	wp.customize( 'login_designer[checkbox_border_color]', function( value ) {
+		value.bind( function( to ) {
+			$( '#login form input[type=checkbox]' ).css( 'border-color', to );
+		} );
+	} );
+
+	// Checkbox border radius.
+	wp.customize( 'login_designer[checkbox_radius]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_checkbox_radius"> #login form input[type=checkbox] { border-radius: ' + to + 'px !important; } </style>';
+
+			el =  $( '.login_designer_checkbox_radius' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
 	// Remeber color
 	wp.customize( 'login_designer[remember_color]', function( value ) {
 		value.bind( function( to ) {
@@ -63,6 +125,22 @@
 		} );
 	} );
 
+	// Remember position.
+	wp.customize( 'login_designer[remember_position]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_remember_position">#login .forgetmenot { margin-top: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_remember_position' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
 	// Back to label — @todo Make this an option.
 	wp.customize( 'login_designer[back_to_label]', function( value ) {
 		value.bind( function( newval ) {
@@ -76,12 +154,10 @@
 			var style, el;
 
 			if ( false === to ) {
-				display = 'none';
+				style = '<style class="login_designer_lost_password"> #login #nav { opacity: 0; } </style>';
 			} else {
-				display = 'block';
+				style = '<style class="login_designer_lost_password"> #login #nav { display: block; opacity: 1;  } </style>';
 			}
-
-			style = '<style class="login_designer_lost_password"> #login #nav { display: ' + display + '; } </style>';
 
 			el =  $( '.login_designer_lost_password' );
 
@@ -99,12 +175,10 @@
 			var style, el;
 
 			if ( false === to ) {
-				display = 'none';
+				style = '<style class="login_designer_back_to"> #login #backtoblog { opacity: 0; } </style>';
 			} else {
-				display = 'block';
+				style = '<style class="login_designer_back_to"> #login #backtoblog { display: block; opacity: 1;  } </style>';
 			}
-
-			style = '<style class="login_designer_back_to"> #login #backtoblog { display: ' + display + '; } </style>';
 
 			el =  $( '.login_designer_back_to' );
 
@@ -265,7 +339,7 @@
 	// Field background color.
 	wp.customize( 'login_designer[field_bg]', function( value ) {
 		value.bind( function( to ) {
-			$( '#loginform .input, .login-designer-template-02 #login form input[type=checkbox]' ).css( 'background-color', to );
+			$( '#loginform .input' ).css( 'background-color', to );
 		} );
 	} );
 

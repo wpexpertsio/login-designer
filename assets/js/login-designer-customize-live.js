@@ -65,6 +65,9 @@
 				// Remember Me
 				$remember_me.append( '<button class="login-designer-event-button customizer-event-overlay" data-customizer-event="login-designer-edit-remember-me"></button>' );
 
+				// Checkbox
+				$remember_me.append( '<button class="login-designer-event-button customizer-event-overlay" data-customizer-event="login-designer-edit-remember-me-checkbox"></button>' );
+
 				// Below Form
 				$below_form.append( '<button class="login-designer-event-button customizer-event-overlay" data-customizer-event="login-designer-edit-below"></button>' );
 

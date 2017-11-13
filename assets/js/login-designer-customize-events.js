@@ -80,6 +80,15 @@
 			'login_designer[remember_color]',
 			'login_designer[remember_font]',
 			'login_designer[remember_font_size]',
+			'login_designer[remember_position]',
+		],
+		'checkbox' : [
+			'login_designer[checkbox_title]',
+			'login_designer[checkbox_size]',
+			'login_designer[checkbox_bg]',
+			'login_designer[checkbox_border]',
+			'login_designer[checkbox_border_color]',
+			'login_designer[checkbox_radius]',
 		],
 		'below' : [
 			'login_designer[below_title]',
@@ -116,6 +125,10 @@
 
 		all_controls.remember.forEach(function(item, index, array) {
 			control_visibility( all_controls.remember, 'deactivate' );
+		});
+
+		all_controls.checkbox.forEach(function(item, index, array) {
+			control_visibility( all_controls.checkbox, 'deactivate' );
 		});
 
 		all_controls.below.forEach(function(item, index, array) {
@@ -433,6 +446,26 @@
 						});
 					});
 
+				} else if ( item === 'login_designer[checkbox_border_color]' ) {
+
+					wp.customize( 'login_designer[checkbox_border]', function( setting ) {
+						wp.customize.control( item, function( control ) {
+							var visibility = function() {
+
+								if ( '0' < setting.get() ) {
+									// If there is a custom logo uploaded, let's show the bottom positioning option.
+									wp.customize.control( item ).activate( { duration: 0 } );
+								} else {
+									// If not, let's quickly hide it.
+									control.container.slideUp( 0 );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
 				}
 
 				// else if ( item === 'login_designer[form_width]' ) {
@@ -481,6 +514,7 @@
 			button_event 		= 'login-designer-edit-button',
 			background_event 	= 'login-designer-edit-background',
 			remember_event 		= 'login-designer-edit-remember-me',
+			checkbox_event 		= 'login-designer-edit-remember-me-checkbox',
 			below_event 		= 'login-designer-edit-below';
 
 			// Function used for contextually aware Customizer options.
@@ -516,6 +550,7 @@
 			bind_control_visibility_event( button_event, all_controls.button, 'login_designer[button_title]' );
 			bind_control_visibility_event( background_event, all_controls.background, 'login_designer[bg_title]' );
 			bind_control_visibility_event( remember_event, all_controls.remember, 'login_designer[remember_title]' );
+			bind_control_visibility_event( checkbox_event, all_controls.checkbox, 'login_designer[checkbox_title]' );
 			bind_control_visibility_event( below_event, all_controls.below, 'login_designer[below_title]' );
 
 			// Open settings panel when the settings icon is clicked.

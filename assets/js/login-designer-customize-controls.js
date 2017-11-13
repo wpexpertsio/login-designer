@@ -183,6 +183,7 @@
 		// Only show the border color style option, if the border is greater than zero.
 		customizer_range_option_display( 'login_designer[field_border]', 'login_designer[field_border_color]', '0' );
 		customizer_range_option_display( 'login_designer[button_border]', 'login_designer[button_border_color]', '0' );
+		customizer_range_option_display( 'login_designer[checkbox_border]', 'login_designer[checkbox_border_color]', '0' );
 
 		// Only show the shadow opacity style option, if the shadow is greater than zero.
 		customizer_range_option_display( 'login_designer[form_shadow]', 'login_designer[form_shadow_opacity]', '0' );

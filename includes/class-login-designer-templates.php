@@ -219,6 +219,20 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				'label_color' 		=> '#4f4f4f',
 				'lost_password' 	=> false,
 				'back_to' 		=> false,
+				'remember_color' 	=> '#4f4f4f',
+				'remember_font' 	=> 'Rubik',
+				'remember_position' 	=> '9',
+				'button_bg' 		=> '#dcdcdc',
+				'button_height' 	=> '8',
+				'button_side_padding' 	=> '17',
+				'button_border' 	=> '0',
+				'button_radius' 	=> '4',
+				'button_font' 		=> 'Rubik',
+				'button_font_size' 	=> '14',
+				'button_color' 		=> '#000000',
+				'checkbox_bg' 		=> '#272727',
+				'checkbox_border' 	=> '0',
+				'checkbox_radius' 	=> '3',
 			) );
 
 			// White minimal template.
@@ -250,6 +264,21 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				'label_color' 		=> '#8b8b8b',
 				'lost_password' 	=> false,
 				'back_to' 		=> false,
+				'remember_color' 	=> '#8b8b8b',
+				'remember_font' 	=> 'Rubik',
+				'remember_position' 	=> '9',
+				'button_bg' 		=> '#fff',
+				'button_height' 	=> '7',
+				'button_side_padding' 	=> '17',
+				'button_border' 	=> '1',
+				'button_border_color' 	=> '#d7d7d7',
+				'button_radius' 	=> '4',
+				'button_font' 		=> 'Rubik',
+				'button_font_size' 	=> '14',
+				'button_color' 		=> '#434343',
+				'checkbox_bg' 		=> '#e3e3e3',
+				'checkbox_border' 	=> '0',
+				'checkbox_radius' 	=> '3',
 			) );
 
 			// White 50/50 on-the-site template.
