@@ -40,6 +40,29 @@
 		});
 	});
 
+	// Below form color.
+	wp.customize( 'login_designer[below_color]', function( value ) {
+		value.bind( function( to ) {
+			$( '#login #nav a, #login #backtoblog a' ).css( 'color', to );
+		} );
+	} );
+
+	// Below form position.
+	wp.customize( 'login_designer[below_position]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_below_position">#login-designer--below-form { margin-top: ' + to + 'px !important; } </style>';
+
+			el =  $( '.login_designer_below_position' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
 	// Checkbox size.
 	wp.customize( 'login_designer[checkbox_size]', function( value ) {
 		value.bind( function( to ) {

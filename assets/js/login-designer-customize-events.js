@@ -94,6 +94,8 @@
 			'login_designer[below_title]',
 			'login_designer[lost_password]',
 			'login_designer[back_to]',
+			'login_designer[below_color]',
+			'login_designer[below_position]',
 		],
 	};
 

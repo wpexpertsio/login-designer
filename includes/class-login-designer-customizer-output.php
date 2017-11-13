@@ -112,11 +112,12 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'button_color' 		=> '#ffffff',
 				'lost_password' 	=> true,
 				'back_to' 		=> true,
+				'below_color' 		=> '#444',
+				'below_position' 	=> '0',
 				'remember_color' 	=> '#72777c',
 				'remember_font' 	=> 'default',
 				'remember_font_size' 	=> '12',
 				'remember_position' 	=> '5',
-
 				'checkbox_size' 	=> '16',
 				'checkbox_bg' 	=> '#fbfbfb',
 				'checkbox_border' 	=> '1',
@@ -736,6 +737,15 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					$css .= '#login form input[type=checkbox] { background-color: ' . esc_attr( $options['checkbox_bg'] ) . '; }';
 				}
 
+				// Below form color.
+				if ( isset( $options['below_color'] ) ) {
+					$css .= '#login #nav a, #login #backtoblog a { color: ' . esc_attr( $options['below_color'] ) . ' }';
+				}
+
+				// Below form positioning.
+				if ( isset( $options['below_position'] ) ) {
+					$css .= '.login #loginform + p { margin-top: ' . esc_attr( $options['below_position'] ) . 'px }';
+				}
 			endif;
 
 			// Combine the values from above and minifiy them.

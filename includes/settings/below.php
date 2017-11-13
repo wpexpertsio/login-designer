@@ -22,6 +22,40 @@ $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'lo
 	'section'               => 'login_designer__section--styles',
 ) ) );
 
+$wp_customize->add_setting( 'login_designer[below_color]', array(
+	'default'               => $defaults['below_color'],
+	'type' 			=> 'option',
+	'transport'             => 'postMessage',
+	'sanitize_callback'     => 'sanitize_hex_color',
+) );
+
+$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'login_designer[below_color]', array(
+	'label'                 => esc_html__( 'Color', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+) ) );
+
+
+$wp_customize->add_setting( 'login_designer[below_position]', array(
+	'default'               => $defaults['below_position'],
+	'type' 			=> 'option',
+	'transport'             => 'postMessage',
+	'sanitize_callback'     => 'absint',
+) );
+
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer[below_position]', array(
+	'type'                  => 'login-designer-range',
+	'label'                 => esc_html__( 'Position', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+	'description'           => 'px',
+	'default'               => $defaults['below_position'],
+	'input_attrs'           => array(
+		'min'               => 20,
+		'max'               => 80,
+		'step'              => 2,
+		),
+	)
+) );
+
 $wp_customize->add_setting( 'login_designer[lost_password]', array(
 	'default'               => $defaults['lost_password'],
 	'type' 			=> 'option',
