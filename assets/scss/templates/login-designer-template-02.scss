@@ -27,5 +27,10 @@ body.login-designer-template-02 {
 		p {
 			transform: translate3d(0, 0, 0);
 		}
+
+		input[type=checkbox] {
+			border: 0;
+			border-radius: 3px;
+		}
 	}
 }

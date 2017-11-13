@@ -112,6 +112,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'button_color' 		=> '#fff',
 				'lost_password' 	=> true,
 				'back_to' 		=> true,
+				'remember_color' 	=> '#72777c',
+				'remember_font' 	=> 'default',
+				'remember_font_size' 	=> '12',
 			);
 
 			return apply_filters( 'login_designer_defaults', $defaults );
@@ -184,23 +187,6 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		}
 
 		/**
-		 * Set license defaults.
-		 *
-		 * @return array $defaults
-		 */
-		function license_defaults() {
-
-			$license_defaults = array(
-				'key'		=> '',
-				'status'	=> '',
-				'expiration'	=> '',
-
-			);
-
-			return apply_filters( 'login_designer_license', $license_defaults );
-		}
-
-		/**
 		 * Create a filter to for extenstions to add background collections.
 		 *
 		 * @return array $backgrounds
@@ -234,8 +220,10 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 			$fonts_url = '';
 			$fonts     = array();
 
-			$field_font = $this->option_wrapper( 'field_font' );
-			$label_font = $this->option_wrapper( 'label_font' );
+			$field_font 	= $this->option_wrapper( 'field_font' );
+			$label_font 	= $this->option_wrapper( 'label_font' );
+			$button_font 	= $this->option_wrapper( 'button_font' );
+			$remember_font 	= $this->option_wrapper( 'remember_font' );
 
 			/**
 			 * Get fonts from the Customizer.
@@ -249,6 +237,18 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 			if ( $label_font ) {
 				if ( 'default' !== $label_font ) {
 					$fonts[] = $label_font;
+				}
+			}
+
+			if ( $button_font ) {
+				if ( 'default' !== $button_font ) {
+					$fonts[] = $button_font;
+				}
+			}
+
+			if ( $remember_font ) {
+				if ( 'default' !== $remember_font ) {
+					$fonts[] = $remember_font;
 				}
 			}
 
@@ -368,6 +368,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				#loginform p.submit {
 					padding-bottom: 25px !important;
+					transform: initial !important;
 				}
 
 				#loginform .forgetmenot {
@@ -517,7 +518,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Field background.
 				if ( isset( $options['field_bg'] ) ) {
-					$css .= '#loginform .input { background-color: ' . esc_attr( $options['field_bg'] ) . '; }';
+					$css .= '#loginform .input, .login-designer-template-02 #login form input[type=checkbox] { background-color: ' . esc_attr( $options['field_bg'] ) . '; }';
 				}
 
 				// Field top padding.
@@ -664,6 +665,21 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Back to blog.
 				if ( false === isset( $options['back_to'] ) ) {
 					$css .= '#login #backtoblog { display: none; }';
+				}
+
+				// Remember font, as long as it's not 'default'.
+				if ( isset( $options['remember_font'] ) && 'default' !== $options['remember_font'] ) {
+					$css .= '#login .forgetmenot label { font-family: ' . esc_attr( $options['remember_font'] ) . '; }';
+				}
+
+				// Remember font size.
+				if ( isset( $options['remember_font_size'] ) ) {
+					$css .= '#login .forgetmenot label { font-size: ' . esc_attr( $options['remember_font_size'] ) . 'px }';
+				}
+
+				// Remember color.
+				if ( isset( $options['remember_color'] ) ) {
+					$css .= '#login .forgetmenot label { color: ' . esc_attr( $options['remember_color'] ) . ' }';
 				}
 
 			endif;

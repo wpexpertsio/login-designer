@@ -40,6 +40,29 @@
 		});
 	});
 
+	// Remeber color
+	wp.customize( 'login_designer[remember_color]', function( value ) {
+		value.bind( function( to ) {
+			$( '#login .forgetmenot label' ).css( 'color', to );
+		} );
+	} );
+
+	// Remeber font size.
+	wp.customize( 'login_designer[remember_font_size]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_remember_font_size">#login .forgetmenot label { font-size: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_remember_font_size' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
 	// Back to label — @todo Make this an option.
 	wp.customize( 'login_designer[back_to_label]', function( value ) {
 		value.bind( function( newval ) {
@@ -242,7 +265,7 @@
 	// Field background color.
 	wp.customize( 'login_designer[field_bg]', function( value ) {
 		value.bind( function( to ) {
-			$( '#loginform .input' ).css( 'background-color', to );
+			$( '#loginform .input, .login-designer-template-02 #login form input[type=checkbox]' ).css( 'background-color', to );
 		} );
 	} );
 
@@ -582,6 +605,7 @@
 	live_font_family( 'login_designer[label_font]', '#loginform label:not([for=rememberme])' );
 	live_font_family( 'login_designer[field_font]', '#loginform .input' );
 	live_font_family( 'login_designer[button_font]', '#loginform .submit .button' );
+	live_font_family( 'login_designer[remember_font]', '#login .forgetmenot label' );
 
 	// Label font size.
 	wp.customize( 'login_designer[label_font_size]', function( value ) {

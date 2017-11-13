@@ -77,6 +77,9 @@
 		],
 		'remember' : [
 			'login_designer[remember_title]',
+			'login_designer[remember_color]',
+			'login_designer[remember_font]',
+			'login_designer[remember_font_size]',
 		],
 		'below' : [
 			'login_designer[below_title]',
