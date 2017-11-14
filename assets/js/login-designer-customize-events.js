@@ -33,6 +33,7 @@
 			'login_designer[field_padding_top]',
 			'login_designer[field_padding_bottom]',
 			'login_designer[field_side_padding]',
+			'login_designer[field_margin_bottom]',
 			'login_designer[field_shadow]',
 			'login_designer[field_shadow_opacity]',
 			'login_designer[field_shadow_inset]',

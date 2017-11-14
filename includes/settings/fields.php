@@ -77,7 +77,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 ) );
 
 $wp_customize->add_setting( 'login_designer[field_padding_bottom]', array(
-	'default'               => $defaults['field_padding_top'],
+	'default'               => $defaults['field_padding_bottom'],
 	'type' 			=> 'option',
 	'transport'             => 'postMessage',
 	'sanitize_callback'     => 'absint',
@@ -92,6 +92,27 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 	'input_attrs'           => array(
 		'min'               => 0,
 		'max'               => 40,
+		'step'              => 1,
+		),
+	)
+) );
+
+$wp_customize->add_setting( 'login_designer[field_margin_bottom]', array(
+	'default'               => $defaults['field_margin_bottom'],
+	'type' 			=> 'option',
+	'transport'             => 'postMessage',
+	'sanitize_callback'     => 'absint',
+) );
+
+$wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer[field_margin_bottom]', array(
+	'type'                  => 'login-designer-range',
+	'label'                 => esc_html__( 'Margin Bottom', '@@textdomain' ),
+	'section'               => 'login_designer__section--styles',
+	'description'           => 'px',
+	'default'               => $defaults['field_margin_bottom'],
+	'input_attrs'           => array(
+		'min'               => 0,
+		'max'               => 60,
 		'step'              => 1,
 		),
 	)

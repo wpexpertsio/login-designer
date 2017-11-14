@@ -84,6 +84,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'field_padding_top' 	=> '3',
 				'field_padding_bottom' 	=> '3',
 				'field_side_padding' 	=> '12',
+				'field_margin_bottom' 	=> '16',
 				'field_border' 		=> '1',
 				'field_border_color' 	=> '#dddddd',
 				'field_radius' 		=> '0',
@@ -557,6 +558,16 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Field side padding.
 				if ( isset( $options['field_side_padding'] ) ) {
 					$css .= '#loginform .input { padding-left: ' . esc_attr( $options['field_side_padding'] ) . 'px; }';
+				}
+
+				// Field margin bottom.
+				if ( isset( $options['field_margin_bottom'] ) ) {
+
+					if ( is_customize_preview() ) {
+						$css .= '#login-designer--username { margin-bottom: ' . esc_attr( $options['field_margin_bottom'] ) . 'px }';
+					} else {
+						$css .= '#loginform #user_login { margin-bottom: ' . esc_attr( $options['field_margin_bottom'] ) . 'px; }';
+					}
 				}
 
 				// Field border width.
