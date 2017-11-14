@@ -53,19 +53,19 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: includes/class-login-designer-customizer-scripts.php:184, includes/controls/class-login-designer-template-control.php:84
+#: includes/class-login-designer-customizer-scripts.php:176, includes/controls/class-login-designer-template-control.php:82
 msgid "Install New Template"
 msgstr ""
 
-#: includes/class-login-designer-customizer-scripts.php:185
+#: includes/class-login-designer-customizer-scripts.php:177
 msgid "Close"
 msgstr ""
 
-#: includes/class-login-designer-customizer-scripts.php:186
+#: includes/class-login-designer-customizer-scripts.php:178
 msgid "Attention! You are attempting to reset all custom styling added to Login Designer. Please note that this action is irreversible. Proceed?"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:77, includes/class-login-designer-theme-template.php:68, login-designer.php:191, login-designer.php:253, login-designer.php:258
+#: includes/class-login-designer-customizer.php:77, includes/class-login-designer-theme-template.php:68, login-designer.php:192, login-designer.php:254, login-designer.php:259
 msgid "Login Designer"
 msgstr ""
 
@@ -81,11 +81,11 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:97, login-designer.php:309
+#: includes/class-login-designer-customizer.php:97, login-designer.php:310
 msgid "Settings"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:115, login-designer.php:363, login-designer.php:396
+#: includes/class-login-designer-customizer.php:115, login-designer.php:364, login-designer.php:397
 msgid "Extensions"
 msgstr ""
 
@@ -93,132 +93,144 @@ msgstr ""
 msgid "Discover Add-ons"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:202, includes/class-login-designer-customizer.php:320
-msgid "Default"
-msgstr ""
-
-#: includes/class-login-designer-customizer.php:206
-msgid "Template 01"
-msgstr ""
-
-#: includes/class-login-designer-customizer.php:210
-msgid "Template 02"
-msgstr ""
-
-#: includes/class-login-designer-customizer.php:227
+#: includes/class-login-designer-customizer.php:205
 msgid "None"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:231
+#: includes/class-login-designer-customizer.php:209
 msgid "01"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:235
+#: includes/class-login-designer-customizer.php:213
 msgid "02"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:239
+#: includes/class-login-designer-customizer.php:217
 msgid "03"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:243
+#: includes/class-login-designer-customizer.php:221
 msgid "04"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:247
+#: includes/class-login-designer-customizer.php:225
 msgid "05"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:251
+#: includes/class-login-designer-customizer.php:229
 msgid "06"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:255
+#: includes/class-login-designer-customizer.php:233
 msgid "07"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:259
+#: includes/class-login-designer-customizer.php:237
 msgid "08"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:263
+#: includes/class-login-designer-customizer.php:241
 msgid "09"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:281
+#: includes/class-login-designer-customizer.php:259
 msgid "No Repeat"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:282
+#: includes/class-login-designer-customizer.php:260
 msgid "Tile"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:283
+#: includes/class-login-designer-customizer.php:261
 msgid "Tile Horizontally"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:284
+#: includes/class-login-designer-customizer.php:262
 msgid "Tile Vertically"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:287
+#: includes/class-login-designer-customizer.php:265
 msgid "Auto"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:288
+#: includes/class-login-designer-customizer.php:266
 msgid "Cover"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:289
+#: includes/class-login-designer-customizer.php:267
 msgid "Contain"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:292
+#: includes/class-login-designer-customizer.php:270
 msgid "Left Top"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:293
+#: includes/class-login-designer-customizer.php:271
 msgid "Left Center"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:294
+#: includes/class-login-designer-customizer.php:272
 msgid "Left Bottom"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:295
+#: includes/class-login-designer-customizer.php:273
 msgid "Right Top"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:296
+#: includes/class-login-designer-customizer.php:274
 msgid "Right Center"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:297
+#: includes/class-login-designer-customizer.php:275
 msgid "Right Bottom"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:298
+#: includes/class-login-designer-customizer.php:276
 msgid "Center Top"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:299
+#: includes/class-login-designer-customizer.php:277
 msgid "Center Center"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:300
+#: includes/class-login-designer-customizer.php:278
 msgid "Center Bottom"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:303
+#: includes/class-login-designer-customizer.php:281
 msgid "Fixed"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:304
+#: includes/class-login-designer-customizer.php:282
 msgid "Scroll"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:298, includes/class-login-designer-templates.php:138, includes/class-login-designer-templates.php:163
+msgid "Default"
 msgstr ""
 
 #: includes/class-login-designer-frontend-settings.php:41
 msgid "Log in to %s"
+msgstr ""
+
+#: includes/class-login-designer-templates.php:142, includes/class-login-designer-templates.php:167
+msgid "Template 01"
+msgstr ""
+
+#: includes/class-login-designer-templates.php:146, includes/class-login-designer-templates.php:171
+msgid "Template 02"
+msgstr ""
+
+#: includes/class-login-designer-templates.php:150
+msgid "Template 03"
+msgstr ""
+
+#: includes/class-login-designer-templates.php:154
+msgid "Template 04"
+msgstr ""
+
+#: includes/class-login-designer-templates.php:237, includes/class-login-designer-templates.php:285, includes/settings/labels.php:33
+msgid "Username"
 msgstr ""
 
 #: includes/controls/class-login-designer-gallery-control.php:88
@@ -238,14 +250,14 @@ msgid "Background Gallery"
 msgstr ""
 
 #: includes/settings/background.php:48
-msgid "Pick a background image from this curated collection of beautiful images."
+msgid "Pick a background image from our curated collection of beautiful images."
 msgstr ""
 
 #: includes/settings/background.php:64
 msgid "Repeat"
 msgstr ""
 
-#: includes/settings/background.php:78, includes/settings/button.php:213, includes/settings/fields.php:248, includes/settings/labels.php:74
+#: includes/settings/background.php:78, includes/settings/below.php:48, includes/settings/button.php:213, includes/settings/checkbox.php:34, includes/settings/fields.php:269, includes/settings/labels.php:74, includes/settings/remember.php:48
 msgid "Size"
 msgstr ""
 
@@ -253,23 +265,43 @@ msgstr ""
 msgid "Attachment"
 msgstr ""
 
-#: includes/settings/background.php:106, includes/settings/labels.php:95
+#: includes/settings/background.php:106, includes/settings/below.php:81, includes/settings/labels.php:95, includes/settings/remember.php:69
 msgid "Position"
 msgstr ""
 
-#: includes/settings/background.php:119, includes/settings/button.php:233, includes/settings/fields.php:268, includes/settings/labels.php:115
+#: includes/settings/background.php:119, includes/settings/below.php:68, includes/settings/button.php:233, includes/settings/fields.php:289, includes/settings/labels.php:115, includes/settings/remember.php:89
 msgid "Color"
+msgstr ""
+
+#: includes/settings/below.php:20
+msgid "Below Form"
+msgstr ""
+
+#: includes/settings/below.php:21
+msgid "Modify elements below the login form."
+msgstr ""
+
+#: includes/settings/below.php:34, includes/settings/button.php:199, includes/settings/fields.php:255, includes/settings/labels.php:60, includes/settings/remember.php:34
+msgid "Font"
+msgstr ""
+
+#: includes/settings/below.php:101
+msgid "Lost Password"
+msgstr ""
+
+#: includes/settings/below.php:115
+msgid "Back To"
 msgstr ""
 
 #: includes/settings/button.php:20
 msgid "Button"
 msgstr ""
 
-#: includes/settings/button.php:21, includes/settings/button.php:186, includes/settings/fields.php:21, includes/settings/fields.php:221, includes/settings/form.php:21, includes/settings/labels.php:21, includes/settings/logo.php:21, includes/settings/logo.php:67
-msgid "Integer posuere erat a ante venenatis dapibus posuere velit aliquet llam quis."
+#: includes/settings/button.php:21
+msgid "Customize the full display appearance of the login submit button."
 msgstr ""
 
-#: includes/settings/button.php:33, includes/settings/fields.php:33, includes/settings/form.php:33
+#: includes/settings/button.php:33, includes/settings/checkbox.php:54, includes/settings/fields.php:33, includes/settings/form.php:33
 msgid "Background"
 msgstr ""
 
@@ -281,36 +313,48 @@ msgstr ""
 msgid "Padding"
 msgstr ""
 
-#: includes/settings/button.php:88, includes/settings/fields.php:109
+#: includes/settings/button.php:88, includes/settings/checkbox.php:67, includes/settings/fields.php:130
 msgid "Border"
 msgstr ""
 
-#: includes/settings/button.php:108, includes/settings/fields.php:129
+#: includes/settings/button.php:108, includes/settings/checkbox.php:87, includes/settings/fields.php:150
 msgid "Border Color"
 msgstr ""
 
-#: includes/settings/button.php:121, includes/settings/fields.php:142, includes/settings/form.php:109
+#: includes/settings/button.php:121, includes/settings/checkbox.php:100, includes/settings/fields.php:163, includes/settings/form.php:109
 msgid "Radius"
 msgstr ""
 
-#: includes/settings/button.php:142, includes/settings/fields.php:163, includes/settings/form.php:130
+#: includes/settings/button.php:142, includes/settings/fields.php:184, includes/settings/form.php:130
 msgid "Shadow"
 msgstr ""
 
-#: includes/settings/button.php:163, includes/settings/fields.php:184, includes/settings/form.php:151
+#: includes/settings/button.php:163, includes/settings/fields.php:205, includes/settings/form.php:151
 msgid "Shadow Opacity"
 msgstr ""
 
-#: includes/settings/button.php:185
-msgid "Button Text"
+#: includes/settings/button.php:185, includes/settings/fields.php:241
+msgid "Text"
 msgstr ""
 
-#: includes/settings/button.php:199, includes/settings/fields.php:234, includes/settings/labels.php:60
-msgid "Font"
+#: includes/settings/button.php:186
+msgid "Change the button font, color and size."
+msgstr ""
+
+#: includes/settings/checkbox.php:20
+msgid "Checkbox"
+msgstr ""
+
+#: includes/settings/checkbox.php:21
+msgid "Customize the \"Remember Me\" checkbox input element on the login form."
 msgstr ""
 
 #: includes/settings/fields.php:20
 msgid "Fields"
+msgstr ""
+
+#: includes/settings/fields.php:21
+msgid "Customize the full display appearance of the login form input fields."
 msgstr ""
 
 #: includes/settings/fields.php:67
@@ -321,16 +365,24 @@ msgstr ""
 msgid "Padding Bottom"
 msgstr ""
 
-#: includes/settings/fields.php:204
+#: includes/settings/fields.php:109
+msgid "Margin Bottom"
+msgstr ""
+
+#: includes/settings/fields.php:225
 msgid "Shadow Inset"
 msgstr ""
 
-#: includes/settings/fields.php:220
-msgid "Text"
+#: includes/settings/fields.php:242
+msgid "Change the text field font, color and size."
 msgstr ""
 
 #: includes/settings/form.php:20
 msgid "Form"
+msgstr ""
+
+#: includes/settings/form.php:21
+msgid "Easily customize the login form wrapper's default styling."
 msgstr ""
 
 #: includes/settings/form.php:46
@@ -349,8 +401,8 @@ msgstr ""
 msgid "Labels"
 msgstr ""
 
-#: includes/settings/labels.php:33
-msgid "Username"
+#: includes/settings/labels.php:21
+msgid "Modify the text labels and style them however you like."
 msgstr ""
 
 #: includes/settings/license.php:30
@@ -365,34 +417,50 @@ msgstr ""
 msgid "Logo"
 msgstr ""
 
-#: includes/settings/logo.php:46
-msgid "Bottom Spacing"
+#: includes/settings/logo.php:21
+msgid "Add your own logo. Logos will display at 50% height & width, to account for retina."
 msgstr ""
 
-#: includes/settings/logo.php:66
+#: includes/settings/logo.php:45
 msgid "Logo URL"
+msgstr ""
+
+#: includes/settings/logo.php:46
+msgid "Select a page for your logo to link to. This is typically your site's home page."
+msgstr ""
+
+#: includes/settings/logo.php:61
+msgid "Bottom Spacing"
 msgstr ""
 
 #: includes/settings/logo.php:81
 msgid "Disable Logo"
 msgstr ""
 
-#: includes/settings/templates.php:19
-msgid "You can switch templates at any time. Previewing a template allows you to make style changes without changing the live template visitors see."
+#: includes/settings/remember.php:20
+msgid "Remember"
+msgstr ""
+
+#: includes/settings/remember.php:21
+msgid "Easily customize the \"Remember Me\" element on the login form."
+msgstr ""
+
+#: includes/settings/templates.php:22
+msgid "Previewing a template allows you to make style changes without changing the live template visitors see."
 msgstr ""
 
 #: login-designer.php:94, login-designer.php:105
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: login-designer.php:191
+#: login-designer.php:192
 msgid "Login"
 msgstr ""
 
-#: login-designer.php:324
+#: login-designer.php:325
 msgid "Support"
 msgstr ""
 
-#: login-designer.php:328
+#: login-designer.php:329
 msgid "Pro"
 msgstr ""
