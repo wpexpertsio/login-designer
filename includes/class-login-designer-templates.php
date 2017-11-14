@@ -131,28 +131,48 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 
 			$image_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/';
 
-			$templates = array(
-				'default' => array(
-					'title' => esc_html__( 'Default', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
-				),
-				'01' => array(
-					'title' => esc_html__( 'Template 01', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
-				),
-				'02' => array(
-					'title' => esc_html__( 'Template 02', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
-				),
-				'03' => array(
-					'title' => esc_html__( 'Template 03', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
-				),
-				'04' => array(
-					'title' => esc_html__( 'Template 04', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . 'template-01/template-01.svg',
-				),
-			);
+			if ( Login_Designer()->has_pro() ) {
+
+				$templates = array(
+					'default' => array(
+						'title' => esc_html__( 'Default', '@@textdomain' ),
+						'image' => esc_url( $image_dir ) . 'customizer/default.jpg',
+					),
+					'01' => array(
+						'title' => esc_html__( 'Template 01', '@@textdomain' ),
+						'image' => esc_url( $image_dir ) . 'customizer/template-01.jpg',
+					),
+					'02' => array(
+						'title' => esc_html__( 'Template 02', '@@textdomain' ),
+						'image' => esc_url( $image_dir ) . 'customizer/template-02.jpg',
+					),
+					'03' => array(
+						'title' => esc_html__( 'Template 03', '@@textdomain' ),
+						'image' => esc_url( $image_dir ) . 'customizer/template-03.jpg',
+					),
+					'04' => array(
+						'title' => esc_html__( 'Template 04', '@@textdomain' ),
+						'image' => esc_url( $image_dir ) . 'customizer/template-04.jpg',
+					),
+				);
+
+			} else {
+
+				$templates = array(
+					'default' => array(
+						'title' => esc_html__( 'Default', '@@textdomain' ),
+						'image' => esc_url( $image_dir ) . 'customizer/default.jpg',
+					),
+					'01' => array(
+						'title' => esc_html__( 'Template 01', '@@textdomain' ),
+						'image' => esc_url( $image_dir ) . 'customizer/template-01.jpg',
+					),
+					'02' => array(
+						'title' => esc_html__( 'Template 02', '@@textdomain' ),
+						'image' => esc_url( $image_dir ) . 'customizer/template-02.jpg',
+					),
+				);
+			}
 
 			return apply_filters( 'login_designer_templates', $templates );
 		}
@@ -167,8 +187,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 
 			// White on-the-site template.
 			$template_01 = apply_filters( 'login_designer_template_01_defaults', array(
-				'bg_image_gallery' 	=> 'bg_02',
-				'bg_color' 		=> '#f1f1f1',
+				'bg_image_gallery' 	=> 'bg_09',
+				'bg_color' 		=> '#e3574c',
 				'form_width' 		=> '',
 				'form_side_padding' 	=> '40',
 				'form_vertical_padding' => '26',

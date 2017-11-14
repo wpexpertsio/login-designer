@@ -51,6 +51,7 @@ body:hover .customize-partial-edit-shortcut {
 
 .customize-partial--login-designer-settings {
 	bottom: 42px !important;
+	display: none !important;
 	right: 12px !important;
 	-webkit-transition: opacity 150ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1);
 	transition: opacity 150ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1);

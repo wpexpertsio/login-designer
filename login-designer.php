@@ -205,7 +205,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 					// Pull the Login Designer page from options.
 					$page = get_permalink( $this->get_login_designer_page() );
 
-					wp_safe_redirect( admin_url( '/customize.php?autofocus[panel]=login_designer&url=' . $page ) );
+					wp_safe_redirect( admin_url( '/customize.php?autofocus[section]=login_designer__section--templates&url=' . $page ) );
 				}
 			}
 		}
@@ -238,7 +238,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		}
 
 		/**
-		 * Add rating links to the admin dashboard.
+		 * Add admin bar link.
 		 *
 		 * @since	1.0.0
 		 * @param	string|string $wp_admin_bar The admin bar.
@@ -252,7 +252,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			$args = array(
 				'id' => 'login-designer',
 				'title' => esc_html__( 'Login Designer', '@@textdomain' ),
-				'href' => admin_url( '/customize.php?autofocus[panel]=login_designer&url='.home_url( '/login-designer' ) ),
+				'href' => admin_url( '/customize.php?autofocus[section]=login_designer__section--templates&url='.home_url( '/login-designer' ) ),
 				'meta' => array(
 					'target' => '_self',
 					'class' => 'login-designer-link',

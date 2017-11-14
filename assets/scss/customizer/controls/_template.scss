@@ -1,7 +1,7 @@
 // Variables.
 @import "variables";
 
-.customize-control-layout {
+.customize-control-login-designer-template-selector {
 	margin-top: 0;
 	margin-bottom: 0;
 	position: relative;
@@ -10,52 +10,32 @@
 		border: 1px solid transparent;
 		cursor: pointer;
 		display: block;
-		margin: 0 0 5px;
+		margin: 0 0 8px;
+		border-radius: 2px;
 		transition: border-color 0.2s, background-color 0.2s;
-
-		&:first-of-type {
-			margin-top: 0;
-		}
-
-		&:last-of-type {
-			margin-bottom: 10px;
-		}
-
-		&:hover {
-			border-color: #555;
-		}
 	}
 
 	.layout {
 		display: none !important;
 	}
 
-}
-
-.customize-control-login-designer-template-selector {
+	.description {
+		transform: translate3d(0, 0, 0);
+	}
 
 	#layout-switcher {
 		width: 100%;
 	}
 
 	.layout-switcher__wrapper {
-		overflow-y: hidden;
-		max-height: 0;
-		transition: all 600ms ease-in-out;
-
-		&.open {
-			max-height: 800px;
-		}
+		margin-left: -2px;
+		width: calc( 100% + 1px );
+		margin-top: 13px;
+	  	overflow-y: scroll;
+		padding-right: 20px;
+		padding-top: 4px;
+		padding-left: 2px;
 	}
-
-	.layout-switcher:focus,
-	.layout-switcher:active {
-		outline: none;
-		border-color: #ccc !important;
-		box-shadow: 0px 0px 0px #000 !important;
-	}
-
-
 	.intrinsic {
 		overflow: hidden;
 		line-height: 0;
@@ -66,40 +46,30 @@
 	.intrinsic:after {
 		content: "";
 		display: block;
-		padding-top:  37.367%;
+		padding-top: 70.4%;
 	}
 
 	.layout-screenshot {
-		background-color: rgba(255, 255, 255, 0.7);
+		// border-radius: 3px;
 		background-position: center center;
 		background-repeat: no-repeat;
+		background-size: contain;
+		border: 2px solid #eee;
 		bottom: 0;
+		box-shadow: 0 0 0 0 #5b9dd9, 0 0 0 0 rgba(30, 140, 190, .8);
 		left: 0;
 		position: absolute;
 		right: 0;
 		top: 0;
-		background-size: contain;
-		-webkit-transition: background-color 0.2s;
-		transition: background-color 0.2s;
+		transition: box-shadow 150ms ease;
+
 	}
 
 	.layout:checked + label .layout-screenshot {
 		background-color: #fff;
 	}
 
-	.layout:checked + label,
-	.customize-control-layout label:focus {
-		border-color: #0085ba;
-	}
-
-	.layout:checked + label:hover .layout-screenshot img {
-		opacity: 1;
-	}
-	.layout:checked + label .more-details .preview {
-	   opacity: 0;
-	}
-	.layout:checked + label .more-details .active {
-	   opacity: 1;
+	.layout:checked + label {
+		box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, .8);
 	}
 }
-

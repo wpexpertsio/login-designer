@@ -421,6 +421,13 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				#login-designer--below-form {
 					text-align: center;
 				}
+
+				#login .message {
+					background: transparent;
+					border: 0;
+					box-shadow: none;
+					padding: 5px 0;
+				}
 			';
 
 			if ( ! empty( $options ) ) :

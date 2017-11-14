@@ -127,7 +127,7 @@ function login_designer_activation_redirect() {
 	$page 		= array_key_exists( 'login_designer_page', $admin_options ) ? $admin_options['login_designer_page'] : false;
 
 	// Redirect to the Customizer > Login Designer panel.
-	wp_safe_redirect( admin_url( '/customize.php?autofocus[panel]=login_designer&url='.get_permalink( $page ) ) );
+	wp_safe_redirect( admin_url( '/customize.php?autofocus[section]=login_designer__section--templates&url='.get_permalink( $page ) ) );
 
 }
 add_action( 'admin_init', 'login_designer_activation_redirect' );
