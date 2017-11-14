@@ -96,6 +96,8 @@
 			'login_designer[back_to]',
 			'login_designer[below_color]',
 			'login_designer[below_position]',
+			'login_designer[below_font]',
+			'login_designer[below_font_size]',
 		],
 	};
 

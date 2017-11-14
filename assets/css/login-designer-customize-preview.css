@@ -37,13 +37,13 @@
 	position: relative;
 }
 
-.template-section-option .customize-partial-edit-shortcut {
+.customize-partial-edit-shortcut {
 	opacity: 0;
 	-webkit-transition: opacity 200ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1);
 	transition: opacity 200ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1);
 }
 
-.template-section-option:hover .customize-partial-edit-shortcut {
+body:hover .customize-partial-edit-shortcut {
 	opacity: 1;
 	-webkit-transition: opacity 200ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1) 200ms;
 	transition: opacity 200ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1) 200ms;
@@ -101,7 +101,7 @@
 	left: 0;
 	margin: 0 auto;
 	right: 0;
-	top: -35px;
+	top: -43px;
 }
 
 .customize-partial--login-designer-add-logo .login-designer-event-button {

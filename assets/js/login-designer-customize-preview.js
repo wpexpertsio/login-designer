@@ -47,6 +47,22 @@
 		} );
 	} );
 
+	// Below form font size.
+	wp.customize( 'login_designer[below_font_size]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_below_font_size"> .login #login #nav a, .login #login #backtoblog a { font-size: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_below_font_size' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
 	// Below form position.
 	wp.customize( 'login_designer[below_position]', function( value ) {
 		value.bind( function( to ) {
@@ -703,6 +719,7 @@
 	live_font_family( 'login_designer[field_font]', '#loginform .input' );
 	live_font_family( 'login_designer[button_font]', '#loginform .submit .button' );
 	live_font_family( 'login_designer[remember_font]', '#login .forgetmenot label' );
+	live_font_family( 'login_designer[below_font]', '#login #nav a, #login #backtoblog a' );
 
 	// Label font size.
 	wp.customize( 'login_designer[label_font_size]', function( value ) {

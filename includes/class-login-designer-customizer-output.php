@@ -114,6 +114,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'back_to' 		=> true,
 				'below_color' 		=> '#444',
 				'below_position' 	=> '0',
+				'below_font' 		=> 'default',
+				'below_font_size' 	=> '13',
 				'remember_color' 	=> '#72777c',
 				'remember_font' 	=> 'default',
 				'remember_font_size' 	=> '12',
@@ -232,6 +234,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 			$label_font 	= $this->option_wrapper( 'label_font' );
 			$button_font 	= $this->option_wrapper( 'button_font' );
 			$remember_font 	= $this->option_wrapper( 'remember_font' );
+			$below_font 	= $this->option_wrapper( 'below_font' );
 
 			/**
 			 * Get fonts from the Customizer.
@@ -257,6 +260,12 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 			if ( $remember_font ) {
 				if ( 'default' !== $remember_font ) {
 					$fonts[] = $remember_font;
+				}
+			}
+
+			if ( $below_font ) {
+				if ( 'default' !== $below_font ) {
+					$fonts[] = $below_font;
 				}
 			}
 
@@ -372,6 +381,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				#loginform {
 					overflow: visible;
+					margin-top: 0;
 				}
 
 				#loginform p.submit {
@@ -745,6 +755,16 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Below form positioning.
 				if ( isset( $options['below_position'] ) ) {
 					$css .= '.login #loginform + p { margin-top: ' . esc_attr( $options['below_position'] ) . 'px }';
+				}
+
+				// Below form font, as long as it's not 'default'.
+				if ( isset( $options['below_font'] ) && 'default' !== $options['below_font'] ) {
+					$css .= '#login #nav a, #login #backtoblog a { font-family: ' . esc_attr( $options['below_font'] ) . '; }';
+				}
+
+				// Below form font size.
+				if ( isset( $options['below_font_size'] ) ) {
+					$css .= '#login #nav a, #login #backtoblog a { font-size: ' . esc_attr( $options['below_font_size'] ) . 'px }';
 				}
 			endif;
 

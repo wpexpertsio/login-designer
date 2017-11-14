@@ -112,7 +112,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		private function constants() {
-			$this->define( 'LOGIN_DESIGNER_HAS_PRO', true );
+			$this->define( 'LOGIN_DESIGNER_HAS_PRO', false );
 			$this->define( 'LOGIN_DESIGNER_VERSION', '@@pkg.version' );
 			$this->define( 'LOGIN_DESIGNER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 			$this->define( 'LOGIN_DESIGNER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

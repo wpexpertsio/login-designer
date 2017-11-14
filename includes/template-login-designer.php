@@ -3,13 +3,18 @@
  * Template Name: Login Designer
  *
  * Template to display the WordPress login form in the Customizer.
- * This is essentially a stripped down version of wp-login.php
+ * This is essentially a stripped down version of wp-login.php, though not accessible from outside the Customizer.
  *
  * @package   @@pkg.name
  * @author    @@pkg.author
  * @license   @@pkg.license
  * @version   @@pkg.version
  */
+
+// Redirect if viewed from outside the Customizer.
+if ( ! is_customize_preview() ) {
+	wp_safe_redirect( home_url( '/' ) );
+}
 
 /**
  * Output the login page header.
@@ -19,7 +24,7 @@
  * @param string   $message  Optional. Message to display in header. Default empty.
  * @param WP_Error $wp_error Optional. The error to pass. Default empty.
  */
-function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
+function logindesigner_login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 
 	global $error, $interim_login, $action;
 
@@ -88,20 +93,6 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 	 */
 	$login_header_title = apply_filters( 'login_headertitle', $login_header_title );
 	$classes = array( 'login-action-' . $action, 'wp-core-ui' );
-
-	if ( is_rtl() ) {
-		$classes[] = 'rtl';
-	}
-
-	if ( $interim_login ) {
-		$classes[] = 'interim-login';
-		?>
-		<style type="text/css">html{background-color: transparent;}</style>
-		<?php
-		if ( 'success' ===  $interim_login ) {
-			$classes[] = 'interim-login-success';
-		}
-	}
 
 	$classes[] =' locale-' . sanitize_html_class( strtolower( str_replace( '_', '-', get_locale() ) ) );
 
@@ -179,13 +170,13 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 			echo '<p class="message">' . apply_filters( 'login_messages', $messages ) . "</p>\n";
 		}
 	}
-} // End of login_header()
+} // End of logindesigner_login_header()
 /**
  * Outputs the footer for the login page.
  *
  * @param string $input_id Which input to auto-focus
  */
-function login_footer($input_id = '') {
+function logindesigner_login_footer($input_id = '') {
 	global $interim_login;
 	// Don't allow interim logins to navigate away from the page.
 	if ( ! $interim_login ): ?>
@@ -214,94 +205,6 @@ function login_footer($input_id = '') {
 	<?php
 }
 
-/**
- * Handles sending password retrieval email to user.
- *
- * @return bool|WP_Error True: when finish. WP_Error on error
- */
-function retrieve_password() {
-	$errors = new WP_Error();
-	if ( empty( $_POST['user_login'] ) || ! is_string( $_POST['user_login'] ) ) {
-		$errors->add('empty_username', __('<strong>ERROR</strong>: Enter a username or email address.'));
-	} elseif ( strpos( $_POST['user_login'], '@' ) ) {
-		$user_data = get_user_by( 'email', trim( wp_unslash( $_POST['user_login'] ) ) );
-		if ( empty( $user_data ) )
-			$errors->add('invalid_email', __('<strong>ERROR</strong>: There is no user registered with that email address.'));
-	} else {
-		$login = trim($_POST['user_login']);
-		$user_data = get_user_by('login', $login);
-	}
-	/**
-	 * Fires before errors are returned from a password reset request.
-	 *
-	 * @since 2.1.0
-	 * @since 4.4.0 Added the `$errors` parameter.
-	 *
-	 * @param WP_Error $errors A WP_Error object containing any errors generated
-	 *                         by using invalid credentials.
-	 */
-	do_action( 'lostpassword_post', $errors );
-	if ( $errors->get_error_code() )
-		return $errors;
-	if ( !$user_data ) {
-		$errors->add('invalidcombo', __('<strong>ERROR</strong>: Invalid username or email.'));
-		return $errors;
-	}
-	// Redefining user_login ensures we return the right case in the email.
-	$user_login = $user_data->user_login;
-	$user_email = $user_data->user_email;
-	$key = get_password_reset_key( $user_data );
-	if ( is_wp_error( $key ) ) {
-		return $key;
-	}
-	if ( is_multisite() ) {
-		$site_name = get_network()->site_name;
-	} else {
-		/*
-		 * The blogname option is escaped with esc_html on the way into the database
-		 * in sanitize_option we want to reverse this for the plain text arena of emails.
-		 */
-		$site_name = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
-	}
-	$message = __( 'Someone has requested a password reset for the following account:' ) . "\r\n\r\n";
-	/* translators: %s: site name */
-	$message .= sprintf( __( 'Site Name: %s'), $site_name ) . "\r\n\r\n";
-	/* translators: %s: user login */
-	$message .= sprintf( __( 'Username: %s'), $user_login ) . "\r\n\r\n";
-	$message .= __( 'If this was a mistake, just ignore this email and nothing will happen.' ) . "\r\n\r\n";
-	$message .= __( 'To reset your password, visit the following address:' ) . "\r\n\r\n";
-	$message .= '<' . network_site_url( "wp-login.php?action=rp&key=$key&login=" . rawurlencode( $user_login ), 'login' ) . ">\r\n";
-	/* translators: Password reset email subject. %s: Site name */
-	$title = sprintf( __( '[%s] Password Reset' ), $site_name );
-	/**
-	 * Filters the subject of the password reset email.
-	 *
-	 * @since 2.8.0
-	 * @since 4.4.0 Added the `$user_login` and `$user_data` parameters.
-	 *
-	 * @param string  $title      Default email title.
-	 * @param string  $user_login The username for the user.
-	 * @param WP_User $user_data  WP_User object.
-	 */
-	$title = apply_filters( 'retrieve_password_title', $title, $user_login, $user_data );
-	/**
-	 * Filters the message body of the password reset mail.
-	 *
-	 * If the filtered message is empty, the password reset email will not be sent.
-	 *
-	 * @since 2.8.0
-	 * @since 4.1.0 Added `$user_login` and `$user_data` parameters.
-	 *
-	 * @param string  $message    Default mail message.
-	 * @param string  $key        The activation key.
-	 * @param string  $user_login The username for the user.
-	 * @param WP_User $user_data  WP_User object.
-	 */
-	$message = apply_filters( 'retrieve_password_message', $message, $key, $user_login, $user_data );
-	if ( $message && !wp_mail( $user_email, wp_specialchars_decode( $title ), $message ) )
-		wp_die( __('The email could not be sent.') . "<br />\n" . __('Possible reason: your host may have disabled the mail() function.') );
-	return true;
-}
 //
 // Main
 //
@@ -442,7 +345,7 @@ case 'retrievepassword' :
 	 * @since 1.5.1
 	 */
 	do_action( 'lost_password' );
-	login_header(__('Lost Password'), '<p class="message">' . __('Please enter your username or email address. You will receive a link to create a new password via email.') . '</p>', $errors);
+	logindesigner_login_header( __('Lost Password'), '<p class="message">' . __('Please enter your username or email address. You will receive a link to create a new password via email.') . '</p>', $errors);
 	$user_login = '';
 	if ( isset( $_POST['user_login'] ) && is_string( $_POST['user_login'] ) ) {
 		$user_login = wp_unslash( $_POST['user_login'] );
@@ -464,9 +367,10 @@ case 'retrievepassword' :
 	<input type="hidden" name="redirect_to" value="<?php echo esc_attr( $redirect_to ); ?>" />
 	<p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php esc_attr_e('Get New Password'); ?>" /></p>
 </form>
+
 <div id="login-designer--below-form">
-<p id="nav">
-<a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e('Log in') ?></a>
+	<p id="nav">
+	<a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e('Log in') ?></a>
 <?php
 if ( get_option( 'users_can_register' ) ) :
 	$registration_url = sprintf( '<a href="%s">%s</a>', esc_url( wp_registration_url() ), __( 'Register' ) );
@@ -478,7 +382,7 @@ endif;
 </p>
 
 <?php
-login_footer('user_login');
+logindesigner_login_footer( 'user_login' );
 if ( $switched_locale ) {
     restore_previous_locale();
 }
@@ -525,13 +429,13 @@ case 'rp' :
 	if ( ( ! $errors->get_error_code() ) && isset( $_POST['pass1'] ) && !empty( $_POST['pass1'] ) ) {
 		reset_password($user, $_POST['pass1']);
 		setcookie( $rp_cookie, ' ', time() - YEAR_IN_SECONDS, $rp_path, COOKIE_DOMAIN, is_ssl(), true );
-		login_header( __( 'Password Reset' ), '<p class="message reset-pass">' . __( 'Your password has been reset.' ) . ' <a href="' . esc_url( wp_login_url() ) . '">' . __( 'Log in' ) . '</a></p>' );
-		login_footer();
+		logindesigner_login_header( __( 'Password Reset' ), '<p class="message reset-pass">' . __( 'Your password has been reset.' ) . ' <a href="' . esc_url( wp_login_url() ) . '">' . __( 'Log in' ) . '</a></p>' );
+		logindesigner_login_footer();
 		exit;
 	}
 	wp_enqueue_script('utils');
 	wp_enqueue_script('user-profile');
-	login_header(__('Reset Password'), '<p class="message reset-pass">' . __('Enter your new password below.') . '</p>', $errors );
+	logindesigner_login_header(__('Reset Password'), '<p class="message reset-pass">' . __('Enter your new password below.') . '</p>', $errors );
 ?>
 <form name="resetpassform" id="resetpassform" action="<?php echo esc_url( network_site_url( 'wp-login.php?action=resetpass', 'login_post' ) ); ?>" method="post" autocomplete="off">
 	<input type="hidden" id="user_login" value="<?php echo esc_attr( $rp_login ); ?>" autocomplete="off" />
@@ -594,7 +498,7 @@ endif;
 </p>
 
 <?php
-login_footer('user_pass');
+logindesigner_login_footer('user_pass');
 if ( $switched_locale ) {
     restore_previous_locale();
 }
@@ -640,7 +544,7 @@ case 'register' :
 	 * @param string $registration_redirect The redirect destination URL.
 	 */
 	$redirect_to = apply_filters( 'registration_redirect', $registration_redirect );
-	login_header(__('Registration Form'), '<p class="message register">' . __('Register For This Site') . '</p>', $errors);
+	logindesigner_login_header(__('Registration Form'), '<p class="message register">' . __('Register For This Site') . '</p>', $errors);
 ?>
 <form name="registerform" id="registerform" action="<?php echo esc_url( site_url( 'wp-login.php?action=register', 'login_post' ) ); ?>" method="post" novalidate="novalidate">
 	<p>
@@ -672,7 +576,7 @@ case 'register' :
 </p>
 
 <?php
-login_footer('user_login');
+logindesigner_login_footer('user_login');
 if ( $switched_locale ) {
     restore_previous_locale();
 }
@@ -734,7 +638,7 @@ default:
 		if ( $interim_login ) {
 			$message = '<p class="message">' . __('You have logged in successfully.') . '</p>';
 			$interim_login = 'success';
-			login_header( '', $message ); ?>
+			logindesigner_login_header( '', $message ); ?>
 			</div>
 			<?php
 			/** This action is documented in wp-login.php */
@@ -793,7 +697,7 @@ default:
 	// Clear any stale cookies.
 	if ( $reauth )
 		wp_clear_auth_cookie();
-	login_header(__('Log In'), '', $errors);
+	logindesigner_login_header(__('Log In'), '', $errors);
 	if ( isset($_POST['log']) )
 		$user_login = ( 'incorrect_password' == $errors->get_error_code() || 'empty_password' == $errors->get_error_code() ) ? esc_attr(wp_unslash($_POST['log'])) : '';
 	$rememberme = ! empty( $_POST['rememberme'] );
@@ -852,7 +756,7 @@ default:
 
 
 <?php
-login_footer();
+logindesigner_login_footer();
 if ( $switched_locale ) {
     restore_previous_locale();
 }
