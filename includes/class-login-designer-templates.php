@@ -188,7 +188,6 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			// White on-the-site template.
 			$template_01 = apply_filters( 'login_designer_template_01_defaults', array(
 				'bg_image_gallery' 	=> 'bg_09',
-				'bg_color' 		=> '#e3574c',
 				'form_width' 		=> '',
 				'form_side_padding' 	=> '40',
 				'form_vertical_padding' => '26',

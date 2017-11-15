@@ -177,83 +177,38 @@
 		} );
 
 		// Modify the background color based on the gallery image selected.
-		// @todo — Test this and push it live.
+		// @todo — Find a way where gallery extensions can filter this and add live previewing based on their colors (or use their own).
+		wp.customize( 'login_designer[bg_image_gallery]', function( value ) {
 
-		// wp.customize( 'login_designer[bg_image_gallery]', function( value ) {
+			value.bind( function( to ) {
 
-		// 	value.bind( function( to ) {
+				if ( to === 'bg_01' ) {
+					color = '#e3ebee';
+				} else if ( to === 'bg_02' ) {
+					color = '#d0f1ec';
+				} else if ( to === 'bg_03' ) {
+					color = '#cccfd4';
+				} else if ( to === 'bg_04' ) {
+					color = '#d5aabb';
+				} else if ( to === 'bg_05' ) {
+					color = '#141611';
+				} else if ( to === 'bg_06' ) {
+					color = '#151515';
+				} else if ( to === 'bg_07' ) {
+					color = '#d0e4ec';
+				} else if ( to === 'bg_08' ) {
+					color = '#4b2d3f';
+				} else if ( to === 'bg_09' ) {
+					color = '#ed4844';
+				} else if ( to === 'bg_10' ) {
+					color = '#e3ebee';
+				} else {
+					color = '#f1f1f1';
+				}
 
-		// 		var keys = [];
-		// 		var values = [];
-
-		// 		if ( login_designer_controls.extension_colors ) {
-		// 			keys = Object.keys( login_designer_controls.extension_colors );
-		// 			values = Object.values( login_designer_controls.extension_colors );
-		// 		}
-
-		// 		// console.log( 'keys:' + keys );
-
-		// 		if ( keys.includes( to ) ) {
-
-		// 			// If we have a custom background color, let's put it back to default.
-		// 			wp.customize( 'login_designer[bg_color]' ).set( color );
-
-		// 			// console.log( 'keys:');
-
-		// 		}
-
-		// 		if ( to === 'bg_01' ) {
-		// 			color = '#e3ebee';
-		// 		} else if ( to === 'bg_02' ) {
-		// 			color = '#d0f1ec';
-		// 		} else if ( to === 'bg_03' ) {
-		// 			color = '#cccfd4';
-		// 		} else if ( to === 'bg_04' ) {
-		// 			color = '#d5aabb';
-		// 		} else if ( to === 'bg_05' ) {
-		// 			color = '#141611';
-		// 		} else if ( to === 'bg_06' ) {
-		// 			color = '#151515';
-		// 		} else if ( to === 'bg_07' ) {
-		// 			color = '#d0e4ec';
-		// 		} else if ( to === 'bg_08' ) {
-		// 			color = '#4b2d3f';
-		// 		} else if ( to === 'bg_09' ) {
-		// 			color = '#ed4844';
-		// 		} else if ( to === 'bg_10' ) {
-		// 			color = '#e3ebee';
-		// 		} else if ( to === login_designer_controls.seasonal_option_01 ) {
-		// 			color = login_designer_controls.seasonal_bg_color_01;
-		// 		} else if ( to === login_designer_controls.seasonal_option_02 ) {
-		// 			color = login_designer_controls.seasonal_bg_color_02;
-		// 		} else if ( to === login_designer_controls.seasonal_option_03 ) {
-		// 			color = login_designer_controls.seasonal_bg_color_03;
-		// 		} else if ( to === login_designer_controls.seasonal_option_04 ) {
-		// 			color = login_designer_controls.seasonal_bg_color_04;
-		// 		} else if ( to === login_designer_controls.seasonal_option_05 ) {
-		// 			color = login_designer_controls.seasonal_bg_color_05;
-		// 		} else {
-		// 			color = '#f1f1f1';
-		// 		}
-
-		// 		// If we have a custom background color, let's put it back to default.
-		// 		wp.customize( 'login_designer[bg_color]' ).set( color );
-
-		// 		// console.log( login_designer_controls.extension_bg_colors );
-
-		// 		// console.log( to );
-		// 	} );
-		// } );
-
-		// Modify the background color based on the gallery image selected.
-		// wp.customize( 'login_designer[disable_logo]', function( value ) {
-
-		// 	value.bind( function( to ) {
-
-		// 		if ( to === true ) {
-		// 			wp.customize( 'login_designer[logo_margin_bottom]' ).set( 25 );
-		// 		}
-		// 	} );
-		// } );
+				// If we have a custom background color, let's put it back to default.
+				wp.customize( 'login_designer[bg_color]' ).set( color );
+			} );
+		} );
 	} );
 } )( jQuery );
