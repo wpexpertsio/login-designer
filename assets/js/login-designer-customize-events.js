@@ -143,6 +143,99 @@
 		control_visibility( section, 'activate' );
 	}
 
+
+
+
+
+		/**
+		 * Function to hide/show Customizer options, based on another control.
+		 *
+		 * Parent option, Affected Control, Value which affects the control.
+		 */
+		function customizer_image_option_display( parent_setting, affected_control ) {
+			wp.customize( parent_setting, function( setting ) {
+				wp.customize.control( affected_control, function( control ) {
+					var visibility = function() {
+						if ( setting.get() && 'none' !== setting.get() && '0' !== setting.get() ) {
+							control.container.slideDown( 100 );
+						} else {
+							control.container.slideUp( 100 );
+						}
+					};
+
+					visibility();
+					setting.bind( visibility );
+				});
+			});
+		}
+
+		/**
+		 * Function to hide/show Customizer options, based on another control.
+		 *
+		 * Parent option, Affected Control, Value which affects the control.
+		 */
+		function customizer_no_image_option_display( parent_setting, affected_control ) {
+			wp.customize( parent_setting, function( setting ) {
+				wp.customize.control( affected_control, function( control ) {
+					var visibility = function() {
+						if ( setting.get() ) {
+							control.container.slideUp( 180 );
+						}  else {
+							control.container.slideDown( 180 );
+						}
+					};
+
+					visibility();
+					setting.bind( visibility );
+				});
+			});
+		}
+
+		/**
+		 * Function to hide/show Customizer options, based on a range control value.
+		 *
+		 * Parent option, Affected Control, Value which affects the control.
+		 */
+		function customizer_range_option_display( parent_setting, affected_control, value ) {
+			wp.customize( parent_setting, function( setting ) {
+				wp.customize.control( affected_control, function( control ) {
+					var visibility = function() {
+						if ( setting.get() && '0' !== setting.get() ) {
+							control.container.slideDown( 0 );
+						} else {
+							control.container.slideUp( 180 );
+						}
+					};
+
+					visibility();
+					setting.bind( visibility );
+				});
+			});
+		}
+
+		/**
+		 * Function to hide/show Customizer options, based on a checkbox value.
+		 *
+		 * Parent option, Affected Control, Value which affects the control.
+		 */
+		function customizer_checkbox_option_display( parent_setting, affected_control, value ) {
+			wp.customize( parent_setting, function( setting ) {
+				wp.customize.control( affected_control, function( control ) {
+					var visibility = function() {
+						if ( value === setting.get() ) {
+							control.container.slideDown( 0 );
+						} else {
+							control.container.slideUp( 180 );
+						}
+					};
+
+					visibility();
+					setting.bind( visibility );
+				});
+			});
+		}
+
+
 	function control_visibility( controls, action ) {
 
 		controls.forEach( function( item, index, array ) {
@@ -152,6 +245,8 @@
 				// For this particular control, let's check to see if corresponding options are visible.
 				// We only want to show relevant options based on the user's contextual design decisions.
 				if ( item === 'login_designer[logo_margin_bottom]' ) {
+
+					customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer[logo_margin_bottom]', false );
 
 					wp.customize( 'login_designer[disable_logo]', function( setting ) {
 						wp.customize.control( item, function( control ) {
@@ -173,6 +268,8 @@
 
 				} else if ( item === 'login_designer[logo]' ) {
 
+					customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer[logo]', false );
+
 					wp.customize( 'login_designer[disable_logo]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
@@ -192,6 +289,8 @@
 					});
 
 				} else if ( item === 'login_designer[logo_title]' ) {
+
+					customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer[logo_title]', false );
 
 					wp.customize( 'login_designer[disable_logo]', function( setting ) {
 						wp.customize.control( item, function( control ) {
@@ -213,6 +312,8 @@
 
 				} else if ( item === 'login_designer_settings[logo_url]' ) {
 
+					customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer_settings[logo_url]', false );
+
 					wp.customize( 'login_designer[disable_logo]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
@@ -233,6 +334,8 @@
 
 				} else if ( item === 'login_designer[bg_image_gallery]' ) {
 
+					customizer_no_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' );
+
 					wp.customize( 'login_designer[bg_image]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
@@ -252,6 +355,10 @@
 					});
 
 				} else if ( item === 'login_designer[bg_repeat]' ) {
+
+					// Only show the background optios, if there is a background image uploaded.
+					customizer_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_repeat]' );
+					customizer_image_option_display( 'login_designer[bg_image_gallery]', 'login_designer[bg_repeat]' );
 
 					$.each( [ 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' ], function( index, settingId ) {
 
@@ -276,6 +383,9 @@
 
 				} else if ( item === 'login_designer[bg_size]' ) {
 
+					customizer_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_size]' );
+					customizer_image_option_display( 'login_designer[bg_image_gallery]', 'login_designer[bg_size]' );
+
 					$.each( [ 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' ], function( index, settingId ) {
 
 						wp.customize( settingId, function( setting ) {
@@ -298,6 +408,9 @@
 					} );
 
 				} else if ( item === 'login_designer[bg_attach]' ) {
+
+					customizer_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_attach]' );
+					customizer_image_option_display( 'login_designer[bg_image_gallery]', 'login_designer[bg_attach]' );
 
 					$.each( [ 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' ], function( index, settingId ) {
 
@@ -322,6 +435,9 @@
 
 				} else if ( item === 'login_designer[bg_position]' ) {
 
+					customizer_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_position]' );
+					customizer_image_option_display( 'login_designer[bg_image_gallery]', 'login_designer[bg_position]' );
+
 					$.each( [ 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' ], function( index, settingId ) {
 
 						wp.customize( settingId, function( setting ) {
@@ -345,6 +461,8 @@
 
 				} else if ( item === 'login_designer[form_shadow_opacity]' ) {
 
+					customizer_range_option_display( 'login_designer[form_shadow]', 'login_designer[form_shadow_opacity]', '0' );
+
 					wp.customize( 'login_designer[form_shadow]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
@@ -365,6 +483,8 @@
 
 				} else if ( item === 'login_designer[field_shadow_opacity]' ) {
 
+					customizer_range_option_display( 'login_designer[field_shadow]', 'login_designer[field_shadow_opacity]', '0' );
+
 					wp.customize( 'login_designer[field_shadow]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
@@ -384,6 +504,8 @@
 					});
 
 				} else if ( item === 'login_designer[field_shadow_inset]' ) {
+
+					customizer_range_option_display( 'login_designer[field_shadow]', 'login_designer[field_shadow_inset]', '0' );
 
 					wp.customize( 'login_designer[field_shadow]', function( setting ) {
 						wp.customize.control( item, function( control ) {
@@ -409,6 +531,8 @@
 
 				else if ( item === 'login_designer[field_border_color]' ) {
 
+					customizer_range_option_display( 'login_designer[field_border]', 'login_designer[field_border_color]', '0' );
+
 					wp.customize( 'login_designer[field_border]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
@@ -431,6 +555,8 @@
 
 				} else if ( item === 'login_designer[button_border_color]' ) {
 
+					customizer_range_option_display( 'login_designer[button_border]', 'login_designer[button_border_color]', '0' );
+
 					wp.customize( 'login_designer[button_border]', function( setting ) {
 						wp.customize.control( item, function( control ) {
 							var visibility = function() {
@@ -452,6 +578,8 @@
 					});
 
 				} else if ( item === 'login_designer[checkbox_border_color]' ) {
+
+					customizer_range_option_display( 'login_designer[checkbox_border]', 'login_designer[checkbox_border_color]', '0' );
 
 					wp.customize( 'login_designer[checkbox_border]', function( setting ) {
 						wp.customize.control( item, function( control ) {
