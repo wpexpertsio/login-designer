@@ -1,8 +1,8 @@
-# [Login Designer](https://logindesigner.com)
+# Login Designer
 
 [![WordPress plugin](https://img.shields.io/wordpress/plugin/dt/login-designer.svg?style=flat)](https://wordpress.org/plugins/login-designer/) [![WordPress plugin](https://img.shields.io/wordpress/plugin/v/login-designer.svg?style=flat)](https://wordpress.org/plugins/login-designer/) [![WordPress](https://img.shields.io/wordpress/v/login-designer.svg?style=flat)]() [![License](https://img.shields.io/badge/license-GPL--2.0%2B-red.svg)](https://github.com/thatplugincompany/login-designer/blob/master/license.txt) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Beautifully%20fast%20WordPress%20login%20customization%20—&url=https://logindesigner.com/&via=logindesigner&hashtags=WordPress)
 
-## Welcome! 👋 ##
+## 👋 Welcome! ##
 
 While Login Designer is not the first WordPress plugin designed for custom login editing, it offers an unrivaled live-editing experience unlike any other.
 
@@ -10,18 +10,20 @@ I'm talking zero refreshes. Contextually displayed options and plugin settings. 
 
 It’s familiar, yet completely revolutionary. Click on any element from your login page to fine tune it. That element’s settings are contextually displayed, while other’s hide. This way, you’ll spend less time navigating the Customizer’s sections and panels, and more time actually fine-tuning your website’s login page.
 
-## Installation ##
+## 👇 Installation ##
 
 1. You can clone the GitHub repository: `https://github.com/thatplugincompany/login-designer.git`
 2. Or download it directly as a ZIP file: `https://github.com/thatplugincompany/login-designer/archive/master.zip`
+3. Or download it from the [WordPress repository](https://wordpress.org/plugins/login-designer/).
+4. Install the plugin and head to the Customizer. You'll see a "Login Designer" panel. Click that to view the editor. Have fun! 🤪
 
-## Bugs ##
+## 🐞 Bugs ##
 If you find an issue, [let me know](https://github.com/thatplugincompany/login-designer/issues?state=open).
 
-## Support ##
+## 😱 Support ##
 This is a developer's portal for Login Designer and should _not_ be used for support. Please visit the [support forum on WordPress.org](https://wordpress.org/support/plugin/login-designer) if you need help.
 
-## Contributions ##
+## ⛑ Contributions ##
 Anyone is welcome to contribute to Login Designer. Please read the [guidelines for contributing](https://github.com/thatplugincompany/login-designer/blob/master/CONTRIBUTING.md) to this repository.
 
 There are various ways you can contribute:
