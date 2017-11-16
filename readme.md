@@ -1,10 +1,10 @@
 # [Login Designer](https://logindesigner.com)
 
-[![WordPress plugin](https://img.shields.io/wordpress/plugin/dt/login-designer.svg?style=social)](https://wordpress.org/plugins/login-designer/)
+[![WordPress plugin](https://img.shields.io/wordpress/plugin/dt/login-designer.svg?style=flat)](https://wordpress.org/plugins/login-designer/)
 
-[![WordPress plugin](https://img.shields.io/wordpress/plugin/v/login-designer.svg?style=social)](https://wordpress.org/plugins/login-designer/)
+[![WordPress plugin](https://img.shields.io/wordpress/plugin/v/login-designer.svg?style=flat)](https://wordpress.org/plugins/login-designer/)
 
-[![WordPress](https://img.shields.io/wordpress/v/login-designer.svg?style=social)]()
+[![WordPress](https://img.shields.io/wordpress/v/login-designer.svg?style=flat)]()
 
 [![License](https://img.shields.io/badge/license-GPL--2.0%2B-red.svg)](https://github.com/thatplugincompany/login-designer/blob/master/license.txt)
 
