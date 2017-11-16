@@ -130,7 +130,7 @@ function login_designer_activation_redirect() {
 	wp_safe_redirect( admin_url( '/customize.php?autofocus[section]=login_designer__section--templates&url='.get_permalink( $page ) ) );
 
 }
-add_action( 'admin_init', 'login_designer_activation_redirect' );
+// add_action( 'admin_init', 'login_designer_activation_redirect' );
 
 /**
  * When a new Blog is created in multisite, see if EDD is network activated, and run the installer

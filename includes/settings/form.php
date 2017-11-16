@@ -5,7 +5,6 @@
  * @package   @@pkg.name
  * @author    @@pkg.author
  * @license   @@pkg.license
- * @version   @@pkg.version
  */
 
 /**

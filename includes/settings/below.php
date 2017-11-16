@@ -1,11 +1,10 @@
 <?php
 /**
- * Remember Me Customizer Section.
+ * Below the Form Customizer Section.
  *
  * @package   @@pkg.name
  * @author    @@pkg.author
  * @license   @@pkg.license
- * @version   @@pkg.version
  */
 
 /**

@@ -19,7 +19,7 @@ You shouldn’t have to hire a developer to customize your website's login page.
 
 While Login Designer is not the first WordPress plugin designed for custom login editing, it offers an unrivaled live-editing experience unlike any other.
 
-**Login Designer’s customizing and templating experience is the best in class** — _by a long shot_.
+**Login Designer’s customizing and templating experience is the best in class — _by a long shot_**.
 
 = A short video =
 [vimeo https://vimeo.com/243191812]
@@ -46,19 +46,27 @@ Extensible, adaptable, and open source — Login Designer is created with develo
 
 This plugin is created and maintaned by [Rich Tabor](https://richtabor.com?utm_medium=login-designer-lite&utm_source=readme&utm_campaign=readme&utm_content=rich-tabor).
 
-== Installation ==
-
-1. Upload the `login-designer` folder to your `/wp-content/plugins/` directory or alternatively upload the login-designer.zip file via the plugin page of WordPress by clicking 'Add New' and selecting the zip from your local computer.
-2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Start customizing from the WordPress Customizer > Login Designer panel.
-
 
 
 
 == Screenshots ==
 
-1.
+1. Templates: Change your look in seconds
 
+2. Editing: Add backgrounds, change colors — customize anything
+
+3. Templates: Easily swap templates any time
+
+4. Templates: Start with a template, then customize
+
+
+
+
+== Installation ==
+
+1. Upload the `login-designer` folder to your `/wp-content/plugins/` directory or alternatively upload the login-designer.zip file via the plugin page of WordPress by clicking 'Add New' and selecting the zip from your local computer.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. Start customizing from the WordPress Customizer > Login Designer panel.
 
 
 
@@ -87,6 +95,9 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 
 == Changelog ==
+
+= 1.0.1 =
+* Minor activation optimizations
 
 = 1.0.0 =
 * Initial upload. Enjoy!
