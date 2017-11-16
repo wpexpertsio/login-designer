@@ -2,13 +2,12 @@
 
 [![WordPress plugin](https://img.shields.io/wordpress/plugin/dt/login-designer.svg?style=social)](https://wordpress.org/plugins/login-designer/)
 
-[![WordPress plugin](https://img.shields.io/wordpress/plugin/v/login-designer.svg?style=for-the-badge)](https://wordpress.org/plugins/login-designer/)
+[![WordPress plugin](https://img.shields.io/wordpress/plugin/v/login-designer.svg?style=social)](https://wordpress.org/plugins/login-designer/)
 
+[![WordPress](https://img.shields.io/wordpress/v/login-designer.svg?style=social)]()
 
-![Plugin Version](https://img.shields.io/wordpress/plugin/v/login-designer.svg?maxAge=2592000)
-![Total Downloads](https://img.shields.io/wordpress/plugin/dt/login-designer.svg?maxAge=2592000)
-![WordPress Compatibility](https://img.shields.io/wordpress/v/login-designer.svg?maxAge=2592000)
 [![License](https://img.shields.io/badge/license-GPL--2.0%2B-red.svg)](https://github.com/thatplugincompany/login-designer/blob/master/license.txt)
+
 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Beautifully%20fast%20WordPress%20login%20customization%20—&url=https://logindesigner.com/&via=logindesigner&hashtags=WordPress)
 
 Create stunning WordPress login pages in just seconds with the most beautiful and elegant login customizer WordPress plugin.
