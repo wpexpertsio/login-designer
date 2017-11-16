@@ -17,7 +17,7 @@ Create stunning WordPress login pages in just seconds with the most beautiful an
 If you find an issue, [let me know](https://github.com/thatplugincompany/login-designer/issues?state=open).
 
 ## Support ##
-This is a developer's portal for Login Designer and should _not_ be used for support. Please visit the [support page](https://logindesigner.com/support) if you need to submit a support request.
+This is a developer's portal for Login Designer and should _not_ be used for support. Please visit the [support forum on WordPress.org](https://wordpress.org/support/plugin/login-designer) if you need help.
 
 ## Contributions ##
 Anyone is welcome to contribute to Login Designer. Please read the [guidelines for contributing](https://github.com/thatplugincompany/login-designer/blob/master/CONTRIBUTING.md) to this repository.
