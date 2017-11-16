@@ -229,7 +229,7 @@ msgstr ""
 msgid "Template 04"
 msgstr ""
 
-#: includes/class-login-designer-templates.php:237, includes/class-login-designer-templates.php:285, includes/settings/labels.php:33
+#: includes/class-login-designer-templates.php:236, includes/class-login-designer-templates.php:284, includes/settings/labels.php:33
 msgid "Username"
 msgstr ""
 

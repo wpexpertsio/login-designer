@@ -29,10 +29,10 @@ Learn more at [logindesigner.com](https://logindesigner.com?utm_medium=login-des
 
 == Changelog ==
 
-= 1.0 =
-* Initial upload.
+= 1.0.0 =
+* Initial upload. Enjoy!
 
 == Upgrade Notice ==
 
-= 1.0 =
+= 1.0.0 =
 Initial upload. Enjoy!
