@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Login Designer\n"
-"Report-Msgid-Bugs-To: https://thatplugincompany.com\n"
+"Report-Msgid-Bugs-To: https://richtabor.com\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"

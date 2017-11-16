@@ -2,7 +2,13 @@
 
 [![WordPress plugin](https://img.shields.io/wordpress/plugin/dt/login-designer.svg?style=flat)](https://wordpress.org/plugins/login-designer/) [![WordPress plugin](https://img.shields.io/wordpress/plugin/v/login-designer.svg?style=flat)](https://wordpress.org/plugins/login-designer/) [![WordPress](https://img.shields.io/wordpress/v/login-designer.svg?style=flat)]() [![License](https://img.shields.io/badge/license-GPL--2.0%2B-red.svg)](https://github.com/thatplugincompany/login-designer/blob/master/license.txt) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Beautifully%20fast%20WordPress%20login%20customization%20—&url=https://logindesigner.com/&via=logindesigner&hashtags=WordPress)
 
-Create stunning WordPress login pages in just seconds with the most beautiful and elegant login customizer WordPress plugin.
+## Welcome! 👋 ##
+
+While Login Designer is not the first WordPress plugin designed for custom login editing, it offers an unrivaled live-editing experience unlike any other.
+
+I'm talking zero refreshes. Contextually displayed options and plugin settings. Custom event triggers. Context-aware previews. Powerful custom controls. Live editing… the list goes on.
+
+It’s familiar, yet completely revolutionary. Click on any element from your login page to fine tune it. That element’s settings are contextually displayed, while other’s hide. This way, you’ll spend less time navigating the Customizer’s sections and panels, and more time actually fine-tuning your website’s login page.
 
 ## Installation ##
 
