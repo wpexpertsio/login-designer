@@ -2,6 +2,9 @@
 
 [![WordPress plugin](https://img.shields.io/wordpress/plugin/dt/login-designer.svg?style=social)](https://wordpress.org/plugins/login-designer/)
 
+[![WordPress plugin](https://img.shields.io/wordpress/plugin/v/login-designer.svg?style=for-the-badge)](https://wordpress.org/plugins/login-designer/)
+
+
 ![Plugin Version](https://img.shields.io/wordpress/plugin/v/login-designer.svg?maxAge=2592000)
 ![Total Downloads](https://img.shields.io/wordpress/plugin/dt/login-designer.svg?maxAge=2592000)
 ![WordPress Compatibility](https://img.shields.io/wordpress/v/login-designer.svg?maxAge=2592000)
