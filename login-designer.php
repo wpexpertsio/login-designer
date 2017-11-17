@@ -188,7 +188,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		public function options_page() {
-			add_theme_page( esc_html__( 'Login Designer', '@@textdomain' ), esc_html__( 'Login', '@@textdomain' ), 'manage_options', 'login-designer', '__return_null' );
+			add_theme_page( esc_html__( 'Login Designer', '@@textdomain' ), esc_html__( 'Login Designer', '@@textdomain' ), 'manage_options', 'login-designer', '__return_null' );
 		}
 
 		/**

@@ -86,6 +86,9 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
+= 1.0.3, November 17, 2017 =
+* Tweak: Improved webkit shadow styling
+
 = 1.0.2, November 17, 2017 =
 * Fix: Resolved issue where inline sprites would cause Template 02 to display oddly in the Customizer
 * Tweak: Added support to carry over template styles on the lost password form

@@ -410,7 +410,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				}
 
 				#login form .submit .button {
-					box-shadow: 0 0 0;
+					box-shadow: none;
 					text-shadow: none;
 					height: auto !important;
 					line-height: inherit;
@@ -548,7 +548,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Field background.
 				if ( isset( $options['field_bg'] ) ) {
-					$css .= '#login form .input { background-color: ' . esc_attr( $options['field_bg'] ) . '; }';
+					$css .= '#login form .input { background-color: ' . esc_attr( $options['field_bg'] ) . '; -webkit-box-shadow: inset 0 0 0px 9999px ' . esc_attr( $options['field_bg'] ) . ' }';
 				}
 
 				// Field top padding.
@@ -600,9 +600,19 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 					$inset = isset( $options['field_shadow_inset'] ) ? 'inset' : '';
 
-					$css .= '#login form .input { box-shadow: ' . esc_attr( $inset ) . ' 0 0 '. esc_attr( $options['field_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
+					$shadow = esc_attr( $inset ) . ' 0 0 '. esc_attr( $options['field_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) . ')';
+
+					if ( isset( $options['field_bg'] ) ) {
+						$css .= '#login form .input { box-shadow: ' . $shadow . ', inset 0 0 0 9999px ' . esc_attr( $options['field_bg'] ) . ' }';
+					} else {
+						$css .= '#login form .input { box-shadow: ' . $shadow;
+					}
 				} else {
-					$css .= '#login form .input { box-shadow: none; }';
+					if ( isset( $options['field_bg'] ) ) {
+						$css .= '#login form .input { box-shadow: inset 0 0 0 9999px ' . esc_attr( $options['field_bg'] ) . ' }';
+					} else {
+						$css .= '#login form .input { box-shadow: none; }';
+					}
 				}
 
 				// Field font, as long as it's not 'default'.

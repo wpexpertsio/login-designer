@@ -375,13 +375,6 @@
 		} );
 	} );
 
-	// Field background color.
-	wp.customize( 'login_designer[field_bg]', function( value ) {
-		value.bind( function( to ) {
-			$( '#login form .input' ).css( 'background-color', to );
-		} );
-	} );
-
 	// Field top padding.
 	wp.customize( 'login_designer[field_padding_top]', function( value ) {
 		value.bind( function( to ) {
@@ -506,11 +499,32 @@
 		}
 	}
 
+	// Return the field's background color value.
+	function fieldBackgroundColor() {
+		return wp.customize( 'login_designer[field_bg]' )();
+	}
+
+	// Field background color.
+	wp.customize( 'login_designer[field_bg]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_field_shadow"> #login form .input { background-color: ' + to + '; box-shadow: ' + fieldBoxShadowInset() + ' 0 0 ' + fieldBoxShadowSize() + 'px rgba(0, 0, 0, ' + fieldBoxShadowOpacity() + '), inset 0 0 0 9999px '+ to +'; } </style>';
+
+			el =  $( '.login_designer_field_shadow' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
 	// Field Box Shadow.
 	wp.customize( 'login_designer[field_shadow]', function( value ) {
 		value.bind( function( to ) {
 			var style, shadow_opacity, el;
-			style = '<style class="login_designer_field_shadow"> #login form .input { box-shadow: ' + fieldBoxShadowInset() + ' 0 0 ' + to + 'px rgba(0, 0, 0, ' + fieldBoxShadowOpacity() + '); } </style>';
+			style = '<style class="login_designer_field_shadow"> #login form .input { background-color: ' + fieldBackgroundColor() + '; box-shadow: ' + fieldBoxShadowInset() + ' 0 0 ' + to + 'px rgba(0, 0, 0, ' + fieldBoxShadowOpacity() + '), inset 0 0 0 9999px '+ fieldBackgroundColor() +'; } </style>';
 
 			el =  $( '.login_designer_field_shadow' );
 
@@ -529,7 +543,7 @@
 
 			opacity = to * .01;
 
-			style = '<style class="login_designer_field_shadow"> #login form .input { box-shadow: ' + fieldBoxShadowInset() + ' 0 0 ' + fieldBoxShadowSize() + 'px rgba(0, 0, 0, ' + opacity + '); } </style>';
+			style = '<style class="login_designer_field_shadow"> #login form .input { background-color: ' + fieldBackgroundColor() + '; box-shadow: ' + fieldBoxShadowInset() + ' 0 0 ' + fieldBoxShadowSize() + 'px rgba(0, 0, 0, ' + opacity + '), inset 0 0 0 9999px '+ fieldBackgroundColor() +'; } </style>';
 
 			el =  $( '.login_designer_field_shadow' );
 
@@ -552,7 +566,7 @@
 				inset = '';
 			}
 
-			style = '<style class="login_designer_field_shadow"> #login form .input { box-shadow: ' + inset + ' 0 0 ' + fieldBoxShadowSize() + 'px rgba(0, 0, 0, ' + fieldBoxShadowOpacity() + '); } </style>';
+			style = '<style class="login_designer_field_shadow"> #login form .input { background-color: ' + fieldBackgroundColor() + '; box-shadow: ' + inset + ' 0 0 ' + fieldBoxShadowSize() + 'px rgba(0, 0, 0, ' + fieldBoxShadowOpacity() + '), inset 0 0 0 9999px '+ fieldBackgroundColor() +'; } </style>';
 
 			el =  $( '.login_designer_field_shadow' );
 
