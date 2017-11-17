@@ -35,7 +35,7 @@
 			// License activation data.
 			var activation_data = {
 				type: 'post',
-				action: 'activate_license',
+				action: 'activate_login_designer_license',
 				nonce: login_designer_custom_controls.nonce.activate,
 				wp_customize: 'on',
 				key: $( '#license-key' ).val(),
@@ -98,7 +98,7 @@
 			// License deactivation data.
 			var deactivation_data = {
 				type: 'post',
-				action: 'deactivate_license',
+				action: 'deactivate_login_designer_license',
 				nonce: login_designer_custom_controls.nonce.deactivate,
 				wp_customize: 'on',
 			};

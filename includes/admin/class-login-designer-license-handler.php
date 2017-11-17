@@ -23,8 +23,8 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		 * The class constructor.
 		 */
 		public function __construct() {
-			add_action( 'wp_ajax_activate_license', array( $this, 'ajax_activate_license' ) );
-			add_action( 'wp_ajax_deactivate_license', array( $this, 'ajax_deactivate_license' ) );
+			add_action( 'wp_ajax_activate_login_designer_license', array( $this, 'ajax_activate_license' ) );
+			add_action( 'wp_ajax_deactivate_login_designer_license', array( $this, 'ajax_deactivate_license' ) );
 		}
 
 		/**
