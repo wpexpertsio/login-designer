@@ -65,7 +65,7 @@ msgstr ""
 msgid "Attention! You are attempting to reset all custom styling added to Login Designer. Please note that this action is irreversible. Proceed?"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:76, includes/class-login-designer-theme-template.php:67, login-designer.php:191, login-designer.php:253, login-designer.php:258
+#: includes/class-login-designer-customizer.php:76, includes/class-login-designer-theme-template.php:67, login-designer.php:191, login-designer.php:191, login-designer.php:253, login-designer.php:258
 msgid "Login Designer"
 msgstr ""
 
@@ -451,10 +451,6 @@ msgstr ""
 
 #: login-designer.php:93, login-designer.php:104
 msgid "Cheatin&#8217; huh?"
-msgstr ""
-
-#: login-designer.php:191
-msgid "Login"
 msgstr ""
 
 #: login-designer.php:324
