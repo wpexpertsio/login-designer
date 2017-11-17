@@ -1,3 +1,7 @@
+#sprite {
+	display: none !important;
+}
+
 .forgetmenot {
 	position: relative;
 }
