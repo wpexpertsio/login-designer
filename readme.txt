@@ -46,9 +46,6 @@ Extensible, adaptable, and open source — Login Designer is created with develo
 
 This plugin is created and maintaned by [Rich Tabor](https://richtabor.com?utm_medium=login-designer-lite&utm_source=readme&utm_campaign=readme&utm_content=rich-tabor).
 
-
-
-
 == Screenshots ==
 
 1. Templates: Change your look in seconds
@@ -59,16 +56,11 @@ This plugin is created and maintaned by [Rich Tabor](https://richtabor.com?utm_m
 
 4. Templates: Start with a template, then customize
 
-
-
-
 == Installation ==
 
 1. Upload the `login-designer` folder to your `/wp-content/plugins/` directory or alternatively upload the login-designer.zip file via the plugin page of WordPress by clicking 'Add New' and selecting the zip from your local computer.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Start customizing from the WordPress Customizer > Login Designer panel.
-
-
 
 == Frequently Asked Questions ==
 
@@ -92,12 +84,17 @@ Yes! Login Design is deployed with full translation and localization support via
 
 Please reach out via the official [plugin support forum](https://wordpress.org/support/plugin/login-designer).
 
-
-
 == Changelog ==
 
-= 1.0.1 =
-* Minor activation optimizations
+= 1.0.2, November 17, 2017 =
+* Fix: Resolved issue where inline sprites would cause Template 02 to display oddly in the Customizer
+* Tweak: Added support to carry over template styles on the lost password form
+* Tweak: Improved template rendering
+* Tweak: Removed package version info from plugin files
+* Tweak: Updated readme
 
-= 1.0.0 =
-* Initial upload. Enjoy!
+= 1.0.1, November 16, 2017 =
+* Tweak: Removed activation redirection
+
+= 1.0.0, November 16, 2017 =
+* Initial release on WordPress.org. Enjoy!
