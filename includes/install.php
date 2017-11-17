@@ -105,34 +105,6 @@ function login_designer_run_install() {
 }
 
 /**
- * Redirect to the Customizer upon plugin activation.
- */
-function login_designer_activation_redirect() {
-
-	// Bail if no activation redirect.
-	if ( ! get_transient( '_login_designer_activation_redirect' ) ) {
-		return;
-	}
-
-	// Delete the redirect transient.
-	delete_transient( '_login_designer_activation_redirect' );
-
-	// Bail if activating from network, or bulk.
-	if ( is_network_admin() || isset( $_GET['activate-multi'] ) ) {
-		return;
-	}
-
-	// Pull the Login Designer page from options.
-	$admin_options 	= get_option( 'login_designer_settings', array() );
-	$page 		= array_key_exists( 'login_designer_page', $admin_options ) ? $admin_options['login_designer_page'] : false;
-
-	// Redirect to the Customizer > Login Designer panel.
-	wp_safe_redirect( admin_url( '/customize.php?autofocus[section]=login_designer__section--templates&url='.get_permalink( $page ) ) );
-
-}
-// add_action( 'admin_init', 'login_designer_activation_redirect' );
-
-/**
  * When a new Blog is created in multisite, see if EDD is network activated, and run the installer
  *
  * @param int|int       $blog_id The Blog ID created.

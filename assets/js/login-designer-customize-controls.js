@@ -21,16 +21,6 @@
 
 	wp.customize.bind( 'ready', function() {
 
-		// We need to modify the Customizer's close link, if the user manually uploaded the plugin.
-		$( '#customize-header-actions .customize-controls-close[href*="update.php?action=upload-plugin"]' ).each( function() {
-
-			var old_url = $(this).attr( 'href' );
-			var new_url = old_url.substring( 0, old_url.indexOf( 'update.php?action=upload-plugin' ) );
-
-			$(this).attr( 'href', new_url );
-
-		});
-
 		// Detect when the Login Designer panel is expanded (or closed) so we can preview the login form easily.
 		wp.customize.panel( 'login_designer', function( section ) {
 			section.expanded.bind( function( isExpanding ) {
