@@ -232,7 +232,7 @@
 	// Button background color.
 	wp.customize( 'login_designer[button_bg]', function( value ) {
 		value.bind( function( to ) {
-			$( '#loginform .submit .button' ).css( 'background-color', to );
+			$( '#login .submit .button' ).css( 'background-color', to );
 		} );
 	} );
 
@@ -240,7 +240,7 @@
 	wp.customize( 'login_designer[button_height]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_button_height"> #loginform .submit .button { padding-top: ' + to + 'px; padding-bottom: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_button_height"> #login form .submit .button { padding-top: ' + to + 'px; padding-bottom: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_button_height' );
 
@@ -256,7 +256,7 @@
 	wp.customize( 'login_designer[button_side_padding]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_button_side_padding"> #loginform .submit .button { padding-left: ' + to + 'px; padding-right: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_button_side_padding"> #login form .submit .button { padding-left: ' + to + 'px; padding-right: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_button_side_padding' );
 
@@ -272,7 +272,7 @@
 	wp.customize( 'login_designer[button_border]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_button_border"> #loginform .submit .button { border-style: solid; border-width: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_button_border"> #login form .submit .button { border-style: solid; border-width: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_button_border' );
 
@@ -287,7 +287,7 @@
 	// Button border color.
 	wp.customize( 'login_designer[button_border_color]', function( value ) {
 		value.bind( function( to ) {
-			$( '#loginform .submit .button' ).css( 'border-color', to );
+			$( '#login form .submit .button' ).css( 'border-color', to );
 		} );
 	} );
 
@@ -295,7 +295,7 @@
 	wp.customize( 'login_designer[button_radius]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_button_radius"> #loginform .submit .login-designer-event-button, #loginform .submit .button { border-radius: ' + to + 'px !important; } </style>';
+			style = '<style class="login_designer_button_radius"> #login form .submit .login-designer-event-button, #login form .submit .button { border-radius: ' + to + 'px !important; } </style>';
 
 			el =  $( '.login_designer_button_radius' );
 
@@ -321,7 +321,7 @@
 	wp.customize( 'login_designer[button_shadow]', function( value ) {
 		value.bind( function( to ) {
 			var style, shadow_opacity, el;
-			style = '<style class="login_designer_button_shadow"> #loginform .submit .button { box-shadow: 0 0 ' + to + 'px rgba(0, 0, 0, ' + buttonBoxShadowOpacity() + '); } </style>';
+			style = '<style class="login_designer_button_shadow"> #login form .submit .button { box-shadow: 0 0 ' + to + 'px rgba(0, 0, 0, ' + buttonBoxShadowOpacity() + '); } </style>';
 
 			el =  $( '.login_designer_button_shadow' );
 
@@ -340,7 +340,7 @@
 
 			opacity = to * .01;
 
-			style = '<style class="login_designer_button_shadow"> #loginform .submit .button { box-shadow: 0 0 ' + buttonBoxShadowSize() + 'px rgba(0, 0, 0, ' + opacity + '); } </style>';
+			style = '<style class="login_designer_button_shadow"> #login form .submit .button { box-shadow: 0 0 ' + buttonBoxShadowSize() + 'px rgba(0, 0, 0, ' + opacity + '); } </style>';
 
 			el =  $( '.login_designer_button_shadow' );
 
@@ -356,7 +356,7 @@
 	wp.customize( 'login_designer[button_font_size]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_button_font_size"> #loginform .submit .button { font-size: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_button_font_size"> #login form .submit .button { font-size: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_button_font_size' );
 
@@ -371,14 +371,14 @@
 	// Button color.
 	wp.customize( 'login_designer[button_color]', function( value ) {
 		value.bind( function( to ) {
-			$( '#loginform .submit .button' ).css( 'color', to );
+			$( '#login form .submit .button' ).css( 'color', to );
 		} );
 	} );
 
 	// Field background color.
 	wp.customize( 'login_designer[field_bg]', function( value ) {
 		value.bind( function( to ) {
-			$( '#loginform .input' ).css( 'background-color', to );
+			$( '#login form .input' ).css( 'background-color', to );
 		} );
 	} );
 
@@ -387,7 +387,7 @@
 		value.bind( function( to ) {
 			var style, el;
 
-			style = '<style class="login_designer_field_padding_top"> #loginform .input { padding-top: ' + to + 'px; }</style>';
+			style = '<style class="login_designer_field_padding_top"> #login form .input { padding-top: ' + to + 'px; }</style>';
 
 			el =  $( '.login_designer_field_padding_top' );
 
@@ -404,7 +404,7 @@
 		value.bind( function( to ) {
 			var style, el;
 
-			style = '<style class="login_designer_field_padding_bottom"> #loginform .input { padding-bottom: ' + to + 'px; }</style>';
+			style = '<style class="login_designer_field_padding_bottom"> #login form .input { padding-bottom: ' + to + 'px; }</style>';
 
 			el =  $( '.login_designer_field_padding_bottom' );
 
@@ -420,7 +420,7 @@
 	wp.customize( 'login_designer[field_side_padding]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_field_side_padding"> #loginform .input { padding-left: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_field_side_padding"> #login form .input { padding-left: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_field_side_padding' );
 
@@ -452,7 +452,7 @@
 	wp.customize( 'login_designer[field_border]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_field_border"> #loginform .input { border-style: solid; border-width: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_field_border"> #login form .input { border-style: solid; border-width: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_field_border' );
 
@@ -467,7 +467,7 @@
 	// Field border color.
 	wp.customize( 'login_designer[field_border_color]', function( value ) {
 		value.bind( function( to ) {
-			$( '#loginform .input' ).css( 'border-color', to );
+			$( '#login form .input' ).css( 'border-color', to );
 		} );
 	} );
 
@@ -475,7 +475,7 @@
 	wp.customize( 'login_designer[field_radius]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_field_radius"> #loginform div .login-designer-event-button, #loginform .input { border-radius: ' + to + 'px !important; } </style>';
+			style = '<style class="login_designer_field_radius"> #login form div .login-designer-event-button, #login form .input { border-radius: ' + to + 'px !important; } </style>';
 
 			el =  $( '.login_designer_field_radius' );
 
@@ -510,7 +510,7 @@
 	wp.customize( 'login_designer[field_shadow]', function( value ) {
 		value.bind( function( to ) {
 			var style, shadow_opacity, el;
-			style = '<style class="login_designer_field_shadow"> #loginform .input { box-shadow: ' + fieldBoxShadowInset() + ' 0 0 ' + to + 'px rgba(0, 0, 0, ' + fieldBoxShadowOpacity() + '); } </style>';
+			style = '<style class="login_designer_field_shadow"> #login form .input { box-shadow: ' + fieldBoxShadowInset() + ' 0 0 ' + to + 'px rgba(0, 0, 0, ' + fieldBoxShadowOpacity() + '); } </style>';
 
 			el =  $( '.login_designer_field_shadow' );
 
@@ -529,7 +529,7 @@
 
 			opacity = to * .01;
 
-			style = '<style class="login_designer_field_shadow"> #loginform .input { box-shadow: ' + fieldBoxShadowInset() + ' 0 0 ' + fieldBoxShadowSize() + 'px rgba(0, 0, 0, ' + opacity + '); } </style>';
+			style = '<style class="login_designer_field_shadow"> #login form .input { box-shadow: ' + fieldBoxShadowInset() + ' 0 0 ' + fieldBoxShadowSize() + 'px rgba(0, 0, 0, ' + opacity + '); } </style>';
 
 			el =  $( '.login_designer_field_shadow' );
 
@@ -552,7 +552,7 @@
 				inset = '';
 			}
 
-			style = '<style class="login_designer_field_shadow"> #loginform .input { box-shadow: ' + inset + ' 0 0 ' + fieldBoxShadowSize() + 'px rgba(0, 0, 0, ' + fieldBoxShadowOpacity() + '); } </style>';
+			style = '<style class="login_designer_field_shadow"> #login form .input { box-shadow: ' + inset + ' 0 0 ' + fieldBoxShadowSize() + 'px rgba(0, 0, 0, ' + fieldBoxShadowOpacity() + '); } </style>';
 
 			el =  $( '.login_designer_field_shadow' );
 
@@ -568,7 +568,7 @@
 	wp.customize( 'login_designer[field_font_size]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_field_font_size"> #loginform .input { font-size: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_field_font_size"> #login form .input { font-size: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_field_font_size' );
 
@@ -583,7 +583,7 @@
 	// Field color.
 	wp.customize( 'login_designer[field_color]', function( value ) {
 		value.bind( function( to ) {
-			$( '#loginform .input' ).css( 'color', to );
+			$( '#login form .input' ).css( 'color', to );
 		} );
 	} );
 
@@ -731,9 +731,9 @@
 		} );
 	}
 
-	live_font_family( 'login_designer[label_font]', '#loginform label:not([for=rememberme])' );
-	live_font_family( 'login_designer[field_font]', '#loginform .input' );
-	live_font_family( 'login_designer[button_font]', '#loginform .submit .button' );
+	live_font_family( 'login_designer[label_font]', '#login form label:not([for=rememberme]), #login .message' );
+	live_font_family( 'login_designer[field_font]', '#login form .input' );
+	live_font_family( 'login_designer[button_font]', '#login form .submit .button' );
 	live_font_family( 'login_designer[remember_font]', '#login .forgetmenot label' );
 	live_font_family( 'login_designer[below_font]', '#login #nav a, #login #backtoblog a' );
 
@@ -741,7 +741,7 @@
 	wp.customize( 'login_designer[label_font_size]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_label_font_size"> #loginform label:not([for=rememberme]) { font-size: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_label_font_size"> #login form label:not([for=rememberme]), #login .message { font-size: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_label_font_size' );
 
@@ -756,7 +756,7 @@
 	// Label color.
 	wp.customize( 'login_designer[label_color]', function( value ) {
 		value.bind( function( to ) {
-			$( '#loginform label:not([for=rememberme])' ).css( 'color', to );
+			$( '#login form label:not([for=rememberme]), #login .message' ).css( 'color', to );
 		} );
 	} );
 
@@ -764,7 +764,7 @@
 	wp.customize( 'login_designer[label_position]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_label_position">#loginform .input { margin-top: ' + to + 'px; } #loginform div .login-designer-event-button { top: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_label_position">#login form .input { margin-top: ' + to + 'px; } #login form div .login-designer-event-button { top: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_label_position' );
 
@@ -975,7 +975,7 @@
 	wp.customize( 'login_designer[form_shadow]', function( value ) {
 		value.bind( function( to ) {
 			var style, shadow_opacity, el;
-			style = '<style class="login_designer_form_shadow"> #loginform { box-shadow: 0 0 ' + to + 'px rgba(0, 0, 0, ' + formBoxShadowOpacity() + '); } </style>';
+			style = '<style class="login_designer_form_shadow"> #login form { box-shadow: 0 0 ' + to + 'px rgba(0, 0, 0, ' + formBoxShadowOpacity() + '); } </style>';
 
 			el =  $( '.login_designer_form_shadow' );
 			// shadow_opacity =  $( '.login_designer[form_shadow_opacity]' );
@@ -995,7 +995,7 @@
 
 			opacity = to * .01;
 
-			style = '<style class="login_designer_form_shadow"> #loginform { box-shadow: 0 0 ' + formBoxShadowSize() + 'px rgba(0, 0, 0, ' + opacity + '); } </style>';
+			style = '<style class="login_designer_form_shadow"> #login form { box-shadow: 0 0 ' + formBoxShadowSize() + 'px rgba(0, 0, 0, ' + opacity + '); } </style>';
 
 			el =  $( '.login_designer_form_shadow' );
 
@@ -1104,7 +1104,7 @@
 	wp.customize( 'login_designer[form_bg]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_form_bg"> body.login #loginform, body.login-designer-template-01 #login, body.login-designer-template-04 #login { background-color: ' + to + ' !important; } </style>';
+			style = '<style class="login_designer_form_bg"> body.login #login form, body.login-designer-template-01 #login, body.login-designer-template-04 #login { background-color: ' + to + ' !important; } </style>';
 
 			el =  $( '.login_designer_form_bg' );
 
@@ -1115,7 +1115,7 @@
 			}
 
 
-			$( 'body.login #loginform, body.login-designer-template-01 #login, body.login-designer-template-04 #login' ).css( 'background-color', to );
+			$( 'body.login #login form, body.login-designer-template-01 #login, body.login-designer-template-04 #login' ).css( 'background-color', to );
 		} );
 	} );
 
@@ -1123,7 +1123,7 @@
 	wp.customize( 'login_designer[form_radius]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_form_radius"> body.login #loginform { border-radius: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_form_radius"> body.login #login form { border-radius: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_form_radius' );
 
@@ -1148,7 +1148,7 @@
 	wp.customize( 'login_designer[form_side_padding]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_form_side_padding"> body.login #loginform { padding-left: ' + to + 'px; padding-right: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_form_side_padding"> body.login #login form { padding-left: ' + to + 'px; padding-right: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_form_side_padding' );
 
@@ -1164,7 +1164,7 @@
 	wp.customize( 'login_designer[form_vertical_padding]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_form_vertical_padding"> body.login #loginform { padding-top: ' + to + 'px; padding-bottom: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_form_vertical_padding"> body.login #login form { padding-top: ' + to + 'px; padding-bottom: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_form_vertical_padding' );
 

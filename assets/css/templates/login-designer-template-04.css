@@ -49,13 +49,13 @@ body.login.login-designer-template-04 {
 	}
 }
 
-body.login.login-designer-template-04 #loginform {
+body.login.login-designer-template-04 form {
 	margin: 0 auto;
 	max-width: 400px;
 }
 
 @media only screen and (max-width: 499px) {
-	body.login.login-designer-template-04 #loginform {
+	body.login.login-designer-template-04 form {
 		padding-left: 25px;
 		padding-right: 25px;
 	}

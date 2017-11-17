@@ -160,7 +160,7 @@ body:hover .customize-partial-edit-shortcut {
 
 .login-designer-template-01 {
 
-	#loginform {
+	#login form {
 		background: transparent !important;
 		position: initial;
 	}
@@ -169,7 +169,7 @@ body:hover .customize-partial-edit-shortcut {
 
 .login-designer-template-02 {
 
-	#loginform {
+	#login form {
 		background: transparent !important;
 	}
 }
@@ -249,7 +249,7 @@ body:hover .customize-partial-edit-shortcut {
 }
 
 // Positioning.
-#loginform,
+#login form,
 #login-designer-logo-h1,
 #login-designer--username,
 #login-designer--password {
@@ -278,7 +278,7 @@ body:hover .customize-partial-edit-shortcut {
 	}
 
 	&:hover,
-	#loginform.input-hover & {
+	#login form.input-hover & {
 
 		.customizer-event-overlay {
 			opacity: 1 !important;
@@ -293,7 +293,7 @@ body:hover .customize-partial-edit-shortcut {
 	position: relative;
 
 	&:hover,
-	#loginform.label-hover & {
+	#login form.label-hover & {
 		color: $customizer_blue !important;
 	}
 

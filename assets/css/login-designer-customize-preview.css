@@ -153,12 +153,12 @@ body:hover .customize-partial-edit-shortcut {
 	left: calc( 580px + 42px) !important;
 }
 
-.login-designer-template-01 #loginform {
+.login-designer-template-01 #login form {
 	background: transparent !important;
 	position: initial;
 }
 
-.login-designer-template-02 #loginform {
+.login-designer-template-02 #login form {
 	background: transparent !important;
 }
 
@@ -228,7 +228,7 @@ body:hover .customize-partial-edit-shortcut {
 	width: 84px;
 }
 
-#loginform,
+#login form,
 #login-designer-logo-h1,
 #login-designer--username,
 #login-designer--password {
@@ -260,9 +260,9 @@ body:hover .customize-partial-edit-shortcut {
 }
 
 #login-designer--username:hover .customizer-event-overlay,
-#loginform.input-hover #login-designer--username .customizer-event-overlay,
+#login form.input-hover #login-designer--username .customizer-event-overlay,
 #login-designer--password:hover .customizer-event-overlay,
-#loginform.input-hover
+#login form.input-hover
 #login-designer--password .customizer-event-overlay {
 	background: rgba(0, 167, 233, 0.11) !important;
 	opacity: 1 !important;
@@ -274,9 +274,9 @@ body:hover .customize-partial-edit-shortcut {
 }
 
 #login-designer--username-label:hover,
-#loginform.label-hover #login-designer--username-label,
+#login form.label-hover #login-designer--username-label,
 #login-designer--password-label:hover,
-#loginform.label-hover
+#login form.label-hover
 #login-designer--password-label {
 	color: #0085ba !important;
 }

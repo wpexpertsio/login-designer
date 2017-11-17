@@ -379,17 +379,17 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					margin: 10px 0;
 				}
 
-				#loginform {
+				#login form {
 					overflow: visible;
 					margin-top: 0;
 				}
 
-				#loginform p.submit {
+				#login form p.submit {
 					padding-bottom: 25px !important;
 					transform: initial !important;
 				}
 
-				#loginform .forgetmenot {
+				#login form .forgetmenot {
 					margin-top: 5px;
 				}
 
@@ -409,7 +409,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					box-shadow: none;
 				}
 
-				#loginform .submit .button {
+				#login form .submit .button {
 					box-shadow: 0 0 0;
 					text-shadow: none;
 					height: auto !important;
@@ -513,7 +513,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Form background color.
 				if ( isset( $options['form_bg'] ) ) {
-					$css .= '#loginform, .login-designer-template-01 #login, .login-designer-template-04 #login { background-color: ' . $options['form_bg'] . '; }';
+					$css .= '#login form, .login-designer-template-01 #login, .login-designer-template-04 #login { background-color: ' . $options['form_bg'] . '; }';
 				}
 
 				// Form width.
@@ -523,17 +523,17 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Form side padding.
 				if ( isset( $options['form_side_padding'] ) ) {
-					$css .= '#loginform { padding-left: ' . esc_attr( $options['form_side_padding'] ) . 'px; padding-right: ' . esc_attr( $options['form_side_padding'] ) . 'px; }';
+					$css .= '#login form { padding-left: ' . esc_attr( $options['form_side_padding'] ) . 'px; padding-right: ' . esc_attr( $options['form_side_padding'] ) . 'px; }';
 				}
 
 				// Form side padding.
 				if ( isset( $options['form_vertical_padding'] ) ) {
-					$css .= '#loginform { padding-top: ' . esc_attr( $options['form_vertical_padding'] ) . 'px; padding-bottom: ' . esc_attr( $options['form_vertical_padding'] ) . 'px; }';
+					$css .= '#login form { padding-top: ' . esc_attr( $options['form_vertical_padding'] ) . 'px; padding-bottom: ' . esc_attr( $options['form_vertical_padding'] ) . 'px; }';
 				}
 
 				// Form side padding.
 				if ( isset( $options['form_radius'] ) ) {
-					$css .= '#loginform { border-radius: ' . esc_attr( $options['form_radius'] ) . 'px; }';
+					$css .= '#login form { border-radius: ' . esc_attr( $options['form_radius'] ) . 'px; }';
 				}
 
 				// Form box-shadow.
@@ -541,29 +541,29 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 					$opacity = ( isset( $options['form_shadow_opacity'] ) * .01 ) ? $options['form_shadow_opacity'] * .01 : 0;
 
-					$css .= '#loginform { box-shadow: 0 0 '. esc_attr( $options['form_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
+					$css .= '#login form { box-shadow: 0 0 '. esc_attr( $options['form_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
 				} else {
-					$css .= '#loginform { box-shadow: none; }';
+					$css .= '#login form { box-shadow: none; }';
 				}
 
 				// Field background.
 				if ( isset( $options['field_bg'] ) ) {
-					$css .= '#loginform .input { background-color: ' . esc_attr( $options['field_bg'] ) . '; }';
+					$css .= '#login form .input { background-color: ' . esc_attr( $options['field_bg'] ) . '; }';
 				}
 
 				// Field top padding.
 				if ( isset( $options['field_padding_top'] ) ) {
-					$css .= '#loginform .input { padding-top: ' . esc_attr( $options['field_padding_top'] ) . 'px; }';
+					$css .= '#login form .input { padding-top: ' . esc_attr( $options['field_padding_top'] ) . 'px; }';
 				}
 
 				// Field bottom padding.
 				if ( isset( $options['field_padding_bottom'] ) ) {
-					$css .= '#loginform .input { padding-bottom: ' . esc_attr( $options['field_padding_bottom'] ) . 'px; }';
+					$css .= '#login form .input { padding-bottom: ' . esc_attr( $options['field_padding_bottom'] ) . 'px; }';
 				}
 
 				// Field side padding.
 				if ( isset( $options['field_side_padding'] ) ) {
-					$css .= '#loginform .input { padding-left: ' . esc_attr( $options['field_side_padding'] ) . 'px; }';
+					$css .= '#login form .input { padding-left: ' . esc_attr( $options['field_side_padding'] ) . 'px; }';
 				}
 
 				// Field margin bottom.
@@ -572,25 +572,25 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					if ( is_customize_preview() ) {
 						$css .= '#login-designer--username { margin-bottom: ' . esc_attr( $options['field_margin_bottom'] ) . 'px }';
 					} else {
-						$css .= '#loginform #user_login { margin-bottom: ' . esc_attr( $options['field_margin_bottom'] ) . 'px; }';
+						$css .= '#login form #user_login { margin-bottom: ' . esc_attr( $options['field_margin_bottom'] ) . 'px; }';
 					}
 				}
 
 				// Field border width.
 				if ( isset( $options['field_border'] ) ) {
-					$css .= '#loginform .input { border-style: solid; border-width: ' . esc_attr( $options['field_border'] ) . 'px; }';
+					$css .= '#login form .input { border-style: solid; border-width: ' . esc_attr( $options['field_border'] ) . 'px; }';
 				} else {
-					$css .= '#loginform .input { border: 0 }';
+					$css .= '#login form .input { border: 0 }';
 				}
 
 				// Field border color.
 				if ( isset( $options['field_border_color'] ) ) {
-					$css .= '#loginform .input { border-color: ' . esc_attr( $options['field_border_color'] ) . '; }';
+					$css .= '#login form .input { border-color: ' . esc_attr( $options['field_border_color'] ) . '; }';
 				}
 
 				// Field border radius.
 				if ( isset( $options['field_radius'] ) ) {
-					$css .= '#loginform .input, #loginform div .login-designer-event-button { border-radius: ' . esc_attr( $options['field_radius'] ) . 'px; }';
+					$css .= '#login form .input, #login form div .login-designer-event-button { border-radius: ' . esc_attr( $options['field_radius'] ) . 'px; }';
 				}
 
 				// Field box-shadow.
@@ -600,80 +600,80 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 					$inset = isset( $options['field_shadow_inset'] ) ? 'inset' : '';
 
-					$css .= '#loginform .input { box-shadow: ' . esc_attr( $inset ) . ' 0 0 '. esc_attr( $options['field_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
+					$css .= '#login form .input { box-shadow: ' . esc_attr( $inset ) . ' 0 0 '. esc_attr( $options['field_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
 				} else {
-					$css .= '#loginform .input { box-shadow: none; }';
+					$css .= '#login form .input { box-shadow: none; }';
 				}
 
 				// Field font, as long as it's not 'default'.
 				if ( isset( $options['field_font'] ) && 'default' !== $options['field_font'] ) {
-					$css .= '#loginform .input { font-family: ' . esc_attr( $options['field_font'] ) . '; }';
+					$css .= '#login form .input { font-family: ' . esc_attr( $options['field_font'] ) . '; }';
 				}
 
 				// Field font size.
 				if ( isset( $options['field_font_size'] ) ) {
-					$css .= '#loginform .input { font-size: ' . esc_attr( $options['field_font_size'] ) . 'px }';
+					$css .= '#login form .input { font-size: ' . esc_attr( $options['field_font_size'] ) . 'px }';
 				}
 
 				// Field font color.
 				if ( isset( $options['field_color'] ) ) {
-					$css .= '#loginform .input { color: ' . esc_attr( $options['field_color'] ) . ' }';
+					$css .= '#login form .input { color: ' . esc_attr( $options['field_color'] ) . ' }';
 				}
 
 				// Label font, as long as it's not 'default'.
 				if ( isset( $options['label_font'] ) && 'default' !== $options['label_font'] ) {
-					$css .= '#loginform label:not([for=rememberme]) { font-family: ' . esc_attr( $options['label_font'] ) . '; }';
+					$css .= '#login form label:not([for=rememberme]), #login .message { font-family: ' . esc_attr( $options['label_font'] ) . '; }';
 				}
 
 				// Label font size.
 				if ( isset( $options['label_font_size'] ) ) {
-					$css .= '#loginform label:not([for=rememberme]) { font-size: ' . esc_attr( $options['label_font_size'] ) . 'px }';
+					$css .= '#login form label:not([for=rememberme]), #login .message { font-size: ' . esc_attr( $options['label_font_size'] ) . 'px }';
 				}
 
 				// Label font color.
 				if ( isset( $options['label_color'] ) ) {
-					$css .= '#loginform label:not([for=rememberme]) { color: ' . esc_attr( $options['label_color'] ) . ' }';
+					$css .= '#login form label:not([for=rememberme]), #login .message { color: ' . esc_attr( $options['label_color'] ) . ' }';
 				}
 
 				// Label position.
 				if ( isset( $options['label_position'] ) ) {
-					$css .= '#loginform .input { margin-top: ' . esc_attr( $options['label_position'] ) . 'px }';
+					$css .= '#login form .input { margin-top: ' . esc_attr( $options['label_position'] ) . 'px }';
 
 					if ( is_customize_preview() ) {
-						$css .= '#loginform div .login-designer-event-button { top: ' . esc_attr( $options['label_position'] ) . 'px }';
+						$css .= '#login form div .login-designer-event-button { top: ' . esc_attr( $options['label_position'] ) . 'px }';
 					}
 				}
 
 				// Button background color.
 				if ( isset( $options['button_bg'] ) ) {
-					$css .= '#loginform .submit .button { background-color: ' . $options['button_bg'] . '; }';
+					$css .= '#login form .submit .button { background-color: ' . $options['button_bg'] . '; }';
 				}
 
 				// Button height.
 				if ( isset( $options['button_height'] ) ) {
-					$css .= '#loginform .submit .button { padding-top: ' . esc_attr( $options['button_height'] ) . 'px; padding-bottom: ' . esc_attr( $options['button_height'] ) . 'px; }';
+					$css .= '#login form .submit .button { padding-top: ' . esc_attr( $options['button_height'] ) . 'px; padding-bottom: ' . esc_attr( $options['button_height'] ) . 'px; }';
 				}
 
 				// Button side padding.
 				if ( isset( $options['button_side_padding'] ) ) {
-					$css .= '#loginform .submit .button { padding-left: ' . esc_attr( $options['button_side_padding'] ) . 'px; padding-right: ' . esc_attr( $options['button_side_padding'] ) . 'px; }';
+					$css .= '#login form .submit .button { padding-left: ' . esc_attr( $options['button_side_padding'] ) . 'px; padding-right: ' . esc_attr( $options['button_side_padding'] ) . 'px; }';
 				}
 
 				// Button border width.
 				if ( isset( $options['button_border'] ) ) {
-					$css .= '#loginform .submit .button { border-style: solid; border-width: ' . esc_attr( $options['button_border'] ) . 'px; }';
+					$css .= '#login form .submit .button { border-style: solid; border-width: ' . esc_attr( $options['button_border'] ) . 'px; }';
 				} else {
-					$css .= '#loginform .submit .button { border: 0 }';
+					$css .= '#login form .submit .button { border: 0 }';
 				}
 
 				// Button border color.
 				if ( isset( $options['button_border_color'] ) ) {
-					$css .= '#loginform .submit .button { border-color: ' . $options['button_border_color'] . '; }';
+					$css .= '#login form .submit .button { border-color: ' . $options['button_border_color'] . '; }';
 				}
 
 				// Button border radius.
 				if ( isset( $options['button_radius'] ) ) {
-					$css .= '#login #loginform .submit .button, #loginform .submit .login-designer-event-button { border-radius: ' . esc_attr( $options['button_radius'] ) . 'px; }';
+					$css .= '#login #login form .submit .button, #login form .submit .login-designer-event-button { border-radius: ' . esc_attr( $options['button_radius'] ) . 'px; }';
 				}
 
 				// Field box-shadow.
@@ -681,22 +681,22 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 					$opacity = ( isset( $options['button_shadow_opacity'] ) * .01 ) ? $options['button_shadow_opacity'] * .01 : 0;
 
-					$css .= '#loginform .submit .button { box-shadow: 0 0 '. esc_attr( $options['button_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
+					$css .= '#login form .submit .button { box-shadow: 0 0 '. esc_attr( $options['button_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
 				}
 
 				// Button font, as long as it's not 'default'.
 				if ( isset( $options['button_font'] ) && 'default' !== $options['button_font'] ) {
-					$css .= '#loginform .submit .button { font-family: ' . esc_attr( $options['button_font'] ) . '; }';
+					$css .= '#login form .submit .button { font-family: ' . esc_attr( $options['button_font'] ) . '; }';
 				}
 
 				// Button font size.
 				if ( isset( $options['button_font_size'] ) ) {
-					$css .= '#loginform .submit .button { font-size: ' . esc_attr( $options['button_font_size'] ) . 'px }';
+					$css .= '#login form .submit .button { font-size: ' . esc_attr( $options['button_font_size'] ) . 'px }';
 				}
 
 				// Button font color.
 				if ( isset( $options['button_color'] ) ) {
-					$css .= '#loginform .submit .button { color: ' . esc_attr( $options['button_color'] ) . ' }';
+					$css .= '#login form .submit .button { color: ' . esc_attr( $options['button_color'] ) . ' }';
 				}
 
 				// Lost Password.
@@ -771,7 +771,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Below form positioning.
 				if ( isset( $options['below_position'] ) ) {
-					$css .= '.login #loginform + p { margin-top: ' . esc_attr( $options['below_position'] ) . 'px }';
+					$css .= '.login #login form + p { margin-top: ' . esc_attr( $options['below_position'] ) . 'px }';
 				}
 
 				// Below form font, as long as it's not 'default'.

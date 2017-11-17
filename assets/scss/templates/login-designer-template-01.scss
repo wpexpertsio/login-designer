@@ -20,14 +20,38 @@ body.login.login-designer-template-01 {
 		@media only screen and (max-width: 399px) {
 			width: 90%;
 		}
+
+		.message {
+			max-width: 400px;
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 
-	#loginform {
+	form {
 		max-width: 420px;
 		margin: 0 auto;
 		@media only screen and (max-width: 499px) {
 			padding-left: 25px;
 			padding-right: 25px;
+		}
+	}
+
+	#lostpasswordform {
+
+		label {
+			display: block;
+			text-align: center;
+		}
+
+		.submit {
+			text-align: center;
+		}
+
+		.submit .button {
+			float: none;
+			margin-left: auto;
+			margin-right: auto;
 		}
 	}
 }

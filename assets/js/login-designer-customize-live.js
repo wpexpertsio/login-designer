@@ -5,11 +5,11 @@
 	"use strict";
 
 	$( '#login-designer--username, #login-designer--password').hover(function() {
-		$( '#loginform').toggleClass( 'input-hover' );
+		$( '#login form').toggleClass( 'input-hover' );
 	});
 
 	$( '#login-designer--username-label, #login-designer--password-label').hover(function() {
-		$( '#loginform').toggleClass( 'label-hover' );
+		$( '#login form').toggleClass( 'label-hover' );
 	});
 
 	// Bail if the Customizer isn't initialized
@@ -33,7 +33,7 @@
 				$body_bg 	= $( '#login'),
 				$document 	= $( document ),
 				$logo	 	= $( '#login-designer-logo-h1'),
-				$loginform	= $( '#loginform'),
+				$loginform	= $( '#login form'),
 				$loginform_text	= $( '#login-designer--username'),
 				$loginform_pass	= $( '#login-designer--password'),
 				$username_label	= $( '#login-designer--username-label'),

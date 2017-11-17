@@ -20,12 +20,32 @@ body.login-designer-template-02 {
 			padding: 0;
 		}
 
-		#loginform {
+		form {
 			background: none !important;
 		}
 
 		p {
 			transform: translate3d(0, 0, 0);
+		}
+
+		.message {
+			max-width: 280px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 40px;
+		}
+	}
+
+	#lostpasswordform {
+
+		label {
+			display: block;
+			text-align: center;
+		}
+
+		.submit .button {
+			width: 100%;
+			margin-top: -15px;
 		}
 	}
 }
