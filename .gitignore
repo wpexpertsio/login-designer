@@ -10,3 +10,5 @@ dist
 dist/login-designer.zip
 
 dist/login-designer.zip
+
+*.zip
