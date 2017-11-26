@@ -1,4 +1,4 @@
-=== @@pkg.name ===
+=== Custom Login Page Customizer — Login Designer ===
 Author URI: @@pkg.author_uri
 Plugin URI: @@pkg.plugin_uri
 Contributors: ThatPluginCompany, richtabor
@@ -11,20 +11,20 @@ Stable tag: @@pkg.version
 License: @@pkg.license
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-@@pkg.description
+Login Designer is the easiest way to style a custom login page for your WordPress login, register and forgot password forms, right from the live-action WordPress Customizer.
 
 == Description ==
 
-You shouldn’t have to hire a developer to customize your website's login page. That’s why I built [Login Designer](https://logindesigner.com?utm_medium=login-designer-lite&utm_source=readme&utm_campaign=readme&utm_content=login-designer), the best login customization plugin for WordPress.
+You shouldn’t have to hire a developer to customize your website's login page. That’s why I built [Login Designer](https://logindesigner.com?utm_medium=login-designer-lite&utm_source=readme&utm_campaign=readme&utm_content=login-designer), the best login customizer plugin for WordPress.
 
-While Login Designer is not the first WordPress plugin designed for custom login editing, it offers an unrivaled live-editing experience unlike any other.
+While Login Designer is not the first WordPress plugin designed for styling custom login pages, it offers an unrivaled live-editing experience unlike any other.
 
-**Login Designer’s customizing and templating experience is the best in class — _by a long shot_**.
+**Login Designer’s login customizing and templating experience is the best in class — _by a long shot_**.
 
 = A short video =
 [vimeo https://vimeo.com/243191812]
 
-= An unparalleled editing experience =
+= An unparalleled custom login styling experience =
 
 Zero refreshes. Contextually displayed options and plugin settings. Custom event triggers. Context-aware previews. Powerful custom controls. Live editing... the list goes on.
 
