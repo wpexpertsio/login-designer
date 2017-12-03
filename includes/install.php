@@ -2,10 +2,9 @@
 /**
  * Install Functionality
  *
- * @package	 @@pkg.name
- * @copyright @@pkg.copyright
- * @author	@@pkg.author
- * @license	 @@pkg.license
+ * @package   @@pkg.name
+ * @author    @@pkg.author
+ * @license   @@pkg.license
  */
 
 // Exit if accessed directly.
