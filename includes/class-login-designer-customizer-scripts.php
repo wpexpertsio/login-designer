@@ -95,6 +95,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			// Localization.
 			$localize = array(
 				'admin_url'		=> admin_url(),
+				'ajax_url'   		=> admin_url( 'admin-ajax.php' ),
 				'plugins_url'		=> plugins_url(),
 				'plugin_url'       	=> LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
 				'login_designer_page'   => get_permalink( $page ),
