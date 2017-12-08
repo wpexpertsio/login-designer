@@ -25,12 +25,12 @@ $wp_customize->add_setting( 'login_designer[logo]', array(
 	'default'               => $defaults['logo'],
 	'type' 			=> 'option',
 	'transport'             => 'postMessage',
-	'sanitize_callback'     => array( $this, 'sanitize_image' ),
+	'sanitize_callback' 	=> 'absint',
 ) );
 
-$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'login_designer[logo]', array(
-	'section'              => 'login_designer__section--styles',
-	'settings'             => 'login_designer[logo]',
+$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'login_designer[logo]', array(
+	'section'               => 'login_designer__section--styles',
+	'settings'              => 'login_designer[logo]',
 ) ) );
 
 $wp_customize->add_setting( 'login_designer_settings[logo_url]', array(
