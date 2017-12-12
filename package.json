@@ -1,5 +1,5 @@
 {
-	"name": "Login Designer",
+	"name": "LoginDesigner",
 	"slug": "login-designer",
 	"textdomain": "login-designer",
 	"version": "1.0.4",
@@ -12,5 +12,33 @@
 	"author_shop": "ThatPluginCompany",
 	"author_uri": "https://richtabor.com",
 	"plugin_uri": "https://logindesigner.com",
-	"license": "GPL-3.0"
+	"license": "GPL-3.0",
+	"devDependencies": {
+		"browser-sync": "^2.11.1",
+		"gulp": "^3.9.1",
+		"gulp-autoprefixer": "^3.1.0",
+		"gulp-cache": "^0.5.0",
+		"gulp-clean": "^0.3.2",
+		"gulp-csscomb": "^3.0.8",
+		"gulp-concat": "^2.5.2",
+		"gulp-copy": "^1.0.1",
+		"gulp-filter": "^4.0.0",
+		"gulp-imagemin": "^2.4.0",
+		"gulp-line-ending-corrector": "^1.0.1",
+		"gulp-merge-media-queries": "^0.2.1",
+		"gulp-notify": "^2.2.0",
+		"gulp-open": "^2.0.0",
+		"gulp-rename": "^1.2.0",
+		"gulp-replace-task": "^0.11.0",
+		"gulp-sass": "^2.2.0",
+		"gulp-sftp": "^0.1.5",
+		"gulp-sort": "^2.0.0",
+		"gulp-watch": "^4.3.11",
+		"gulp-sourcemaps": "^1.5.2",
+		"gulp-uglify": "^1.5.3",
+		"gulp-uglifycss": "^1.0.8",
+		"gulp-wp-pot": "^1.2.2",
+		"gulp-zip": "^4.0.0",
+		"run-sequence": "^2.2.0"
+	}
 }

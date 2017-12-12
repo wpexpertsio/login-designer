@@ -4,7 +4,7 @@
  */
 
 var pkg                     	= require('./package.json');
-var project                 	= pkg.name;
+var project                 	= 'Login Designer';
 var slug                    	= pkg.slug;
 var version                	= pkg.version;
 var license                	= pkg.license;
@@ -97,12 +97,12 @@ var gulp         = require('gulp');
 var sass         = require('gulp-sass');
 var concat       = require('gulp-concat');
 var cleaner      = require('gulp-clean');
-var minifycss    = require('gulp-clean-css');
+var minifycss    = require('gulp-uglifycss');
 var autoprefixer = require('gulp-autoprefixer');
 var rename       = require('gulp-rename');
 var sort         = require('gulp-sort');
 var notify       = require('gulp-notify');
-var runSequence  = require('gulp-run-sequence');
+var runSequence  = require('run-sequence');
 var copy         = require('gulp-copy');
 var lineec       = require('gulp-line-ending-corrector');
 var filter       = require('gulp-filter');
