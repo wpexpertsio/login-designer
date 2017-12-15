@@ -488,8 +488,7 @@
 	color: #555d66;
 	display: inline-block;
 	font-style: 14px;
-	height: 26px;
-	height: 40px;
+	height: 26px !important;
 	line-height: 14px;
 	padding: 2px 0;
 	position: relative;

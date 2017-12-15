@@ -78,7 +78,6 @@
 			border: none;
 			box-shadow: 0 0 0;
 			color: $gray;
-			height: 26px;
 			display: inline-block;
 			line-height: 14px;
 			padding: 2px 0;
@@ -86,7 +85,7 @@
 			text-align: right;
 			width: 26px;
 			font-style: 14px;
-			height: 40px;
+			height: 26px !important;
 
 			&::-webkit-inner-spin-button,
 			&::-webkit-outer-spin-button {

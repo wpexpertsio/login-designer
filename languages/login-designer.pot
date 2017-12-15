@@ -45,11 +45,11 @@ msgstr ""
 msgid "Your license key has reached its activation limit."
 msgstr ""
 
-#: includes/class-login-designer-customizer-output.php:97
+#: includes/class-login-designer-customizer-output.php:100
 msgid "Username or Email Address"
 msgstr ""
 
-#: includes/class-login-designer-customizer-output.php:98, includes/settings/labels.php:45
+#: includes/class-login-designer-customizer-output.php:101, includes/settings/labels.php:45
 msgid "Password"
 msgstr ""
 
@@ -229,7 +229,7 @@ msgstr ""
 msgid "Template 04"
 msgstr ""
 
-#: includes/class-login-designer-templates.php:235, includes/class-login-designer-templates.php:283, includes/settings/labels.php:32
+#: includes/class-login-designer-templates.php:236, includes/class-login-designer-templates.php:285, includes/settings/labels.php:32
 msgid "Username"
 msgstr ""
 
@@ -305,7 +305,7 @@ msgstr ""
 msgid "Background"
 msgstr ""
 
-#: includes/settings/button.php:45
+#: includes/settings/button.php:45, includes/settings/logo.php:66
 msgid "Height"
 msgstr ""
 
@@ -321,15 +321,15 @@ msgstr ""
 msgid "Border Color"
 msgstr ""
 
-#: includes/settings/button.php:120, includes/settings/checkbox.php:99, includes/settings/fields.php:162, includes/settings/form.php:108
+#: includes/settings/button.php:120, includes/settings/checkbox.php:99, includes/settings/fields.php:162, includes/settings/form.php:122
 msgid "Radius"
 msgstr ""
 
-#: includes/settings/button.php:141, includes/settings/fields.php:183, includes/settings/form.php:129
+#: includes/settings/button.php:141, includes/settings/fields.php:183, includes/settings/form.php:143
 msgid "Shadow"
 msgstr ""
 
-#: includes/settings/button.php:162, includes/settings/fields.php:204, includes/settings/form.php:150
+#: includes/settings/button.php:162, includes/settings/fields.php:204, includes/settings/form.php:164
 msgid "Shadow Opacity"
 msgstr ""
 
@@ -385,15 +385,19 @@ msgstr ""
 msgid "Easily customize the login form wrapper's default styling."
 msgstr ""
 
-#: includes/settings/form.php:45
+#: includes/settings/form.php:44
+msgid "Transparency"
+msgstr ""
+
+#: includes/settings/form.php:59, includes/settings/logo.php:45
 msgid "Width"
 msgstr ""
 
-#: includes/settings/form.php:66
+#: includes/settings/form.php:80
 msgid "Side Padding"
 msgstr ""
 
-#: includes/settings/form.php:87
+#: includes/settings/form.php:101
 msgid "Vertical Padding"
 msgstr ""
 
@@ -421,19 +425,19 @@ msgstr ""
 msgid "Add your own logo. Logos will display at 50% height & width, to account for retina."
 msgstr ""
 
-#: includes/settings/logo.php:44
+#: includes/settings/logo.php:86
 msgid "Logo URL"
 msgstr ""
 
-#: includes/settings/logo.php:45
+#: includes/settings/logo.php:87
 msgid "Select a page for your logo to link to. This is typically your site's home page."
 msgstr ""
 
-#: includes/settings/logo.php:60
+#: includes/settings/logo.php:102
 msgid "Bottom Spacing"
 msgstr ""
 
-#: includes/settings/logo.php:80
+#: includes/settings/logo.php:122
 msgid "Disable Logo"
 msgstr ""
 

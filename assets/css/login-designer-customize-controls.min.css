@@ -81,7 +81,7 @@
 .customize-control-login-designer-range span{margin:0}
 .customize-control-login-designer-range .track{background:#b4b9be;left:23px;opacity:0;padding:5px 0;position:absolute;right:65px;top:50%;-webkit-transform:translatey(-50%);-ms-transform:translatey(-50%);transform:translatey(-50%);-webkit-transition:opacity 150ms cubic-bezier(0.694,0.0482,0.335,1);transition:opacity 150ms cubic-bezier(0.694,0.0482,0.335,1);width:74%}
 .customize-control-login-designer-range .value{font-size:14px;position:absolute;right:0;text-align:right;top:-3px;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);width:65px}
-.customize-control-login-designer-range .value input[type=number]{background:0;border:0;box-shadow:0 0;color:#555d66;display:inline-block;font-style:14px;height:26px;height:40px;line-height:14px;padding:2px 0;position:relative;text-align:right;width:26px}
+.customize-control-login-designer-range .value input[type=number]{background:0;border:0;box-shadow:0 0;color:#555d66;display:inline-block;font-style:14px;height:26px !important;line-height:14px;padding:2px 0;position:relative;text-align:right;width:26px}
 .customize-control-login-designer-range .value input[type=number]::-webkit-inner-spin-button,.customize-control-login-designer-range .value input[type=number]::-webkit-outer-spin-button{margin:0;-webkit-appearance:none;appearance:none}
 .customize-control-login-designer-range .value input[type=number]:hover{color:#0073aa}
 .customize-control-login-designer-range .value span{display:none}
