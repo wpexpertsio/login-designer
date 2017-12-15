@@ -65,7 +65,7 @@ class Login_Designer_Template_Control extends WP_Customize_Control {
 			echo '<span class="description customize-control-description">' . esc_html( $this->description ) . '</span>';
 		} ?>
 
-		<div class="layout-switcher__wrapper">
+		<div class="login-designer-templates-wrapper">
 			<?php foreach ( $this->choices as $value => $label ) { ?>
 
 			   <input id="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $value ); ?>" class="layout" type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $name ); ?>" <?php $this->link(); checked( $this->value(), $value ); ?> />

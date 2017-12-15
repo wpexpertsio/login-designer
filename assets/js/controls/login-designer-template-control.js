@@ -6,7 +6,7 @@
 
 			e.preventDefault();
 
-			$('.layout-switcher__wrapper').toggleClass( 'open' );
+			$('.login-designer-templates-wrapper').toggleClass( 'open' );
 
 			if ( $( this ).text() === login_designer_custom_controls.btn_default ) {
 				$( this ).text( login_designer_custom_controls.btn_close );
