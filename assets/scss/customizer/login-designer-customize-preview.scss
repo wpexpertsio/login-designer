@@ -56,6 +56,23 @@ body:hover .customize-partial-edit-shortcut {
 }
 
 // Partials.
+.customize-partial--login-designer-background {
+
+	.login-designer-event-button:before {
+		color: #fff;
+		box-shadow: none;
+		font: 400 15px/72px dashicons;
+		content: "\f540";
+		position: absolute;
+		right: 0.17em;
+		text-shadow: 0 -1px 1px rgba(0, 122, 182, 0.8), 1px 0 1px #007ab6, 0 1px 1px #007ab6, -1px 0 1px #007ab6;
+		top: .24em;
+		height: 20px;
+		width: 20px;
+		line-height: 20px;
+	}
+
+}
 .customize-partial--login-designer-settings {
 	bottom: 42px !important;
 	right: 12px !important;
@@ -74,13 +91,6 @@ body:hover .customize-partial-edit-shortcut {
 		height: 20px;
 		width: 20px;
 		line-height: 20px;
-	}
-
-	.customize-settings & {
-		transition: opacity 150ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1) 150ms;
-		pointer-events: none;
-		opacity: 0;
-		visibility: hidden;
 	}
 }
 

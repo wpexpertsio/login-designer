@@ -53,6 +53,20 @@ body:hover .customize-partial-edit-shortcut {
 	transition: opacity 200ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1) 200ms;
 }
 
+.customize-partial--login-designer-background .login-designer-event-button:before {
+	box-shadow: none;
+	color: #fff;
+	content: "\f540";
+	font: 400 15px/72px dashicons;
+	height: 20px;
+	line-height: 20px;
+	position: absolute;
+	right: 0.17em;
+	text-shadow: 0 -1px 1px rgba(0, 122, 182, 0.8), 1px 0 1px #007ab6, 0 1px 1px #007ab6, -1px 0 1px #007ab6;
+	top: 0.24em;
+	width: 20px;
+}
+
 .customize-partial--login-designer-settings {
 	bottom: 42px !important;
 	display: none !important;
@@ -73,14 +87,6 @@ body:hover .customize-partial-edit-shortcut {
 	text-shadow: 0 -1px 1px #007ab6, 1px 0 1px #007ab6, 0 1px 1px #007ab6, -1px 0 1px #007ab6;
 	top: 0.15em;
 	width: 20px;
-}
-
-.customize-settings .customize-partial--login-designer-settings {
-	opacity: 0;
-	pointer-events: none;
-	-webkit-transition: opacity 150ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1) 150ms;
-	transition: opacity 150ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1) 150ms;
-	visibility: hidden;
 }
 
 .customize-partial--login-designer-template {
