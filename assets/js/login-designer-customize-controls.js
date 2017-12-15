@@ -107,9 +107,6 @@
 
 			// console.log( 'Defaults Reset' );
 
-			// $( '#customize-control-login_designer-bg_image .remove-button' ).click();
-			// $( '#customize-control-login_designer-logo .remove-button' ).click();
-
 			for ( var key in login_designer_controls.template_defaults ) {
 
 				var control 	= key;
@@ -215,6 +212,46 @@
 				// If we have a custom background color, let's turn off transparency.
 				wp.customize( 'login_designer[form_shadow]' ).set( '0' );
 			} );
+		} );
+
+		// Grab the logo sizes from the logo uploader event from the Customizer.
+		wp.customize.previewer.bind( 'logo-sizes', function( data ) {
+
+			var
+			width,
+			height;
+
+			if ( data.height ) {
+				height = data.height / 2;
+				wp.customize( 'login_designer[logo_height]' ).set( height );
+				// console.log( height );
+			}
+
+			if ( data.width ) {
+				width = data.width / 2;
+				wp.customize( 'login_designer[logo_width]' ).set( width );
+				// console.log( width );
+			}
+		} );
+
+		// Grab the logo sizes from the logo uploader event from the Customizer.
+		wp.customize.previewer.bind( 'logo-sizes-fallback', function( data ) {
+
+			var
+			width,
+			height;
+
+			if ( data.height ) {
+				height = data.height;
+				wp.customize( 'login_designer[logo_height]' ).set( height );
+				// console.log( height );
+			}
+
+			if ( data.width ) {
+				width = data.width;
+				wp.customize( 'login_designer[logo_width]' ).set( width );
+				// console.log( width );
+			}
 		} );
 	} );
 } )( jQuery );

@@ -29,7 +29,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 			add_filter( 'gettext', array( $this, 'custom_username_label' ), 20, 3 );
 			add_filter( 'gettext', array( $this, 'custom_password_label' ), 20, 3 );
 			add_filter( 'wp_resource_hints', array( $this, 'fonts_resource_hints' ), 10, 2 );
-			add_action( 'wp_ajax_get_logo_url', array( $this, 'get_logo_url_callback' ) );
+			add_action( 'wp_ajax_get_logo_info', array( $this, 'get_logo_info_callback' ) );
 		}
 
 		/**
@@ -71,6 +71,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'bg_attach'             => 'fixed',
 				'bg_color'              => '#f1f1f1',
 				'logo'                  => '',
+				'logo_width'            => '84',
+				'logo_height'           => '84',
 				'logo_margin_bottom'    => '25',
 				'disable_logo'          => false,
 				'form_bg'               => '#ffffff',
@@ -354,12 +356,19 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		/**
 		 * Callback to retrieve the custom logo via AJAX from within the live previewer.
 		 */
-		public function get_logo_url_callback() {
+		public function get_logo_info_callback() {
 
 			$logo = $this->option_wrapper( 'logo' );
 			$logo = wp_get_attachment_image_src( $logo, 'full' );
 
-			echo esc_url( $logo[0] );
+			wp_send_json(
+				array(
+					'done'   => 1,
+					'url'    => esc_url( $logo[0] ),
+					'width'  => absint( $logo[1] ),
+					'height' => absint( $logo[2] ),
+				)
+			);
 
 			wp_die();
 		}
@@ -508,12 +517,14 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 					$image = wp_get_attachment_image_src( $options['logo'], 'full' );
 
+					$width  = isset( $options['logo_width'] ) ? $options['logo_width'] : $image[1] / 2;
+					$height = isset( $options['logo_height'] ) ? $options['logo_height'] : $image[2] / 2;
+
 					$css .= '
 						#login-designer-logo,
 						body.login #login h1 a {
 							background-image: url(" ' . esc_url( $image[0] ) . ' ");
-							background-size: 100%;
-							background-size: ' . absint( $image[1] / 2 ) . 'px ' . absint( $image[2] / 2 ) . 'px ;
+							background-size: ' . absint( $width ) . 'px ' . absint( $height ) . 'px ;
 							background-position: center center;
 						}
 
@@ -521,8 +532,12 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 						body.login #login h1 a {
 							margin-left: auto;
 							margin-right: auto;
-							height: ' . absint( $image[2] / 2 ) . 'px !important;
-							width: ' . absint( $image[1] / 2 ) . 'px !important;
+							width: ' . absint( $width ) . 'px;
+							height: ' . absint( $height ) . 'px;
+						}
+
+						#login-designer-logo-h1 {
+							width: ' . absint( $width ) . 'px !important;
 						}
 
 						#login h1 a { width: auto; }
@@ -531,7 +546,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Logo display.
 				if ( isset( $options['disable_logo'] ) && true === $options['disable_logo'] ) {
-					$css .= 'body.login #login h1 a { display: none; }';
+					$css .= 'body.login #login h1 a { display: none; } #login-designer-logo-h1 { height: 0;}';
 					$css .= 'body.login #login h1 a, body #login-designer-logo-h1 { margin-bottom: 0 }';
 				}
 

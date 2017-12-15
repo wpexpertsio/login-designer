@@ -75,9 +75,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 
 			// Change to the minified asset directory.
 			if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
-				$js_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/';
+				$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/';
 			} else {
-				$js_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
+				$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
 			}
 
 			// Use minified libraries if SCRIPT_DEBUG is turned off.
@@ -116,9 +116,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 
 			// Change to the minified asset directory.
 			if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
-				$js_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/';
+				$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/';
 			} else {
-				$js_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
+				$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
 			}
 
 			// Use minified libraries if SCRIPT_DEBUG is turned off.
@@ -135,9 +135,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 
 			// Localization.
 			$localize = array(
-				'plugin_url'        	=> LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
-				'login_designer_page'   => get_permalink( $page ),
-				'extension_bg_colors' 	=> $customizer->extension_colors(),
+				'plugin_url'          => LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
+				'login_designer_page' => get_permalink( $page ),
+				'extension_bg_colors' => $customizer->extension_colors(),
 			);
 
 			$localize = apply_filters( 'login_designer_control_localization', $localize );

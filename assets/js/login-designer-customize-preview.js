@@ -623,7 +623,136 @@
 		return '' !== image;
 	}
 
-	function hasLogoAction( to ) {
+	// Return the logo width.
+	function LogoWidth() {
+		return wp.customize( 'login_designer[logo_width]' )();
+	}
+
+	function LogoHeight() {
+		return wp.customize( 'login_designer[logo_height]' )();
+	}
+
+	// Customize the logo width.
+	wp.customize( 'login_designer[logo_width]', function( value ) {
+
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_logo">body.login #login-designer-logo, body.login #login h1 a { background-size:' + to + 'px ' + LogoHeight() + 'px !important; } #login-designer-logo, #login-designer-logo-h1, body.login #login h1 a { width: ' + to + 'px !important; height: ' + LogoHeight() + 'px !important; }  } </style>';
+
+			el =  $( '.login_designer_logo' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Customize the logo height.
+	wp.customize( 'login_designer[logo_height]', function( value ) {
+
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_logo">body.login #login-designer-logo, body.login #login h1 a { background-size:' + LogoWidth() + 'px ' + to + 'px !important; } #login-designer-logo, #login-designer-logo-h1, body.login #login h1 a { width: ' + LogoWidth() + 'px !important; height: ' + to + 'px !important; }  } </style>';
+
+			el =  $( '.login_designer_logo' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Custom logo.
+	wp.customize( 'login_designer[logo]', function( value ) {
+		value.bind( function( to ) {
+
+			if ( to ) {
+
+				var data = {
+					action: 'get_logo_info'
+				};
+
+				$.post( login_designer_script.ajax_url, data, function( response ) {
+
+					// Conduct the relative actions when a logo is uploaded.
+					hasLogoAction( response.url, response.width, response.height );
+
+					// Communicate with the logo height and width controls to output the right sizes.
+					wp.customize.preview.send( 'logo-sizes', { height: response.height, width: response.width } );
+
+					// console.log( 'Preview response:' + response.height + response.width + response.url );
+				});
+
+			} else {
+				hasLogoAction( to, null, null );
+			}
+
+		} );
+	} );
+
+	// Check whether a custom logo image is available.
+	function logoVisibility() {
+
+		var logo_display;
+
+		var logo_display = wp.customize( 'login_designer[disable_logo]' )();
+
+		if ( logo_display === true ) {
+
+			setTimeout( function() {
+				$( '#login-designer-logo-h1 .login-designer-event-button' ).wrap( '<span class="customize-partial--login-designer-add-logo customize-partial-edit-shortcut"></span>' );
+				$( '#login-designer-logo-h1 .login-designer-event-button' ).removeClass( 'customizer-event-overlay' );
+			}, 70);
+
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	wp.customize.bind( 'preview-ready', function() {
+		logoVisibility();
+	});
+
+	// Hide the logo.
+	wp.customize( 'login_designer[disable_logo]', function( value ) {
+		value.bind( function( to ) {
+
+			var style, el;
+
+			el =  $( '.login_designer_logo_disable_logo' );
+
+			if ( true === to ) {
+				style = '<style class="login_designer_logo_disable_logo"> #login-designer-logo { display: none !important; } body #login-designer-logo-h1, body #login-designer-logo-h1 #login-designer-logo { height: 0 !important; width: 0 !important; } </style>';
+			} else {
+				style = '<style class="login_designer_logo_disable_logo"> #login-designer-logo { display: block !important; } #login-designer-logo-h1 { height: ' + LogoHeight() + 'px } </style>';
+			}
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+
+			var nib = '<span class="customize-partial--login-designer-add-logo customize-partial-edit-shortcut"></span>';
+
+			if ( true === to ) {
+				// If hidden;
+				$( '#login-designer-logo-h1 .login-designer-event-button' ).wrap( nib );
+				$( '#login-designer-logo-h1 .login-designer-event-button' ).removeClass( 'customizer-event-overlay' );
+			} else {
+				$( '#login-designer-logo-h1 .login-designer-event-button' ).unwrap( nib );
+				$( '#login-designer-logo-h1 .login-designer-event-button' ).addClass( 'customizer-event-overlay' );
+			}
+
+		});
+	});
+
+	function hasLogoAction( to, width, height ) {
 
 		var style, element;
 
@@ -633,35 +762,25 @@
 		// If we have a custom logo uploaded.
 		if ( hasLogo() ) {
 
+			var
+			width  = width / 2,
+			height = height / 2;
+
 			// Set the background image of the logo.
 			$( '#login-designer-logo' ).css( 'background-image', 'url( ' + to + ')' );
 
-			// Grab the height & width attributes, so we can resize the logo appropriately.
-			var img = new Image();
+           		$( '#login-designer-logo' ).css({
+           			width: width,
+				height: height,
+			});
 
-			img.src = to;
+			// Setting the background size of the custom logo.
+			style = '<style class="login_designer_logo">body.login #login h1 a { display: block; } #login-designer-logo, body.login #login h1 a { background-size:'+width+'px '+height+'px; } #login-designer-logo-h1 { width: '+width+'px !important; height: '+height+'px !important; } </style>';
 
-			var style;
-
-			img.onload = function(){
-
-				// We're dividing by 2, in order to make the logo's look nice on retina devices.
-				var width 	= img.width / 2,
-				    height 	= img.height / 2;
-
-	           		$( '#login-designer-logo' ).css({
-	           			width: width,
-					height: height,
-				});
-
-				// Setting the background size of the custom logo.
-				style = '<style class="login_designer_logo">body.login #login h1 a { display: block; } #login-designer-logo, body.login #login h1 a { background-size:'+width+'px '+height+'px; } #login-designer-logo-h1 { width: '+width+'px !important; height: '+height+'px !important; } </style>';
-
-				if ( element.length ) {
-					element.replaceWith( style );
-				} else {
-					$( 'head' ).append( style );
-				}
+			if ( element.length ) {
+				element.replaceWith( style );
+			} else {
+				$( 'head' ).append( style );
 			}
 
 		} else {
@@ -1032,89 +1151,6 @@
 			$( '#login-designer--password-label span' ).html( newval );
 		} );
 	} );
-
-	// Custom logo.
-	wp.customize( 'login_designer[logo]', function( value ) {
-		value.bind( function( to ) {
-
-			var new_logo;
-
-			if ( to ) {
-
-				var data = {
-					action: 'get_logo_url'
-				};
-
-				$.post( login_designer_script.ajax_url, data, function( response ) {
-					var new_logo = response;
-					hasLogoAction( new_logo );
-				});
-			} else {
-				hasLogoAction( to );
-			}
-
-			console.log( new_logo );
-
-		} );
-	} );
-
-	// Check whether a custom logo image is available.
-	function logoVisibility() {
-
-		var logo_display;
-
-		var logo_display = wp.customize( 'login_designer[disable_logo]' )();
-
-		if ( logo_display === true ) {
-
-			setTimeout( function() {
-				$( '#login-designer-logo-h1 .login-designer-event-button' ).wrap( '<span class="customize-partial--login-designer-add-logo customize-partial-edit-shortcut"></span>' );
-				$( '#login-designer-logo-h1 .login-designer-event-button' ).removeClass( 'customizer-event-overlay' );
-			}, 70);
-
-			return false;
-		} else {
-			return true;
-		}
-	}
-
-	wp.customize.bind( 'preview-ready', function() {
-		logoVisibility();
-	});
-
-	// Hide the logo.
-	wp.customize( 'login_designer[disable_logo]', function( value ) {
-		value.bind( function( to ) {
-
-			var style, el;
-
-			el =  $( '.login_designer_logo_disable_logo' );
-
-			if ( true === to ) {
-				style = '<style class="login_designer_logo_disable_logo"> #login-designer-logo { display: none !important; } body #login-designer-logo-h1, body #login-designer-logo-h1 #login-designer-logo { height: 0 !important; width: 0 !important; } </style>';
-			} else {
-				style = '<style class="login_designer_logo_disable_logo"> #login-designer-logo { display: block !important; } </style>';
-			}
-
-			if ( el.length ) {
-				el.replaceWith( style ); // style element already exists, so replace it
-			} else {
-				$( 'head' ).append( style ); // style element doesn't exist so add it
-			}
-
-			var nib = '<span class="customize-partial--login-designer-add-logo customize-partial-edit-shortcut"></span>';
-
-			if ( true === to ) {
-				// If hidden;
-				$( '#login-designer-logo-h1 .login-designer-event-button' ).wrap( nib );
-				$( '#login-designer-logo-h1 .login-designer-event-button' ).removeClass( 'customizer-event-overlay' );
-			} else {
-				$( '#login-designer-logo-h1 .login-designer-event-button' ).unwrap( nib );
-				$( '#login-designer-logo-h1 .login-designer-event-button' ).addClass( 'customizer-event-overlay' );
-			}
-
-		});
-	});
 
 	// Custom logo margin bottom.
 	wp.customize( 'login_designer[logo_margin_bottom]', function( value ) {
