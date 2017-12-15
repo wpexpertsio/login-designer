@@ -109,11 +109,12 @@
 
 			for ( var key in login_designer_controls.template_defaults ) {
 
+				if ( key === 'logo' || key === 'logo_height' || key === 'logo_width' ) continue;
+
 				var control 	= key;
 				var value	= login_designer_controls.template_defaults[key];
 
 				wp.customize( 'login_designer[' + control + ']' ).set( value );
-
 			}
 		}
 
@@ -121,6 +122,8 @@
 
 			// Now apply the template's custom style.
 			for ( var key in template_defaults ) {
+
+				if ( key === 'logo' || key === 'logo_height' || key === 'logo_width' ) continue;
 
 				var control 	= key;
 				var value	= template_defaults[key];
@@ -145,20 +148,6 @@
 					template_set_defaults( login_designer_controls.template_defaults_02 );
 				} else if ( to === '03' ) {
 					template_set_defaults( login_designer_controls.template_defaults_03 );
-				} else if ( to === '04' ) {
-					template_set_defaults( login_designer_controls.template_defaults_04 );
-				} else if ( to === '05' ) {
-					template_set_defaults( login_designer_controls.template_defaults_05 );
-				} else if ( to === '06' ) {
-					template_set_defaults( login_designer_controls.template_defaults_06 );
-				} else if ( to === '07' ) {
-					template_set_defaults( login_designer_controls.template_defaults_07 );
-				} else if ( to === '08' ) {
-					template_set_defaults( login_designer_controls.template_defaults_08 );
-				} else if ( to === '09' ) {
-					template_set_defaults( login_designer_controls.template_defaults_09 );
-				} else if ( to === '10' ) {
-					template_set_defaults( login_designer_controls.template_defaults_10 );
 				}
 			} );
 		} );
@@ -222,13 +211,13 @@
 			height;
 
 			if ( data.height ) {
-				height = data.height / 2;
+				height = parseInt( data.height / 2 );
 				wp.customize( 'login_designer[logo_height]' ).set( height );
 				// console.log( height );
 			}
 
 			if ( data.width ) {
-				width = data.width / 2;
+				width = parseInt( data.width / 2 );
 				wp.customize( 'login_designer[logo_width]' ).set( width );
 				// console.log( width );
 			}

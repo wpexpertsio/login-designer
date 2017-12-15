@@ -81,7 +81,7 @@
 .customize-control-login-designer-range span{margin:0}
 .customize-control-login-designer-range .track{background:#b4b9be;left:23px;opacity:0;padding:5px 0;position:absolute;right:65px;top:50%;-webkit-transform:translatey(-50%);-ms-transform:translatey(-50%);transform:translatey(-50%);-webkit-transition:opacity 150ms cubic-bezier(0.694,0.0482,0.335,1);transition:opacity 150ms cubic-bezier(0.694,0.0482,0.335,1);width:74%}
 .customize-control-login-designer-range .value{font-size:14px;position:absolute;right:0;text-align:right;top:-3px;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);width:65px}
-.customize-control-login-designer-range .value input[type=number]{background:0;border:0;box-shadow:0 0;color:#555d66;display:inline-block;height:26px;line-height:14px;padding:2px 0;position:relative;text-align:right;width:25px}
+.customize-control-login-designer-range .value input[type=number]{background:0;border:0;box-shadow:0 0;color:#555d66;display:inline-block;font-style:14px;height:26px;height:40px;line-height:14px;padding:2px 0;position:relative;text-align:right;width:26px}
 .customize-control-login-designer-range .value input[type=number]::-webkit-inner-spin-button,.customize-control-login-designer-range .value input[type=number]::-webkit-outer-spin-button{margin:0;-webkit-appearance:none;appearance:none}
 .customize-control-login-designer-range .value input[type=number]:hover{color:#0073aa}
 .customize-control-login-designer-range .value span{display:none}
@@ -102,17 +102,24 @@
 .customize-control-login-designer-range input[type=range]:focus::-ms-fill-lower{background:#b4b9be}
 .customize-control-login-designer-range input[type=range]:focus::-ms-fill-upper{background:#b4b9be}
 .customize-control-login-designer-template-selector{margin-bottom:0;margin-top:0;position:relative}
-.customize-control-login-designer-template-selector label{border:1px solid transparent;border-radius:2px;cursor:pointer;display:block;margin:0 0 8px;-webkit-transition:border-color .2s,background-color .2s;transition:border-color .2s,background-color .2s}
+.customize-control-login-designer-template-selector label{border:1px solid transparent;border-radius:2px;box-shadow:0 0 0 0 #5b9dd9,0 0 0 0 rgba(30,140,190,0.8);cursor:pointer;display:block;margin:0 0 8px;-webkit-transition:border-color .2s,box-shadow 350ms cubic-bezier(0.455,0.03,0.515,0.955),-webkit-transform 250ms cubic-bezier(0.455,0.03,0.515,0.955);transition:border-color .2s,box-shadow 350ms cubic-bezier(0.455,0.03,0.515,0.955),-webkit-transform 250ms cubic-bezier(0.455,0.03,0.515,0.955);transition:border-color .2s,box-shadow 350ms cubic-bezier(0.455,0.03,0.515,0.955),transform 250ms cubic-bezier(0.455,0.03,0.515,0.955);transition:border-color .2s,box-shadow 350ms cubic-bezier(0.455,0.03,0.515,0.955),transform 250ms cubic-bezier(0.455,0.03,0.515,0.955),-webkit-transform 250ms cubic-bezier(0.455,0.03,0.515,0.955)}
 .customize-control-login-designer-template-selector .layout{display:none !important}
 .customize-control-login-designer-template-selector .description{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
 .customize-control-login-designer-template-selector #layout-switcher{width:100%}
 .customize-control-login-designer-template-selector .layout-switcher__wrapper{margin-left:-2px;margin-top:13px;overflow-y:scroll;padding-left:2px;padding-right:20px;padding-top:4px;width:calc(100% + 1px)}
 .customize-control-login-designer-template-selector .intrinsic{line-height:0;margin-bottom:0;overflow:hidden;position:relative}
 .customize-control-login-designer-template-selector .intrinsic:after{content:"";display:block;padding-top:70.4%}
-.customize-control-login-designer-template-selector .layout-screenshot{background-position:center center;background-repeat:no-repeat;background-size:contain;border:2px solid #eee;bottom:0;box-shadow:0 0 0 0 #5b9dd9,0 0 0 0 rgba(30,140,190,0.8);left:0;position:absolute;right:0;top:0;-webkit-transition:box-shadow 150ms ease;transition:box-shadow 150ms ease}
-.customize-control-login-designer-template-selector .layout:checked+label .layout-screenshot{background-color:#fff}
-.customize-control-login-designer-template-selector .layout:checked+label{box-shadow:0 0 0 1px #5b9dd9,0 0 2px 1px rgba(30,140,190,0.8)}
-.customize-control-login-designer-title+.customize-control-image{margin-top:-7px}
+.customize-control-login-designer-template-selector .layout-screenshot{background-position:center center;background-repeat:no-repeat;background-size:contain;border:2px solid #eee;bottom:0;left:0;position:absolute;right:0;top:0}
+.customize-control-login-designer-template-selector label:hover{box-shadow:0 0 0 1px #5b9dd9,0 0 3px rgba(0,115,170,0.8)}
+.customize-control-login-designer-template-selector .layout:checked+label{-webkit-animation:scale_click 250ms;animation:scale_click 250ms}
+.customize-control-login-designer-template-selector .layout:checked+label{box-shadow:0 0 0 1px #5b9dd9,0 0 3px rgba(0,115,170,0.8)}
+@-webkit-keyframes scale_click{0%{-webkit-transform:scale(1) translate3d(0,0,0);transform:scale(1) translate3d(0,0,0)}
+50%{-webkit-transform:scale(0.98) translate3d(0,0,0);transform:scale(0.98) translate3d(0,0,0)}
+100%{-webkit-transform:scale(1) translate3d(0,0,0);transform:scale(1) translate3d(0,0,0)}
+}@keyframes scale_click{0%{-webkit-transform:scale(1) translate3d(0,0,0);transform:scale(1) translate3d(0,0,0)}
+50%{-webkit-transform:scale(0.98) translate3d(0,0,0);transform:scale(0.98) translate3d(0,0,0)}
+100%{-webkit-transform:scale(1) translate3d(0,0,0);transform:scale(1) translate3d(0,0,0)}
+}.customize-control-login-designer-title+.customize-control-image{margin-top:-7px}
 .customize-control-login-designer-title .customize-control-title{font-weight:600 !important}
 .customize-control-toggle .toggle--wrapper{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;flex-direction:row;-webkit-box-direction:normal;-webkit-box-orient:horizontal;-webkit-box-pack:start;-webkit-flex-direction:row;-ms-flex-direction:row;-ms-flex-pack:start;-webkit-justify-content:flex-start;justify-content:flex-start}
 .customize-control-toggle .toggle--wrapper .customize-control-title{vertical-align:middle;-webkit-box-flex:2;-webkit-flex:2 0 0;-ms-flex:2 0 0;flex:2 0 0}

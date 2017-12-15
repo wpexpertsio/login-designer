@@ -89,6 +89,14 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 = 1.0.4, December 8, 2017 =
 * Tweak: Removed getimagesize dependancy for the custom logo sizing
 
+
+
+
+
+
+= 1.0.4, December 8, 2017 =
+* Tweak: Removed getimagesize dependancy for the custom logo sizing
+
 = 1.0.3, November 17, 2017 =
 * Tweak: Improved webkit shadow styling
 

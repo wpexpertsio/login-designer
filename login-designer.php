@@ -69,7 +69,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 */
 		public static function instance() {
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Login_Designer ) ) {
-				self::$instance = new Login_Designer;
+				self::$instance = new Login_Designer();
 				self::$instance->constants();
 				self::$instance->init();
 				self::$instance->includes();
@@ -178,7 +178,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		public function meta_version() {
-			echo '<meta name="generator" content="Login Designer ' . esc_attr( LOGIN_DESIGNER_VERSION ). '" />' . "\n";
+			echo '<meta name="generator" content="Login Designer ' . esc_attr( LOGIN_DESIGNER_VERSION ) . '" />' . "\n";
 		}
 
 		/**
@@ -216,8 +216,8 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 */
 		public function get_login_designer_page() {
 
-			$admin_options 	= get_option( 'login_designer_settings', array() );
-			$page 		= array_key_exists( 'login_designer_page', $admin_options ) ? get_post( $admin_options['login_designer_page'] ) : false;
+			$admin_options = get_option( 'login_designer_settings', array() );
+			$page          = array_key_exists( 'login_designer_page', $admin_options ) ? get_post( $admin_options['login_designer_page'] ) : false;
 
 			return $page;
 		}
