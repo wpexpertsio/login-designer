@@ -1200,9 +1200,16 @@
 	// Login form width.
 	wp.customize( 'login_designer[form_width]', function( value ) {
 		value.bind( function( to ) {
-			$( 'body.login #login' ).css({
-				width: to,
-			});
+			var style, el;
+			style = '<style class="login_designer_form_width"> body.login #login { max-width: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_form_width' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
 		} );
 	} );
 

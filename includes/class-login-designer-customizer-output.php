@@ -388,6 +388,10 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 			// Default overrides to clean up the standard WordPress login form.
 			$css .= '
+				#login {
+					width: 100%;
+				}
+
 				#login > p {
 					text-align: center;
 					padding: 0;
@@ -397,6 +401,13 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				#login form {
 					overflow: visible;
 					margin-top: 0;
+				}
+
+				@media screen and (max-width: 600px) {
+					#login form {
+						margin-right: 5px;
+						margin-left: 5px;
+					}
 				}
 
 				#login form p.submit {
@@ -541,7 +552,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Form width.
 				if ( isset( $options['form_width'] ) ) {
-					$css .= '#login { width: ' . esc_attr( $options['form_width'] ) . 'px; }';
+					$css .= '#login { max-width: ' . esc_attr( $options['form_width'] ) . 'px; }';
 				}
 
 				// Form side padding.
