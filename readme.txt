@@ -1,7 +1,7 @@
 === Custom Login Page Customizer — Login Designer ===
 Author URI: @@pkg.author_uri
 Plugin URI: @@pkg.plugin_uri
-Contributors: richtabor, ThatPluginCompany, logindesigner
+Contributors: richtabor, logindesigner, thatplugincompany, themebeans
 Donate link: @@pkg.plugin_uri
 Tags: @@pkg.tags
 Requires at least: @@pkg.requires
@@ -86,13 +86,17 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
-= 1.0.4, December 8, 2017 =
-* Tweak: Removed getimagesize dependancy for the custom logo sizing
-
-
-
-
-
+= 1.0.5, December 8, 2017 =
+* New: Logo width and height sizing feature with auto-sizing fallback
+* New: Transparent form background toggle
+* Fix: Resolved an issue with templates that use transparent backgrounds
+* Fix: Adding spacing between the logo and the form now works properly
+* Tweak: Improved the UX across the board, making the app much faster overall
+* Tweak: Updated the background styler icon
+* Tweak: Improved login form rendering on mobile devices
+* Tweak: Custom logos now stick around when you change templates
+* Tweak: Conducted minor PHPCS code fixes
+* Tweak: Minor template markup touchups
 
 = 1.0.4, December 8, 2017 =
 * Tweak: Removed getimagesize dependancy for the custom logo sizing
