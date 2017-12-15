@@ -31,7 +31,7 @@ body:hover .customize-partial-edit-shortcut{opacity:1;-webkit-transition:opacity
 .screen-reader-text:focus{border-radius:3px;clip:auto;display:block;font-size:15px;height:auto;left:5px;line-height:normal;padding:.9375rem;text-decoration:none;top:5px;width:auto;z-index:100000}
 #wp-a11y-speak-polite{display:none}
 #login-designer-logo:focus{box-shadow:none}
-#login-designer-logo-h1{margin:0 auto;width:84px}
+#login-designer-logo-h1{margin-left:auto;margin-right:auto;width:84px}
 #login form,#login-designer-logo-h1,#login-designer--username,#login-designer--password{position:relative}
 #login-designer--username,#login-designer--password{border-width:2px;margin-bottom:16px}
 #login-designer--username input,#login-designer--password input{margin-bottom:0}

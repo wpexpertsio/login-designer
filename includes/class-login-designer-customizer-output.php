@@ -524,7 +524,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				}
 
 				// Logo margin bottom.
-				if ( isset( $options['logo_margin_bottom'] ) && ! empty( $options['logo'] ) ) {
+				if ( isset( $options['logo_margin_bottom'] ) ) {
 					$css .= 'body.login #login h1 a, #login-designer-logo-h1 { margin-bottom: ' . esc_attr( $options['logo_margin_bottom'] ) . 'px !important ; }';
 				}
 

@@ -667,7 +667,7 @@
 		} else {
 
 			// If a logo is removed, fallback to the default WordPress logo + sizes.
-			style = '<style class="login_designer_logo">body.login #login h1 a#login-designer-logo { display: block; } body.login #login h1 a#login-designer-logo, body.login #login-designer-logo-h1 { margin-bottom: 0px !important; } #login-designer-logo-h1, body.login #login h1 a#login-designer-logo { width: 84px !important; height: 84px !important; } #login-designer-logo { height: 84px !important; width: 84px !important; background-size: 84px !important; background-image: none, url(" ' + login_designer_script.admin_url + '/images/wordpress-logo.svg ") !important; } </style>';
+			style = '<style class="login_designer_logo">body.login #login h1 a#login-designer-logo { display: block; }  #login-designer-logo-h1, body.login #login h1 a#login-designer-logo { width: 84px !important; height: 84px !important; } #login-designer-logo { height: 84px !important; width: 84px !important; background-size: 84px !important; background-image: none, url(" ' + login_designer_script.admin_url + '/images/wordpress-logo.svg ") !important; } </style>';
 
 			if ( element.length ) {
 				element.replaceWith( style );
@@ -1091,7 +1091,7 @@
 			el =  $( '.login_designer_logo_disable_logo' );
 
 			if ( true === to ) {
-				style = '<style class="login_designer_logo_disable_logo"> #login-designer-logo { display: none !important; } body #login-designer-logo-h1 { margin-bottom: 0 !important; } body #login-designer-logo-h1, body #login-designer-logo-h1 #login-designer-logo { height: 0 !important; width: 0 !important; } </style>';
+				style = '<style class="login_designer_logo_disable_logo"> #login-designer-logo { display: none !important; } body #login-designer-logo-h1, body #login-designer-logo-h1 #login-designer-logo { height: 0 !important; width: 0 !important; } </style>';
 			} else {
 				style = '<style class="login_designer_logo_disable_logo"> #login-designer-logo { display: block !important; } </style>';
 			}
