@@ -1146,8 +1146,38 @@
 				$( 'head' ).append( style ); // style element doesn't exist so add it
 			}
 
-
 			$( 'body.login #login form, body.login-designer-template-01 #login, body.login-designer-template-04 #login' ).css( 'background-color', to );
+		} );
+	} );
+
+	// Return the form background color.
+	function formBackgroundColor() {
+		return wp.customize( 'login_designer[form_bg]' )();
+	}
+
+	function formBackgroundTransparency() {
+		return wp.customize( 'login_designer[form_bg_transparency]' )();
+	}
+
+	// Login form background transparency.
+	wp.customize( 'login_designer[form_bg_transparency]', function( value ) {
+		value.bind( function( to ) {
+
+			var style, el;
+
+			el =  $( '.login_designer_form_bg' );
+
+			if ( true === to ) {
+				style = '<style class="login_designer_form_bg">body.login #login form, body.login-designer-template-01 #login, body.login-designer-template-04 #login { background: none !important; } </style>';
+			} else {
+				style = '<style class="login_designer_form_bg">#login form, .login-designer-template-01 #login, .login-designer-template-04 #login { background-color: ' + formBackgroundColor() + ' ; } </style>';
+			}
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
 		} );
 	} );
 

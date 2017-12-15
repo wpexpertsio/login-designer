@@ -74,6 +74,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'logo_margin_bottom'    => '25',
 				'disable_logo'          => false,
 				'form_bg'               => '#ffffff',
+				'form_bg_transparency'  => false,
 				'form_width'            => '320',
 				'form_side_padding'     => '24',
 				'form_vertical_padding' => '26',
@@ -531,6 +532,11 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Form background color.
 				if ( isset( $options['form_bg'] ) ) {
 					$css .= '#login form, .login-designer-template-01 #login, .login-designer-template-04 #login { background-color: ' . $options['form_bg'] . '; }';
+				}
+
+				// Form background transparency.
+				if ( true === isset( $options['form_bg_transparency'] ) ) {
+					$css .= '#login form, .login-designer-template-01 #login, .login-designer-template-04 #login { background: none; }';
 				}
 
 				// Form width.

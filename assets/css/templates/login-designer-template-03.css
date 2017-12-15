@@ -30,10 +30,6 @@ body.login-designer-template-02 #login {
 	}
 }
 
-body.login-designer-template-02 #login form {
-	background: none !important;
-}
-
 body.login-designer-template-02 #login p {
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);

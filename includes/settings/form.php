@@ -33,6 +33,20 @@ $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logi
 	'section'               => 'login_designer__section--styles',
 ) ) );
 
+$wp_customize->add_setting( 'login_designer[form_bg_transparency]', array(
+	'default'               => $defaults['form_bg_transparency'],
+	'type' 			=> 'option',
+	'transport'             => 'postMessage',
+	'sanitize_callback'     => array( $this, 'sanitize_checkbox' ),
+) );
+
+$wp_customize->add_control( new Login_Designer_Toggle_Control( $wp_customize, 'login_designer[form_bg_transparency]', array(
+	'label'	      => esc_html__( 'Transparency', '@@textdomain' ),
+	'section'     => 'login_designer__section--styles',
+	'type'        => 'toggle',
+	'settings'    => 'login_designer[form_bg_transparency]',
+) ) );
+
 $wp_customize->add_setting( 'login_designer[form_width]', array(
 	'default'               => $defaults['form_width'],
 	'type' 			=> 'option',

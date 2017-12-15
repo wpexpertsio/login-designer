@@ -19,6 +19,7 @@
 			'login_designer[form_width]',
 			'login_designer[form_radius]',
 			'login_designer[form_bg]',
+			'login_designer[form_bg_transparency]',
 			'login_designer[form_vertical_padding]',
 			'login_designer[form_side_padding]',
 			'login_designer[form_shadow]',

@@ -132,6 +132,7 @@
 #accordion-section-login_designer__section--styles{display:none !important}
 #customize-control-login_designer_settings-logo_url{margin-bottom:25px;margin-top:10px}
 #customize-control-login_designer-field_text_title,#customize-control-login_designer-button_text_title{margin-top:15px}
+#customize-control-login_designer-form_bg_transparency{margin-bottom:7px;margin-top:-1px}
 #customize-control-login_designer-username_label,#customize-control-login_designer-password_label,#customize-control-login_designer-back_to_label{margin-bottom:6px;position:relative}
 #customize-control-login_designer-username_label .customize-control-title,#customize-control-login_designer-password_label .customize-control-title,#customize-control-login_designer-back_to_label .customize-control-title{margin-bottom:0;position:relative;width:40%}
 #customize-control-login_designer-username_label input,#customize-control-login_designer-password_label input,#customize-control-login_designer-back_to_label input{border-radius:3px;box-shadow:0 0 0 0 transparent;margin:0;position:absolute;right:0;top:0;width:60%}
