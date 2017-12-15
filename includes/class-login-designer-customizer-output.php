@@ -26,10 +26,10 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		public function __construct() {
 			add_action( 'login_enqueue_scripts', array( $this, 'customizer_css' ) );
 			add_action( 'login_enqueue_scripts', array( $this, 'enqueue_fonts' ) );
-			add_filter( 'gettext',  array( $this, 'custom_username_label' ) , 20, 3 );
-			add_filter( 'gettext',  array( $this, 'custom_password_label' ) , 20, 3 );
-			add_filter( 'wp_resource_hints',  array( $this, 'fonts_resource_hints' ) , 10, 2 );
-			add_action( 'wp_ajax_get_logo_url',  array( $this, 'get_logo_url_callback' ) );
+			add_filter( 'gettext', array( $this, 'custom_username_label' ), 20, 3 );
+			add_filter( 'gettext', array( $this, 'custom_password_label' ), 20, 3 );
+			add_filter( 'wp_resource_hints', array( $this, 'fonts_resource_hints' ), 10, 2 );
+			add_action( 'wp_ajax_get_logo_url', array( $this, 'get_logo_url_callback' ) );
 		}
 
 		/**
@@ -60,72 +60,72 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		 *
 		 * @return array $defaults
 		 */
-		function defaults() {
+		public function defaults() {
 
 			$defaults = array(
-				'bg_image' 		=> '',
-				'bg_image_gallery' 	=> '',
-				'bg_repeat' 		=> 'no-repeat',
-				'bg_size' 		=> 'cover',
-				'bg_position' 		=> 'center center',
-				'bg_attach' 		=> 'fixed',
-				'bg_color' 		=> '#f1f1f1',
-				'logo' 			=> '',
-				'logo_margin_bottom' 	=> '25',
-				'disable_logo' 		=> false,
-				'form_bg' 		=> '#ffffff',
-				'form_width' 		=> '320',
-				'form_side_padding' 	=> '24',
+				'bg_image'              => '',
+				'bg_image_gallery'      => '',
+				'bg_repeat'             => 'no-repeat',
+				'bg_size'               => 'cover',
+				'bg_position'           => 'center center',
+				'bg_attach'             => 'fixed',
+				'bg_color'              => '#f1f1f1',
+				'logo'                  => '',
+				'logo_margin_bottom'    => '25',
+				'disable_logo'          => false,
+				'form_bg'               => '#ffffff',
+				'form_width'            => '320',
+				'form_side_padding'     => '24',
 				'form_vertical_padding' => '26',
-				'form_radius' 		=> '0',
-				'form_shadow' 		=> '3',
-				'form_shadow_opacity' 	=> '13',
-				'field_bg' 		=> '#fbfbfb',
-				'field_padding_top' 	=> '3',
-				'field_padding_bottom' 	=> '3',
-				'field_side_padding' 	=> '12',
-				'field_margin_bottom' 	=> '16',
-				'field_border' 		=> '1',
-				'field_border_color' 	=> '#dddddd',
-				'field_radius' 		=> '0',
-				'field_shadow' 		=> '2',
-				'field_shadow_opacity' 	=> '7',
-				'field_shadow_inset' 	=> true,
-				'field_font' 		=> 'default',
-				'field_font_size' 	=> '24',
-				'field_color' 		=> '#32373c',
-				'username_label' 	=> esc_html__( 'Username or Email Address', '@@textdomain' ),
-				'password_label' 	=> esc_html__( 'Password', '@@textdomain' ),
-				'label_font' 		=> 'default',
-				'label_position' 	=> '2',
-				'label_font_size' 	=> '14',
-				'label_color' 		=> '#72777c',
-				'button_bg' 		=> '#0085ba',
-				'button_height' 	=> '4',
-				'button_side_padding' 	=> '12',
-				'button_border' 	=> '1',
-				'button_border_color' 	=> '#0073aa',
-				'button_radius' 	=> '3',
-				'button_shadow' 	=> '0',
+				'form_radius'           => '0',
+				'form_shadow'           => '3',
+				'form_shadow_opacity'   => '13',
+				'field_bg'              => '#fbfbfb',
+				'field_padding_top'     => '3',
+				'field_padding_bottom'  => '3',
+				'field_side_padding'    => '12',
+				'field_margin_bottom'   => '16',
+				'field_border'          => '1',
+				'field_border_color'    => '#dddddd',
+				'field_radius'          => '0',
+				'field_shadow'          => '2',
+				'field_shadow_opacity'  => '7',
+				'field_shadow_inset'    => true,
+				'field_font'            => 'default',
+				'field_font_size'       => '24',
+				'field_color'           => '#32373c',
+				'username_label'        => esc_html__( 'Username or Email Address', '@@textdomain' ),
+				'password_label'        => esc_html__( 'Password', '@@textdomain' ),
+				'label_font'            => 'default',
+				'label_position'        => '2',
+				'label_font_size'       => '14',
+				'label_color'           => '#72777c',
+				'button_bg'             => '#0085ba',
+				'button_height'         => '4',
+				'button_side_padding'   => '12',
+				'button_border'         => '1',
+				'button_border_color'   => '#0073aa',
+				'button_radius'         => '3',
+				'button_shadow'         => '0',
 				'button_shadow_opacity' => '0',
-				'button_font' 		=> 'default',
-				'button_font_size' 	=> '13',
-				'button_color' 		=> '#ffffff',
-				'lost_password' 	=> true,
-				'back_to' 		=> true,
-				'below_color' 		=> '#444',
-				'below_position' 	=> '0',
-				'below_font' 		=> 'default',
-				'below_font_size' 	=> '13',
-				'remember_color' 	=> '#72777c',
-				'remember_font' 	=> 'default',
-				'remember_font_size' 	=> '12',
-				'remember_position' 	=> '5',
-				'checkbox_size' 	=> '16',
-				'checkbox_bg' 	=> '#fbfbfb',
-				'checkbox_border' 	=> '1',
+				'button_font'           => 'default',
+				'button_font_size'      => '13',
+				'button_color'          => '#ffffff',
+				'lost_password'         => true,
+				'back_to'               => true,
+				'below_color'           => '#444',
+				'below_position'        => '0',
+				'below_font'            => 'default',
+				'below_font_size'       => '13',
+				'remember_color'        => '#72777c',
+				'remember_font'         => 'default',
+				'remember_font_size'    => '12',
+				'remember_position'     => '5',
+				'checkbox_size'         => '16',
+				'checkbox_bg'           => '#fbfbfb',
+				'checkbox_border'       => '1',
 				'checkbox_border_color' => '#b4b9be',
-				'checkbox_radius' 	=> '0',
+				'checkbox_radius'       => '0',
 			);
 
 			return apply_filters( 'login_designer_defaults', $defaults );
@@ -183,14 +183,14 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		 *
 		 * @return array $defaults
 		 */
-		function admin_defaults() {
+		public function admin_defaults() {
 
 			$admin_defaults = array(
-				'login_designer_page'	=> '',
-				'logo_url' 		=> '',
-				'login_redirect' 	=> '',
-				'logout_redirect' 	=> '',
-				'login_message' 	=> '',
+				'login_designer_page' => '',
+				'logo_url'            => '',
+				'login_redirect'      => '',
+				'logout_redirect'     => '',
+				'login_message'       => '',
 
 			);
 
@@ -202,7 +202,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		 *
 		 * @return array $backgrounds
 		 */
-		function extension_backgrounds() {
+		public function extension_backgrounds() {
 
 			$backgrounds = array();
 
@@ -214,7 +214,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		 *
 		 * @return array $backgrounds
 		 */
-		function extension_colors() {
+		public function extension_colors() {
 
 			$colors = array();
 
@@ -226,16 +226,16 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		 *
 		 * @return string Google fonts URL for the theme.
 		 */
-		function fonts() {
+		public function fonts() {
 
 			$fonts_url = '';
 			$fonts     = array();
 
-			$field_font 	= $this->option_wrapper( 'field_font' );
-			$label_font 	= $this->option_wrapper( 'label_font' );
-			$button_font 	= $this->option_wrapper( 'button_font' );
-			$remember_font 	= $this->option_wrapper( 'remember_font' );
-			$below_font 	= $this->option_wrapper( 'below_font' );
+			$field_font    = $this->option_wrapper( 'field_font' );
+			$label_font    = $this->option_wrapper( 'label_font' );
+			$button_font   = $this->option_wrapper( 'button_font' );
+			$remember_font = $this->option_wrapper( 'remember_font' );
+			$below_font    = $this->option_wrapper( 'below_font' );
 
 			/**
 			 * Get fonts from the Customizer.
@@ -272,8 +272,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 			if ( $fonts ) {
 				$fonts_url = add_query_arg( array(
-					'family' => urlencode( implode( '|', array_unique( $fonts ) ) ),
-					'subset' => urlencode( 'latin,latin-ext' ),
+					'family' => rawurlencode( implode( '|', array_unique( $fonts ) ) ),
+					'subset' => rawurlencode( 'latin,latin-ext' ),
 				), 'https://fonts.googleapis.com/css' );
 			}
 
@@ -283,7 +283,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		/**
 		 * Register Google fonts from the Customizer.
 		 */
-		function enqueue_fonts() {
+		public function enqueue_fonts() {
 			wp_enqueue_style( 'login-designer-fonts', $this->fonts(), array(), null );
 		}
 
@@ -294,7 +294,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		 * @param  string|string $relation_type  The relation type the URLs are printed.
 		 * @return array|array   $urls           URLs to print for resource hints.
 		 */
-		function fonts_resource_hints( $urls, $relation_type ) {
+		public function fonts_resource_hints( $urls, $relation_type ) {
 
 			if ( wp_style_is( 'login-designer-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
 				$urls[] = array(
@@ -353,7 +353,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		/**
 		 * Callback to retrieve the custom logo via AJAX from within the live previewer.
 		 */
-		function get_logo_url_callback() {
+		public function get_logo_url_callback() {
 
 			$logo = $this->option_wrapper( 'logo' );
 			$logo = wp_get_attachment_image_src( $logo, 'full' );
@@ -501,7 +501,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 						body.login #login h1 a {
 							background-image: url(" ' . esc_url( $image[0] ) . ' ");
 							background-size: 100%;
-							background-size: '. absint( $image[1] / 2 ) .'px '. absint( $image[2] / 2 ) .'px ;
+							background-size: ' . absint( $image[1] / 2 ) . 'px ' . absint( $image[2] / 2 ) . 'px ;
 							background-position: center center;
 						}
 
@@ -509,8 +509,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 						body.login #login h1 a {
 							margin-left: auto;
 							margin-right: auto;
-							height: '. absint( $image[2] / 2 ) .'px !important;
-							width: '. absint( $image[1] / 2 ) .'px !important;
+							height: ' . absint( $image[2] / 2 ) . 'px !important;
+							width: ' . absint( $image[1] / 2 ) . 'px !important;
 						}
 
 						#login h1 a { width: auto; }
@@ -558,7 +558,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 					$opacity = ( isset( $options['form_shadow_opacity'] ) * .01 ) ? $options['form_shadow_opacity'] * .01 : 0;
 
-					$css .= '#login form { box-shadow: 0 0 '. esc_attr( $options['form_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
+					$css .= '#login form { box-shadow: 0 0 ' . esc_attr( $options['form_shadow'] ) . 'px rgba(0, 0, 0, ' . esc_attr( $opacity ) . '); }';
 				} else {
 					$css .= '#login form { box-shadow: none; }';
 				}
@@ -617,7 +617,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 					$inset = isset( $options['field_shadow_inset'] ) ? 'inset' : '';
 
-					$shadow = esc_attr( $inset ) . ' 0 0 '. esc_attr( $options['field_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) . ')';
+					$shadow = esc_attr( $inset ) . ' 0 0 ' . esc_attr( $options['field_shadow'] ) . 'px rgba(0, 0, 0, ' . esc_attr( $opacity ) . ')';
 
 					if ( isset( $options['field_bg'] ) ) {
 						$css .= '#login form .input { box-shadow: ' . $shadow . ', inset 0 0 0 9999px ' . esc_attr( $options['field_bg'] ) . ' }';
@@ -708,7 +708,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 					$opacity = ( isset( $options['button_shadow_opacity'] ) * .01 ) ? $options['button_shadow_opacity'] * .01 : 0;
 
-					$css .= '#login form .submit .button { box-shadow: 0 0 '. esc_attr( $options['button_shadow'] ) .'px rgba(0, 0, 0, '. esc_attr( $opacity ) .'); }';
+					$css .= '#login form .submit .button { box-shadow: 0 0 ' . esc_attr( $options['button_shadow'] ) . 'px rgba(0, 0, 0, ' . esc_attr( $opacity ) . '); }';
 				}
 
 				// Button font, as long as it's not 'default'.
