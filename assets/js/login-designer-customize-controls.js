@@ -201,12 +201,19 @@
 			} );
 		} );
 
-
 		wp.customize( 'login_designer[form_bg]', function( value ) {
 
 			value.bind( function( to ) {
 				// If we have a custom background color, let's turn off transparency.
 				wp.customize( 'login_designer[form_bg_transparency]' ).set( false );
+			} );
+		} );
+
+		wp.customize( 'login_designer[form_bg_transparency]', function( value ) {
+
+			value.bind( function( to ) {
+				// If we have a custom background color, let's turn off transparency.
+				wp.customize( 'login_designer[form_shadow]' ).set( '0' );
 			} );
 		} );
 	} );
