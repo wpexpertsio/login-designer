@@ -445,6 +445,11 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					box-shadow: none;
 				}
 
+				#login input[type=checkbox]:checked:before {
+					font: 400 24px/1 dashicons;
+					margin: -4px -6px;
+				}
+
 				#login form .submit .button {
 					box-shadow: none;
 					text-shadow: none;
