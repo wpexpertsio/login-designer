@@ -86,7 +86,7 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
-= 1.0.5, December 8, 2017 =
+= 1.0.5, December 15, 2017 =
 * New: Logo width and height sizing feature with auto-sizing fallback
 * New: Transparent form background toggle
 * Fix: Resolved an issue with templates that use transparent backgrounds
