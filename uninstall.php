@@ -13,11 +13,11 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 }
 
 // Load the Login Designer file.
-include_once( 'login-designer.php' );
-
+require_once 'login-designer.php';
 
 // Pull the Login Designer page from options.
 $page = Login_Designer()->get_login_designer_page();
+$page = $page->ID;
 
 // Remove the Login Designer template.
 if ( $page ) {
