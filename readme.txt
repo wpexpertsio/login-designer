@@ -86,6 +86,11 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
+= 1.0.7, December 21, 2017 =
+* Fix: Resolved an issue where the Login Designer Customizer template would not resolve properly for some folks
+* Tweak: Minor mobile responsive improvements for Template 01
+* Tweak: Minor PHPCS improvements
+
 = 1.0.6, December 16, 2017 =
 * Tweak: Adjusted checkbox input checked styling
 
