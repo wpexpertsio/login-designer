@@ -141,6 +141,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		public function init() {
 			add_action( 'wp_head', array( $this, 'meta_version' ) );
 			add_action( 'admin_init', array( $this, 'redirect_customizer' ) );
+			add_action( 'admin_init', array( $this, 'check_login_designer_page' ) );
 			add_action( 'admin_menu', array( $this, 'options_page' ) );
 			add_action( 'admin_bar_menu', array( $this, 'admin_bar_link' ), 999 );
 			add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
@@ -210,6 +211,83 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		}
 
 		/**
+		 * Double-check that we have a page assigned.
+		 *
+		 * @access public
+		 * @return void
+		 */
+		public function check_login_designer_page() {
+
+			// Retrieve the Login Designer admin page option, that was created during the activation process.
+			$options = new Login_Designer_Customizer_Output();
+			$option  = $options->admin_option_wrapper( 'login_designer_page' );
+
+			// Retrieve the status of the page, if the option is available.
+			if ( $option ) {
+				$page   = get_post( $option );
+				$status = $page->post_status;
+			} else {
+				$status = null;
+			}
+
+			// Check the status of the page. Let's fix it, if the page is missing or in the trash.
+			if ( empty( $status ) || 'trash' === $status ) {
+				$this->fix_login_designer_page();
+			}
+		}
+
+		/**
+		 * Recreate the Login Designer page if one is not available.
+		 *
+		 * @return void
+		 */
+		public function fix_login_designer_page() {
+
+			// Set up options.
+			$options = array();
+
+			// Pull options from WP.
+			$admin_options = get_option( 'login_designer_settings', array() );
+
+			// Checks if the Login Designer page option exists.
+			$login_designer_page = array_key_exists( 'login_designer_page', $admin_options ) ? get_post( $admin_options['login_designer_page'] ) : false;
+
+			// Array of allowed HTML in the page content.
+			$allowed_html_array = array(
+				'a' => array(
+					'href'   => array(),
+					'target' => array(),
+				),
+			);
+
+			$post_content = sprintf( wp_kses( __( '<p>This page is used by <a href="%1$s">%2$s</a> to preview the login forms in the Customizer. Please don\'t delete this page. Thanks!</p>', '@@textdomain' ), $allowed_html_array ), 'https://logindesigner.com', 'Login Designer' );
+
+			// Create the page.
+			$page = wp_insert_post(
+				array(
+					'post_title'     => 'Login Designer',
+					'post_content'   => $post_content,
+					'post_status'    => 'draft',
+					'post_author'    => 1,
+					'post_type'      => 'page',
+					'comment_status' => 'closed',
+				)
+			);
+
+			$options['login_designer_page'] = $page;
+
+			$page = isset( $page ) ? $page : $admin_options['login_designer_page'];
+
+			$merged_options = array_merge( $admin_options, $options );
+			$admin_options  = $merged_options;
+
+			update_option( 'login_designer_settings', $admin_options );
+
+			// Assign the Login Designer template.
+			login_designer_attach_template_to_page( $page, 'template-login-designer.php' );
+		}
+
+		/**
 		 * Pull the Login Designer page from options.
 		 *
 		 * @access public
@@ -268,8 +346,8 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * Can be overridden by theme developers to use their affiliate
 		 * link using the login_designer_affiliate_id filter.
 		 *
-		 * @since	1.0.0
-		 * @return 	string
+		 * @since  1.0.0
+		 * @return string
 		 */
 		public function get_affiliate_id() {
 
@@ -306,7 +384,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		public function plugin_action_links( $actions ) {
 
 			// Add the Settings link.
-			$settings = array( 'settings' => sprintf( '<a href="%s">%s</a>', admin_url( 'themes.php?page=login-designer' ) , esc_html__( 'Settings', '@@textdomain' ) ) );
+			$settings = array( 'settings' => sprintf( '<a href="%s">%s</a>', admin_url( 'themes.php?page=login-designer' ), esc_html__( 'Settings', '@@textdomain' ) ) );
 
 			// If there's no pro version, just return the settings link.
 			if ( ! $this->has_pro() ) {
