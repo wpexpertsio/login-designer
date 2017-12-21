@@ -48,13 +48,11 @@ function login_designer_install( $network_wide = false ) {
 register_activation_hook( LOGIN_DESIGNER_PLUGIN_FILE, 'login_designer_install' );
 
 /**
- * Run the EDD Install process
+ * Run the Login Designer install process
  *
  * @return void
  */
 function login_designer_run_install() {
-
-	set_transient( '_login_designer_activation_redirect', true, 30 );
 
 	// Set up options.
 	$options = array();
@@ -70,7 +68,7 @@ function login_designer_run_install() {
 		// Array of allowed HTML in the page content.
 		$allowed_html_array = array(
 			'a' => array(
-				'href' => array(),
+				'href'   => array(),
 				'target' => array(),
 			),
 		);
@@ -80,11 +78,11 @@ function login_designer_run_install() {
 		// Create the page.
 		$page = wp_insert_post(
 			array(
-				'post_title'	 => 'Login Designer',
-				'post_content'	 => $post_content,
-				'post_status'	 => 'draft',
-				'post_author'	 => 1,
-				'post_type'	 => 'page',
+				'post_title'     => 'Login Designer',
+				'post_content'   => $post_content,
+				'post_status'    => 'draft',
+				'post_author'    => 1,
+				'post_type'      => 'page',
 				'comment_status' => 'closed',
 			)
 		);
@@ -94,8 +92,8 @@ function login_designer_run_install() {
 
 	$page = isset( $page ) ? $page : $admin_options['login_designer_page'];
 
-	$merged_options   = array_merge( $admin_options, $options );
-	$admin_options    = $merged_options;
+	$merged_options = array_merge( $admin_options, $options );
+	$admin_options  = $merged_options;
 
 	update_option( 'login_designer_settings', $admin_options );
 
@@ -104,14 +102,14 @@ function login_designer_run_install() {
 }
 
 /**
- * When a new Blog is created in multisite, see if EDD is network activated, and run the installer
+ * When a new Blog is created in multisite, see if Login Designer is network activated, and run the installer
  *
- * @param int|int       $blog_id The Blog ID created.
- * @param int|int       $user_id The User ID set as the admin.
- * @param string|string $domain	The URL.
- * @param string|string $path	Site Path.
- * @param int|int       $site_id The Site ID.
- * @param array|array	$meta	Blog Meta.
+ * @param int|int     $blog_id The Blog ID created.
+ * @param int|int     $user_id The User ID set as the admin.
+ * @param string      $domain The URL.
+ * @param string      $path Site Path.
+ * @param int|int     $site_id The Site ID.
+ * @param array|array $meta Blog Meta.
  * @return void
  */
 function login_designer_new_blog_created( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
