@@ -50,8 +50,8 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 		public function logo_url() {
 
 			// Check for the admin option.
-			$options   = new Login_Designer_Customizer_Output();
-			$option    = $options->admin_option_wrapper( 'logo_url' );
+			$options = new Login_Designer_Customizer_Output();
+			$option  = $options->admin_option_wrapper( 'logo_url' );
 
 			if ( $option ) {
 				return get_page_link( $option );
@@ -73,8 +73,8 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 		public function login_message( $message ) {
 
 			// Check for the admin option.
-			$options   = new Login_Designer_Customizer_Output();
-			$option    = $options->admin_option_wrapper( 'login_message' );
+			$options = new Login_Designer_Customizer_Output();
+			$option  = $options->admin_option_wrapper( 'login_message' );
 
 			if ( ! empty( $option ) ) {
 				return sprintf( '<p>%s</p>', esc_textarea( $option ) );
