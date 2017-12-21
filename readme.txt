@@ -87,7 +87,8 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 == Changelog ==
 
 = 1.0.7, December 21, 2017 =
-* Fix: Resolved an issue where the Login Designer Customizer template would not resolve properly for some folks
+* Fix: Resolved an issue where the Login Designer template page would not resolve properly for some folks
+* Fix: The Login Designer template page now removes itself if the plugin is uninstalled
 * Tweak: Minor mobile responsive improvements for Template 01
 * Tweak: Minor PHPCS improvements
 
