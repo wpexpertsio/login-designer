@@ -414,8 +414,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				@media screen and (max-width: 600px) {
 					#login form {
-						margin-right: 5px;
-						margin-left: 5px;
+						margin-right: 10px;
+						margin-left: 10px;
 					}
 				}
 
