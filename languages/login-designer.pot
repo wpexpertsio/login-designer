@@ -1,4 +1,4 @@
-# Copyright (C) 2017 Login Designer
+# Copyright (C) 2018 Login Designer
 # This file is distributed under the same license as the Login Designer package.
 msgid ""
 msgstr ""
@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Rich Tabor from ThatPluginCompany\n"
 "Language-Team: ThatPluginCompany\n"
 "X-Poedit-Basepath: ..\n"
@@ -65,7 +65,7 @@ msgstr ""
 msgid "Attention! You are attempting to reset all custom styling added to Login Designer. Please note that this action is irreversible. Proceed?"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:76, includes/class-login-designer-theme-template.php:67, login-designer.php:192, login-designer.php:192, login-designer.php:331, login-designer.php:336
+#: includes/class-login-designer-customizer.php:76, includes/class-login-designer-theme-template.php:67, login-designer.php:192, login-designer.php:192, login-designer.php:340, login-designer.php:345
 msgid "Login Designer"
 msgstr ""
 
@@ -81,11 +81,11 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:96, login-designer.php:387
+#: includes/class-login-designer-customizer.php:96, login-designer.php:396
 msgid "Settings"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:114, login-designer.php:441, login-designer.php:474
+#: includes/class-login-designer-customizer.php:114, login-designer.php:450, login-designer.php:483
 msgid "Extensions"
 msgstr ""
 
@@ -237,8 +237,18 @@ msgstr ""
 msgid "Open Gallery"
 msgstr ""
 
-#: includes/install.php:76, login-designer.php:263
+#: includes/install.php:168, login-designer.php:272
 msgid "<p>This page is used by <a href=\"%1$s\">%2$s</a> to preview the login forms in the Customizer. Please don't delete this page. Thanks!</p>"
+msgstr ""
+
+#: includes/install.php:173
+msgctxt "Page slug"
+msgid "login-designer"
+msgstr ""
+
+#: includes/install.php:174
+msgctxt "Page title"
+msgid "Login Designer"
 msgstr ""
 
 #: includes/settings/background.php:22
@@ -457,10 +467,10 @@ msgstr ""
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: login-designer.php:402
+#: login-designer.php:411
 msgid "Support"
 msgstr ""
 
-#: login-designer.php:406
+#: login-designer.php:415
 msgid "Pro"
 msgstr ""

@@ -5,17 +5,28 @@
  * Template to display the WordPress login form in the Customizer.
  * This is essentially a stripped down version of wp-login.php, though not accessible from outside the Customizer.
  *
- * @package   @@pkg.name
- * @author    @@pkg.author
- * @license   @@pkg.license
+ * @package   Login Designer
+ * @author    Rich Tabor from ThatPluginCompany
+ * @license   GPL-3.0
  */
 
 // Redirect if viewed from outside the Customizer.
 if ( ! is_customize_preview() ) {
-	// Pull the Login Designer page from options.
-	$page = Login_Designer()->get_login_designer_page();
 
-	wp_safe_redirect( admin_url( '/customize.php?autofocus[section]=login_designer__section--templates&url=' . get_permalink( $page ) ) );
+	// Pull the Login Designer page from options.
+	$page = get_permalink( Login_Designer()->get_login_designer_page() );
+
+	// Generate the redirect url.
+	$url = add_query_arg(
+		array(
+			'autofocus[section]' => 'login_designer__section--templates',
+			'return'             => admin_url( 'index.php' ),
+			'url'                => rawurlencode( $page ),
+		),
+		admin_url( 'customize.php' )
+	);
+
+	wp_safe_redirect( $url );
 }
 
 /**
@@ -53,7 +64,8 @@ function logindesigner_login_header( $title = 'Log In', $message = '', $wp_error
 	?><!DOCTYPE html>
 	<head>
 	<title><?php echo esc_attr( $login_title ); ?></title>
-	<?php wp_enqueue_style( 'login' );
+	<?php
+	wp_enqueue_style( 'login' );
 
 	/**
 	 * Enqueue scripts and styles for the login page.
@@ -69,13 +81,8 @@ function logindesigner_login_header( $title = 'Log In', $message = '', $wp_error
 	 */
 	do_action( 'login_head' );
 
-	if ( is_multisite() ) {
-		$login_header_url   = network_home_url();
-		$login_header_title = get_network()->site_name;
-	} else {
-		$login_header_url   = __( 'https://wordpress.org/' );
-		$login_header_title = __( 'Powered by WordPress' );
-	}
+	$login_header_url   = __( 'https://wordpress.org/' );
+	$login_header_title = __( 'Powered by WordPress' );
 
 	/**
 	 * Filters link URL of the header logo above login form.
@@ -94,9 +101,8 @@ function logindesigner_login_header( $title = 'Log In', $message = '', $wp_error
 	 * @param string $login_header_title Login header logo title attribute.
 	 */
 	$login_header_title = apply_filters( 'login_headertitle', $login_header_title );
-	$classes = array( 'login-action-' . $action, 'wp-core-ui' );
-
-	$classes[] =' locale-' . sanitize_html_class( strtolower( str_replace( '_', '-', get_locale() ) ) );
+	$classes            = array( 'login-action-' . $action, 'wp-core-ui' );
+	$classes[]          = ' locale-' . sanitize_html_class( strtolower( str_replace( '_', '-', get_locale() ) ) );
 
 	/**
 	 * Filters the login page body classes.
@@ -132,6 +138,7 @@ function logindesigner_login_header( $title = 'Log In', $message = '', $wp_error
 	 * @param string $message Login message text.
 	 */
 	$message = apply_filters( 'login_message', $message );
+
 	if ( !empty( $message ) )
 		echo $message . "\n";
 	// In case a plugin uses $error rather than the $wp_errors object
@@ -506,21 +513,7 @@ if ( $switched_locale ) {
 }
 break;
 case 'register' :
-	if ( is_multisite() ) {
-		/**
-		 * Filters the Multisite sign up URL.
-		 *
-		 * @since 3.0.0
-		 *
-		 * @param string $sign_up_url The sign up URL.
-		 */
-		wp_redirect( apply_filters( 'wp_signup_location', network_site_url( 'wp-signup.php' ) ) );
-		exit;
-	}
-	if ( !get_option('users_can_register') ) {
-		wp_redirect( site_url('wp-login.php?registration=disabled') );
-		exit();
-	}
+
 	$user_login = '';
 	$user_email = '';
 	if ( $http_post ) {
@@ -585,108 +578,11 @@ if ( $switched_locale ) {
 break;
 case 'login' :
 default:
-	$secure_cookie = '';
-	$customize_login = isset( $_REQUEST['customize-login'] );
-	if ( $customize_login )
-		wp_enqueue_script( 'customize-base' );
-	// If the user wants ssl but the session is not ssl, force a secure cookie.
-	if ( !empty($_POST['log']) && !force_ssl_admin() ) {
-		$user_name = sanitize_user($_POST['log']);
-		$user = get_user_by( 'login', $user_name );
-		if ( ! $user && strpos( $user_name, '@' ) ) {
-			$user = get_user_by( 'email', $user_name );
-		}
-		if ( $user ) {
-			if ( get_user_option('use_ssl', $user->ID) ) {
-				$secure_cookie = true;
-				force_ssl_admin(true);
-			}
-		}
-	}
-	if ( isset( $_REQUEST['redirect_to'] ) ) {
-		$redirect_to = $_REQUEST['redirect_to'];
-		// Redirect to https if user wants ssl
-		if ( $secure_cookie && false !== strpos($redirect_to, 'wp-admin') )
-			$redirect_to = preg_replace('|^http://|', 'https://', $redirect_to);
-	} else {
-		$redirect_to = admin_url();
-	}
-	$reauth = empty($_REQUEST['reauth']) ? false : true;
-	$user = wp_signon( array(), $secure_cookie );
-	if ( empty( $_COOKIE[ LOGGED_IN_COOKIE ] ) ) {
-		if ( headers_sent() ) {
-			/* translators: 1: Browser cookie documentation URL, 2: Support forums URL */
-			$user = new WP_Error( 'test_cookie', sprintf( __( '<strong>ERROR</strong>: Cookies are blocked due to unexpected output. For help, please see <a href="%1$s">this documentation</a> or try the <a href="%2$s">support forums</a>.' ),
-				__( 'https://codex.wordpress.org/Cookies' ), __( 'https://wordpress.org/support/' ) ) );
-		} elseif ( isset( $_POST['testcookie'] ) && empty( $_COOKIE[ TEST_COOKIE ] ) ) {
-			// If cookies are disabled we can't log in even with a valid user+pass
-			/* translators: 1: Browser cookie documentation URL */
-			$user = new WP_Error( 'test_cookie', sprintf( __( '<strong>ERROR</strong>: Cookies are blocked or not supported by your browser. You must <a href="%s">enable cookies</a> to use WordPress.' ),
-				__( 'https://codex.wordpress.org/Cookies' ) ) );
-		}
-	}
-	$requested_redirect_to = isset( $_REQUEST['redirect_to'] ) ? $_REQUEST['redirect_to'] : '';
-	/**
-	 * Filters the login redirect URL.
-	 *
-	 * @since 3.0.0
-	 *
-	 * @param string           $redirect_to           The redirect destination URL.
-	 * @param string           $requested_redirect_to The requested redirect destination URL passed as a parameter.
-	 * @param WP_User|WP_Error $user                  WP_User object if login was successful, WP_Error object otherwise.
-	 */
-	$redirect_to = apply_filters( 'login_redirect', $redirect_to, $requested_redirect_to, $user );
-	if ( !is_wp_error($user) && !$reauth ) {
-		if ( $interim_login ) {
-			$message = '<p class="message">' . __('You have logged in successfully.') . '</p>';
-			$interim_login = 'success';
-			logindesigner_login_header( '', $message ); ?>
-			</div>
-			<?php
-			/** This action is documented in wp-login.php */
-			do_action( 'login_footer' ); ?>
-			<?php if ( $customize_login ) : ?>
-				<script type="text/javascript">setTimeout( function(){ new wp.customize.Messenger({ url: '<?php echo wp_customize_url(); ?>', channel: 'login' }).send('login') }, 1000 );</script>
-			<?php endif; ?>
-			</body></html>
-<?php		exit;
-		}
-		// if ( ( empty( $redirect_to ) || $redirect_to == 'wp-admin/' || $redirect_to == admin_url() ) ) {
-		// 	// If the user doesn't belong to a blog, send them to user admin. If the user can't edit posts, send them to their profile.
-		// 	if ( is_multisite() && !get_active_blog_for_user($user->ID) && !is_super_admin( $user->ID ) )
-		// 		$redirect_to = user_admin_url();
-		// 	elseif ( is_multisite() && !$user->has_cap('read') )
-		// 		$redirect_to = get_dashboard_url( $user->ID );
-		// 	elseif ( !$user->has_cap('edit_posts') )
-		// 		$redirect_to = $user->has_cap( 'read' ) ? admin_url( 'profile.php' ) : home_url();
-		// 	wp_redirect( $redirect_to );
-		// 	exit();
-		// }
-		// wp_safe_redirect($redirect_to);
-		// exit();
-	}
-	$errors = $user;
-	// Clear errors if loggedout is set.
-	if ( !empty($_GET['loggedout']) || $reauth )
-		$errors = new WP_Error();
-	if ( $interim_login ) {
-		if ( ! $errors->get_error_code() )
-			$errors->add( 'expired', __( 'Your session has expired. Please log in to continue where you left off.' ), 'message' );
-	} else {
-		// Some parts of this script use the main login form to display a message
-		if		( isset($_GET['loggedout']) && true == $_GET['loggedout'] )
-			$errors->add('loggedout', __('You are now logged out.'), 'message');
-		elseif	( isset($_GET['registration']) && 'disabled' == $_GET['registration'] )
-			$errors->add('registerdisabled', __('User registration is currently not allowed.'));
-		elseif	( isset($_GET['checkemail']) && 'confirm' == $_GET['checkemail'] )
-			$errors->add('confirm', __('Check your email for the confirmation link.'), 'message');
-		elseif	( isset($_GET['checkemail']) && 'newpass' == $_GET['checkemail'] )
-			$errors->add('newpass', __('Check your email for your new password.'), 'message');
-		elseif	( isset($_GET['checkemail']) && 'registered' == $_GET['checkemail'] )
-			$errors->add('registered', __('Registration complete. Please check your email.'), 'message');
-		elseif ( strpos( $redirect_to, 'about.php?updated' ) )
-			$errors->add('updated', __( '<strong>You have successfully updated WordPress!</strong> Please log back in to see what&#8217;s new.' ), 'message' );
-	}
+
+	// $customize_login = isset( $_REQUEST['customize-login'] );
+	// if ( $customize_login )
+	// 	wp_enqueue_script( 'customize-base' );
+
 	/**
 	 * Filters the login page errors.
 	 *
@@ -695,33 +591,23 @@ default:
 	 * @param object $errors      WP Error object.
 	 * @param string $redirect_to Redirect destination URL.
 	 */
-	$errors = apply_filters( 'wp_login_errors', $errors, $redirect_to );
-	// Clear any stale cookies.
-	if ( $reauth )
-		wp_clear_auth_cookie();
-	logindesigner_login_header(__('Log In'), '', $errors);
-	if ( isset($_POST['log']) )
-		$user_login = ( 'incorrect_password' == $errors->get_error_code() || 'empty_password' == $errors->get_error_code() ) ? esc_attr(wp_unslash($_POST['log'])) : '';
+	logindesigner_login_header( __( 'Log In' ), '', $errors);
+
 	$rememberme = ! empty( $_POST['rememberme'] );
-	if ( ! empty( $errors->errors ) ) {
-		$aria_describedby_error = ' aria-describedby="login_error"';
-	} else {
-		$aria_describedby_error = '';
-	}
 ?>
 
 <form name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
 	<p>
 		<label id="login-designer--username-label" for="user_login"><span><?php _e( 'Username or Email Address' ); ?></span><br />
 		<div id="login-designer--username">
-			<input type="text" name="log" id="user_login"<?php echo $aria_describedby_error; ?> class="input" value="email@address.com" size="20" /></label>
+			<input type="text" name="log" id="user_login" class="input" value="email@address.com" size="20" /></label>
 		</div>
 	</p>
 	<p>
 
 		<label id="login-designer--password-label" for="user_pass"><span><?php _e( 'Password' ); ?></span><br />
 			<div id="login-designer--password">
-		<input type="password" name="pwd" id="user_pass"<?php echo $aria_describedby_error; ?> class="input" value="password" size="20" /></label>
+		<input type="password" name="pwd" id="user_pass" class="input" value="password" size="20" /></label>
 	</div>
 	</p>
 	<?php
@@ -732,7 +618,7 @@ default:
 	 */
 	do_action( 'login_form' );
 	?>
-	<p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever" <?php checked( $rememberme ); ?> /> <?php esc_html_e( 'Remember Me' ); ?></label></p>
+	<p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php esc_html_e( 'Remember Me' ); ?></label></p>
 	<p class="submit">
 		<span id="login-designer--button">
 			<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php esc_attr_e('Log In'); ?>" />

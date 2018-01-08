@@ -205,7 +205,16 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 					// Pull the Login Designer page from options.
 					$page = get_permalink( $this->get_login_designer_page() );
 
-					wp_safe_redirect( admin_url( '/customize.php?autofocus[section]=login_designer__section--templates&url=' . $page ) );
+					// Generate the redirect url.
+					$url = add_query_arg(
+						array(
+							'autofocus[section]' => 'login_designer__section--templates',
+							'url'                => rawurlencode( $page ),
+						),
+						admin_url( 'customize.php' )
+					);
+
+					wp_safe_redirect( $url );
 				}
 			}
 		}
@@ -267,7 +276,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				array(
 					'post_title'     => 'Login Designer',
 					'post_content'   => $post_content,
-					'post_status'    => 'draft',
+					'post_status'    => 'publish',
 					'post_author'    => 1,
 					'post_type'      => 'page',
 					'comment_status' => 'closed',
@@ -317,8 +326,8 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		/**
 		 * Add admin bar link.
 		 *
-		 * @since	1.0.0
-		 * @param	string|string $wp_admin_bar The admin bar.
+		 * @since 1.0.0
+		 * @param string|string $wp_admin_bar The admin bar.
 		 */
 		public function admin_bar_link( $wp_admin_bar ) {
 
@@ -327,13 +336,13 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			}
 
 			$args = array(
-				'id' => 'login-designer',
+				'id'    => 'login-designer',
 				'title' => esc_html__( 'Login Designer', '@@textdomain' ),
-				'href' => admin_url( '/customize.php?autofocus[section]=login_designer__section--templates&url='.home_url( '/login-designer' ) ),
-				'meta' => array(
+				'href'  => admin_url( '/customize.php?autofocus[section]=login_designer__section--templates&url=' . home_url( '/login-designer' ) ),
+				'meta'  => array(
 					'target' => '_self',
-					'class' => 'login-designer-link',
-					'title' => esc_html__( 'Login Designer', '@@textdomain' ),
+					'class'  => 'login-designer-link',
+					'title'  => esc_html__( 'Login Designer', '@@textdomain' ),
 				),
 			);
 
