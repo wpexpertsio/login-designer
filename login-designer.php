@@ -166,6 +166,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-customizer.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-customizer-output.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-customizer-scripts.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-tour.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-frontend-settings.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-templates.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-theme-template.php';

@@ -126,8 +126,9 @@ function logindesigner_login_header( $title = 'Log In', $message = '', $wp_error
 	 */
 	do_action( 'login_header' );
 	?>
+
 	<div id="login">
-		<h1 id="login-designer-logo-h1"><a id="login-designer-logo" class="customize-unpreviewable" href="<?php echo esc_url( $login_header_url ); ?>" title="<?php echo esc_attr( $login_header_title ); ?>" tabindex="-1"><?php bloginfo( 'name' ); ?></a></h1>
+		<h1 id="login-designer-logo-h1" data-hint="Click on the logo below to upload your own. After uploading, don't forget to set the logo's height and width." data-hintPosition="top-middle" data-position="bottom-right-aligned"><a id="login-designer-logo" class="customize-unpreviewable" href="<?php echo esc_url( $login_header_url ); ?>" title="<?php echo esc_attr( $login_header_title ); ?>" tabindex="-1"><?php bloginfo( 'name' ); ?></a></h1>
 	<?php
 	unset( $login_header_url, $login_header_title );
 	/**
@@ -627,7 +628,7 @@ default:
 </form>
 
 <?php if ( ! $interim_login ) { ?>
-<div id="login-designer--below-form">
+<div id="login-designer--below-form" data-hint="Click on the logo below to upload your own. After uploading, don't forget to set the logo's height and width." data-hintPosition="middle-right" data-position="bottom-right-aligned">
 <p id="nav">
 <?php if ( ! isset( $_GET['checkemail'] ) || ! in_array( $_GET['checkemail'], array( 'confirm', 'newpass' ) ) ) :
 	if ( get_option( 'users_can_register' ) ) :

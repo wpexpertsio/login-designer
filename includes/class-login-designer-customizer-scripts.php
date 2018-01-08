@@ -94,13 +94,13 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 
 			// Localization.
 			$localize = array(
-				'admin_url'		=> admin_url(),
-				'ajax_url'   		=> admin_url( 'admin-ajax.php' ),
-				'plugins_url'		=> plugins_url(),
-				'plugin_url'       	=> LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
+				'admin_url'             => admin_url(),
+				'ajax_url'              => admin_url( 'admin-ajax.php' ),
+				'plugins_url'           => plugins_url(),
+				'plugin_url'            => LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/',
 				'login_designer_page'   => get_permalink( $page ),
-				'font_url'         	=> esc_url_raw( 'https://fonts.googleapis.com/css' ),
-				'font_subset'      	=> '&latin,latin-ext',
+				'font_url'              => esc_url_raw( 'https://fonts.googleapis.com/css' ),
+				'font_subset'           => '&latin,latin-ext',
 				'extension_backgrounds' => $customizer->extension_backgrounds(),
 			);
 
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 				return;
 			}
 
-			$js_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
+			$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
 
 			wp_enqueue_script( 'login-designer-customize-custom-controls', $js_dir . 'login-designer-customize-custom-controls.min.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
 		}
@@ -173,11 +173,11 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 
 			// Localization.
 			$localize = array(
-				'btn_default' 	=> esc_html__( 'Install New Template', '@@textdomain' ),
-				'btn_close' 	=> esc_html__( 'Close', '@@textdomain' ),
-				'confirm' 	=> esc_html__( 'Attention! You are attempting to reset all custom styling added to Login Designer. Please note that this action is irreversible. Proceed?', '@@textdomain' ),
-				'nonce'   	=> array( 'activate' => wp_create_nonce( 'login-designer-activate-license' ), 'deactivate' => wp_create_nonce( 'login-designer-deactivate-license' ) ),
-				'ajaxurl'   	=> admin_url( 'admin-ajax.php' ),
+				'btn_default' => esc_html__( 'Install New Template', '@@textdomain' ),
+				'btn_close'   => esc_html__( 'Close', '@@textdomain' ),
+				'confirm'     => esc_html__( 'Attention! You are attempting to reset all custom styling added to Login Designer. Please note that this action is irreversible. Proceed?', '@@textdomain' ),
+				'nonce'       => array( 'activate' => wp_create_nonce( 'login-designer-activate-license' ), 'deactivate' => wp_create_nonce( 'login-designer-deactivate-license' ) ),
+				'ajaxurl'     => admin_url( 'admin-ajax.php' ),
 			);
 
 			// If SCRIPT_DEBUG is turned on.
