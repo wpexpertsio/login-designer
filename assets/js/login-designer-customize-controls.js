@@ -82,27 +82,6 @@
 			} );
 		} );
 
-		// wp.customize( 'login_designer[template]', function( setting ) {
-
-		// 	// Hide the form width option if "2" is selected.
-		// 	wp.customize.control( 'login_designer[form_width]', function( control ) {
-		// 		if ( '01' === setting.get() ) {
-		// 			wp.customize.control( 'login_designer[form_width]' ).deactivate( { duration: 0 } );
-		// 		} else {
-		// 			wp.customize.control( 'login_designer[form_width]' ).activate( { duration: 0 } );
-		// 		}
-		// 	});
-
-		// 	// Hide the form background color option if "2" or "3" is selected.
-		// 	wp.customize.control( 'login_designer[form_bg]', function( control ) {
-		// 		if ( '02' === setting.get() || '03' === setting.get()  ) {
-		// 			wp.customize.control( 'login_designer[form_width]' ).deactivate( { duration: 0 } );
-		// 		} else {
-		// 			wp.customize.control( 'login_designer[form_width]' ).activate( { duration: 0 } );
-		// 		}
-		// 	});
-		// });
-
 		function template_reset_to_defaults() {
 
 			// console.log( 'Defaults Reset' );
