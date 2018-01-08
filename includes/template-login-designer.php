@@ -12,7 +12,10 @@
 
 // Redirect if viewed from outside the Customizer.
 if ( ! is_customize_preview() ) {
-	wp_safe_redirect( home_url( '/' ) );
+	// Pull the Login Designer page from options.
+	$page = Login_Designer()->get_login_designer_page();
+
+	wp_safe_redirect( admin_url( '/customize.php?autofocus[section]=login_designer__section--templates&url=' . get_permalink( $page ) ) );
 }
 
 /**
@@ -648,19 +651,19 @@ default:
 			</body></html>
 <?php		exit;
 		}
-		if ( ( empty( $redirect_to ) || $redirect_to == 'wp-admin/' || $redirect_to == admin_url() ) ) {
-			// If the user doesn't belong to a blog, send them to user admin. If the user can't edit posts, send them to their profile.
-			if ( is_multisite() && !get_active_blog_for_user($user->ID) && !is_super_admin( $user->ID ) )
-				$redirect_to = user_admin_url();
-			elseif ( is_multisite() && !$user->has_cap('read') )
-				$redirect_to = get_dashboard_url( $user->ID );
-			elseif ( !$user->has_cap('edit_posts') )
-				$redirect_to = $user->has_cap( 'read' ) ? admin_url( 'profile.php' ) : home_url();
-			wp_redirect( $redirect_to );
-			exit();
-		}
-		wp_safe_redirect($redirect_to);
-		exit();
+		// if ( ( empty( $redirect_to ) || $redirect_to == 'wp-admin/' || $redirect_to == admin_url() ) ) {
+		// 	// If the user doesn't belong to a blog, send them to user admin. If the user can't edit posts, send them to their profile.
+		// 	if ( is_multisite() && !get_active_blog_for_user($user->ID) && !is_super_admin( $user->ID ) )
+		// 		$redirect_to = user_admin_url();
+		// 	elseif ( is_multisite() && !$user->has_cap('read') )
+		// 		$redirect_to = get_dashboard_url( $user->ID );
+		// 	elseif ( !$user->has_cap('edit_posts') )
+		// 		$redirect_to = $user->has_cap( 'read' ) ? admin_url( 'profile.php' ) : home_url();
+		// 	wp_redirect( $redirect_to );
+		// 	exit();
+		// }
+		// wp_safe_redirect($redirect_to);
+		// exit();
 	}
 	$errors = $user;
 	// Clear errors if loggedout is set.
