@@ -237,6 +237,7 @@ body:hover .customize-partial-edit-shortcut {
 
 // Logo.
 #login-designer-logo {
+	pointer-events: none;
 
 	&:focus {
 		box-shadow: none;
