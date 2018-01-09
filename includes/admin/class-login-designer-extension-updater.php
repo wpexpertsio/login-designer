@@ -1,14 +1,21 @@
 <?php
- // set_site_transient( 'update_plugins', null );
+/**
+ * Extension updater.
+ *
+ * @package   @@pkg.name
+ * @author    @@pkg.author
+ * @license   @@pkg.license
+ */
 
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+// set_site_transient( 'update_plugins', null );
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Allows plugins to use their own update API.
- *
- * @author Easy Digital Downloads
- * @version 1.6.15
  */
 class Login_Designer_Extension_Updater {
 

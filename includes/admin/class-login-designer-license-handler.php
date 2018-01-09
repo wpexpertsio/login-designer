@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer functionality
+ * License handler.
  *
  * @package   @@pkg.name
  * @author    @@pkg.author
