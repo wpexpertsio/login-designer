@@ -25,7 +25,7 @@ if ( ! class_exists( 'Login_Designer_Intro' ) ) :
 		 */
 		public function __construct() {
 
-			$options = get_option( 'login_designer_settings' );
+			$options = get_option( 'login_designer' );
 
 			// Check if any saved options exist. If they do return early and don't show the intro.
 			if ( $options ) {
