@@ -55,8 +55,9 @@ body:hover .customize-partial-edit-shortcut {
 	opacity: 1;
 }
 
-// Partials.
 .customize-partial--login-designer-background {
+	top: 10px !important;
+	left: 42px !important;
 
 	.login-designer-event-button:before {
 		color: #fff;
@@ -173,11 +174,6 @@ body:hover .customize-partial-edit-shortcut {
 	#login form {
 		position: initial;
 	}
-}
-
-.customize-partial--login-designer-background {
-	top: 10px !important;
-	left: 42px !important;
 }
 
 .hidden {

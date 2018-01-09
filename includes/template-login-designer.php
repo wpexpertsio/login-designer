@@ -126,8 +126,13 @@ function logindesigner_login_header( $title = 'Log In', $message = '', $wp_error
 	 */
 	do_action( 'login_header' );
 	?>
+
+	<div id="login-designer--background-hint" data-hint="Click here to upload a background image, choose from the gallery and set a background color." data-hintPosition="middle-right" data-position="bottom-right-aligned"></div>
+
+	<div id="login-designer--templates-hint" data-hint="Click here to select a display template for your login page." data-hintPosition="middle-right" data-position="bottom"></div>
+
 	<div id="login">
-		<h1 id="login-designer-logo-h1"><a id="login-designer-logo" class="customize-unpreviewable" href="<?php echo esc_url( $login_header_url ); ?>" title="<?php echo esc_attr( $login_header_title ); ?>" tabindex="-1"><?php bloginfo( 'name' ); ?></a></h1>
+		<h1 id="login-designer-logo-h1" data-hint="Click on the logo below to upload your own and set the image's height and width." data-hintPosition="top-middle" data-position="right"><a id="login-designer-logo" class="customize-unpreviewable" href="<?php echo esc_url( $login_header_url ); ?>" title="<?php echo esc_attr( $login_header_title ); ?>" tabindex="-1"><?php bloginfo( 'name' ); ?></a></h1>
 	<?php
 	unset( $login_header_url, $login_header_title );
 	/**
@@ -627,7 +632,7 @@ default:
 </form>
 
 <?php if ( ! $interim_login ) { ?>
-<div id="login-designer--below-form">
+<div id="login-designer--below-form" data-hint="Click on the elements below the form to modify each one." data-hintPosition="middle-right" data-position="bottom-right-aligned">
 <p id="nav">
 <?php if ( ! isset( $_GET['checkemail'] ) || ! in_array( $_GET['checkemail'], array( 'confirm', 'newpass' ) ) ) :
 	if ( get_option( 'users_can_register' ) ) :

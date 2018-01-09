@@ -16,6 +16,8 @@ var projectURL              	= 'http://demo.logindesigner.dev/login-designer';
 var styleCustomizerSRC  	= './assets/scss/customizer/'+ slug +'-customize-preview.scss';
 var styleCustomizerControlsSRC  = './assets/scss/customizer/'+ slug +'-customize-controls.scss';
 
+var styleIntroSRC           	= './assets/scss/customizer/'+ slug +'-intro.scss';
+
 var template_1SRC  		= './assets/scss/templates/'+ slug +'-template-01.scss';
 var template_2SRC  		= './assets/scss/templates/'+ slug +'-template-02.scss';
 var template_3SRC  		= './assets/scss/templates/'+ slug +'-template-03.scss';
@@ -185,6 +187,36 @@ gulp.task('styles_customize_preview', function () {
 
 gulp.task('styles_customize_controls', function () {
 	gulp.src( styleCustomizerControlsSRC )
+
+	.pipe( sass( {
+		errLogToConsole: true,
+		outputStyle: 'expanded',
+		precision: 10
+	} ) )
+
+	.on( 'error', console.error.bind( console ) )
+
+	.pipe( autoprefixer( AUTOPREFIXER_BROWSERS ) )
+
+	.pipe( csscomb() )
+
+	.pipe( gulp.dest( styleDestination ) )
+
+	.pipe( browserSync.stream() )
+
+	.pipe( rename( { suffix: '.min' } ) )
+
+	.pipe( minifycss( {
+		maxLineLen: 10
+	}))
+
+	.pipe( gulp.dest( styleDestination ) )
+
+	.pipe( browserSync.stream() )
+});
+
+gulp.task('styles_intro_js', function () {
+	gulp.src( styleIntroSRC )
 
 	.pipe( sass( {
 		errLogToConsole: true,
@@ -489,10 +521,11 @@ gulp.task( 'build-notification', function () {
  * Commands.
  */
 
-gulp.task( 'default', [ 'clear', 'vendorsJs', 'template_1', 'template_2', 'template_3', 'template_4', 'styles_customize_preview', 'styles_customize_controls', 'scripts', 'browser_sync' ], function () {
+gulp.task( 'default', [ 'clear', 'vendorsJs', 'template_1', 'template_2', 'template_3', 'template_4', 'styles_customize_preview', 'styles_customize_controls', 'styles_intro_js', 'scripts', 'browser_sync' ], function () {
 	gulp.watch( projectPHPWatchFiles, reload );
 	gulp.watch( styleWatchFiles, [ 'styles_customize_preview' ] );
-	gulp.watch( styleWatchFiles, [ 'styles_customize_controls' ] );
+	gulp.watch( styleWatchFiles, [ 'styles_intro_js' ] );
+	gulp.watch( styleWatchFiles, [ 'template_1' ] );
 	gulp.watch( styleWatchFiles, [ 'template_1' ] );
 	gulp.watch( styleWatchFiles, [ 'template_2' ] );
 	gulp.watch( styleWatchFiles, [ 'template_3' ] );
@@ -502,5 +535,5 @@ gulp.task( 'default', [ 'clear', 'vendorsJs', 'template_1', 'template_2', 'templ
 });
 
 gulp.task('build', function(callback) {
-	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'template_3', 'template_4', 'styles_customize_preview', 'styles_customize_controls', 'scripts', 'vendorsJs', 'build-translate' ], 'build-copy', 'build-variables', 'build-zip', 'build-clean-after-zip', 'build-notification', callback);
+	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'template_3', 'template_4', 'styles_customize_preview', 'styles_customize_controls', 'styles_intro_js', 'scripts', 'vendorsJs', 'build-translate' ], 'build-copy', 'build-variables', 'build-zip', 'build-clean-after-zip', 'build-notification', callback);
 });
