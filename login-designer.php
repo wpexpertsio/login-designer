@@ -141,6 +141,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		public function init() {
 			add_action( 'wp_head', array( $this, 'meta_version' ) );
 			add_action( 'admin_init', array( $this, 'redirect_customizer' ) );
+			add_action( 'admin_init', array( $this, 'redirect_edit_page' ) );
 			add_action( 'admin_init', array( $this, 'check_login_designer_page' ) );
 			add_action( 'admin_menu', array( $this, 'options_page' ) );
 			add_action( 'admin_bar_menu', array( $this, 'admin_bar_link' ), 999 );
@@ -218,6 +219,35 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 
 					wp_safe_redirect( $url );
 				}
+			}
+		}
+
+		/**
+		 * Redirect the editing function of the Login Designer page.
+		 *
+		 * @access public
+		 * @return void
+		 */
+		public function redirect_edit_page() {
+			global $pagenow;
+
+			// Pull the Login Designer page from options.
+			$page     = $this->get_login_designer_page();
+			$page_url = get_permalink( $page );
+			$page_id  = $page->ID;
+
+			// Generate the redirect url.
+			$url = add_query_arg(
+				array(
+					'autofocus[section]' => 'login_designer__section--templates',
+					'url'                => rawurlencode( $page_url ),
+				),
+				admin_url( 'customize.php' )
+			);
+
+			/* Check current admin page. */
+			if ( $pagenow == 'post.php' && isset( $_GET['post'] ) && $_GET['post'] == $page_id ) {
+				wp_safe_redirect( $url );
 			}
 		}
 
