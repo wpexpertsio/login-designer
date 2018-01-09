@@ -22,3 +22,5 @@ assets/css/login-designer-customize-preview.min.css
 *.css
 
 *.pot
+
+languages/login-designer.pot
