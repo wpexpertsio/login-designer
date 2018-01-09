@@ -87,9 +87,13 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 == Changelog ==
 
 = 1.0.8, January 09, 2017 =
+* New: Added an introduction tour for first-time users
+* New: Editing the Login Designer page now pulls up the Customizer view
+* New: Viewing the Login Designer page, when logged in, now also pulls up the Customizer view
 * Fix: Login Designer now plays nicely on multisite installations
-* Tweak: Improved template creation during installation
+* Tweak: Improved template creation process during installation
 * Tweak: View the Login Designer page now redirects to the Login Designer Customizer page
+* Tweak: Added a new admin warning for when a user attempts to delete the Login Designer page
 
 = 1.0.7, December 21, 2017 =
 * Fix: Resolved an issue where the Login Designer template page would not resolve properly for some folks
