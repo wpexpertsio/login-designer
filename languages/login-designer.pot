@@ -45,6 +45,10 @@ msgstr ""
 msgid "Your license key has reached its activation limit."
 msgstr ""
 
+#: includes/admin/class-login-designer-notices.php:75
+msgid "<b>The %s page may not be removed.</b> This page is used for login page styling within the Customizer."
+msgstr ""
+
 #: includes/class-login-designer-customizer-output.php:100
 msgid "Username or Email Address"
 msgstr ""
@@ -65,7 +69,7 @@ msgstr ""
 msgid "Attention! You are attempting to reset all custom styling added to Login Designer. Please note that this action is irreversible. Proceed?"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:76, includes/class-login-designer-theme-template.php:67, login-designer.php:192, login-designer.php:192, login-designer.php:340, login-designer.php:345
+#: includes/class-login-designer-customizer.php:76, includes/class-login-designer-theme-template.php:67, login-designer.php:194, login-designer.php:194, login-designer.php:342, login-designer.php:347
 msgid "Login Designer"
 msgstr ""
 
@@ -81,11 +85,11 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:96, login-designer.php:396
+#: includes/class-login-designer-customizer.php:96, login-designer.php:398
 msgid "Settings"
 msgstr ""
 
-#: includes/class-login-designer-customizer.php:114, login-designer.php:450, login-designer.php:483
+#: includes/class-login-designer-customizer.php:114, login-designer.php:452, login-designer.php:485
 msgid "Extensions"
 msgstr ""
 
@@ -237,7 +241,7 @@ msgstr ""
 msgid "Open Gallery"
 msgstr ""
 
-#: includes/install.php:168, login-designer.php:272
+#: includes/install.php:168, login-designer.php:274
 msgid "<p>This page is used by <a href=\"%1$s\">%2$s</a> to preview the login forms in the Customizer. Please don't delete this page. Thanks!</p>"
 msgstr ""
 
@@ -467,10 +471,10 @@ msgstr ""
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: login-designer.php:411
+#: login-designer.php:413
 msgid "Support"
 msgstr ""
 
-#: login-designer.php:415
+#: login-designer.php:417
 msgid "Pro"
 msgstr ""
