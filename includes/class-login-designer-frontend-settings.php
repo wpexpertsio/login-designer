@@ -58,7 +58,6 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 			} else {
 				return esc_url( home_url( '/' ) );
 			}
-
 		}
 
 		/**

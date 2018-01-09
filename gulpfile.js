@@ -16,9 +16,7 @@ var projectURL              	= 'http://demo.logindesigner.dev/login-designer';
 var styleCustomizerSRC  	= './assets/scss/customizer/'+ slug +'-customize-preview.scss';
 var styleCustomizerControlsSRC  = './assets/scss/customizer/'+ slug +'-customize-controls.scss';
 
-var styleIntroSRC           	= './assets/scss/customizer/'+ slug +'-tour.scss';
-var scriptIntroFile  		= slug +'-tour'; // JS file name.
-var scriptIntroSRC   		= './assets/js/'+ scriptIntroFile +'.js'; // The JS file src.
+var styleIntroSRC           	= './assets/scss/customizer/'+ slug +'-intro.scss';
 
 var template_1SRC  		= './assets/scss/templates/'+ slug +'-template-01.scss';
 var template_2SRC  		= './assets/scss/templates/'+ slug +'-template-02.scss';
@@ -402,16 +400,6 @@ gulp.task( 'scripts', function() {
 	gulp.src( scriptCustomizeLiveSRC )
 	.pipe( rename( {
 		basename: scriptCustomizeLiveFile,
-		suffix: '.min'
-	}))
-	.pipe( uglify() )
-	.pipe( lineec() )
-	.pipe( gulp.dest( scriptDestination ) )
-
-	// slug-tour.js
-	gulp.src( scriptIntroSRC )
-	.pipe( rename( {
-		basename: scriptIntroFile,
 		suffix: '.min'
 	}))
 	.pipe( uglify() )
