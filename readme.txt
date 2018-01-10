@@ -86,6 +86,9 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
+= 1.0.9, January XX, 2017 =
+* Tweak: Removed the visible Login Designer template from the Page Attributes dropdown
+
 = 1.0.8, January 09, 2017 =
 * New: Added an introduction tour for first-time users
 * New: Editing the Login Designer page now pulls up the Customizer view

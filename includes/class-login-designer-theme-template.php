@@ -53,9 +53,6 @@ if ( ! class_exists( 'Login_Designer_Theme_Template' ) ) :
 
 			$this->templates = array();
 
-			// Add a filter to the wp 4.7 version attributes metabox.
-			add_filter( 'theme_page_templates', array( $this, 'add_new_template' ) );
-
 			// Add a filter to the save post to inject out template into the page cache.
 			add_filter( 'wp_insert_post_data', array( $this, 'register_project_templates' ) );
 
@@ -67,16 +64,6 @@ if ( ! class_exists( 'Login_Designer_Theme_Template' ) ) :
 				'template-login-designer.php' => esc_html__( 'Login Designer', '@@textdomain' ),
 			);
 
-		}
-
-		/**
-		 * Add template to the page dropdown.
-		 *
-		 * @param string|string $posts_templates Theme templates.
-		 */
-		public function add_new_template( $posts_templates ) {
-			$posts_templates = array_merge( $posts_templates, $this->templates );
-			return $posts_templates;
 		}
 
 		/**
@@ -98,7 +85,7 @@ if ( ! class_exists( 'Login_Designer_Theme_Template' ) ) :
 			}
 
 			// New cache, therefore remove the old one.
-			wp_cache_delete( $cache_key , 'themes' );
+			wp_cache_delete( $cache_key, 'themes' );
 
 			// Now add our template to the list of templates by merging our templates
 			// with the existing templates array from the cache.
@@ -129,7 +116,7 @@ if ( ! class_exists( 'Login_Designer_Theme_Template' ) ) :
 				return $template;
 			}
 
-			$file = plugin_dir_path( __FILE__ ). get_post_meta(
+			$file = plugin_dir_path( __FILE__ ) . get_post_meta(
 				$post->ID, '_wp_page_template', true
 			);
 
