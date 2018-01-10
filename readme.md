@@ -1,6 +1,11 @@
 # Login Designer
 
-[![WordPress plugin](https://img.shields.io/wordpress/plugin/dt/login-designer.svg?style=flat)](https://wordpress.org/plugins/login-designer/) [![WordPress plugin](https://img.shields.io/wordpress/plugin/v/login-designer.svg?style=flat)](https://wordpress.org/plugins/login-designer/) [![WordPress](https://img.shields.io/wordpress/v/login-designer.svg?style=flat)]() [![License](https://img.shields.io/badge/license-GPL--2.0%2B-red.svg)](https://github.com/thatplugincompany/login-designer/blob/master/license.txt) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Beautifully%20fast%20WordPress%20login%20customization%20—&url=https://logindesigner.com/&via=logindesigner&hashtags=WordPress)
+[![WP](https://img.shields.io/badge/WordPress-%E2%86%92-lightgrey.svg?style=flat-square)](https://wordpress.org/plugins/login-designer/)
+[![WordPress plugin](https://img.shields.io/wordpress/plugin/dt/login-designer.svg?style=flat)](https://wordpress.org/plugins/login-designer/)
+[![WordPress plugin](https://img.shields.io/wordpress/plugin/v/login-designer.svg?style=flat)](https://wordpress.org/plugins/login-designer/)
+[![WP Rating](https://img.shields.io/wordpress/plugin/r/login-designer.svg?style=flat-square)](https://wordpress.org/support/view/plugin-reviews/login-designer?filter=5)
+[![WordPress](https://img.shields.io/wordpress/v/login-designer.svg?style=flat)]()
+[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Beautifully%20fast%20WordPress%20login%20customization%20—&url=https://logindesigner.com/&via=logindesigner&hashtags=WordPress)
 
 While [Login Designer](https://logindesigner.com?utm_medium=login-designer-github&utm_source=readme&utm_campaign=readme&utm_content=login-designer) is not the first WordPress plugin designed for custom login editing, it offers an unrivaled live-editing experience unlike any other. I'm talking zero refreshes. Contextually displayed options and plugin settings. Custom event triggers. Context-aware previews. Powerful custom controls. Live editing… the list goes on.
 
