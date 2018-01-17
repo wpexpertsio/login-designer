@@ -140,9 +140,9 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 */
 		public function init() {
 			add_action( 'wp_head', array( $this, 'meta_version' ) );
+			add_action( 'admin_init', array( $this, 'check_login_designer_page' ) );
 			add_action( 'admin_init', array( $this, 'redirect_customizer' ) );
 			add_action( 'admin_init', array( $this, 'redirect_edit_page' ) );
-			add_action( 'admin_init', array( $this, 'check_login_designer_page' ) );
 			add_action( 'admin_menu', array( $this, 'options_page' ) );
 			add_action( 'admin_bar_menu', array( $this, 'admin_bar_link' ), 999 );
 			add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
@@ -232,8 +232,14 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			global $pagenow;
 
 			// Pull the Login Designer page from options.
-			$page     = $this->get_login_designer_page();
+			$page = $this->get_login_designer_page();
+
+			if ( ! $page ) {
+				return;
+			}
+
 			$page_url = get_permalink( $page );
+			$page_id  = get_post( $page );
 			$page_id  = $page->ID;
 
 			// Generate the redirect url.
@@ -260,8 +266,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		public function check_login_designer_page() {
 
 			// Retrieve the Login Designer admin page option, that was created during the activation process.
-			$options = new Login_Designer_Customizer_Output();
-			$option  = $options->admin_option_wrapper( 'login_designer_page' );
+			$option = $this->get_login_designer_page();
 
 			// Retrieve the status of the page, if the option is available.
 			if ( $option ) {
@@ -289,9 +294,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 
 			// Pull options from WP.
 			$admin_options = get_option( 'login_designer_settings', array() );
-
-			// Checks if the Login Designer page option exists.
-			$login_designer_page = array_key_exists( 'login_designer_page', $admin_options ) ? get_post( $admin_options['login_designer_page'] ) : false;
 
 			// Array of allowed HTML in the page content.
 			$allowed_html_array = array(
