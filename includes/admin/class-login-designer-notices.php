@@ -62,6 +62,7 @@ if ( ! class_exists( 'Login_Designer_Notices' ) ) :
 
 			echo '<div class="notice ' . esc_attr( $type . $dismissable ) . '">';
 				echo '<p>' . wp_kses( $message, $allowed_html_array ) . '</p>';
+				echo '<style>.updated.notice.is-dismissible {display: none;}</style>';
 			echo '</div>';
 		}
 
