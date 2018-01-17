@@ -52,10 +52,9 @@ register_activation_hook( LOGIN_DESIGNER_PLUGIN_FILE, 'login_designer_install' )
  * @param string $option Option name to store the page's ID.
  * @param string $page_title (default: '') Title for the new page.
  * @param string $page_content (default: '') Content for the new page.
- * @param int    $post_parent (default: 0) Parent for the new page.
  * @return int   page ID
  */
-function login_designer_create_page( $slug, $option = '', $page_title = '', $page_content = '', $post_parent = 0 ) {
+function login_designer_create_page( $slug, $option = '', $page_title = '', $page_content = '' ) {
 	global $wpdb;
 
 	// Set up options.
@@ -63,7 +62,7 @@ function login_designer_create_page( $slug, $option = '', $page_title = '', $pag
 
 	// Pull options from WP.
 	$admin_options = get_option( 'login_designer_settings', array() );
-	$option_value  = $admin_options[ $option ];
+	$option_value  = array_key_exists( 'login_designer_page', $admin_options ) ? $admin_options['login_designer_page'] : false;
 
 	if ( $option_value > 0 && ( $page_object = get_post( $option_value ) ) ) {
 		if ( 'page' === $page_object->post_type && ! in_array( $page_object->post_status, array( 'pending', 'trash', 'future', 'auto-draft' ), true ) ) {
@@ -82,7 +81,7 @@ function login_designer_create_page( $slug, $option = '', $page_title = '', $pag
 		if ( $option ) {
 
 			$options['login_designer_page'] = $valid_page_found;
-			$valid_page_found               = isset( $page_id ) ? $valid_page_found : $admin_options['login_designer_page'];
+			$valid_page_found               = isset( $page_id ) ? $valid_page_found : $option_value;
 			$merged_options                 = array_merge( $admin_options, $options );
 			$admin_options                  = $merged_options;
 
@@ -112,7 +111,6 @@ function login_designer_create_page( $slug, $option = '', $page_title = '', $pag
 			'post_name'      => $slug,
 			'post_title'     => $page_title,
 			'post_content'   => $page_content,
-			'post_parent'    => $post_parent,
 			'comment_status' => 'closed',
 		);
 
@@ -122,7 +120,7 @@ function login_designer_create_page( $slug, $option = '', $page_title = '', $pag
 	if ( $option ) {
 
 		$options['login_designer_page'] = $page_id;
-		$page_id                        = isset( $page_id ) ? $page_id : $admin_options['login_designer_page'];
+		$page_id                        = isset( $page_id ) ? $page_id : $option_value;
 		$merged_options                 = array_merge( $admin_options, $options );
 		$admin_options                  = $merged_options;
 
@@ -136,36 +134,14 @@ function login_designer_create_page( $slug, $option = '', $page_title = '', $pag
 }
 
 /**
- * Retrieve page ids - used for /login-designer/. Returns -1 if no page is found.
- *
- * @param string $page slug.
- * @return int
- */
-function login_designer_get_page_id( $page ) {
-
-	$options = get_option( 'login_designer_settings' );
-
-	$page = apply_filters( 'login_designer_get_' . $page . '_page_id', $options['login_designer_page'] );
-
-	return $page ? absint( $page ) : -1;
-}
-
-/**
  * Run the Login Designer install process
  *
  * @return void
  */
 function login_designer_run_install() {
 
-	// Array of allowed HTML in the page content.
-	$allowed_html_array = array(
-		'a' => array(
-			'href'   => array(),
-			'target' => array(),
-		),
-	);
-
-	$post_content = sprintf( wp_kses( __( '<p>This page is used by <a href="%1$s">%2$s</a> to preview the login forms in the Customizer. Please don\'t delete this page. Thanks!</p>', '@@textdomain' ), $allowed_html_array ), 'https://logindesigner.com', 'Login Designer' );
+	/* translators: 1: Name of this plugin */
+	$post_content = sprintf( __( '<p>This page is used by %1$s to preview the login form in the Customizer.</p>', '@@textdomain' ), 'Login Designer' );
 
 	$pages = apply_filters(
 		'login_designer_create_pages', array(
@@ -178,7 +154,7 @@ function login_designer_run_install() {
 	);
 
 	foreach ( $pages as $key => $page ) {
-		login_designer_create_page( esc_sql( $page['name'] ), 'login_designer_page', $page['title'], $page['content'], ! empty( $page['parent'] ) ? login_designer_get_page_id( $page['parent'] ) : '' );
+		login_designer_create_page( esc_sql( $page['name'] ), 'login_designer_page', $page['title'], $page['content'] );
 	}
 }
 
