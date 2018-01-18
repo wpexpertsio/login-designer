@@ -40,6 +40,31 @@
 		});
 	});
 
+	// Branding
+	wp.customize( 'login_designer_settings[branding]', function( value ) {
+		value.bind( function( to ) {
+			if ( false === to ) {
+				$( '.login-designer-badge' ).addClass( 'is-hidden' );
+			} else {
+				$( '.login-designer-badge' ).removeClass( 'is-hidden' );
+			}
+		} );
+	} );
+
+	// Branding text color.
+	wp.customize( 'login_designer_settings[branding_color]', function( value ) {
+		value.bind( function( to ) {
+			$( '.login-designer-badge__text' ).css( 'color', to );
+		} );
+	} );
+
+	// Branding icon fill color.
+	wp.customize( 'login_designer_settings[branding_icon_color]', function( value ) {
+		value.bind( function( to ) {
+			$( '.login-designer-badge .icon' ).css( 'color', to );
+		} );
+	} );
+
 	// Below form color.
 	wp.customize( 'login_designer[below_color]', function( value ) {
 		value.bind( function( to ) {

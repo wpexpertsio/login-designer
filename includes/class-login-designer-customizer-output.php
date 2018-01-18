@@ -194,6 +194,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'login_redirect'      => '',
 				'logout_redirect'     => '',
 				'login_message'       => '',
+				'branding'            => true,
+				'branding_color'      => '#444444',
+				'branding_icon_color' => '#333333',
 
 			);
 
@@ -397,6 +400,11 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 			// Default overrides to clean up the standard WordPress login form.
 			$css .= '
+
+				#login-designer-sprite {
+					display: none !important;
+				}
+
 				#login {
 					width: 100%;
 				}

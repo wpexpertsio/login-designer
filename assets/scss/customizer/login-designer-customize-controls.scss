@@ -1,9 +1,6 @@
 // Variables.
 @import "variables";
 
-// Checkbox.
-@import "modules/checkbox";
-
 // Color Controls.
 @import "modules/colors";
 
@@ -24,6 +21,10 @@
 
 .customize-control.disabled {
 	display: none !important;
+}
+
+#customize-control-login_designer_settings-branding {
+	margin-bottom: 9px;
 }
 
 // Hide the Styles section.

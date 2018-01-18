@@ -208,6 +208,11 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				'label_color' 		=> '#72777c',
 			) );
 
+			$template_01_branding = apply_filters( 'login_designer_template_01_branding_defaults', array(
+				'branding_color'      => '#000000',
+				'branding_icon_color' => '#000000',
+			) );
+
 			// Dark template.
 			$template_02 = apply_filters( 'login_designer_template_02_defaults', array(
 				'bg_image_gallery' 	=> 'none',
@@ -255,6 +260,11 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				'checkbox_bg' 		=> '#272727',
 				'checkbox_border' 	=> '0',
 				'checkbox_radius' 	=> '3',
+			) );
+
+			$template_02_branding = apply_filters( 'login_designer_template_02_branding_defaults', array(
+				'branding_color'      => '#3d3d3d',
+				'branding_icon_color' => '#4d4d4d',
 			) );
 
 			// White minimal template.
@@ -306,6 +316,11 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				'checkbox_radius' 	=> '3',
 			) );
 
+			$template_03_branding = apply_filters( 'login_designer_template_03_branding_defaults', array(
+				'branding_color'      => '#191919',
+				'branding_icon_color' => '#191919',
+			) );
+
 			// White 50/50 on-the-site template.
 			$template_04 = apply_filters( 'login_designer_template_04_defaults', array(
 				'bg_image_gallery' 	=> 'bg_01',
@@ -332,14 +347,30 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				'label_font_size' 	=> '15',
 			) );
 
+			$template_04_branding = apply_filters( 'login_designer_template_04_branding_defaults', array(
+				'branding_color'      => '#444444',
+				'branding_icon_color' => '#333333',
+			) );
+
 			$customizer = new Login_Designer_Customizer_Output();
 
+			// Branding defaults.
+			$branding_defaults = apply_filters( 'login_designer_template_01_branding_defaults', array(
+				'branding_color'      => '#444444',
+				'branding_icon_color' => '#222222',
+			) );
+
 			$defaults = array(
-				'template_defaults'	=> $customizer->defaults(),
-				'template_defaults_01'	=> $template_01,
-				'template_defaults_02'	=> $template_02,
-				'template_defaults_03'	=> $template_03,
-				'template_defaults_04'	=> $template_04,
+				'template_defaults'             => $customizer->defaults(),
+				'template_branding_defaults'    => $branding_defaults,
+				'template_defaults_01'          => $template_01,
+				'template_defaults_02'          => $template_02,
+				'template_defaults_03'          => $template_03,
+				'template_defaults_04'          => $template_04,
+				'template_branding_defaults_01' => $template_01_branding,
+				'template_branding_defaults_02' => $template_02_branding,
+				'template_branding_defaults_03' => $template_03_branding,
+				'template_branding_defaults_04' => $template_04_branding,
 			);
 
 			// Combine the three arrays.

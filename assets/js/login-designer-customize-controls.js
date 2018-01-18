@@ -112,6 +112,21 @@
 			}
 		}
 
+		function template_set_branding_defaults( template_defaults ) {
+
+			// Now apply the template's custom style.
+			for ( var key in template_defaults ) {
+
+				if ( key === 'branding' ) continue;
+
+				var control 	= key;
+				var value	= template_defaults[key];
+
+				wp.customize( 'login_designer_settings[' + control + ']' ).set( value );
+
+			}
+		}
+
 		// Modify the background color based on the gallery image selected.
 		wp.customize( 'login_designer[template]', function( value ) {
 
@@ -121,12 +136,16 @@
 
 				if ( to === 'default' ) {
 					template_set_defaults( login_designer_controls.template_defaults );
+					template_set_branding_defaults( login_designer_controls.template_branding_defaults );
 				} else if ( to === '01' ) {
 					template_set_defaults( login_designer_controls.template_defaults_01 );
+					template_set_branding_defaults( login_designer_controls.template_branding_defaults_01 );
 				} else if ( to === '02' ) {
 					template_set_defaults( login_designer_controls.template_defaults_02 );
+					template_set_branding_defaults( login_designer_controls.template_branding_defaults_02 );
 				} else if ( to === '03' ) {
 					template_set_defaults( login_designer_controls.template_defaults_03 );
+					template_set_branding_defaults( login_designer_controls.template_branding_defaults_03 );
 				}
 			} );
 		} );
@@ -221,5 +240,31 @@
 				// console.log( width );
 			}
 		} );
+
+		/**
+		 * Function to hide/show Customizer options, based on a checkbox value.
+		 *
+		 * Parent option, Affected Control, Value which affects the control.
+		 */
+		function customizer_checkbox_option_display( parent_setting, affected_control, value ) {
+			wp.customize( parent_setting, function( setting ) {
+				wp.customize.control( affected_control, function( control ) {
+					var visibility = function() {
+						if ( value === setting.get() ) {
+							control.container.slideDown( 100 );
+						} else {
+							control.container.slideUp( 100 );
+						}
+					};
+
+					visibility();
+					setting.bind( visibility );
+				});
+			});
+		}
+
+		customizer_checkbox_option_display( 'login_designer_settings[branding]', 'login_designer_settings[branding_color]', true );
+		customizer_checkbox_option_display( 'login_designer_settings[branding]', 'login_designer_settings[branding_icon_color]', true );
+
 	} );
 } )( jQuery );

@@ -87,7 +87,10 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 == Changelog ==
 
 = 1.0.9, January XX, 2017 =
-* Tweak: Removed the visible Login Designer template from the Page Attributes dropdown
+* New: Added an optional "Powered by Login Designer" badge to display on login pages
+* New: Added options to customize the colors of the new "Powered by" badge
+* Tweak: Removed the Login Designer template from the Page Attributes dropdown
+* Tweak: Added additional checks for the login_designer_page value
 
 = 1.0.8, January 09, 2017 =
 * New: Added an introduction tour for first-time users

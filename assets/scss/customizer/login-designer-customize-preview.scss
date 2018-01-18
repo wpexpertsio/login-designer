@@ -76,9 +76,7 @@ body:hover .customize-partial-edit-shortcut {
 }
 .customize-partial--login-designer-settings {
 	bottom: 42px !important;
-	right: 12px !important;
-	transition: opacity 150ms cubic-bezier(0.694, 0, 0.335, 1), visibility 0ms cubic-bezier(0.694, 0, 0.335, 1);
-	display: none !important;
+	left: 42px !important;
 
 	.login-designer-event-button:before {
 		color: #fff;
@@ -153,7 +151,6 @@ body:hover .customize-partial-edit-shortcut {
 
 	}
 }
-
 
 .has-template-applied .customize-partial-edit-shortcut button {
 	animation-name: x !important;

@@ -146,102 +146,97 @@
 		control_visibility( section, 'activate' );
 	}
 
+	/**
+	 * Function to hide/show Customizer options, based on another control.
+	 *
+	 * Parent option, Affected Control, Value which affects the control.
+	 */
+	function customizer_image_option_display( parent_setting, affected_control ) {
+		wp.customize( parent_setting, function( setting ) {
+			wp.customize.control( affected_control, function( control ) {
+				var visibility = function() {
+					if ( setting.get() && 'none' !== setting.get() && '0' !== setting.get() ) {
+						control.activate( { duration: 0 } );
+						control.container.slideDown( 0 );
+					} else {
+						control.container.slideUp( 0 );
+						control.deactivate( { duration: 0 } );
+					}
+				};
 
-
-
-
-		/**
-		 * Function to hide/show Customizer options, based on another control.
-		 *
-		 * Parent option, Affected Control, Value which affects the control.
-		 */
-		function customizer_image_option_display( parent_setting, affected_control ) {
-			wp.customize( parent_setting, function( setting ) {
-				wp.customize.control( affected_control, function( control ) {
-					var visibility = function() {
-						if ( setting.get() && 'none' !== setting.get() && '0' !== setting.get() ) {
-							control.activate( { duration: 0 } );
-							control.container.slideDown( 0 );
-						} else {
-							control.container.slideUp( 0 );
-							control.deactivate( { duration: 0 } );
-						}
-					};
-
-					visibility();
-					setting.bind( visibility );
-				});
+				visibility();
+				setting.bind( visibility );
 			});
-		}
+		});
+	}
 
-		/**
-		 * Function to hide/show Customizer options, based on another control.
-		 *
-		 * Parent option, Affected Control, Value which affects the control.
-		 */
-		function customizer_no_image_option_display( parent_setting, affected_control ) {
-			wp.customize( parent_setting, function( setting ) {
-				wp.customize.control( affected_control, function( control ) {
-					var visibility = function() {
-						if ( setting.get() ) {
-							control.container.slideUp( 0 );
-							control.deactivate( { duration: 0 } );
-						}  else {
-							control.container.slideDown( 0 );
-							control.activate( { duration: 0 } );
-						}
-					};
+	/**
+	 * Function to hide/show Customizer options, based on another control.
+	 *
+	 * Parent option, Affected Control, Value which affects the control.
+	 */
+	function customizer_no_image_option_display( parent_setting, affected_control ) {
+		wp.customize( parent_setting, function( setting ) {
+			wp.customize.control( affected_control, function( control ) {
+				var visibility = function() {
+					if ( setting.get() ) {
+						control.container.slideUp( 0 );
+						control.deactivate( { duration: 0 } );
+					}  else {
+						control.container.slideDown( 0 );
+						control.activate( { duration: 0 } );
+					}
+				};
 
-					visibility();
-					setting.bind( visibility );
-				});
+				visibility();
+				setting.bind( visibility );
 			});
-		}
+		});
+	}
 
-		/**
-		 * Function to hide/show Customizer options, based on a range control value.
-		 *
-		 * Parent option, Affected Control, Value which affects the control.
-		 */
-		function customizer_range_option_display( parent_setting, affected_control, value ) {
-			wp.customize( parent_setting, function( setting ) {
-				wp.customize.control( affected_control, function( control ) {
-					var visibility = function() {
-						if ( setting.get() && '0' !== setting.get() ) {
-							control.container.slideDown( 0 );
-						} else {
-							control.container.slideUp( 180 );
-						}
-					};
+	/**
+	 * Function to hide/show Customizer options, based on a range control value.
+	 *
+	 * Parent option, Affected Control, Value which affects the control.
+	 */
+	function customizer_range_option_display( parent_setting, affected_control, value ) {
+		wp.customize( parent_setting, function( setting ) {
+			wp.customize.control( affected_control, function( control ) {
+				var visibility = function() {
+					if ( setting.get() && '0' !== setting.get() ) {
+						control.container.slideDown( 0 );
+					} else {
+						control.container.slideUp( 180 );
+					}
+				};
 
-					visibility();
-					setting.bind( visibility );
-				});
+				visibility();
+				setting.bind( visibility );
 			});
-		}
+		});
+	}
 
-		/**
-		 * Function to hide/show Customizer options, based on a checkbox value.
-		 *
-		 * Parent option, Affected Control, Value which affects the control.
-		 */
-		function customizer_checkbox_option_display( parent_setting, affected_control, value ) {
-			wp.customize( parent_setting, function( setting ) {
-				wp.customize.control( affected_control, function( control ) {
-					var visibility = function() {
-						if ( value === setting.get() ) {
-							control.container.slideDown( 0 );
-						} else {
-							control.container.slideUp( 0 );
-						}
-					};
+	/**
+	 * Function to hide/show Customizer options, based on a checkbox value.
+	 *
+	 * Parent option, Affected Control, Value which affects the control.
+	 */
+	function customizer_checkbox_option_display( parent_setting, affected_control, value ) {
+		wp.customize( parent_setting, function( setting ) {
+			wp.customize.control( affected_control, function( control ) {
+				var visibility = function() {
+					if ( value === setting.get() ) {
+						control.container.slideDown( 0 );
+					} else {
+						control.container.slideUp( 0 );
+					}
+				};
 
-					visibility();
-					setting.bind( visibility );
-				});
+				visibility();
+				setting.bind( visibility );
 			});
-		}
-
+		});
+	}
 
 	function control_visibility( controls, action ) {
 
@@ -757,6 +752,13 @@
 				}
 			} );
 
+			// Open settings panel when the settings icon is clicked.
+			this.preview.bind( 'login-designer-edit-branding', function() {
+				var section = wp.customize.section( 'login_designer__section--settings' );
+				if ( ! section.expanded() ) {
+					section.expand( { duration: 0 } );
+				}
+			} );
 		}
 	};
 
