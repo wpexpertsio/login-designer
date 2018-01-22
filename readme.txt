@@ -66,7 +66,7 @@ This plugin is created and maintaned by [Rich Tabor](https://richtabor.com?utm_m
 
 = How do I start customizing? =
 
-You may easily navigate to the Login Designer editor via the **WordPress Dashboard > Apperance > Login** link. Alternatively, you may view the editor by opening the **Login Designer** section within the Customizer.
+You may easily navigate to the Login Designer editor via the **WordPress Dashboard > Apperance > Login Designer** link. Alternatively, you may view the editor by opening the **Login Designer** section within the Customizer.
 
 = Is Login Designer free? =
 
@@ -86,7 +86,7 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
-= 1.0.9, January XX, 2017 =
+= 1.0.9, January 22, 2017 =
 * New: Added an optional "Powered by Login Designer" badge to display on login pages
 * New: Added options to customize the colors of the new "Powered by" badge
 * Tweak: Removed the Login Designer template from the Page Attributes dropdown
