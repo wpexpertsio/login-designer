@@ -806,7 +806,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Remember positioning.
 				if ( isset( $options['remember_position'] ) ) {
-					$css .= '#login .forgetmenot { margin-top: ' . esc_attr( $options['remember_position'] ) . 'px }';
+					$css .= '#login form .forgetmenot { margin-top: ' . esc_attr( $options['remember_position'] ) . 'px }';
 				}
 
 				// Checkbox size.

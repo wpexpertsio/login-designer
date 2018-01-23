@@ -193,7 +193,7 @@
 	wp.customize( 'login_designer[remember_position]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_remember_position">#login .forgetmenot { margin-top: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_remember_position">#login .forgetmenot { margin-top: ' + to + 'px !important; } </style>';
 
 			el =  $( '.login_designer_remember_position' );
 
