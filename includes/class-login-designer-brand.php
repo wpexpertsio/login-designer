@@ -21,14 +21,12 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 
 		/**
 		 * The class constructor.
-		 * Adds actions to enqueue our assets.
 		 */
 		public function __construct() {
 
 			// For the Customizer.
+			add_action( 'customize_preview_init', array( $this, 'is_customize' ), 99 );
 			add_action( 'customize_preview_init', array( $this, 'styles' ), 99 );
-			add_action( 'wp_footer', array( $this, 'load_sprite' ), 9999 );
-			add_action( 'wp_footer', array( $this, 'render' ) );
 
 			// Return early if the option is deactived.
 			if ( ! true === $this->is_active() ) {
@@ -39,6 +37,19 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 			add_action( 'login_enqueue_scripts', array( $this, 'styles' ), 99 );
 			add_action( 'login_footer', array( $this, 'load_sprite' ), 9999 );
 			add_action( 'login_footer', array( $this, 'render' ) );
+		}
+
+		/**
+		 * Add functionality to the Customizer.
+		 */
+		public function is_customize() {
+
+			if ( ! is_customize_preview() ) {
+				return;
+			}
+
+			add_action( 'wp_footer', array( $this, 'load_sprite' ), 9999 );
+			add_action( 'wp_footer', array( $this, 'render' ) );
 		}
 
 		/**
