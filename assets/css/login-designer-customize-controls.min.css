@@ -137,6 +137,8 @@
 .rtl .control-section-upgrade .accordion-section-title .button{margin-left:0;margin-right:8px}
 .customize-control.disabled{display:none !important}
 #customize-control-login_designer_settings-branding{margin-bottom:9px}
+#customize-control-login_designer-back_to{margin-top:-8px}
+#customize-control-login_designer-field_shadow_inset{margin-top:-1px}
 #accordion-section-login_designer__section--styles{display:none !important}
 #customize-control-login_designer_settings-logo_url{margin-bottom:25px;margin-top:10px}
 #customize-control-login_designer-field_text_title,#customize-control-login_designer-button_text_title{margin-top:15px}

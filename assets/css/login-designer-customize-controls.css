@@ -904,6 +904,14 @@
 	margin-bottom: 9px;
 }
 
+#customize-control-login_designer-back_to {
+	margin-top: -8px;
+}
+
+#customize-control-login_designer-field_shadow_inset {
+	margin-top: -1px;
+}
+
 #accordion-section-login_designer__section--styles {
 	display: none !important;
 }
