@@ -4,7 +4,7 @@
 ( function ( exports, $ ) {
 	"use strict";
 
-	var api = wp.customize, OldPreviewer;
+	var api = wp.customize, LoginDesignerOldPreviewer;
 
 	var all_controls = {
 		'logo' : [
@@ -682,7 +682,7 @@
 	}
 
 	//  Customizer Previewer
-	api.myCustomizerPreviewer = {
+	api.LoginDesignerCustomizerPreviewer = {
 
 		init: function () {
 
@@ -703,7 +703,7 @@
 			// Function used for contextually aware Customizer options.
 			function bind_control_visibility_event( event, active_controls, focus_control ) {
 
-				api.myCustomizerPreviewer.preview.bind( event, function() {
+				api.LoginDesignerCustomizerPreviewer.preview.bind( event, function() {
 
 					//If the current event is active, there's no need to run it.
 					// if ( active_state !== event ) {
@@ -765,21 +765,21 @@
 	/**
 	 * Capture the instance of the Preview since it is private.
 	 */
-	OldPreviewer = api.Previewer;
-	api.Previewer = OldPreviewer.extend( {
+	LoginDesignerOldPreviewer = api.Previewer;
+	api.Previewer = LoginDesignerOldPreviewer.extend( {
 		initialize: function( params, options ) {
 
 			// Store a reference to the Previewer
-			api.myCustomizerPreviewer.preview = this;
+			api.LoginDesignerCustomizerPreviewer.preview = this;
 
 			// Call the old Previewer's initialize function
-			OldPreviewer.prototype.initialize.call( this, params, options );
+			LoginDesignerOldPreviewer.prototype.initialize.call( this, params, options );
 		}
 	} );
 
 	$( function() {
 		// Initialize our Previewer
-		api.myCustomizerPreviewer.init();
+		api.LoginDesignerCustomizerPreviewer.init();
 	} );
 
 } )( wp, jQuery );

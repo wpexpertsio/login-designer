@@ -15,7 +15,7 @@
 	opacity: 0 !important;
 }
 
-.forgetmenot button[data-customizer-event="login-designer-edit-remember-me"] {
+.forgetmenot button[data-login-designer-customizer-event="login-designer-edit-remember-me"] {
 	bottom: -2px;
 	left: 16px;
 	right: -2px;
@@ -23,7 +23,7 @@
 	width: calc( 100% + 4px);
 }
 
-.forgetmenot button[data-customizer-event="login-designer-edit-remember-me-checkbox"] {
+.forgetmenot button[data-login-designer-customizer-event="login-designer-edit-remember-me-checkbox"] {
 	bottom: 0;
 	height: 16px;
 	left: 0;
@@ -32,7 +32,7 @@
 	width: 16px;
 }
 
-.forgetmenot button[data-customizer-event="login-designer-edit-remember-me-checkbox"]:hover {
+.forgetmenot button[data-login-designer-customizer-event="login-designer-edit-remember-me-checkbox"]:hover {
 	background: rgba(0, 167, 233, 0.2) !important;
 	opacity: 1;
 }

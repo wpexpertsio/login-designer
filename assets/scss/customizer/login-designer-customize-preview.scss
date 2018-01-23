@@ -17,7 +17,7 @@
 		opacity: 0 ! important;
 	}
 
-	button[data-customizer-event="login-designer-edit-remember-me"] {
+	button[data-login-designer-customizer-event="login-designer-edit-remember-me"] {
 		width: calc( 100% + 4px);
 		top: -2px;
 		bottom: -2px;
@@ -25,7 +25,7 @@
 		right: -2px;
 	}
 
-	button[data-customizer-event="login-designer-edit-remember-me-checkbox"] {
+	button[data-login-designer-customizer-event="login-designer-edit-remember-me-checkbox"] {
 		width: 16px;
 		top: 1px;
 		bottom: 0;
