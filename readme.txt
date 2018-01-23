@@ -86,6 +86,13 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
+= 1.1.0, January 23, 2017 =
+* Fix: Resolved an issue where the Login Designer badge was not displaying properly
+* Fix: Custom positioning on the "remember me" checkbox now works properly
+* Tweak: Added minor Customizer UI tweaks
+* Tweak: Added appropriate prefixes to combat theme incompatibilities
+* Tweak: Added a proper is_customize_preview check for the Login Designer badge
+
 = 1.0.9, January 22, 2017 =
 * New: Added an optional "Powered by Login Designer" badge to display on login pages
 * New: Added options to customize the colors of the new "Powered by" badge
