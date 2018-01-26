@@ -86,7 +86,10 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
-= 1.1.0, January 23, 2017 =
+= 1.1.2, January 26, 2017 =
+* Fix: Resolved the sprite display issue within the Customizer
+
+= 1.1.1, January 23, 2017 =
 * Fix: Custom positioning on the "remember me" checkbox now works properly
 * Tweak: Added minor Customizer UI tweaks
 * Tweak: Added appropriate prefixes to combat theme incompatibilities
