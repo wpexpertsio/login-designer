@@ -97,7 +97,7 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 			$markup .= '<div class="login-designer-badge__inner">';
 			$markup .= sprintf( '<span class="login-designer-badge__text">%1$s</span>', esc_html( $text ) );
 			$markup .= $this->get_svg( array( 'icon' => 'login-designer' ) );
-			$markup .= sprintf( '<a class="login-designer-badge__link" href="%1$s" alt="%2$s" target="_blank"></a>', esc_url( $url ), esc_attr( $alt ) );
+			$markup .= sprintf( '<a class="login-designer-badge__link" href="%1$s" alt="%2$s" target="_blank"></a>', esc_url( 'https://wordpress.org/plugins/login-designer/' ), esc_attr( $alt ) );
 			$markup .= '</div>';
 			$markup .= '</div>';
 
@@ -199,6 +199,10 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 
 			// Add inline style.
 			wp_add_inline_style( 'login', wp_strip_all_tags( $css ) );
+
+			if ( is_customize_preview() ) {
+				wp_add_inline_style( 'customize-preview', wp_strip_all_tags( $css ) );
+			}
 		}
 
 		/**
