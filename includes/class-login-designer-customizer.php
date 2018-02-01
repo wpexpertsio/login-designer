@@ -40,6 +40,10 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 				$classes[] = 'customize-partial-edit-shortcuts-shown';
 			}
 
+			if ( is_customize_preview() && is_page_template( 'template-login-designer.php' ) ) {
+				$classes[] = 'login-designer';
+			}
+
 			return $classes;
 		}
 
@@ -106,7 +110,15 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 				$wp_customize->register_section_type( 'Login_Designer_Upgrade_Control' );
 
-				$url = Login_Designer()->get_store_url( 'extensions', array( 'utm_medium' => 'login-designer-lite', 'utm_source' => 'customizer', 'utm_campaign' => 'extensions-section', 'utm_content' => 'discover-add-ons' ) );
+				// Retrieve the Login Designer shop URL.
+				$url = Login_Designer()->get_store_url( 'extensions',
+					array(
+						'utm_medium'   => 'login-designer-lite',
+						'utm_source'   => 'customizer',
+						'utm_campaign' => 'extensions-section',
+						'utm_content'  => 'discover-add-ons',
+					)
+				);
 
 				$wp_customize->add_section( new Login_Designer_Upgrade_Control( $wp_customize, 'upgrade', array(
 					'type'     => 'upgrade',

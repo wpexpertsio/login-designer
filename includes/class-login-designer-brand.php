@@ -114,7 +114,6 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 			$css = '';
 
 			$css .= '
-
 			.login-designer-badge {
 				overflow: hidden;
 				height: 48px;
@@ -190,6 +189,15 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 					$css .= '.login-designer-badge .icon { color:' . esc_attr( $options['branding_icon_color'] ) . ';}';
 				}
 
+			endif;
+
+			if ( is_customize_preview() ) :
+				$css .= '
+
+				body:not(.login-designer) .login-designer-badge {
+					display: none !important;
+				}
+				';
 			endif;
 
 			// Combine the values from above and minifiy them.
