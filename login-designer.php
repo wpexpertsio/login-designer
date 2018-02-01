@@ -444,21 +444,35 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 
 			if ( $license->is_valid_license() && $this->has_pro() ) {
 				$title = esc_html__( 'Support', '@@textdomain' );
-				$url = $this->get_store_url( 'support', array( 'utm_medium' => 'login-designer-pro', 'utm_source' => 'plugins-page', 'utm_campaign' => 'plugins-action-link', 'utm_content' => 'support' ) );
+
+				$url = Login_Designer()->get_store_url( 'support',
+					array(
+						'utm_medium'   => 'login-designer-pro',
+						'utm_source'   => 'plugins-page',
+						'utm_campaign' => 'plugins-action-link',
+						'utm_content'  => 'support',
+					)
+				);
 
 			} else {
 				$title = esc_html__( 'Pro', '@@textdomain' );
-				$url = $this->get_store_url( 'pricing', array( 'utm_medium' => 'login-designer-lite', 'utm_source' => 'plugins-page', 'utm_campaign' => 'plugins-action-link', 'utm_content' => 'pro' ) );
+
+				$url = Login_Designer()->get_store_url( 'support',
+					array(
+						'utm_medium'   => 'login-designer-lite',
+						'utm_source'   => 'plugins-page',
+						'utm_campaign' => 'plugins-action-link',
+						'utm_content'  => 'pro',
+					)
+				);
 			}
 
 			// Merge and display each link.
 			return array_merge(
 				$settings,
-				array( 'url' => sprintf( '<a href="%s" target="_blank">%s</a>', esc_url( $url ) , $title ) ),
+				array( 'url' => sprintf( '<a href="%s" target="_blank">%s</a>', esc_url( $url ), $title ) ),
 				$actions
 			);
-
-			return array_merge( $settings, $actions );
 		}
 
 		/**
@@ -479,10 +493,17 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				return $input;
 			}
 
-			$extensions_url = $this->get_store_url( 'extensions', array( 'utm_medium' => 'login-designer-lite', 'utm_source' => 'plugins-page', 'utm_campaign' => 'plugin-row', 'utm_content' => 'extensions' ) );
+			$url = Login_Designer()->get_store_url( 'extensions',
+				array(
+					'utm_medium'   => 'login-designer-lite',
+					'utm_source'   => 'plugins-page',
+					'utm_campaign' => 'plugins-row',
+					'utm_content'  => 'extensions',
+				)
+			);
 
 			$links = array(
-				'<a href="' . esc_url( $extensions_url ) . '" target="_blank">' . esc_html__( 'Extensions', '@@textdomain' ) . '</a>',
+				'<a href="' . esc_url( $url ) . '" target="_blank">' . esc_html__( 'Extensions', '@@textdomain' ) . '</a>',
 			);
 
 			$input = array_merge( $input, $links );
@@ -512,10 +533,17 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			// Get the plugin name, so we can view the analytics properly.
 			$plugin_name = substr( $file, 0, strpos( $file, '/' ) );
 
-			$extensions_url = $this->get_store_url( 'extensions', array( 'utm_medium' => $plugin_name, 'utm_source' => 'plugins-page', 'utm_campaign' => 'plugin-row', 'utm_content' => 'extensions' ) );
+			$url = Login_Designer()->get_store_url( 'extensions',
+				array(
+					'utm_medium'   => $plugin_name,
+					'utm_source'   => 'plugins-page',
+					'utm_campaign' => 'plugins-row',
+					'utm_content'  => 'extensions',
+				)
+			);
 
 			$links = array(
-				'<a href="' . esc_url( $extensions_url ) . '" target="_blank">' . esc_html__( 'Extensions', '@@textdomain' ) . '</a>',
+				'<a href="' . esc_url( $url ) . '" target="_blank">' . esc_html__( 'Extensions', '@@textdomain' ) . '</a>',
 			);
 
 			$input = array_merge( $input, $links );

@@ -938,7 +938,7 @@
 	wp.customize( 'login_designer[template]', function( value ) {
 		value.bind( function( to ) {
 
-			$( 'body.login' ).attr( 'class', 'login login-action-login wp-core-ui locale-en-us has-template-applied template-section-option customize-partial-edit-shortcuts-shown' );
+			$( 'body.login' ).attr( 'class', 'login login-action-login wp-core-ui locale-en-us login-designer has-template-applied template-section-option customize-partial-edit-shortcuts-shown' );
 			$( 'body.login' ).addClass( 'login-designer-template-' + to );
 
 			// If we have a custom background color, let's remove it so the templates can shine.
