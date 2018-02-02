@@ -130,7 +130,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 		/**
 		 * Enqueues control scripts for custom controls.
 		 *
-		 * If SCRIPT_DEBUG is on, pull each control's scripts for their own files instead.
+		 * If LOGIN_DESIGNER_DEBUG is active, pull each control's scripts for their own files instead.
 		 */
 		public function custom_controls() {
 
@@ -150,7 +150,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 		/**
 		 * Localize Customizer ontrols.
 		 *
-		 * If SCRIPT_DEBUG is on, we need to localize each separate file that's loading.
+		 * If LOGIN_DESIGNER_DEBUG is active, we need to localize each separate file that's loading.
 		 * Otherwise, localize our minified/concated scripts. This way we don't have to load
 		 * a separate JS file for each control (which can get quite heavy).
 		 */
@@ -168,7 +168,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 				),
 			);
 
-			// If SCRIPT_DEBUG is turned on.
+			// If LOGIN_DESIGNER_DEBUG is active.
 			if ( defined( 'LOGIN_DESIGNER_DEBUG' ) && LOGIN_DESIGNER_DEBUG ) {
 				wp_localize_script( 'login-designer-license-control', 'login_designer_custom_controls', $localize );
 				wp_localize_script( 'login-designer-template-control', 'login_designer_custom_controls', $localize );

@@ -43,6 +43,12 @@
 #login-designer--below-form {
 	position: relative;
 
+	.customizer-event-overlay {
+		top: -6px;
+		bottom: -6px;
+		max-width: 70%;
+		left: 15%;
+	}
 }
 
 .customize-partial-edit-shortcut {

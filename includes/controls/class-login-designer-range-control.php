@@ -49,7 +49,7 @@ class Login_Designer_Range_Control extends WP_Customize_Control {
 
 		// Use this only if LOGIN_DESIGNER_DEBUG is active.
 		// If it is not active, we're loading the concated and minified login-designer-custom-controls.min.js file.
-		if ( defined( 'LOGIN_DESIGNER_DEBUG' ) && false === LOGIN_DESIGNER_DEBUG ) {
+		if ( ! defined( 'LOGIN_DESIGNER_DEBUG' ) || ( defined( 'LOGIN_DESIGNER_DEBUG' ) && false === LOGIN_DESIGNER_DEBUG ) ) {
 			return;
 		}
 

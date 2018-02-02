@@ -41,7 +41,7 @@ class Login_Designer_License_Control extends WP_Customize_Control {
 
 		// Use this only if LOGIN_DESIGNER_DEBUG is active.
 		// If it is not active, we're loading the concated and minified login-designer-custom-controls.min.js file.
-		if ( defined( 'LOGIN_DESIGNER_DEBUG' ) && false === LOGIN_DESIGNER_DEBUG ) {
+		if ( ! defined( 'LOGIN_DESIGNER_DEBUG' ) || ( defined( 'LOGIN_DESIGNER_DEBUG' ) && false === LOGIN_DESIGNER_DEBUG ) ) {
 			return;
 		}
 
@@ -89,10 +89,10 @@ class Login_Designer_License_Control extends WP_Customize_Control {
 			<input id="license-key" class="license" name="license-key" spellcheck="false" type="text" <?php $this->input_attrs(); ?> value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); ?> />
 			<input type="submit" name="login-designer-license" id="login-designer-activate-license" value="Activate" class="button-secondary button <?php echo esc_attr( $visibility ); ?>">
 			<input type="submit" name="login-designer-deactivate-license" id="login-designer-deactivate-license" value="Deactivate" class="button-secondary button <?php echo esc_attr( $visibility ); ?>">
-
 			<div class="spinner"></div>
-
 		</form>
+
+		<div id="license-error"></div>
 
 		<ul id="license-info" class="<?php echo esc_attr( $visibility ); ?>">
 
