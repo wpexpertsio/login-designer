@@ -43,7 +43,7 @@ $wp_customize->add_setting( 'login_designer[form_bg_transparency]', array(
 $wp_customize->add_control( new Login_Designer_Toggle_Control( $wp_customize, 'login_designer[form_bg_transparency]', array(
 	'label'	      => esc_html__( 'Transparency', '@@textdomain' ),
 	'section'     => 'login_designer__section--styles',
-	'type'        => 'toggle',
+	'type'        => 'login-designer-toggle',
 	'settings'    => 'login_designer[form_bg_transparency]',
 ) ) );
 

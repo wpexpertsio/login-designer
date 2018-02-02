@@ -49,12 +49,12 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			}
 
 			// Check for the option.
-			$options   = new Login_Designer_Customizer_Output();
-			$option    = $options->option_wrapper( 'template' );
+			$options = new Login_Designer_Customizer_Output();
+			$option  = $options->option_wrapper( 'template' );
 
 			// No need to ouput a class for the default template.
 			if ( ! $option || 'default' !== $option ) {
-				$template = 'login-designer-template-' . esc_attr( $option );
+				$template  = 'login-designer-template-' . esc_attr( $option );
 				$classes[] = $template;
 			}
 
@@ -69,8 +69,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 		public function frontend_styles() {
 
 			// Check for the option.
-			$options   	= new Login_Designer_Customizer_Output();
-			$template    	= $options->option_wrapper( 'template' );
+			$options  = new Login_Designer_Customizer_Output();
+			$template = $options->option_wrapper( 'template' );
 
 			// Return early if no template is set.
 			if ( ! $template || 'default' === $template ) {
@@ -78,13 +78,13 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			}
 
 			// Set the stylesheet handle from the template.
-			$handle 	= 'login-designer-template-' . $template;
+			$handle = 'login-designer-template-' . $template;
 
 			// Define where the control's scripts are.
-			$css_dir 	= LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/templates/';
+			$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/templates/';
 
 			// Use minified libraries if SCRIPT_DEBUG is turned off.
-			$suffix 	= ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 			// Custom control styles.
 			wp_enqueue_style( $handle, $css_dir . $handle . $suffix . '.css', LOGIN_DESIGNER_VERSION, 'all' );
@@ -103,10 +103,10 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			}
 
 			// Define where the styles are.
-			$css_dir 	= LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/templates/';
+			$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/templates/';
 
 			// Use minified libraries if SCRIPT_DEBUG is turned off.
-			$suffix 	= ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 			// And output each associated stylesheet to the Customizer window.
 			foreach ( $this->get_templates() as $option => $value ) :
@@ -128,7 +128,7 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 		 */
 		public function get_templates() {
 
-			$image_dir  = LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/';
+			$image_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/';
 
 			if ( Login_Designer()->has_pro() ) {
 
@@ -137,19 +137,19 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 						'title' => esc_html__( 'Default', '@@textdomain' ),
 						'image' => esc_url( $image_dir ) . 'customizer/default.jpg',
 					),
-					'01' => array(
+					'01'      => array(
 						'title' => esc_html__( 'Template 01', '@@textdomain' ),
 						'image' => esc_url( $image_dir ) . 'customizer/template-01.jpg',
 					),
-					'02' => array(
+					'02'      => array(
 						'title' => esc_html__( 'Template 02', '@@textdomain' ),
 						'image' => esc_url( $image_dir ) . 'customizer/template-02.jpg',
 					),
-					'03' => array(
+					'03'      => array(
 						'title' => esc_html__( 'Template 03', '@@textdomain' ),
 						'image' => esc_url( $image_dir ) . 'customizer/template-03.jpg',
 					),
-					'04' => array(
+					'04'      => array(
 						'title' => esc_html__( 'Template 04', '@@textdomain' ),
 						'image' => esc_url( $image_dir ) . 'customizer/template-04.jpg',
 					),
@@ -162,11 +162,11 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 						'title' => esc_html__( 'Default', '@@textdomain' ),
 						'image' => esc_url( $image_dir ) . 'customizer/default.jpg',
 					),
-					'01' => array(
+					'01'      => array(
 						'title' => esc_html__( 'Template 01', '@@textdomain' ),
 						'image' => esc_url( $image_dir ) . 'customizer/template-01.jpg',
 					),
-					'02' => array(
+					'02'      => array(
 						'title' => esc_html__( 'Template 02', '@@textdomain' ),
 						'image' => esc_url( $image_dir ) . 'customizer/template-02.jpg',
 					),
@@ -217,8 +217,6 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			$template_02 = apply_filters( 'login_designer_template_02_defaults', array(
 				'bg_image_gallery' 	=> 'none',
 				'bg_color' 		=> '#000000',
-				'logo_margin_bottom' 	=> '0',
-				'disable_logo' 		=> true,
 				'form_bg' 		=> '#000000',
 				'form_bg_transparency' 	=> true,
 				'form_side_padding' 	=> '10',
@@ -272,7 +270,6 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				'bg_image_gallery' 	=> 'none',
 				'bg_color' 		=> '#ffffff',
 				'logo_margin_bottom' 	=> '0',
-				'disable_logo' 		=> true,
 				'form_bg' 		=> '#ffffff',
 				'form_bg_transparency' 	=> true,
 				'form_side_padding' 	=> '10',

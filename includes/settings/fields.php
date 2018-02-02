@@ -223,7 +223,7 @@ $wp_customize->add_setting( 'login_designer[field_shadow_inset]', array(
 $wp_customize->add_control( new Login_Designer_Toggle_Control( $wp_customize, 'login_designer[field_shadow_inset]', array(
 	'label'	      => esc_html__( 'Shadow Inset', '@@textdomain' ),
 	'section'     => 'login_designer__section--styles',
-	'type'        => 'toggle',
+	'type'        => 'login-designer-toggle',
 	'settings'    => 'login_designer[field_shadow_inset]',
 ) ) );
 

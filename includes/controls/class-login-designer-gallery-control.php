@@ -35,23 +35,6 @@ class Login_Designer_Background_Gallery_Control extends WP_Customize_Control {
 	public $type = 'login-designer-gallery';
 
 	/**
-	 * Enqueue neccessary custom control scripts.
-	 */
-	public function enqueue() {
-
-		// Use this only if SCRIPT_DEBUG is turned on.
-		if ( defined( 'SCRIPT_DEBUG' ) && false === SCRIPT_DEBUG ) {
-			return;
-		}
-
-		// Define where the control's scripts are.
-		$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/controls/';
-
-		// Custom control scripts.
-		wp_enqueue_script( 'login-designer-gallery-control', $js_dir . 'login-designer-gallery-control.js', array( 'jquery' ), LOGIN_DESIGNER_VERSION, 'all' );
-	}
-
-	/**
 	 * Render the content.
 	 *
 	 * @see https://developer.wordpress.org/reference/classes/wp_customize_control/render_content/
@@ -68,14 +51,14 @@ class Login_Designer_Background_Gallery_Control extends WP_Customize_Control {
 			echo '<span class="description customize-control-description">' . esc_html( $this->description ) . '</span>';
 		} ?>
 
-		<div id="login-designer-gallery" class="gallery">
+		<div id="login-designer-gallery" class="login-designer-gallery">
 			<?php foreach ( $this->choices as $value => $label ) { ?>
 
-				<div class="gallery__item">
-			   		<input id="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $value ); ?>" class="checkbox" type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $name ); ?>" <?php $this->link(); checked( $this->value(), $value ); ?> />
+				<div class="login-designer-gallery__item">
+			   		<input id="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $value ); ?>" class="login-designer-gallery__checkbox" type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $name ); ?>" <?php $this->link(); checked( $this->value(), $value ); ?> />
 					<label for="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $value ); ?>">
-						<div class="gallery--intrinsic">
-							<div class="gallery--img" style="background-image: url( <?php echo esc_html( $this->choices[ $value ] ); ?> );"></div>
+						<div class="login-designer-gallery__intrinsic">
+							<div class="login-designer-gallery__img" style="background-image: url( <?php echo esc_html( $this->choices[ $value ] ); ?> );"></div>
 						</div>
 					</label>
 
@@ -83,8 +66,6 @@ class Login_Designer_Background_Gallery_Control extends WP_Customize_Control {
 
 			<?php } ?>
 		</div>
-
-		<button id="gallery-button" class="button"><?php esc_html_e( 'Open Gallery', '@@textdomain' ); ?></button>
 
 		<?php
 	}

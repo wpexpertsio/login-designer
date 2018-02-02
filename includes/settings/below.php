@@ -99,7 +99,7 @@ $wp_customize->add_setting( 'login_designer[lost_password]', array(
 $wp_customize->add_control( new Login_Designer_Toggle_Control( $wp_customize, 'login_designer[lost_password]', array(
 	'label'	      => esc_html__( 'Lost Password', '@@textdomain' ),
 	'section'     => 'login_designer__section--styles',
-	'type'        => 'toggle',
+	'type'        => 'login-designer-toggle',
 	'settings'    => 'login_designer[lost_password]',
 ) ) );
 
@@ -113,6 +113,6 @@ $wp_customize->add_setting( 'login_designer[back_to]', array(
 $wp_customize->add_control( new Login_Designer_Toggle_Control( $wp_customize, 'login_designer[back_to]', array(
 	'label'	      => esc_html__( 'Back To', '@@textdomain' ),
 	'section'     => 'login_designer__section--styles',
-	'type'        => 'toggle',
+	'type'        => 'login-designer-toggle',
 	'settings'    => 'login_designer[back_to]',
 ) ) );
