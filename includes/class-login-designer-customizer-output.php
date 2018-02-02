@@ -195,8 +195,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'logout_redirect'     => '',
 				'login_message'       => '',
 				'branding'            => true,
-				'branding_color'      => '#444444',
-				'branding_icon_color' => '#333333',
+				'branding_color'      => '#b2b2b2',
+				'branding_icon_color' => '#adadad',
 
 			);
 
@@ -843,7 +843,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Below form positioning.
 				if ( isset( $options['below_position'] ) ) {
-					$css .= '.login #login form + p { margin-top: ' . esc_attr( $options['below_position'] ) . 'px }';
+					$css .= '.login #login form + p, #login-designer--below-form { margin-top: ' . esc_attr( $options['below_position'] ) . 'px }';
 				}
 
 				// Below form font, as long as it's not 'default'.
