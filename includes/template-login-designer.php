@@ -153,13 +153,13 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 		do_action( 'login_header' );
 		?>
 
-		<div id="login-designer--background-hint" data-hint="Click here to upload a background image, choose from the gallery and set a background color." data-hintPosition="middle-right" data-position="bottom-right-aligned"></div>
+		<div id="login-designer--background-hint" data-hint="<?php echo esc_attr__( 'Click here to upload a background image, choose from the gallery and set a background color.', '@@textdomain' ); ?>" data-hintPosition="middle-right" data-position="bottom-right-aligned"></div>
 
-		<div id="login-designer--templates-hint" data-hint="Click here to select a display template for your login page." data-hintPosition="middle-right" data-position="bottom"></div>
+		<div id="login-designer--templates-hint" data-hint="<?php echo esc_attr__( 'Click here to select a display template for your login page.', '@@textdomain' ); ?>" data-hintPosition="middle-right" data-position="bottom"></div>
 
 		<div id="login">
 
-			<h1 id="login-designer-logo-h1" data-hint="Click on the logo below to upload your own and set the image's height and width." data-hintPosition="top-middle" data-position="right">
+			<h1 id="login-designer-logo-h1" data-hint="<?php echo esc_attr__( 'Click on the logo below to upload your own and set the image\'s height and width.', '@@textdomain' ); ?>" data-hintPosition="top-middle" data-position="right">
 				<a id="login-designer-logo" class="customize-unpreviewable" href="#" title="" tabindex="-1"><?php bloginfo( 'name' ); ?></a>
 			</h1>
 
@@ -190,7 +190,7 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 				</p>
 			</form>
 
-			<div id="login-designer--below-form" data-hint="Click on the elements below the form to modify each one." data-hintPosition="middle-right" data-position="bottom-right-aligned">
+			<div id="login-designer--below-form" data-hint="<?php echo esc_attr__( 'Click on the elements below the form to modify each one.', '@@textdomain' ); ?>" data-hintPosition="middle-right" data-position="bottom-right-aligned">
 
 				<p id="nav">
 					<?php
