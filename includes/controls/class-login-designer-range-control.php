@@ -47,16 +47,17 @@ class Login_Designer_Range_Control extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		// Use this only if SCRIPT_DEBUG is turned on.
-		if ( defined( 'SCRIPT_DEBUG' ) && false === SCRIPT_DEBUG ) {
+		// Use this only if LOGIN_DESIGNER_DEBUG is active.
+		// If it is not active, we're loading the concated and minified login-designer-custom-controls.min.js file.
+		if ( defined( 'LOGIN_DESIGNER_DEBUG' ) && false === LOGIN_DESIGNER_DEBUG ) {
 			return;
 		}
 
-		// Define where the control's scripts are.
-		$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/controls/';
+		// Define where the asset is loaded from.
+		$dir = Login_Designer()->asset_source( 'js', 'controls/' );
 
-		// Custom control scripts.
-		wp_enqueue_script( 'login-designer-range-control', $js_dir . 'login-designer-range-control.js', array( 'jquery' ), LOGIN_DESIGNER_VERSION, 'all' );
+		// Enqueue the asset. Note that there is no minified version of this singular asset.
+		wp_enqueue_script( 'login-designer-range-control', $dir . 'login-designer-range-control.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
 	}
 
 	/**
@@ -69,8 +70,7 @@ class Login_Designer_Range_Control extends WP_Customize_Control {
 
 		<div class="relative">
 
-			<?php
-			if ( ! empty( $this->label ) ) : ?>
+			<?php if ( ! empty( $this->label ) ) : ?>
 				<label>
 					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 				</label>

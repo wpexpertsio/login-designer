@@ -65,7 +65,7 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 			if ( true === $option ) {
 				return true;
 			} else {
-				return false;
+				return true;
 			}
 		}
 

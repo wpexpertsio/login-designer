@@ -35,19 +35,21 @@ class Login_Designer_License_Control extends WP_Customize_Control {
 
 	/**
 	 * Enqueue neccessary custom control scripts.
-	 * Localization occurs in the Login_Designer_Customizer_Scripts() class (based on SCRIPT_DEBUG).
+	 * Localization occurs in the Login_Designer_Customizer_Scripts() class (based on LOGIN_DESIGNER_DEBUG).
 	 */
 	public function enqueue() {
 
-		// Use this only if SCRIPT_DEBUG is turned on.
-		if ( defined( 'SCRIPT_DEBUG' ) && false === SCRIPT_DEBUG ) {
+		// Use this only if LOGIN_DESIGNER_DEBUG is active.
+		// If it is not active, we're loading the concated and minified login-designer-custom-controls.min.js file.
+		if ( defined( 'LOGIN_DESIGNER_DEBUG' ) && false === LOGIN_DESIGNER_DEBUG ) {
 			return;
 		}
 
-		// Define where the control's scripts are.
-		$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/controls/';
+		// Define where the asset is loaded from.
+		$dir = Login_Designer()->asset_source( 'js', 'controls/' );
 
-		wp_enqueue_script( 'login-designer-license-control', $js_dir . 'login-designer-license-control.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
+		// Enqueue the asset. Note that there is no minified version of this singular asset.
+		wp_enqueue_script( 'login-designer-license-control', $dir . 'login-designer-license-control.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
 	}
 
 	/**
@@ -57,19 +59,19 @@ class Login_Designer_License_Control extends WP_Customize_Control {
 	 */
 	public function render_content() {
 
-		$customizer 		= new Login_Designer_License_Handler();
-		$key 			= $customizer->key();
-		$status 		= $customizer->status();
-		$expiration 		= $customizer->expiration();
-		$site_count 		= $customizer->site_count();
-		$activations_left 	= $customizer->activations_left();
-		$is_valid 		= $customizer->is_valid_license();
-		$visibility 		= ( true === $is_valid ) ? 'is-valid' : 'is-not-valid';
+		$customizer       = new Login_Designer_License_Handler();
+		$key              = $customizer->key();
+		$status           = $customizer->status();
+		$expiration       = $customizer->expiration();
+		$site_count       = $customizer->site_count();
+		$activations_left = $customizer->activations_left();
+		$is_valid         = $customizer->is_valid_license();
+		$visibility       = ( true === $is_valid ) ? 'is-valid' : 'is-not-valid';
 
 		// Array of allowed HTML.
 		$allowed_html_array = array(
 			'a' => array(
-				'href' => array(),
+				'href'   => array(),
 				'target' => array(),
 			),
 		);

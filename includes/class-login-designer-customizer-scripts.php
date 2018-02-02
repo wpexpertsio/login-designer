@@ -41,12 +41,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 		 */
 		public function control_styles() {
 
-			$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/';
+			$dir = Login_Designer()->asset_source( 'css' );
 
-			// Use minified libraries if SCRIPT_DEBUG is turned off.
-			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-
-			wp_enqueue_style( 'login-designer-customize-controls', $css_dir . 'login-designer-customize-controls' . $suffix . '.css', null );
+			wp_enqueue_style( 'login-designer-customize-controls', $dir . 'login-designer-customize-controls' . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', null );
 		}
 
 		/**
@@ -60,12 +57,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 				return;
 			}
 
-			$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/';
+			$dir = Login_Designer()->asset_source( 'css' );
 
-			// Use minified libraries if SCRIPT_DEBUG is turned off.
-			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-
-			wp_enqueue_style( 'login-designer-customize-preview', $css_dir . 'login-designer-customize-preview' . $suffix . '.css', LOGIN_DESIGNER_VERSION, 'all' );
+			wp_enqueue_style( 'login-designer-customize-preview', $dir . 'login-designer-customize-preview' . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', LOGIN_DESIGNER_VERSION, 'all' );
 		}
 
 		/**
@@ -73,18 +67,10 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 		 */
 		public function customize_preview() {
 
-			// Change to the minified asset directory.
-			if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
-				$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/';
-			} else {
-				$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
-			}
+			$dir = Login_Designer()->asset_source( 'js' );
 
-			// Use minified libraries if SCRIPT_DEBUG is turned off.
-			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-
-			wp_enqueue_script( 'login-designer-customize-live', $js_dir . 'login-designer-customize-live' . $suffix . '.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
-			wp_enqueue_script( 'login-designer-customize-preview', $js_dir . 'login-designer-customize-preview' . $suffix . '.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
+			wp_enqueue_script( 'login-designer-customize-live', $dir . 'login-designer-customize-live' . LOGIN_DESIGNER_ASSET_SUFFIX . '.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
+			wp_enqueue_script( 'login-designer-customize-preview', $dir . 'login-designer-customize-preview' . LOGIN_DESIGNER_ASSET_SUFFIX . '.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
 
 			// Pull the Login Designer page from options.
 			$page = Login_Designer()->get_login_designer_page();
@@ -114,18 +100,10 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 		 */
 		public function customize_controls() {
 
-			// Change to the minified asset directory.
-			if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
-				$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/';
-			} else {
-				$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
-			}
+			$dir = Login_Designer()->asset_source( 'js' );
 
-			// Use minified libraries if SCRIPT_DEBUG is turned off.
-			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-
-			wp_enqueue_script( 'login-designer-customize-controls', $js_dir . 'login-designer-customize-controls' . $suffix . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
-			wp_enqueue_script( 'login-designer-customize-events', $js_dir . 'login-designer-customize-events' . $suffix . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
+			wp_enqueue_script( 'login-designer-customize-controls', $dir . 'login-designer-customize-controls' . LOGIN_DESIGNER_ASSET_SUFFIX . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
+			wp_enqueue_script( 'login-designer-customize-events', $dir . 'login-designer-customize-events' . LOGIN_DESIGNER_ASSET_SUFFIX . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
 
 			// Pull the Login Designer page from options.
 			$page = Login_Designer()->get_login_designer_page();
@@ -157,7 +135,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 				return;
 			}
 
-			$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/';
+			$js_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/';
 
 			wp_enqueue_script( 'login-designer-customize-custom-controls', $js_dir . 'login-designer-customize-custom-controls.min.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
 		}

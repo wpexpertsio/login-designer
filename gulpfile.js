@@ -15,15 +15,16 @@ var projectURL              	= 'http://demo.logindesigner.dev/wp-login.php';
 
 var styleCustomizerSRC  	= './assets/scss/customizer/'+ slug +'-customize-preview.scss';
 var styleCustomizerControlsSRC  = './assets/scss/customizer/'+ slug +'-customize-controls.scss';
-
 var styleIntroSRC           	= './assets/scss/customizer/'+ slug +'-intro.scss';
-
 var template_1SRC  		= './assets/scss/templates/'+ slug +'-template-01.scss';
 var template_2SRC  		= './assets/scss/templates/'+ slug +'-template-02.scss';
 var template_3SRC  		= './assets/scss/templates/'+ slug +'-template-03.scss';
 var template_4SRC  		= './assets/scss/templates/'+ slug +'-template-04.scss';
-var templateDestination  	= './assets/css/templates/'; // Path to place the compiled CSS file.
 
+var templateDestination  	= './assets/css/templates/'; // Path to place the compiled CSS file.
+var templateSRCDestination  	= './assets/css/src/templates/'; // Path to place the compiled CSS file.
+
+var styleSRCDestination  	= './assets/css/src/'; // Path to place the compiled CSS file.
 var styleDestination  		= './assets/css/'; // Path to place the compiled CSS file.
 var styleWatchFiles   		= './assets/scss/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
 
@@ -71,7 +72,7 @@ var team                    	= pkg.author_shop;
 var translatePath           	= './languages';
 var translatableFiles       	= ['./**/*.php'];
 
-var buildFiles      	    	= ['./**', '!dist/', '!.gitattributes', '!.csscomb.json', '!node_modules/**', '!'+ slug +'.sublime-project', '!package.json', '!gulpfile.js', '!assets/scss/**', '!*.json', '!*.map', '!*.md', '!*.xml', '!*.sublime-workspace', '!*.sublime-gulp.cache', '!*.log', '!*.gitattributes', '!*.DS_Store','!*.gitignore', '!TODO', '!*.git' ];
+var buildFiles      	    	= ['./**', '!dist/', '!.gitattributes', '!.csscomb.json', '!node_modules/**', '!.sublime-project', '!package.json', '!gulpfile.js', '!assets/scss/**', '!*.json', '!*.map', '!*.md', '!*.xml', '!*.sublime-workspace', '!*.sublime-gulp.cache', '!*.log', '!*.gitattributes', '!*.DS_Store','!*.gitignore', '!TODO', '!*.git' ];
 var buildDestination        	= './dist/'+ slug +'/';
 var distributionFiles       	= './dist/'+ slug +'/**/*';
 
@@ -170,7 +171,7 @@ gulp.task('styles_customize_preview', function () {
 
 	.pipe( csscomb() )
 
-	.pipe( gulp.dest( styleDestination ) )
+	.pipe( gulp.dest( styleSRCDestination ) )
 
 	.pipe( browserSync.stream() )
 
@@ -260,7 +261,7 @@ gulp.task('template_1', function () {
 
 	.pipe( csscomb() )
 
-	.pipe( gulp.dest( templateDestination ) )
+	.pipe( gulp.dest( templateSRCDestination ) )
 
 	.pipe( browserSync.stream() )
 
@@ -290,7 +291,7 @@ gulp.task('template_2', function () {
 
 	.pipe( csscomb() )
 
-	.pipe( gulp.dest( templateDestination ) )
+	.pipe( gulp.dest( templateSRCDestination ) )
 
 	.pipe( browserSync.stream() )
 
@@ -320,7 +321,7 @@ gulp.task('template_3', function () {
 
 	.pipe( csscomb() )
 
-	.pipe( gulp.dest( templateDestination ) )
+	.pipe( gulp.dest( templateSRCDestination ) )
 
 	.pipe( browserSync.stream() )
 
@@ -350,7 +351,7 @@ gulp.task('template_4', function () {
 
 	.pipe( csscomb() )
 
-	.pipe( gulp.dest( templateDestination ) )
+	.pipe( gulp.dest( templateSRCDestination ) )
 
 	.pipe( browserSync.stream() )
 
@@ -510,8 +511,6 @@ gulp.task( 'build-clean-after-zip', function () {
 	.pipe(cleaner());
 });
 
-gulp.task( 'build-zip-and-clean', function () { } );
-
 gulp.task( 'build-notification', function () {
 	return gulp.src( '' )
 	.pipe( notify( { message: '👷 Your build of ' + packageName + ' is complete.', onLast: true } ) );
@@ -535,5 +534,5 @@ gulp.task( 'default', [ 'clear', 'vendorsJs', 'template_1', 'template_2', 'templ
 });
 
 gulp.task('build', function(callback) {
-	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'template_3', 'template_4', 'styles_customize_preview', 'styles_customize_controls', 'styles_intro_js', 'scripts', 'vendorsJs', 'build-translate' ], 'build-copy', 'build-variables', 'build-zip', 'build-clean-after-zip', 'build-notification', callback);
+	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'template_3', 'template_4', 'styles_customize_preview', 'styles_customize_controls', 'styles_intro_js', 'scripts', 'vendorsJs', 'build-translate' ], 'build-copy', 'build-variables', 'build-notification', callback);
 });

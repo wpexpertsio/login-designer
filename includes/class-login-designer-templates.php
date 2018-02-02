@@ -81,13 +81,10 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			$handle = 'login-designer-template-' . $template;
 
 			// Define where the control's scripts are.
-			$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/templates/';
-
-			// Use minified libraries if SCRIPT_DEBUG is turned off.
-			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+			$dir = Login_Designer()->asset_source( 'css', 'templates/' );
 
 			// Custom control styles.
-			wp_enqueue_style( $handle, $css_dir . $handle . $suffix . '.css', LOGIN_DESIGNER_VERSION, 'all' );
+			wp_enqueue_style( $handle, $dir . $handle . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', LOGIN_DESIGNER_VERSION, 'all' );
 		}
 
 		/**
@@ -103,10 +100,7 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			}
 
 			// Define where the styles are.
-			$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/templates/';
-
-			// Use minified libraries if SCRIPT_DEBUG is turned off.
-			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+			$dir = Login_Designer()->asset_source( 'css', 'templates/' );
 
 			// And output each associated stylesheet to the Customizer window.
 			foreach ( $this->get_templates() as $option => $value ) :
@@ -115,7 +109,7 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				$handle = 'login-designer-template-' . $option;
 
 				// Custom control styles.
-				wp_enqueue_style( $handle, $css_dir . $handle . $suffix . '.css', LOGIN_DESIGNER_VERSION, 'all' );
+				wp_enqueue_style( $handle, $dir . '/' . $handle . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', LOGIN_DESIGNER_VERSION, 'all' );
 
 			endforeach;
 

@@ -72,6 +72,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				self::$instance = new Login_Designer();
 				self::$instance->constants();
 				self::$instance->init();
+				self::$instance->asset_suffix();
 				self::$instance->includes();
 				self::$instance->load_textdomain();
 			}
@@ -111,6 +112,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		private function constants() {
+			$this->define( 'LOGIN_DESIGNER_DEBUG', false );
 			$this->define( 'LOGIN_DESIGNER_HAS_PRO', false );
 			$this->define( 'LOGIN_DESIGNER_VERSION', '@@pkg.version' );
 			$this->define( 'LOGIN_DESIGNER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
@@ -174,6 +176,47 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-templates.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-theme-template.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/install.php';
+		}
+
+		/**
+		 * Pull the Login Designer page from options.
+		 *
+		 * @access public
+		 */
+		public function has_pro() {
+			if ( true === LOGIN_DESIGNER_HAS_PRO ) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		/**
+		 * Change the plugin's minified or src file name, based on debug mode.
+		 *
+		 * @since 1.1.3
+		 */
+		public function asset_suffix() {
+			if ( true === LOGIN_DESIGNER_DEBUG ) {
+				define( 'LOGIN_DESIGNER_ASSET_SUFFIX', null );
+			} else {
+				define( 'LOGIN_DESIGNER_ASSET_SUFFIX', '.min' );
+			}
+		}
+
+		/**
+		 * If debug is on, serve unminified source assets.
+		 *
+		 * @since 1.1.3
+		 * @param string|string $type The type of resource.
+		 * @param string|string $directory Any extra directories needed.
+		 */
+		public function asset_source( $type = 'js', $directory = null ) {
+			if ( true === LOGIN_DESIGNER_DEBUG ) {
+				return LOGIN_DESIGNER_PLUGIN_URL . 'assets/' . $type . '/src/' . $directory;
+			} else {
+				return LOGIN_DESIGNER_PLUGIN_URL . 'assets/' . $type . '/' . $directory;
+			}
 		}
 
 		/**
@@ -342,20 +385,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			$page          = array_key_exists( 'login_designer_page', $admin_options ) ? get_post( $admin_options['login_designer_page'] ) : false;
 
 			return $page;
-		}
-
-		/**
-		 * Pull the Login Designer page from options.
-		 *
-		 * @access public
-		 */
-		public function has_pro() {
-
-			if ( true === LOGIN_DESIGNER_HAS_PRO ) {
-				return true;
-			} else {
-				return false;
-			}
 		}
 
 		/**

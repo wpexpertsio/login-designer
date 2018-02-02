@@ -47,19 +47,16 @@ if ( ! class_exists( 'Login_Designer_Intro' ) ) :
 				return;
 			}
 
-			$css_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/css/';
+			$dir = Login_Designer()->asset_source( 'css' );
 
-			// Use minified libraries if SCRIPT_DEBUG is turned off.
-			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-
-			wp_enqueue_style( 'login-designer-intro', $css_dir . 'login-designer-intro' . $suffix . '.css', LOGIN_DESIGNER_VERSION, 'all' );
+			wp_enqueue_style( 'login-designer-intro', $dir . 'login-designer-intro' . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', LOGIN_DESIGNER_VERSION, 'all' );
 		}
 
 		/**
 		 * Enqueues Intro.JS in the Customizer.
 		 */
 		public function scripts() {
-			wp_enqueue_script( 'login-designer-intro', LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/dist/intro.min.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
+			wp_enqueue_script( 'login-designer-intro', LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/intro.min.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
 			wp_add_inline_script( 'login-designer-intro', 'introJs().addHints();' );
 		}
 
