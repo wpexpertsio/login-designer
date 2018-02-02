@@ -143,16 +143,7 @@
 	margin-top: 12px;
 }
 
-#gallery-button {
-	display: none;
-}
-
-.gallery__item {
-	float: left;
-	width: 20%;
-}
-
-.gallery {
+.customize-control-login-designer-gallery .login-designer-gallery {
 	margin-left: -3px;
 	margin-top: 13px;
 	max-height: 170px;
@@ -161,39 +152,37 @@
 	padding-right: 20px;
 	padding-top: 4px;
 	width: calc( 100% + 6px);
+	zoom: 1;
 }
 
 @media screen and (min-width: 1667px) {
-	.gallery {
+	.customize-control-login-designer-gallery .login-designer-gallery {
 		max-height: 10.1vw;
 	}
 }
 
 @media screen and (min-width: 1900px) {
-	.gallery {
+	.customize-control-login-designer-gallery .login-designer-gallery {
 		max-height: 10.3vw;
 	}
 }
 
-.gallery {
-	*zoom: 1;
-}
-
-.gallery:before,
-.gallery:after {
+.customize-control-login-designer-gallery .login-designer-gallery::before,
+.customize-control-login-designer-gallery .login-designer-gallery::after {
 	content: "";
 	display: table;
 }
 
-.gallery:after {
+.customize-control-login-designer-gallery .login-designer-gallery::after {
 	clear: both;
 }
 
-.checkbox {
-	display: none !important;
+.customize-control-login-designer-gallery .login-designer-gallery__item {
+	float: left;
+	width: 20%;
 }
 
-.gallery--intrinsic {
+.customize-control-login-designer-gallery .login-designer-gallery__intrinsic {
 	border: 2px solid #eee;
 	border-radius: 2px;
 	box-shadow: 0 0 0 0 #5b9dd9, 0 0 0 0 rgba(30, 140, 190, 0.8);
@@ -210,54 +199,24 @@
 }
 
 @media screen and (min-width: 1667px) {
-	.gallery--intrinsic {
+	.customize-control-login-designer-gallery .login-designer-gallery__intrinsic {
 		margin-bottom: 6px;
 		margin-right: 3px;
 		margin-right: 3px;
 	}
 }
 
-.checkbox:checked + label .gallery--intrinsic {
+.login-designer-gallery__checkbox:checked + label .customize-control-login-designer-gallery .login-designer-gallery__intrinsic {
 	box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
 }
 
-.gallery--intrinsic:after {
+.customize-control-login-designer-gallery .login-designer-gallery__intrinsic:after {
 	content: "";
 	display: block;
 	padding-top: 100%;
 }
 
-@-webkit-keyframes portfolio_pro_likes_animation {
-	0% {
-		-webkit-transform: scale(1) translate3d(0, 0, 0);
-		transform: scale(1) translate3d(0, 0, 0);
-	}
-	50% {
-		-webkit-transform: scale(1.05) translate3d(0, 0, 0);
-		transform: scale(1.05) translate3d(0, 0, 0);
-	}
-	100% {
-		-webkit-transform: scale(1) translate3d(0, 0, 0);
-		transform: scale(1) translate3d(0, 0, 0);
-	}
-}
-
-@keyframes portfolio_pro_likes_animation {
-	0% {
-		-webkit-transform: scale(1) translate3d(0, 0, 0);
-		transform: scale(1) translate3d(0, 0, 0);
-	}
-	50% {
-		-webkit-transform: scale(1.05) translate3d(0, 0, 0);
-		transform: scale(1.05) translate3d(0, 0, 0);
-	}
-	100% {
-		-webkit-transform: scale(1) translate3d(0, 0, 0);
-		transform: scale(1) translate3d(0, 0, 0);
-	}
-}
-
-.gallery--img {
+.customize-control-login-designer-gallery .login-designer-gallery__img {
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -269,11 +228,11 @@
 	top: 0;
 }
 
-.checkbox:checked + label .layout-screenshot {
-	background-color: #fff;
+.customize-control-login-designer-gallery .login-designer-gallery__checkbox {
+	display: none !important;
 }
 
-.checkbox:checked + label {
+.customize-control-login-designer-gallery .login-designer-gallery__checkbox:checked + label {
 	border-color: #0085ba;
 }
 
@@ -778,7 +737,7 @@
 	font-weight: 600 !important;
 }
 
-.customize-control-toggle .toggle--wrapper {
+.customize-control-login-designer-toggle .toggle--wrapper {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -795,7 +754,7 @@
 	justify-content: flex-start;
 }
 
-.customize-control-toggle .toggle--wrapper .customize-control-title {
+.customize-control-login-designer-toggle .toggle--wrapper .customize-control-title {
 	vertical-align: middle;
 
 	-webkit-box-flex: 2;
@@ -804,11 +763,11 @@
 	flex: 2 0 0;
 }
 
-.customize-control-toggle .toggle--wrapper input[type=checkbox] {
+.customize-control-login-designer-toggle .toggle--wrapper input[type=checkbox] {
 	display: none;
 }
 
-.customize-control-toggle .toggle--wrapper label {
+.customize-control-login-designer-toggle .toggle--wrapper label {
 	background-color: #555d66;
 	border-radius: 14px;
 	cursor: pointer;
@@ -827,14 +786,14 @@
 	width: 34px;
 }
 
-.customize-control-toggle .toggle--wrapper label::after,
-.customize-control-toggle .toggle--wrapper label::before {
+.customize-control-login-designer-toggle .toggle--wrapper label::after,
+.customize-control-login-designer-toggle .toggle--wrapper label::before {
 	content: "";
 	display: block;
 	position: absolute;
 }
 
-.customize-control-toggle .toggle--wrapper label::after {
+.customize-control-login-designer-toggle .toggle--wrapper label::after {
 	border: 2px solid #555d66;
 	border-radius: 50%;
 	box-sizing: border-box;
@@ -848,7 +807,7 @@
 	width: 12px;
 }
 
-.customize-control-toggle .toggle--wrapper label::before {
+.customize-control-login-designer-toggle .toggle--wrapper label::before {
 	background-color: #eee;
 	border-radius: 60px;
 	bottom: 2px;
@@ -859,11 +818,11 @@
 	transition: background 0.2s ease;
 }
 
-.customize-control-toggle .toggle--wrapper input[type=checkbox]:checked + label {
+.customize-control-login-designer-toggle .toggle--wrapper input[type=checkbox]:checked + label {
 	background-color: #0085ba;
 }
 
-.customize-control-toggle .toggle--wrapper input[type=checkbox]:checked + label::after {
+.customize-control-login-designer-toggle .toggle--wrapper input[type=checkbox]:checked + label::after {
 	background-color: #0085ba;
 	border: 2px solid #fff;
 	-webkit-transform: translateX(14px);
@@ -871,11 +830,11 @@
 	transform: translateX(14px);
 }
 
-.customize-control-toggle .toggle--wrapper input[type=checkbox]:checked + label::before {
+.customize-control-login-designer-toggle .toggle--wrapper input[type=checkbox]:checked + label::before {
 	background-color: #0085ba;
 }
 
-.customize-control-toggle:hover .toggle--wrapper label::before {
+.customize-control-login-designer-toggle:hover .toggle--wrapper label::before {
 	background-color: #d9dcdf;
 }
 
