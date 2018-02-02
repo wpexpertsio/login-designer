@@ -184,6 +184,12 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @access public
 		 */
 		public function has_pro() {
+
+			// If there's no pro mode defined, return false.
+			if ( ! defined( 'LOGIN_DESIGNER_HAS_PRO' ) ) {
+				return false;
+			}
+
 			if ( true === LOGIN_DESIGNER_HAS_PRO ) {
 				return true;
 			} else {
@@ -197,6 +203,13 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @since 1.1.3
 		 */
 		public function asset_suffix() {
+
+			// If there's no debug mode, use the minified assets supplied.
+			if ( ! defined( 'LOGIN_DESIGNER_DEBUG' ) ) {
+				define( 'LOGIN_DESIGNER_ASSET_SUFFIX', '.min' );
+				return;
+			}
+
 			if ( true === LOGIN_DESIGNER_DEBUG ) {
 				define( 'LOGIN_DESIGNER_ASSET_SUFFIX', null );
 			} else {
@@ -212,6 +225,12 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @param string|string $directory Any extra directories needed.
 		 */
 		public function asset_source( $type = 'js', $directory = null ) {
+
+			// If there's no debug mode, use the minified sources.
+			if ( ! defined( 'LOGIN_DESIGNER_DEBUG' ) ) {
+				return LOGIN_DESIGNER_PLUGIN_URL . 'assets/' . $type . '/' . $directory;
+			}
+
 			if ( true === LOGIN_DESIGNER_DEBUG ) {
 				return LOGIN_DESIGNER_PLUGIN_URL . 'assets/' . $type . '/src/' . $directory;
 			} else {
