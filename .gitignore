@@ -2,9 +2,8 @@ node_modules
 *.cache
 *.log
 *.map
-*.min*
-*.js
 *.css
+*.min*
 .DS_Store
 TODO
 *.sublime-project
