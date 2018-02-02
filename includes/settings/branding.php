@@ -30,7 +30,7 @@ $wp_customize->add_setting( 'login_designer_settings[branding]', array(
 
 $wp_customize->add_control( new Login_Designer_Toggle_Control( $wp_customize, 'login_designer_settings[branding]', array(
 	'label'    => esc_html__( 'Powered By Link', '@@textdomain' ),
-	'type'     => 'toggle',
+	'type'     => 'login-designer-toggle',
 	'settings' => 'login_designer_settings[branding]',
 	'section'  => 'login_designer__section--settings',
 ) ) );

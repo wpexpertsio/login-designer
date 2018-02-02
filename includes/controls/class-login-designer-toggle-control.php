@@ -27,6 +27,14 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) {
 class Login_Designer_Toggle_Control extends WP_Customize_Control {
 
 	/**
+	 * The control type.
+	 *
+	 * @access public
+	 * @var string
+	 */
+	public $type = 'login-designer-toggle';
+
+	/**
 	 * Render the control's content.
 	 */
 	public function render_content() {
