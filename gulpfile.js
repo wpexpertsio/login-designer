@@ -15,7 +15,9 @@ var projectURL              	= 'http://demo.logindesigner.dev/wp-login.php';
 
 var styleCustomizerSRC  	= './assets/scss/customizer/'+ slug +'-customize-preview.scss';
 var styleCustomizerControlsSRC  = './assets/scss/customizer/'+ slug +'-customize-controls.scss';
+
 var styleIntroSRC           	= './assets/scss/customizer/'+ slug +'-intro.scss';
+
 var template_1SRC  		= './assets/scss/templates/'+ slug +'-template-01.scss';
 var template_2SRC  		= './assets/scss/templates/'+ slug +'-template-02.scss';
 var template_3SRC  		= './assets/scss/templates/'+ slug +'-template-03.scss';
@@ -28,38 +30,31 @@ var styleSRCDestination  	= './assets/css/src/'; // Path to place the compiled C
 var styleDestination  		= './assets/css/'; // Path to place the compiled CSS file.
 var styleWatchFiles   		= './assets/scss/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
 
+var scriptDestination 		= './assets/js/';
+var scriptWatchFiles  		= './assets/js/src/*.js';
+
 var scriptCustomizeEventsFile  	= slug +'-customize-events'; // JS file name.
-var scriptCustomizeEventsSRC   	= './assets/js/'+ scriptCustomizeEventsFile +'.js'; // The JS file src.
+var scriptCustomizeEventsSRC   	= './assets/js/src/'+ scriptCustomizeEventsFile +'.js'; // The JS file src.
 
 var scriptCustomizeLiveFile 	= slug +'-customize-live'; // JS file name.
-var scriptCustomizeLiveSRC   	= './assets/js/'+ scriptCustomizeLiveFile +'.js'; // The JS file src.
+var scriptCustomizeLiveSRC   	= './assets/js/src/'+ scriptCustomizeLiveFile +'.js'; // The JS file src.
 
 var scriptCustomizePreviewFile  = slug +'-customize-preview'; // JS file name.
-var scriptCustomizePreviewSRC   = './assets/js/'+ scriptCustomizePreviewFile +'.js'; // The JS file src.
+var scriptCustomizePreviewSRC   = './assets/js/src/'+ scriptCustomizePreviewFile +'.js'; // The JS file src.
 
 var scriptCustomizeControlsFile = slug +'-customize-controls'; // JS file name.
-var scriptCustomizeControlsSRC  = './assets/js/'+ scriptCustomizeControlsFile +'.js'; // The JS file src.
+var scriptCustomizeControlsSRC  = './assets/js/src/'+ scriptCustomizeControlsFile +'.js'; // The JS file src.
 
 var scriptRangeControlFile  	= slug +'-range-control'; // JS file name.
-var scriptRangeControlSRC   	= './assets/js/'+ scriptRangeControlFile +'.js'; // The JS file src.
-
-var scriptTemplateControlFile  	= slug +'-template-control'; // JS file name.
-var scriptTemplateControlSRC   	= './assets/js/'+ scriptTemplateControlFile +'.js'; // The JS file src.
-
-var scriptGalleryControlFile  	= slug +'-gallery-control'; // JS file name.
-var scriptGalleryControlSRC   		= './assets/js/'+ scriptGalleryControlFile +'.js'; // The JS file src.
+var scriptRangeControlSRC   	= './assets/js/src/controls/'+ scriptRangeControlFile +'.js'; // The JS file src.
 
 var scriptLicenseControlFile  	= slug +'-license-control'; // JS file name.
-var scriptLicenseControlSRC   	= './assets/js/'+ scriptLicenseControlFile +'.js'; // The JS file src.
+var scriptLicenseControlSRC   	= './assets/js/src/controls/'+ scriptLicenseControlFile +'.js'; // The JS file src.
 
-var scriptDestination 		= './assets/js/dist/';
-var scriptWatchFiles  		= './assets/js/*.js';
-
-// Vendor Javascript.
-var jsVendorSRC			= './assets/js/controls/*.js'; // Path to JS vendor folder.
-var jsVendorDestination	 	= './assets/js/dist/'; // Path to place the compiled JS vendors file.
-var jsVendorFile		= 'login-designer-customize-custom-controls'; // Compiled JS vendors file name.
-var vendorJSWatchFiles	  	= './assets/js/controls/**/*.js'; // Path to all vendor JS files.
+var jsVendorSRC			= './assets/js/src/controls/*.js';
+var jsVendorDestination	 	= './assets/js/';
+var jsVendorFile		= 'login-designer-customize-custom-controls';
+var vendorJSWatchFiles	  	= './assets/js/src/controls/*.js';
 
 var projectPHPWatchFiles    	= ['./**/*.php', '!_dist', '!_dist/**', '!_dist/**/*.php', '!_demo', '!_demo/**','!_demo/**/*.php'];
 
@@ -72,7 +67,7 @@ var team                    	= pkg.author_shop;
 var translatePath           	= './languages';
 var translatableFiles       	= ['./**/*.php'];
 
-var buildFiles      	    	= ['./**', '!dist/', '!.gitattributes', '!.csscomb.json', '!node_modules/**', '!.sublime-project', '!package.json', '!gulpfile.js', '!assets/scss/**', '!*.json', '!*.map', '!*.md', '!*.xml', '!*.sublime-workspace', '!*.sublime-gulp.cache', '!*.log', '!*.gitattributes', '!*.DS_Store','!*.gitignore', '!TODO', '!*.git' ];
+var buildFiles      	    	= ['./**', '!dist/', '!.gitattributes', '!.csscomb.json', '!node_modules/**', '!*.sublime-project', '!package.json', '!gulpfile.js', '!assets/js/src/**', '!assets/css/src/**', '!assets/scss/**', '!*.json', '!*.map', '!*.md', '!*.xml', '!*.sublime-workspace', '!*.sublime-gulp.cache', '!*.log', '!*.gitattributes', '!*.DS_Store','!*.gitignore', '!TODO', '!*.git' ];
 var buildDestination        	= './dist/'+ slug +'/';
 var distributionFiles       	= './dist/'+ slug +'/**/*';
 
@@ -142,6 +137,40 @@ gulp.task( 'browser_sync', function() {
 	});
 });
 
+// Ensures that debug mode is turned on during development.
+gulp.task( 'debug_mode_on', function () {
+	return gulp.src( ['./login-designer.php', '!_dist/login-designer.php'] )
+
+	.pipe( replace( {
+		patterns: [
+		{
+			match: '_DEBUG\', false );',
+			replacement: '_DEBUG\', true );'
+		}
+		],
+		usePrefix: false
+	} ) )
+	.pipe( gulp.dest( './' ) );
+});
+
+// Ensures SLUG_DEBUG is set to false for all build and demo files.
+gulp.task( 'debug_mode_off', function () {
+	return gulp.src( distributionFiles )
+
+	.pipe( replace( {
+		patterns: [
+		{
+			match: '_DEBUG\', true );',
+			replacement: '_DEBUG\', false );'
+		}
+		],
+		usePrefix: false
+	} ) )
+	.pipe( gulp.dest( buildDestination ) );
+});
+
+
+
 gulp.task( 'vendorsJs', function() {
 	gulp.src( jsVendorSRC )
 	.pipe( concat( jsVendorFile + '.min.js' ) )
@@ -155,6 +184,11 @@ gulp.task( 'vendorsJs', function() {
 	.pipe( lineec() )
 	.pipe( gulp.dest( jsVendorDestination ) )
 });
+
+
+
+
+
 
 gulp.task('styles_customize_preview', function () {
 	gulp.src( styleCustomizerSRC )
@@ -201,7 +235,7 @@ gulp.task('styles_customize_controls', function () {
 
 	.pipe( csscomb() )
 
-	.pipe( gulp.dest( styleDestination ) )
+	.pipe( gulp.dest( styleSRCDestination ) )
 
 	.pipe( browserSync.stream() )
 
@@ -231,7 +265,7 @@ gulp.task('styles_intro_js', function () {
 
 	.pipe( csscomb() )
 
-	.pipe( gulp.dest( styleDestination ) )
+	.pipe( gulp.dest( styleSRCDestination ) )
 
 	.pipe( browserSync.stream() )
 
@@ -520,7 +554,7 @@ gulp.task( 'build-notification', function () {
  * Commands.
  */
 
-gulp.task( 'default', [ 'clear', 'vendorsJs', 'template_1', 'template_2', 'template_3', 'template_4', 'styles_customize_preview', 'styles_customize_controls', 'styles_intro_js', 'scripts', 'browser_sync' ], function () {
+gulp.task( 'default', [ 'clear', 'debug_mode_on', 'vendorsJs', 'template_1', 'template_2', 'template_3', 'template_4', 'styles_customize_preview', 'styles_customize_controls', 'styles_intro_js', 'scripts', 'browser_sync' ], function () {
 	gulp.watch( projectPHPWatchFiles, reload );
 	gulp.watch( styleWatchFiles, [ 'styles_customize_preview' ] );
 	gulp.watch( styleWatchFiles, [ 'styles_intro_js' ] );
@@ -534,5 +568,5 @@ gulp.task( 'default', [ 'clear', 'vendorsJs', 'template_1', 'template_2', 'templ
 });
 
 gulp.task('build', function(callback) {
-	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'template_3', 'template_4', 'styles_customize_preview', 'styles_customize_controls', 'styles_intro_js', 'scripts', 'vendorsJs', 'build-translate' ], 'build-copy', 'build-variables', 'build-notification', callback);
+	runSequence( 'clear', 'build-clean', [ 'template_1', 'template_2', 'template_3', 'template_4', 'styles_customize_preview', 'styles_customize_controls', 'styles_intro_js', 'scripts', 'vendorsJs', 'build-translate' ], 'build-copy', 'build-variables', 'debug_mode_off', 'build-zip', 'build-notification', callback);
 });
