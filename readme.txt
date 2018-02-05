@@ -86,6 +86,20 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
+= 1.1.4, February XX, 2017 =
+* Tweak: Username and password labels now stay hidden when text labels are removed
+* Tweak: Adjusted field margin bottom to work properly
+
+= 1.1.3, February 05, 2017 =
+* Fix: Rewrote the Login Designer Customizer view to resolve known plugin compatibility issues
+* Fix: Resolved an issue where the form bottom positioning "jumped" when triggered in the Customizer
+* Fix: Added proper translatable text for the plugin's guided intro
+* Tweak: Improved the style of the form bottom edit trigger
+* Tweak: Added better style prefixing with Customizer UI elements to improve theme incompatibilities
+* Tweak: Removed unnecessary styles/scripts and cleaned up the /assets/ folder
+* Tweak: Sprite display within the Customizer
+* Tweak: Improved asset delivery and minification
+
 = 1.1.2, January 26, 2017 =
 * Fix: Resolved the sprite display issue within the Customizer
 

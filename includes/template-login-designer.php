@@ -163,7 +163,14 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 				<a id="login-designer-logo" class="customize-unpreviewable" href="#" title="" tabindex="-1"><?php bloginfo( 'name' ); ?></a>
 			</h1>
 
-			<form name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
+			<?php
+			$options    = new Login_Designer_Customizer_Output();
+			$option     = $options->option_wrapper( 'username_label' );
+			$visibility = ( '' !== $option ) ? null : 'no-label';
+			?>
+
+			<form name="loginform" id="loginform" class="<?php echo esc_attr( $visibility ); ?>"  action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
+
 				<p>
 					<label id="login-designer--username-label" for="user_login"><span><?php echo esc_html__( 'Username or Email Address', '@@textdomain' ); ?></span><br />
 					<div id="login-designer--username">
@@ -172,9 +179,9 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 				</p>
 				<p>
 					<label id="login-designer--password-label" for="user_pass"><span><?php echo esc_html__( 'Password', '@@textdomain' ); ?></span><br />
-						<div id="login-designer--password">
-					<input autocomplete="off" type="password" name="pwd" id="user_pass" class="input" value="password" size="20" /></label>
-				</div>
+					<div id="login-designer--password">
+						<input autocomplete="off" type="password" name="pwd" id="user_pass" class="input" value="password" size="20" /></label>
+					</div>
 				</p>
 				<?php
 				/**

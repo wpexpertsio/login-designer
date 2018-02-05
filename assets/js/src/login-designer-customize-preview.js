@@ -1166,14 +1166,22 @@
 	} );
 
 	wp.customize( 'login_designer[username_label]', function( value ) {
-		value.bind( function( newval ) {
-			$( '#login-designer--username-label span' ).html( newval );
+		value.bind( function( to ) {
+
+			$( '#login-designer--username-label span' ).html( to );
+
+			if ( to ) {
+				$( '#loginform' ).removeClass( 'no-label' );
+			} else {
+				$( '#loginform' ).addClass( 'no-label' );
+			}
+
 		} );
 	} );
 
 	wp.customize( 'login_designer[password_label]', function( value ) {
-		value.bind( function( newval ) {
-			$( '#login-designer--password-label span' ).html( newval );
+		value.bind( function( to ) {
+			$( '#login-designer--password-label span' ).html( to );
 		} );
 	} );
 

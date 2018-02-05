@@ -24,12 +24,19 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		 * Adds actions to enqueue our assets.
 		 */
 		public function __construct() {
+			add_action( 'login_head', array( $this, 'login_form' ) );
 			add_action( 'login_enqueue_scripts', array( $this, 'customizer_css' ) );
 			add_action( 'login_enqueue_scripts', array( $this, 'enqueue_fonts' ) );
-			add_filter( 'gettext', array( $this, 'custom_username_label' ), 20, 3 );
-			add_filter( 'gettext', array( $this, 'custom_password_label' ), 20, 3 );
 			add_filter( 'wp_resource_hints', array( $this, 'fonts_resource_hints' ), 10, 2 );
 			add_action( 'wp_ajax_get_logo_info', array( $this, 'get_logo_info_callback' ) );
+		}
+
+		/**
+		 * Custom Labels.
+		 */
+		public function login_form() {
+			add_filter( 'gettext', array( $this, 'custom_username_label' ), 20, 3 );
+			add_filter( 'gettext', array( $this, 'custom_password_label' ), 20, 3 );
 		}
 
 		/**
@@ -322,13 +329,24 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		 */
 		public function custom_username_label( $translated_text, $text, $domain ) {
 
-			// If the option does not exist, return.
-			if ( ! $this->option_wrapper( 'username_label' ) ) {
+			$default = 'Username or Email Address';
+			$options = get_option( 'login_designer' );
+			$label   = $this->option_wrapper( 'username_label' );
+
+			// If the option does not exist, return the text unchanged.
+			if ( ! $options && $default === $text ) {
 				return $translated_text;
 			}
 
-			if ( 'Username or Email Address' === $text ) {
-				$translated_text = esc_html( $this->option_wrapper( 'username_label' ) );
+			// If options exsit, then translate away.
+			if ( $options && $default === $text ) {
+
+				// Check if the option exists.
+				if ( isset( $options['username_label'] ) ) {
+					$translated_text = esc_html( $label );
+				} else {
+					return $translated_text;
+				}
 			}
 
 			return $translated_text;
@@ -344,13 +362,24 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		 */
 		public function custom_password_label( $translated_text, $text, $domain ) {
 
-			// If the option does not exist, return.
-			if ( ! $this->option_wrapper( 'password_label' ) ) {
+			$default = 'Password';
+			$options = get_option( 'login_designer' );
+			$label   = $this->option_wrapper( 'password_label' );
+
+			// If the option does not exist, return the text unchanged.
+			if ( ! $options && $default === $text ) {
 				return $translated_text;
 			}
 
-			if ( 'Password' === $text ) {
-				$translated_text = esc_html( $this->option_wrapper( 'password_label' ) );
+			// If options exsit, then translate away.
+			if ( $options && $default === $text ) {
+
+				// Check if the option exists.
+				if ( isset( $options['password_label'] ) ) {
+					$translated_text = esc_html( $label );
+				} else {
+					return $translated_text;
+				}
 			}
 
 			return $translated_text;
@@ -430,6 +459,10 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				#login form p.submit {
 					padding-bottom: 25px !important;
 					transform: initial !important;
+				}
+
+				#login form p label br {
+					display: none;
 				}
 
 				#login form .forgetmenot {
@@ -855,6 +888,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				if ( isset( $options['below_font_size'] ) ) {
 					$css .= '#login #nav a, #login #backtoblog a { font-size: ' . esc_attr( $options['below_font_size'] ) . 'px }';
 				}
+
 			endif;
 
 			// Combine the values from above and minifiy them.

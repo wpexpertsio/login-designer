@@ -110,7 +110,7 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 	'description'           => 'px',
 	'default'               => $defaults['field_margin_bottom'],
 	'input_attrs'           => array(
-		'min'               => 0,
+		'min'               => 1,
 		'max'               => 60,
 		'step'              => 1,
 		),

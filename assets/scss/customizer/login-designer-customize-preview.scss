@@ -256,8 +256,8 @@ body:hover .customize-partial-edit-shortcut {
 // Fields.
 #login-designer--username,
 #login-designer--password {
-	border-width: 2px;
-	margin-bottom: 16px;
+	// border-width: 2px;
+	// margin-bottom: 16px;
 
 	input {
 		margin-bottom: 0;
@@ -302,6 +302,24 @@ body:hover .customize-partial-edit-shortcut {
 		width: calc( 100% + 4px);
 		border: 0 ! important;
 		opacity: 0 ! important;
+	}
+}
+
+
+// Labels.
+.no-label #login-designer--username-label {
+
+	.login-designer-event-button {
+		background: $customizer_blue;
+		height: 8px !important;
+		width: 8px !important;
+		border-radius: 100%;
+	}
+
+	.login-designer-event-button.customizer-event-overlay {
+		opacity: 1 !important;
+		top: -8px;
+		left: -1px;
 	}
 }
 
