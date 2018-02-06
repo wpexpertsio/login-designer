@@ -202,8 +202,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'logout_redirect'     => '',
 				'login_message'       => '',
 				'branding'            => true,
-				'branding_color'      => '#b2b2b2',
-				'branding_icon_color' => '#adadad',
+				'branding_color'      => '#303030',
+				'branding_icon_color' => '#303030',
 
 			);
 

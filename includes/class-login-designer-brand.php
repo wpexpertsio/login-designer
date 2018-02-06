@@ -75,7 +75,7 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 		public function render() {
 
 			// Hide the branding badge if the option was previously disabled.
-			$visibility = ! true === $this->is_active() ? 'is-hidden' : null;
+			$visibility = ! true === $this->is_active() ? null : 'is-hidden';
 
 			// Retrieve the Login Designer shop URL.
 			$url = Login_Designer()->get_store_url( '/',
@@ -124,8 +124,8 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 
 			.login-designer-badge.is-hidden .login-designer-badge__inner {
 				opacity: 0;
-				transform: translateY(200%);
-				transition: transform 0.4s cubic-bezier(0.694, 0.0482, 0.335, 1), opacity 0.3s cubic-bezier(0.694, 0.0482, 0.335, 1);
+				transform: scale(0);
+				transition: transform 500ms cubic-bezier(0.694, 0.0482, 0.335, 1), opacity 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
 			}
 
 			.login-designer-badge__inner {
@@ -138,7 +138,7 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 				align-content: center;
 				position: relative;
 				padding: 8px 15px;
-				transition: transform 0.3s cubic-bezier(0.694, 0.0482, 0.335, 1), opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+				transition: transform 500ms cubic-bezier(0.694, 0.0482, 0.335, 1), opacity 200ms cubic-bezier(0.694, 0.0482, 0.335, 1) 300ms;
 			}
 
 			.login-designer-badge__text {
