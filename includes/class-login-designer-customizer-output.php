@@ -111,7 +111,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'label_font_size'       => '14',
 				'label_color'           => '#72777c',
 				'button_bg'             => '#0085ba',
-				'button_height'         => '4',
+				'button_padding_top'    => '4',
+				'button_padding_bottom' => '4',
 				'button_side_padding'   => '12',
 				'button_border'         => '1',
 				'button_border_color'   => '#0073aa',
@@ -754,9 +755,14 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					$css .= '#login form .submit .button { background-color: ' . $options['button_bg'] . '; }';
 				}
 
-				// Button height.
-				if ( isset( $options['button_height'] ) ) {
-					$css .= '#login form .submit .button { padding-top: ' . esc_attr( $options['button_height'] ) . 'px; padding-bottom: ' . esc_attr( $options['button_height'] ) . 'px; }';
+				// Button top padding.
+				if ( isset( $options['button_padding_top'] ) ) {
+					$css .= '#login form .submit .button { padding-top: ' . esc_attr( $options['button_padding_top'] ) . 'px; }';
+				}
+
+				// Button bottom padding.
+				if ( isset( $options['button_padding_bottom'] ) ) {
+					$css .= '#login form .submit .button { padding-bottom: ' . esc_attr( $options['button_padding_bottom'] ) . 'px; }';
 				}
 
 				// Button side padding.

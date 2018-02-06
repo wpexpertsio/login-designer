@@ -261,13 +261,29 @@
 		} );
 	} );
 
-	// Button side padding.
-	wp.customize( 'login_designer[button_height]', function( value ) {
+	// Button top padding.
+	wp.customize( 'login_designer[button_padding_top]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_button_height"> #login form .submit .button { padding-top: ' + to + 'px; padding-bottom: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_button_padding_top"> #login form .submit .button { padding-top: ' + to + 'px; } </style>';
 
-			el =  $( '.login_designer_button_height' );
+			el =  $( '.login_designer_button_padding_top' );
+
+			if ( el.length ) {
+				el.replaceWith( style ); // style element already exists, so replace it
+			} else {
+				$( 'head' ).append( style ); // style element doesn't exist so add it
+			}
+		} );
+	} );
+
+	// Button bottom padding.
+	wp.customize( 'login_designer[button_padding_bottom]', function( value ) {
+		value.bind( function( to ) {
+			var style, el;
+			style = '<style class="login_designer_button_padding_bottom"> #login form .submit .button { padding-bottom: ' + to + 'px; } </style>';
+
+			el =  $( '.login_designer_button_padding_bottom' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it

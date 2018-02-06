@@ -209,7 +209,7 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 
 			// Dark template.
 			$template_02 = apply_filters( 'login_designer_template_02_defaults', array(
-				'bg_image_gallery' 	=> 'none',
+				'bg_image_gallery'      => 'none',
 				'bg_color' 		=> '#000000',
 				'form_bg' 		=> '#000000',
 				'form_bg_transparency' 	=> true,
@@ -242,7 +242,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				'remember_font' 	=> 'Rubik',
 				'remember_position' 	=> '9',
 				'button_bg' 		=> '#dcdcdc',
-				'button_height' 	=> '8',
+				'button_padding_top'    => '8',
+				'button_padding_bottom' => '8',
 				'button_side_padding' 	=> '17',
 				'button_border' 	=> '0',
 				'button_radius' 	=> '4',
@@ -295,7 +296,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 				'remember_font' 	=> 'Rubik',
 				'remember_position' 	=> '9',
 				'button_bg' 		=> '#1e1e1e',
-				'button_height' 	=> '9',
+				'button_padding_bottom' => '9',
+				'button_padding_top'    => '9',
 				'button_side_padding' 	=> '17',
 				'button_border' 	=> '0',
 				'button_radius' 	=> '5',
