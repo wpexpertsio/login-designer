@@ -86,7 +86,8 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
-= 1.1.4, February XX, 2017 =
+= 1.1.4, February 06, 2017 =
+* Fix: Fixed an issue where the Login Designer mark did not properly hide within the Customizer
 * Tweak: Username and password labels now stay hidden when text labels are removed
 * Tweak: Adjusted field margin bottom to work properly
 
