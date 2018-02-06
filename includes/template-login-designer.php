@@ -172,29 +172,39 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 			<form name="loginform" id="loginform" class="<?php echo esc_attr( $visibility ); ?>"  action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
 
 				<p>
-					<label id="login-designer--username-label" for="user_login"><span><?php echo esc_html__( 'Username or Email Address', '@@textdomain' ); ?></span><br />
-					<div id="login-designer--username">
-						<input autocomplete="off" type="text" name="log" id="user_login" class="input" value="email@address.com" size="20" /></label>
-					</div>
+					<label id="login-designer--username-label" for="user_login">
+						<span id="login-designer--username-label-text"><?php echo esc_html__( 'Username or Email Address', '@@textdomain' ); ?></span>
+						<div id="login-designer--username">
+							<input autocomplete="off" type="text" name="log" id="user_login" class="input" value="email@address.com" size="20" />
+						</div>
+					</label>
 				</p>
+
 				<p>
-					<label id="login-designer--password-label" for="user_pass"><span><?php echo esc_html__( 'Password', '@@textdomain' ); ?></span><br />
-					<div id="login-designer--password">
-						<input autocomplete="off" type="password" name="pwd" id="user_pass" class="input" value="password" size="20" /></label>
-					</div>
+					<label id="login-designer--password-label" for="user_pass">
+						<span id="login-designer--password-label-text"><?php echo esc_html__( 'Password', '@@textdomain' ); ?></span>
+						<div id="login-designer--password">
+							<input autocomplete="off" type="password" name="pwd" id="user_pass" class="input" value="password" size="20" />
+						</div>
+					</label>
 				</p>
-				<?php
-				/**
-				 * Fires following the 'Password' field in the login form.
-				 */
-				do_action( 'login_form' );
-				?>
-				<p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php esc_html_e( 'Remember Me' ); ?></label></p>
-				<p class="submit">
-					<span id="login-designer--button">
-						<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php echo esc_html__( 'Log In', '@@textdomain' ); ?>" />
-					</span>
-				</p>
+
+				<?php do_action( 'login_form' ); ?>
+
+				<div class="login-designer--form-footer">
+					<p class="forgetmenot">
+						<label for="rememberme">
+							<input name="rememberme" type="checkbox" id="rememberme" value="forever" />
+							<?php esc_html_e( 'Remember Me' ); ?>
+						</label>
+					</p>
+
+					<p class="submit">
+						<span id="login-designer--button">
+							<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php echo esc_html__( 'Log In', '@@textdomain' ); ?>" />
+						</span>
+					</p>
+				</div>
 			</form>
 
 			<div id="login-designer--below-form" data-hint="<?php echo esc_attr__( 'Click on the elements below the form to modify each one.', '@@textdomain' ); ?>" data-hintPosition="middle-right" data-position="bottom-right-aligned">

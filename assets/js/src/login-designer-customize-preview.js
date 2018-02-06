@@ -1168,7 +1168,7 @@
 	wp.customize( 'login_designer[username_label]', function( value ) {
 		value.bind( function( to ) {
 
-			$( '#login-designer--username-label span' ).html( to );
+			$( '#login-designer--username-label #login-designer--username-label-text' ).html( to );
 
 			if ( to ) {
 				$( '#loginform' ).removeClass( 'no-label' );
@@ -1181,7 +1181,7 @@
 
 	wp.customize( 'login_designer[password_label]', function( value ) {
 		value.bind( function( to ) {
-			$( '#login-designer--password-label span' ).html( to );
+			$( '#login-designer--password-label #login-designer--password-label-text' ).html( to );
 		} );
 	} );
 
