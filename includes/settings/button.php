@@ -2,7 +2,7 @@
 /**
  * Button Customizer Section.
  *
- * @package   @@pkg.name
+ * @package   @@pkg.title
  * @author    @@pkg.author
  * @license   @@pkg.license
  */

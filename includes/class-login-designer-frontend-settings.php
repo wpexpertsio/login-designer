@@ -2,7 +2,7 @@
 /**
  * Functions that modify the frontend functionality of the login pages.
  *
- * @package   @@pkg.name
+ * @package   @@pkg.title
  * @author    @@pkg.author
  * @license   @@pkg.license
  */

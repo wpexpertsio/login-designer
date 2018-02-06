@@ -4,7 +4,7 @@
  * Any additional scripts that are required by individual controls
  * are enqueued in the control classes themselves.
  *
- * @package   @@pkg.name
+ * @package   @@pkg.title
  * @author    @@pkg.author
  * @license   @@pkg.license
  */

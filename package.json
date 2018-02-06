@@ -1,5 +1,6 @@
 {
-	"name": "Login Designer",
+	"name": "Login_Designer",
+	"title": "Login Designer",
 	"slug": "login-designer",
 	"textdomain": "login-designer",
 	"version": "1.1.4",

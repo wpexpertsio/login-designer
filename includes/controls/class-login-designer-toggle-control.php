@@ -4,7 +4,7 @@
  *
  * @see https://developer.wordpress.org/reference/classes/wp_customize_control/
  *
- * @package   @@pkg.name
+ * @package   @@pkg.title
  * @author    @@pkg.author
  * @license   @@pkg.license
  */

@@ -2,7 +2,7 @@
 /**
  * Template Functions
  *
- * @package   @@pkg.name
+ * @package   @@pkg.title
  * @author    @@pkg.author
  * @license   @@pkg.license
  */

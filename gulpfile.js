@@ -60,7 +60,7 @@ var projectPHPWatchFiles    	= ['./**/*.php', '!_dist', '!_dist/**', '!_dist/**/
 
 var text_domain             	= '@@textdomain';
 var destFile                	= slug+'.pot';
-var packageName             	= project;
+var packageName             	= pkg.title;
 var bugReport               	= pkg.author_uri;
 var lastTranslator          	= pkg.author;
 var team                    	= pkg.author_shop;
@@ -488,6 +488,10 @@ gulp.task('build-variables', function () {
 		{
 			match: 'pkg.name',
 			replacement: project
+		},
+		{
+			match: 'pkg.title',
+			replacement: pkg.title
 		},
 		{
 			match: 'pkg.slug',
