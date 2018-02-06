@@ -784,7 +784,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Button border radius.
 				if ( isset( $options['button_radius'] ) ) {
-					$css .= '#login #login form .submit .button, #login form .submit .login-designer-event-button { border-radius: ' . esc_attr( $options['button_radius'] ) . 'px; }';
+					$css .= '#login form .submit .button, #login form .submit .login-designer-event-button { border-radius: ' . esc_attr( $options['button_radius'] ) . 'px; }';
 				}
 
 				// Field box-shadow.
