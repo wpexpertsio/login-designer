@@ -34,9 +34,11 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 			}
 
 			// For the login page.
-			add_action( 'login_enqueue_scripts', array( $this, 'styles' ), 99 );
-			add_action( 'login_footer', array( $this, 'load_sprite' ), 9999 );
-			add_action( 'login_footer', array( $this, 'render' ) );
+			if ( ! is_customize_preview() ) {
+				add_action( 'login_enqueue_scripts', array( $this, 'styles' ), 99 );
+				add_action( 'login_footer', array( $this, 'load_sprite' ), 9999 );
+				add_action( 'login_footer', array( $this, 'render' ) );
+			}
 		}
 
 		/**
@@ -65,7 +67,7 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 			if ( true === $option ) {
 				return true;
 			} else {
-				return true;
+				return false;
 			}
 		}
 
@@ -75,7 +77,7 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 		public function render() {
 
 			// Hide the branding badge if the option was previously disabled.
-			$visibility = ! true === $this->is_active() ? null : 'is-hidden';
+			$visibility = ! true === $this->is_active() ? 'is-hidden' : null;
 
 			// Retrieve the Login Designer shop URL.
 			$url = Login_Designer()->get_store_url( '/',
