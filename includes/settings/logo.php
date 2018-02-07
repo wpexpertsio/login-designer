@@ -15,23 +15,38 @@ $wp_customize->add_setting( 'login_designer[logo_title]', array(
 ) );
 
 $wp_customize->add_control( new Login_Designer_Title_Control( $wp_customize, 'login_designer[logo_title]', array(
-	'type'                  => 'login-designer-title',
-	'label'                => esc_html__( 'Logo', '@@textdomain' ),
-	'description'           => esc_html__( 'Add your own logo. Logos will display at 50% height & width, to account for retina.', '@@textdomain' ),
-	'section'               => 'login_designer__section--styles',
+	'type'        => 'login-designer-title',
+	'label'       => esc_html__( 'Logo', '@@textdomain' ),
+	'description' => esc_html__( 'Add your own logo. Logos will display at 50% height & width to account for retina devices. Modify the height and width below.', '@@textdomain' ),
+	'section'     => 'login_designer__section--styles',
 ) ) );
 
 $wp_customize->add_setting( 'login_designer[logo]', array(
-	'default'               => $defaults['logo'],
-	'type' 			=> 'option',
-	'transport'             => 'postMessage',
-	'sanitize_callback' 	=> 'absint',
+	'default'           => $defaults['logo'],
+	'type'              => 'option',
+	'transport'         => 'postMessage',
+	'sanitize_callback' => 'absint',
 ) );
 
 $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'login_designer[logo]', array(
-	'section'               => 'login_designer__section--styles',
-	'settings'              => 'login_designer[logo]',
+	'section'  => 'login_designer__section--styles',
+	'settings' => 'login_designer[logo]',
 ) ) );
+
+$wp_customize->add_setting( 'login_designer_settings[logo_url]', array(
+	'default'           => $admin_defaults['logo_url'],
+	'type'              => 'option',
+	'transport'         => 'postMessage',
+	'sanitize_callback' => 'absint',
+) );
+
+$wp_customize->add_control( 'login_designer_settings[logo_url]', array(
+	'label'          => esc_html__( 'URL', '@@textdomain' ),
+	'description'    => esc_html__( 'Select a page for your logo to link to. This is typically your site\'s home page.', '@@textdomain' ),
+	'section'        => 'login_designer__section--styles',
+	'type'           => 'dropdown-pages',
+	'allow_addition' => false,
+) );
 
 $wp_customize->add_setting( 'login_designer[logo_width]', array(
 	'default'               => $defaults['logo_width'],
@@ -69,25 +84,10 @@ $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'lo
 	'default'               => $defaults['logo_height'],
 	'input_attrs'           => array(
 		'min'               => 30,
-		'max'               => 400,
+		'max'               => 300,
 		'step'              => 2,
 		),
 	)
-) );
-
-$wp_customize->add_setting( 'login_designer_settings[logo_url]', array(
-	'default'               => $admin_defaults['logo_url'],
-	'type' 			=> 'option',
-	'transport'         	=> 'postMessage',
-	'sanitize_callback' 	=> 'absint',
-) );
-
-$wp_customize->add_control( 'login_designer_settings[logo_url]', array(
-	'label'          	=> esc_html__( 'Logo URL', '@@textdomain' ),
-	'description'           => esc_html__( 'Select a page for your logo to link to. This is typically your site\'s home page.', '@@textdomain' ),
-	'section'        	=> 'login_designer__section--styles',
-	'type'           	=> 'dropdown-pages',
-	'allow_addition' 	=> false,
 ) );
 
 $wp_customize->add_setting( 'login_designer[logo_margin_bottom]', array(
@@ -99,7 +99,7 @@ $wp_customize->add_setting( 'login_designer[logo_margin_bottom]', array(
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer[logo_margin_bottom]', array(
 	'type'                  => 'login-designer-range',
-	'label'                 => esc_html__( 'Positioning', '@@textdomain' ),
+	'label'                 => esc_html__( 'Position', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 	'description'           => 'px',
 	'default'               => $defaults['logo_margin_bottom'],

@@ -87,10 +87,11 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 == Changelog ==
 
 = 1.1.5, February XX, 2017 =
-* New:   Added new options for fine-tuning the "Log In" button display (padding-top and padding-bottom)
-* New:   Added a new position setting for aligning the Login Designer logo to the left or right
-* Fix:   Fixed an issue where the accreditation link obscursed content on smaller viewports
+* New:   Options for fine-tuning the "Log In" button display (padding-top and padding-bottom)
+* New:   Position setting for aligning the Login Designer logo to the left or right
+* Fix:   Accreditation link obscursed content on smaller viewports
 * Fix:   Modified button radius values now properly return
+* Fix:   Logo height and width options only display if a logo is uploaded
 * Tweak: Added a Login Designer action to the Customizer admin bar item
 * Tweak: Added a migration sequence for the depreciated button height setting
 * Tweak: Adjusted the button's customizer event overlay to display properly regardless of the button size
