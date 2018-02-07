@@ -99,7 +99,7 @@ $wp_customize->add_setting( 'login_designer[logo_margin_bottom]', array(
 
 $wp_customize->add_control( new Login_Designer_Range_Control( $wp_customize, 'login_designer[logo_margin_bottom]', array(
 	'type'                  => 'login-designer-range',
-	'label'                 => esc_html__( 'Bottom Spacing', '@@textdomain' ),
+	'label'                 => esc_html__( 'Positioning', '@@textdomain' ),
 	'section'               => 'login_designer__section--styles',
 	'description'           => 'px',
 	'default'               => $defaults['logo_margin_bottom'],
