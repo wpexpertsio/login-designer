@@ -263,6 +263,7 @@
 			});
 		}
 
+		customizer_checkbox_option_display( 'login_designer_settings[branding]', 'login_designer_settings[branding_position]', true );
 		customizer_checkbox_option_display( 'login_designer_settings[branding]', 'login_designer_settings[branding_color]', true );
 		customizer_checkbox_option_display( 'login_designer_settings[branding]', 'login_designer_settings[branding_icon_color]', true );
 

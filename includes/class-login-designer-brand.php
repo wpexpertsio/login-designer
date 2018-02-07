@@ -27,6 +27,7 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 			// For the Customizer.
 			add_action( 'customize_preview_init', array( $this, 'is_customize' ), 99 );
 			add_action( 'customize_preview_init', array( $this, 'styles' ), 99 );
+			add_action( 'login_body_class', array( $this, 'body_class' ) );
 
 			// Return early if the option is deactived.
 			if ( ! true === $this->is_active() ) {
@@ -55,7 +56,28 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 		}
 
 		/**
-		 * Pull the Login Designer page from options.
+		 * Add a class to the body so we know where the badge is located.
+		 *
+		 * @access public
+		 * @param array $classes Existing body classes to be filtered.
+		 */
+		public function body_class( $classes ) {
+
+			// If we're not in the Customizer, return.
+			if ( ! is_customize_preview() ) {
+				return $classes;
+			}
+
+			$position = $this->position();
+			$position = 'login-designer-badge-' . esc_attr( $position );
+
+			$classes[] = $position;
+
+			return $classes;
+		}
+
+		/**
+		 * Check if this is enabled.
 		 *
 		 * @access public
 		 */
@@ -72,12 +94,28 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 		}
 
 		/**
+		 * Pull the Login Designer page from options.
+		 *
+		 * @access public
+		 */
+		public function position() {
+
+			$admin_options = get_option( 'login_designer_settings', array() );
+			$option        = array_key_exists( 'branding_position', $admin_options ) ? $admin_options['branding_position'] : false;
+
+			return $option;
+		}
+
+		/**
 		 * Render the "Powered by Login Designer" badge.
 		 */
 		public function render() {
 
 			// Hide the branding badge if the option was previously disabled.
-			$visibility = ! true === $this->is_active() ? 'is-hidden' : null;
+			$visibility = ! true === $this->is_active() ? 'is-hidden ' : null;
+
+			// Position the badge as determined in the Customizer.
+			$position = $this->position();
 
 			// Retrieve the Login Designer shop URL.
 			$url = Login_Designer()->get_store_url( '/',
@@ -95,7 +133,7 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 
 			$markup = '';
 
-			$markup .= sprintf( '<div class="login-designer-badge %1$s">', esc_attr( $visibility ) );
+			$markup .= sprintf( '<div class="login-designer-badge %1$s">', esc_attr( $visibility . $position ) );
 			$markup .= '<div class="login-designer-badge__inner">';
 			$markup .= sprintf( '<span class="login-designer-badge__text">%1$s</span>', esc_html( $text ) );
 			$markup .= $this->get_svg( array( 'icon' => 'login-designer' ) );
@@ -121,8 +159,17 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 				height: 48px;
 				position: absolute;
 				bottom: 15px;
-				right: 25px;
 				display: none;
+				right: 15px;
+			}
+
+			.login-designer-badge.left {
+				left: 15px;
+				right: inherit;
+			}
+
+			.login-designer-badge.right {
+				right: 15px;
 			}
 
 			@media screen and (min-width: 600px) {

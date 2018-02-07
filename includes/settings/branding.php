@@ -29,7 +29,7 @@ $wp_customize->add_setting( 'login_designer_settings[branding]', array(
 ) );
 
 $wp_customize->add_control( new Login_Designer_Toggle_Control( $wp_customize, 'login_designer_settings[branding]', array(
-	'label'    => esc_html__( 'Powered By Link', '@@textdomain' ),
+	'label'    => esc_html__( 'Enable', '@@textdomain' ),
 	'type'     => 'login-designer-toggle',
 	'settings' => 'login_designer_settings[branding]',
 	'section'  => 'login_designer__section--settings',
@@ -58,3 +58,20 @@ $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logi
 	'label'   => esc_html__( 'Logo Color', '@@textdomain' ),
 	'section' => 'login_designer__section--settings',
 ) ) );
+
+$wp_customize->add_setting( 'login_designer_settings[branding_position]', array(
+	'default'           => $admin_defaults['branding_position'],
+	'type'              => 'option',
+	'transport'         => 'postMessage',
+	'sanitize_callback' => 'wp_filter_nohtml_kses',
+) );
+
+$wp_customize->add_control( 'login_designer_settings[branding_position]', array(
+	'type'    => 'select',
+	'label'   => esc_html__( 'Position', '@@textdomain' ),
+	'section' => 'login_designer__section--settings',
+	'choices' => array(
+		'left'  => esc_html__( 'Left', '@@textdomain' ),
+		'right' => esc_html__( 'Right', '@@textdomain' ),
+	),
+) );

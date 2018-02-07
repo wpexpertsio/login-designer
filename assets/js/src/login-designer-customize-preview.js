@@ -33,20 +33,35 @@
 		wp.customize.preview.bind( 'login-designer-settings', function( data ) {
 			// When the section is expanded, open the login designer page.
 			if ( true === data.expanded ) {
-				$( 'body' ).addClass( 'customize-settings' );
+				$( 'body' ).addClass( 'login-designer-settings-opened' );
 			} else {
-				$( 'body' ).removeClass( 'customize-settings' );
+				$( 'body' ).removeClass( 'login-designer-settings-opened' );
 			}
 		});
 	});
 
-	// Branding
+	// Branding.
 	wp.customize( 'login_designer_settings[branding]', function( value ) {
 		value.bind( function( to ) {
 			if ( false === to ) {
 				$( '.login-designer-badge' ).addClass( 'is-hidden' );
 			} else {
 				$( '.login-designer-badge' ).removeClass( 'is-hidden' );
+			}
+		} );
+	} );
+
+	// Branding position.
+	wp.customize( 'login_designer_settings[branding_position]', function( value ) {
+		value.bind( function( to ) {
+			$( '.login-designer-badge' ).addClass( to );
+
+			if ( 'right' === to ) {
+				$( '.login-designer-badge' ).removeClass( 'left' );
+				$( 'body' ).removeClass( 'login-designer-badge-left' );
+			} else {
+				$( '.login-designer-badge' ).removeClass( 'right' );
+				$( 'body' ).addClass( 'login-designer-badge-left' );
 			}
 		} );
 	} );

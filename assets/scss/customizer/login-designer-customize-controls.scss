@@ -27,6 +27,10 @@
 	margin-bottom: 9px;
 }
 
+#customize-control-login_designer_settings-branding_position {
+	margin-top: -1px;
+}
+
 #customize-control-login_designer-back_to {
 	margin-top: -8px;
 }
@@ -104,6 +108,10 @@
 #sub-accordion-section-login_designer__section--styles,
 #sub-accordion-section-login_designer__section--settings {
 
+	&.open {
+		border: none !important;
+	}
+
 	.customize-control-dropdown-pages {
 		position: relative;
 
@@ -127,7 +135,7 @@
 		select {
 			box-shadow: none;
 			margin: 0;
-			background: #f6f6f6;
+			background: #f9f9f9;
 			padding-left: 10px;
 			padding: 0;
 			line-height: 22px;
@@ -143,7 +151,7 @@
 
 			&:hover {
 				border-color: #bbb;
-				background: #f9f9f9;
+				background: #fff;
 			}
 
 			select::-ms-expand {
@@ -179,9 +187,9 @@
 			position: absolute;
 			box-shadow: none;
 			top: 0;
-			right: -1px;
+			right: -2px;
 			margin: 0;
-			background: #f6f6f6;
+			background: #f9f9f9;
 			padding: 0;
 			line-height: 22px;
 			height: 26px;
@@ -196,7 +204,7 @@
 
 			&:hover {
 				border-color: #bbb;
-				background: #f9f9f9;
+				background: #fff;
 			}
 
 			select::-ms-expand {

@@ -205,6 +205,7 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			$template_01_branding = apply_filters( 'login_designer_template_01_branding_defaults', array(
 				'branding_color'      => '#000000',
 				'branding_icon_color' => '#000000',
+				'branding_position'   => 'right',
 			) );
 
 			// Dark template.
@@ -258,6 +259,7 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			$template_02_branding = apply_filters( 'login_designer_template_02_branding_defaults', array(
 				'branding_color'      => '#3d3d3d',
 				'branding_icon_color' => '#4d4d4d',
+				'branding_position'   => 'right',
 			) );
 
 			// White minimal template.
@@ -312,6 +314,7 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			$template_03_branding = apply_filters( 'login_designer_template_03_branding_defaults', array(
 				'branding_color'      => '#191919',
 				'branding_icon_color' => '#191919',
+				'branding_position'   => 'right',
 			) );
 
 			// White 50/50 on-the-site template.
@@ -343,6 +346,7 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			$template_04_branding = apply_filters( 'login_designer_template_04_branding_defaults', array(
 				'branding_color'      => '#444444',
 				'branding_icon_color' => '#333333',
+				'branding_position'   => 'right',
 			) );
 
 			$customizer = new Login_Designer_Customizer_Output();
