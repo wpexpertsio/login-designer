@@ -86,15 +86,26 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
+= 1.1.5, February XX, 2017 =
+* New:   Added new options for fine-tuning the "Log In" button display (padding-top and padding-bottom)
+* New:   Added a new position setting for aligning the Login Designer logo to the left or right
+* Fix:   Fixed an issue where the accreditation link obscursed content on smaller viewports
+* Fix:   Modified button radius values now properly return
+* Tweak: Added a Login Designer action to the Customizer admin bar item
+* Tweak: Added a migration sequence for the depreciated button height setting
+* Tweak: Adjusted the button's customizer event overlay to display properly regardless of the button size
+* Tweak: Touched up the background image uploader control UI
+* Tweak: The settings icon is now hidden when the settings are viewed
+
 = 1.1.4, February 06, 2017 =
-* Fix: Fixed an issue where the Login Designer mark did not properly hide within the Customizer
+* Fix:   Fixed an issue where the Login Designer mark did not properly hide within the Customizer
 * Tweak: Username and password labels now stay hidden when text labels are removed
 * Tweak: Adjusted field margin bottom to work properly
 
 = 1.1.3, February 05, 2017 =
-* Fix: Rewrote the Login Designer Customizer view to resolve known plugin compatibility issues
-* Fix: Resolved an issue where the form bottom positioning "jumped" when triggered in the Customizer
-* Fix: Added proper translatable text for the plugin's guided intro
+* Fix:   Rewrote the Login Designer Customizer view to resolve known plugin compatibility issues
+* Fix:   Resolved an issue where the form bottom positioning "jumped" when triggered in the Customizer
+* Fix:   Added proper translatable text for the plugin's guided intro
 * Tweak: Improved the style of the form bottom edit trigger
 * Tweak: Added better style prefixing with Customizer UI elements to improve theme incompatibilities
 * Tweak: Removed unnecessary styles/scripts and cleaned up the /assets/ folder
@@ -102,35 +113,35 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 * Tweak: Improved asset delivery and minification
 
 = 1.1.2, January 26, 2017 =
-* Fix: Resolved the sprite display issue within the Customizer
+* Fix:   Resolved the sprite display issue within the Customizer
 
 = 1.1.1, January 23, 2017 =
-* Fix: Custom positioning on the "remember me" checkbox now works properly
+* Fix:   Custom positioning on the "remember me" checkbox now works properly
 * Tweak: Added minor Customizer UI tweaks
 * Tweak: Added appropriate prefixes to combat theme incompatibilities
 * Tweak: Added a proper is_customize_preview check for the Login Designer badge
 
 = 1.1.0, January 22, 2017 =
-* Fix: Resolved an issue where the Login Designer badge was not displaying properly
+* Fix:   Resolved an issue where the Login Designer badge was not displaying properly
 
 = 1.0.9, January 22, 2017 =
-* New: Added an optional "Powered by Login Designer" badge to display on login pages
-* New: Added options to customize the colors of the new "Powered by" badge
+* New:   Added an optional "Powered by Login Designer" badge to display on login pages
+* New:   Added options to customize the colors of the new "Powered by" badge
 * Tweak: Removed the Login Designer template from the Page Attributes dropdown
 * Tweak: Added additional checks for the login_designer_page value
 
 = 1.0.8, January 09, 2017 =
-* New: Added an introduction tour for first-time users
-* New: Editing the Login Designer page now pulls up the Customizer view
-* New: Viewing the Login Designer page, when logged in, now also pulls up the Customizer view
-* Fix: Login Designer now plays nicely on multisite installations
+* New:   Added an introduction tour for first-time users
+* New:   Editing the Login Designer page now pulls up the Customizer view
+* New:   Viewing the Login Designer page, when logged in, now also pulls up the Customizer view
+* Fix:   Login Designer now plays nicely on multisite installations
 * Tweak: Improved template creation process during installation
 * Tweak: View the Login Designer page now redirects to the Login Designer Customizer page
 * Tweak: Added a new admin warning for when a user attempts to delete the Login Designer page
 
 = 1.0.7, December 21, 2017 =
-* Fix: Resolved an issue where the Login Designer template page would not resolve properly for some folks
-* Fix: The Login Designer template page now removes itself if the plugin is uninstalled
+* Fix:   Resolved an issue where the Login Designer template page would not resolve properly for some folks
+* Fix:   The Login Designer template page now removes itself if the plugin is uninstalled
 * Tweak: Minor mobile responsive improvements for Template 01
 * Tweak: Minor PHPCS improvements
 
@@ -138,10 +149,10 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 * Tweak: Adjusted checkbox input checked styling
 
 = 1.0.5, December 15, 2017 =
-* New: Logo width and height sizing feature with auto-sizing fallback
-* New: Transparent form background toggle
-* Fix: Resolved an issue with templates that use transparent backgrounds
-* Fix: Adding spacing between the logo and the form now works properly
+* New:   Logo width and height sizing feature with auto-sizing fallback
+* New:   Transparent form background toggle
+* Fix:   Resolved an issue with templates that use transparent backgrounds
+* Fix:   Adding spacing between the logo and the form now works properly
 * Tweak: Improved the UX across the board, making the app much faster overall
 * Tweak: Updated the background styler icon
 * Tweak: Improved login form rendering on mobile devices
@@ -156,7 +167,7 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 * Tweak: Improved webkit shadow styling
 
 = 1.0.2, November 17, 2017 =
-* Fix: Resolved issue where inline sprites would cause Template 02 to display oddly in the Customizer
+* Fix:   Resolved issue where inline sprites would cause Template 02 to display oddly in the Customizer
 * Tweak: Added support to carry over template styles on the lost password form
 * Tweak: Improved template rendering
 * Tweak: Removed package version info from plugin files
