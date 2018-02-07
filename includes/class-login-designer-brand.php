@@ -122,6 +122,19 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 				position: absolute;
 				bottom: 15px;
 				right: 25px;
+				display: none;
+			}
+
+			@media screen and (min-width: 600px) {
+				.login-designer-badge {
+					display: block;
+				}
+			}
+
+			@media screen and (max-height: 600px) {
+				.login-designer-badge {
+					display: none;
+				}
 			}
 
 			.login-designer-badge.is-hidden .login-designer-badge__inner {
