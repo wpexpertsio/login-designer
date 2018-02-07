@@ -7,6 +7,11 @@
  * @license   @@pkg.license
  */
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Migrate the button height to the new padding top and padding bottom options.
  *
