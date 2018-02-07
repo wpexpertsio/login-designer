@@ -260,6 +260,35 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		}
 
 		/**
+		 * Add a dropdown link to the "Customizer" admin bar item.
+		 *
+		 * @access public
+		 * @param array $admin_bar WP_Admin_Bar instance.
+		 * @return void
+		 */
+		public function admin_bar_link( $admin_bar ) {
+
+			// Pull the Login Designer page from options.
+			$page = get_permalink( $this->get_login_designer_page() );
+
+			// Generate the url.
+			$url = add_query_arg(
+				array(
+					'autofocus[section]' => 'login_designer__section--templates',
+					'url'                => $page,
+				),
+				admin_url( 'customize.php' )
+			);
+
+			$admin_bar->add_menu( array(
+				'id'     => 'my-sub-item',
+				'parent' => 'customize',
+				'title'  => esc_html__( 'Login Designer', '@@textdomain' ),
+				'href'   => esc_url( $url ),
+			));
+		}
+
+		/**
 		 * Hook to redirect the page for the Customizer.
 		 *
 		 * @access public
@@ -405,33 +434,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			$page          = array_key_exists( 'login_designer_page', $admin_options ) ? get_post( $admin_options['login_designer_page'] ) : false;
 
 			return $page;
-		}
-
-		/**
-		 * Add admin bar link.
-		 *
-		 * @since 1.0.0
-		 * @param string|string $wp_admin_bar The admin bar.
-		 */
-		public function admin_bar_link( $wp_admin_bar ) {
-
-			if ( ! is_page_template( 'template-login-designer.php' ) ) {
-				return;
-			}
-
-			$args = array(
-				'id'    => 'login-designer',
-				'title' => esc_html__( 'Login Designer', '@@textdomain' ),
-				'href'  => admin_url( '/customize.php?autofocus[section]=login_designer__section--templates&url=' . home_url( '/login-designer' ) ),
-				'meta'  => array(
-					'target' => '_self',
-					'class'  => 'login-designer-link',
-					'title'  => esc_html__( 'Login Designer', '@@textdomain' ),
-				),
-			);
-
-			$wp_admin_bar->add_node( $args );
-
 		}
 
 		/**
