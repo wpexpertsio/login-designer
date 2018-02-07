@@ -272,8 +272,27 @@
 				} else if ( item === 'login_designer[logo_height]' ) {
 
 					// Only show the logo height option, if there is a logo uploaded.
-					customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer[logo_height]', false );
 					customizer_image_option_display( 'login_designer[logo]', 'login_designer[logo_height]' );
+
+					wp.customize( 'login_designer[disable_logo]', function( setting ) {
+						wp.customize.control( item, function( control ) {
+							var visibility = function() {
+
+								if ( true === setting.get() ) {
+									// If not, let's quickly hide it.
+									wp.customize.control( item ).deactivate( { duration: 0 } );
+								} else {
+									// Only show the width if there is a logo uploaded.
+									if ( wp.customize.control( 'login_designer[logo]' ).setting.get() ) {
+										wp.customize.control( item ).activate( { duration: 0 } );
+									}
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
 
 					wp.customize( 'login_designer[logo]', function( setting ) {
 						wp.customize.control( item, function( control ) {
@@ -296,8 +315,27 @@
 				} else if ( item === 'login_designer[logo_width]' ) {
 
 					// Only show the logo width option, if there is a logo uploaded.
-					customizer_checkbox_option_display( 'login_designer[disable_logo]', 'login_designer[logo_width]', false );
 					customizer_image_option_display( 'login_designer[logo]', 'login_designer[logo_width]' );
+
+					wp.customize( 'login_designer[disable_logo]', function( setting ) {
+						wp.customize.control( item, function( control ) {
+							var visibility = function() {
+
+								if ( true === setting.get() ) {
+									wp.customize.control( item ).deactivate( { duration: 0 } );
+								} else {
+
+									// Only show the width if there is a logo uploaded.
+									if ( wp.customize.control( 'login_designer[logo]' ).setting.get() ) {
+										wp.customize.control( item ).activate( { duration: 0 } );
+									}
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
 
 					wp.customize( 'login_designer[logo]', function( setting ) {
 						wp.customize.control( item, function( control ) {
