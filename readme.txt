@@ -86,7 +86,7 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
-= 1.1.5, February XX, 2017 =
+= 1.1.5, February 09, 2017 =
 * New:   Options for fine-tuning the "Log In" button display (padding-top and padding-bottom)
 * New:   Position setting for aligning the Login Designer logo to the left or right
 * Fix:   Accreditation link obscursed content on smaller viewports
