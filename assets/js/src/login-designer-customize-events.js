@@ -763,8 +763,28 @@
 				} );
 			}
 
+			// Function used for contextually aware Customizer options.
+			function bind_logo_control_visibility_event( event, active_controls, focus_control ) {
+
+				api.LoginDesignerCustomizerPreviewer.preview.bind( event, function() {
+
+					// Visibility.
+					active_control( active_controls );
+
+					// Focus.
+					wp.customize.control( focus_control ).focus();
+
+					// Only show the width if there is a logo uploaded.
+					if ( true === wp.customize.control( 'login_designer[disable_logo]' ).setting.get() ) {
+						wp.customize.control( 'login_designer[logo_height]' ).deactivate( { duration: 0 } );
+						wp.customize.control( 'login_designer[logo_width]' ).deactivate( { duration: 0 } );
+					}
+
+				} );
+			}
+
 			// Only show visible options when necessary.
-			bind_control_visibility_event( logo_event, all_controls.logo, 'login_designer[logo]' );
+			bind_logo_control_visibility_event( logo_event, all_controls.logo, 'login_designer[logo]' );
 			bind_control_visibility_event( form_event, all_controls.form, 'login_designer[form_title]' );
 			bind_control_visibility_event( fields_event, all_controls.fields, 'login_designer[form_title]' );
 			bind_control_visibility_event( username_label_event, all_controls.labels, 'login_designer[username_label]' );
