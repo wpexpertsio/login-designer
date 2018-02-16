@@ -27,12 +27,12 @@ function login_designer_button_padding() {
 
 	// Check if options exist. If not, return.
 	if ( ! $current_options ) {
-		return false;
+		return;
 	}
 
 	// Check if the button_height option exists. If not, return.
 	if ( ! isset( $current_options['button_height'] ) ) {
-		return false;
+		return;
 	}
 
 	// Let's set the padding options to half of the button_height.
@@ -43,10 +43,10 @@ function login_designer_button_padding() {
 	$merged_options = array_merge( $current_options, $options );
 	$new_options    = $merged_options;
 
+	// Remove the old button height option.
+	unset( $new_options['button_height'] );
+
 	// Update the options.
 	update_option( 'login_designer', $new_options );
-
-	// Remove the old option.
-	delete_option( $current_options['button_height'] );
 }
 add_action( 'after_setup_theme', 'login_designer_button_padding' );
