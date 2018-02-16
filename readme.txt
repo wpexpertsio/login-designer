@@ -86,16 +86,22 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
+= 1.1.6, February 16, 2017 =
+* New:   Add a plugin feedback notice that displays one week after installation
+* Fix:   Properly unset the button_height option once it's migrated
+* Fix:   Check if disable_logo is enabled before showing the logo's height and width Customizer options
+* Tweak: Set attribution branding mark to false by default
+
 = 1.1.5, February 09, 2017 =
-* New:   Options for fine-tuning the "Log In" button display (padding-top and padding-bottom)
+* New:   Add options for fine-tuning the "Log In" button display (padding-top and padding-bottom)
 * New:   Position setting for aligning the Login Designer logo to the left or right
 * Fix:   Accreditation link obscursed content on smaller viewports
-* Fix:   Modified button radius values now properly return
+* Fix:   Modify button radius values now properly return
 * Fix:   Logo height and width options only display if a logo is uploaded
-* Tweak: Added a Login Designer action to the Customizer admin bar item
-* Tweak: Added a migration sequence for the depreciated button height setting
-* Tweak: Adjusted the button's customizer event overlay to display properly regardless of the button size
-* Tweak: Touched up the background image uploader control UI
+* Tweak: Add a Login Designer action to the Customizer admin bar item
+* Tweak: Add a migration sequence for the depreciated button height setting
+* Tweak: Adjust the button's customizer event overlay to display properly regardless of the button size
+* Tweak: Touch up the background image uploader control UI
 * Tweak: The settings icon is now hidden when the settings are viewed
 
 = 1.1.4, February 06, 2017 =
