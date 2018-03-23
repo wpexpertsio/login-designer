@@ -67,6 +67,9 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			if ( class_exists( 'Login_Designer_Toggle_Control' ) ) {
 				$wp_customize->register_control_type( 'Login_Designer_Toggle_Control' );
 			}
+			if ( class_exists( 'Login_Designer_Range_Control' ) ) {
+				$wp_customize->register_control_type( 'Login_Designer_Range_Control' );
+			}
 			if ( class_exists( 'Login_Designer_Title_Control' ) ) {
 				$wp_customize->register_control_type( 'Login_Designer_Title_Control' );
 			}

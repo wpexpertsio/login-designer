@@ -1,6 +1,6 @@
 <?php
 /**
- * Layout Customizer Control
+ * Range Customizer Control
  *
  * @see https://developer.wordpress.org/reference/classes/wp_customize_control/
  *
@@ -20,27 +20,20 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) {
 }
 
 /**
- * This class is for the range control in the Customizer.
+ * This class is for the toggle control in the Customizer.
  *
- * @access  public
+ * @access public
  */
 class Login_Designer_Range_Control extends WP_Customize_Control {
 
 	/**
-	 * The control type.
+	 * The type of customize control.
 	 *
 	 * @access public
-	 * @var string
+	 * @since  1.1.7
+	 * @var    string
 	 */
 	public $type = 'login-designer-range';
-
-	/**
-	 * Get the control default.
-	 *
-	 * @access public
-	 * @var $type Customizer type option
-	 */
-	public $default = 'default';
 
 	/**
 	 * Enqueue neccessary custom control scripts.
@@ -57,40 +50,74 @@ class Login_Designer_Range_Control extends WP_Customize_Control {
 		$dir = Login_Designer()->asset_source( 'js', 'controls/' );
 
 		// Enqueue the asset. Note that there is no minified version of this singular asset.
-		wp_enqueue_script(
-			'login-designer-range-control',
-			$dir . 'login-designer-range-control.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true
-		);
+		wp_enqueue_script( 'login-designer-range-control', $dir . 'login-designer-range-control.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
 	}
 
 	/**
-	 * Render the content.
+	 * Add custom parameters to pass to the JS via JSON.
 	 *
-	 * @see https://developer.wordpress.org/reference/classes/wp_customize_control/render_content/
+	 * @access public
+	 * @since  1.1.7
+	 * @return void
 	 */
-	public function render_content() {
+	public function to_json() {
+		parent::to_json();
+
+		// The setting value.
+		$this->json['id']                  = $this->id;
+		$this->json['value']               = $this->value();
+		$this->json['link']                = $this->get_link();
+		$this->json['defaultValue']        = $this->setting->default;
+		$this->json['input_attrs']['min']  = ( isset( $this->input_attrs['min'] ) ) ? $this->input_attrs['min'] : '0';
+		$this->json['input_attrs']['max']  = ( isset( $this->input_attrs['max'] ) ) ? $this->input_attrs['max'] : '100';
+		$this->json['input_attrs']['step'] = ( isset( $this->input_attrs['step'] ) ) ? $this->input_attrs['step'] : '1';
+	}
+
+	/**
+	 * Don't render the content via PHP.  This control is handled with a JS template.
+	 *
+	 * @access public
+	 * @since  1.0.0
+	 * @return void
+	 */
+	public function render_content() {}
+
+	/**
+	 * An Underscore (JS) template for this control's content.
+	 *
+	 * Class variables for this control class are available in the `data` JS object;
+	 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
+	 *
+	 * @see    WP_Customize_Control::print_template()
+	 *
+	 * @access protected
+	 * @since  1.1.7
+	 * @return void
+	 */
+	protected function content_template() {
 		?>
 
-		<div class="relative">
+		<div class="login-designer-range">
 
-			<?php if ( ! empty( $this->label ) ) : ?>
-				<label>
-					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+			<# if ( data.label ) { #>
+				<label class="login-designer-range__label">
+					<span class="customize-control-title">{{ data.label }}</span>
 				</label>
-			<?php endif; ?>
+			<# } #>
 
-			<div class="value">
-				<span><?php echo esc_attr( $this->value() ); ?></span>
-				<input class="track-input" data-default-value="<?php echo esc_html( $this->default ); ?>" type="number"<?php $this->input_attrs(); ?> value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); ?> />
-				<em><?php echo esc_html( $this->description ); ?></em>
+			<div class="login-designer-range__value">
+				<span>{{ data.value }}</span>
+				<input id="range-{{ data.id }}" type="number" class="login-designer-range__number-input" value="{{ data.value }}" data-default-value="{{ data.defaultValue }}" {{{ data.link }}} <# if ( data.value ) { #> checked="checked" <# } #> />
+				<# if ( data.description ) { #>
+					<em>{{ data.description }}</em>
+				<# } #>
 			</div>
 
-			<input class="track" data-default-value="<?php echo esc_html( $this->default ); ?>" data-input-type="range" type="range"<?php $this->input_attrs(); ?> value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); ?> />
+			<input type="range" data-input-type="range" class="login-designer-range__track" value="{{ data.value }}" data-default-value="{{ data.defaultValue }}"  min="{{ data.input_attrs['min'] }}" max="{{ data.input_attrs['max'] }}" step="{{ data.input_attrs['step'] }}" {{{ data.link }}} />
 
-			<a type="button" value="reset" class="range-reset"></a>
+			<a type="button" value="reset" class="login-designer-range__reset"></a>
 
 		</div>
-
 		<?php
 	}
 }
