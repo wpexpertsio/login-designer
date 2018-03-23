@@ -98,6 +98,8 @@ class Login_Designer_Gallery_Control extends WP_Customize_Control {
 			return;
 		} #>
 
+		{{ data.value }}
+
 		<# if ( data.label ) { #>
 			<span class="customize-control-title">{{ data.label }}</span>
 		<# } #>
@@ -112,7 +114,7 @@ class Login_Designer_Gallery_Control extends WP_Customize_Control {
 
 				<div class="login-designer-gallery__item">
 
-					<input type="radio" value="{{ choice }}" name="_customize-{{ data.id }}" id="{{ data.id }}{{ choice }}" class="login-designer-gallery__checkbox" {{{ data.link }}} <# if ( data.value === choice ) { #> checked="checked" <# } #> />
+					<input type="radio" value="{{ choice }}" name="_customize-{{ data.id }}" id="{{ data.id }}{{ choice }}" class="login-designer-gallery__checkbox" {{{ data.link }}} <# if ( ! data.value ) { #> checked="checked" <# } #> />
 
 					<label for="{{ data.id }}{{ choice }}">
 						<div class="login-designer-gallery__intrinsic">

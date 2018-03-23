@@ -1,35 +1,29 @@
 // Variables.
 @import "variables";
 
-#customize-control-login_designer[bg_image_gallery] {
-
-	.customize-control-title {
-		margin-top: 12px;
-	}
-}
-
 .customize-control-login-designer-gallery {
 
 	.login-designer-gallery {
 		margin-left: -3px;
-		width: calc(100% + 6px);
 		margin-top: 13px;
 		max-height: 170px;
 		overflow-x: hidden;
 		overflow-y: scroll;
 		padding-right: 20px;
 		padding-top: 4px;
+		width: calc(100% + 6px);
 		zoom: 1;
 
 		@media screen and (min-width: 1667px) {
 			max-height: 10.1vw;
 		}
+
 		@media screen and (min-width: 1900px) {
 			max-height: 10.3vw;
 		}
 
-		&:before,
-		&:after {
+		&:after,
+		&:before {
 			content: "";
 			display: table;
 		}
@@ -44,26 +38,21 @@
 		}
 
 		&__intrinsic {
-			overflow: hidden;
-			line-height: 0;
-			position: relative;
-			display: block;
-			border: 2px solid #eee;
 			border-radius: 2px;
-			transition: box-shadow 150ms ease;
-			box-shadow: 0 0 0 0 #5b9dd9, 0 0 0 0 rgba(30, 140, 190, 0.8);
-			margin-right: 2px;
-			margin-left: 2px;
+			border: 2px solid #eee;
+			box-shadow: 0 0 0 0 #5b9dd9, 0 0 0 0 rgba(30, 140, 190, 0);
+			display: block;
+			line-height: 0;
 			margin-bottom: 4px;
+			margin-left: 2px;
+			margin-right: 2px;
+			overflow: hidden;
+			position: relative;
+			transition: box-shadow 100ms ease, transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
 
 			@media screen and (min-width: 1667px) {
-				margin-right: 3px;
-				margin-right: 3px;
 				margin-bottom: 6px;
-			}
-
-			.login-designer-gallery__checkbox:checked + label & {
-				box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
+				margin-right: 3px;
 			}
 
 			&:after {
@@ -71,25 +60,29 @@
 				display: block;
 				padding-top: 100%;
 			}
+
+			&:active {
+				transform: scale(0.97);
+			}
 		}
 
 		&__img {
 			background-position: center center;
 			background-repeat: no-repeat;
-			bottom: 0;
+			background-size: cover;
 			border-radius: 2px;
+			bottom: 0;
 			left: 0;
 			position: absolute;
 			right: 0;
 			top: 0;
-			background-size: cover;
 		}
 
 		&__checkbox {
 			display: none !important;
 
-			&:checked + label {
-				border-color: #0085ba;
+			&:checked + label .login-designer-gallery__intrinsic {
+				box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.7);
 			}
 		}
 	}

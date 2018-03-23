@@ -18,7 +18,7 @@
 			display: none !important;
 
 			&:checked + label {
-				box-shadow: 0 0 0 1px #5b9dd9, 0 0 3px rgba(0, 115, 170, 0.8);
+				box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.7);
 			}
 		}
 
@@ -36,7 +36,7 @@
 			}
 
 			&:active {
-				transform: scale(0.98);
+				transform: scale(0.985);
 			}
 		}
 
@@ -45,6 +45,7 @@
 			background-repeat: no-repeat;
 			background-size: contain;
 			border: 2px solid $background;
+			border-radius: 3px;
 			bottom: 0;
 			left: 0;
 			position: absolute;
