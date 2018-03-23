@@ -54,9 +54,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		 */
 		public function customize_register( $wp_customize ) {
 
-			/**
-			 * Add custom controls.
-			 */
+			// Add custom controls.
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-range-control.php';
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-toggle-control.php';
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-template-control.php';
@@ -64,6 +62,11 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-gallery-control.php';
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-upgrade-control.php';
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-license-control.php';
+
+			// Register the control types that we're using as JavaScript controls.
+			if ( class_exists( 'Login_Designer_Toggle_Control' ) ) {
+				$wp_customize->register_control_type( 'Login_Designer_Toggle_Control' );
+			}
 
 			// Get the default options.
 			$defaults = new Login_Designer_Customizer_Output();
