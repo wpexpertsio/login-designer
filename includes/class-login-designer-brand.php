@@ -12,12 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Login_Designer_Branding' ) ) :
+if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 
 	/**
 	 * Enqueues JS & CSS assets
 	 */
-	class Login_Designer_Branding {
+	class Login_Designer_Brand {
 
 		/**
 		 * The class constructor.
@@ -118,7 +118,8 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 			$position = $this->position();
 
 			// Retrieve the Login Designer shop URL.
-			$url = Login_Designer()->get_store_url( '/',
+			$url = Login_Designer()->get_store_url(
+				'/',
 				array(
 					'utm_medium'   => 'login-designer-lite',
 					'utm_source'   => 'login-page',
@@ -141,7 +142,31 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 			$markup .= '</div>';
 			$markup .= '</div>';
 
-			echo $markup;
+			// Array of allowed HTML for the badge markup.
+			$allowed_html_array = array(
+				'div'  => array(
+					'class' => array(),
+				),
+				'span' => array(
+					'class' => array(),
+				),
+				'a'    => array(
+					'alt'    => array(),
+					'href'   => array(),
+					'target' => array(),
+					'class'  => array(),
+				),
+				'svg'  => array(
+					'class'       => array(),
+					'aria-hidden' => array(),
+					'role'        => array(),
+				),
+				'use'  => array(
+					'xlink:href' => array(),
+				),
+			);
+
+			echo wp_kses( $markup, $allowed_html_array );
 		}
 
 		/**
@@ -255,7 +280,6 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 
 			if ( is_customize_preview() ) :
 				$css .= '
-
 				body:not(.login-designer) .login-designer-badge {
 					display: none !important;
 				}
@@ -411,4 +435,4 @@ if ( ! class_exists( 'Login_Designer_Branding' ) ) :
 
 endif;
 
-new Login_Designer_Branding();
+new Login_Designer_Brand();
