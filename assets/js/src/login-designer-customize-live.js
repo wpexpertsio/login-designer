@@ -40,6 +40,7 @@
 				$password_label	= $( '#login-designer--password-label'),
 				$button		= $( '#login-designer--button'),
 				$remember_me	= $( '.forgetmenot'),
+				$remember_me_cb	= $( '.forgetmenot label'),
 				$below_form	= $( '#login-designer--below-form'),
 				$branding	= $( '.login-designer-badge__inner');
 
@@ -67,7 +68,7 @@
 				$remember_me.append( '<button class="login-designer-event-button customizer-event-overlay" data-login-designer-customizer-event="login-designer-edit-remember-me"></button>' );
 
 				// Checkbox
-				$remember_me.append( '<button class="login-designer-event-button customizer-event-overlay" data-login-designer-customizer-event="login-designer-edit-remember-me-checkbox"></button>' );
+				$remember_me_cb.append( '<button class="login-designer-event-button customizer-event-overlay" data-login-designer-customizer-event="login-designer-edit-remember-me-checkbox"></button>' );
 
 				// Below Form
 				$below_form.append( '<button class="login-designer-event-button customizer-event-overlay" data-login-designer-customizer-event="login-designer-edit-below"></button>' );
