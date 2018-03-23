@@ -12,6 +12,8 @@
 			'login_designer[logo]',
 			'login_designer[logo_width]',
 			'login_designer[logo_height]',
+			'login_designer[logo_mobile_width]',
+			'login_designer[logo_mobile_height]',
 			'login_designer[logo_margin_bottom]',
 			'login_designer_settings[logo_url]',
 			'login_designer[disable_logo]',
@@ -312,10 +314,96 @@
 						});
 					});
 
+				} else if ( item === 'login_designer[logo_mobile_height]' ) {
+
+					// Only show the logo height option, if there is a logo uploaded.
+					customizer_image_option_display( 'login_designer[logo]', 'login_designer[logo_mobile_height]' );
+
+					wp.customize( 'login_designer[disable_logo]', function( setting ) {
+						wp.customize.control( item, function( control ) {
+							var visibility = function() {
+
+								if ( true === setting.get() ) {
+									// If not, let's quickly hide it.
+									wp.customize.control( item ).deactivate( { duration: 0 } );
+								} else {
+									// Only show the width if there is a logo uploaded.
+									if ( wp.customize.control( 'login_designer[logo]' ).setting.get() ) {
+										wp.customize.control( item ).activate( { duration: 0 } );
+									}
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
+					wp.customize( 'login_designer[logo]', function( setting ) {
+						wp.customize.control( item, function( control ) {
+							var visibility = function() {
+
+								if ( setting.get() ) {
+									// If there is a background image or gallery image, but neither are set to "none".
+									wp.customize.control( item ).activate( { duration: 0 } );
+								} else {
+									// If not, let's quickly hide it.
+									wp.customize.control( item ).deactivate( { duration: 0 } );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
 				} else if ( item === 'login_designer[logo_width]' ) {
 
 					// Only show the logo width option, if there is a logo uploaded.
 					customizer_image_option_display( 'login_designer[logo]', 'login_designer[logo_width]' );
+
+					wp.customize( 'login_designer[disable_logo]', function( setting ) {
+						wp.customize.control( item, function( control ) {
+							var visibility = function() {
+
+								if ( true === setting.get() ) {
+									wp.customize.control( item ).deactivate( { duration: 0 } );
+								} else {
+
+									// Only show the width if there is a logo uploaded.
+									if ( wp.customize.control( 'login_designer[logo]' ).setting.get() ) {
+										wp.customize.control( item ).activate( { duration: 0 } );
+									}
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
+					wp.customize( 'login_designer[logo]', function( setting ) {
+						wp.customize.control( item, function( control ) {
+							var visibility = function() {
+
+								if ( setting.get() ) {
+									// If there is a background image or gallery image, but neither are set to "none".
+									wp.customize.control( item ).activate( { duration: 0 } );
+								} else {
+									// If not, let's quickly hide it.
+									wp.customize.control( item ).deactivate( { duration: 0 } );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
+				} else if ( item === 'login_designer[logo_mobile_width]' ) {
+
+					// Only show the logo width option, if there is a logo uploaded.
+					customizer_image_option_display( 'login_designer[logo]', 'login_designer[logo_mobile_width]' );
 
 					wp.customize( 'login_designer[disable_logo]', function( setting ) {
 						wp.customize.control( item, function( control ) {
@@ -778,6 +866,8 @@
 					if ( true === wp.customize.control( 'login_designer[disable_logo]' ).setting.get() ) {
 						wp.customize.control( 'login_designer[logo_height]' ).deactivate( { duration: 0 } );
 						wp.customize.control( 'login_designer[logo_width]' ).deactivate( { duration: 0 } );
+						wp.customize.control( 'login_designer[logo_mobile_height]' ).deactivate( { duration: 0 } );
+						wp.customize.control( 'login_designer[logo_mobile_width]' ).deactivate( { duration: 0 } );
 					}
 
 				} );

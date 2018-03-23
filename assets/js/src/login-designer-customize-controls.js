@@ -88,7 +88,7 @@
 
 			for ( var key in login_designer_controls.template_defaults ) {
 
-				if ( key === 'logo' || key === 'logo_height' || key === 'logo_width' ) continue;
+				if ( key === 'logo' || key === 'logo_height' || key === 'logo_width' || key === 'logo_mobile_height' || key === 'logo_mobile_width' ) continue;
 
 				var control 	= key;
 				var value	= login_designer_controls.template_defaults[key];
@@ -102,7 +102,7 @@
 			// Now apply the template's custom style.
 			for ( var key in template_defaults ) {
 
-				if ( key === 'logo' || key === 'logo_height' || key === 'logo_width' ) continue;
+				if ( key === 'logo' || key === 'logo_height' || key === 'logo_width' || key === 'logo_mobile_height' || key === 'logo_mobile_width' ) continue;
 
 				var control 	= key;
 				var value	= template_defaults[key];
@@ -253,12 +253,14 @@
 			if ( data.height ) {
 				height = parseInt( data.height / 2 );
 				wp.customize( 'login_designer[logo_height]' ).set( height );
+				wp.customize( 'login_designer[logo_mobile_height]' ).set( height );
 				// console.log( height );
 			}
 
 			if ( data.width ) {
 				width = parseInt( data.width / 2 );
 				wp.customize( 'login_designer[logo_width]' ).set( width );
+				wp.customize( 'login_designer[logo_mobile_width]' ).set( width );
 				// console.log( width );
 			}
 		} );
@@ -273,12 +275,14 @@
 			if ( data.height ) {
 				height = data.height;
 				wp.customize( 'login_designer[logo_height]' ).set( height );
+				wp.customize( 'login_designer[logo_mobile_height]' ).set( height );
 				// console.log( height );
 			}
 
 			if ( data.width ) {
 				width = data.width;
 				wp.customize( 'login_designer[logo_width]' ).set( width );
+				wp.customize( 'login_designer[logo_mobile_width]' ).set( width );
 				// console.log( width );
 			}
 		} );
