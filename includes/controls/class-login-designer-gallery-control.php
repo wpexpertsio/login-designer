@@ -98,8 +98,6 @@ class Login_Designer_Gallery_Control extends WP_Customize_Control {
 			return;
 		} #>
 
-		{{ data.value }}
-
 		<# if ( data.label ) { #>
 			<span class="customize-control-title">{{ data.label }}</span>
 		<# } #>
