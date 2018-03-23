@@ -107,6 +107,10 @@
 #sub-accordion-section-login_designer__section--styles,
 #sub-accordion-section-login_designer__section--settings {
 
+	.customize-control {
+		margin-bottom: 10px;
+	}
+
 	&.open {
 		border: none !important;
 	}
