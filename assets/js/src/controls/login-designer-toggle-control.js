@@ -1,6 +1,6 @@
 ( function( $, api ) {
 
-	api.controlConstructor['toggle'] = api.Control.extend( {
+	api.controlConstructor['login-designer-toggle'] = api.Control.extend( {
 
 		ready: function() {
 			var control = this;

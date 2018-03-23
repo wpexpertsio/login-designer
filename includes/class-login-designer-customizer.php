@@ -70,6 +70,9 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			if ( class_exists( 'Login_Designer_Title_Control' ) ) {
 				$wp_customize->register_control_type( 'Login_Designer_Title_Control' );
 			}
+			if ( class_exists( 'Login_Designer_Gallery_Control' ) ) {
+				$wp_customize->register_control_type( 'Login_Designer_Gallery_Control' );
+			}
 
 			// Get the default options.
 			$defaults = new Login_Designer_Customizer_Output();
@@ -218,7 +221,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			$layouts_control_options = array();
 
 			foreach ( $layouts as $layout => $value ) {
-				$layouts_control_options[ $layout ] = $value['image'];
+				$layouts_control_options[ $layout ] = $value;
 			}
 
 			return $layouts_control_options;
@@ -232,46 +235,16 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			$image_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/';
 
 			$backgrounds = array(
-				'none'  => array(
-					'title' => esc_html__( 'None', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '00.jpg',
-				),
-				'bg_01' => array(
-					'title' => esc_html__( '01', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '01-sml.jpg',
-				),
-				'bg_02' => array(
-					'title' => esc_html__( '02', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '02-sml.jpg',
-				),
-				'bg_03' => array(
-					'title' => esc_html__( '03', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '03-sml.jpg',
-				),
-				'bg_04' => array(
-					'title' => esc_html__( '04', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '04-sml.jpg',
-				),
-				'bg_05' => array(
-					'title' => esc_html__( '05', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '05-sml.jpg',
-				),
-				'bg_06' => array(
-					'title' => esc_html__( '06', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '06-sml.jpg',
-				),
-				'bg_07' => array(
-					'title' => esc_html__( '07', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '07-sml.jpg',
-				),
-				'bg_08' => array(
-					'title' => esc_html__( '08', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '08-sml.jpg',
-				),
-				'bg_09' => array(
-					'title' => esc_html__( '09', '@@textdomain' ),
-					'image' => esc_url( $image_dir ) . '09-sml.jpg',
-				),
+				'none'  => esc_url( $image_dir ) . '00.jpg',
+				'bg_01' => esc_url( $image_dir ) . '01-sml.jpg',
+				'bg_02' => esc_url( $image_dir ) . '02-sml.jpg',
+				'bg_03' => esc_url( $image_dir ) . '03-sml.jpg',
+				'bg_04' => esc_url( $image_dir ) . '04-sml.jpg',
+				'bg_05' => esc_url( $image_dir ) . '05-sml.jpg',
+				'bg_06' => esc_url( $image_dir ) . '06-sml.jpg',
+				'bg_07' => esc_url( $image_dir ) . '07-sml.jpg',
+				'bg_08' => esc_url( $image_dir ) . '08-sml.jpg',
+				'bg_09' => esc_url( $image_dir ) . '09-sml.jpg',
 			);
 
 			return apply_filters( 'login_designer_backgrounds', $backgrounds );

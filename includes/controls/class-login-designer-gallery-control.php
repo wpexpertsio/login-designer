@@ -24,7 +24,7 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) {
  *
  * @access  public
  */
-class Login_Designer_Background_Gallery_Control extends WP_Customize_Control {
+class Login_Designer_Gallery_Control extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -35,41 +35,95 @@ class Login_Designer_Background_Gallery_Control extends WP_Customize_Control {
 	public $type = 'login-designer-gallery';
 
 	/**
-	 * Render the content.
-	 *
-	 * @see https://developer.wordpress.org/reference/classes/wp_customize_control/render_content/
+	 * Enqueue neccessary custom control scripts.
 	 */
-	public function render_content() {
+	public function enqueue() {
 
-		$name = '_customize-layout-' . $this->id;
-
-		if ( isset( $this->label ) ) {
-			echo '<span class="customize-control-title">' . esc_html( $this->label ) . '</span>';
+		// Use this only if LOGIN_DESIGNER_DEBUG is active.
+		// If it is not active, we're loading the concated and minified login-designer-custom-controls.min.js file.
+		if ( ! defined( 'LOGIN_DESIGNER_DEBUG' ) || ( defined( 'LOGIN_DESIGNER_DEBUG' ) && false === LOGIN_DESIGNER_DEBUG ) ) {
+			return;
 		}
 
-		if ( isset( $this->description ) ) {
-			echo '<span class="description customize-control-description">' . esc_html( $this->description ) . '</span>';
-		} ?>
+		// Define where the asset is loaded from.
+		$dir = Login_Designer()->asset_source( 'js', 'controls/' );
+
+		// Enqueue the asset. Note that there is no minified version of this singular asset.
+		wp_enqueue_script( 'login-designer-gallery-control', $dir . 'login-designer-gallery-control.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
+	}
+
+	/**
+	 * Add custom parameters to pass to the JS via JSON.
+	 *
+	 * @access public
+	 * @since  1.1.7
+	 * @return void
+	 */
+	public function to_json() {
+		parent::to_json();
+
+		// The setting value.
+		$this->json['id']      = $this->id;
+		$this->json['value']   = $this->value();
+		$this->json['link']    = $this->get_link();
+		$this->json['choices'] = $this->choices;
+
+	}
+
+	/**
+	 * Don't render the content via PHP.  This control is handled with a JS template.
+	 *
+	 * @access public
+	 * @since  1.0.0
+	 * @return void
+	 */
+	public function render_content() {}
+
+	/**
+	 * An Underscore (JS) template for this control's content.
+	 *
+	 * Class variables for this control class are available in the `data` JS object;
+	 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
+	 *
+	 * @see    WP_Customize_Control::print_template()
+	 *
+	 * @access protected
+	 * @since  1.1.7
+	 * @return void
+	 */
+	protected function content_template() {
+		?>
+
+		<# if ( ! data.choices ) {
+			return;
+		} #>
+
+		<# if ( data.label ) { #>
+			<span class="customize-control-title">{{ data.label }}</span>
+		<# } #>
+
+		<# if ( data.description ) { #>
+			<span class="description customize-control-description">{{ data.description }}</span>
+		<# } #>
 
 		<div id="login-designer-gallery" class="login-designer-gallery">
-			<?php foreach ( $this->choices as $value => $label ) { ?>
+
+			<# for ( choice in data.choices ) { #>
 
 				<div class="login-designer-gallery__item">
-					<input id="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $value ); ?>" class="login-designer-gallery__checkbox" type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $name ); ?>"
-						<?php
-						$this->link();
-						checked( $this->value(), $value );
-						?>
-					/>
-					<label for="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $value ); ?>">
+
+					<input type="radio" value="{{ choice }}" name="_customize-{{ data.id }}" id="{{ data.id }}{{ choice }}" class="login-designer-gallery__checkbox" {{{ data.link }}} <# if ( data.value === choice ) { #> checked="checked" <# } #> />
+
+					<label for="{{ data.id }}{{ choice }}">
 						<div class="login-designer-gallery__intrinsic">
-							<div class="login-designer-gallery__img" style="background-image: url( <?php echo esc_html( $this->choices[ $value ] ); ?> );"></div>
+							<div class="login-designer-gallery__img" style="background-image: url( {{ data.choices[ choice ] }} );"></div>
 						</div>
 					</label>
 
 				</div>
 
-			<?php } ?>
+			<# } #>
+
 		</div>
 
 		<?php

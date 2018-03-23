@@ -127,43 +127,19 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			if ( Login_Designer()->has_pro() ) {
 
 				$templates = array(
-					'default' => array(
-						'title' => esc_html__( 'Default', '@@textdomain' ),
-						'image' => esc_url( $image_dir ) . 'customizer/default.jpg',
-					),
-					'01'      => array(
-						'title' => esc_html__( 'Template 01', '@@textdomain' ),
-						'image' => esc_url( $image_dir ) . 'customizer/template-01.jpg',
-					),
-					'02'      => array(
-						'title' => esc_html__( 'Template 02', '@@textdomain' ),
-						'image' => esc_url( $image_dir ) . 'customizer/template-02.jpg',
-					),
-					'03'      => array(
-						'title' => esc_html__( 'Template 03', '@@textdomain' ),
-						'image' => esc_url( $image_dir ) . 'customizer/template-03.jpg',
-					),
-					'04'      => array(
-						'title' => esc_html__( 'Template 04', '@@textdomain' ),
-						'image' => esc_url( $image_dir ) . 'customizer/template-04.jpg',
-					),
+					'default' => esc_url( $image_dir ) . 'customizer/default.jpg',
+					'01'      => esc_url( $image_dir ) . 'customizer/template-01.jpg',
+					'02'      => esc_url( $image_dir ) . 'customizer/template-02.jpg',
+					'03'      => esc_url( $image_dir ) . 'customizer/template-03.jpg',
+					'04'      => esc_url( $image_dir ) . 'customizer/template-04.jpg',
 				);
 
 			} else {
 
 				$templates = array(
-					'default' => array(
-						'title' => esc_html__( 'Default', '@@textdomain' ),
-						'image' => esc_url( $image_dir ) . 'customizer/default.jpg',
-					),
-					'01'      => array(
-						'title' => esc_html__( 'Template 01', '@@textdomain' ),
-						'image' => esc_url( $image_dir ) . 'customizer/template-01.jpg',
-					),
-					'02'      => array(
-						'title' => esc_html__( 'Template 02', '@@textdomain' ),
-						'image' => esc_url( $image_dir ) . 'customizer/template-02.jpg',
-					),
+					'default' => esc_url( $image_dir ) . 'customizer/default.jpg',
+					'01'      => esc_url( $image_dir ) . 'customizer/template-01.jpg',
+					'02'      => esc_url( $image_dir ) . 'customizer/template-02.jpg',
 				);
 			}
 
