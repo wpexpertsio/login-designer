@@ -174,14 +174,56 @@
 					color = '#4b2d3f';
 				} else if ( to === 'bg_09' ) {
 					color = '#ed4844';
-				} else if ( to === 'bg_10' ) {
-					color = '#e3ebee';
 				} else {
 					color = '#f1f1f1';
 				}
 
 				// If we have a custom background color, let's put it back to default.
 				wp.customize( 'login_designer[bg_color]' ).set( color );
+			} );
+		} );
+
+		// Modify the branding text and icon colors, based on the gallery image selected.
+		// @todo — Find a way where gallery extensions can filter this and add live previewing based on their colors (or use their own).
+		wp.customize( 'login_designer[bg_image_gallery]', function( value ) {
+
+			value.bind( function( to ) {
+
+				if ( to === 'bg_01' ) {
+					text = '#e98b62';
+					icon = '#dd462c';
+				} else if ( to === 'bg_02' ) {
+					text = '#008c93';
+					icon = '#008c93';
+				} else if ( to === 'bg_03' ) {
+					text = '#878787';
+					icon = '#afafaf';
+				} else if ( to === 'bg_04' ) {
+					text = '#456099';
+					icon = '#2c4081';
+				} else if ( to === 'bg_05' ) {
+					text = '#a38259';
+					icon = '#ddba90';
+				} else if ( to === 'bg_06' ) {
+					text = '#ffffff';
+					icon = '#ffffff';
+				} else if ( to === 'bg_07' ) {
+					text = '#c3d0dd';
+					icon = '#c3d0dd';
+				} else if ( to === 'bg_08' ) {
+					text = '#3b2a3d';
+					icon = '#3b2a3d';
+				} else if ( to === 'bg_09' ) {
+					text = '#1d3973';
+					icon = '#1d3973';
+				} else {
+					text = '';
+					icon = '';
+				}
+
+				// If we have a custom background color, let's put it back to default.
+				wp.customize( 'login_designer_settings[branding_color]' ).set( text );
+				wp.customize( 'login_designer_settings[branding_icon_color]' ).set( icon );
 			} );
 		} );
 
