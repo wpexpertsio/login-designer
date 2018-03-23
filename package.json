@@ -40,6 +40,21 @@
 		"gulp-uglifycss": "^1.0.8",
 		"gulp-wp-pot": "^1.2.2",
 		"gulp-zip": "^4.0.0",
-		"run-sequence": "^2.2.0"
+		"run-sequence": "^2.2.0",
+		"stylelint-config-wordpress": "^12.0.0"
+	},
+	"dependencies": {
+		"postcss": "^6.0.19",
+		"stylelint": "^9.1.1"
+	},
+	"stylelint": {
+		"extends": "stylelint-config-wordpress/scss",
+		"rules": {
+			"at-rule-empty-line-before": null
+		}
+	},
+	"scripts": {
+		"start": "gulp",
+		"build": "gulp build"
 	}
 }
