@@ -19,14 +19,6 @@
 @import "controls/toggle";
 @import "controls/upgrade";
 
-// .customize-control-text,
-// .customize-control-select,
-// .customize-control-color,
-// .customize-control-login-designer-range,
-// .customize-control-login-designer-toggle {
-// 	background-color: #ddd;
-// }
-
 #customize-control-login_designer-logo_mobile_width,
 #customize-control-login_designer-logo_mobile_height {
 	display: none !important;
@@ -42,6 +34,10 @@
 
 #customize-control-login_designer_settings-branding {
 	margin-bottom: 9px;
+}
+
+#customize-control-login_designer-bg_repeat {
+	margin-top: 15px;
 }
 
 // Hide the Styles section.

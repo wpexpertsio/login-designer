@@ -186,6 +186,7 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 				bottom: 15px;
 				display: none;
 				right: 15px;
+				width: 251px;
 			}
 
 			.login-designer-badge.left {
@@ -195,6 +196,18 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 
 			.login-designer-badge.right {
 				right: 15px;
+			}
+
+			.login-designer-badge.middle {
+				left: 15px;
+				right: 15px;
+				margin: 0 auto;
+			}
+
+			.login-designer-badge.top-right {
+				top: 15px;
+				right: 15px;
+				bottom: inherit;
 			}
 
 			@media screen and (min-width: 600px) {
@@ -223,6 +236,10 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 				-webkit-align-content: center;
 				-ms-flex-line-pack: center;
 				align-content: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				-ms-flex-pack: center;
+				justify-content: center;
 				position: relative;
 				padding: 8px 15px;
 				transition: transform 500ms cubic-bezier(0.694, 0.0482, 0.335, 1), opacity 200ms cubic-bezier(0.694, 0.0482, 0.335, 1) 300ms;

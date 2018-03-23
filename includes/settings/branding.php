@@ -56,7 +56,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	new WP_Customize_Color_Control(
 		$wp_customize, 'login_designer_settings[branding_color]', array(
-			'label'   => esc_html__( 'Text Color', '@@textdomain' ),
+			'label'   => esc_html__( 'Text', '@@textdomain' ),
 			'section' => 'login_designer__section--settings',
 		)
 	)
@@ -74,7 +74,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	new WP_Customize_Color_Control(
 		$wp_customize, 'login_designer_settings[branding_icon_color]', array(
-			'label'   => esc_html__( 'Logo Color', '@@textdomain' ),
+			'label'   => esc_html__( 'Logo', '@@textdomain' ),
 			'section' => 'login_designer__section--settings',
 		)
 	)
@@ -95,8 +95,10 @@ $wp_customize->add_control(
 		'label'   => esc_html__( 'Position', '@@textdomain' ),
 		'section' => 'login_designer__section--settings',
 		'choices' => array(
-			'left'  => esc_html__( 'Left', '@@textdomain' ),
-			'right' => esc_html__( 'Right', '@@textdomain' ),
+			'left'      => esc_html__( 'Bottom Left', '@@textdomain' ),
+			'right'     => esc_html__( 'Bottom Right', '@@textdomain' ),
+			'middle'    => esc_html__( 'Bottom Middle', '@@textdomain' ),
+			'top-right' => esc_html__( 'Upper Right', '@@textdomain' ),
 		),
 	)
 );
