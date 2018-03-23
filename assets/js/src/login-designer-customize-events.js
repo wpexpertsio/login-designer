@@ -776,6 +776,28 @@
 						});
 					});
 
+				} else if ( item === 'login_designer[button_shadow_opacity]' ) {
+
+					customizer_range_option_display( 'login_designer[button_shadow]', 'login_designer[button_shadow_opacity]', '0' );
+
+					wp.customize( 'login_designer[button_shadow]', function( setting ) {
+						wp.customize.control( item, function( control ) {
+							var visibility = function() {
+
+								if ( '0' < setting.get() ) {
+									// If there is a custom logo uploaded, let's show the bottom positioning option.
+									wp.customize.control( item ).activate( { duration: 0 } );
+								} else {
+									// If not, let's quickly hide it.
+									control.container.slideUp( 0 );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
 				} else if ( item === 'login_designer[checkbox_border_color]' ) {
 
 					customizer_range_option_display( 'login_designer[checkbox_border]', 'login_designer[checkbox_border_color]', '0' );

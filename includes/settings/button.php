@@ -43,6 +43,50 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
+	'login_designer[button_border]', array(
+		'default'           => $defaults['button_border'],
+		'type'              => 'option',
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'absint',
+	)
+);
+
+$wp_customize->add_control(
+	new Login_Designer_Range_Control(
+		$wp_customize, 'login_designer[button_border]', array(
+			'type'        => 'login-designer-range',
+			'label'       => esc_html__( 'Border', '@@textdomain' ),
+			'section'     => 'login_designer__section--styles',
+			'description' => 'px',
+			'default'     => $defaults['button_border'],
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 10,
+				'step' => 1,
+			),
+		)
+	)
+);
+
+$wp_customize->add_setting(
+	'login_designer[button_border_color]', array(
+		'default'           => $defaults['button_border_color'],
+		'type'              => 'option',
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+	)
+);
+
+$wp_customize->add_control(
+	new WP_Customize_Color_Control(
+		$wp_customize, 'login_designer[button_border_color]', array(
+			'label'   => esc_html__( 'Border Color', '@@textdomain' ),
+			'section' => 'login_designer__section--styles',
+		)
+	)
+);
+
+$wp_customize->add_setting(
 	'login_designer[button_side_padding]', array(
 		'default'           => $defaults['button_side_padding'],
 		'type'              => 'option',
@@ -116,50 +160,6 @@ $wp_customize->add_control(
 				'max'  => 20,
 				'step' => 1,
 			),
-		)
-	)
-);
-
-$wp_customize->add_setting(
-	'login_designer[button_border]', array(
-		'default'           => $defaults['button_border'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'absint',
-	)
-);
-
-$wp_customize->add_control(
-	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[button_border]', array(
-			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Border', '@@textdomain' ),
-			'section'     => 'login_designer__section--styles',
-			'description' => 'px',
-			'default'     => $defaults['button_border'],
-			'input_attrs' => array(
-				'min'  => 0,
-				'max'  => 10,
-				'step' => 1,
-			),
-		)
-	)
-);
-
-$wp_customize->add_setting(
-	'login_designer[button_border_color]', array(
-		'default'           => $defaults['button_border_color'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'sanitize_hex_color',
-	)
-);
-
-$wp_customize->add_control(
-	new WP_Customize_Color_Control(
-		$wp_customize, 'login_designer[button_border_color]', array(
-			'label'   => esc_html__( 'Border Color', '@@textdomain' ),
-			'section' => 'login_designer__section--styles',
 		)
 	)
 );
