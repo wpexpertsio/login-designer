@@ -45,16 +45,10 @@ var scriptCustomizePreviewSRC   = './assets/js/src/'+ scriptCustomizePreviewFile
 var scriptCustomizeControlsFile = slug +'-customize-controls'; // JS file name.
 var scriptCustomizeControlsSRC  = './assets/js/src/'+ scriptCustomizeControlsFile +'.js'; // The JS file src.
 
-var scriptRangeControlFile  	= slug +'-range-control'; // JS file name.
-var scriptRangeControlSRC   	= './assets/js/src/controls/'+ scriptRangeControlFile +'.js'; // The JS file src.
-
-var scriptLicenseControlFile  	= slug +'-license-control'; // JS file name.
-var scriptLicenseControlSRC   	= './assets/js/src/controls/'+ scriptLicenseControlFile +'.js'; // The JS file src.
-
-var jsVendorSRC			= './assets/js/src/controls/*.js';
-var jsVendorDestination	 	= './assets/js/';
-var jsVendorFile		= 'login-designer-customize-custom-controls';
-var vendorJSWatchFiles	  	= './assets/js/src/controls/*.js';
+var scriptAllControls	        = './assets/js/src/controls/*.js';
+var scriptControlsDestination	= './assets/js/';
+var scriptAllControlsFile	= 'login-designer-customize-custom-controls';
+var scriptControlWatchFiles	= './assets/js/src/controls/*.js';
 
 var projectPHPWatchFiles    	= ['./**/*.php', '!_dist', '!_dist/**', '!_dist/**/*.php', '!_demo', '!_demo/**','!_demo/**/*.php'];
 
@@ -169,26 +163,19 @@ gulp.task( 'debug_mode_off', function () {
 	.pipe( gulp.dest( buildDestination ) );
 });
 
-
-
 gulp.task( 'vendorsJs', function() {
-	gulp.src( jsVendorSRC )
-	.pipe( concat( jsVendorFile + '.min.js' ) )
+	gulp.src( scriptAllControls )
+	.pipe( concat( scriptAllControlsFile + '.min.js' ) )
 	.pipe( lineec() )
-	.pipe( gulp.dest( jsVendorDestination ) )
+	.pipe( gulp.dest( scriptControlsDestination ) )
 	.pipe( rename( {
-		basename: jsVendorFile,
+		basename: scriptAllControlsFile,
 		suffix: '.min'
 	} ) )
 	.pipe( uglify() )
 	.pipe( lineec() )
-	.pipe( gulp.dest( jsVendorDestination ) )
+	.pipe( gulp.dest( scriptControlsDestination ) )
 });
-
-
-
-
-
 
 gulp.task('styles_customize_preview', function () {
 	gulp.src( styleCustomizerSRC )
@@ -568,7 +555,7 @@ gulp.task( 'default', [ 'clear', 'debug_mode_on', 'vendorsJs', 'template_1', 'te
 	gulp.watch( styleWatchFiles, [ 'template_3' ] );
 	gulp.watch( styleWatchFiles, [ 'template_4' ] );
 	gulp.watch( scriptWatchFiles, [ 'scripts' ] );
-	gulp.watch( vendorJSWatchFiles, [ 'vendorsJs', reload ] );
+	gulp.watch( scriptControlWatchFiles, [ 'vendorsJs', reload ] );
 });
 
 gulp.task('build', function(callback) {
