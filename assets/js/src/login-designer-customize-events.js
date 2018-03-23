@@ -509,6 +509,28 @@
 						});
 					});
 
+				} else if ( item === 'login_designer[form_bg]' ) {
+
+					customizer_checkbox_option_display( 'login_designer[form_bg_transparency]', 'login_designer[form_bg]', false );
+
+					wp.customize( 'login_designer[form_bg_transparency]', function( setting ) {
+						wp.customize.control( item, function( control ) {
+							var visibility = function() {
+
+								if ( true === setting.get() ) {
+									// If not, let's quickly hide it.
+									control.container.slideUp( 0 );
+								} else {
+									// If there's no custom background image, let's show the gallery.
+									wp.customize.control( item ).activate( { duration: 0 } );
+								}
+							};
+
+							visibility();
+							setting.bind( visibility );
+						});
+					});
+
 				} else if ( item === 'login_designer[bg_image_gallery]' ) {
 
 					customizer_no_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' );
