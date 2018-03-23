@@ -43,104 +43,6 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[form_bg_transparency]', array(
-		'default'           => $defaults['form_bg_transparency'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
-	)
-);
-
-$wp_customize->add_control(
-	new Login_Designer_Toggle_Control(
-		$wp_customize, 'login_designer[form_bg_transparency]', array(
-			'label'    => esc_html__( 'Transparency', '@@textdomain' ),
-			'section'  => 'login_designer__section--styles',
-			'type'     => 'login-designer-toggle',
-			'settings' => 'login_designer[form_bg_transparency]',
-		)
-	)
-);
-
-$wp_customize->add_setting(
-	'login_designer[form_width]', array(
-		'default'           => $defaults['form_width'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'absint',
-	)
-);
-
-$wp_customize->add_control(
-	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[form_width]', array(
-			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Width', '@@textdomain' ),
-			'section'     => 'login_designer__section--styles',
-			'description' => 'px',
-			'default'     => $defaults['form_width'],
-			'input_attrs' => array(
-				'min'  => 300,
-				'max'  => 800,
-				'step' => 2,
-			),
-		)
-	)
-);
-
-$wp_customize->add_setting(
-	'login_designer[form_side_padding]', array(
-		'default'           => $defaults['form_side_padding'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'absint',
-	)
-);
-
-$wp_customize->add_control(
-	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[form_side_padding]', array(
-			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Side Padding', '@@textdomain' ),
-			'section'     => 'login_designer__section--styles',
-			'description' => 'px',
-			'default'     => $defaults['form_side_padding'],
-			'input_attrs' => array(
-				'min'  => 0,
-				'max'  => 100,
-				'step' => 2,
-			),
-		)
-	)
-);
-
-$wp_customize->add_setting(
-	'login_designer[form_vertical_padding]', array(
-		'default'           => $defaults['form_vertical_padding'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'absint',
-	)
-);
-
-$wp_customize->add_control(
-	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[form_vertical_padding]', array(
-			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Vertical Padding', '@@textdomain' ),
-			'section'     => 'login_designer__section--styles',
-			'description' => 'px',
-			'default'     => $defaults['form_vertical_padding'],
-			'input_attrs' => array(
-				'min'  => 0,
-				'max'  => 100,
-				'step' => 2,
-			),
-		)
-	)
-);
-
-$wp_customize->add_setting(
 	'login_designer[form_radius]', array(
 		'default'           => $defaults['form_radius'],
 		'type'              => 'option',
@@ -213,6 +115,104 @@ $wp_customize->add_control(
 				'min'  => 0,
 				'max'  => 100,
 				'step' => 1,
+			),
+		)
+	)
+);
+
+$wp_customize->add_setting(
+	'login_designer[form_side_padding]', array(
+		'default'           => $defaults['form_side_padding'],
+		'type'              => 'option',
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'absint',
+	)
+);
+
+$wp_customize->add_control(
+	new Login_Designer_Range_Control(
+		$wp_customize, 'login_designer[form_side_padding]', array(
+			'type'        => 'login-designer-range',
+			'label'       => esc_html__( 'Side Padding', '@@textdomain' ),
+			'section'     => 'login_designer__section--styles',
+			'description' => 'px',
+			'default'     => $defaults['form_side_padding'],
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 100,
+				'step' => 2,
+			),
+		)
+	)
+);
+
+$wp_customize->add_setting(
+	'login_designer[form_bg_transparency]', array(
+		'default'           => $defaults['form_bg_transparency'],
+		'type'              => 'option',
+		'transport'         => 'postMessage',
+		'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
+	)
+);
+
+$wp_customize->add_control(
+	new Login_Designer_Toggle_Control(
+		$wp_customize, 'login_designer[form_bg_transparency]', array(
+			'label'    => esc_html__( 'Transparent', '@@textdomain' ),
+			'section'  => 'login_designer__section--styles',
+			'type'     => 'login-designer-toggle',
+			'settings' => 'login_designer[form_bg_transparency]',
+		)
+	)
+);
+
+$wp_customize->add_setting(
+	'login_designer[form_vertical_padding]', array(
+		'default'           => $defaults['form_vertical_padding'],
+		'type'              => 'option',
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'absint',
+	)
+);
+
+$wp_customize->add_control(
+	new Login_Designer_Range_Control(
+		$wp_customize, 'login_designer[form_vertical_padding]', array(
+			'type'        => 'login-designer-range',
+			'label'       => esc_html__( 'Vertical Padding', '@@textdomain' ),
+			'section'     => 'login_designer__section--styles',
+			'description' => 'px',
+			'default'     => $defaults['form_vertical_padding'],
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 100,
+				'step' => 2,
+			),
+		)
+	)
+);
+
+$wp_customize->add_setting(
+	'login_designer[form_width]', array(
+		'default'           => $defaults['form_width'],
+		'type'              => 'option',
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'absint',
+	)
+);
+
+$wp_customize->add_control(
+	new Login_Designer_Range_Control(
+		$wp_customize, 'login_designer[form_width]', array(
+			'type'        => 'login-designer-range',
+			'label'       => esc_html__( 'Width', '@@textdomain' ),
+			'section'     => 'login_designer__section--styles',
+			'description' => 'px',
+			'default'     => $defaults['form_width'],
+			'input_attrs' => array(
+				'min'  => 300,
+				'max'  => 800,
+				'step' => 2,
 			),
 		)
 	)

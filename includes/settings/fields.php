@@ -43,6 +43,76 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
+	'login_designer[field_border]', array(
+		'default'           => $defaults['field_border'],
+		'type'              => 'option',
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'absint',
+	)
+);
+
+$wp_customize->add_control(
+	new Login_Designer_Range_Control(
+		$wp_customize, 'login_designer[field_border]', array(
+			'type'        => 'login-designer-range',
+			'label'       => esc_html__( 'Border', '@@textdomain' ),
+			'section'     => 'login_designer__section--styles',
+			'description' => 'px',
+			'default'     => $defaults['field_border'],
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 10,
+				'step' => 1,
+			),
+		)
+	)
+);
+
+$wp_customize->add_setting(
+	'login_designer[field_border_color]', array(
+		'default'           => $defaults['field_border_color'],
+		'type'              => 'option',
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+	)
+);
+
+$wp_customize->add_control(
+	new WP_Customize_Color_Control(
+		$wp_customize, 'login_designer[field_border_color]', array(
+			'label'   => esc_html__( 'Border Color', '@@textdomain' ),
+			'section' => 'login_designer__section--styles',
+		)
+	)
+);
+
+$wp_customize->add_setting(
+	'login_designer[field_margin_bottom]', array(
+		'default'           => $defaults['field_margin_bottom'],
+		'type'              => 'option',
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'absint',
+	)
+);
+
+$wp_customize->add_control(
+	new Login_Designer_Range_Control(
+		$wp_customize, 'login_designer[field_margin_bottom]', array(
+			'type'        => 'login-designer-range',
+			'label'       => esc_html__( 'Margin Bottom', '@@textdomain' ),
+			'section'     => 'login_designer__section--styles',
+			'description' => 'px',
+			'default'     => $defaults['field_margin_bottom'],
+			'input_attrs' => array(
+				'min'  => 1,
+				'max'  => 60,
+				'step' => 1,
+			),
+		)
+	)
+);
+
+$wp_customize->add_setting(
 	'login_designer[field_side_padding]', array(
 		'default'           => $defaults['field_side_padding'],
 		'type'              => 'option',
@@ -116,76 +186,6 @@ $wp_customize->add_control(
 				'max'  => 40,
 				'step' => 1,
 			),
-		)
-	)
-);
-
-$wp_customize->add_setting(
-	'login_designer[field_margin_bottom]', array(
-		'default'           => $defaults['field_margin_bottom'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'absint',
-	)
-);
-
-$wp_customize->add_control(
-	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[field_margin_bottom]', array(
-			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Margin Bottom', '@@textdomain' ),
-			'section'     => 'login_designer__section--styles',
-			'description' => 'px',
-			'default'     => $defaults['field_margin_bottom'],
-			'input_attrs' => array(
-				'min'  => 1,
-				'max'  => 60,
-				'step' => 1,
-			),
-		)
-	)
-);
-
-$wp_customize->add_setting(
-	'login_designer[field_border]', array(
-		'default'           => $defaults['field_border'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'absint',
-	)
-);
-
-$wp_customize->add_control(
-	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[field_border]', array(
-			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Border', '@@textdomain' ),
-			'section'     => 'login_designer__section--styles',
-			'description' => 'px',
-			'default'     => $defaults['field_border'],
-			'input_attrs' => array(
-				'min'  => 0,
-				'max'  => 10,
-				'step' => 1,
-			),
-		)
-	)
-);
-
-$wp_customize->add_setting(
-	'login_designer[field_border_color]', array(
-		'default'           => $defaults['field_border_color'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'sanitize_hex_color',
-	)
-);
-
-$wp_customize->add_control(
-	new WP_Customize_Color_Control(
-		$wp_customize, 'login_designer[field_border_color]', array(
-			'label'   => esc_html__( 'Border Color', '@@textdomain' ),
-			'section' => 'login_designer__section--styles',
 		)
 	)
 );

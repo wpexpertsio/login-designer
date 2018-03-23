@@ -62,9 +62,9 @@
 
 				// Value of isExpanding will = true if you're entering the section, false if you're leaving it.
 				if ( isExpanding ) {
-					wp.customize.previewer.send( 'login-designer-template-switcher', { expanded: isExpanding } );
+					wp.customize.previewer.send( 'login-designer-templates', { expanded: isExpanding } );
 				} else {
-					wp.customize.previewer.send( 'login-designer-template-switcher', { expanded: false } );
+					wp.customize.previewer.send( 'login-designer-templates', { expanded: false } );
 				}
 			} );
 		} );
@@ -312,6 +312,7 @@
 		customizer_checkbox_option_display( 'login_designer_settings[branding]', 'login_designer_settings[branding_position]', true );
 		customizer_checkbox_option_display( 'login_designer_settings[branding]', 'login_designer_settings[branding_color]', true );
 		customizer_checkbox_option_display( 'login_designer_settings[branding]', 'login_designer_settings[branding_icon_color]', true );
+		customizer_checkbox_option_display( 'login_designer[form_bg_transparency]', 'login_designer[form_bg]', false );
 
 	} );
 } )( jQuery );

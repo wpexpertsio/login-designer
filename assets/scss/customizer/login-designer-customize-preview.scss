@@ -78,13 +78,13 @@ body:hover .customize-partial-edit-shortcut {
 		position: absolute;
 		right: 0.17em;
 		text-shadow: 0 -1px 1px rgba(0, 122, 182, 0.8), 1px 0 1px #007ab6, 0 1px 1px #007ab6, -1px 0 1px #007ab6;
-		top: .24em;
+		top: 0.24em;
 		height: 20px;
 		width: 20px;
 		line-height: 20px;
 	}
-
 }
+
 .customize-partial--login-designer-settings {
 	bottom: 44px !important;
 	left: 42px !important;
@@ -128,6 +128,11 @@ body:hover .customize-partial-edit-shortcut {
 	left: 42px !important;
 	top: 46px !important;
 
+	.login-designer-template-section-opened & {
+		opacity: 0 !important;
+		visibility: hidden !important;
+	}
+
 	.login-designer-event-button:before {
 		color: #fff;
 		box-shadow: none;
@@ -136,7 +141,7 @@ body:hover .customize-partial-edit-shortcut {
 		position: absolute;
 		right: 0.13em;
 		text-shadow: 0 -1px 1px #007ab6, 1px 0 1px #007ab6, 0 1px 1px #007ab6, -1px 0 1px #007ab6;
-		top: .15em;
+		top: 0.15em;
 		height: 20px;
 		width: 20px;
 		line-height: 20px;
@@ -179,7 +184,11 @@ body:hover .customize-partial-edit-shortcut {
 		button {
 			left: 0;
 		}
+	}
 
+	.login-designer-edit-loginform & {
+		opacity: 0 !important;
+		visibility: hidden !important;
 	}
 }
 

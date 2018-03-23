@@ -778,25 +778,6 @@
 
 				}
 
-				// else if ( item === 'login_designer[form_width]' ) {
-
-				// 	wp.customize( 'login_designer[template]', function( setting ) {
-				// 		wp.customize.control( item, function( control ) {
-				// 			var visibility = function() {
-
-				// 				if ( '01' === setting.get() ) {
-				// 					control.container.slideUp( 0 );
-				// 				} else {
-				// 					wp.customize.control( item ).activate( { duration: 0 } );
-				// 				}
-				// 			};
-
-				// 			visibility();
-				// 			setting.bind( visibility );
-				// 		});
-				// 	});
-				// }
-
 				else {
 					// Activate all others.
 					wp.customize.control( item ).activate( { duration: 0 } );
@@ -831,23 +812,11 @@
 			function bind_control_visibility_event( event, active_controls, focus_control ) {
 
 				api.LoginDesignerCustomizerPreviewer.preview.bind( event, function() {
+					// Visibility.
+					active_control( active_controls );
 
-					//If the current event is active, there's no need to run it.
-					// if ( active_state !== event ) {
-
-						// Visibility.
-						active_control( active_controls );
-
-						// Focus.
-						wp.customize.control( focus_control ).focus();
-
-					// }
-
-					// active_state = event;
-
-					// For debugging purposes.
-					// console.log( active_state );
-
+					// Focus.
+					wp.customize.control( focus_control ).focus();
 				} );
 			}
 
@@ -901,7 +870,7 @@
 				}
 			} );
 
-			// Open settings panel when the settings icon is clicked.
+			// Open settings panel when the Login Designer badge is clicked.
 			this.preview.bind( 'login-designer-edit-branding', function() {
 				var section = wp.customize.section( 'login_designer__section--settings' );
 				if ( ! section.expanded() ) {

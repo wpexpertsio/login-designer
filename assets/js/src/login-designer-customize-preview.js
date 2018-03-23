@@ -15,30 +15,28 @@
 			if ( true === data.expanded ) {
 				wp.customize.preview.send( 'url', login_designer_script.login_designer_page );
 			}
-		});
+		} );
 
 		wp.customize.preview.bind( 'login-designer-back-to-home', function( data ) {
 			wp.customize.preview.send( 'url', data.home_url );
-		});
+		} );
 
-		wp.customize.preview.bind( 'login-designer-template-switcher', function( data ) {
-			// When the section is expanded, open the login designer page.
+		wp.customize.preview.bind( 'login-designer-templates', function( data ) {
 			if ( true === data.expanded ) {
-				$( 'body' ).addClass( 'customize-templates template-section-option' );
+				$( 'body' ).addClass( 'login-designer-template-section-opened' );
 			} else {
-				$( 'body' ).removeClass( 'customize-templates template-section-option' );
+				$( 'body' ).removeClass( 'login-designer-template-section-opened' );
 			}
-		});
+		} );
 
 		wp.customize.preview.bind( 'login-designer-settings', function( data ) {
-			// When the section is expanded, open the login designer page.
 			if ( true === data.expanded ) {
 				$( 'body' ).addClass( 'login-designer-settings-opened' );
 			} else {
 				$( 'body' ).removeClass( 'login-designer-settings-opened' );
 			}
-		});
-	});
+		} );
+	} );
 
 	// Branding.
 	wp.customize( 'login_designer_settings[branding]', function( value ) {
@@ -995,7 +993,7 @@
 	wp.customize( 'login_designer[template]', function( value ) {
 		value.bind( function( to ) {
 
-			$( 'body.login' ).attr( 'class', 'login login-action-login wp-core-ui locale-en-us login-designer has-template-applied template-section-option customize-partial-edit-shortcuts-shown' );
+			$( 'body.login' ).attr( 'class', 'login login-action-login wp-core-ui locale-en-us login-designer has-template-applied login-designer-template-section-opened customize-partial-edit-shortcuts-shown' );
 			$( 'body.login' ).addClass( 'login-designer-template-' + to );
 
 			// If we have a custom background color, let's remove it so the templates can shine.
