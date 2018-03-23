@@ -16,7 +16,8 @@
 	}
 
 	.customize-control-title {
-		line-height: 20px;
+		margin-bottom: 0;
+		// line-height: 20px;
 	}
 
 	.login-designer-range__number-input {
@@ -45,7 +46,7 @@
 			padding: 5px 0;
 			position: absolute;
 			right: 0;
-			top: 55%;
+			top: 52%;
 			transform: translateY(-50%);
 			transition: opacity $range--opacity-speed $range--opacity-cubic;
 			width: calc(100% - 80px);
@@ -60,9 +61,7 @@
 			position: absolute;
 			right: 0;
 			text-align: right;
-			top: -3px;
-			transform: translate3d(0, 0, 0);
-			width: 65px;
+			top: -1px;
 
 			span {
 				display: none;
@@ -99,13 +98,13 @@
 
 		&__reset {
 			cursor: pointer;
-			height: 21px;
+			height: 24px;
 			left: 0;
 			opacity: 0;
 			position: absolute;
 			top: 0;
-			transition: opacity $range--opacity-speed $range--opacity-cubic, transform 200ms cubic-bezier(0.4, 0, 0.2, 1);;
-			width: 21px;
+			transition: opacity $range--opacity-speed $range--opacity-cubic, transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+			width: 20px;
 
 			&:after {
 				content: "\f531";
@@ -113,7 +112,7 @@
 				font: 100 15px/1 dashicons;
 				left: 0;
 				position: relative;
-				top: 3px;
+				top: .33em;
 				z-index: 999;
 			}
 

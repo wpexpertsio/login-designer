@@ -4,17 +4,17 @@
 .customize-control-login-designer-toggle {
 
 	.toggle--wrapper {
-		display:flex;
+		display: flex;
 		flex-direction: row;
 		justify-content: flex-start;
 
 		.customize-control-title {
 			flex: 2 0 0;
 			vertical-align: middle;
-			margin-top: 2px;
+			margin-bottom: 0;
 		}
 
-		input[type=checkbox] {
+		input[type="checkbox"] {
 			display: none;
 		}
 
@@ -26,20 +26,20 @@
 			height: 20px;
 			outline: none;
 			position: relative;
-			top: 4px;
-			right: -1px;
+			top: 2px;
+			right: 0;
 			transition: background 0.2s ease;
 			user-select: none;
 			width: 34px;
 
-			&::after,
-			&::before {
+			&:after,
+			&:before {
 				display: block;
 				position: absolute;
 				content: "";
 			}
 
-			&::after {
+			&:after {
 				border-radius: 50%;
 				border: 2px solid #555d66;
 				box-sizing: border-box;
@@ -50,7 +50,7 @@
 				width: 12px;
 			}
 
-			&::before {
+			&:before {
 				background-color: $background;
 				border-radius: 60px;
 				bottom: 2px;
@@ -61,22 +61,22 @@
 			}
 		}
 
-		input[type=checkbox]:checked + label {
+		input[type="checkbox"]:checked + label {
 			background-color: $customizer_blue;
 
-			&::after {
+			&:after {
 				background-color: $customizer_blue;
 				border: 2px solid $white;
 				transform: translateX(14px);
 			}
 
-			&::before {
+			&:before {
 				background-color: $customizer_blue;
 			}
 		}
 	}
 
-	&:hover .toggle--wrapper label::before {
+	&:hover .toggle--wrapper label:before {
 		background-color: #d9dcdf;
 	}
 }

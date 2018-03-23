@@ -19,6 +19,13 @@
 @import "controls/toggle";
 @import "controls/upgrade";
 
+// .customize-control-text,
+// .customize-control-select,
+// .customize-control-color,
+// .customize-control-login-designer-range,
+// .customize-control-login-designer-toggle {
+// 	background-color: #ddd;
+// }
 
 #customize-control-login_designer-logo_mobile_width,
 #customize-control-login_designer-logo_mobile_height {
@@ -35,18 +42,6 @@
 
 #customize-control-login_designer_settings-branding {
 	margin-bottom: 9px;
-}
-
-#customize-control-login_designer_settings-branding_position {
-	margin-top: -1px;
-}
-
-#customize-control-login_designer-back_to {
-	margin-top: -8px;
-}
-
-#customize-control-login_designer-field_shadow_inset {
-	margin-top: -3px;
 }
 
 // Hide the Styles section.
@@ -69,17 +64,11 @@
 	margin-top: 3px;
 }
 
-#customize-control-login_designer-form_bg_transparency {
-	margin-bottom: 7px;
-	margin-top: -1px;
-}
-
 // 50/50, Small text input fields
 #customize-control-login_designer-username_label,
 #customize-control-login_designer-password_label,
 #customize-control-login_designer-back_to_label {
 	position: relative;
-	margin-bottom: 6px;
 
 	.customize-control-title {
 		width: 40%;
@@ -91,8 +80,8 @@
 		width: 60%;
 		position: absolute;
 		right: 0;
-		top: 0;
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+		top: -1px;
+		box-shadow: none;
 		margin: 0;
 		border-radius: 3px;
 	}
@@ -196,7 +185,7 @@
 			width: 60%;
 			position: absolute;
 			box-shadow: none;
-			top: 0;
+			top: -1px;
 			right: 0;
 			margin: 0;
 			background: #fff;
