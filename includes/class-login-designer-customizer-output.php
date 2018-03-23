@@ -286,10 +286,12 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 			}
 
 			if ( $fonts ) {
-				$fonts_url = add_query_arg( array(
-					'family' => rawurlencode( implode( '|', array_unique( $fonts ) ) ),
-					'subset' => rawurlencode( 'latin,latin-ext' ),
-				), 'https://fonts.googleapis.com/css' );
+				$fonts_url = add_query_arg(
+					array(
+						'family' => rawurlencode( implode( '|', array_unique( $fonts ) ) ),
+						'subset' => rawurlencode( 'latin,latin-ext' ),
+					), 'https://fonts.googleapis.com/css'
+				);
 			}
 
 			return esc_url_raw( $fonts_url );

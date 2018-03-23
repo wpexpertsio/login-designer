@@ -179,183 +179,201 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 		public function template_defaults( $localize ) {
 
 			// White on-the-site template.
-			$template_01 = apply_filters( 'login_designer_template_01_defaults', array(
-				'bg_image_gallery' 	=> 'bg_09',
-				'form_width' 		=> '',
-				'form_side_padding' 	=> '40',
-				'form_vertical_padding' => '26',
-				'form_radius' 		=> '0',
-				'form_shadow' 		=> '0',
-				'form_shadow_opacity' 	=> '0',
-				'field_bg' 		=> '#ffffff',
-				'field_padding_top' 	=> '6',
-				'field_padding_bottom' 	=> '6',
-				'field_side_padding' 	=> '12',
-				'field_border' 		=> '2',
-				'field_radius' 		=> '3',
-				'field_shadow' 		=> '0',
-				'field_shadow_opacity' 	=> '0',
-				'field_font_size' 	=> '24',
-				'field_color' 		=> '#32373c',
-				'label_position' 	=> '2',
-				'label_font_size' 	=> '14',
-				'label_color' 		=> '#72777c',
-			) );
+			$template_01 = apply_filters(
+				'login_designer_template_01_defaults', array(
+					'bg_image_gallery'      => 'bg_09',
+					'form_width'            => '',
+					'form_side_padding'     => '40',
+					'form_vertical_padding' => '26',
+					'form_radius'           => '0',
+					'form_shadow'           => '0',
+					'form_shadow_opacity'   => '0',
+					'field_bg'              => '#ffffff',
+					'field_padding_top'     => '6',
+					'field_padding_bottom'  => '6',
+					'field_side_padding'    => '12',
+					'field_border'          => '2',
+					'field_radius'          => '3',
+					'field_shadow'          => '0',
+					'field_shadow_opacity'  => '0',
+					'field_font_size'       => '24',
+					'field_color'           => '#32373c',
+					'label_position'        => '2',
+					'label_font_size'       => '14',
+					'label_color'           => '#72777c',
+				)
+			);
 
-			$template_01_branding = apply_filters( 'login_designer_template_01_branding_defaults', array(
-				'branding_color'      => '#000000',
-				'branding_icon_color' => '#000000',
-				'branding_position'   => 'right',
-			) );
+			$template_01_branding = apply_filters(
+				'login_designer_template_01_branding_defaults', array(
+					'branding_color'      => '#000000',
+					'branding_icon_color' => '#000000',
+					'branding_position'   => 'right',
+				)
+			);
 
 			// Dark template.
-			$template_02 = apply_filters( 'login_designer_template_02_defaults', array(
-				'bg_image_gallery'      => 'none',
-				'bg_color' 		=> '#000000',
-				'form_bg' 		=> '#000000',
-				'form_bg_transparency' 	=> true,
-				'form_side_padding' 	=> '10',
-				'form_vertical_padding' => '1',
-				'form_radius' 		=> '0',
-				'form_shadow' 		=> '0',
-				'form_shadow_opacity' 	=> '0',
-				'field_bg' 		=> '#191919',
-				'field_padding_top' 	=> '9',
-				'field_padding_bottom' 	=> '9',
-				'field_side_padding' 	=> '13',
-				'field_margin_bottom' 	=> '25',
-				'field_border' 		=> '0',
-				'field_radius' 		=> '5',
-				'field_shadow' 		=> '0',
-				'field_shadow_opacity' 	=> '0',
-				'field_font' 		=> 'Rubik',
-				'field_font_size' 	=> '18',
-				'field_color' 		=> '#606060',
-				'username_label' 	=> esc_html__( 'Username', '@@textdomain' ),
-				'label_font' 		=> 'Rubik',
-				'label_position' 	=> '5',
-				'label_color' 		=> '#4f4f4f',
-				'lost_password' 	=> false,
-				'back_to' 		=> false,
-				'below_color' 		=> '#4f4f4f',
-				'below_position' 	=> '50',
-				'remember_color' 	=> '#4f4f4f',
-				'remember_font' 	=> 'Rubik',
-				'remember_position' 	=> '9',
-				'button_bg' 		=> '#dcdcdc',
-				'button_padding_top'    => '8',
-				'button_padding_bottom' => '8',
-				'button_side_padding' 	=> '17',
-				'button_border' 	=> '0',
-				'button_radius' 	=> '4',
-				'button_font' 		=> 'Rubik',
-				'button_font_size' 	=> '14',
-				'button_color' 		=> '#000000',
-				'checkbox_bg' 		=> '#272727',
-				'checkbox_border' 	=> '0',
-				'checkbox_radius' 	=> '3',
-			) );
+			$template_02 = apply_filters(
+				'login_designer_template_02_defaults', array(
+					'bg_image_gallery'      => 'none',
+					'bg_color'              => '#000000',
+					'form_bg'               => '#000000',
+					'form_bg_transparency'  => true,
+					'form_side_padding'     => '10',
+					'form_vertical_padding' => '1',
+					'form_radius'           => '0',
+					'form_shadow'           => '0',
+					'form_shadow_opacity'   => '0',
+					'field_bg'              => '#191919',
+					'field_padding_top'     => '9',
+					'field_padding_bottom'  => '9',
+					'field_side_padding'    => '13',
+					'field_margin_bottom'   => '25',
+					'field_border'          => '0',
+					'field_radius'          => '5',
+					'field_shadow'          => '0',
+					'field_shadow_opacity'  => '0',
+					'field_font'            => 'Rubik',
+					'field_font_size'       => '18',
+					'field_color'           => '#606060',
+					'username_label'        => esc_html__( 'Username', '@@textdomain' ),
+					'label_font'            => 'Rubik',
+					'label_position'        => '5',
+					'label_color'           => '#4f4f4f',
+					'lost_password'         => false,
+					'back_to'               => false,
+					'below_color'           => '#4f4f4f',
+					'below_position'        => '50',
+					'remember_color'        => '#4f4f4f',
+					'remember_font'         => 'Rubik',
+					'remember_position'     => '9',
+					'button_bg'             => '#dcdcdc',
+					'button_padding_top'    => '8',
+					'button_padding_bottom' => '8',
+					'button_side_padding'   => '17',
+					'button_border'         => '0',
+					'button_radius'         => '4',
+					'button_font'           => 'Rubik',
+					'button_font_size'      => '14',
+					'button_color'          => '#000000',
+					'checkbox_bg'           => '#272727',
+					'checkbox_border'       => '0',
+					'checkbox_radius'       => '3',
+				)
+			);
 
-			$template_02_branding = apply_filters( 'login_designer_template_02_branding_defaults', array(
-				'branding_color'      => '#3d3d3d',
-				'branding_icon_color' => '#4d4d4d',
-				'branding_position'   => 'right',
-			) );
+			$template_02_branding = apply_filters(
+				'login_designer_template_02_branding_defaults', array(
+					'branding_color'      => '#3d3d3d',
+					'branding_icon_color' => '#4d4d4d',
+					'branding_position'   => 'right',
+				)
+			);
 
 			// White minimal template.
-			$template_03 = apply_filters( 'login_designer_template_03_defaults', array(
-				'bg_image_gallery' 	=> 'none',
-				'bg_color' 		=> '#ffffff',
-				'logo_margin_bottom' 	=> '0',
-				'form_bg' 		=> '#ffffff',
-				'form_bg_transparency' 	=> true,
-				'form_side_padding' 	=> '10',
-				'form_vertical_padding' => '1',
-				'form_radius' 		=> '0',
-				'form_shadow' 		=> '0',
-				'form_shadow_opacity' 	=> '0',
-				'field_bg' 		=> '#efefef',
-				'field_padding_top' 	=> '9',
-				'field_padding_bottom' 	=> '9',
-				'field_side_padding' 	=> '13',
-				'field_margin_bottom' 	=> '25',
-				'field_border' 		=> '0',
-				'field_radius' 		=> '5',
-				'field_shadow' 		=> '0',
-				'field_shadow_opacity' 	=> '0',
-				'field_font' 		=> 'Rubik',
-				'field_font_size' 	=> '18',
-				'field_color' 		=> '#434343',
-				'username_label' 	=> esc_html__( 'Username', '@@textdomain' ),
-				'label_font' 		=> 'Rubik',
-				'label_position' 	=> '5',
-				'label_color' 		=> '#8b8b8b',
-				'lost_password' 	=> false,
-				'back_to' 		=> false,
-				'below_color' 		=> '#8b8b8b',
-				'below_position' 	=> '50',
-				'remember_color' 	=> '#8b8b8b',
-				'remember_font' 	=> 'Rubik',
-				'remember_position' 	=> '9',
-				'button_bg' 		=> '#1e1e1e',
-				'button_padding_bottom' => '9',
-				'button_padding_top'    => '9',
-				'button_side_padding' 	=> '17',
-				'button_border' 	=> '0',
-				'button_radius' 	=> '5',
-				'button_font' 		=> 'Rubik',
-				'button_font_size' 	=> '14',
-				'button_color' 		=> '#fff',
-				'checkbox_bg' 		=> '#efefef',
-				'checkbox_border' 	=> '0',
-				'checkbox_radius' 	=> '3',
-			) );
+			$template_03 = apply_filters(
+				'login_designer_template_03_defaults', array(
+					'bg_image_gallery'      => 'none',
+					'bg_color'              => '#ffffff',
+					'logo_margin_bottom'    => '0',
+					'form_bg'               => '#ffffff',
+					'form_bg_transparency'  => true,
+					'form_side_padding'     => '10',
+					'form_vertical_padding' => '1',
+					'form_radius'           => '0',
+					'form_shadow'           => '0',
+					'form_shadow_opacity'   => '0',
+					'field_bg'              => '#efefef',
+					'field_padding_top'     => '9',
+					'field_padding_bottom'  => '9',
+					'field_side_padding'    => '13',
+					'field_margin_bottom'   => '25',
+					'field_border'          => '0',
+					'field_radius'          => '5',
+					'field_shadow'          => '0',
+					'field_shadow_opacity'  => '0',
+					'field_font'            => 'Rubik',
+					'field_font_size'       => '18',
+					'field_color'           => '#434343',
+					'username_label'        => esc_html__( 'Username', '@@textdomain' ),
+					'label_font'            => 'Rubik',
+					'label_position'        => '5',
+					'label_color'           => '#8b8b8b',
+					'lost_password'         => false,
+					'back_to'               => false,
+					'below_color'           => '#8b8b8b',
+					'below_position'        => '50',
+					'remember_color'        => '#8b8b8b',
+					'remember_font'         => 'Rubik',
+					'remember_position'     => '9',
+					'button_bg'             => '#1e1e1e',
+					'button_padding_bottom' => '9',
+					'button_padding_top'    => '9',
+					'button_side_padding'   => '17',
+					'button_border'         => '0',
+					'button_radius'         => '5',
+					'button_font'           => 'Rubik',
+					'button_font_size'      => '14',
+					'button_color'          => '#fff',
+					'checkbox_bg'           => '#efefef',
+					'checkbox_border'       => '0',
+					'checkbox_radius'       => '3',
+				)
+			);
 
-			$template_03_branding = apply_filters( 'login_designer_template_03_branding_defaults', array(
-				'branding_color'      => '#191919',
-				'branding_icon_color' => '#191919',
-				'branding_position'   => 'right',
-			) );
+			$template_03_branding = apply_filters(
+				'login_designer_template_03_branding_defaults', array(
+					'branding_color'      => '#191919',
+					'branding_icon_color' => '#191919',
+					'branding_position'   => 'right',
+				)
+			);
 
 			// White 50/50 on-the-site template.
-			$template_04 = apply_filters( 'login_designer_template_04_defaults', array(
-				'bg_image_gallery' 	=> 'bg_01',
-				'bg_color' 		=> '#f4f5f7',
-				'form_width' 		=> '',
-				'form_side_padding' 	=> '40',
-				'form_vertical_padding' => '20',
-				'form_radius' 		=> '0',
-				'form_shadow' 		=> '0',
-				'form_shadow_opacity' 	=> '0',
-				'field_bg' 		=> '#f4f5f7',
-				'field_padding_top' 	=> '6',
-				'field_padding_bottom' 	=> '6',
-				'field_side_padding' 	=> '12',
-				'field_border' 		=> '2',
-				'field_border_color' 	=> '#e3e4e5',
-				'field_radius' 		=> '3',
-				'field_shadow' 		=> '0',
-				'field_shadow_opacity' 	=> '0',
-				'field_font' 		=> 'Karla',
-				'field_font_size' 	=> '22',
-				'field_color' 		=> '#3f473b',
-				'label_position' 	=> '5',
-				'label_font_size' 	=> '15',
-			) );
+			$template_04 = apply_filters(
+				'login_designer_template_04_defaults', array(
+					'bg_image_gallery'      => 'bg_01',
+					'bg_color'              => '#f4f5f7',
+					'form_width'            => '',
+					'form_side_padding'     => '40',
+					'form_vertical_padding' => '20',
+					'form_radius'           => '0',
+					'form_shadow'           => '0',
+					'form_shadow_opacity'   => '0',
+					'field_bg'              => '#f4f5f7',
+					'field_padding_top'     => '6',
+					'field_padding_bottom'  => '6',
+					'field_side_padding'    => '12',
+					'field_border'          => '2',
+					'field_border_color'    => '#e3e4e5',
+					'field_radius'          => '3',
+					'field_shadow'          => '0',
+					'field_shadow_opacity'  => '0',
+					'field_font'            => 'Karla',
+					'field_font_size'       => '22',
+					'field_color'           => '#3f473b',
+					'label_position'        => '5',
+					'label_font_size'       => '15',
+				)
+			);
 
-			$template_04_branding = apply_filters( 'login_designer_template_04_branding_defaults', array(
-				'branding_color'      => '#444444',
-				'branding_icon_color' => '#333333',
-				'branding_position'   => 'right',
-			) );
+			$template_04_branding = apply_filters(
+				'login_designer_template_04_branding_defaults', array(
+					'branding_color'      => '#444444',
+					'branding_icon_color' => '#333333',
+					'branding_position'   => 'right',
+				)
+			);
 
 			$customizer = new Login_Designer_Customizer_Output();
 
 			// Branding defaults.
-			$branding_defaults = apply_filters( 'login_designer_template_01_branding_defaults', array(
-				'branding_color'      => '#444444',
-				'branding_icon_color' => '#222222',
-			) );
+			$branding_defaults = apply_filters(
+				'login_designer_template_01_branding_defaults', array(
+					'branding_color'      => '#444444',
+					'branding_icon_color' => '#222222',
+				)
+			);
 
 			$defaults = array(
 				'template_defaults'             => $customizer->defaults(),
@@ -374,14 +392,6 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			$localize = array_merge( $localize, $defaults );
 
 			return $localize;
-		}
-
-		/**
-		 * Adds the food background images to the custom gallery Customizer control.
-		 *
-		 * @param  array $defaults Default options.
-		 */
-		public function template_01( $defaults ) {
 		}
 	}
 

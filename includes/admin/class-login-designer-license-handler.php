@@ -52,8 +52,8 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		 */
 		public function key() {
 
-			$options 	= get_option( 'login_designer_license', array() );
-			$key 		= array_key_exists( 'key', $options ) ? sanitize_text_field( $options['key'] ) : false;
+			$options = get_option( 'login_designer_license', array() );
+			$key     = array_key_exists( 'key', $options ) ? sanitize_text_field( $options['key'] ) : false;
 
 			return $key;
 		}
@@ -65,8 +65,8 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		 */
 		public function status() {
 
-			$options 	= get_option( 'login_designer_license', array() );
-			$status 	= array_key_exists( 'status', $options ) ? sanitize_text_field( $options['status'] ) : false;
+			$options = get_option( 'login_designer_license', array() );
+			$status  = array_key_exists( 'status', $options ) ? sanitize_text_field( $options['status'] ) : false;
 
 			return $status;
 		}
@@ -78,8 +78,8 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		 */
 		public function expiration() {
 
-			$options 	= get_option( 'login_designer_license', array() );
-			$expiration 	= array_key_exists( 'expiration', $options ) ? sanitize_text_field( $options['expiration'] ) : false;
+			$options    = get_option( 'login_designer_license', array() );
+			$expiration = array_key_exists( 'expiration', $options ) ? sanitize_text_field( $options['expiration'] ) : false;
 
 			return $expiration;
 		}
@@ -91,8 +91,8 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		 */
 		public function site_count() {
 
-			$options 	= get_option( 'login_designer_license', array() );
-			$site_count 	= array_key_exists( 'site_count', $options ) ? sanitize_text_field( $options['site_count'] ) : false;
+			$options    = get_option( 'login_designer_license', array() );
+			$site_count = array_key_exists( 'site_count', $options ) ? sanitize_text_field( $options['site_count'] ) : false;
 
 			return $site_count;
 		}
@@ -104,8 +104,8 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		 */
 		public function activations_left() {
 
-			$options 		= get_option( 'login_designer_license', array() );
-			$activations_left 	= array_key_exists( 'activations_left', $options ) ? sanitize_text_field( $options['activations_left'] ) : false;
+			$options          = get_option( 'login_designer_license', array() );
+			$activations_left = array_key_exists( 'activations_left', $options ) ? sanitize_text_field( $options['activations_left'] ) : false;
 
 			return $activations_left;
 		}
@@ -136,7 +136,13 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		function get_api_response( $api_params ) {
 
 			// Call the custom API.
-			$response = wp_remote_post( 'https://logindesigner.com/', array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
+			$response = wp_remote_post(
+				'https://logindesigner.com/', array(
+					'timeout'   => 15,
+					'sslverify' => false,
+					'body'      => $api_params,
+				)
+			);
 
 			// Make sure the response came back okay.
 			if ( is_wp_error( $response ) ) {
@@ -207,42 +213,35 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 
 					switch ( $response->error ) {
 
-						case 'expired' :
-
+						case 'expired':
 							$message = sprintf(
 								esc_html__( 'Your license key expired on %s.', '@@textdomain' ),
 								date_i18n( get_option( 'date_format' ), strtotime( $response->expires, current_time( 'timestamp' ) ) )
 							);
 							break;
 
-						case 'revoked' :
-
+						case 'revoked':
 							$message = esc_html__( 'Your license key has been disabled.', '@@textdomain' );
 							break;
 
-						case 'missing' :
-
+						case 'missing':
 							$message = esc_html__( 'Invalid license.', '@@textdomain' );
 							break;
 
-						case 'invalid' :
-						case 'site_inactive' :
-
+						case 'invalid':
+						case 'site_inactive':
 							$message = esc_html__( 'Your license is not active for this URL.', '@@textdomain' );
 							break;
 
-						case 'item_name_mismatch' :
-
+						case 'item_name_mismatch':
 							$message = esc_html__( 'This appears to be an invalid license key.', '@@textdomain' );
 							break;
 
 						case 'no_activations_left':
-
 							$message = esc_html__( 'Your license key has reached its activation limit.', '@@textdomain' );
 							break;
 
-						default :
-
+						default:
 							$message = esc_html__( 'An error occurred, please try again.', '@@textdomain' );
 							break;
 					}
@@ -262,35 +261,35 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 				$options['key'] = $key;
 
 				// Get the license status.
-				$response_status = $response->license;
+				$response_status   = $response->license;
 				$options['status'] = $response_status;
 
 				// Get the license expiration date.
-				$response_expiration = date_i18n( get_option( 'date_format' ), strtotime( $response->expires ) );
+				$response_expiration   = date_i18n( get_option( 'date_format' ), strtotime( $response->expires ) );
 				$options['expiration'] = $response_expiration;
 
 				// Get the number of activations left.
-				$response_site_count = $response->site_count;
+				$response_site_count   = $response->site_count;
 				$options['site_count'] = $response_site_count;
 
 				// Get the number of activations left.
-				$response_activations_left = $response->activations_left;
+				$response_activations_left   = $response->activations_left;
 				$options['activations_left'] = $response_activations_left;
 
 				// Merge options.
-				$merged_options   = array_merge( $license_options, $options );
-				$license_options  = $merged_options;
+				$merged_options  = array_merge( $license_options, $options );
+				$license_options = $merged_options;
 
 				update_option( 'login_designer_license', $license_options );
 
 				wp_send_json(
 					array(
-						'done' 			=> 1,
-						'error' 		=> $message,
-						'expiration' 		=> $response_expiration,
-						'status' 		=> $response_status,
-						'site_count' 		=> $response_site_count,
-						'activations_left' 	=> $response_activations_left,
+						'done'             => 1,
+						'error'            => $message,
+						'expiration'       => $response_expiration,
+						'status'           => $response_status,
+						'site_count'       => $response_site_count,
+						'activations_left' => $response_activations_left,
 					)
 				);
 			}
@@ -327,7 +326,7 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 				// Let the Customizer know we're done here.
 				wp_send_json(
 					array(
-						'done' 			=> 1,
+						'done' => 1,
 					)
 				);
 			}

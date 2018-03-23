@@ -76,5 +76,6 @@ class Login_Designer_Upgrade_Control extends WP_Customize_Section {
 				<# } #>
 			</h3>
 		</li>
-	<?php }
+	<?php
+	}
 }

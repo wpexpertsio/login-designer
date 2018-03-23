@@ -37,6 +37,7 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 		 * @access public
 		 */
 		public function logo_title() {
+			/* translators: 1: Name of this site */
 			return sprintf( esc_html__( 'Log in to %s', '@@textdomain' ), get_bloginfo( 'name' ) );
 		}
 

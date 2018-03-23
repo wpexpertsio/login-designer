@@ -27,7 +27,7 @@ if ( ! class_exists( 'Login_Designer_Notices' ) ) :
 			$page = Login_Designer()->get_login_designer_page();
 
 			// Add a warning notice if the user has attempted to trash the Login Designer page.
-			if ( isset( $_GET['ids'] ) && $_GET['ids'] == $page->ID ) {
+			if ( isset( $_GET['ids'] ) && $_GET['ids'] === $page->ID ) {
 				add_action( 'admin_notices', array( $this, 'double_install_admin_notice' ) );
 			}
 		}

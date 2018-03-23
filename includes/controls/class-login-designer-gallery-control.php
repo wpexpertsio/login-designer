@@ -55,7 +55,12 @@ class Login_Designer_Background_Gallery_Control extends WP_Customize_Control {
 			<?php foreach ( $this->choices as $value => $label ) { ?>
 
 				<div class="login-designer-gallery__item">
-			   		<input id="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $value ); ?>" class="login-designer-gallery__checkbox" type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $name ); ?>" <?php $this->link(); checked( $this->value(), $value ); ?> />
+					<input id="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $value ); ?>" class="login-designer-gallery__checkbox" type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $name ); ?>"
+						<?php
+						$this->link();
+						checked( $this->value(), $value );
+						?>
+					/>
 					<label for="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $value ); ?>">
 						<div class="login-designer-gallery__intrinsic">
 							<div class="login-designer-gallery__img" style="background-image: url( <?php echo esc_html( $this->choices[ $value ] ); ?> );"></div>

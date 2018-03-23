@@ -281,12 +281,14 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				admin_url( 'customize.php' )
 			);
 
-			$admin_bar->add_menu( array(
-				'id'     => 'my-sub-item',
-				'parent' => 'customize',
-				'title'  => esc_html__( 'Login Designer', '@@textdomain' ),
-				'href'   => esc_url( $url ),
-			));
+			$admin_bar->add_menu(
+				array(
+					'id'     => 'my-sub-item',
+					'parent' => 'customize',
+					'title'  => esc_html__( 'Login Designer', '@@textdomain' ),
+					'href'   => esc_url( $url ),
+				)
+			);
 		}
 
 		/**
@@ -397,6 +399,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				),
 			);
 
+			/* translators: Name of this plugin */
 			$post_content = sprintf( wp_kses( __( '<p>This page is used by <a href="%1$s">%2$s</a> to preview the login forms in the Customizer. Please don\'t delete this page. Thanks!</p>', '@@textdomain' ), $allowed_html_array ), 'https://logindesigner.com', 'Login Designer' );
 
 			// Create the page.
@@ -497,7 +500,8 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			if ( $license->is_valid_license() && $this->has_pro() ) {
 				$title = esc_html__( 'Support', '@@textdomain' );
 
-				$url = Login_Designer()->get_store_url( 'support',
+				$url = Login_Designer()->get_store_url(
+					'support',
 					array(
 						'utm_medium'   => 'login-designer-pro',
 						'utm_source'   => 'plugins-page',
@@ -509,7 +513,8 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			} else {
 				$title = esc_html__( 'Pro', '@@textdomain' );
 
-				$url = Login_Designer()->get_store_url( 'support',
+				$url = Login_Designer()->get_store_url(
+					'support',
 					array(
 						'utm_medium'   => 'login-designer-lite',
 						'utm_source'   => 'plugins-page',
@@ -545,7 +550,8 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				return $input;
 			}
 
-			$url = Login_Designer()->get_store_url( 'extensions',
+			$url = Login_Designer()->get_store_url(
+				'extensions',
 				array(
 					'utm_medium'   => 'login-designer-lite',
 					'utm_source'   => 'plugins-page',
@@ -585,7 +591,8 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			// Get the plugin name, so we can view the analytics properly.
 			$plugin_name = substr( $file, 0, strpos( $file, '/' ) );
 
-			$url = Login_Designer()->get_store_url( 'extensions',
+			$url = Login_Designer()->get_store_url(
+				'extensions',
 				array(
 					'utm_medium'   => $plugin_name,
 					'utm_source'   => 'plugins-page',

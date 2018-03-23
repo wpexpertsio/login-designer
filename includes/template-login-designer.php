@@ -1,13 +1,13 @@
 <?php
-/*
+/**
  * Template Name: Login Designer
  *
  * Template to display the WordPress login form in the Customizer.
  * This is essentially a stripped down version of wp-login.php, though not accessible from outside the Customizer.
  *
- * @package   Login Designer
- * @author    Rich Tabor from ThatPluginCompany
- * @license   GPL-3.0
+ * @package   @@pkg.title
+ * @author    @@pkg.author
+ * @license   @@pkg.license
  */
 
 // Redirect if viewed from outside the Customizer.
@@ -226,7 +226,7 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 						<?php
 						/* translators: %s: site title */
-						printf( _x( '&larr; Back to %s', 'site' ), get_bloginfo( 'title', 'display' ) );
+						printf( _x( '&larr; Back to %s', 'site' ), esc_html( get_bloginfo( 'title', 'display' ) ) );
 						?>
 					</a>
 				</p>

@@ -296,8 +296,10 @@ endif;
 /*
 * Instantiate the Login_Designer_Feedback class.
 */
-new Login_Designer_Feedback( array(
-	'slug'       => 'login_designer',
-	'name'       => __( 'Login Designer', '@@textdomain' ),
-	'time_limit' => WEEK_IN_SECONDS,
-) );
+new Login_Designer_Feedback(
+	array(
+		'slug'       => 'login_designer',
+		'name'       => __( 'Login Designer', '@@textdomain' ),
+		'time_limit' => WEEK_IN_SECONDS,
+	)
+);

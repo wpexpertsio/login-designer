@@ -37,7 +37,6 @@ function login_designer_install( $network_wide = false ) {
 			login_designer_run_install();
 			restore_current_blog();
 		}
-
 	} else {
 		login_designer_run_install();
 	}

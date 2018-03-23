@@ -57,7 +57,10 @@ class Login_Designer_Range_Control extends WP_Customize_Control {
 		$dir = Login_Designer()->asset_source( 'js', 'controls/' );
 
 		// Enqueue the asset. Note that there is no minified version of this singular asset.
-		wp_enqueue_script( 'login-designer-range-control', $dir . 'login-designer-range-control.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
+		wp_enqueue_script(
+			'login-designer-range-control',
+			$dir . 'login-designer-range-control.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true
+		);
 	}
 
 	/**

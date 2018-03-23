@@ -48,19 +48,24 @@ class Login_Designer_Template_Control extends WP_Customize_Control {
 		} ?>
 
 		<div class="login-designer-templates-wrapper">
+
 			<?php foreach ( $this->choices as $value => $label ) { ?>
 
-			   <input id="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $value ); ?>" class="layout" type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $name ); ?>" <?php $this->link(); checked( $this->value(), $value ); ?> />
-					<label for="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $value ); ?>">
-						<div class="intrinsic">
-							<div class="layout-screenshot" style="background-image: url( <?php echo esc_html( $this->choices[ $value ] ); ?> );"></div>
-						</div>
-					</label>
+				<input id="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $value ); ?>" class="layout" type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $name ); ?>"
+					<?php
+					$this->link();
+					checked( $this->value(), $value );
+					?>
+				/>
+				<label for="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $value ); ?>">
+					<div class="intrinsic">
+						<div class="layout-screenshot" style="background-image: url( <?php echo esc_html( $this->choices[ $value ] ); ?> );"></div>
+					</div>
+				</label>
 
 			<?php } ?>
-		</div>
 
-		<button id="layout-switcher" class="button layout-switcher hidden"><?php esc_html_e( 'Install New Template', '@@textdomain' ); ?></button>
+		</div>
 
 		<?php
 	}

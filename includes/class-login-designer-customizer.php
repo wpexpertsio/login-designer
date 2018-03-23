@@ -82,30 +82,38 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			/**
 			 * Add the main panel and sections.
 			 */
-			$wp_customize->add_panel( 'login_designer', array(
-				'title'       => esc_html__( 'Login Designer', '@@textdomain' ),
-				'capability'  => 'edit_theme_options',
-				'description' => esc_html__( 'Click the Templates icon at the top left of the preview window to change your template. To customize further, simply click on any element, or it\'s corresponding shortcut icon, to edit it\'s styling. ', '@@textdomain' ),
-				'priority'    => 150,
-			) );
+			$wp_customize->add_panel(
+				'login_designer', array(
+					'title'       => esc_html__( 'Login Designer', '@@textdomain' ),
+					'capability'  => 'edit_theme_options',
+					'description' => esc_html__( 'Click the Templates icon at the top left of the preview window to change your template. To customize further, simply click on any element, or it\'s corresponding shortcut icon, to edit it\'s styling. ', '@@textdomain' ),
+					'priority'    => 150,
+				)
+			);
 
 			// Style Editor (visually hidden from the Customizer).
-			$wp_customize->add_section( 'login_designer__section--styles', array(
-				'title' => esc_html__( 'Styles', '@@textdomain' ),
-				'panel' => 'login_designer',
-			) );
+			$wp_customize->add_section(
+				'login_designer__section--styles', array(
+					'title' => esc_html__( 'Styles', '@@textdomain' ),
+					'panel' => 'login_designer',
+				)
+			);
 
 			// Templates.
-			$wp_customize->add_section( 'login_designer__section--templates', array(
-				'title' => esc_html__( 'Templates', '@@textdomain' ),
-				'panel' => 'login_designer',
-			) );
+			$wp_customize->add_section(
+				'login_designer__section--templates', array(
+					'title' => esc_html__( 'Templates', '@@textdomain' ),
+					'panel' => 'login_designer',
+				)
+			);
 
 			// Settings.
-			$wp_customize->add_section( 'login_designer__section--settings', array(
-				'title' => esc_html__( 'Settings', '@@textdomain' ),
-				'panel' => 'login_designer',
-			) );
+			$wp_customize->add_section(
+				'login_designer__section--settings', array(
+					'title' => esc_html__( 'Settings', '@@textdomain' ),
+					'panel' => 'login_designer',
+				)
+			);
 
 			/**
 			 * Add the theme upgrade section, only if the pro version is available.
@@ -117,7 +125,8 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 				$wp_customize->register_section_type( 'Login_Designer_Upgrade_Control' );
 
 				// Retrieve the Login Designer shop URL.
-				$url = Login_Designer()->get_store_url( 'extensions',
+				$url = Login_Designer()->get_store_url(
+					'extensions',
 					array(
 						'utm_medium'   => 'login-designer-lite',
 						'utm_source'   => 'customizer',
@@ -126,13 +135,17 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 					)
 				);
 
-				$wp_customize->add_section( new Login_Designer_Upgrade_Control( $wp_customize, 'upgrade', array(
-					'type'     => 'upgrade',
-					'panel'    => 'login_designer',
-					'title'    => esc_html__( 'Extensions', '@@textdomain' ),
-					'pro_text' => esc_html__( 'Discover Add-ons', '@@textdomain' ),
-					'pro_url'  => $url,
-				) ) );
+				$wp_customize->add_section(
+					new Login_Designer_Upgrade_Control(
+						$wp_customize, 'upgrade', array(
+							'type'     => 'upgrade',
+							'panel'    => 'login_designer',
+							'title'    => esc_html__( 'Extensions', '@@textdomain' ),
+							'pro_text' => esc_html__( 'Discover Add-ons', '@@textdomain' ),
+							'pro_url'  => $url,
+						)
+					)
+				);
 			}
 
 			/**
@@ -313,28 +326,28 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		public static function get_fonts() {
 
 			$fonts = array(
-				'default' 		=> esc_html__( 'Default', '@@textdomain' ),
-				'Abril Fatface'		=> 'Abril Fatface',
-				'Georgia'		=> 'Georgia',
-				'Helvetica'		=> 'Helvetica',
-				'Lato'			=> 'Lato',
-				'Lora'			=> 'Lora',
-				'Karla'			=> 'Karla',
-				'Josefin Sans'		=> 'Josefin Sans',
-				'Montserrat'		=> 'Montserrat',
-				'Open Sans'		=> 'Open Sans',
-				'Oswald'		=> 'Oswald',
-				'Overpass'		=> 'Overpass',
-				'Poppins'		=> 'Poppins',
-				'PT Sans'		=> 'PT Sans',
-				'Roboto'		=> 'Roboto',
-				'Fira Sans Condensed'   => 'Fira Sans',
-				'Times New Roman'	=> 'Times New Roman',
-				'Nunito'		=> 'Nunito',
-				'Merriweather'		=> 'Merriweather',
-				'Rubik'			=> 'Rubik',
-				'Playfair Display'	=> 'Playfair Display',
-				'Spectral'		=> 'Spectral',
+				'default'             => esc_html__( 'Default', '@@textdomain' ),
+				'Abril Fatface'       => 'Abril Fatface',
+				'Georgia'             => 'Georgia',
+				'Helvetica'           => 'Helvetica',
+				'Lato'                => 'Lato',
+				'Lora'                => 'Lora',
+				'Karla'               => 'Karla',
+				'Josefin Sans'        => 'Josefin Sans',
+				'Montserrat'          => 'Montserrat',
+				'Open Sans'           => 'Open Sans',
+				'Oswald'              => 'Oswald',
+				'Overpass'            => 'Overpass',
+				'Poppins'             => 'Poppins',
+				'PT Sans'             => 'PT Sans',
+				'Roboto'              => 'Roboto',
+				'Fira Sans Condensed' => 'Fira Sans',
+				'Times New Roman'     => 'Times New Roman',
+				'Nunito'              => 'Nunito',
+				'Merriweather'        => 'Merriweather',
+				'Rubik'               => 'Rubik',
+				'Playfair Display'    => 'Playfair Display',
+				'Spectral'            => 'Spectral',
 			);
 
 			return apply_filters( 'login_designer_fonts', $fonts );
