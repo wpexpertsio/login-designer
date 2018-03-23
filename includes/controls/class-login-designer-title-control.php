@@ -34,27 +34,37 @@ class Login_Designer_Title_Control extends WP_Customize_Control {
 	public $type = 'login-designer-title';
 
 	/**
-	 * Render the content.
+	 * Don't render the content via PHP.  This control is handled with a JS template.
 	 *
-	 * @see https://developer.wordpress.org/reference/classes/wp_customize_control/render_content/
+	 * @access public
+	 * @since  1.1.7
+	 * @return void
 	 */
-	public function render_content() {
+	public function render_content() {}
 
-		// Array of allowed HTML.
-		$allowed_html_array = array(
-			'a' => array(
-				'href' => array(),
-				'target' => array(),
-			),
-		);
+	/**
+	 * An Underscore (JS) template for this control's content.
+	 *
+	 * Class variables for this control class are available in the `data` JS object;
+	 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
+	 *
+	 * @see    WP_Customize_Control::print_template()
+	 *
+	 * @access protected
+	 * @since  1.1.7
+	 * @return void
+	 */
+	protected function content_template() {
+		?>
 
-		if ( isset( $this->label ) ) {
-			echo '<span class="customize-control-title">' . esc_html( $this->label ) . '</span>';
-		}
+		<# if ( data.label ) { #>
+			<span class="customize-control-title">{{ data.label }}</span>
+		<# } #>
 
-		if ( ! empty( $this->description ) ) {
-			echo '<span class="customize-control-description">' . wp_kses( $this->description, $allowed_html_array ) . '</span>';
-		}
+		<# if ( data.description ) { #>
+			<span class="customize-control-description">{{ data.description }}</span>
+		<# } #>
 
+		<?php
 	}
 }
