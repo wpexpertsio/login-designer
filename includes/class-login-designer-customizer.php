@@ -73,6 +73,9 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			if ( class_exists( 'Login_Designer_Gallery_Control' ) ) {
 				$wp_customize->register_control_type( 'Login_Designer_Gallery_Control' );
 			}
+			if ( class_exists( 'Login_Designer_Template_Control' ) ) {
+				$wp_customize->register_control_type( 'Login_Designer_Template_Control' );
+			}
 
 			// Get the default options.
 			$defaults = new Login_Designer_Customizer_Output();
@@ -94,7 +97,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 				)
 			);
 
-			// Style Editor (visually hidden from the Customizer).
+			// Style Editor (Initially hidden from the Customizer).
 			$wp_customize->add_section(
 				'login_designer__section--styles', array(
 					'title' => esc_html__( 'Styles', '@@textdomain' ),
