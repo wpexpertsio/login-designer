@@ -19,6 +19,15 @@
 		line-height: 20px;
 	}
 
+	.login-designer-range__number-input {
+
+		&::-webkit-inner-spin-button,
+		&::-webkit-outer-spin-button {
+			appearance: none;
+			margin: 0;
+		}
+	}
+
 	.login-designer-range {
 		position: relative;
 
@@ -74,19 +83,13 @@
 			box-shadow: none !important;
 			color: $gray;
 			display: inline-block;
-			font-style: 14px;
+			font-size: 14px;
 			height: 26px !important;
 			line-height: 14px !important;
 			padding: 2px 0;
 			position: relative;
 			text-align: right;
 			width: 30px !important;
-
-			&::-webkit-inner-spin-button,
-			&::-webkit-outer-spin-button {
-				appearance: none;
-				margin: 0;
-			}
 
 			&:hover,
 			&:focus {
