@@ -124,7 +124,7 @@ if ( ! class_exists( 'Login_Designer_Theme_Template' ) ) :
 			if ( file_exists( $file ) ) {
 				return $file;
 			} else {
-				echo $file;
+				echo esc_url( $file );
 			}
 
 			// Return template.
