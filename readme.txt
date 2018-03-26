@@ -90,7 +90,7 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 * New:   Replace all controls with Underscore Javascript Customizer controls
 * New:   Add new custom logo mobile height and width controls, viewable when the mobile previewer is triggered
 * New:   Add middle and upper right options for displaying the Login Designer mark
-* New:   Apply primay gallery image colors to the Login Designer mark
+* New:   Apply primary gallery image colors to the Login Designer mark
 * Fix:   Button shadow opacity now hides if there's no shadow applied
 * Fix:   Add proper styling to the checkbox Customizer event trigger
 * Fix:   Form transparency toggle now properly triggers the display of the form background control
