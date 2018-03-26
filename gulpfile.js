@@ -198,9 +198,7 @@ gulp.task('styles_customize_preview', function () {
 
 	.pipe( rename( { suffix: '.min' } ) )
 
-	.pipe( minifycss( {
-		maxLineLen: 10
-	}))
+	.pipe( minifycss() )
 
 	.pipe( gulp.dest( styleDestination ) )
 
