@@ -181,7 +181,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		}
 
 		/**
-		 * Pull the Login Designer page from options.
+		 * Is this a Pro Version of Login Designer?.
 		 *
 		 * @access public
 		 */
