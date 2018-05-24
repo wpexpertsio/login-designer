@@ -314,5 +314,40 @@
 		customizer_checkbox_option_display( 'login_designer_settings[branding]', 'login_designer_settings[branding_icon_color]', true );
 		customizer_checkbox_option_display( 'login_designer[form_bg_transparency]', 'login_designer[form_bg]', false );
 
+		/**
+		 * Function to hide/show Customizer options, based on a select value.
+		 *
+		 * Parent option, Affected Control, Value which affects the control.
+		 */
+		function customizer_select_option_display( parent_setting, affected_control, value ) {
+			wp.customize( parent_setting, function( setting ) {
+				wp.customize.control( affected_control, function( control ) {
+					var visibility = function() {
+						if ( value !== setting.get() ) {
+							control.container.slideDown( 100 );
+						} else {
+							control.container.slideUp( 100 );
+						}
+					};
+
+					visibility();
+					setting.bind( visibility );
+				});
+			});
+		}
+
+		customizer_select_option_display( 'login_designer[bg_size]', 'login_designer[bg_position]', 'cover' );
+
+		wp.customize( 'login_designer[bg_repeat]', function( value ) {
+
+			value.bind( function( to ) {
+
+				if ( to !== 'no-repeat' ) {
+					// If repeat is set to "Tile", set the background size to auto.
+					wp.customize( 'login_designer[bg_size]' ).set( 'auto' );
+				}
+			} );
+		} );
+
 	} );
 } )( jQuery );

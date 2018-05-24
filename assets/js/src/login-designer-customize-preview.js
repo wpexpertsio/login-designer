@@ -1114,7 +1114,7 @@
 	wp.customize( 'login_designer[bg_repeat]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_bg_repeat"> #login-designer-background { background-repeat: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_repeat">body.login, #login-designer-background { background-repeat: ' + to + '; } </style>';
 
 			el =  $( '.login_designer_bg_repeat' );
 
@@ -1130,7 +1130,7 @@
 	wp.customize( 'login_designer[bg_size]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_bg_size"> #login-designer-background { background-size: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_size">body.login, #login-designer-background { background-size: ' + to + '; } </style>';
 
 			el =  $( '.login_designer_bg_size' );
 
@@ -1150,7 +1150,7 @@
 			var to = to;
 			var to = to.replace(/-/g, ' ');
 
-			style = '<style class="login_designer_bg_position"> #login-designer-background { background-position: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_position">body.login, #login-designer-background { background-position: ' + to + '; } </style>';
 
 			el =  $( '.login_designer_bg_position' );
 
@@ -1166,7 +1166,7 @@
 	wp.customize( 'login_designer[bg_attach]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_bg_attach"> #login-designer-background { background-attachment: ' + to + '; } </style>';
+			style = '<style class="login_designer_bg_attach">body.login, #login-designer-background { background-attachment: ' + to + '; } </style>';
 
 			el =  $( '.login_designer_bg_attach' );
 
