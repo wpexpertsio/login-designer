@@ -32,7 +32,7 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			add_action( 'customize_preview_init', array( $this, 'customize_styles' ) );
 			add_filter( 'login_designer_control_localization', array( $this, 'template_defaults' ) );
 
-			// Add the Template 01 false background.
+			// Add the Template 01 background.
 			if ( ! is_customize_preview() ) {
 				add_action( 'login_footer', array( $this, 'render_false_template_background' ) );
 			}
