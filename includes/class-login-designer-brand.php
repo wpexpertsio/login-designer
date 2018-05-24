@@ -187,6 +187,7 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 				display: none;
 				right: 15px;
 				width: 251px;
+				z-index: 2;
 			}
 
 			.login-designer-badge.left {
