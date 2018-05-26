@@ -543,7 +543,7 @@ gulp.task( 'build-clean-after-zip', function (done) {
 });
 
 gulp.task( 'build-notification', function (done) {
-	return gulp.src( '' )
+	return gulp.src( './' )
 	.pipe( notify( { message: '👷 Your build of ' + packageName + ' is complete.', onLast: true } ) );
 	done();
 });
