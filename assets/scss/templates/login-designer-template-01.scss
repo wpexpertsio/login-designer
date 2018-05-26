@@ -1,4 +1,5 @@
 body.login.login-designer-template-01 {
+	background-image: none !important;
 	display: flex;
 	content: " ";
 	align-items: stretch;
@@ -52,6 +53,21 @@ body.login.login-designer-template-01 {
 			float: none;
 			margin-left: auto;
 			margin-right: auto;
+		}
+	}
+
+	#login-designer-background {
+		@media only screen and (min-width: 683px) {
+			background-attachment: initial !important;
+			bottom: 0;
+			height: 100%;
+			left: 580px;
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 100%;
+			width: calc(100% - 580px);
+			z-index: 0;
 		}
 	}
 }

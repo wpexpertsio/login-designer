@@ -31,6 +31,37 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			add_action( 'login_enqueue_scripts', array( $this, 'frontend_styles' ) );
 			add_action( 'customize_preview_init', array( $this, 'customize_styles' ) );
 			add_filter( 'login_designer_control_localization', array( $this, 'template_defaults' ) );
+
+			// Add the Template 01 background.
+			if ( ! is_customize_preview() ) {
+				add_action( 'login_footer', array( $this, 'render_false_template_background' ) );
+			}
+		}
+
+		/**
+		 * Render the false template background for Template 01.
+		 */
+		public function render_false_template_background() {
+
+			// Check for the option.
+			$options  = new Login_Designer_Customizer_Output();
+			$template = $options->option_wrapper( 'template' );
+
+			// Return early if no template is set.
+			if ( ! $template || '01' !== $template ) {
+				return;
+			}
+
+			$markup = '<div id="login-designer-background"></div>';
+
+			// Array of allowed HTML for the badge markup.
+			$allowed_html_array = array(
+				'div' => array(
+					'id' => array(),
+				),
+			);
+
+			echo wp_kses( $markup, $allowed_html_array );
 		}
 
 		/**
