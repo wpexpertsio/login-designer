@@ -86,7 +86,12 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
-= 1.1.7, March 26, 2017 =
+= 1.1.8, May 26, 2018 =
+* Tweak: Improved background image rendering on Template 01
+* Tweak: Add conditional logic to background image settings
+* Tweak: Gulp 4.0 & Stylelint support
+
+= 1.1.7, March 26, 2018 =
 * New:   Replace all controls with Underscore Javascript Customizer controls
 * New:   Add new custom logo mobile height and width controls, viewable when the mobile previewer is triggered
 * New:   Add middle and upper right options for displaying the Login Designer mark
@@ -98,13 +103,13 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 * Tweak: Alphabetize controls within panels that have many styles
 * Tweak: PHPCS + Stylelint support
 
-= 1.1.6, February 16, 2017 =
+= 1.1.6, February 16, 2018 =
 * New:   Add a plugin feedback notice that displays one week after installation
 * Fix:   Properly unset the button_height option once it's migrated
 * Fix:   Check if disable_logo is enabled before showing the logo's height and width Customizer options
 * Tweak: Set attribution branding mark to false by default
 
-= 1.1.5, February 09, 2017 =
+= 1.1.5, February 09, 2018 =
 * New:   Add options for fine-tuning the "Log In" button display (padding-top and padding-bottom)
 * New:   Position setting for aligning the Login Designer logo to the left or right
 * Fix:   Accreditation link obscursed content on smaller viewports
@@ -116,12 +121,12 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 * Tweak: Touch up the background image uploader control UI
 * Tweak: The settings icon is now hidden when the settings are viewed
 
-= 1.1.4, February 06, 2017 =
+= 1.1.4, February 06, 2018 =
 * Fix:   Fixed an issue where the Login Designer mark did not properly hide within the Customizer
 * Tweak: Username and password labels now stay hidden when text labels are removed
 * Tweak: Adjusted field margin bottom to work properly
 
-= 1.1.3, February 05, 2017 =
+= 1.1.3, February 05, 2018 =
 * Fix:   Rewrote the Login Designer Customizer view to resolve known plugin compatibility issues
 * Fix:   Resolved an issue where the form bottom positioning "jumped" when triggered in the Customizer
 * Fix:   Added proper translatable text for the plugin's guided intro
@@ -131,25 +136,25 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 * Tweak: Sprite display within the Customizer
 * Tweak: Improved asset delivery and minification
 
-= 1.1.2, January 26, 2017 =
+= 1.1.2, January 26, 2018 =
 * Fix:   Resolved the sprite display issue within the Customizer
 
-= 1.1.1, January 23, 2017 =
+= 1.1.1, January 23, 2018 =
 * Fix:   Custom positioning on the "remember me" checkbox now works properly
 * Tweak: Added minor Customizer UI tweaks
 * Tweak: Added appropriate prefixes to combat theme incompatibilities
 * Tweak: Added a proper is_customize_preview check for the Login Designer badge
 
-= 1.1.0, January 22, 2017 =
+= 1.1.0, January 22, 2018 =
 * Fix:   Resolved an issue where the Login Designer badge was not displaying properly
 
-= 1.0.9, January 22, 2017 =
+= 1.0.9, January 22, 2018 =
 * New:   Added an optional "Powered by Login Designer" badge to display on login pages
 * New:   Added options to customize the colors of the new "Powered by" badge
 * Tweak: Removed the Login Designer template from the Page Attributes dropdown
 * Tweak: Added additional checks for the login_designer_page value
 
-= 1.0.8, January 09, 2017 =
+= 1.0.8, January 09, 2018 =
 * New:   Added an introduction tour for first-time users
 * New:   Editing the Login Designer page now pulls up the Customizer view
 * New:   Viewing the Login Designer page, when logged in, now also pulls up the Customizer view
