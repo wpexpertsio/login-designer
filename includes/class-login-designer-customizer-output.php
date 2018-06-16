@@ -910,7 +910,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Below form color.
 				if ( isset( $options['below_color'] ) ) {
-					$css .= '#login #nav a, #login #backtoblog a { color: ' . esc_attr( $options['below_color'] ) . ' }';
+					$css .= '#login #nav, #login #nav a, #login #backtoblog a { color: ' . esc_attr( $options['below_color'] ) . ' }';
 				}
 
 				// Below form positioning.
@@ -920,12 +920,12 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Below form font, as long as it's not 'default'.
 				if ( isset( $options['below_font'] ) && 'default' !== $options['below_font'] ) {
-					$css .= '#login #nav a, #login #backtoblog a { font-family: ' . esc_attr( $options['below_font'] ) . '; }';
+					$css .= '#login #nav, #login #nav a, #login #backtoblog a { font-family: ' . esc_attr( $options['below_font'] ) . '; }';
 				}
 
 				// Below form font size.
 				if ( isset( $options['below_font_size'] ) ) {
-					$css .= '#login #nav a, #login #backtoblog a { font-size: ' . esc_attr( $options['below_font_size'] ) . 'px }';
+					$css .= '#login #nav, #login #nav a, #login #backtoblog a { font-size: ' . esc_attr( $options['below_font_size'] ) . 'px }';
 				}
 
 			endif;

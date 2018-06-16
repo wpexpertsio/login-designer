@@ -86,6 +86,9 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
+= 1.1.9, June 16, 2018 =
+* Fix: Styling the "Below Form" color now affects the p elements as well
+
 = 1.1.8, May 26, 2018 =
 * Tweak: Improved background image rendering on Template 01
 * Tweak: Add conditional logic to background image settings

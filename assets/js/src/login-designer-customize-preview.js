@@ -75,7 +75,7 @@
 	// Below form color.
 	wp.customize( 'login_designer[below_color]', function( value ) {
 		value.bind( function( to ) {
-			$( '#login #nav a, #login #backtoblog a' ).css( 'color', to );
+			$( '#login #nav, #login #nav a, #login #backtoblog a' ).css( 'color', to );
 		} );
 	} );
 
@@ -83,7 +83,7 @@
 	wp.customize( 'login_designer[below_font_size]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_below_font_size"> .login #login #nav a, .login #login #backtoblog a { font-size: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_below_font_size"> .login #login #nav, .login #login #nav a, .login #login #backtoblog a { font-size: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_below_font_size' );
 
@@ -942,7 +942,7 @@
 	live_font_family( 'login_designer[field_font]', '#login form .input' );
 	live_font_family( 'login_designer[button_font]', '#login form .submit .button' );
 	live_font_family( 'login_designer[remember_font]', '#login .forgetmenot label' );
-	live_font_family( 'login_designer[below_font]', '#login #nav a, #login #backtoblog a' );
+	live_font_family( 'login_designer[below_font]', '#login #nav, #login #nav a, #login #backtoblog a' );
 
 	// Label font size.
 	wp.customize( 'login_designer[label_font_size]', function( value ) {
