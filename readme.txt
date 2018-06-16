@@ -86,7 +86,7 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
-= 1.1.9, June 16, 2018 =
+= 1.1.9, June 18, 2018 =
 * Fix: Styling the "Below Form" color now affects the p elements as well
 
 = 1.1.8, May 26, 2018 =
