@@ -59,11 +59,21 @@ if ( ! class_exists( 'Login_Designer_Theme_Template' ) ) :
 			// Add a filter to the template include to determine if the page has our template assigned and return it's path.
 			add_filter( 'template_include', array( $this, 'view_project_template' ) );
 
+			// Add a noindex meta tag.
+			add_action( 'login_head', array( $this, 'noindex_meta' ), 9 );
+
 			// Add templates.
 			$this->templates = array(
 				'template-login-designer.php' => esc_html__( 'Login Designer', '@@textdomain' ),
 			);
+		}
 
+		/**
+		 * Ensure the Login Designer page is not indexed.
+		 */
+		public function noindex_meta() {
+			remove_action( 'login_head', 'wp_no_robots' );
+			echo '<meta name="robots" content="noindex, nofollow" />' . "\n";
 		}
 
 		/**
