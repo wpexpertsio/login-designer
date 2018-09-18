@@ -86,6 +86,9 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
+= 1.1.10, September 18, 2018 =
+* Tweak: Add a noindex meta tag to the Login Designer page
+
 = 1.1.9, June 18, 2018 =
 * Fix: Styling the "Below Form" color now affects the p elements as well
 
