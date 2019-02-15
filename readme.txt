@@ -86,6 +86,9 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
+= 1.1.11, February 15, 2018 =
+* Tweak: Update the tested up to value to WordPress 5.1
+
 = 1.1.10, September 18, 2018 =
 * Tweak: Add a noindex meta tag to the Login Designer page
 
