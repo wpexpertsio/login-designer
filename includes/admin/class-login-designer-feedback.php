@@ -6,9 +6,7 @@
  * Heavily based on code by Rhys Wynne
  * https://winwar.co.uk/2014/10/ask-wordpress-plugin-reviews-week/
  *
- * @package   @@pkg.title
- * @author    @@pkg.author
- * @license   @@pkg.license
+ * @package Login Designer
  */
 
 if ( ! class_exists( 'Login_Designer_Feedback' ) ) :

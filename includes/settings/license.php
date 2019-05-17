@@ -2,9 +2,7 @@
 /**
  * License Customizer Section.
  *
- * @package   @@pkg.title
- * @author    @@pkg.author
- * @license   @@pkg.license
+ * @package Login Designer
  */
 
 // Return early, if there is no pro version yet.

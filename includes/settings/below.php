@@ -2,9 +2,7 @@
 /**
  * Below the Form Customizer Section.
  *
- * @package   @@pkg.title
- * @author    @@pkg.author
- * @license   @@pkg.license
+ * @package Login Designer
  */
 
 $wp_customize->add_setting(

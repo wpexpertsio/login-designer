@@ -2,9 +2,7 @@
 /**
  * Extension updater.
  *
- * @package   @@pkg.title
- * @author    @@pkg.author
- * @license   @@pkg.license
+ * @package Login Designer
  */
 
 // set_site_transient( 'update_plugins', null );

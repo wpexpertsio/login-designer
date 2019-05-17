@@ -1,7 +1,7 @@
 === Custom Login Page Customizer - Login Designer ===
 Author URI: @@pkg.author_uri
 Plugin URI: @@pkg.plugin_uri
-Contributors: richtabor, logindesigner, thatplugincompany, themebeans
+Contributors: richtabor, thatplugincompany
 Donate link: @@pkg.plugin_uri
 Tags: @@pkg.tags
 Requires at least: @@pkg.requires
