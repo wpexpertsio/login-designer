@@ -6,14 +6,17 @@
  */
 
 $wp_customize->add_setting(
-	'login_designer[below_title]', array(
+	'login_designer[below_title]',
+	array(
 		'sanitize_callback' => 'sanitize_text_field',
 	)
 );
 
 $wp_customize->add_control(
 	new Login_Designer_Title_Control(
-		$wp_customize, 'login_designer[below_title]', array(
+		$wp_customize,
+		'login_designer[below_title]',
+		array(
 			'type'        => 'login-designer-title',
 			'label'       => esc_html__( 'Below Form', '@@textdomain' ),
 			'description' => esc_html__( 'Modify elements below the login form.', '@@textdomain' ),
@@ -23,7 +26,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[below_font]', array(
+	'login_designer[below_font]',
+	array(
 		'default'           => $defaults['below_font'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -32,7 +36,8 @@ $wp_customize->add_setting(
 );
 
 $wp_customize->add_control(
-	'login_designer[below_font]', array(
+	'login_designer[below_font]',
+	array(
 		'type'    => 'select',
 		'label'   => esc_html__( 'Font', '@@textdomain' ),
 		'section' => 'login_designer__section--styles',
@@ -41,7 +46,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[below_font_size]', array(
+	'login_designer[below_font_size]',
+	array(
 		'default'           => $defaults['below_font_size'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -51,7 +57,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[below_font_size]', array(
+		$wp_customize,
+		'login_designer[below_font_size]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Size', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -67,7 +75,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[below_color]', array(
+	'login_designer[below_color]',
+	array(
 		'default'           => $defaults['below_color'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -77,7 +86,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new WP_Customize_Color_Control(
-		$wp_customize, 'login_designer[below_color]', array(
+		$wp_customize,
+		'login_designer[below_color]',
+		array(
 			'label'   => esc_html__( 'Color', '@@textdomain' ),
 			'section' => 'login_designer__section--styles',
 		)
@@ -85,7 +96,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[below_position]', array(
+	'login_designer[below_position]',
+	array(
 		'default'           => $defaults['below_position'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -95,7 +107,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[below_position]', array(
+		$wp_customize,
+		'login_designer[below_position]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Position', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -111,7 +125,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[lost_password]', array(
+	'login_designer[lost_password]',
+	array(
 		'default'           => $defaults['lost_password'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -121,7 +136,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Toggle_Control(
-		$wp_customize, 'login_designer[lost_password]', array(
+		$wp_customize,
+		'login_designer[lost_password]',
+		array(
 			'label'    => esc_html__( 'Lost Password', '@@textdomain' ),
 			'section'  => 'login_designer__section--styles',
 			'type'     => 'login-designer-toggle',
@@ -131,7 +148,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[back_to]', array(
+	'login_designer[back_to]',
+	array(
 		'default'           => $defaults['back_to'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -141,7 +159,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Toggle_Control(
-		$wp_customize, 'login_designer[back_to]', array(
+		$wp_customize,
+		'login_designer[back_to]',
+		array(
 			'label'    => esc_html__( 'Back To', '@@textdomain' ),
 			'section'  => 'login_designer__section--styles',
 			'type'     => 'login-designer-toggle',

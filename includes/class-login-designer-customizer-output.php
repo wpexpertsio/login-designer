@@ -290,7 +290,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					array(
 						'family' => rawurlencode( implode( '|', array_unique( $fonts ) ) ),
 						'subset' => rawurlencode( 'latin,latin-ext' ),
-					), 'https://fonts.googleapis.com/css'
+					),
+					'https://fonts.googleapis.com/css'
 				);
 			}
 

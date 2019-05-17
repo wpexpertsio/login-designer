@@ -6,14 +6,17 @@
  */
 
 $wp_customize->add_setting(
-	'login_designer[logo_title]', array(
+	'login_designer[logo_title]',
+	array(
 		'sanitize_callback' => 'sanitize_text_field',
 	)
 );
 
 $wp_customize->add_control(
 	new Login_Designer_Title_Control(
-		$wp_customize, 'login_designer[logo_title]', array(
+		$wp_customize,
+		'login_designer[logo_title]',
+		array(
 			'type'        => 'login-designer-title',
 			'label'       => esc_html__( 'Logo', '@@textdomain' ),
 			'description' => esc_html__( 'Add your own logo. Logos will display at 50% height and width to account for retina devices. Modify the height and width below.', '@@textdomain' ),
@@ -23,7 +26,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[logo]', array(
+	'login_designer[logo]',
+	array(
 		'default'           => $defaults['logo'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -33,7 +37,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new WP_Customize_Media_Control(
-		$wp_customize, 'login_designer[logo]', array(
+		$wp_customize,
+		'login_designer[logo]',
+		array(
 			'section'  => 'login_designer__section--styles',
 			'settings' => 'login_designer[logo]',
 		)
@@ -41,7 +47,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer_settings[logo_url]', array(
+	'login_designer_settings[logo_url]',
+	array(
 		'default'           => $admin_defaults['logo_url'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -50,7 +57,8 @@ $wp_customize->add_setting(
 );
 
 $wp_customize->add_control(
-	'login_designer_settings[logo_url]', array(
+	'login_designer_settings[logo_url]',
+	array(
 		'label'          => esc_html__( 'URL', '@@textdomain' ),
 		'description'    => esc_html__( 'Select a page for your logo to link to. This is typically your site\'s home page.', '@@textdomain' ),
 		'section'        => 'login_designer__section--styles',
@@ -60,7 +68,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[logo_width]', array(
+	'login_designer[logo_width]',
+	array(
 		'default'           => $defaults['logo_width'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -70,7 +79,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[logo_width]', array(
+		$wp_customize,
+		'login_designer[logo_width]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Width', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -86,7 +97,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[logo_height]', array(
+	'login_designer[logo_height]',
+	array(
 		'default'           => $defaults['logo_height'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -96,7 +108,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[logo_height]', array(
+		$wp_customize,
+		'login_designer[logo_height]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Height', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -112,7 +126,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[logo_mobile_width]', array(
+	'login_designer[logo_mobile_width]',
+	array(
 		'default'           => $defaults['logo_mobile_width'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -122,7 +137,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[logo_mobile_width]', array(
+		$wp_customize,
+		'login_designer[logo_mobile_width]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Mobile Width', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -138,7 +155,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[logo_mobile_height]', array(
+	'login_designer[logo_mobile_height]',
+	array(
 		'default'           => $defaults['logo_mobile_height'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -148,7 +166,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[logo_mobile_height]', array(
+		$wp_customize,
+		'login_designer[logo_mobile_height]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Mobile Height', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -164,7 +184,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[logo_margin_bottom]', array(
+	'login_designer[logo_margin_bottom]',
+	array(
 		'default'           => $defaults['logo_margin_bottom'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -174,7 +195,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[logo_margin_bottom]', array(
+		$wp_customize,
+		'login_designer[logo_margin_bottom]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Position', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -190,7 +213,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[disable_logo]', array(
+	'login_designer[disable_logo]',
+	array(
 		'default'           => $defaults['disable_logo'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -200,7 +224,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Toggle_Control(
-		$wp_customize, 'login_designer[disable_logo]', array(
+		$wp_customize,
+		'login_designer[disable_logo]',
+		array(
 			'label'    => esc_html__( 'Disable Logo', '@@textdomain' ),
 			'section'  => 'login_designer__section--styles',
 			'type'     => 'login-designer-toggle',

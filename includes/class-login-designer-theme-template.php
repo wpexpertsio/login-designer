@@ -125,7 +125,9 @@ if ( ! class_exists( 'Login_Designer_Theme_Template' ) ) :
 			}
 
 			$file = plugin_dir_path( __FILE__ ) . get_post_meta(
-				$post->ID, '_wp_page_template', true
+				$post->ID,
+				'_wp_page_template',
+				true
 			);
 
 			// Just to be safe, we check if the file exist first.

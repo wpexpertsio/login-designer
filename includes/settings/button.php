@@ -6,14 +6,17 @@
  */
 
 $wp_customize->add_setting(
-	'login_designer[button_title]', array(
+	'login_designer[button_title]',
+	array(
 		'sanitize_callback' => 'sanitize_text_field',
 	)
 );
 
 $wp_customize->add_control(
 	new Login_Designer_Title_Control(
-		$wp_customize, 'login_designer[button_title]', array(
+		$wp_customize,
+		'login_designer[button_title]',
+		array(
 			'type'        => 'login-designer-title',
 			'label'       => esc_html__( 'Button', '@@textdomain' ),
 			'description' => esc_html__( 'Customize the full display appearance of the login submit button.', '@@textdomain' ),
@@ -23,7 +26,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[button_bg]', array(
+	'login_designer[button_bg]',
+	array(
 		'default'           => $defaults['button_bg'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -33,7 +37,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new WP_Customize_Color_Control(
-		$wp_customize, 'login_designer[button_bg]', array(
+		$wp_customize,
+		'login_designer[button_bg]',
+		array(
 			'label'   => esc_html__( 'Background', '@@textdomain' ),
 			'section' => 'login_designer__section--styles',
 		)
@@ -41,7 +47,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[button_border]', array(
+	'login_designer[button_border]',
+	array(
 		'default'           => $defaults['button_border'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -51,7 +58,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[button_border]', array(
+		$wp_customize,
+		'login_designer[button_border]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Border', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -67,7 +76,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[button_border_color]', array(
+	'login_designer[button_border_color]',
+	array(
 		'default'           => $defaults['button_border_color'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -77,7 +87,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new WP_Customize_Color_Control(
-		$wp_customize, 'login_designer[button_border_color]', array(
+		$wp_customize,
+		'login_designer[button_border_color]',
+		array(
 			'label'   => esc_html__( 'Border Color', '@@textdomain' ),
 			'section' => 'login_designer__section--styles',
 		)
@@ -85,7 +97,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[button_side_padding]', array(
+	'login_designer[button_side_padding]',
+	array(
 		'default'           => $defaults['button_side_padding'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -95,7 +108,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[button_side_padding]', array(
+		$wp_customize,
+		'login_designer[button_side_padding]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Padding', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -111,7 +126,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[button_padding_top]', array(
+	'login_designer[button_padding_top]',
+	array(
 		'default'           => $defaults['button_padding_top'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -121,7 +137,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[button_padding_top]', array(
+		$wp_customize,
+		'login_designer[button_padding_top]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Padding Top', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -137,7 +155,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[button_padding_bottom]', array(
+	'login_designer[button_padding_bottom]',
+	array(
 		'default'           => $defaults['button_padding_bottom'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -147,7 +166,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[button_padding_bottom]', array(
+		$wp_customize,
+		'login_designer[button_padding_bottom]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Padding Bottom', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -163,7 +184,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[button_radius]', array(
+	'login_designer[button_radius]',
+	array(
 		'default'           => $defaults['button_radius'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -173,7 +195,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[button_radius]', array(
+		$wp_customize,
+		'login_designer[button_radius]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Radius', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -189,7 +213,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[button_shadow]', array(
+	'login_designer[button_shadow]',
+	array(
 		'default'           => $defaults['button_shadow'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -199,7 +224,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[button_shadow]', array(
+		$wp_customize,
+		'login_designer[button_shadow]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Shadow', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -215,7 +242,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[button_shadow_opacity]', array(
+	'login_designer[button_shadow_opacity]',
+	array(
 		'default'           => $defaults['button_shadow_opacity'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -225,7 +253,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[button_shadow_opacity]', array(
+		$wp_customize,
+		'login_designer[button_shadow_opacity]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Shadow Opacity', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -245,14 +275,17 @@ $wp_customize->add_control(
  * Button Text.
  */
 $wp_customize->add_setting(
-	'login_designer[button_text_title]', array(
+	'login_designer[button_text_title]',
+	array(
 		'sanitize_callback' => 'sanitize_text_field',
 	)
 );
 
 $wp_customize->add_control(
 	new Login_Designer_Title_Control(
-		$wp_customize, 'login_designer[button_text_title]', array(
+		$wp_customize,
+		'login_designer[button_text_title]',
+		array(
 			'type'        => 'login-designer-title',
 			'label'       => esc_html__( 'Text', '@@textdomain' ),
 			'description' => esc_html__( 'Change the button font, color and size.', '@@textdomain' ),
@@ -262,7 +295,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[button_font]', array(
+	'login_designer[button_font]',
+	array(
 		'default'           => $defaults['button_font'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -271,7 +305,8 @@ $wp_customize->add_setting(
 );
 
 $wp_customize->add_control(
-	'login_designer[button_font]', array(
+	'login_designer[button_font]',
+	array(
 		'type'    => 'select',
 		'label'   => esc_html__( 'Font', '@@textdomain' ),
 		'section' => 'login_designer__section--styles',
@@ -280,7 +315,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[button_font_size]', array(
+	'login_designer[button_font_size]',
+	array(
 		'default'           => $defaults['button_font_size'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -290,7 +326,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[button_font_size]', array(
+		$wp_customize,
+		'login_designer[button_font_size]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Size', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -306,7 +344,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[button_color]', array(
+	'login_designer[button_color]',
+	array(
 		'default'           => $defaults['button_color'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -316,7 +355,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new WP_Customize_Color_Control(
-		$wp_customize, 'login_designer[button_color]', array(
+		$wp_customize,
+		'login_designer[button_color]',
+		array(
 			'label'   => esc_html__( 'Color', '@@textdomain' ),
 			'section' => 'login_designer__section--styles',
 		)

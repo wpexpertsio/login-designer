@@ -6,14 +6,17 @@
  */
 
 $wp_customize->add_setting(
-	'login_designer[remember_title]', array(
+	'login_designer[remember_title]',
+	array(
 		'sanitize_callback' => 'sanitize_text_field',
 	)
 );
 
 $wp_customize->add_control(
 	new Login_Designer_Title_Control(
-		$wp_customize, 'login_designer[remember_title]', array(
+		$wp_customize,
+		'login_designer[remember_title]',
+		array(
 			'type'        => 'login-designer-title',
 			'label'       => esc_html__( 'Remember', '@@textdomain' ),
 			'description' => esc_html__( 'Easily customize the Remember Me element on the login form.', '@@textdomain' ),
@@ -23,7 +26,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[remember_font]', array(
+	'login_designer[remember_font]',
+	array(
 		'default'           => $defaults['remember_font'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -32,7 +36,8 @@ $wp_customize->add_setting(
 );
 
 $wp_customize->add_control(
-	'login_designer[remember_font]', array(
+	'login_designer[remember_font]',
+	array(
 		'type'    => 'select',
 		'label'   => esc_html__( 'Font', '@@textdomain' ),
 		'section' => 'login_designer__section--styles',
@@ -41,7 +46,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[remember_font_size]', array(
+	'login_designer[remember_font_size]',
+	array(
 		'default'           => $defaults['remember_font_size'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -51,7 +57,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[remember_font_size]', array(
+		$wp_customize,
+		'login_designer[remember_font_size]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Size', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -67,7 +75,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[remember_position]', array(
+	'login_designer[remember_position]',
+	array(
 		'default'           => $defaults['remember_position'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -77,7 +86,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[remember_position]', array(
+		$wp_customize,
+		'login_designer[remember_position]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Position', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -93,7 +104,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[remember_color]', array(
+	'login_designer[remember_color]',
+	array(
 		'default'           => $defaults['remember_color'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -103,7 +115,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new WP_Customize_Color_Control(
-		$wp_customize, 'login_designer[remember_color]', array(
+		$wp_customize,
+		'login_designer[remember_color]',
+		array(
 			'label'   => esc_html__( 'Color', '@@textdomain' ),
 			'section' => 'login_designer__section--styles',
 		)
