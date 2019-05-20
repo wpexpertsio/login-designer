@@ -2,9 +2,7 @@
 /**
  * Migrations.
  *
- * @package   @@pkg.title
- * @author    @@pkg.author
- * @license   @@pkg.license
+ * @package Login Designer
  */
 
 // Exit if accessed directly.

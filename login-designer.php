@@ -24,9 +24,7 @@
  * You should have received a copy of the GNU General Public License
  * along with @@pkg.title. If not, see <http://www.gnu.org/licenses/>.
  *
- * @package   @@pkg.title
- * @author    @@pkg.author
- * @license   @@pkg.license
+ * @package Login Designer
  */
 
 // Exit if accessed directly.

@@ -4,9 +4,7 @@
  *
  * @see https://developer.wordpress.org/reference/classes/wp_customize_control/
  *
- * @package   @@pkg.title
- * @author    @@pkg.author
- * @license   @@pkg.license
+ * @package Login Designer
  */
 
 // Exit if accessed directly.

@@ -8,7 +8,7 @@ __Please Note:__ GitHub is for bug reports and contributions only - if you have 
 
 ## Getting Started
 
-* __Do not report potential security vulnerabilities here. Email them privately to me at [rich at logindesigner dot com](mailto:rich@logindesigner.com)__
+* __Do not report potential security vulnerabilities here. Email them privately to me at [hi at richtabor dot com](mailto:hi@richtabor.com)__
 * Before submitting a ticket, please be sure to replicate the behavior with no other plugins active and on a base theme like Twenty Seventeen.
 * Submit a ticket for your issue, assuming one does not already exist.
   * Raise it on our [Issue Tracker](https://github.com/thatplugincompany/login-designer/issues)

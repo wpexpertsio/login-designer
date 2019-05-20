@@ -2,9 +2,7 @@
 /**
  * Functions that modify the frontend functionality of the login pages.
  *
- * @package   @@pkg.title
- * @author    @@pkg.author
- * @license   @@pkg.license
+ * @package Login Designer
  */
 
 // Exit if accessed directly.

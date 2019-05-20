@@ -4,9 +4,7 @@
  *
  * @see https://github.com/justintadlock/trt-customizer-pro
  *
- * @package   @@pkg.title
- * @author    @@pkg.author
- * @license   @@pkg.license
+ * @package Login Designer
  */
 
 /**

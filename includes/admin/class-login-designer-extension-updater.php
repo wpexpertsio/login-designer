@@ -2,9 +2,7 @@
 /**
  * Extension updater.
  *
- * @package   @@pkg.title
- * @author    @@pkg.author
- * @license   @@pkg.license
+ * @package Login Designer
  */
 
 // set_site_transient( 'update_plugins', null );
@@ -150,7 +148,7 @@ class Login_Designer_Extension_Updater {
 			return;
 		}
 
-		if ( $this->name != $file ) {
+		if ( $this->name !== $file ) {
 			return;
 		}
 
@@ -167,7 +165,8 @@ class Login_Designer_Extension_Updater {
 
 			if ( false === $version_info ) {
 				$version_info = $this->api_request(
-					'plugin_latest_version', array(
+					'plugin_latest_version',
+					array(
 						'slug' => $this->slug,
 						'beta' => $this->beta,
 					)
@@ -249,13 +248,13 @@ class Login_Designer_Extension_Updater {
 	 */
 	public function plugins_api_filter( $_data, $_action = '', $_args = null ) {
 
-		if ( $_action != 'plugin_information' ) {
+		if ( 'plugin_information' !== $_action ) {
 
 			return $_data;
 
 		}
 
-		if ( ! isset( $_args->slug ) || ( $_args->slug != $this->slug ) ) {
+		if ( ! isset( $_args->slug ) || ( $_args->slug !== $this->slug ) ) {
 
 			return $_data;
 
@@ -351,7 +350,7 @@ class Login_Designer_Extension_Updater {
 			return;
 		}
 
-		if ( $this->api_url == trailingslashit( home_url() ) ) {
+		if ( trailingslashit( home_url() ) == $this->api_url ) {
 			return false; // Don't allow a plugin to ping itself.
 		}
 
@@ -369,7 +368,8 @@ class Login_Designer_Extension_Updater {
 
 		$verify_ssl = $this->verify_ssl();
 		$request    = wp_remote_post(
-			$this->api_url, array(
+			$this->api_url,
+			array(
 				'timeout'   => 15,
 				'sslverify' => $verify_ssl,
 				'body'      => $api_params,
@@ -403,7 +403,7 @@ class Login_Designer_Extension_Updater {
 
 		global $edd_plugin_data;
 
-		if ( empty( $_REQUEST['edd_sl_action'] ) || 'view_plugin_changelog' != $_REQUEST['edd_sl_action'] ) {
+		if ( empty( $_REQUEST['edd_sl_action'] ) || 'view_plugin_changelog' !== $_REQUEST['edd_sl_action'] ) {
 			return;
 		}
 
@@ -438,7 +438,8 @@ class Login_Designer_Extension_Updater {
 
 			$verify_ssl = $this->verify_ssl();
 			$request    = wp_remote_post(
-				$this->api_url, array(
+				$this->api_url,
+				array(
 					'timeout'   => 15,
 					'sslverify' => $verify_ssl,
 					'body'      => $api_params,

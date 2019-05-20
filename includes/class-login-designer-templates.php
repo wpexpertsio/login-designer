@@ -4,9 +4,7 @@
  * Any additional scripts that are required by individual controls
  * are enqueued in the control classes themselves.
  *
- * @package   @@pkg.title
- * @author    @@pkg.author
- * @license   @@pkg.license
+ * @package Login Designer
  */
 
 // Exit if accessed directly.
@@ -187,7 +185,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 
 			// White on-the-site template.
 			$template_01 = apply_filters(
-				'login_designer_template_01_defaults', array(
+				'login_designer_template_01_defaults',
+				array(
 					'bg_image_gallery'      => 'bg_09',
 					'form_width'            => '',
 					'form_side_padding'     => '40',
@@ -212,7 +211,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			);
 
 			$template_01_branding = apply_filters(
-				'login_designer_template_01_branding_defaults', array(
+				'login_designer_template_01_branding_defaults',
+				array(
 					'branding_color'      => '#000000',
 					'branding_icon_color' => '#000000',
 					'branding_position'   => 'right',
@@ -221,7 +221,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 
 			// Dark template.
 			$template_02 = apply_filters(
-				'login_designer_template_02_defaults', array(
+				'login_designer_template_02_defaults',
+				array(
 					'bg_image_gallery'      => 'none',
 					'bg_color'              => '#000000',
 					'form_bg'               => '#000000',
@@ -270,7 +271,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			);
 
 			$template_02_branding = apply_filters(
-				'login_designer_template_02_branding_defaults', array(
+				'login_designer_template_02_branding_defaults',
+				array(
 					'branding_color'      => '#3d3d3d',
 					'branding_icon_color' => '#4d4d4d',
 					'branding_position'   => 'right',
@@ -279,7 +281,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 
 			// White minimal template.
 			$template_03 = apply_filters(
-				'login_designer_template_03_defaults', array(
+				'login_designer_template_03_defaults',
+				array(
 					'bg_image_gallery'      => 'none',
 					'bg_color'              => '#ffffff',
 					'logo_margin_bottom'    => '0',
@@ -329,7 +332,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			);
 
 			$template_03_branding = apply_filters(
-				'login_designer_template_03_branding_defaults', array(
+				'login_designer_template_03_branding_defaults',
+				array(
 					'branding_color'      => '#191919',
 					'branding_icon_color' => '#191919',
 					'branding_position'   => 'right',
@@ -338,7 +342,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 
 			// White 50/50 on-the-site template.
 			$template_04 = apply_filters(
-				'login_designer_template_04_defaults', array(
+				'login_designer_template_04_defaults',
+				array(
 					'bg_image_gallery'      => 'bg_01',
 					'bg_color'              => '#f4f5f7',
 					'form_width'            => '',
@@ -365,7 +370,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			);
 
 			$template_04_branding = apply_filters(
-				'login_designer_template_04_branding_defaults', array(
+				'login_designer_template_04_branding_defaults',
+				array(
 					'branding_color'      => '#444444',
 					'branding_icon_color' => '#333333',
 					'branding_position'   => 'right',
@@ -376,7 +382,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 
 			// Branding defaults.
 			$branding_defaults = apply_filters(
-				'login_designer_template_01_branding_defaults', array(
+				'login_designer_template_01_branding_defaults',
+				array(
 					'branding_color'      => '#444444',
 					'branding_icon_color' => '#222222',
 				)

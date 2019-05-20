@@ -2,20 +2,21 @@
 /**
  * Form Customizer Section.
  *
- * @package   @@pkg.title
- * @author    @@pkg.author
- * @license   @@pkg.license
+ * @package Login Designer
  */
 
 $wp_customize->add_setting(
-	'login_designer[form_title]', array(
+	'login_designer[form_title]',
+	array(
 		'sanitize_callback' => 'sanitize_text_field',
 	)
 );
 
 $wp_customize->add_control(
 	new Login_Designer_Title_Control(
-		$wp_customize, 'login_designer[form_title]', array(
+		$wp_customize,
+		'login_designer[form_title]',
+		array(
 			'type'        => 'login-designer-title',
 			'label'       => esc_html__( 'Form', '@@textdomain' ),
 			'description' => esc_html__( 'Easily customize the login form wrapper default styling.', '@@textdomain' ),
@@ -25,7 +26,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[form_bg]', array(
+	'login_designer[form_bg]',
+	array(
 		'default'           => $defaults['form_bg'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -35,7 +37,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new WP_Customize_Color_Control(
-		$wp_customize, 'login_designer[form_bg]', array(
+		$wp_customize,
+		'login_designer[form_bg]',
+		array(
 			'label'   => esc_html__( 'Background', '@@textdomain' ),
 			'section' => 'login_designer__section--styles',
 		)
@@ -43,7 +47,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[form_radius]', array(
+	'login_designer[form_radius]',
+	array(
 		'default'           => $defaults['form_radius'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -53,7 +58,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[form_radius]', array(
+		$wp_customize,
+		'login_designer[form_radius]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Radius', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -69,7 +76,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[form_shadow]', array(
+	'login_designer[form_shadow]',
+	array(
 		'default'           => $defaults['form_shadow'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -79,7 +87,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[form_shadow]', array(
+		$wp_customize,
+		'login_designer[form_shadow]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Shadow', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -95,7 +105,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[form_shadow_opacity]', array(
+	'login_designer[form_shadow_opacity]',
+	array(
 		'default'           => $defaults['form_shadow_opacity'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -105,7 +116,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[form_shadow_opacity]', array(
+		$wp_customize,
+		'login_designer[form_shadow_opacity]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Shadow Opacity', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -121,7 +134,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[form_side_padding]', array(
+	'login_designer[form_side_padding]',
+	array(
 		'default'           => $defaults['form_side_padding'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -131,7 +145,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[form_side_padding]', array(
+		$wp_customize,
+		'login_designer[form_side_padding]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Side Padding', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -147,7 +163,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[form_bg_transparency]', array(
+	'login_designer[form_bg_transparency]',
+	array(
 		'default'           => $defaults['form_bg_transparency'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -157,7 +174,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Toggle_Control(
-		$wp_customize, 'login_designer[form_bg_transparency]', array(
+		$wp_customize,
+		'login_designer[form_bg_transparency]',
+		array(
 			'label'    => esc_html__( 'Transparent', '@@textdomain' ),
 			'section'  => 'login_designer__section--styles',
 			'type'     => 'login-designer-toggle',
@@ -167,7 +186,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[form_vertical_padding]', array(
+	'login_designer[form_vertical_padding]',
+	array(
 		'default'           => $defaults['form_vertical_padding'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -177,7 +197,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[form_vertical_padding]', array(
+		$wp_customize,
+		'login_designer[form_vertical_padding]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Vertical Padding', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',
@@ -193,7 +215,8 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[form_width]', array(
+	'login_designer[form_width]',
+	array(
 		'default'           => $defaults['form_width'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
@@ -203,7 +226,9 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 	new Login_Designer_Range_Control(
-		$wp_customize, 'login_designer[form_width]', array(
+		$wp_customize,
+		'login_designer[form_width]',
+		array(
 			'type'        => 'login-designer-range',
 			'label'       => esc_html__( 'Width', '@@textdomain' ),
 			'section'     => 'login_designer__section--styles',

@@ -2,9 +2,7 @@
 /**
  * Install Functionality
  *
- * @package   @@pkg.title
- * @author    @@pkg.author
- * @license   @@pkg.license
+ * @package Login Designer
  */
 
 // Exit if accessed directly.
@@ -143,7 +141,8 @@ function login_designer_run_install() {
 	$post_content = sprintf( __( '<p>This page is used by %1$s to preview the login form in the Customizer.</p>', '@@textdomain' ), 'Login Designer' );
 
 	$pages = apply_filters(
-		'login_designer_create_pages', array(
+		'login_designer_create_pages',
+		array(
 			'login_designer' => array(
 				'name'    => _x( 'login-designer', 'Page slug', '@@textdomain' ),
 				'title'   => _x( 'Login Designer', 'Page title', '@@textdomain' ),

@@ -6,9 +6,7 @@
  * Heavily based on code by Rhys Wynne
  * https://winwar.co.uk/2014/10/ask-wordpress-plugin-reviews-week/
  *
- * @package   @@pkg.title
- * @author    @@pkg.author
- * @license   @@pkg.license
+ * @package Login Designer
  */
 
 if ( ! class_exists( 'Login_Designer_Feedback' ) ) :
@@ -168,94 +166,109 @@ if ( ! class_exists( 'Login_Designer_Feedback' ) ) :
 			if ( isset( $screen->base ) && 'plugins' === $screen->base ) {
 				$no_bug_url = wp_nonce_url( admin_url( '?' . $this->nobug_option . '=true' ), 'login-designer-feedback-nounce' );
 				$time       = $this->seconds_to_words( time() - get_site_option( $this->date_option ) );
-			?>
+				?>
 
-			<style>
-			.notice.login-designer-notice {
-				border-left-color: #008ec2 !important;
-				padding: 20px;
-			}
-			.rtl .notice.login-designer-notice {
-				border-right-color: #008ec2 !important;
-			}
-			.notice.notice.login-designer-notice .login-designer-notice-inner {
-				display: table;
-				width: 100%;
-			}
-			.notice.login-designer-notice .login-designer-notice-inner .login-designer-notice-icon,
-			.notice.login-designer-notice .login-designer-notice-inner .login-designer-notice-content,
-			.notice.login-designer-notice .login-designer-notice-inner .login-designer-install-now {
-				display: table-cell;
-				vertical-align: middle;
-			}
-			.notice.login-designer-notice .login-designer-notice-icon {
-				color: #509ed2;
-				font-size: 50px;
-				width: 60px;
-			}
-			.notice.login-designer-notice .login-designer-notice-icon img {
-				width: 64px;
-			}
-			.notice.login-designer-notice .login-designer-notice-content {
-				padding: 0 40px 0 20px;
-			}
-			.notice.login-designer-notice p {
-				padding: 0;
-				margin: 0;
-			}
-			.notice.login-designer-notice h3 {
-				margin: 0 0 5px;
-			}
-			.notice.login-designer-notice .login-designer-install-now {
-				text-align: center;
-			}
-			.notice.login-designer-notice .login-designer-install-now .login-designer-install-button {
-				padding: 6px 50px;
-				height: auto;
-				line-height: 20px;
-			}
-			.notice.login-designer-notice a.no-thanks {
-				display: block;
-				margin-top: 10px;
-				color: #72777c;
-				text-decoration: none;
-			}
+<style>
+.notice.login-designer-notice {
+	border-left-color: #008ec2 !important;
+	padding: 20px;
+}
 
-			.notice.login-designer-notice a.no-thanks:hover {
-				color: #444;
-			}
+.rtl .notice.login-designer-notice {
+	border-right-color: #008ec2 !important;
+}
 
-			@media (max-width: 767px) {
+.notice.notice.login-designer-notice .login-designer-notice-inner {
+	display: table;
+	width: 100%;
+}
 
-				.notice.notice.login-designer-notice .login-designer-notice-inner {
-					display: block;
-				}
-				.notice.login-designer-notice {
-					padding: 20px !important;
-				}
-				.notice.login-designer-noticee .login-designer-notice-inner {
-					display: block;
-				}
-				.notice.login-designer-notice .login-designer-notice-inner .login-designer-notice-content {
-					display: block;
-					padding: 0;
-				}
-				.notice.login-designer-notice .login-designer-notice-inner .login-designer-notice-icon {
-					display: none;
-				}
+.notice.login-designer-notice .login-designer-notice-inner .login-designer-notice-icon,
+.notice.login-designer-notice .login-designer-notice-inner .login-designer-notice-content,
+.notice.login-designer-notice .login-designer-notice-inner .login-designer-install-now {
+	display: table-cell;
+	vertical-align: middle;
+}
 
-				.notice.login-designer-notice .login-designer-notice-inner .login-designer-install-now {
-					margin-top: 20px;
-					display: block;
-					text-align: left;
-				}
+.notice.login-designer-notice .login-designer-notice-icon {
+	color: #509ed2;
+	font-size: 50px;
+	width: 60px;
+}
 
-				.notice.login-designer-notice .login-designer-notice-inner .no-thanks {
-					display: inline-block;
-					margin-left: 15px;
-				}
-			}
-			</style>
+.notice.login-designer-notice .login-designer-notice-icon img {
+	width: 64px;
+}
+
+.notice.login-designer-notice .login-designer-notice-content {
+	padding: 0 40px 0 20px;
+}
+
+.notice.login-designer-notice p {
+	padding: 0;
+	margin: 0;
+}
+
+.notice.login-designer-notice h3 {
+	margin: 0 0 5px;
+}
+
+.notice.login-designer-notice .login-designer-install-now {
+	text-align: center;
+}
+
+.notice.login-designer-notice .login-designer-install-now .login-designer-install-button {
+	padding: 6px 50px;
+	height: auto;
+	line-height: 20px;
+}
+
+.notice.login-designer-notice a.no-thanks {
+	display: block;
+	margin-top: 10px;
+	color: #72777c;
+	text-decoration: none;
+}
+
+.notice.login-designer-notice a.no-thanks:hover {
+	color: #444;
+}
+
+@media (max-width: 767px) {
+
+	.notice.notice.login-designer-notice .login-designer-notice-inner {
+		display: block;
+	}
+
+	.notice.login-designer-notice {
+		padding: 20px !important;
+	}
+
+	.notice.login-designer-noticee .login-designer-notice-inner {
+		display: block;
+	}
+
+	.notice.login-designer-notice .login-designer-notice-inner .login-designer-notice-content {
+		display: block;
+		padding: 0;
+	}
+
+	.notice.login-designer-notice .login-designer-notice-inner .login-designer-notice-icon {
+		display: none;
+	}
+
+	.notice.login-designer-notice .login-designer-notice-inner .login-designer-install-now {
+		margin-top: 20px;
+		display: block;
+		text-align: left;
+	}
+
+	.notice.login-designer-notice .login-designer-notice-inner .no-thanks {
+		display: inline-block;
+		margin-left: 15px;
+	}
+}
+</style>
 			<div class="notice updated login-designer-notice">
 				<div class="login-designer-notice-inner">
 					<div class="login-designer-notice-icon">
@@ -274,7 +287,7 @@ if ( ! class_exists( 'Login_Designer_Feedback' ) ) :
 					</div>
 				</div>
 			</div>
-			<?php
+				<?php
 			}
 		}
 
