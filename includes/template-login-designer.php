@@ -125,7 +125,7 @@ $login_header_url = apply_filters( 'login_headerurl', $login_header_url );
  *
  * @param string $login_header_title Login header logo title attribute.
  */
-$login_header_title = apply_filters( 'login_headertitle', $login_header_title );
+$login_header_title = apply_filters( 'login_headertext', $login_header_title );
 
 unset( $login_header_url, $login_header_title );
 

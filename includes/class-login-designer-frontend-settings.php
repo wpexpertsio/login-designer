@@ -24,7 +24,7 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 		 * Adds actions to enqueue our assets.
 		 */
 		public function __construct() {
-			add_action( 'login_headertitle', array( $this, 'logo_title' ) );
+			add_action( 'login_headertext', array( $this, 'logo_title' ) );
 			add_action( 'login_headerurl', array( $this, 'logo_url' ) );
 			add_filter( 'login_message', array( $this, 'login_message' ) );
 		}
@@ -32,7 +32,7 @@ if ( ! class_exists( 'Login_Designer_Frontend_Settings' ) ) :
 		/**
 		 * Filters the logo image title attribute.
 		 *
-		 * @see https://developer.wordpress.org/reference/hooks/login_headertitle/
+		 * @see https://developer.wordpress.org/reference/hooks/login_headertext/
 		 *
 		 * @access public
 		 */
