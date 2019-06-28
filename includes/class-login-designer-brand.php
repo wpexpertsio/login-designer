@@ -136,7 +136,7 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 			$markup .= '<div class="login-designer-badge__inner">';
 			$markup .= sprintf( '<span class="login-designer-badge__text">%1$s</span>', esc_html( $text ) );
 			$markup .= $this->get_svg( array( 'icon' => 'login-designer' ) );
-			$markup .= sprintf( '<a class="login-designer-badge__link" href="%1$s" alt="%2$s" target="_blank"></a>', esc_url( 'https://wordpress.org/plugins/login-designer/' ), esc_attr( $alt ) );
+			$markup .= sprintf( '<a class="login-designer-badge__link" href="%1$s" alt="%2$s" title="%2$s" target="_blank"></a>', esc_url( 'https://wordpress.org/plugins/login-designer/' ), esc_attr( $alt ) );
 			$markup .= '</div>';
 			$markup .= '</div>';
 
