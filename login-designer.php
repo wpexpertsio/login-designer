@@ -5,7 +5,7 @@
  * Description: @@pkg.description
  * Author: @@pkg.author
  * Author URI: @@pkg.author_uri
- * Version: 1.1.12
+ * Version: 1.2.0
  * Text Domain: @@textdomain
  * Domain Path: languages
  * Requires at least: @@pkg.requires
@@ -175,6 +175,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-frontend-settings.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-templates.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-theme-template.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/filters.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/install.php';
 		}
 
