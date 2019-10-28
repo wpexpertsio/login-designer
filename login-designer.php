@@ -5,7 +5,7 @@
  * Description: @@pkg.description
  * Author: @@pkg.author
  * Author URI: @@pkg.author_uri
- * Version: 1.2.0
+ * Version: 1.1.12
  * Text Domain: @@textdomain
  * Domain Path: languages
  * Requires at least: @@pkg.requires
