@@ -11,7 +11,7 @@ var license                	= pkg.license;
 var copyright              	= pkg.copyright;
 var author                 	= pkg.author;
 var plugin_uri              	= pkg.plugin_uri;
-var projectURL              	= 'http://demo.logindesigner.dev/wp-login.php';
+var projectURL              	= 'https://logindesigner.test/wp-login.php';
 
 var styleCustomizerSRC  	= './assets/scss/customizer/'+ slug +'-customize-preview.scss';
 var styleCustomizerControlsSRC  = './assets/scss/customizer/'+ slug +'-customize-controls.scss';
