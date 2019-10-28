@@ -9,6 +9,14 @@
  * Domain Path:     /languages
  * Version:         1.1.12
  *
+ * Login Designer is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Login Designer. If not, see <http://www.gnu.org/licenses/>.
+ *
  * @package         Login Designer
  */
 
@@ -22,10 +30,9 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 	 * @since 1.0.0
 	 */
 	final class Login_Designer {
-		/** Singleton *************************************************************/
 
 		/**
-		 * Login_Designer The one true Login_Designer
+		 * This plugin's instance.
 		 *
 		 * @var string $instance
 		 */
@@ -39,12 +46,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 *
 		 * @since 1.0.0
 		 * @static
-		 * @static var array $instance
-		 * @uses Login_Designer::constants() Setup the constants needed.
-		 * @uses Login_Designer::init() Initiate actions and filters.
-		 * @uses Login_Designer::includes() Include the required files.
-		 * @uses Login_Designer::load_textdomain() load the language files.
-		 * @see LOGIN_DESIGNER()
 		 * @return object|Login_Designer The one true Login_Designer
 		 */
 		public static function instance() {
@@ -71,7 +72,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		public function __clone() {
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', '@@textdomain' ), '1.0' );
+			_doing_it_wrong( __FUNCTION__, esc_html__( 'Something went wrong.', '@@textdomain' ), '1.0' );
 		}
 
 		/**
@@ -82,7 +83,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		public function __wakeup() {
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', '@@textdomain' ), '1.0' );
+			_doing_it_wrong( __FUNCTION__, esc_html__( 'Something went wrong.', '@@textdomain' ), '1.0' );
 		}
 
 		/**
