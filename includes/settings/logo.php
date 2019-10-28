@@ -18,8 +18,8 @@ $wp_customize->add_control(
 		'login_designer[logo_title]',
 		array(
 			'type'        => 'login-designer-title',
-			'label'       => esc_html__( 'Logo', '@@textdomain' ),
-			'description' => esc_html__( 'Add your own logo. Logos will display at 50% height and width to account for retina devices. Modify the height and width below.', '@@textdomain' ),
+			'label'       => esc_html__( 'Logo', 'login-designer' ),
+			'description' => esc_html__( 'Add your own logo. Logos will display at 50% height and width to account for retina devices. Modify the height and width below.', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 		)
 	)
@@ -59,8 +59,8 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	'login_designer_settings[logo_url]',
 	array(
-		'label'          => esc_html__( 'URL', '@@textdomain' ),
-		'description'    => esc_html__( 'Select a page for your logo to link to. This is typically your site\'s home page.', '@@textdomain' ),
+		'label'          => esc_html__( 'URL', 'login-designer' ),
+		'description'    => esc_html__( 'Select a page for your logo to link to. This is typically your site\'s home page.', 'login-designer' ),
 		'section'        => 'login_designer__section--styles',
 		'type'           => 'dropdown-pages',
 		'allow_addition' => false,
@@ -83,7 +83,7 @@ $wp_customize->add_control(
 		'login_designer[logo_width]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Width', '@@textdomain' ),
+			'label'       => esc_html__( 'Width', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['logo_width'],
@@ -112,7 +112,7 @@ $wp_customize->add_control(
 		'login_designer[logo_height]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Height', '@@textdomain' ),
+			'label'       => esc_html__( 'Height', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['logo_height'],
@@ -141,7 +141,7 @@ $wp_customize->add_control(
 		'login_designer[logo_mobile_width]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Mobile Width', '@@textdomain' ),
+			'label'       => esc_html__( 'Mobile Width', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['logo_mobile_width'],
@@ -170,7 +170,7 @@ $wp_customize->add_control(
 		'login_designer[logo_mobile_height]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Mobile Height', '@@textdomain' ),
+			'label'       => esc_html__( 'Mobile Height', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['logo_mobile_height'],
@@ -199,7 +199,7 @@ $wp_customize->add_control(
 		'login_designer[logo_margin_bottom]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Position', '@@textdomain' ),
+			'label'       => esc_html__( 'Position', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['logo_margin_bottom'],
@@ -227,7 +227,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'login_designer[disable_logo]',
 		array(
-			'label'    => esc_html__( 'Disable Logo', '@@textdomain' ),
+			'label'    => esc_html__( 'Disable Logo', 'login-designer' ),
 			'section'  => 'login_designer__section--styles',
 			'type'     => 'login-designer-toggle',
 			'settings' => 'login_designer[disable_logo]',

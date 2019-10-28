@@ -5,12 +5,8 @@
 
 var pkg                     	= require('./package.json');
 var project                 	= 'Login Designer';
-var slug                    	= pkg.slug;
+var slug                    	= 'login-designer';
 var version                	= pkg.version;
-var license                	= pkg.license;
-var copyright              	= pkg.copyright;
-var author                 	= pkg.author;
-var plugin_uri              	= pkg.plugin_uri;
 var projectURL              	= 'https://logindesigner.test/wp-login.php';
 
 var styleCustomizerSRC  	= './assets/scss/customizer/'+ slug +'-customize-preview.scss';
@@ -52,12 +48,11 @@ var scriptControlWatchFiles	= './assets/js/src/controls/*.js';
 
 var projectPHPWatchFiles    	= ['./**/*.php', '!_dist', '!_dist/**', '!_dist/**/*.php', '!_demo', '!_demo/**','!_demo/**/*.php'];
 
-var text_domain             	= '@@textdomain';
+var text_domain             	= 'login-designer';
 var destFile                	= slug+'.pot';
-var packageName             	= pkg.title;
-var bugReport               	= pkg.author_uri;
-var lastTranslator          	= pkg.author;
-var team                    	= pkg.author_shop;
+var bugReport               	= 'https://logindesigner.com';
+var lastTranslator          	= 'Login Designer';
+var team                    	= 'Login Designer';
 var translatePath           	= './languages';
 var translatableFiles       	= ['./**/*.php'];
 
@@ -477,53 +472,9 @@ gulp.task('build-variables', function (done) {
 			replacement: pkg.textdomain
 		},
 		{
-			match: 'pkg.name',
-			replacement: project
-		},
-		{
-			match: 'pkg.title',
-			replacement: pkg.title
-		},
-		{
-			match: 'pkg.slug',
-			replacement: slug
-		},
-		{
 			match: 'pkg.downloadid',
 			replacement: pkg.downloadid
 		},
-		{
-			match: 'pkg.license',
-			replacement: pkg.license
-		},
-		{
-			match: 'pkg.plugin_uri',
-			replacement: pkg.plugin_uri
-		},
-		{
-			match: 'pkg.author',
-			replacement: pkg.author
-		},
-		{
-			match: 'pkg.author_uri',
-			replacement: pkg.author_uri
-		},
-		{
-			match: 'pkg.description',
-			replacement: pkg.description
-		},
-		{
-			match: 'pkg.requires',
-			replacement: pkg.requires
-		},
-		{
-			match: 'pkg.tested_up_to',
-			replacement: pkg.tested_up_to
-		},
-		{
-			match: 'pkg.tags',
-			replacement: pkg.tags
-		}
 		]
 	}))
 	.pipe( gulp.dest( buildDestination ) );
@@ -544,7 +495,7 @@ gulp.task( 'build-clean-after-zip', function (done) {
 
 gulp.task( 'build-notification', function (done) {
 	return gulp.src( './' )
-	.pipe( notify( { message: '👷 Your build of ' + packageName + ' is complete.', onLast: true } ) );
+	.pipe( notify( { message: 'Your build of Login Designer is complete.', onLast: true } ) );
 	done();
 });
 

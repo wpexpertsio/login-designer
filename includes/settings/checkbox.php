@@ -18,8 +18,8 @@ $wp_customize->add_control(
 		'login_designer[checkbox_title]',
 		array(
 			'type'        => 'login-designer-title',
-			'label'       => esc_html__( 'Checkbox', '@@textdomain' ),
-			'description' => esc_html__( 'Customize the Remember Me checkbox input element on the login form.', '@@textdomain' ),
+			'label'       => esc_html__( 'Checkbox', 'login-designer' ),
+			'description' => esc_html__( 'Customize the Remember Me checkbox input element on the login form.', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 		)
 	)
@@ -41,7 +41,7 @@ $wp_customize->add_control(
 		'login_designer[checkbox_size]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Size', '@@textdomain' ),
+			'label'       => esc_html__( 'Size', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['checkbox_size'],
@@ -69,7 +69,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'login_designer[checkbox_bg]',
 		array(
-			'label'   => esc_html__( 'Background', '@@textdomain' ),
+			'label'   => esc_html__( 'Background', 'login-designer' ),
 			'section' => 'login_designer__section--styles',
 		)
 	)
@@ -91,7 +91,7 @@ $wp_customize->add_control(
 		'login_designer[checkbox_border]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Border', '@@textdomain' ),
+			'label'       => esc_html__( 'Border', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['checkbox_border'],
@@ -119,7 +119,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'login_designer[checkbox_border_color]',
 		array(
-			'label'   => esc_html__( 'Border Color', '@@textdomain' ),
+			'label'   => esc_html__( 'Border Color', 'login-designer' ),
 			'section' => 'login_designer__section--styles',
 		)
 	)
@@ -141,7 +141,7 @@ $wp_customize->add_control(
 		'login_designer[checkbox_radius]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Radius', '@@textdomain' ),
+			'label'       => esc_html__( 'Radius', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['checkbox_radius'],

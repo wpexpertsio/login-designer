@@ -86,54 +86,54 @@ if ( ! class_exists( 'Login_Designer_Feedback' ) ) :
 			$years = ( intval( $seconds ) / YEAR_IN_SECONDS ) % 100;
 			if ( $years > 1 ) {
 				/* translators: Number of years */
-				return sprintf( __( '%s years', '@@textdomain' ), $years );
+				return sprintf( __( '%s years', 'login-designer' ), $years );
 			} elseif ( $years > 0 ) {
-				return __( 'a year', '@@textdomain' );
+				return __( 'a year', 'login-designer' );
 			}
 
 			// Get the weeks.
 			$weeks = ( intval( $seconds ) / WEEK_IN_SECONDS ) % 52;
 			if ( $weeks > 1 ) {
 				/* translators: Number of weeks */
-				return sprintf( __( '%s weeks', '@@textdomain' ), $weeks );
+				return sprintf( __( '%s weeks', 'login-designer' ), $weeks );
 			} elseif ( $weeks > 0 ) {
-				return __( 'a week', '@@textdomain' );
+				return __( 'a week', 'login-designer' );
 			}
 
 			// Get the days.
 			$days = ( intval( $seconds ) / DAY_IN_SECONDS ) % 7;
 			if ( $days > 1 ) {
 				/* translators: Number of days */
-				return sprintf( __( '%s days', '@@textdomain' ), $days );
+				return sprintf( __( '%s days', 'login-designer' ), $days );
 			} elseif ( $days > 0 ) {
-				return __( 'a day', '@@textdomain' );
+				return __( 'a day', 'login-designer' );
 			}
 
 			// Get the hours.
 			$hours = ( intval( $seconds ) / HOUR_IN_SECONDS ) % 24;
 			if ( $hours > 1 ) {
 				/* translators: Number of hours */
-				return sprintf( __( '%s hours', '@@textdomain' ), $hours );
+				return sprintf( __( '%s hours', 'login-designer' ), $hours );
 			} elseif ( $hours > 0 ) {
-				return __( 'an hour', '@@textdomain' );
+				return __( 'an hour', 'login-designer' );
 			}
 
 			// Get the minutes.
 			$minutes = ( intval( $seconds ) / MINUTE_IN_SECONDS ) % 60;
 			if ( $minutes > 1 ) {
 				/* translators: Number of minutes */
-				return sprintf( __( '%s minutes', '@@textdomain' ), $minutes );
+				return sprintf( __( '%s minutes', 'login-designer' ), $minutes );
 			} elseif ( $minutes > 0 ) {
-				return __( 'a minute', '@@textdomain' );
+				return __( 'a minute', 'login-designer' );
 			}
 
 			// Get the seconds.
 			$seconds = intval( $seconds ) % 60;
 			if ( $seconds > 1 ) {
 				/* translators: Number of seconds */
-				return sprintf( __( '%s seconds', '@@textdomain' ), $seconds );
+				return sprintf( __( '%s seconds', 'login-designer' ), $seconds );
 			} elseif ( $seconds > 0 ) {
-				return __( 'a second', '@@textdomain' );
+				return __( 'a second', 'login-designer' );
 			}
 		}
 
@@ -272,18 +272,18 @@ if ( ! class_exists( 'Login_Designer_Feedback' ) ) :
 			<div class="notice updated login-designer-notice">
 				<div class="login-designer-notice-inner">
 					<div class="login-designer-notice-icon">
-						<img src="https://ps.w.org/login-designer/assets/icon-256x256.jpg" alt="<?php echo esc_attr__( 'Login Designer WordPress Plugin', '@@textdomain' ); ?>" />
+						<img src="https://ps.w.org/login-designer/assets/icon-256x256.jpg" alt="<?php echo esc_attr__( 'Login Designer WordPress Plugin', 'login-designer' ); ?>" />
 					</div>
 					<div class="login-designer-notice-content">
-						<h3><?php echo esc_html__( 'Are you enjoying Login Designer?', '@@textdomain' ); ?></h3>
+						<h3><?php echo esc_html__( 'Are you enjoying Login Designer?', 'login-designer' ); ?></h3>
 						<p>
 							<?php /* translators: 1. Name, 2. Time */ ?>
-							<?php printf( esc_html__( 'You have been using %1$s for %2$s now! Mind leaving a quick review and let me know know what you think of the plugin? I\'d really appreciate it!', '@@textdomain' ), esc_html( $this->name ), esc_html( $time ) ); ?>
+							<?php printf( esc_html__( 'You have been using %1$s for %2$s now! Mind leaving a quick review and let me know know what you think of the plugin? I\'d really appreciate it!', 'login-designer' ), esc_html( $this->name ), esc_html( $time ) ); ?>
 						</p>
 					</div>
 					<div class="login-designer-install-now">
-						<?php printf( '<a href="%1$s" class="button button-primary login-designer-install-button" target="_blank">%2$s</a>', esc_url( 'https://wordpress.org/support/view/plugin-reviews/login-designer#new-post' ), esc_html__( 'Leave a Review', '@@textdomain' ) ); ?>
-						<a href="<?php echo esc_url( $no_bug_url ); ?>" class="no-thanks"><?php echo esc_html__( 'No thanks / I already have', '@@textdomain' ); ?></a>
+						<?php printf( '<a href="%1$s" class="button button-primary login-designer-install-button" target="_blank">%2$s</a>', esc_url( 'https://wordpress.org/support/view/plugin-reviews/login-designer#new-post' ), esc_html__( 'Leave a Review', 'login-designer' ) ); ?>
+						<a href="<?php echo esc_url( $no_bug_url ); ?>" class="no-thanks"><?php echo esc_html__( 'No thanks / I already have', 'login-designer' ); ?></a>
 					</div>
 				</div>
 			</div>
@@ -312,7 +312,7 @@ endif;
 new Login_Designer_Feedback(
 	array(
 		'slug'       => 'login_designer',
-		'name'       => __( 'Login Designer', '@@textdomain' ),
+		'name'       => __( 'Login Designer', 'login-designer' ),
 		'time_limit' => WEEK_IN_SECONDS,
 	)
 );

@@ -18,8 +18,8 @@ $wp_customize->add_control(
 		'login_designer[fields_title]',
 		array(
 			'type'        => 'login-designer-title',
-			'label'       => esc_html__( 'Fields', '@@textdomain' ),
-			'description' => esc_html__( 'Customize the full display appearance of the login form input fields.', '@@textdomain' ),
+			'label'       => esc_html__( 'Fields', 'login-designer' ),
+			'description' => esc_html__( 'Customize the full display appearance of the login form input fields.', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 		)
 	)
@@ -40,7 +40,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'login_designer[field_bg]',
 		array(
-			'label'   => esc_html__( 'Background', '@@textdomain' ),
+			'label'   => esc_html__( 'Background', 'login-designer' ),
 			'section' => 'login_designer__section--styles',
 		)
 	)
@@ -62,7 +62,7 @@ $wp_customize->add_control(
 		'login_designer[field_border]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Border', '@@textdomain' ),
+			'label'       => esc_html__( 'Border', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['field_border'],
@@ -90,7 +90,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'login_designer[field_border_color]',
 		array(
-			'label'   => esc_html__( 'Border Color', '@@textdomain' ),
+			'label'   => esc_html__( 'Border Color', 'login-designer' ),
 			'section' => 'login_designer__section--styles',
 		)
 	)
@@ -112,7 +112,7 @@ $wp_customize->add_control(
 		'login_designer[field_margin_bottom]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Margin Bottom', '@@textdomain' ),
+			'label'       => esc_html__( 'Margin Bottom', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['field_margin_bottom'],
@@ -141,7 +141,7 @@ $wp_customize->add_control(
 		'login_designer[field_side_padding]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Padding', '@@textdomain' ),
+			'label'       => esc_html__( 'Padding', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['field_side_padding'],
@@ -170,7 +170,7 @@ $wp_customize->add_control(
 		'login_designer[field_padding_top]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Padding Top', '@@textdomain' ),
+			'label'       => esc_html__( 'Padding Top', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['field_padding_top'],
@@ -199,7 +199,7 @@ $wp_customize->add_control(
 		'login_designer[field_padding_bottom]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Padding Bottom', '@@textdomain' ),
+			'label'       => esc_html__( 'Padding Bottom', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['field_padding_bottom'],
@@ -228,7 +228,7 @@ $wp_customize->add_control(
 		'login_designer[field_radius]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Radius', '@@textdomain' ),
+			'label'       => esc_html__( 'Radius', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['field_radius'],
@@ -257,7 +257,7 @@ $wp_customize->add_control(
 		'login_designer[field_shadow]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Shadow', '@@textdomain' ),
+			'label'       => esc_html__( 'Shadow', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['field_shadow'],
@@ -286,7 +286,7 @@ $wp_customize->add_control(
 		'login_designer[field_shadow_opacity]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Shadow Opacity', '@@textdomain' ),
+			'label'       => esc_html__( 'Shadow Opacity', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => '%',
 			'default'     => $defaults['field_shadow_opacity'],
@@ -314,7 +314,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'login_designer[field_shadow_inset]',
 		array(
-			'label'    => esc_html__( 'Shadow Inset', '@@textdomain' ),
+			'label'    => esc_html__( 'Shadow Inset', 'login-designer' ),
 			'section'  => 'login_designer__section--styles',
 			'type'     => 'login-designer-toggle',
 			'settings' => 'login_designer[field_shadow_inset]',
@@ -339,8 +339,8 @@ $wp_customize->add_control(
 		'login_designer[field_text_title]',
 		array(
 			'type'        => 'login-designer-title',
-			'label'       => esc_html__( 'Text', '@@textdomain' ),
-			'description' => esc_html__( 'Change the text field font, color and size.', '@@textdomain' ),
+			'label'       => esc_html__( 'Text', 'login-designer' ),
+			'description' => esc_html__( 'Change the text field font, color and size.', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 		)
 	)
@@ -360,7 +360,7 @@ $wp_customize->add_control(
 	'login_designer[field_font]',
 	array(
 		'type'    => 'select',
-		'label'   => esc_html__( 'Font', '@@textdomain' ),
+		'label'   => esc_html__( 'Font', 'login-designer' ),
 		'section' => 'login_designer__section--styles',
 		'choices' => $this->get_fonts(),
 	)
@@ -382,7 +382,7 @@ $wp_customize->add_control(
 		'login_designer[field_font_size]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Size', '@@textdomain' ),
+			'label'       => esc_html__( 'Size', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['field_font_size'],
@@ -410,7 +410,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'login_designer[field_color]',
 		array(
-			'label'   => esc_html__( 'Color', '@@textdomain' ),
+			'label'   => esc_html__( 'Color', 'login-designer' ),
 			'section' => 'login_designer__section--styles',
 		)
 	)

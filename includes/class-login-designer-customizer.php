@@ -91,9 +91,9 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			 */
 			$wp_customize->add_panel(
 				'login_designer', array(
-					'title'       => esc_html__( 'Login Designer', '@@textdomain' ),
+					'title'       => esc_html__( 'Login Designer', 'login-designer' ),
 					'capability'  => 'edit_theme_options',
-					'description' => esc_html__( 'Click the Templates icon at the top left of the preview window to change your template. To customize further, simply click on any element, or it\'s corresponding shortcut icon, to edit it\'s styling. ', '@@textdomain' ),
+					'description' => esc_html__( 'Click the Templates icon at the top left of the preview window to change your template. To customize further, simply click on any element, or it\'s corresponding shortcut icon, to edit it\'s styling. ', 'login-designer' ),
 					'priority'    => 150,
 				)
 			);
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			// Style Editor (Initially hidden from the Customizer).
 			$wp_customize->add_section(
 				'login_designer__section--styles', array(
-					'title' => esc_html__( 'Styles', '@@textdomain' ),
+					'title' => esc_html__( 'Styles', 'login-designer' ),
 					'panel' => 'login_designer',
 				)
 			);
@@ -109,7 +109,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			// Templates.
 			$wp_customize->add_section(
 				'login_designer__section--templates', array(
-					'title' => esc_html__( 'Templates', '@@textdomain' ),
+					'title' => esc_html__( 'Templates', 'login-designer' ),
 					'panel' => 'login_designer',
 				)
 			);
@@ -117,7 +117,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			// Settings.
 			$wp_customize->add_section(
 				'login_designer__section--settings', array(
-					'title' => esc_html__( 'Settings', '@@textdomain' ),
+					'title' => esc_html__( 'Settings', 'login-designer' ),
 					'panel' => 'login_designer',
 				)
 			);
@@ -147,8 +147,8 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 						$wp_customize, 'upgrade', array(
 							'type'     => 'upgrade',
 							'panel'    => 'login_designer',
-							'title'    => esc_html__( 'Extensions', '@@textdomain' ),
-							'pro_text' => esc_html__( 'Discover Add-ons', '@@textdomain' ),
+							'title'    => esc_html__( 'Extensions', 'login-designer' ),
+							'pro_text' => esc_html__( 'Discover Add-ons', 'login-designer' ),
 							'pro_url'  => $url,
 						)
 					)
@@ -264,30 +264,30 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 			$choices = array(
 				'repeat'   => array(
-					'no-repeat' => esc_html__( 'No Repeat', '@@textdomain' ),
-					'repeat'    => esc_html__( 'Tile', '@@textdomain' ),
-					'repeat-x'  => esc_html__( 'Tile Horizontally', '@@textdomain' ),
-					'repeat-y'  => esc_html__( 'Tile Vertically', '@@textdomain' ),
+					'no-repeat' => esc_html__( 'No Repeat', 'login-designer' ),
+					'repeat'    => esc_html__( 'Tile', 'login-designer' ),
+					'repeat-x'  => esc_html__( 'Tile Horizontally', 'login-designer' ),
+					'repeat-y'  => esc_html__( 'Tile Vertically', 'login-designer' ),
 				),
 				'size'     => array(
-					'auto'    => esc_html__( 'Auto', '@@textdomain' ),
-					'cover'   => esc_html__( 'Cover', '@@textdomain' ),
-					'contain' => esc_html__( 'Contain', '@@textdomain' ),
+					'auto'    => esc_html__( 'Auto', 'login-designer' ),
+					'cover'   => esc_html__( 'Cover', 'login-designer' ),
+					'contain' => esc_html__( 'Contain', 'login-designer' ),
 				),
 				'position' => array(
-					'left top'      => esc_html__( 'Left Top', '@@textdomain' ),
-					'left center'   => esc_html__( 'Left Center', '@@textdomain' ),
-					'left bottom'   => esc_html__( 'Left Bottom', '@@textdomain' ),
-					'right top'     => esc_html__( 'Right Top', '@@textdomain' ),
-					'right center'  => esc_html__( 'Right Center', '@@textdomain' ),
-					'right bottom'  => esc_html__( 'Right Bottom', '@@textdomain' ),
-					'center top'    => esc_html__( 'Center Top', '@@textdomain' ),
-					'center center' => esc_html__( 'Center Center', '@@textdomain' ),
-					'center bottom' => esc_html__( 'Center Bottom', '@@textdomain' ),
+					'left top'      => esc_html__( 'Left Top', 'login-designer' ),
+					'left center'   => esc_html__( 'Left Center', 'login-designer' ),
+					'left bottom'   => esc_html__( 'Left Bottom', 'login-designer' ),
+					'right top'     => esc_html__( 'Right Top', 'login-designer' ),
+					'right center'  => esc_html__( 'Right Center', 'login-designer' ),
+					'right bottom'  => esc_html__( 'Right Bottom', 'login-designer' ),
+					'center top'    => esc_html__( 'Center Top', 'login-designer' ),
+					'center center' => esc_html__( 'Center Center', 'login-designer' ),
+					'center bottom' => esc_html__( 'Center Bottom', 'login-designer' ),
 				),
 				'attach'   => array(
-					'fixed'  => esc_html__( 'Fixed', '@@textdomain' ),
-					'scroll' => esc_html__( 'Scroll', '@@textdomain' ),
+					'fixed'  => esc_html__( 'Fixed', 'login-designer' ),
+					'scroll' => esc_html__( 'Scroll', 'login-designer' ),
 				),
 			);
 
@@ -303,7 +303,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		public static function get_fonts() {
 
 			$fonts = array(
-				'default'             => esc_html__( 'Default', '@@textdomain' ),
+				'default'             => esc_html__( 'Default', 'login-designer' ),
 				'Abril Fatface'       => 'Abril Fatface',
 				'Georgia'             => 'Georgia',
 				'Helvetica'           => 'Helvetica',

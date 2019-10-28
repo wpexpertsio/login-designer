@@ -138,14 +138,14 @@ function login_designer_create_page( $slug, $option = '', $page_title = '', $pag
 function login_designer_run_install() {
 
 	/* translators: 1: Name of this plugin */
-	$post_content = sprintf( __( '<p>This page is used by %1$s to preview the login form in the Customizer.</p>', '@@textdomain' ), 'Login Designer' );
+	$post_content = sprintf( __( '<p>This page is used by %1$s to preview the login form in the Customizer.</p>', 'login-designer' ), 'Login Designer' );
 
 	$pages = apply_filters(
 		'login_designer_create_pages',
 		array(
 			'login_designer' => array(
-				'name'    => _x( 'login-designer', 'Page slug', '@@textdomain' ),
-				'title'   => _x( 'Login Designer', 'Page title', '@@textdomain' ),
+				'name'    => _x( 'login-designer', 'Page slug', 'login-designer' ),
+				'title'   => _x( 'Login Designer', 'Page title', 'login-designer' ),
 				'content' => $post_content,
 			),
 		)

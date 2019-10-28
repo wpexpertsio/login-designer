@@ -18,8 +18,8 @@ $wp_customize->add_control(
 		'login_designer_settings[branding_title]',
 		array(
 			'type'        => 'login-designer-title',
-			'label'       => esc_html__( 'Branding', '@@textdomain' ),
-			'description' => esc_html__( 'Show some love and add a Powered by Login Designer badge to your login page.', '@@textdomain' ),
+			'label'       => esc_html__( 'Branding', 'login-designer' ),
+			'description' => esc_html__( 'Show some love and add a Powered by Login Designer badge to your login page.', 'login-designer' ),
 			'section'     => 'login_designer__section--settings',
 		)
 	)
@@ -40,7 +40,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'login_designer_settings[branding]',
 		array(
-			'label'    => esc_html__( 'Enable', '@@textdomain' ),
+			'label'    => esc_html__( 'Enable', 'login-designer' ),
 			'type'     => 'login-designer-toggle',
 			'settings' => 'login_designer_settings[branding]',
 			'section'  => 'login_designer__section--settings',
@@ -63,7 +63,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'login_designer_settings[branding_color]',
 		array(
-			'label'   => esc_html__( 'Text', '@@textdomain' ),
+			'label'   => esc_html__( 'Text', 'login-designer' ),
 			'section' => 'login_designer__section--settings',
 		)
 	)
@@ -84,7 +84,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'login_designer_settings[branding_icon_color]',
 		array(
-			'label'   => esc_html__( 'Logo', '@@textdomain' ),
+			'label'   => esc_html__( 'Logo', 'login-designer' ),
 			'section' => 'login_designer__section--settings',
 		)
 	)
@@ -104,13 +104,13 @@ $wp_customize->add_control(
 	'login_designer_settings[branding_position]',
 	array(
 		'type'    => 'select',
-		'label'   => esc_html__( 'Position', '@@textdomain' ),
+		'label'   => esc_html__( 'Position', 'login-designer' ),
 		'section' => 'login_designer__section--settings',
 		'choices' => array(
-			'left'      => esc_html__( 'Bottom Left', '@@textdomain' ),
-			'right'     => esc_html__( 'Bottom Right', '@@textdomain' ),
-			'middle'    => esc_html__( 'Bottom Middle', '@@textdomain' ),
-			'top-right' => esc_html__( 'Upper Right', '@@textdomain' ),
+			'left'      => esc_html__( 'Bottom Left', 'login-designer' ),
+			'right'     => esc_html__( 'Bottom Right', 'login-designer' ),
+			'middle'    => esc_html__( 'Bottom Middle', 'login-designer' ),
+			'top-right' => esc_html__( 'Upper Right', 'login-designer' ),
 		),
 	)
 );

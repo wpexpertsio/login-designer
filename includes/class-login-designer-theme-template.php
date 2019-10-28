@@ -62,7 +62,7 @@ if ( ! class_exists( 'Login_Designer_Theme_Template' ) ) :
 
 			// Add templates.
 			$this->templates = array(
-				'template-login-designer.php' => esc_html__( 'Login Designer', '@@textdomain' ),
+				'template-login-designer.php' => esc_html__( 'Login Designer', 'login-designer' ),
 			);
 		}
 

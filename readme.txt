@@ -1,14 +1,14 @@
 === Custom Login Page Customizer - Login Designer ===
-Author URI: @@pkg.author_uri
-Plugin URI: @@pkg.plugin_uri
+Author URI: https://richtabor.com
+Plugin URI: https://logindesigner.com
 Contributors: richtabor, thatplugincompany
-Donate link: @@pkg.plugin_uri
-Tags: @@pkg.tags
-Requires at least: @@pkg.requires
-Tested up to: @@pkg.tested_up_to
+Donate link: https://logindesigner.com
+Tags: login, custom login, customize wordpress login, wordpress login, customizer, custom admin, login logo, logo, login customizer
+Requires at least: 4.7
+Tested up to: 5.2
 Requires PHP: 5.2.4
 Stable tag: @@pkg.version
-License: @@pkg.license
+License: GPL-3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Login Designer is the best way to style a custom login page for your WordPress login, register and forgot password forms, right from the live-action WordPress Customizer.

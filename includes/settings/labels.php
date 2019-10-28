@@ -18,8 +18,8 @@ $wp_customize->add_control(
 		'login_designer[labels_title]',
 		array(
 			'type'        => 'login-designer-title',
-			'label'       => esc_html__( 'Labels', '@@textdomain' ),
-			'description' => esc_html__( 'Modify the text labels and style them however you like.', '@@textdomain' ),
+			'label'       => esc_html__( 'Labels', 'login-designer' ),
+			'description' => esc_html__( 'Modify the text labels and style them however you like.', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 		)
 	)
@@ -38,7 +38,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	'login_designer[username_label]',
 	array(
-		'label'   => esc_html__( 'Username', '@@textdomain' ),
+		'label'   => esc_html__( 'Username', 'login-designer' ),
 		'section' => 'login_designer__section--styles',
 		'type'    => 'text',
 	)
@@ -57,7 +57,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	'login_designer[password_label]',
 	array(
-		'label'   => esc_html__( 'Password', '@@textdomain' ),
+		'label'   => esc_html__( 'Password', 'login-designer' ),
 		'section' => 'login_designer__section--styles',
 		'type'    => 'text',
 	)
@@ -77,7 +77,7 @@ $wp_customize->add_control(
 	'login_designer[label_font]',
 	array(
 		'type'    => 'select',
-		'label'   => esc_html__( 'Font', '@@textdomain' ),
+		'label'   => esc_html__( 'Font', 'login-designer' ),
 		'section' => 'login_designer__section--styles',
 		'choices' => $this->get_fonts(),
 	)
@@ -99,7 +99,7 @@ $wp_customize->add_control(
 		'login_designer[label_font_size]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Size', '@@textdomain' ),
+			'label'       => esc_html__( 'Size', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['label_font_size'],
@@ -128,7 +128,7 @@ $wp_customize->add_control(
 		'login_designer[label_position]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Position', '@@textdomain' ),
+			'label'       => esc_html__( 'Position', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['label_position'],
@@ -156,7 +156,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'login_designer[label_color]',
 		array(
-			'label'   => esc_html__( 'Color', '@@textdomain' ),
+			'label'   => esc_html__( 'Color', 'login-designer' ),
 			'section' => 'login_designer__section--styles',
 		)
 	)
