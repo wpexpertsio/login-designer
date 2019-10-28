@@ -5,11 +5,11 @@
 	"license": "GPL-3.0",
 	"repository": "thatplugincompany/login-designer",
 	"homepage": "https://wordpress.org/plugins/login-designer/",
+	"textdomain": "login-designer",
+	"downloadid": "30",
 	"bugs": {
 		"url": "https://github.com/thatplugincompany/login-designer/issues"
 	},
-	"textdomain": "login-designer",
-	"downloadid": "30",
 	"devDependencies": {
 		"browser-sync": "^2.26.7",
 		"del": "^3.0.0",
