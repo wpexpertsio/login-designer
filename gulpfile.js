@@ -50,7 +50,6 @@ var projectPHPWatchFiles    	= ['./**/*.php', '!_dist', '!_dist/**', '!_dist/**/
 
 var text_domain             	= '@@textdomain';
 var destFile                	= slug+'.pot';
-var packageName             	= pkg.title;
 var bugReport               	= 'https://logindesigner.com';
 var lastTranslator          	= 'Login Designer';
 var team                    	= 'Login Designer';
@@ -473,14 +472,6 @@ gulp.task('build-variables', function (done) {
 			replacement: pkg.textdomain
 		},
 		{
-			match: 'pkg.name',
-			replacement: project
-		},
-		{
-			match: 'pkg.title',
-			replacement: pkg.title
-		},
-		{
 			match: 'pkg.downloadid',
 			replacement: pkg.downloadid
 		},
@@ -504,7 +495,7 @@ gulp.task( 'build-clean-after-zip', function (done) {
 
 gulp.task( 'build-notification', function (done) {
 	return gulp.src( './' )
-	.pipe( notify( { message: '👷 Your build of ' + packageName + ' is complete.', onLast: true } ) );
+	.pipe( notify( { message: 'Your build of Login Designer is complete.', onLast: true } ) );
 	done();
 });
 
