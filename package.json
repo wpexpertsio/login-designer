@@ -1,9 +1,7 @@
 {
 	"name": "Login_Designer",
 	"title": "Login Designer",
-	"tags": "login, custom login, customize wordpress login, wordpress login, customizer, custom admin, login logo, logo, login customizer",
 	"version": "1.2.0",
-	"tested_up_to": "5.2",
 	"author": "Rich Tabor",
 	"license": "GPL-3.0",
 	"repository": "thatplugincompany/login-designer",
@@ -11,12 +9,8 @@
 	"bugs": {
 		"url": "https://github.com/thatplugincompany/login-designer/issues"
 	},
-	"slug": "login-designer",
 	"textdomain": "login-designer",
 	"downloadid": "30",
-	"author_shop": "ThatPluginCompany",
-	"author_uri": "https://richtabor.com",
-	"plugin_uri": "https://logindesigner.com",
 	"devDependencies": {
 		"browser-sync": "^2.26.7",
 		"del": "^3.0.0",
