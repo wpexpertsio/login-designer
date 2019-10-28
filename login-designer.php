@@ -1,36 +1,18 @@
 <?php
 /**
- * Plugin Name: Login Designer
- * Plugin URI: @@pkg.plugin_uri
- * Description: @@pkg.description
- * Author: @@pkg.author
- * Author URI: @@pkg.author_uri
- * Version: 1.1.12
- * Text Domain: @@textdomain
- * Domain Path: languages
- * Requires at least: @@pkg.requires
- * Tested up to: @@pkg.tested_up_to
+ * Plugin Name:     Login Designer
+ * Plugin URI:      https://logindesigner.com
+ * Description:     The easiest way to completly customize your WordPress login page. Create stunning login templates in seconds with the most beautiful and elegant login customizer WordPress plugin.
+ * Author:          Rich Tabor
+ * Author URI:      https://logindesigner.com
+ * Text Domain:     login-designer
+ * Domain Path:     /languages
+ * Version:         1.1.12
  *
- * @@pkg.title is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * any later version.
- *
- * @@pkg.title is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with @@pkg.title. If not, see <http://www.gnu.org/licenses/>.
- *
- * @package Login Designer
+ * @package         Login Designer
  */
 
-// Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Login_Designer' ) ) :
 
@@ -621,21 +603,12 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		}
 	}
 
-endif; // End if class_exists check.
+endif;
 
 /**
- * The main function for that returns Login_Designer
+ * Returns the main instance of Login Designer.
  *
- * The main function responsible for returning the one true Login_Designer
- * Instance to functions everywhere.
- *
- * Use this function like you would a global variable, except without needing
- * to declare the global.
- *
- * Example: <?php $login_designer = login_designer(); ?>
- *
- * @since 1.0.0
- * @return object|Login_Designer The one true Login_Designer Instance.
+ * @return Login Designer
  */
 function login_designer() {
 	return Login_Designer::instance();
