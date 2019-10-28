@@ -36,9 +36,9 @@ $wp_customize->add_control(
 		'login_designer_license[key]',
 		array(
 			'type'        => 'login-designer-title',
-			'label'       => esc_html__( 'License', '@@textdomain' ),
+			'label'       => esc_html__( 'License', 'login-designer' ),
 			/* translators: 1: Opening link, 2: Closing link */
-			'description' => sprintf( esc_html__( 'Enter a %1$slicense key%2$s to enable remote updates, unlock premium templates and activate professional extensions.', '@@textdomain' ), '<a href="' . esc_url( $url ) . '" target="_blank">', '</a>' ),
+			'description' => sprintf( esc_html__( 'Enter a %1$slicense key%2$s to enable remote updates, unlock premium templates and activate professional extensions.', 'login-designer' ), '<a href="' . esc_url( $url ) . '" target="_blank">', '</a>' ),
 			'section'     => 'login_designer__section--settings',
 			'priority'    => 1,
 		)

@@ -72,7 +72,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		public function __clone() {
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'Something went wrong.', '@@textdomain' ), '1.0' );
+			_doing_it_wrong( __FUNCTION__, esc_html__( 'Something went wrong.', 'login-designer' ), '1.0' );
 		}
 
 		/**
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		public function __wakeup() {
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'Something went wrong.', '@@textdomain' ), '1.0' );
+			_doing_it_wrong( __FUNCTION__, esc_html__( 'Something went wrong.', 'login-designer' ), '1.0' );
 		}
 
 		/**
@@ -239,7 +239,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		public function options_page() {
-			add_theme_page( esc_html__( 'Login Designer', '@@textdomain' ), esc_html__( 'Login Designer', '@@textdomain' ), 'manage_options', 'login-designer', '__return_null' );
+			add_theme_page( esc_html__( 'Login Designer', 'login-designer' ), esc_html__( 'Login Designer', 'login-designer' ), 'manage_options', 'login-designer', '__return_null' );
 		}
 
 		/**
@@ -267,7 +267,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				array(
 					'id'     => 'my-sub-item',
 					'parent' => 'customize',
-					'title'  => esc_html__( 'Login Designer', '@@textdomain' ),
+					'title'  => esc_html__( 'Login Designer', 'login-designer' ),
 					'href'   => esc_url( $url ),
 				)
 			);
@@ -382,7 +382,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			);
 
 			/* translators: Name of this plugin */
-			$post_content = sprintf( wp_kses( __( '<p>This page is used by <a href="%1$s">%2$s</a> to preview the login forms in the Customizer. Please don\'t delete this page. Thanks!</p>', '@@textdomain' ), $allowed_html_array ), 'https://logindesigner.com', 'Login Designer' );
+			$post_content = sprintf( wp_kses( __( '<p>This page is used by <a href="%1$s">%2$s</a> to preview the login forms in the Customizer. Please don\'t delete this page. Thanks!</p>', 'login-designer' ), $allowed_html_array ), 'https://logindesigner.com', 'Login Designer' );
 
 			// Create the page.
 			$page = wp_insert_post(
@@ -465,7 +465,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		public function plugin_action_links( $actions ) {
 
 			// Add the Settings link.
-			$settings = array( 'settings' => sprintf( '<a href="%s">%s</a>', admin_url( 'themes.php?page=login-designer' ), esc_html__( 'Settings', '@@textdomain' ) ) );
+			$settings = array( 'settings' => sprintf( '<a href="%s">%s</a>', admin_url( 'themes.php?page=login-designer' ), esc_html__( 'Settings', 'login-designer' ) ) );
 
 			// If there's no pro version, just return the settings link.
 			if ( ! $this->has_pro() ) {
@@ -480,7 +480,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			$license = new Login_Designer_License_Handler();
 
 			if ( $license->is_valid_license() && $this->has_pro() ) {
-				$title = esc_html__( 'Support', '@@textdomain' );
+				$title = esc_html__( 'Support', 'login-designer' );
 
 				$url = Login_Designer()->get_store_url(
 					'support',
@@ -493,7 +493,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				);
 
 			} else {
-				$title = esc_html__( 'Pro', '@@textdomain' );
+				$title = esc_html__( 'Pro', 'login-designer' );
 
 				$url = Login_Designer()->get_store_url(
 					'support',
@@ -543,7 +543,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			);
 
 			$links = array(
-				'<a href="' . esc_url( $url ) . '" target="_blank">' . esc_html__( 'Extensions', '@@textdomain' ) . '</a>',
+				'<a href="' . esc_url( $url ) . '" target="_blank">' . esc_html__( 'Extensions', 'login-designer' ) . '</a>',
 			);
 
 			$input = array_merge( $input, $links );
@@ -584,7 +584,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			);
 
 			$links = array(
-				'<a href="' . esc_url( $url ) . '" target="_blank">' . esc_html__( 'Extensions', '@@textdomain' ) . '</a>',
+				'<a href="' . esc_url( $url ) . '" target="_blank">' . esc_html__( 'Extensions', 'login-designer' ) . '</a>',
 			);
 
 			$input = array_merge( $input, $links );
@@ -600,7 +600,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		public function load_textdomain() {
-			load_plugin_textdomain( '@@textdomain', false, dirname( plugin_basename( LOGIN_DESIGNER_PLUGIN_DIR ) ) . '/languages/' );
+			load_plugin_textdomain( 'login-designer', false, dirname( plugin_basename( LOGIN_DESIGNER_PLUGIN_DIR ) ) . '/languages/' );
 		}
 	}
 

@@ -48,7 +48,7 @@ var scriptControlWatchFiles	= './assets/js/src/controls/*.js';
 
 var projectPHPWatchFiles    	= ['./**/*.php', '!_dist', '!_dist/**', '!_dist/**/*.php', '!_demo', '!_demo/**','!_demo/**/*.php'];
 
-var text_domain             	= '@@textdomain';
+var text_domain             	= 'login-designer';
 var destFile                	= slug+'.pot';
 var bugReport               	= 'https://logindesigner.com';
 var lastTranslator          	= 'Login Designer';

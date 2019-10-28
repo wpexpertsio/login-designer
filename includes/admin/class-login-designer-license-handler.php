@@ -204,7 +204,7 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 
 			// Make sure the response came back okay.
 			if ( ! isset( $response->license ) ) {
-				$message = esc_html__( 'An error occurred, please try again.', '@@textdomain' );
+				$message = esc_html__( 'An error occurred, please try again.', 'login-designer' );
 			} else {
 				// If the license response is not successful.
 				if ( false === $response->success ) {
@@ -213,34 +213,34 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 
 						case 'expired':
 							$message = sprintf(
-								esc_html__( 'Your license key expired on %s.', '@@textdomain' ),
+								esc_html__( 'Your license key expired on %s.', 'login-designer' ),
 								date_i18n( get_option( 'date_format' ), strtotime( $response->expires, current_time( 'timestamp' ) ) )
 							);
 							break;
 
 						case 'revoked':
-							$message = esc_html__( 'Your license key has been disabled.', '@@textdomain' );
+							$message = esc_html__( 'Your license key has been disabled.', 'login-designer' );
 							break;
 
 						case 'missing':
-							$message = esc_html__( 'Invalid license.', '@@textdomain' );
+							$message = esc_html__( 'Invalid license.', 'login-designer' );
 							break;
 
 						case 'invalid':
 						case 'site_inactive':
-							$message = esc_html__( 'Your license is not active for this URL.', '@@textdomain' );
+							$message = esc_html__( 'Your license is not active for this URL.', 'login-designer' );
 							break;
 
 						case 'item_name_mismatch':
-							$message = esc_html__( 'This appears to be an invalid license key.', '@@textdomain' );
+							$message = esc_html__( 'This appears to be an invalid license key.', 'login-designer' );
 							break;
 
 						case 'no_activations_left':
-							$message = esc_html__( 'Your license key has reached its activation limit.', '@@textdomain' );
+							$message = esc_html__( 'Your license key has reached its activation limit.', 'login-designer' );
 							break;
 
 						default:
-							$message = esc_html__( 'An error occurred, please try again.', '@@textdomain' );
+							$message = esc_html__( 'An error occurred, please try again.', 'login-designer' );
 							break;
 					}
 				}

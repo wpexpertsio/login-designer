@@ -151,13 +151,13 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 		do_action( 'login_header' );
 		?>
 
-		<div id="login-designer--background-hint" data-hint="<?php echo esc_attr__( 'Click here to upload a background image, choose from the gallery and set a background color.', '@@textdomain' ); ?>" data-hintPosition="middle-right" data-position="bottom-right-aligned"></div>
+		<div id="login-designer--background-hint" data-hint="<?php echo esc_attr__( 'Click here to upload a background image, choose from the gallery and set a background color.', 'login-designer' ); ?>" data-hintPosition="middle-right" data-position="bottom-right-aligned"></div>
 
-		<div id="login-designer--templates-hint" data-hint="<?php echo esc_attr__( 'Click here to select a display template for your login page.', '@@textdomain' ); ?>" data-hintPosition="middle-right" data-position="bottom"></div>
+		<div id="login-designer--templates-hint" data-hint="<?php echo esc_attr__( 'Click here to select a display template for your login page.', 'login-designer' ); ?>" data-hintPosition="middle-right" data-position="bottom"></div>
 
 		<div id="login">
 
-			<h1 id="login-designer-logo-h1" data-hint="<?php echo esc_attr__( 'Click on the logo below to upload your own and set the image\'s height and width.', '@@textdomain' ); ?>" data-hintPosition="top-middle" data-position="right">
+			<h1 id="login-designer-logo-h1" data-hint="<?php echo esc_attr__( 'Click on the logo below to upload your own and set the image\'s height and width.', 'login-designer' ); ?>" data-hintPosition="top-middle" data-position="right">
 				<a id="login-designer-logo" class="customize-unpreviewable" href="#" title="" tabindex="-1"><?php bloginfo( 'name' ); ?></a>
 			</h1>
 
@@ -171,7 +171,7 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 
 				<p>
 					<label id="login-designer--username-label" for="user_login">
-						<span id="login-designer--username-label-text"><?php echo esc_html__( 'Username or Email Address', '@@textdomain' ); ?></span>
+						<span id="login-designer--username-label-text"><?php echo esc_html__( 'Username or Email Address', 'login-designer' ); ?></span>
 						<div id="login-designer--username">
 							<input autocomplete="off" type="text" name="log" id="user_login" class="input" value="email@address.com" size="20" />
 						</div>
@@ -180,7 +180,7 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 
 				<p>
 					<label id="login-designer--password-label" for="user_pass">
-						<span id="login-designer--password-label-text"><?php echo esc_html__( 'Password', '@@textdomain' ); ?></span>
+						<span id="login-designer--password-label-text"><?php echo esc_html__( 'Password', 'login-designer' ); ?></span>
 						<div id="login-designer--password">
 							<input autocomplete="off" type="password" name="pwd" id="user_pass" class="input" value="password" size="20" />
 						</div>
@@ -199,13 +199,13 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 
 					<p class="submit">
 						<span id="login-designer--button">
-							<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php echo esc_html__( 'Log In', '@@textdomain' ); ?>" />
+							<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php echo esc_html__( 'Log In', 'login-designer' ); ?>" />
 						</span>
 					</p>
 				</div>
 			</form>
 
-			<div id="login-designer--below-form" data-hint="<?php echo esc_attr__( 'Click on the elements below the form to modify each one.', '@@textdomain' ); ?>" data-hintPosition="middle-right" data-position="bottom-right-aligned">
+			<div id="login-designer--below-form" data-hint="<?php echo esc_attr__( 'Click on the elements below the form to modify each one.', 'login-designer' ); ?>" data-hintPosition="middle-right" data-position="bottom-right-aligned">
 
 				<p id="nav">
 					<?php

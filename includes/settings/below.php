@@ -18,8 +18,8 @@ $wp_customize->add_control(
 		'login_designer[below_title]',
 		array(
 			'type'        => 'login-designer-title',
-			'label'       => esc_html__( 'Below Form', '@@textdomain' ),
-			'description' => esc_html__( 'Modify elements below the login form.', '@@textdomain' ),
+			'label'       => esc_html__( 'Below Form', 'login-designer' ),
+			'description' => esc_html__( 'Modify elements below the login form.', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 		)
 	)
@@ -39,7 +39,7 @@ $wp_customize->add_control(
 	'login_designer[below_font]',
 	array(
 		'type'    => 'select',
-		'label'   => esc_html__( 'Font', '@@textdomain' ),
+		'label'   => esc_html__( 'Font', 'login-designer' ),
 		'section' => 'login_designer__section--styles',
 		'choices' => $this->get_fonts(),
 	)
@@ -61,7 +61,7 @@ $wp_customize->add_control(
 		'login_designer[below_font_size]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Size', '@@textdomain' ),
+			'label'       => esc_html__( 'Size', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['below_font_size'],
@@ -89,7 +89,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'login_designer[below_color]',
 		array(
-			'label'   => esc_html__( 'Color', '@@textdomain' ),
+			'label'   => esc_html__( 'Color', 'login-designer' ),
 			'section' => 'login_designer__section--styles',
 		)
 	)
@@ -111,7 +111,7 @@ $wp_customize->add_control(
 		'login_designer[below_position]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Position', '@@textdomain' ),
+			'label'       => esc_html__( 'Position', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['below_position'],
@@ -139,7 +139,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'login_designer[lost_password]',
 		array(
-			'label'    => esc_html__( 'Lost Password', '@@textdomain' ),
+			'label'    => esc_html__( 'Lost Password', 'login-designer' ),
 			'section'  => 'login_designer__section--styles',
 			'type'     => 'login-designer-toggle',
 			'settings' => 'login_designer[lost_password]',
@@ -162,7 +162,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'login_designer[back_to]',
 		array(
-			'label'    => esc_html__( 'Back To', '@@textdomain' ),
+			'label'    => esc_html__( 'Back To', 'login-designer' ),
 			'section'  => 'login_designer__section--styles',
 			'type'     => 'login-designer-toggle',
 			'settings' => 'login_designer[back_to]',

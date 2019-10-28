@@ -71,7 +71,7 @@ if ( ! class_exists( 'Login_Designer_Notices' ) ) :
 		 */
 		public function double_install_admin_notice() {
 			/* translators: 1: Name of the plugin */
-			$message = __( '<b>The %s page may not be removed.</b> This page is used for login page styling within the Customizer.', '@@textdomain' );
+			$message = __( '<b>The %s page may not be removed.</b> This page is used for login page styling within the Customizer.', 'login-designer' );
 
 			$this->render_admin_notice( sprintf( $message, 'Login Designer' ), 'notice-warning', false );
 		}

@@ -157,9 +157,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			// Localization.
 			$localize = array(
 				'ajaxurl'     => admin_url( 'admin-ajax.php' ),
-				'btn_default' => esc_html__( 'Install New Template', '@@textdomain' ),
-				'btn_close'   => esc_html__( 'Close', '@@textdomain' ),
-				'confirm'     => esc_html__( 'Attention! You are attempting to reset all custom styling added to Login Designer. Please note that this action is irreversible. Proceed?', '@@textdomain' ),
+				'btn_default' => esc_html__( 'Install New Template', 'login-designer' ),
+				'btn_close'   => esc_html__( 'Close', 'login-designer' ),
+				'confirm'     => esc_html__( 'Attention! You are attempting to reset all custom styling added to Login Designer. Please note that this action is irreversible. Proceed?', 'login-designer' ),
 				'nonce'       => array(
 					'activate'   => wp_create_nonce( 'login-designer-activate-license' ),
 					'deactivate' => wp_create_nonce( 'login-designer-deactivate-license' ),
