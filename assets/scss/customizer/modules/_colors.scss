@@ -20,17 +20,12 @@
 		}
 
 		.wp-picker-container {
+			display: block;
 
 			&,
 			.iris-picker {
 				width: 100% !important;
 			}
-		}
-
-		.button.wp-picker-default {
-			height: 26px;
-			line-height: 24px;
-			font-size: 12px;
 		}
 
 		.wp-picker-container.wp-picker-active {
@@ -49,14 +44,18 @@
 		}
 
 		.wp-color-result {
+			border-radius: 100%;
+			border-width: 0;
+			box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+			height: 26px;
+			margin: 0;
+			min-height: 26px;
+			padding: 0;
 			position: absolute;
 			right: 0;
 			top: -1px;
-			margin: 0;
-			border-width: 0;
-			height: 26px;
-			box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
 			transition: box-shadow $range--opacity-speed $range--opacity-cubic;
+			width: 26px;
 
 			&:hover {
 				box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3);
