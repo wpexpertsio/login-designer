@@ -450,6 +450,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				}
 
 				#login form {
+					border: 0;
 					overflow: visible;
 					margin-top: 0;
 				}

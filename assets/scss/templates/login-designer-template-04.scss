@@ -7,6 +7,7 @@ body.login.login-designer-template-04 {
 	justify-content: flex-end;
 
 	#login {
+		border: 0;
 
 		@media only screen and (min-width: 400px) {
 			flex-direction: column;
@@ -26,6 +27,7 @@ body.login.login-designer-template-04 {
 	}
 
 	form {
+		border: 0;
 		max-width: 400px;
 		margin: 0 auto;
 

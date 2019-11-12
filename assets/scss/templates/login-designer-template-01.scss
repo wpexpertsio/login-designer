@@ -30,8 +30,10 @@ body.login.login-designer-template-01 {
 	}
 
 	form {
+		border: 0;
 		max-width: 420px;
 		margin: 0 auto;
+
 		@media only screen and (max-width: 499px) {
 			padding-left: 25px;
 			padding-right: 25px;
