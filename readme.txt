@@ -86,5 +86,10 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
-### Bug Fixes
+### Enhancements
+* Supports [WordPress 5.3](https://github.com/thatplugincompany/login-designer/pull/37)
 * Add filters for popular SEO plugins to [ignore the Login Designer page](https://github.com/thatplugincompany/login-designer/pull/26)
+
+### Bug Fixes
+* Update [color controls](https://github.com/thatplugincompany/login-designer/pull/36) for WordPress 5.3
+* Fix [excessive border](https://github.com/thatplugincompany/login-designer/pull/37) on the login form for WordPress 5.3+
