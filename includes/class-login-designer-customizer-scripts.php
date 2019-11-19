@@ -30,6 +30,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'customize_controls' ) );
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'custom_controls' ) );
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'localization' ), 99 );
+			add_action( 'wp_footer', array( $this, 'export_preview_data' ), 1000 );
 		}
 
 		/**
@@ -94,6 +95,18 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			$localize = apply_filters( 'login_designer_customize_preview_localization', $localize );
 
 			wp_localize_script( 'login-designer-customize-preview', 'login_designer_script', $localize );
+		}
+
+		/**
+		 * Add export_preview_data() core function, as its missing on the login page within the Customizer.
+		 */
+		public function export_preview_data() {
+
+			if ( ! is_customize_preview() ) {
+				return;
+			}
+
+			echo '<script>var _customizePartialRefreshExports = ""</script>';
 		}
 
 		/**
