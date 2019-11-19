@@ -273,8 +273,8 @@ if ( ! class_exists( 'Login_Designer_Templates' ) ) :
 			$template_02_branding = apply_filters(
 				'login_designer_template_02_branding_defaults',
 				array(
-					'branding_color'      => '#3d3d3d',
-					'branding_icon_color' => '#4d4d4d',
+					'branding_color'      => '#353535',
+					'branding_icon_color' => '#353535',
 					'branding_position'   => 'right',
 				)
 			);
