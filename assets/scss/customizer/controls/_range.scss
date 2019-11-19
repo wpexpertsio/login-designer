@@ -81,9 +81,9 @@
 			box-shadow: none !important;
 			color: $gray;
 			display: inline-block;
-			font-size: 14px;
+			font-size: 12px;
 			height: 26px !important;
-			line-height: 14px !important;
+			line-height: 12px !important;
 			padding: 2px 0;
 			position: relative;
 			text-align: right;
@@ -135,7 +135,7 @@
 				border: 0 solid $border-color;
 				box-shadow: 0 0 0 $border-color;
 				cursor: pointer;
-				height: 2px;
+				height: 3px;
 				width: 100%;
 			}
 
@@ -145,34 +145,34 @@
 
 			&::-webkit-slider-thumb {
 				appearance: none;
-				background: $white;
+				background: #575d65;
 				border-radius: 50px;
-				border: 1px solid $border-color;
+				border: 1px solid #575d65;
 				box-shadow: 0 0 0 $border-color;
-				box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 				cursor: pointer;
-				height: 19px;
-				margin-top: -9px;
-				width: 19px;
+				height: 15px;
+				margin-top: -7px;
+				width: 15px;
 			}
 
 			&::-moz-range-thumb {
-				background: $white;
+				background: #575d65;
 				border-radius: 50px;
-				border: 1px solid $border-color;
+				border: 1px solid #575d65;
 				box-shadow: 0 0 0 $border-color;
 				cursor: pointer;
-				height: 19px;
-				width: 19px;
+				height: 15px;
+				width: 15px;
+				margin-top: -7px;
 			}
 
 			&::-moz-range-track {
 				background: $border-color;
-				border-radius: 1px;
+				border-radius: 10px;
 				border: 0 solid $border-color;
 				box-shadow: 0 0 0 $border-color;
 				cursor: pointer;
-				height: 2px;
+				height: 3px;
 				width: 100%;
 			}
 
@@ -181,32 +181,33 @@
 				border-color: transparent;
 				color: transparent;
 				cursor: pointer;
-				height: 2px;
+				height: 3px;
 				width: 100%;
 			}
 
 			&::-ms-fill-lower {
 				background: $border-color;
-				border-radius: 2px;
+				border-radius: 10px;
 				border: 0 solid $border-color;
 				box-shadow: 0 0 0 $border-color;
 			}
 
 			&::-ms-fill-upper {
 				background: $border-color;
-				border-radius: 2px;
+				border-radius: 10px;
 				border: 0 solid $border-color;
 				box-shadow: 0 0 0 $border-color;
 			}
 
 			&::-ms-thumb {
-				background: $white;
+				background: #575d65;
 				border-radius: 50px;
-				border: 1px solid $border-color;
+				border: 1px solid #575d65;
 				box-shadow: 0 0 0 $border-color;
 				cursor: pointer;
-				height: 17px;
-				width: 17px;
+				height: 15px;
+				width: 15px;
+				margin-top: -7px;
 			}
 
 			&:focus::-ms-fill-lower {
