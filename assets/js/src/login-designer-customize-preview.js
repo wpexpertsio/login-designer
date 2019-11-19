@@ -665,14 +665,6 @@
 		return wp.customize( 'login_designer[logo_height]' )();
 	}
 
-	function LogoMobileWidth() {
-		return wp.customize( 'login_designer[logo_mobile_width]' )();
-	}
-
-	function LogoMobileHeight() {
-		return wp.customize( 'login_designer[logo_mobile_height]' )();
-	}
-
 	// Customize the logo width.
 	wp.customize( 'login_designer[logo_width]', function( value ) {
 
@@ -690,23 +682,6 @@
 		} );
 	} );
 
-	// Customize the logo mobile width.
-	wp.customize( 'login_designer[logo_mobile_width]', function( value ) {
-
-		value.bind( function( to ) {
-			var style, el;
-			style = '<style class="login_designer_mobile_logo">@media screen and (max-width: 599px) { body.login #login-designer-logo, body.login #login h1 a { background-size:' + to + 'px ' + LogoMobileHeight() + 'px !important; } #login-designer-logo, #login-designer-logo-h1, body.login #login h1 a { width: ' + to + 'px !important; height: ' + LogoMobileHeight() + 'px !important; } } } </style>';
-
-			el =  $( '.login_designer_mobile_logo' );
-
-			if ( el.length ) {
-				el.replaceWith( style ); // style element already exists, so replace it
-			} else {
-				$( 'head' ).append( style ); // style element doesn't exist so add it
-			}
-		} );
-	} );
-
 	// Customize the logo height.
 	wp.customize( 'login_designer[logo_height]', function( value ) {
 
@@ -715,23 +690,6 @@
 			style = '<style class="login_designer_logo">@media screen and (min-width: 600px) { body.login #login-designer-logo, body.login #login h1 a { background-size:' + LogoWidth() + 'px ' + to + 'px !important; } #login-designer-logo, #login-designer-logo-h1, body.login #login h1 a { width: ' + LogoWidth() + 'px !important; height: ' + to + 'px !important; } } } </style>';
 
 			el =  $( '.login_designer_logo' );
-
-			if ( el.length ) {
-				el.replaceWith( style ); // style element already exists, so replace it
-			} else {
-				$( 'head' ).append( style ); // style element doesn't exist so add it
-			}
-		} );
-	} );
-
-	// Customize the logo mobile height.
-	wp.customize( 'login_designer[logo_mobile_height]', function( value ) {
-
-		value.bind( function( to ) {
-			var style, el;
-			style = '<style class="login_designer_mobile_logo">@media screen and (max-width: 599px) { body.login #login-designer-logo, body.login #login h1 a { background-size:' + LogoMobileWidth() + 'px ' + to + 'px !important; } #login-designer-logo, #login-designer-logo-h1, body.login #login h1 a { width: ' + LogoMobileWidth() + 'px !important; height: ' + to + 'px !important; } } } </style>';
-
-			el =  $( '.login_designer_mobile_logo' );
 
 			if ( el.length ) {
 				el.replaceWith( style ); // style element already exists, so replace it
