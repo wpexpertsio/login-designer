@@ -179,12 +179,10 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 			$css .= '
 			.login-designer-badge {
 				overflow: hidden;
-				height: 48px;
 				position: absolute;
 				bottom: 15px;
 				display: none;
 				right: 15px;
-				width: 251px;
 				z-index: 2;
 			}
 
@@ -239,6 +237,10 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 				-webkit-justify-content: center;
 				-ms-flex-pack: center;
 				justify-content: center;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				-ms-flex-align: center;
+				align-items: center;
 				position: relative;
 				padding: 8px 15px;
 				transition: transform 500ms cubic-bezier(0.694, 0.0482, 0.335, 1), opacity 200ms cubic-bezier(0.694, 0.0482, 0.335, 1) 300ms;
@@ -246,13 +248,13 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 
 			.login-designer-badge__text {
 				position: relative;
-				top: 7px;
 				padding-right: 5px;
+				line-height: 1;
 			}
 
 			.login-designer-badge .icon {
-				width: 145px;
-				height: 32px;
+				width: 164px;
+				height: 26px;
 			}
 
 			.login-designer-badge__link {
