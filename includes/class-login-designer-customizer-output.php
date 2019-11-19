@@ -475,6 +475,25 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					margin-top: 5px;
 				}
 
+				.wp-pwd {
+					margin-bottom: 16px;
+				}
+
+				#user_pass {
+					margin-bottom: 0;
+				}
+
+				.login .button.wp-hide-pw {
+					line-height: 1;
+					bottom: 0;
+					height: calc(100% - 5px);
+					top: 5px;
+				}
+
+				.login .button.wp-hide-pw .dashicons {
+					top: 0;
+				}
+
 				#login-designer-logo-h1 {
 					margin-right: auto;
 					margin-left: auto;
@@ -757,6 +776,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Field font color.
 				if ( isset( $options['field_color'] ) ) {
 					$css .= '#login form .input { color: ' . esc_attr( $options['field_color'] ) . ' }';
+					$css .= '#login .button.wp-hide-pw { color: ' . esc_attr( $options['field_color'] ) . '; }';
+					$css .= '#login .button.wp-hide-pw:focus { border-color: currentColor; box-shadow: 0 0 0 1px currentColor; }';
 				}
 
 				// Label font, as long as it's not 'default'.

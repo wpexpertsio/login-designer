@@ -646,6 +646,7 @@
 	wp.customize( 'login_designer[field_color]', function( value ) {
 		value.bind( function( to ) {
 			$( '#login form .input' ).css( 'color', to );
+			$( '#login form .button.wp-hide-pw' ).css( 'color', to );
 		} );
 	} );
 
