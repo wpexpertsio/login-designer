@@ -76,10 +76,8 @@
 		width: 60%;
 		position: absolute;
 		right: 0;
-		top: -1px;
-		box-shadow: none;
+		top: -2px;
 		margin: 0;
-		border-radius: 3px;
 	}
 }
 
@@ -114,13 +112,14 @@
 	.customize-control-dropdown-pages {
 		position: relative;
 
-		&:after {
+		&::after {
 			font: 400 11px/11px dashicons;
 			content: "\f341";
 			position: absolute;
 			right: 6px;
 			bottom: 7px;
 			transform: rotate(-90deg);
+			color: currentColor;
 		}
 
 		label {
@@ -134,13 +133,10 @@
 		select {
 			box-shadow: none;
 			margin: 0;
-			background: #f9f9f9;
-			padding-left: 10px;
+			background: #fff;
+			padding-left: 8px;
 			padding: 0;
-			line-height: 22px;
-			height: 26px;
 			appearance: none;
-			color: #555d66;
 			padding: 0;
 			cursor: pointer;
 			font-weight: normal;
@@ -149,8 +145,7 @@
 			transition: border-color $range--opacity-speed $range--opacity-cubic, background $range--opacity-speed $range--opacity-cubic;
 
 			&:hover {
-				border-color: #bbb;
-				background: #fff;
+				color: $blue;
 			}
 
 			select::-ms-expand {
@@ -185,25 +180,19 @@
 			width: 60%;
 			position: absolute;
 			box-shadow: none;
-			top: -1px;
+			top: -2px;
 			right: 0;
 			margin: 0;
 			background: #fff;
 			padding: 0;
-			line-height: 22px;
-			height: 26px;
 			appearance: none;
-			color: #555d66;
-			padding-left: 7px;
+			padding-left: 8px;
 			cursor: pointer;
 			font-weight: 400;
-			font-size: 13px;
-			border-radius: 3px;
 			transition: border-color $range--opacity-speed $range--opacity-cubic, background $range--opacity-speed $range--opacity-cubic;
 
 			&:hover {
-				border-color: #bbb;
-				background: #fff;
+				color: $blue;
 			}
 
 			select::-ms-expand {
