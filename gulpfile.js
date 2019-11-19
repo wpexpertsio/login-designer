@@ -506,6 +506,7 @@ gulp.task( 'default', gulp.series( 'clearCache', 'debug_mode_on', 'vendorsJs', '
 
 	gulp.watch( projectPHPWatchFiles, gulp.parallel(reload));
 	gulp.watch( styleWatchFiles, gulp.parallel('styles_customize_preview'));
+	gulp.watch( styleWatchFiles, gulp.parallel('styles_customize_controls'));
 	gulp.watch( styleWatchFiles, gulp.parallel('template_1'));
 	gulp.watch( styleWatchFiles, gulp.parallel('template_2'));
 	gulp.watch( styleWatchFiles, gulp.parallel('template_3'));
