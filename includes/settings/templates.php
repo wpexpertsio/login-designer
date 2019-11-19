@@ -5,6 +5,11 @@
  * @package Login Designer
  */
 
+// Return early if the class is missing.
+if ( ! class_exists( 'Login_Designer_Templates' ) ) {
+	return;
+}
+
 // Set template choices.
 $template_class = new Login_Designer_Templates();
 
