@@ -126,64 +126,6 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting(
-	'login_designer[logo_mobile_width]',
-	array(
-		'default'           => $defaults['logo_mobile_width'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'absint',
-	)
-);
-
-$wp_customize->add_control(
-	new Login_Designer_Range_Control(
-		$wp_customize,
-		'login_designer[logo_mobile_width]',
-		array(
-			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Mobile Width', 'login-designer' ),
-			'section'     => 'login_designer__section--styles',
-			'description' => 'px',
-			'default'     => $defaults['logo_mobile_width'],
-			'input_attrs' => array(
-				'min'  => 30,
-				'max'  => 400,
-				'step' => 2,
-			),
-		)
-	)
-);
-
-$wp_customize->add_setting(
-	'login_designer[logo_mobile_height]',
-	array(
-		'default'           => $defaults['logo_mobile_height'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'absint',
-	)
-);
-
-$wp_customize->add_control(
-	new Login_Designer_Range_Control(
-		$wp_customize,
-		'login_designer[logo_mobile_height]',
-		array(
-			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Mobile Height', 'login-designer' ),
-			'section'     => 'login_designer__section--styles',
-			'description' => 'px',
-			'default'     => $defaults['logo_mobile_height'],
-			'input_attrs' => array(
-				'min'  => 30,
-				'max'  => 300,
-				'step' => 2,
-			),
-		)
-	)
-);
-
-$wp_customize->add_setting(
 	'login_designer[logo_margin_bottom]',
 	array(
 		'default'           => $defaults['logo_margin_bottom'],

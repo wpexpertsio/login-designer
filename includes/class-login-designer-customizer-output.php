@@ -78,8 +78,6 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'logo'                  => '',
 				'logo_width'            => '84',
 				'logo_height'           => '84',
-				'logo_mobile_width'     => '84',
-				'logo_mobile_height'    => '84',
 				'logo_margin_bottom'    => '25',
 				'disable_logo'          => false,
 				'form_bg'               => '#ffffff',
@@ -590,8 +588,6 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 					$width         = isset( $options['logo_width'] ) ? $options['logo_width'] : $image[1] / 2;
 					$height        = isset( $options['logo_height'] ) ? $options['logo_height'] : $image[2] / 2;
-					$mobile_width  = isset( $options['logo_mobile_width'] ) ? $options['logo_mobile_width'] : $image[1] / 2;
-					$mobile_height = isset( $options['logo_mobile_height'] ) ? $options['logo_mobile_height'] : $image[2] / 2;
 
 					$css .= '
 
@@ -611,34 +607,17 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 						#login-designer-logo,
 						body.login #login h1 a {
-							background-size: ' . absint( $mobile_width ) . 'px ' . absint( $mobile_height ) . 'px ;
+							background-size: ' . absint( $width ) . 'px ' . absint( $height ) . 'px ;
 						}
 
 						#login-designer-logo-h1,
 						body.login #login h1 a {
-							width: ' . absint( $mobile_width ) . 'px;
-							height: ' . absint( $mobile_height ) . 'px;
+							width: ' . absint( $width ) . 'px;
+							height: ' . absint( $height ) . 'px;
 						}
 
 						#login-designer-logo-h1 {
-							width: ' . absint( $mobile_width ) . 'px !important;
-						}
-
-						@media screen and (min-width: 600px) {
-							#login-designer-logo,
-							body.login #login h1 a {
-								background-size: ' . absint( $width ) . 'px ' . absint( $height ) . 'px ;
-							}
-
-							#login-designer-logo-h1,
-							body.login #login h1 a {
-								width: ' . absint( $width ) . 'px;
-								height: ' . absint( $height ) . 'px;
-							}
-
-							#login-designer-logo-h1 {
-								width: ' . absint( $width ) . 'px !important;
-							}
+							width: ' . absint( $width ) . 'px !important;
 						}
 					';
 				}
