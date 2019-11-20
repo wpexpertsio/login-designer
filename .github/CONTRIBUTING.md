@@ -27,7 +27,7 @@ When contributing please ensure you follow the guidelines below so that we can k
 ## Code Documentation
 
 -   We ensure that every Login Designer function is documented well and follows the standards set by phpDoc
--   Finally, please use tabs and not spaces. The tab indent size should be 8.
+-   Finally, please use tabs and not spaces. The tab indent size should be 4.
 
 At this point you're waiting on us to merge your pull request. We'll review all pull requests, and make suggestions and changes if necessary.
 
