@@ -183,6 +183,11 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 						<span id="login-designer--password-label-text"><?php echo esc_html__( 'Password', 'login-designer' ); ?></span>
 						<div id="login-designer--password">
 							<input autocomplete="off" type="password" name="pwd" id="user_pass" class="input" value="password" size="20" />
+							<?php if ( version_compare( $GLOBALS['wp_version'], '5.2', '>' ) ) { ?>
+								<button type="button" class="button button-secondary wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="<?php echo esc_attr__( 'Show Password', 'login-designer' ); ?>">
+									<span class="dashicons dashicons-visibility" aria-hidden="true"></span>
+								</button>
+							<?php } ?>
 						</div>
 					</label>
 				</p>

@@ -87,9 +87,9 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 == Changelog ==
 
 ### Enhancements
-* Supports [WordPress 5.3](https://github.com/thatplugincompany/login-designer/pull/37)
-* Add filters for popular SEO plugins to [ignore the Login Designer page](https://github.com/thatplugincompany/login-designer/pull/26)
+* Add minor [UI tweaks](https://github.com/thatplugincompany/login-designer/pull/42) to better support WordPress 5.3
 
 ### Bug Fixes
-* Update [color controls](https://github.com/thatplugincompany/login-designer/pull/36) for WordPress 5.3
-* Fix [excessive border](https://github.com/thatplugincompany/login-designer/pull/37) on the login form for WordPress 5.3+
+* Add [missing JavaScript variable](https://github.com/thatplugincompany/login-designer/pull/41) for customize partials
+* Improve the [RankMath filter](https://github.com/thatplugincompany/login-designer/pull/44)
+* Custom logos now display properly [on mobile](https://github.com/thatplugincompany/login-designer/pull/43)

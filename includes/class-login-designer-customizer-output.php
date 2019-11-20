@@ -78,8 +78,6 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'logo'                  => '',
 				'logo_width'            => '84',
 				'logo_height'           => '84',
-				'logo_mobile_width'     => '84',
-				'logo_mobile_height'    => '84',
 				'logo_margin_bottom'    => '25',
 				'disable_logo'          => false,
 				'form_bg'               => '#ffffff',
@@ -475,6 +473,25 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					margin-top: 5px;
 				}
 
+				.wp-pwd {
+					margin-bottom: 16px;
+				}
+
+				#user_pass {
+					margin-bottom: 0;
+				}
+
+				.login .button.wp-hide-pw {
+					line-height: 1;
+					bottom: 0;
+					height: calc(100% - 5px);
+					top: 5px;
+				}
+
+				.login .button.wp-hide-pw .dashicons {
+					top: 0;
+				}
+
 				#login-designer-logo-h1 {
 					margin-right: auto;
 					margin-left: auto;
@@ -571,8 +588,6 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 					$width         = isset( $options['logo_width'] ) ? $options['logo_width'] : $image[1] / 2;
 					$height        = isset( $options['logo_height'] ) ? $options['logo_height'] : $image[2] / 2;
-					$mobile_width  = isset( $options['logo_mobile_width'] ) ? $options['logo_mobile_width'] : $image[1] / 2;
-					$mobile_height = isset( $options['logo_mobile_height'] ) ? $options['logo_mobile_height'] : $image[2] / 2;
 
 					$css .= '
 
@@ -592,34 +607,17 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 						#login-designer-logo,
 						body.login #login h1 a {
-							background-size: ' . absint( $mobile_width ) . 'px ' . absint( $mobile_height ) . 'px ;
+							background-size: ' . absint( $width ) . 'px ' . absint( $height ) . 'px ;
 						}
 
 						#login-designer-logo-h1,
 						body.login #login h1 a {
-							width: ' . absint( $mobile_width ) . 'px;
-							height: ' . absint( $mobile_height ) . 'px;
+							width: ' . absint( $width ) . 'px;
+							height: ' . absint( $height ) . 'px;
 						}
 
 						#login-designer-logo-h1 {
-							width: ' . absint( $mobile_width ) . 'px !important;
-						}
-
-						@media screen and (min-width: 600px) {
-							#login-designer-logo,
-							body.login #login h1 a {
-								background-size: ' . absint( $width ) . 'px ' . absint( $height ) . 'px ;
-							}
-
-							#login-designer-logo-h1,
-							body.login #login h1 a {
-								width: ' . absint( $width ) . 'px;
-								height: ' . absint( $height ) . 'px;
-							}
-
-							#login-designer-logo-h1 {
-								width: ' . absint( $width ) . 'px !important;
-							}
+							width: ' . absint( $width ) . 'px !important;
 						}
 					';
 				}
@@ -757,6 +755,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Field font color.
 				if ( isset( $options['field_color'] ) ) {
 					$css .= '#login form .input { color: ' . esc_attr( $options['field_color'] ) . ' }';
+					$css .= '#login .button.wp-hide-pw { color: ' . esc_attr( $options['field_color'] ) . '; }';
+					$css .= '#login .button.wp-hide-pw:focus { border-color: currentColor; box-shadow: 0 0 0 1px currentColor; }';
 				}
 
 				// Label font, as long as it's not 'default'.
