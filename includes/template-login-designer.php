@@ -36,7 +36,6 @@ if ( ! is_customize_preview() ) {
  * @param WP_Error $wp_error Optional. The error to pass. Default empty.
  */
 function logindesigner_login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
-
 	global $error, $action;
 
 	// Don't index any of these forms.
