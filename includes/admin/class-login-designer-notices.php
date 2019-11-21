@@ -40,7 +40,6 @@ if ( ! class_exists( 'Login_Designer_Notices' ) ) :
 		 * @return void
 		 */
 		private static function render_admin_notice( $message, $type = 'update', $dismissable = false ) {
-
 			if ( ! is_admin() ) {
 				return;
 			} elseif ( ! is_user_logged_in() ) {
