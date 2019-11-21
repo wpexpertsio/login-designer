@@ -35,20 +35,17 @@ if ( ! class_exists( 'Login_Designer_Theme_Template' ) ) :
 		 * Returns an instance of this class.
 		 */
 		public static function get_instance() {
-
 			if ( null === self::$instance ) {
 				self::$instance = new Login_Designer_Theme_Template();
 			}
 
 			return self::$instance;
-
 		}
 
 		/**
 		 * Initializes the plugin by setting filters and administration functions.
 		 */
 		private function __construct() {
-
 			$this->templates = array();
 
 			// Add a filter to the save post to inject out template into the page cache.
@@ -111,7 +108,6 @@ if ( ! class_exists( 'Login_Designer_Theme_Template' ) ) :
 		 * @param string|string $template The template.
 		 */
 		public function view_project_template( $template ) {
-
 			global $post;
 
 			// Return template if post is empty.
@@ -139,7 +135,6 @@ if ( ! class_exists( 'Login_Designer_Theme_Template' ) ) :
 
 			// Return template.
 			return $template;
-
 		}
 	}
 
