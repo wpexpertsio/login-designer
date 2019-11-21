@@ -56,7 +56,6 @@ class Login_Designer_License_Control extends WP_Customize_Control {
 	 * @see https://developer.wordpress.org/reference/classes/wp_customize_control/render_content/
 	 */
 	public function render_content() {
-
 		$customizer       = new Login_Designer_License_Handler();
 		$key              = $customizer->key();
 		$status           = $customizer->status();
