@@ -29,7 +29,6 @@ function login_designer_install( $network_wide = false ) {
 	}
 
 	if ( is_multisite() && $network_wide ) {
-
 		foreach ( $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs LIMIT 100" ) as $blog_id ) {
 			switch_to_blog( $blog_id );
 			login_designer_run_install();
@@ -38,7 +37,6 @@ function login_designer_install( $network_wide = false ) {
 	} else {
 		login_designer_run_install();
 	}
-
 }
 register_activation_hook( LOGIN_DESIGNER_PLUGIN_FILE, 'login_designer_install' );
 
@@ -74,9 +72,7 @@ function login_designer_create_page( $slug, $option = '', $page_title = '', $pag
 	$valid_page_found = apply_filters( 'login_designer_create_page_id', $valid_page_found, $slug, $page_content );
 
 	if ( $valid_page_found ) {
-
 		if ( $option ) {
-
 			$options['login_designer_page'] = $valid_page_found;
 			$valid_page_found               = isset( $page_id ) ? $valid_page_found : $option_value;
 			$merged_options                 = array_merge( $admin_options, $options );
@@ -98,9 +94,7 @@ function login_designer_create_page( $slug, $option = '', $page_title = '', $pag
 		);
 
 		wp_update_post( $page_data );
-
 	} else {
-
 		$page_data = array(
 			'post_status'    => 'publish',
 			'post_type'      => 'page',
@@ -115,7 +109,6 @@ function login_designer_create_page( $slug, $option = '', $page_title = '', $pag
 	}
 
 	if ( $option ) {
-
 		$options['login_designer_page'] = $page_id;
 		$page_id                        = isset( $page_id ) ? $page_id : $option_value;
 		$merged_options                 = array_merge( $admin_options, $options );
@@ -168,15 +161,11 @@ function login_designer_run_install() {
  * @return void
  */
 function login_designer_new_blog_created( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
-
 	if ( is_plugin_active_for_network( plugin_basename( LOGIN_DESIGNER_PLUGIN_FILE ) ) ) {
-
 		switch_to_blog( $blog_id );
 		login_designer_install();
 		restore_current_blog();
-
 	}
-
 }
 add_action( 'wpmu_new_blog', 'login_designer_new_blog_created', 10, 6 );
 
