@@ -49,7 +49,6 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		 * @access public
 		 */
 		public function key() {
-
 			$options = get_option( 'login_designer_license', array() );
 			$key     = array_key_exists( 'key', $options ) ? sanitize_text_field( $options['key'] ) : false;
 
@@ -62,7 +61,6 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		 * @access public
 		 */
 		public function status() {
-
 			$options = get_option( 'login_designer_license', array() );
 			$status  = array_key_exists( 'status', $options ) ? sanitize_text_field( $options['status'] ) : false;
 
@@ -75,7 +73,6 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		 * @access public
 		 */
 		public function expiration() {
-
 			$options    = get_option( 'login_designer_license', array() );
 			$expiration = array_key_exists( 'expiration', $options ) ? sanitize_text_field( $options['expiration'] ) : false;
 
@@ -88,7 +85,6 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		 * @access public
 		 */
 		public function site_count() {
-
 			$options    = get_option( 'login_designer_license', array() );
 			$site_count = array_key_exists( 'site_count', $options ) ? sanitize_text_field( $options['site_count'] ) : false;
 
@@ -101,7 +97,6 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		 * @access public
 		 */
 		public function activations_left() {
-
 			$options          = get_option( 'login_designer_license', array() );
 			$activations_left = array_key_exists( 'activations_left', $options ) ? sanitize_text_field( $options['activations_left'] ) : false;
 
@@ -135,7 +130,8 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 
 			// Call the custom API.
 			$response = wp_remote_post(
-				'https://logindesigner.com/', array(
+				'https://logindesigner.com/',
+				array(
 					'timeout'   => 15,
 					'sslverify' => false,
 					'body'      => $api_params,
@@ -156,7 +152,6 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		 * License Activation AJAX.
 		 */
 		public function ajax_activate_license() {
-
 			if ( ! check_ajax_referer( 'login-designer-activate-license', 'nonce', false ) ) {
 				wp_send_json_error( 'invalid_nonce' );
 			}
@@ -168,7 +163,6 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 		 * License Deactivation AJAX.
 		 */
 		public function ajax_deactivate_license() {
-
 			if ( ! check_ajax_referer( 'login-designer-deactivate-license', 'nonce', false ) ) {
 				wp_send_json_error( 'invalid_nonce' );
 			}
@@ -208,9 +202,7 @@ if ( ! class_exists( 'Login_Designer_License_Handler' ) ) :
 			} else {
 				// If the license response is not successful.
 				if ( false === $response->success ) {
-
 					switch ( $response->error ) {
-
 						case 'expired':
 							$message = sprintf(
 								esc_html__( 'Your license key expired on %s.', 'login-designer' ),
