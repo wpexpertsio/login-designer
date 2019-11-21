@@ -33,7 +33,6 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		 * @param array $classes Existing body classes to be filtered.
 		 */
 		public function body_class( $classes ) {
-
 			if ( is_customize_preview() ) {
 				$classes[] = 'customize-partial-edit-shortcuts-shown';
 			}
@@ -95,7 +94,8 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			 * Add the main panel and sections.
 			 */
 			$wp_customize->add_panel(
-				'login_designer', array(
+				'login_designer',
+				array(
 					'title'       => esc_html__( 'Login Designer', 'login-designer' ),
 					'capability'  => 'edit_theme_options',
 					'description' => esc_html__( 'Click the Templates icon at the top left of the preview window to change your template. To customize further, simply click on any element, or it\'s corresponding shortcut icon, to edit it\'s styling. ', 'login-designer' ),
@@ -105,7 +105,8 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 			// Style Editor (Initially hidden from the Customizer).
 			$wp_customize->add_section(
-				'login_designer__section--styles', array(
+				'login_designer__section--styles',
+				array(
 					'title' => esc_html__( 'Styles', 'login-designer' ),
 					'panel' => 'login_designer',
 				)
@@ -113,7 +114,8 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 			// Templates.
 			$wp_customize->add_section(
-				'login_designer__section--templates', array(
+				'login_designer__section--templates',
+				array(
 					'title' => esc_html__( 'Templates', 'login-designer' ),
 					'panel' => 'login_designer',
 				)
@@ -121,7 +123,8 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 			// Settings.
 			$wp_customize->add_section(
-				'login_designer__section--settings', array(
+				'login_designer__section--settings',
+				array(
 					'title' => esc_html__( 'Settings', 'login-designer' ),
 					'panel' => 'login_designer',
 				)
@@ -133,7 +136,6 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			 * @see https://github.com/justintadlock/trt-customizer-pro
 			 */
 			if ( Login_Designer()->has_pro() ) {
-
 				$wp_customize->register_section_type( 'Login_Designer_Upgrade_Control' );
 
 				// Retrieve the Login Designer shop URL.
@@ -149,7 +151,9 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 				$wp_customize->add_section(
 					new Login_Designer_Upgrade_Control(
-						$wp_customize, 'upgrade', array(
+						$wp_customize,
+						'upgrade',
+						array(
 							'type'     => 'upgrade',
 							'panel'    => 'login_designer',
 							'title'    => esc_html__( 'Extensions', 'login-designer' ),
@@ -240,7 +244,6 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		 * Get background images.
 		 */
 		public static function get_background_images() {
-
 			$image_dir = LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/backgrounds/';
 
 			$backgrounds = array(
@@ -266,7 +269,6 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		 * @return array
 		 */
 		public static function get_background_choices() {
-
 			$choices = array(
 				'repeat'   => array(
 					'no-repeat' => esc_html__( 'No Repeat', 'login-designer' ),
@@ -297,7 +299,6 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			);
 
 			return apply_filters( 'login_designer_background_choices', $choices );
-
 		}
 
 		/**
@@ -306,7 +307,6 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		 * @return array of font styles.
 		 */
 		public static function get_fonts() {
-
 			$fonts = array(
 				'default'             => esc_html__( 'Default', 'login-designer' ),
 				'Abril Fatface'       => 'Abril Fatface',
