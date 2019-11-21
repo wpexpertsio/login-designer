@@ -17,10 +17,13 @@
  * You should have received a copy of the GNU General Public License
  * along with Login Designer. If not, see <http://www.gnu.org/licenses/>.
  *
- * @package         Login Designer
+ * @package Login Designer
  */
 
-defined( 'ABSPATH' ) || exit;
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 if ( ! class_exists( 'Login_Designer' ) ) :
 
@@ -141,7 +144,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		private function includes() {
-
 			if ( is_admin() ) {
 				require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/admin/class-login-designer-license-handler.php';
 				require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/admin/class-login-designer-extension-updater.php';
@@ -415,7 +417,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @access public
 		 */
 		public function get_login_designer_page() {
-
 			$admin_options = get_option( 'login_designer_settings', array() );
 			$page          = array_key_exists( 'login_designer_page', $admin_options ) ? get_post( $admin_options['login_designer_page'] ) : false;
 
@@ -431,7 +432,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return string
 		 */
 		public function get_affiliate_id() {
-
 			$id = array( 'ref' => apply_filters( 'login_designer_affiliate_id', null ) );
 
 			return $id;
@@ -446,7 +446,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return string
 		 */
 		public function get_store_url( $path = '', $params = array() ) {
-
 			$id = $this->get_affiliate_id();
 
 			$params = array_merge( $params, $id );
@@ -469,7 +468,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 
 			// If there's no pro version, just return the settings link.
 			if ( ! $this->has_pro() ) {
-
 				return array_merge(
 					$settings,
 					$actions
@@ -491,7 +489,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 						'utm_content'  => 'support',
 					)
 				);
-
 			} else {
 				$title = esc_html__( 'Pro', 'login-designer' );
 
