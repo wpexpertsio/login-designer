@@ -52,17 +52,12 @@
 		<exclude-pattern>login-designer.php</exclude-pattern>
 	</rule>
 
-	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
-		<properties>
-			<!-- Value: replace the function, class, and variable prefixes used. Separate multiple prefixes with a comma. -->
-			<property name="prefixes" type="array" value="login-designer"/>
-		</properties>
-	</rule>
 	<!-- Naming Conventions: prefix everything in the global namespace. -->
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
-				<element value="login_designer"/>
+				<element value="logindesigner"/>
+				<element value="Login_Designer"/>
 				<element value="tgmpa"/>
 			</property>
 

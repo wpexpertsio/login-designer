@@ -6,7 +6,7 @@
  */
 
 // Set background choices from the Customize class.
-$background_choices = $this->get_background_choices();
+$login_designer_background_choices = $this->get_background_choices();
 
 $wp_customize->add_setting(
 	'login_designer[bg_title]',
@@ -89,7 +89,7 @@ $wp_customize->add_control(
 		'type'    => 'select',
 		'label'   => esc_html__( 'Repeat', 'login-designer' ),
 		'section' => 'login_designer__section--styles',
-		'choices' => $background_choices['repeat'],
+		'choices' => $login_designer_background_choices['repeat'],
 	)
 );
 
@@ -109,7 +109,7 @@ $wp_customize->add_control(
 		'type'    => 'select',
 		'label'   => esc_html__( 'Size', 'login-designer' ),
 		'section' => 'login_designer__section--styles',
-		'choices' => $background_choices['size'],
+		'choices' => $login_designer_background_choices['size'],
 	)
 );
 
@@ -129,7 +129,7 @@ $wp_customize->add_control(
 		'type'    => 'select',
 		'label'   => esc_html__( 'Attachment', 'login-designer' ),
 		'section' => 'login_designer__section--styles',
-		'choices' => $background_choices['attach'],
+		'choices' => $login_designer_background_choices['attach'],
 	)
 );
 
@@ -149,7 +149,7 @@ $wp_customize->add_control(
 		'type'    => 'select',
 		'label'   => esc_html__( 'Position', 'login-designer' ),
 		'section' => 'login_designer__section--styles',
-		'choices' => $background_choices['position'],
+		'choices' => $login_designer_background_choices['position'],
 	)
 );
 

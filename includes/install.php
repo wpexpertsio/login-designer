@@ -58,8 +58,9 @@ function login_designer_create_page( $slug, $option = '', $page_title = '', $pag
 	// Pull options from WP.
 	$admin_options = get_option( 'login_designer_settings', array() );
 	$option_value  = array_key_exists( 'login_designer_page', $admin_options ) ? $admin_options['login_designer_page'] : false;
+	$page_object   = get_post( $option_value );
 
-	if ( $option_value > 0 && ( $page_object = get_post( $option_value ) ) ) {
+	if ( $option_value > 0 && $page_object ) {
 		if ( 'page' === $page_object->post_type && ! in_array( $page_object->post_status, array( 'pending', 'trash', 'future', 'auto-draft' ), true ) ) {
 			// Valid page is already in place.
 			return $page_object->ID;

@@ -43,7 +43,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			// Define where the asset is loaded from.
 			$dir = Login_Designer()->asset_source( 'css' );
 
-			wp_enqueue_style( 'login-designer-customize-controls', $dir . 'login-designer-customize-controls' . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', null );
+			wp_enqueue_style( 'login-designer-customize-controls', $dir . 'login-designer-customize-controls' . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', null, LOGIN_DESIGNER_VERSION );
 		}
 
 		/**
