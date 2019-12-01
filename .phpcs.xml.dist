@@ -16,6 +16,9 @@
 	<exclude-pattern>/dist/</exclude-pattern>
 	<exclude-pattern>/build/</exclude-pattern>
 
+	<!-- Exclude, as this is derived from core. -->
+	<exclude-pattern>/includes/template-login-designer.php</exclude-pattern>
+
 	<!-- Additional arguments. -->
 	<!-- Usage instructions: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage -->
 	<!-- Annotated ruleset: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml -->
