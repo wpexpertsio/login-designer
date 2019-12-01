@@ -12,19 +12,19 @@
 if ( ! is_customize_preview() ) {
 
 	// Pull the Login Designer page from options.
-	$page = get_permalink( Login_Designer()->get_login_designer_page() );
+	$logindesigner_page = get_permalink( Login_Designer()->get_login_designer_page() );
 
 	// Generate the redirect url.
-	$url = add_query_arg(
+	$logindesigner_url = add_query_arg(
 		array(
 			'autofocus[section]' => 'login_designer__section--templates',
 			'return'             => admin_url( 'index.php' ),
-			'url'                => rawurlencode( $page ),
+			'url'                => rawurlencode( $logindesigner_page ),
 		),
 		admin_url( 'customize.php' )
 	);
 
-	wp_safe_redirect( $url );
+	wp_safe_redirect( $logindesigner_url );
 }
 
 /**
@@ -36,7 +36,6 @@ if ( ! is_customize_preview() ) {
  * @param WP_Error $wp_error Optional. The error to pass. Default empty.
  */
 function logindesigner_login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
-
 	global $error, $action;
 
 	// Don't index any of these forms.
@@ -49,7 +48,7 @@ function logindesigner_login_header( $title = 'Log In', $message = '', $wp_error
 	$login_title = get_bloginfo( 'name', 'display' );
 
 	/* translators: Login screen title. 1: Login screen name, 2: Network or site name */
-	$login_title = sprintf( __( '%1$s &lsaquo; %2$s &#8212; WordPress' ), $title, $login_title );
+	$login_title = sprintf( __( '%1$s &lsaquo; %2$s &#8212; WordPress', 'login-designer' ), $title, $login_title );
 	/**
 	 * Filters the title tag content for login page.
 	 *
@@ -215,13 +214,13 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 				<p id="nav">
 					<?php
 					if ( get_option( 'users_can_register' ) ) :
-						$registration_url = sprintf( '<a href="%s">%s</a>', esc_url( wp_registration_url() ), __( 'Register' ) );
+						$registration_url = sprintf( '<a href="%s">%s</a>', esc_url( wp_registration_url() ), __( 'Register', 'login-designer' ) );
 						/** This filter is documented in wp-includes/general-template.php */
-						echo apply_filters( 'register', $registration_url );
+						echo esc_url( apply_filters( 'register', $registration_url ) );
 						echo esc_html( $login_link_separator );
 					endif;
 					?>
-					<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?' ); ?></a>
+					<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php esc_html_e( 'Lost your password?', 'login-designer' ); ?></a>
 
 				</p>
 
@@ -229,7 +228,7 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 						<?php
 						/* translators: %s: site title */
-						printf( _x( '&larr; Back to %s', 'site' ), esc_html( get_bloginfo( 'title', 'display' ) ) );
+						printf( _x( '&larr; Back to %s', 'site', 'login-designer' ), esc_html( get_bloginfo( 'title', 'display' ) ) );
 						?>
 					</a>
 				</p>
