@@ -44,7 +44,6 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 		 * Add functionality to the Customizer.
 		 */
 		public function is_customize() {
-
 			if ( ! is_customize_preview() ) {
 				return;
 			}
@@ -80,7 +79,6 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 		 * @access public
 		 */
 		public function is_active() {
-
 			$admin_options = get_option( 'login_designer_settings', array() );
 			$option        = array_key_exists( 'branding', $admin_options ) ? $admin_options['branding'] : false;
 
@@ -97,7 +95,6 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 		 * @access public
 		 */
 		public function position() {
-
 			$admin_options = get_option( 'login_designer_settings', array() );
 			$option        = array_key_exists( 'branding_position', $admin_options ) ? $admin_options['branding_position'] : false;
 
@@ -173,7 +170,6 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 		 * @access public
 		 */
 		public function styles() {
-
 			$css = '';
 
 			$css .= '
@@ -291,7 +287,6 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 				if ( isset( $options['branding_icon_color'] ) ) {
 					$css .= '.login-designer-badge .icon { color:' . esc_attr( $options['branding_icon_color'] ) . ';}';
 				}
-
 			endif;
 
 			if ( is_customize_preview() ) :
@@ -381,9 +376,9 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 			 *
 			 * However, child themes can use the title and description to add information to non-decorative SVG icons to improve accessibility.
 			 *
-			 * Example 1 with title: <?php echo logindesigner_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ) ) ); ?>
+			 * Example 1 with title: <?php echo logindesigner_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'login-designer' ) ) ); ?>
 			 *
-			 * Example 2 with title and description: <?php echo logindesigner_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ), 'desc' => __( 'This is the description', 'textdomain' ) ) ); ?>
+			 * Example 2 with title and description: <?php echo logindesigner_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'login-designer' ), 'desc' => __( 'This is the description', 'login-designer' ) ) ); ?>
 			 *
 			 * See https://www.paciellogroup.com/blog/2013/12/using-aria-enhance-svg-accessibility/.
 			 */
@@ -433,7 +428,6 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 		 * Allowed HTML for rendered sprite SVG images.
 		 */
 		public function svg_allowed_html() {
-
 			$array = array(
 				'svg' => array(
 					'class'       => array(),

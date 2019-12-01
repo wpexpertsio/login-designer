@@ -43,7 +43,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			// Define where the asset is loaded from.
 			$dir = Login_Designer()->asset_source( 'css' );
 
-			wp_enqueue_style( 'login-designer-customize-controls', $dir . 'login-designer-customize-controls' . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', null );
+			wp_enqueue_style( 'login-designer-customize-controls', $dir . 'login-designer-customize-controls' . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', null, LOGIN_DESIGNER_VERSION );
 		}
 
 		/**
@@ -52,7 +52,6 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 		 * @access public
 		 */
 		public function customize_styles() {
-
 			if ( ! is_customize_preview() ) {
 				return;
 			}
@@ -101,7 +100,6 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 		 * Add export_preview_data() core function, as its missing on the login page within the Customizer.
 		 */
 		public function export_preview_data() {
-
 			if ( ! is_customize_preview() ) {
 				return;
 			}
@@ -186,7 +184,6 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			} else {
 				wp_localize_script( 'login-designer-customize-custom-controls', 'login_designer_custom_controls', $localize );
 			}
-
 		}
 	}
 

@@ -25,7 +25,7 @@ if ( ! class_exists( 'Login_Designer_Notices' ) ) :
 			$page = Login_Designer()->get_login_designer_page();
 
 			// Add a warning notice if the user has attempted to trash the Login Designer page.
-			if ( isset( $_GET['ids'] ) && $_GET['ids'] === $page->ID ) {
+			if ( isset( $_GET['ids'] ) && intval( $_GET['ids'] ) === $page->ID ) { // phpcs:ignore  WordPress.Security.NonceVerification
 				add_action( 'admin_notices', array( $this, 'double_install_admin_notice' ) );
 			}
 		}
@@ -40,7 +40,6 @@ if ( ! class_exists( 'Login_Designer_Notices' ) ) :
 		 * @return void
 		 */
 		private static function render_admin_notice( $message, $type = 'update', $dismissable = false ) {
-
 			if ( ! is_admin() ) {
 				return;
 			} elseif ( ! is_user_logged_in() ) {

@@ -37,7 +37,6 @@ class Login_Designer_Gallery_Control extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		// Use this only if LOGIN_DESIGNER_DEBUG is active.
 		// If it is not active, we're loading the concated and minified login-designer-custom-controls.min.js file.
 		if ( ! defined( 'LOGIN_DESIGNER_DEBUG' ) || ( defined( 'LOGIN_DESIGNER_DEBUG' ) && false === LOGIN_DESIGNER_DEBUG ) ) {
 			return;
@@ -65,7 +64,6 @@ class Login_Designer_Gallery_Control extends WP_Customize_Control {
 		$this->json['value']   = $this->value();
 		$this->json['link']    = $this->get_link();
 		$this->json['choices'] = $this->choices;
-
 	}
 
 	/**

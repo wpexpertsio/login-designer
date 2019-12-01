@@ -14,10 +14,10 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 require_once 'login-designer.php';
 
 // Pull the Login Designer page from options.
-$page = Login_Designer()->get_login_designer_page();
-$page = $page->ID;
+$login_designer_page = Login_Designer()->get_login_designer_page();
+$login_designer_page = $login_designer_page->ID;
 
-wp_trash_post( $page );
+wp_trash_post( $login_designer_page );
 
 // Remove all plugin settings.
 delete_option( 'login_designer' );
