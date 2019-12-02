@@ -4,7 +4,9 @@ on: push
 
 jobs:
   labeler:
+
     runs-on: ubuntu-latest
+
     steps:
       -
         name: Checkout
