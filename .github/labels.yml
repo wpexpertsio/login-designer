@@ -2,7 +2,7 @@
   color: "c8356e"
   description: "A great place to start if you're new to contributing"
 - name: Cleanup
-  color: "c8356e"
+  color: "2271b1"
   description: "Minor file cleanup and organization tasks"
 - name: Accessibility (a11y)
   color: "646970"
