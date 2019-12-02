@@ -1,6 +1,8 @@
 name: Labeler
 
-on: push
+on:
+  issues:
+    types: [created]
 
 jobs:
   labeler:
@@ -17,8 +19,6 @@ jobs:
         uses: crazy-max/ghaction-github-labeler@v1
         with:
           yaml_file: .github/labels.yml
-          exclude: "['help*', '*issue']"
           skip_delete: false
-          dry_run: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
