@@ -13,7 +13,7 @@
   color: "984a9c"
   description: "Something new that adds functionality"
 - name: "[Type] Bug"
-  color: "8a2424"
+  color: "b32d2e"
 - name: "[Type] WP Core Bug"
   color: "006088"
 - name: "[Type] Maintenance"
