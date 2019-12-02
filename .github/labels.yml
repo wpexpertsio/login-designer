@@ -17,20 +17,20 @@
   description: "Something new that adds functionality"
 - name: "[Type] Bug"
   color: d63638
-- name: [Type] WP Core Bug
+- name: "[Type] WP Core Bug"
   color: 006088
-- name: [Status] In Progress
+- name: "[Status] In Progress"
   color: 017e65
   description: "Tracking issues with work in progress"
-- name: [Status] Needs More Info
+- name: "[Status] Needs More Info"
   color: 017e65
   description: "Follow-up required in order to be actionable"
-- name: [Status] Stale
+- name: "[Status] Stale"
   color: 017e65
   description: "Gives the original author opportunity to update before closing; can be reopened as needed"
-- name: [Status] Invalid
+- name: "[Status] Invalid"
   color: 017e65
   description: "Issue outside this project; not a valid issue"
-- name: [Status] Won't Fix
+- name: "[Status] Won't Fix"
   color: 017e65
   description: "Issues/PRs we will (likely) not implement"
