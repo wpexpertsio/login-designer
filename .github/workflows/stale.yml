@@ -15,9 +15,9 @@ jobs:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         stale-issue-message: 'This issue has been automatically marked as stale because it has not had any recent activity for the last 45 days. It will be closed if no further activity occurs in the next week.'
         stale-pr-message: ' This pull request has been automatically marked as stale because it has not had any recent activity for the last 45 days. It will be closed if no further activity occurs in the next week. '
-        stale-issue-label: 'stale'
-        stale-pr-label: 'stale'
-        exempt-issue-label: 'waiting'
-        exempt-pr-label: 'waiting'
+        stale-issue-label: '[Status] Stale'
+        stale-pr-label: '[Status] Stale'
+        exempt-issue-label: '[Status] Waiting'
+        exempt-pr-label: '[Status] Waiting'
         days-before-stale: 45
         days-before-close: 7
