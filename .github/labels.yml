@@ -12,7 +12,7 @@
 - name: First-time Contributor
   color: b16200
   description: "Pull request opened by a first-time contributor"
-- name: Type: Enhancement
+- name: Type:Enhancement
   color: 008a1f
   description: "Something new that adds functionality"
 - name: Type: Bug
