@@ -1,6 +1,6 @@
 name: Labeler
 
-on: issues
+on: push
 
 jobs:
   labeler:
