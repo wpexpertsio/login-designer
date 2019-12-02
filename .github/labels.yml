@@ -35,7 +35,7 @@
   color: "017e65"
   description: "Issues/PRs we will (likely) not implement"
 - name: "[Priority] Low"
-  color: "007017"
+  color: "008a20"
 - name: "[Priority] High"
   color: "b26200"
 - name: "[Priority] Critical"
