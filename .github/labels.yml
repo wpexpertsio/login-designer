@@ -22,7 +22,7 @@
 - name: "[Status] In Progress"
   color: "017e65"
   description: "Tracking issues with work in progress"
-- name: "[Status] Needs More Info"
+- name: "[Status] Needs Info"
   color: "017e65"
   description: "Follow-up required in order to be actionable"
 - name: "[Status] Stale"
