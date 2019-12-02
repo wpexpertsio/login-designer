@@ -1,4 +1,4 @@
-name: Mark and eventually close stale issues and pull requests
+name: Mark and close stale issues and pull requests
 
 on:
   schedule:
