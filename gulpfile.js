@@ -471,10 +471,6 @@ gulp.task('build-variables', function (done) {
 			match: 'textdomain',
 			replacement: pkg.textdomain
 		},
-		{
-			match: 'pkg.downloadid',
-			replacement: pkg.downloadid
-		},
 		]
 	}))
 	.pipe( gulp.dest( buildDestination ) );

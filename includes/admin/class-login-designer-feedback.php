@@ -57,7 +57,6 @@ if ( ! class_exists( 'Login_Designer_Feedback' ) ) :
 		 * @param string $args Arguments.
 		 */
 		public function __construct( $args ) {
-
 			$this->slug = $args['slug'];
 			$this->name = $args['name'];
 
@@ -141,9 +140,7 @@ if ( ! class_exists( 'Login_Designer_Feedback' ) ) :
 		 * Check date on admin initiation and add to admin notice if it was more than the time limit.
 		 */
 		public function check_installation_date() {
-
 			if ( ! get_site_option( $this->nobug_option ) || false === get_site_option( $this->nobug_option ) ) {
-
 				add_site_option( $this->date_option, time() );
 
 				// Retrieve the activation date.
@@ -160,7 +157,6 @@ if ( ! class_exists( 'Login_Designer_Feedback' ) ) :
 		 * Display the admin notice.
 		 */
 		public function display_admin_notice() {
-
 			$screen = get_current_screen();
 
 			if ( isset( $screen->base ) && 'plugins' === $screen->base ) {

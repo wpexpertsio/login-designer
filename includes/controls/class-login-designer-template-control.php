@@ -65,7 +65,6 @@ class Login_Designer_Template_Control extends WP_Customize_Control {
 		$this->json['value']   = $this->value();
 		$this->json['link']    = $this->get_link();
 		$this->json['choices'] = $this->choices;
-
 	}
 
 	/**

@@ -63,7 +63,7 @@ class Login_Designer_Upgrade_Control extends WP_Customize_Section {
 	 * @access public
 	 */
 	protected function render_template() {
-	?>
+		?>
 
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand">
 
@@ -74,6 +74,6 @@ class Login_Designer_Upgrade_Control extends WP_Customize_Section {
 				<# } #>
 			</h3>
 		</li>
-	<?php
+		<?php
 	}
 }

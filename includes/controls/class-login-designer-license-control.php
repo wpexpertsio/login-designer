@@ -56,7 +56,6 @@ class Login_Designer_License_Control extends WP_Customize_Control {
 	 * @see https://developer.wordpress.org/reference/classes/wp_customize_control/render_content/
 	 */
 	public function render_content() {
-
 		$customizer       = new Login_Designer_License_Handler();
 		$key              = $customizer->key();
 		$status           = $customizer->status();
@@ -94,13 +93,13 @@ class Login_Designer_License_Control extends WP_Customize_Control {
 
 		<ul id="license-info" class="<?php echo esc_attr( $visibility ); ?>">
 
-			<li><strong>Status:</strong> <span id="license-status"><?php echo $status; ?></span></li>
+			<li><strong>Status:</strong> <span id="license-status"><?php echo esc_html( $status ); ?></span></li>
 
-			<li id="li--license-expiration"><strong>Expiration:</strong> <span id="license-expiration"><?php echo $expiration; ?></span></li>
+			<li id="li--license-expiration"><strong>Expiration:</strong> <span id="license-expiration"><?php echo esc_html( $expiration ); ?></span></li>
 
 			<li id="li--license-site_count"><strong>Activations:</strong>
 				<?php if ( 'unlimited' !== $activations_left ) { ?>
-					<span id="license-site_count"><?php echo $site_count; ?></span> out of <span id="license-activations_left"><?php echo $activations_left; ?></span></li>
+					<span id="license-site_count"><?php echo esc_html( $site_count ); ?></span> out of <span id="license-activations_left"><?php echo esc_html( $activations_left ); ?></span></li>
 				<?php } else { ?>
 					Unlimited
 				<?php } ?>
