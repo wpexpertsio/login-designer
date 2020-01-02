@@ -197,8 +197,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				'login_message'       => '',
 				'branding'            => false,
 				'branding_position'   => 'right',
-				'branding_color'      => '#303030',
-				'branding_icon_color' => '#303030',
+				'branding_color'      => '#444444',
+				'branding_icon_color' => '#32373c',
 
 			);
 
