@@ -244,7 +244,7 @@ if ( ! class_exists( 'Login_Designer_Brand' ) ) :
 
 			.login-designer-badge__text {
 				position: relative;
-				padding-right: 5px;
+				padding-right: 7px;
 				line-height: 1;
 			}
 
