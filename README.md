@@ -11,7 +11,7 @@ While [Login Designer](https://logindesigner.com?utm_medium=login-designer-githu
 
 Login Designer is a UX beast. Click below to see a quick video.
 
-[![A quick video of Login Designer](https://user-images.githubusercontent.com/1813435/32916537-6792aa12-caea-11e7-9bb8-d07f00f05b8a.jpg)](https://vimeo.com/243191812#t=1s)
+[![A quick video of Login Designer](https://user-images.githubusercontent.com/1813435/32916537-6792aa12-caea-11e7-9bb8-d07f00f05b8a.jpg)](https://vimeo.com/382294867#t=1s)
 
 ## Installation
 
