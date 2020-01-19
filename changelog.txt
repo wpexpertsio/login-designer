@@ -1,3 +1,12 @@
+= 1.2.1 =
+### Enhancements
+* Add minor [UI tweaks](https://github.com/thatplugincompany/login-designer/pull/42) to better support WordPress 5.3
+
+### Bug Fixes
+* Add [missing JavaScript variable](https://github.com/thatplugincompany/login-designer/pull/41) for customize partials
+* Improve the [RankMath filter](https://github.com/thatplugincompany/login-designer/pull/44)
+* Custom logos now display properly [on mobile](https://github.com/thatplugincompany/login-designer/pull/43)
+
 = 1.2.0 =
 ### Enhancements
 * Supports [WordPress 5.3](https://github.com/thatplugincompany/login-designer/pull/37)
