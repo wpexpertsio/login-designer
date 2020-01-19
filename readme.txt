@@ -87,9 +87,8 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 == Changelog ==
 
 ### Enhancements
-* Add minor [UI tweaks](https://github.com/thatplugincompany/login-designer/pull/42) to better support WordPress 5.3
+* Modernize the [development stack](https://github.com/thatplugincompany/login-designer/pull/47) and employ PHPCS practices
+* Update Login Designer [branding and logo](https://github.com/thatplugincompany/login-designer/pull/52)
 
 ### Bug Fixes
-* Add [missing JavaScript variable](https://github.com/thatplugincompany/login-designer/pull/41) for customize partials
-* Improve the [RankMath filter](https://github.com/thatplugincompany/login-designer/pull/44)
-* Custom logos now display properly [on mobile](https://github.com/thatplugincompany/login-designer/pull/43)
+* Fix [logo display on FireFox](https://github.com/thatplugincompany/login-designer/pull/51)
