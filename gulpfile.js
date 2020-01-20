@@ -56,7 +56,7 @@ var team                    	= 'Login Designer';
 var translatePath           	= './languages';
 var translatableFiles       	= ['./**/*.php'];
 
-var buildFiles      	    	= ['./**', '!dist/', '!.gitattributes', '!node_modules/**', '!*.sublime-project', '!package.json', '!gulpfile.js', '!assets/js/src/**', '!assets/css/src/**', '!assets/scss/**', '!*.json', '!*.map', '!*.md', '!*.xml', '!*.sublime-workspace', '!*.sublime-gulp.cache', '!*.log', '!*.gitattributes', '!*.DS_Store','!*.gitignore', '!TODO', '!*.git', '!.phpcs.xml.dist', '!.eslintrc', '!.stylelintrc.json', '!.editorcongif', '!.distignore', '!.github', 'CODE_OF_CONDUCT.md', 'composer.json', 'composer.lock', 'package.json', 'package-lock.json' ];
+var buildFiles      	    	= ['./**', '!dist/', '!vendor/**', '!.gitattributes', '!node_modules/**', '!*.sublime-project', '!package.json', '!gulpfile.js', '!assets/js/src/**', '!assets/css/src/**', '!assets/scss/**', '!*.json', '!*.map', '!*.md', '!*.xml', '!*.sublime-workspace', '!*.sublime-gulp.cache', '!*.log', '!*.gitattributes', '!*.DS_Store','!*.gitignore', '!TODO', '!*.git', '!.phpcs.xml.dist', '!.eslintrc', '!.stylelintrc.json', '!.editorcongif', '!.distignore', '!.github', '!CODE_OF_CONDUCT.md', '!composer.json', '!composer.lock', '!package.json', '!package-lock.json' ];
 var buildDestination        	= './dist/'+ slug +'/';
 var distributionFiles       	= './dist/'+ slug +'/**/*';
 
