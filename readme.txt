@@ -22,7 +22,7 @@ While Login Designer is not the first WordPress plugin designed for styling cust
 **Login Designer’s login customizing and templating experience is the best in class — _by a long shot_**.
 
 = A short video =
-[vimeo https://vimeo.com/243191812]
+[vimeo https://vimeo.com/382294867]
 
 = An unparalleled custom login styling experience =
 
