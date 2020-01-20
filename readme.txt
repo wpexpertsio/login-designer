@@ -7,7 +7,7 @@ Tags: login, custom login, customize wordpress login, wordpress login, customize
 Requires at least: 4.7
 Tested up to: 5.3
 Requires PHP: 5.2.4
-Stable tag: @@pkg.version
+Stable tag: 1.2.2
 License: GPL-3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
