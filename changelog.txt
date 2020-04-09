@@ -1,3 +1,11 @@
+= 1.2.4 =
+### Enhancements
+* Modernize the [development stack](https://github.com/thatplugincompany/login-designer/pull/47) and employ PHPCS practices
+* Update Login Designer [branding and logo](https://github.com/thatplugincompany/login-designer/pull/52)
+
+### Bug Fixes
+* Fix [logo display on FireFox](https://github.com/thatplugincompany/login-designer/pull/51)
+
 = 1.2.1 =
 ### Enhancements
 * Add minor [UI tweaks](https://github.com/thatplugincompany/login-designer/pull/42) to better support WordPress 5.3

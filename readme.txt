@@ -87,8 +87,4 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 == Changelog ==
 
 ### Enhancements
-* Modernize the [development stack](https://github.com/thatplugincompany/login-designer/pull/47) and employ PHPCS practices
-* Update Login Designer [branding and logo](https://github.com/thatplugincompany/login-designer/pull/52)
-
-### Bug Fixes
-* Fix [logo display on FireFox](https://github.com/thatplugincompany/login-designer/pull/51)
+* Update [tested up to value](https://github.com/thatplugincompany/login-designer/pull/64) to WordPress 5.4
