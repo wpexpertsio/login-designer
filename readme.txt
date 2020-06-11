@@ -42,9 +42,22 @@ Installation is free, fun, quick, and easy.
 
 Extensible, adaptable, and open source — Login Designer is created with developers in mind. There are opportunities for developers at all levels to contribute. [Click here to contribute](https://github.com/thatplugincompany/login-designer).
 
-= Get started today =
-
 This plugin is created and maintaned by [Rich Tabor](https://richtabor.com?utm_medium=login-designer-lite&utm_source=readme&utm_campaign=readme&utm_content=rich-tabor).
+
+= Works well with =
+* [**Password Protected**](https://wordpress.org/plugins/password-protected/)
+* [**WPS Hide Login**](https://wordpress.org/plugins/wps-hide-login/)
+* [**WPS Limit Login**](https://wordpress.org/plugins/wps-limit-login/)
+* [**All In One WP Security & Firewall**](https://wordpress.org/plugins/all-in-one-wp-security-and-firewall/)
+* [**Force Login**](https://wordpress.org/plugins/wp-force-login/)
+* [**Nextend Social Login**](https://wordpress.org/plugins/nextend-facebook-connect/)
+* [**Peter's Login Redirect**](https://wordpress.org/plugins/peters-login-redirect/)
+* [**Redirection**](https://wordpress.org/plugins/redirection/)
+* [**WordPress Social Login**](https://wordpress.org/plugins/miniorange-login-openid/)
+* [**Super Socializer**](https://wordpress.org/plugins/super-socializer/)
+* [**User Registration**](https://wordpress.org/plugins/user-registration/)
+* [**Wordfence Security**](https://wordpress.org/plugins/wordfence/)
+* [**WP Limit Login Attempts**](https://wordpress.org/plugins/wp-limit-login-attempts/)
 
 == Screenshots ==
 
@@ -71,10 +84,6 @@ You may easily navigate to the Login Designer editor via the **WordPress Dashboa
 = Is Login Designer free? =
 
 Yes! Login Designer's core features are and always will be free.
-
-= What themes work with Login Designer? =
-
-Any properly developed WordPress theme will work with Login Designer. If you're looking for exceptional themes, check out my theme catalogue at [ThemeBeans](https://logindesigner.com?utm_medium=login-designer-lite&utm_source=readme&utm_campaign=readme&utm_content=themebeans).
 
 = Is Login Designer translatable? =
 
