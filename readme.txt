@@ -5,7 +5,7 @@ Contributors: richtabor, thatplugincompany
 Donate link: https://logindesigner.com
 Tags: login, custom login, customize wordpress login, wordpress login, customizer, custom admin, login logo, logo, login customizer
 Requires at least: 4.7
-Tested up to: 5.4
+Tested up to: 5.5
 Requires PHP: 5.2.4
 Stable tag: 1.2.4
 License: GPL-3.0
@@ -96,4 +96,4 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 == Changelog ==
 
 ### Enhancements
-* Update [tested up to value](https://github.com/thatplugincompany/login-designer/pull/64) to WordPress 5.4
+* Update [tested up to value](https://github.com/thatplugincompany/login-designer/pull/64) to WordPress 5.5
