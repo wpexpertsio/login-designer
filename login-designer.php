@@ -104,9 +104,8 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 */
 		public function init() {
 			add_action( 'admin_init', array( $this, 'check_login_designer_page' ) );
-			add_action( 'admin_init', array( $this, 'redirect_customizer' ) );
-			add_action( 'admin_init', array( $this, 'redirect_edit_page' ) );
-			add_action( 'admin_menu', array( $this, 'options_page' ) );
+			add_action( 'admin_init', array( $this, 'redirect' ) );
+			add_action( 'admin_menu', array( $this, 'add_menu_item' ) );
 			add_action( 'admin_bar_menu', array( $this, 'admin_bar_link' ), 999 );
 			add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
 			add_filter( 'plugin_row_meta', array( $this, 'extension_plugin_row_meta' ), 10, 2 );
@@ -205,7 +204,11 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @access public
 		 * @return void
 		 */
-		public function options_page() {
+		public function add_menu_item() {
+
+			// Pull the Login Designer page from options.
+			$url = get_edit_post_link( $this->get_login_designer_page() );
+
 			add_theme_page( esc_html__( 'Login Designer', 'login-designer' ), esc_html__( 'Login Designer', 'login-designer' ), 'manage_options', 'login-designer', '__return_null' );
 		}
 
@@ -219,20 +222,11 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		public function admin_bar_link( $admin_bar ) {
 
 			// Pull the Login Designer page from options.
-			$page = get_permalink( $this->get_login_designer_page() );
-
-			// Generate the url.
-			$url = add_query_arg(
-				array(
-					'autofocus[section]' => 'login_designer__section--templates',
-					'url'                => $page,
-				),
-				admin_url( 'customize.php' )
-			);
+			$url = get_edit_post_link( $this->get_login_designer_page() );
 
 			$admin_bar->add_menu(
 				array(
-					'id'     => 'my-sub-item',
+					'id'     => 'login-designer',
 					'parent' => 'customize',
 					'title'  => esc_html__( 'Login Designer', 'login-designer' ),
 					'href'   => esc_url( $url ),
@@ -246,56 +240,17 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @access public
 		 * @return void
 		 */
-		public function redirect_customizer() {
+		public function redirect() {
 			if ( isset( $_GET['page'] ) && 'login-designer' === $_GET['page'] ) { // phpcs:ignore  WordPress.Security.NonceVerification
 
 				// Pull the Login Designer page from options.
-				$page = get_permalink( $this->get_login_designer_page() );
+				$url = get_edit_post_link( $this->get_login_designer_page() );
+				$url = strstr( $url, 'post.php');
+				$url = preg_replace('/\s+/', ' ', $url);
 
-				// Generate the redirect url.
-				$url = add_query_arg(
-					array(
-						'autofocus[section]' => 'login_designer__section--templates',
-						'url'                => rawurlencode( $page ),
-					),
-					admin_url( 'customize.php' )
-				);
+				// @todo This doesnt work yet, but it needs to equal post.php?post=241&action=edit for example.
 
-				wp_safe_redirect( $url );
-			}
-		}
-
-		/**
-		 * Redirect the editing function of the Login Designer page.
-		 *
-		 * @access public
-		 * @return void
-		 */
-		public function redirect_edit_page() {
-			global $pagenow;
-
-			// Pull the Login Designer page from options.
-			$page = $this->get_login_designer_page();
-
-			if ( ! $page ) {
-				return;
-			}
-
-			$page_url = get_permalink( $page );
-			$page_id  = get_post( $page );
-			$page_id  = $page->ID;
-
-			// Generate the redirect url.
-			$url = add_query_arg(
-				array(
-					'autofocus[section]' => 'login_designer__section--templates',
-					'url'                => rawurlencode( $page_url ),
-				),
-				admin_url( 'customize.php' )
-			);
-
-			if ( 'post.php' === $pagenow && ( isset( $_GET['post'] ) && intval( $page_id ) === intval( $_GET['post'] ) ) ) { // phpcs:ignore  WordPress.Security.NonceVerification
-				wp_safe_redirect( $url );
+				wp_safe_redirect( 'post.php?post=241&action=edit' );
 			}
 		}
 
@@ -346,16 +301,16 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			);
 
 			/* translators: Name of this plugin */
-			$post_content = sprintf( wp_kses( __( '<p>This page is used by <a href="%1$s">%2$s</a> to preview the login forms in the Customizer. Please don\'t delete this page. Thanks!</p>', 'login-designer' ), $allowed_html_array ), 'https://logindesigner.com', 'Login Designer' );
+			$post_content = '<!-- wp:logindesigner/wrapper --><div class="login-designer login login-designer-template-01" class="wp-block-logindesigner-wrapper"><div id="login"><!-- wp:logindesigner/logo /--></div></div><!-- /wp:logindesigner/wrapper -->';
 
 			// Create the page.
 			$page = wp_insert_post(
 				array(
 					'post_title'     => 'Login Designer',
+					'post_type'      => 'logindesigner',
 					'post_content'   => $post_content,
-					'post_status'    => 'publish',
+					'post_status'    => 'draft',
 					'post_author'    => 1,
-					'post_type'      => 'page',
 					'comment_status' => 'closed',
 				)
 			);
@@ -370,7 +325,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			update_option( 'login_designer_settings', $admin_options );
 
 			// Assign the Login Designer template.
-			login_designer_attach_template_to_page( $page, 'template-login-designer.php' );
+			// login_designer_attach_template_to_page( $page, 'template-login-designer.php' );
 		}
 
 		/**
@@ -400,7 +355,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		}
 
 		/**
-		 * Returns a URL that points to the Beaver Builder store.
+		 * Returns a URL that points to the Login Designer store.
 		 *
 		 * @since 1.0.0
 		 * @param string|string $path A URL path to append to the store URL.
@@ -425,8 +380,11 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 */
 		public function plugin_action_links( $actions ) {
 
+			// Pull the Login Designer page from options.
+			$page = get_edit_post_link( $this->get_login_designer_page() );
+
 			// Add the Settings link.
-			$settings = array( 'settings' => sprintf( '<a href="%s">%s</a>', admin_url( 'themes.php?page=login-designer' ), esc_html__( 'Settings', 'login-designer' ) ) );
+			$settings = array( 'settings' => sprintf( '<a href="%s">%s</a>', esc_url( $page ), esc_html__( 'Settings', 'login-designer' ) ) );
 
 			// If there's no pro version, just return the settings link.
 			if ( ! $this->has_pro() ) {
