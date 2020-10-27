@@ -67,11 +67,11 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		public function defaults() {
 			$defaults = array(
 				'bg_image'              => '',
-				'bg_image_gallery'      => '',
-				'bg_repeat'             => 'no-repeat',
-				'bg_size'               => 'cover',
-				'bg_position'           => 'center center',
-				'bg_attach'             => 'fixed',
+				'bg_image_gallery'      => '', //not going to add
+				'bg_repeat'             => 'no-repeat', //not going to add
+				'bg_size'               => 'cover', //not going to add
+				'bg_position'           => 'center center', //not going to add
+				'bg_attach'             => 'fixed', //not going to add
 				'bg_color'              => '#f1f1f1',
 				'logo'                  => '', //added
 				'logo_width'            => '84', //added
@@ -421,8 +421,8 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Output CSS Custom Properties
 				$css .= ':root{ ';
-					if ( isset( $options['bg_image'] ) ) {
-						$css .= '--ld-backgroundimage: ' . esc_attr( $options['bg_image'] ) . ';';
+					if ( isset( $options['bg_color'] ) ) {
+						$css .= '--ld-backgroundcolor: ' . esc_attr( $options['bg_color'] ) . ';';
 					}
 
 					if ( isset( $options['bg_image'] ) ) {
@@ -430,15 +430,15 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 					}
 
 					if ( isset( $options['logo'] ) ) {
-						$css .= '--ld-logo: ' . esc_attr( $options['bg_image'] ) . ';';
-					}
+						$css .= '--ld-logo: url(' . esc_attr( $options['logo'] ) . ');';
 
-					if ( isset( $options['logo_width'] ) ) {
-						$css .= '--ld-logo-width: ' . esc_attr( $options['logo_width'] ) . 'px; }';
-					}
+						if ( isset( $options['logo_width'] ) ) {
+							$css .= '--ld-logo-width: ' . esc_attr( $options['logo_width'] ) . 'px; }';
+						}
 
-					if ( isset( $options['logo_height'] ) ) {
-						$css .= '--ld-logo-height: ' . esc_attr( $options['logo_height'] ) . 'px; }';
+						if ( isset( $options['logo_height'] ) ) {
+							$css .= '--ld-logo-height: ' . esc_attr( $options['logo_height'] ) . 'px; }';
+						}
 					}
 
 					if ( isset( $options['disable_logo'] ) && true === $options['disable_logo'] ) {
