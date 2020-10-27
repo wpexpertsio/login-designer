@@ -248,8 +248,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				$url = strstr( $url, 'post.php');
 				$url = preg_replace('/\s+/', ' ', $url);
 
-				// @todo This doesnt work yet, but it needs to equal post.php?post=241&action=edit for example.
-
 				wp_safe_redirect( 'post.php?post=241&action=edit' );
 			}
 		}
@@ -323,9 +321,6 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			$admin_options  = $merged_options;
 
 			update_option( 'login_designer_settings', $admin_options );
-
-			// Assign the Login Designer template.
-			// login_designer_attach_template_to_page( $page, 'template-login-designer.php' );
 		}
 
 		/**
