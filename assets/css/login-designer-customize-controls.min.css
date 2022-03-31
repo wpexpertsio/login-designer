@@ -1,0 +1,149 @@
+#sub-accordion-section-login_designer__section--styles .customize-control-color,#sub-accordion-section-login_designer__section--settings .customize-control-color{position:relative}
+#sub-accordion-section-login_designer__section--styles .customize-control-color .customize-control-title,#sub-accordion-section-login_designer__section--settings .customize-control-color .customize-control-title{margin:0}
+#sub-accordion-section-login_designer__section--styles .customize-control-color label,#sub-accordion-section-login_designer__section--settings .customize-control-color label{cursor:default}
+#sub-accordion-section-login_designer__section--styles .customize-control-color .color-picker-hex,#sub-accordion-section-login_designer__section--settings .customize-control-color .color-picker-hex{-webkit-box-shadow:none;box-shadow:none;border-radius:3px;padding-top:4px;padding-bottom:4px}
+#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-picker-container,#sub-accordion-section-login_designer__section--settings .customize-control-color .wp-picker-container{display:block}
+#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-picker-container,#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-picker-container .iris-picker,#sub-accordion-section-login_designer__section--settings .customize-control-color .wp-picker-container,#sub-accordion-section-login_designer__section--settings .customize-control-color .wp-picker-container .iris-picker{width:100% !important}
+#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-picker-container.wp-picker-active,#sub-accordion-section-login_designer__section--settings .customize-control-color .wp-picker-container.wp-picker-active{margin-top:-22px;margin-bottom:7px}
+#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-picker-open+.wp-picker-input-wrap,#sub-accordion-section-login_designer__section--settings .customize-control-color .wp-picker-open+.wp-picker-input-wrap{top:-3px;position:relative;background:#eee}
+#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-color-result-text,#sub-accordion-section-login_designer__section--settings .customize-control-color .wp-color-result-text{display:none}
+#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-color-result,#sub-accordion-section-login_designer__section--settings .customize-control-color .wp-color-result{border-radius:100%;border-width:0;-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,0.2);box-shadow:inset 0 0 0 1px rgba(0,0,0,0.2);height:26px;margin:0;min-height:26px;padding:0;position:absolute;right:0;top:-1px;width:26px;-webkit-transition:-webkit-transform .1s ease;transition:-webkit-transform .1s ease;transition:transform .1s ease;transition:transform .1s ease,-webkit-transform .1s ease}
+#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-color-result:hover,#sub-accordion-section-login_designer__section--styles .customize-control-color .wp-color-result:active,#sub-accordion-section-login_designer__section--settings .customize-control-color .wp-color-result:hover,#sub-accordion-section-login_designer__section--settings .customize-control-color .wp-color-result:active{-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,0.3);box-shadow:inset 0 0 0 1px rgba(0,0,0,0.3);-webkit-transform:scale(1.1) !important;-ms-transform:scale(1.1) !important;transform:scale(1.1) !important}
+#sub-accordion-section-login_designer__section--styles .attachment-media-view,#sub-accordion-section-login_designer__section--settings .attachment-media-view{background:0}
+#sub-accordion-section-login_designer__section--styles .customize-control-background-image .actions button.remove-button,#sub-accordion-section-login_designer__section--settings .customize-control-background-image .actions button.remove-button{margin-bottom:18px}
+#sub-accordion-section-login_designer__section--styles .customize-control-background-image .actions button,#sub-accordion-section-login_designer__section--settings .customize-control-background-image .actions button{width:49.3%;margin-top:3px}
+#sub-accordion-section-login_designer__section--styles .customize-control-background-image .thumbnail,#sub-accordion-section-login_designer__section--settings .customize-control-background-image .thumbnail{border-radius:3px;max-height:70px}
+#sub-accordion-section-login_designer__section--styles .customize-control-background-image img,#sub-accordion-section-login_designer__section--settings .customize-control-background-image img{width:100%;-webkit-transform:translate3d(0,-40%,0);transform:translate3d(0,-40%,0)}
+#sub-accordion-section-login_designer__section--styles .customize-control-image,#sub-accordion-section-login_designer__section--settings .customize-control-image{position:relative;margin-bottom:25px}
+#sub-accordion-section-login_designer__section--styles .customize-control-image .placeholder,#sub-accordion-section-login_designer__section--settings .customize-control-image .placeholder{display:none}
+#sub-accordion-section-login_designer__section--styles .customize-control-image button:not(.control-focus):not(.remove-button),#sub-accordion-section-login_designer__section--settings .customize-control-image button:not(.control-focus):not(.remove-button){background:transparent;border-radius:0;border:1px dashed #007cba;-webkit-box-shadow:none;box-shadow:none;color:#555d66;font-size:14px;margin-top:0;padding:7px 0;-webkit-transition:border-color 200ms cubic-bezier(0.19,1,0.22,1),color 200ms cubic-bezier(0.19,1,0.22,1);transition:border-color 200ms cubic-bezier(0.19,1,0.22,1),color 200ms cubic-bezier(0.19,1,0.22,1);width:100%}
+#sub-accordion-section-login_designer__section--styles .customize-control-image button:not(.control-focus):not(.remove-button):hover,#sub-accordion-section-login_designer__section--settings .customize-control-image button:not(.control-focus):not(.remove-button):hover{border-color:#007cba;color:#007cba}
+#sub-accordion-section-login_designer__section--styles .customize-control-image button:not(.control-focus):not(.remove-button):active,#sub-accordion-section-login_designer__section--settings .customize-control-image button:not(.control-focus):not(.remove-button):active{-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
+#sub-accordion-section-login_designer__section--styles .customize-control-image .button.upload-button.control-focus,#sub-accordion-section-login_designer__section--settings .customize-control-image .button.upload-button.control-focus{margin-left:-8px}
+#login-designer-reset{opacity:0;visibility:hidden;margin-top:9px;pointer-events:none;-webkit-transition:opacity 150ms cubic-bezier(0.694,0,0.335,1),visibility 0ms cubic-bezier(0.694,0,0.335,1) 150ms;transition:opacity 150ms cubic-bezier(0.694,0,0.335,1),visibility 0ms cubic-bezier(0.694,0,0.335,1) 150ms}
+.style-editor-open #login-designer-reset{-webkit-transition:opacity 150ms cubic-bezier(0.694,0,0.335,1),visibility 0ms cubic-bezier(0.694,0,0.335,1);transition:opacity 150ms cubic-bezier(0.694,0,0.335,1),visibility 0ms cubic-bezier(0.694,0,0.335,1);pointer-events:auto;opacity:1;visibility:visible}
+.customize-control-login-designer-gallery{margin-bottom:17px !important;margin-top:15px}
+.customize-control-login-designer-gallery .login-designer-gallery{margin-left:-3px;margin-top:13px;max-height:165px;overflow-x:hidden;overflow-y:scroll;padding-right:20px;padding-top:4px;width:calc(100% + 6px);zoom:1}
+@media screen and (min-width:1667px){.customize-control-login-designer-gallery .login-designer-gallery{max-height:10.1vw}
+}@media screen and (min-width:1900px){.customize-control-login-designer-gallery .login-designer-gallery{max-height:10.3vw}
+}.customize-control-login-designer-gallery .login-designer-gallery:after,.customize-control-login-designer-gallery .login-designer-gallery:before{content:"";display:table}
+.customize-control-login-designer-gallery .login-designer-gallery:after{clear:both}
+.customize-control-login-designer-gallery .login-designer-gallery__item{float:left;width:20%}
+.customize-control-login-designer-gallery .login-designer-gallery__intrinsic{border-radius:2px;border:2px solid #eee;-webkit-box-shadow:0 0 0 0 #5b9dd9,0 0 0 0 rgba(30,140,190,0);box-shadow:0 0 0 0 #5b9dd9,0 0 0 0 rgba(30,140,190,0);display:block;line-height:0;margin-bottom:4px;margin-left:2px;margin-right:2px;overflow:hidden;position:relative;-webkit-transition:-webkit-box-shadow 100ms ease,-webkit-transform 200ms cubic-bezier(0.4,0,0.2,1);transition:-webkit-box-shadow 100ms ease,-webkit-transform 200ms cubic-bezier(0.4,0,0.2,1);transition:box-shadow 100ms ease,transform 200ms cubic-bezier(0.4,0,0.2,1);transition:box-shadow 100ms ease,transform 200ms cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 100ms ease,-webkit-transform 200ms cubic-bezier(0.4,0,0.2,1)}
+@media screen and (min-width:1667px){.customize-control-login-designer-gallery .login-designer-gallery__intrinsic{margin-bottom:6px;margin-right:3px}
+}.customize-control-login-designer-gallery .login-designer-gallery__intrinsic:after{content:"";display:block;padding-top:100%}
+.customize-control-login-designer-gallery .login-designer-gallery__intrinsic:active{-webkit-transform:scale(0.97);-ms-transform:scale(0.97);transform:scale(0.97)}
+.customize-control-login-designer-gallery .login-designer-gallery__img{background-position:center center;background-repeat:no-repeat;background-size:cover;border-radius:2px;bottom:0;left:0;position:absolute;right:0;top:0}
+.customize-control-login-designer-gallery .login-designer-gallery__checkbox{display:none !important}
+.customize-control-login-designer-gallery .login-designer-gallery__checkbox:checked+label .login-designer-gallery__intrinsic{-webkit-box-shadow:0 0 0 1px #5b9dd9,0 0 2px 1px rgba(30,140,190,0.7);box-shadow:0 0 0 1px #5b9dd9,0 0 2px 1px rgba(30,140,190,0.7)}
+#customize-control-login_designer_license-key{border-bottom:1px solid #ddd;padding-bottom:17px;margin-bottom:20px}
+#customize-control-login_designer_license-key form{margin-top:13px}
+#customize-control-login_designer_license-key form{*zoom:1}
+#customize-control-login_designer_license-key form:before,#customize-control-login_designer_license-key form:after{content:"";display:table}
+#customize-control-login_designer_license-key form:after{clear:both}
+#customize-control-login_designer_license-key .spinner{position:absolute;right:34px}
+#customize-control-login_designer_license-key .spinner.visible{visibility:visible}
+#customize-control-login_designer_license-key .license{float:left;margin-bottom:7px;border-radius:3px;padding-top:4px;padding-bottom:4px;width:calc(100% - 88px);-webkit-transition:50ms border-color ease-in-out,50ms -webkit-box-shadow ease-in-out;transition:50ms border-color ease-in-out,50ms -webkit-box-shadow ease-in-out;transition:50ms border-color ease-in-out,50ms box-shadow ease-in-out;transition:50ms border-color ease-in-out,50ms box-shadow ease-in-out,50ms -webkit-box-shadow ease-in-out}
+#customize-control-login_designer_license-key .license.is-not-valid{-webkit-animation:shake .5s linear;animation:shake .5s linear}
+#customize-control-login_designer_license-key .license.is-not-valid:focus{border-color:#dc3232;-webkit-box-shadow:0 0 2px rgba(220,50,50,0.36);box-shadow:0 0 2px rgba(220,50,50,0.36)}
+#customize-control-login_designer_license-key .button{float:right;width:84px;padding-left:0;padding-right:0}
+#customize-control-login_designer_license-key .button:disabled{color:#f7f7f7 !important;text-shadow:none !important}
+@-webkit-keyframes shake{8%,41%{-webkit-transform:translateX(-4px);transform:translateX(-4px)}
+25%,58%{-webkit-transform:translateX(4px);transform:translateX(4px)}
+75%{-webkit-transform:translateX(-2px);transform:translateX(-2px)}
+92%{-webkit-transform:translateX(2px);transform:translateX(2px)}
+0%,100%{-webkit-transform:translateX(0);transform:translateX(0)}
+}@keyframes shake{8%,41%{-webkit-transform:translateX(-4px);transform:translateX(-4px)}
+25%,58%{-webkit-transform:translateX(4px);transform:translateX(4px)}
+75%{-webkit-transform:translateX(-2px);transform:translateX(-2px)}
+92%{-webkit-transform:translateX(2px);transform:translateX(2px)}
+0%,100%{-webkit-transform:translateX(0);transform:translateX(0)}
+}#login-designer-activate-license.is-valid{display:none}
+#login-designer-deactivate-license.is-not-valid{display:none}
+#license-info{margin-top:15px}
+#license-info.is-not-valid{display:none}
+#license-info li span{text-transform:capitalize}
+.customize-control-login-designer-range:hover label{opacity:0}
+.customize-control-login-designer-range:hover .login-designer-range__track,.customize-control-login-designer-range:hover .login-designer-range__reset{opacity:1}
+.customize-control-login-designer-range .customize-control-title{margin-bottom:0}
+.customize-control-login-designer-range .login-designer-range__number-input::-webkit-inner-spin-button,.customize-control-login-designer-range .login-designer-range__number-input::-webkit-outer-spin-button{-webkit-appearance:none;appearance:none;margin:0}
+.customize-control-login-designer-range .login-designer-range{position:relative}
+.customize-control-login-designer-range .login-designer-range__label{display:block;margin-right:55px;-webkit-transition:opacity 150ms cubic-bezier(0.694,0.0482,0.335,1);transition:opacity 150ms cubic-bezier(0.694,0.0482,0.335,1);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.customize-control-login-designer-range .login-designer-range__track{background:#c2c2c2;left:30px;opacity:0;padding:5px 0;position:absolute;right:0;top:52%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);-webkit-transition:opacity 150ms cubic-bezier(0.694,0.0482,0.335,1);transition:opacity 150ms cubic-bezier(0.694,0.0482,0.335,1);width:calc(100% - 80px)}
+@media screen and (min-width:1667px){.customize-control-login-designer-range .login-designer-range__track{width:calc(100% - 90px)}
+}.customize-control-login-designer-range .login-designer-range__value{font-size:14px;position:absolute;right:0;text-align:right;top:-1px}
+.customize-control-login-designer-range .login-designer-range__value span{display:none;margin:0}
+.customize-control-login-designer-range .login-designer-range__value em{cursor:default;display:inline-block;font-style:normal;margin-left:-2px}
+.customize-control-login-designer-range .login-designer-range__number-input{background:0;border:0;-webkit-box-shadow:none !important;box-shadow:none !important;color:#555d66;display:inline-block;font-size:12px;height:26px !important;line-height:12px !important;padding:2px 0;position:relative;text-align:right;width:30px !important}
+.customize-control-login-designer-range .login-designer-range__number-input:hover,.customize-control-login-designer-range .login-designer-range__number-input:focus{color:#007cba}
+.customize-control-login-designer-range .login-designer-range__reset{cursor:pointer;height:24px;left:0;opacity:0;position:absolute;top:0;-webkit-transition:opacity 150ms cubic-bezier(0.694,0.0482,0.335,1),-webkit-transform 200ms cubic-bezier(0.4,0,0.2,1);transition:opacity 150ms cubic-bezier(0.694,0.0482,0.335,1),-webkit-transform 200ms cubic-bezier(0.4,0,0.2,1);transition:opacity 150ms cubic-bezier(0.694,0.0482,0.335,1),transform 200ms cubic-bezier(0.4,0,0.2,1);transition:opacity 150ms cubic-bezier(0.694,0.0482,0.335,1),transform 200ms cubic-bezier(0.4,0,0.2,1),-webkit-transform 200ms cubic-bezier(0.4,0,0.2,1);width:20px}
+.customize-control-login-designer-range .login-designer-range__reset:after{content:"\f531";cursor:pointer;font:100 15px/1 dashicons;left:0;position:relative;top:.33em;z-index:999}
+.customize-control-login-designer-range .login-designer-range__reset:active{-webkit-transform:scale(0.95);-ms-transform:scale(0.95);transform:scale(0.95)}
+.customize-control-login-designer-range .login-designer-range__track{-webkit-appearance:none;-moz-appearance:none;appearance:none;margin:0;padding:0}
+.customize-control-login-designer-range .login-designer-range__track:focus{outline:0}
+.customize-control-login-designer-range .login-designer-range__track::-webkit-slider-runnable-track{background:#c2c2c2;border-radius:1px;border:0 solid #c2c2c2;-webkit-box-shadow:0 0 0 #c2c2c2;box-shadow:0 0 0 #c2c2c2;cursor:pointer;height:3px;width:100%}
+.customize-control-login-designer-range .login-designer-range__track:focus::-webkit-slider-runnable-track{background:#c2c2c2}
+.customize-control-login-designer-range .login-designer-range__track::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;background:#575d65;border-radius:50px;border:1px solid #575d65;-webkit-box-shadow:0 0 0 #c2c2c2;box-shadow:0 0 0 #c2c2c2;cursor:pointer;height:15px;margin-top:-7px;width:15px}
+.customize-control-login-designer-range .login-designer-range__track::-moz-range-thumb{background:#575d65;border-radius:50px;border:1px solid #575d65;box-shadow:0 0 0 #c2c2c2;cursor:pointer;height:15px;width:15px;margin-top:-7px}
+.customize-control-login-designer-range .login-designer-range__track::-moz-range-track{background:#c2c2c2;border-radius:10px;border:0 solid #c2c2c2;box-shadow:0 0 0 #c2c2c2;cursor:pointer;height:3px;width:100%}
+.customize-control-login-designer-range .login-designer-range__track::-ms-track{background:transparent;border-color:transparent;color:transparent;cursor:pointer;height:3px;width:100%}
+.customize-control-login-designer-range .login-designer-range__track::-ms-fill-lower{background:#c2c2c2;border-radius:10px;border:0 solid #c2c2c2;box-shadow:0 0 0 #c2c2c2}
+.customize-control-login-designer-range .login-designer-range__track::-ms-fill-upper{background:#c2c2c2;border-radius:10px;border:0 solid #c2c2c2;box-shadow:0 0 0 #c2c2c2}
+.customize-control-login-designer-range .login-designer-range__track::-ms-thumb{background:#575d65;border-radius:50px;border:1px solid #575d65;box-shadow:0 0 0 #c2c2c2;cursor:pointer;height:15px;width:15px;margin-top:-7px}
+.customize-control-login-designer-range .login-designer-range__track:focus::-ms-fill-lower{background:#c2c2c2}
+.customize-control-login-designer-range .login-designer-range__track:focus::-ms-fill-upper{background:#c2c2c2}
+.customize-control-login-designer-templates{margin-bottom:0;margin-top:-6px;position:relative}
+.customize-control-login-designer-templates .login-designer-templates{margin-left:-3px;overflow-y:scroll;padding-left:3px;padding-right:3px;padding-top:3px;width:calc(100% + 1px)}
+.customize-control-login-designer-templates .login-designer-templates__input{display:none !important}
+.customize-control-login-designer-templates .login-designer-templates__input:checked+label{-webkit-box-shadow:0 0 0 1px #5b9dd9,0 0 2px 1px rgba(30,140,190,0.7);box-shadow:0 0 0 1px #5b9dd9,0 0 2px 1px rgba(30,140,190,0.7)}
+.customize-control-login-designer-templates .login-designer-templates__label{border-radius:1px;border:1px solid transparent;-webkit-box-shadow:0 0 0 0 #5b9dd9,0 0 0 0 rgba(30,140,190,0.8);box-shadow:0 0 0 0 #5b9dd9,0 0 0 0 rgba(30,140,190,0.8);cursor:pointer;display:block;margin:0 0 8px;-webkit-transition:border-color 100ms,-webkit-box-shadow 100ms cubic-bezier(0.455,0.03,0.515,0.955),-webkit-transform 200ms cubic-bezier(0.4,0,0.2,1);transition:border-color 100ms,-webkit-box-shadow 100ms cubic-bezier(0.455,0.03,0.515,0.955),-webkit-transform 200ms cubic-bezier(0.4,0,0.2,1);transition:border-color 100ms,box-shadow 100ms cubic-bezier(0.455,0.03,0.515,0.955),transform 200ms cubic-bezier(0.4,0,0.2,1);transition:border-color 100ms,box-shadow 100ms cubic-bezier(0.455,0.03,0.515,0.955),transform 200ms cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 100ms cubic-bezier(0.455,0.03,0.515,0.955),-webkit-transform 200ms cubic-bezier(0.4,0,0.2,1)}
+.customize-control-login-designer-templates .login-designer-templates__label:hover{-webkit-box-shadow:0 0 0 1px #5b9dd9,0 0 3px rgba(0,115,170,0.8);box-shadow:0 0 0 1px #5b9dd9,0 0 3px rgba(0,115,170,0.8)}
+.customize-control-login-designer-templates .login-designer-templates__label:active{-webkit-transform:scale(0.985);-ms-transform:scale(0.985);transform:scale(0.985)}
+.customize-control-login-designer-templates .login-designer-templates__screenshot{background-position:center center;background-repeat:no-repeat;background-size:contain;border:2px solid #eee;border-radius:3px;bottom:0;left:0;position:absolute;right:0;top:0}
+.customize-control-login-designer-templates .login-designer-templates__intrinsic{line-height:0;margin-bottom:0;overflow:hidden;position:relative}
+.customize-control-login-designer-templates .login-designer-templates__intrinsic:after{content:"";display:block;padding-top:70.4%}
+.customize-control-login-designer-title+.customize-control-image{margin-top:-7px}
+.customize-control-login-designer-title .customize-control-title{font-weight:600 !important}
+.customize-control-login-designer-toggle .toggle--wrapper{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start}
+.customize-control-login-designer-toggle .toggle--wrapper .customize-control-title{-webkit-box-flex:2;-webkit-flex:2 0 0;-ms-flex:2 0 0;flex:2 0 0;vertical-align:middle;margin-bottom:0}
+.customize-control-login-designer-toggle .toggle--wrapper input[type="checkbox"]{display:none}
+.customize-control-login-designer-toggle .toggle--wrapper label{background-color:#555d66;border-radius:14px;cursor:pointer;display:inline-block;height:20px;outline:0;position:relative;top:2px;right:0;-webkit-transition:background .2s ease;transition:background .2s ease;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:34px}
+.customize-control-login-designer-toggle .toggle--wrapper label:after,.customize-control-login-designer-toggle .toggle--wrapper label:before{display:block;position:absolute;content:""}
+.customize-control-login-designer-toggle .toggle--wrapper label:after{border-radius:50%;border:2px solid #555d66;-webkit-box-sizing:border-box;box-sizing:border-box;height:12px;left:4px;top:4px;-webkit-transition:background .2s ease,-webkit-transform .2s ease;transition:background .2s ease,-webkit-transform .2s ease;transition:transform .2s ease,background .2s ease;transition:transform .2s ease,background .2s ease,-webkit-transform .2s ease;width:12px}
+.customize-control-login-designer-toggle .toggle--wrapper label:before{background-color:#eee;border-radius:60px;bottom:2px;left:2px;right:2px;top:2px;-webkit-transition:background .2s ease;transition:background .2s ease}
+.customize-control-login-designer-toggle .toggle--wrapper input[type="checkbox"]:checked+label{background-color:#0085ba}
+.customize-control-login-designer-toggle .toggle--wrapper input[type="checkbox"]:checked+label:after{background-color:#0085ba;border:2px solid #fff;-webkit-transform:translateX(14px);-ms-transform:translateX(14px);transform:translateX(14px)}
+.customize-control-login-designer-toggle .toggle--wrapper input[type="checkbox"]:checked+label:before{background-color:#0085ba}
+.customize-control-login-designer-toggle:hover .toggle--wrapper label:before{background-color:#d9dcdf}
+#customize-controls .control-section-upgrade .accordion-section-title:hover,#customize-controls .control-section-upgrade .accordion-section-title:focus{background-color:#fff}
+.control-section-upgrade .accordion-section-title .button{margin-top:-4px !important;font-weight:400;margin-left:8px}
+.rtl .control-section-upgrade .accordion-section-title .button{margin-left:0;margin-right:8px}
+.customize-control.disabled{display:none !important}
+#customize-control-login_designer_settings-branding{margin-bottom:9px}
+#customize-control-login_designer-bg_repeat{margin-top:15px}
+#accordion-section-login_designer__section--styles{display:none !important}
+#customize-control-login_designer_settings-logo_url{margin-bottom:20px !important;margin-top:13px}
+#customize-control-login_designer-field_text_title,#customize-control-login_designer-button_text_title{margin-top:15px}
+#customize-control-login_designer-logo_width{margin-top:3px}
+#customize-control-login_designer-username_label,#customize-control-login_designer-password_label,#customize-control-login_designer-back_to_label{position:relative}
+#customize-control-login_designer-username_label .customize-control-title,#customize-control-login_designer-password_label .customize-control-title,#customize-control-login_designer-back_to_label .customize-control-title{width:40%;margin-bottom:0;position:relative}
+#customize-control-login_designer-username_label input,#customize-control-login_designer-password_label input,#customize-control-login_designer-back_to_label input{width:60%;position:absolute;right:0;top:-2px;margin:0}
+#customize-control-login_designer_settings-login_redirect .customize-control-title,#customize-control-login_designer_settings-logout_redirect .customize-control-title{margin-bottom:0;float:left;position:relative;width:35%}
+#customize-control-login_designer_settings-login_redirect select,#customize-control-login_designer_settings-logout_redirect select{padding-right:20px;width:65%}
+#sub-accordion-section-login_designer__section--styles .customize-control,#sub-accordion-section-login_designer__section--settings .customize-control{margin-bottom:10px}
+#sub-accordion-section-login_designer__section--styles.open,#sub-accordion-section-login_designer__section--settings.open{border:none !important}
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages,#sub-accordion-section-login_designer__section--settings .customize-control-dropdown-pages{position:relative}
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages::after,#sub-accordion-section-login_designer__section--settings .customize-control-dropdown-pages::after{font:400 11px/11px dashicons;content:"\f341";position:absolute;right:6px;bottom:7px;-webkit-transform:rotate(-90deg);-ms-transform:rotate(-90deg);transform:rotate(-90deg);color:currentColor}
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages label,#sub-accordion-section-login_designer__section--settings .customize-control-dropdown-pages label{display:block}
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages .description,#sub-accordion-section-login_designer__section--settings .customize-control-dropdown-pages .description{margin-bottom:15px}
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages select,#sub-accordion-section-login_designer__section--settings .customize-control-dropdown-pages select{-webkit-box-shadow:none;box-shadow:none;margin:0;background:#fff;padding:0;padding-left:8px;-webkit-appearance:none;-moz-appearance:none;appearance:none;cursor:pointer;font-weight:400;font-size:14px}
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages select:hover,#sub-accordion-section-login_designer__section--settings .customize-control-dropdown-pages select:hover{color:#007cba}
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages select select::-ms-expand,#sub-accordion-section-login_designer__section--settings .customize-control-dropdown-pages select select::-ms-expand{display:none}
+#sub-accordion-section-login_designer__section--styles .customize-control-dropdown-pages select option,#sub-accordion-section-login_designer__section--settings .customize-control-dropdown-pages select option{text-align:right}
+#sub-accordion-section-login_designer__section--styles .customize-control-select,#sub-accordion-section-login_designer__section--settings .customize-control-select{position:relative}
+#sub-accordion-section-login_designer__section--styles .customize-control-select:after,#sub-accordion-section-login_designer__section--settings .customize-control-select:after{font:400 11px/11px dashicons;content:"\f341";position:absolute;right:6px;top:7px;-webkit-transform:rotate(-90deg);-ms-transform:rotate(-90deg);transform:rotate(-90deg)}
+#sub-accordion-section-login_designer__section--styles .customize-control-select .customize-control-title,#sub-accordion-section-login_designer__section--settings .customize-control-select .customize-control-title{width:40%;margin-bottom:0;position:relative}
+#sub-accordion-section-login_designer__section--styles .customize-control-select select,#sub-accordion-section-login_designer__section--settings .customize-control-select select{width:60%;position:absolute;-webkit-box-shadow:none;box-shadow:none;top:-2px;right:0;margin:0;font-size:14px;min-height:30px;background:#fff;padding:0;-webkit-appearance:none;-moz-appearance:none;appearance:none;padding-left:8px;cursor:pointer;font-weight:400}
+#sub-accordion-section-login_designer__section--styles .customize-control-select select:hover,#sub-accordion-section-login_designer__section--settings .customize-control-select select:hover{color:#007cba}
+#sub-accordion-section-login_designer__section--styles .customize-control-select select select::-ms-expand,#sub-accordion-section-login_designer__section--settings .customize-control-select select select::-ms-expand{display:none}
+#sub-accordion-section-login_designer__section--styles .customize-control-select select option,#sub-accordion-section-login_designer__section--settings .customize-control-select select option{text-align:right}

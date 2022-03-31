@@ -785,6 +785,40 @@
 		});
 	});
 
+	wp.customize( 'login_designer_translations[translation]', function( value ){
+		value.bind( function( to ){
+			let style, el, template, text;
+			text = $( '#login-designer-template' ).text();
+			template = ( 'default' === text ) ? 'default' : 'template';
+			/**
+			 * Custom LoginDesigner Translation Logics
+			 * */
+			let translator = $( '.language-switcher' ),
+				translator_length = translator.length;
+
+			for ( var i = 0; i < translator_length; i++) {
+				if ( template === $( translator[ i ] ).attr( 'data-logindesigner-template' ) ) {
+					// console.log( $( translator[ i ] ).attr( 'data-logindesigner-template' ) )
+					el = $( '.login-designer-disable-translation' );
+					if ( to ) {
+						style = '<style class="login-designer-disable-translation">.language-switcher { display: none !important; } .language-switcher[data-logindesigner-template="' +$(translator[i]).attr('data-logindesigner-template') + '"] { display: block !important; }</style>';
+						$( 'body' ).removeClass( 'login-designer-no-language' );
+						$( translator[ i ] ).attr( 'style', 'position:relative;' )
+					} else {
+						style = '<style class="login-designer-disable-translation">.language-switcher { display: none !important; } .language-switcher[data-logindesigner-template="' +$(translator[i]).attr('data-logindesigner-template') + '"] { display: none !important; }</style>'
+						$( 'body' ).addClass( 'login-designer-no-language' );
+						$( translator[ i ] ).attr( 'style', 'display:none;position:relative;' )
+					}
+				}
+			}
+			if ( el.length ) {
+				el.replaceWith( style );
+			} else {
+				$( 'head' ).append( style );
+			}
+		} );
+	} );
+
 	function hasLogoAction( to, width, height ) {
 
 		var style, element;
@@ -796,14 +830,14 @@
 		if ( hasLogo() ) {
 
 			var
-			width  = width / 2,
-			height = height / 2;
+				width  = width / 2,
+				height = height / 2;
 
 			// Set the background image of the logo.
 			$( '#login-designer-logo' ).css( 'background-image', 'url( ' + to + ')' );
 
-           		$( '#login-designer-logo' ).css({
-           			width: width,
+			$( '#login-designer-logo' ).css({
+				width: width,
 				height: height,
 			});
 
@@ -848,9 +882,9 @@
 			value.bind( function( to ) {
 
 				var
-				el,
-				style,
-				old_stylesheet;
+					el,
+					style,
+					old_stylesheet;
 
 				// Default is the WordPress admin's default.
 				if ( 'default' === to ) {
@@ -945,9 +979,28 @@
 	// Add a body class based on the current template.
 	wp.customize( 'login_designer[template]', function( value ) {
 		value.bind( function( to ) {
+			$( '#login-designer-template' ).text( to );
 
+// if ( ! $( '.login-designer-disable-translation' ).length ) {
+			if ('default' === to) {
+				$('.login-designer--translation-switcher[data-logindesigner-template=template]').attr('style', 'display: none !important;position:relative;');
+				$('.login-designer--translation-switcher[data-logindesigner-template=default]').attr('style', 'display: block !important;position:relative;');
+			}
+			if ('default' !== to) {
+				$('.login-designer--translation-switcher[data-logindesigner-template=default]').attr('style', 'display: none !important;position:relative;');
+				$('.login-designer--translation-switcher[data-logindesigner-template=template]').attr('style', 'display: block !important;position:relative;');
+			}
+// }
+
+			if ( $( 'body' ).hasClass( 'login-designer-no-language' ) ) {
+				$( '.language-switcher' ).attr( 'style', 'display:none;' );
+			}
+
+			let bodyClass = $( 'body' ).hasClass( 'login-designer-no-language' ) ? 'login-designer-no-language' : '';
 			$( 'body.login' ).attr( 'class', 'login login-action-login wp-core-ui locale-en-us login-designer has-template-applied login-designer-template-section-opened customize-partial-edit-shortcuts-shown' );
 			$( 'body.login' ).addClass( 'login-designer-template-' + to );
+			$( 'body.login' ).addClass( bodyClass );
+
 
 			// If we have a custom background color, let's remove it so the templates can shine.
 			$( 'body.login' ).css( 'background-color', '' );
@@ -1037,7 +1090,7 @@
 
 				if ( customBackground() ) {
 					setTimeout( function() {
-					$( '#login-designer-background' ).css( 'background-image', 'url( ' + customBackground() + ')' );
+						$( '#login-designer-background' ).css( 'background-image', 'url( ' + customBackground() + ')' );
 					}, 300);
 
 					setTimeout( function() {

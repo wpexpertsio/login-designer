@@ -3,11 +3,11 @@
  * Plugin Name:     Login Designer
  * Plugin URI:      https://logindesigner.com
  * Description:     The easiest way to completely customize your WordPress login page. Create stunning login templates in seconds with the most beautiful and elegant login customizer WordPress plugin.
- * Author:          Rich Tabor
- * Author URI:      https://logindesigner.com
+ * Author:          LoginDesigner
+ * Author URI:      https://logindesigner.com/
  * Text Domain:     login-designer
  * Domain Path:     /languages
- * Version:         1.2.5
+ * Version:         1.2.6
  *
  * Login Designer is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'LOGIN_DESIGNER_VERSION', '1.2.4' );
+define( 'LOGIN_DESIGNER_VERSION', '1.2.5' );
 define( 'LOGIN_DESIGNER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'LOGIN_DESIGNER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'LOGIN_DESIGNER_PLUGIN_FILE', __FILE__ );
@@ -128,6 +128,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 			}
 
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-customizer.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-features.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-customizer-output.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-customizer-scripts.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-intro.php';

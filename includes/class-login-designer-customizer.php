@@ -125,7 +125,15 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			$wp_customize->add_section(
 				'login_designer__section--settings',
 				array(
-					'title' => esc_html__( 'Settings', 'login-designer' ),
+					'title' => esc_html__( 'Branding', 'login-designer' ),
+					'panel' => 'login_designer',
+				)
+			);
+
+			$wp_customize->add_section(
+				'login_designer__section--translations',
+				array(
+					'title' => esc_html__( 'Language Switcher', 'login-designer' ),
 					'panel' => 'login_designer',
 				)
 			);
@@ -179,6 +187,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/below.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/license.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/branding.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/language-switcher.php';
 		}
 
 		/**

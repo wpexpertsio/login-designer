@@ -60,6 +60,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			$dir = Login_Designer()->asset_source( 'css' );
 
 			wp_enqueue_style( 'login-designer-customize-preview', $dir . 'login-designer-customize-preview' . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', LOGIN_DESIGNER_VERSION, 'all' );
+			wp_enqueue_style( 'login-designer-customize-ripple-effects', $dir . 'login-designer-ripple-effects' . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', LOGIN_DESIGNER_VERSION, 'all' );
+
+			wp_enqueue_script( 'login-designer-customize-ripple-effects', LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/src/login-designer-ripple-effects.js', array( 'jquery' ), LOGIN_DESIGNER_VERSION, true );
 		}
 
 		/**

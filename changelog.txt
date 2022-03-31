@@ -1,3 +1,11 @@
+= 1.2.6 =
+### Buf Fixes
+* Fix Language translation issue coming in WordPress 5.9
+
+= 1.2.5 =
+### Enhancements
+* Update [tested up to value](https://github.com/thatplugincompany/login-designer/pull/64) to WordPress 5.8.2
+
 = 1.2.4 =
 ### Enhancements
 * Modernize the [development stack](https://github.com/thatplugincompany/login-designer/pull/47) and employ PHPCS practices

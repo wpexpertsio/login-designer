@@ -756,9 +756,8 @@
 						});
 					});
 
-				}
-
-				else {
+				} else {
+					console.log( item )
 					// Activate all others.
 					wp.customize.control( item ).activate( { duration: 0 } );
 				}
@@ -775,18 +774,18 @@
 		init: function () {
 
 			var
-			self = this,
-			active_state,
-			logo_event  		= 'login-designer-edit-logo',
-			form_event  		= 'login-designer-edit-loginform',
-			fields_event 		= 'login-designer-edit-loginform-fields',
-			username_label_event 	= 'login-designer-edit-loginform-labels-username',
-			password_label_event 	= 'login-designer-edit-loginform-labels-password',
-			button_event 		= 'login-designer-edit-button',
-			background_event 	= 'login-designer-edit-background',
-			remember_event 		= 'login-designer-edit-remember-me',
-			checkbox_event 		= 'login-designer-edit-remember-me-checkbox',
-			below_event 		= 'login-designer-edit-below';
+				self = this,
+				active_state,
+				logo_event  		= 'login-designer-edit-logo',
+				form_event  		= 'login-designer-edit-loginform',
+				fields_event 		= 'login-designer-edit-loginform-fields',
+				username_label_event 	= 'login-designer-edit-loginform-labels-username',
+				password_label_event 	= 'login-designer-edit-loginform-labels-password',
+				button_event 		= 'login-designer-edit-button',
+				background_event 	= 'login-designer-edit-background',
+				remember_event 		= 'login-designer-edit-remember-me',
+				checkbox_event 		= 'login-designer-edit-remember-me-checkbox',
+				below_event 		= 'login-designer-edit-below';
 
 			// Function used for contextually aware Customizer options.
 			function bind_control_visibility_event( event, active_controls, focus_control ) {
@@ -851,6 +850,13 @@
 			// Open settings panel when the Login Designer badge is clicked.
 			this.preview.bind( 'login-designer-edit-branding', function() {
 				var section = wp.customize.section( 'login_designer__section--settings' );
+				if ( ! section.expanded() ) {
+					section.expand( { duration: 0 } );
+				}
+			} );
+
+			this.preview.bind( 'login-designer-edit-language', function(){
+				var section = wp.customize.section( 'login_designer__section--translations' );
 				if ( ! section.expanded() ) {
 					section.expand( { duration: 0 } );
 				}
