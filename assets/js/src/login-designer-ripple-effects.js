@@ -39,6 +39,11 @@
     }, function(){
         $( '#login-designer-bellow-form-field-hover' ).css( 'opacity', '0' );
     } );
+    $( '#login-designer-logo-h1' ).hover( function(){
+        $( '#login-designer--ripple-effect-logo' ).css( 'opacity', '100%' );
+    }, function(){
+        $( '#login-designer--ripple-effect-logo' ).css( 'opacity', '0' );
+    } );
     $( '#user_login, #user_pass' ).on( 'click', function( e ){
         e.preventDefault();
     } );
@@ -65,6 +70,9 @@
     } );
     $( '#login-designer-remember-label-hover' ).on( 'click', function(){
         $( this ).parent().next()[0].click();
+    } );
+    $( '#login-designer--ripple-effect-logo' ).on( 'click', function(){
+        $( this ).next()[0].click();
     } );
     $( '#language-switcher' ).on( 'submit', function( e ){
         e.preventDefault();

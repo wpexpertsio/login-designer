@@ -163,6 +163,7 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 
 			<h1 id="login-designer-logo-h1" data-hint="<?php echo esc_attr__( 'Click on the logo below to upload your own and set the image\'s height and width.', 'login-designer' ); ?>" data-hintPosition="top-middle" data-position="right">
 				<a id="login-designer-logo" class="customize-unpreviewable" href="#" title="" tabindex="-1"><?php bloginfo( 'name' ); ?></a>
+                <span id="login-designer--ripple-effect-logo" class="login-designer--username-svg-hover-display"></span>
 			</h1>
 
 			<?php

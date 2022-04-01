@@ -64,6 +64,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-gallery-control.php';
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-upgrade-control.php';
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-license-control.php';
+			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-file-import-button-control.php';
 
 			// Register the control types that we're using as JavaScript controls.
 			if ( class_exists( 'Login_Designer_Toggle_Control' ) ) {
@@ -130,6 +131,22 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 				)
 			);
 
+			$wp_customize->add_section(
+				'login_designer__section--error-messages',
+				array(
+					'title' => esc_html__( 'Login Error Messages', 'login-designer' ),
+					'panel' => 'login_designer',
+				)
+			);
+
+			$wp_customize->add_section(
+				'login_designer__section--google-recaptcha',
+				array(
+					'title' => esc_html__( 'Google Recaptcha', 'login-designer' ),
+					'panel' => 'login_designer',
+				)
+			);
+
 			$languages = get_available_languages();
 			if ( ! empty( $languages ) ) {
 				$wp_customize->add_section(
@@ -140,6 +157,14 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 					)
 				);
 			}
+
+			$wp_customize->add_section(
+				'login_designer__section--file-import-export',
+				array(
+					'title' => esc_html__( 'Import & Export Settings', 'login-designer' ),
+					'panel' => 'login_designer',
+				)
+			);
 
 			/**
 			 * Add the theme upgrade section, only if the pro version is available.
@@ -191,6 +216,9 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/license.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/branding.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/language-switcher.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/login-error-messages.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/google-recaptcha.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/import-export-settings.php';
 		}
 
 		/**

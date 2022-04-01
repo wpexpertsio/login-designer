@@ -306,6 +306,10 @@
 		customizer_checkbox_option_display( 'login_designer_settings[branding]', 'login_designer_settings[branding_icon_color]', true );
 		customizer_checkbox_option_display( 'login_designer[form_bg_transparency]', 'login_designer[form_bg]', false );
 
+		customizer_checkbox_option_display( 'login_designer_google_recaptcha[enable_google_recaptcha]', 'login_designer_google_recaptcha[google_recaptcha_api_key]', true );
+		customizer_checkbox_option_display( 'login_designer_google_recaptcha[enable_google_recaptcha]', 'login_designer_google_recaptcha[google_recaptcha_secrete_key]', true );
+		customizer_checkbox_option_display( 'login_designer_google_recaptcha[enable_google_recaptcha]', 'login_designer_google_recaptcha[recaptcha_version]', true );
+
 		/**
 		 * Function to hide/show Customizer options, based on a select value.
 		 *

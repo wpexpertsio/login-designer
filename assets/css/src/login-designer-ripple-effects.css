@@ -51,6 +51,12 @@ span#login-designer-remember-label-hover:after {
     left: 4px;
 }
 
+span#login-designer--ripple-effect-logo {
+    left: 0;
+    top: 30px;
+    z-index: 993366551199;
+}
+
 @keyframes hideSeekAnimation {
     0% {
         opacity: 100%;
