@@ -130,13 +130,16 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 				)
 			);
 
-			$wp_customize->add_section(
-				'login_designer__section--translations',
-				array(
-					'title' => esc_html__( 'Language Switcher', 'login-designer' ),
-					'panel' => 'login_designer',
-				)
-			);
+			$languages = get_available_languages();
+			if ( ! empty( $languages ) ) {
+				$wp_customize->add_section(
+					'login_designer__section--translations',
+					array(
+						'title' => esc_html__( 'Language Switcher', 'login-designer' ),
+						'panel' => 'login_designer',
+					)
+				);
+			}
 
 			/**
 			 * Add the theme upgrade section, only if the pro version is available.
