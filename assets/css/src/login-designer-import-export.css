@@ -59,3 +59,11 @@ button.login-designer-snackbar-close {
 .customize-control-title {
     /*margin-bottom: 0 !important;*/
 }
+
+#sub-accordion-section-login_designer__section--styles .customize-control-select select option, #sub-accordion-section-login_designer__section--settings .customize-control-select select option {
+     text-align: left !important;
+}
+
+.login-designer-range__track {
+    width: 70% !important;
+}
