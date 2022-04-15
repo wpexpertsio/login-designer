@@ -1,9 +1,8 @@
 = 1.3.0 =
-### New features
-* Added some new features
-* Added google recaptcha functionality
-* Added Import Export settings
-* Added Login error customization settings
+* ### Improved user experience
+* NEW: Added support for Google Re-captcha
+* NEW: Added option for Import/Export settings
+* NEW: Added option to change login error messages
 
 = 1.2.6 =
 ### Buf Fixes
