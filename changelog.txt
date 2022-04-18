@@ -1,12 +1,11 @@
-= 1.3.0 =
-* ### Improved user experience
+= 1.3 =
+* Improved user experience by displaying edit icons on hover for the sections that can be customized
 * NEW: Added support for Google Re-captcha
 * NEW: Added option for Import/Export settings
 * NEW: Added option to change login error messages
 
-= 1.2.6 =
-### Buf Fixes
-* Fix Language translation issue coming in WordPress 5.9
+### Bug Fixes
+* FIXED : WP 5.9 language switcher breaks login themes
 
 = 1.2.5 =
 ### Enhancements
