@@ -78,5 +78,13 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
+= 1.3 = 04/22/2022
 ### Enhancements
-* Update [tested up to value](https://github.com/thatplugincompany/login-designer/pull/64) to WordPress 5.8.2
+* Improved user experience by displaying edit icons on hover for the sections that can be customized
+* Update tested up to value to WordPress 5.9.3
+* NEW: Added support for Google Re-captcha
+* NEW: Added option for Import/Export settings
+* NEW: Added option to change login error messages
+
+### Bug Fixes
+* FIXED : WP 5.9 language switcher breaks login themes
