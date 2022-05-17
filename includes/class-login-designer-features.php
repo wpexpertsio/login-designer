@@ -22,7 +22,7 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 		 * Login_Designer_Features constructor.
 		 */
 		public function __construct() {
-			/**
+            /**
 			 * Translation Field actions.
 			 */
 			add_action( 'login_head', array( $this, 'add_translation_styles' ) );
@@ -340,11 +340,14 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 		 * Display element on right way.
 		 */
 		public function translation_field() {
-			$js = <<<JS
+            $languages = get_available_languages();
+            if ( ! empty( $languages ) ) {
+                $js = <<<JS
                 let language_translator=jQuery(".language-switcher").html(),embed_html="<div class='language-switcher'>"+language_translator+"</div>";jQuery(".language-switcher").remove(),jQuery("#login").append(embed_html);
 JS;
-			wp_add_inline_script( 'jquery', trim( $js ) );
-			wp_enqueue_script( 'jquery' );
+                wp_add_inline_script( 'jquery', trim( $js ) );
+                wp_enqueue_script( 'jquery' );
+            }
 		}
 	}
 }

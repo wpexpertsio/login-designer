@@ -130,3 +130,31 @@ if ( ! function_exists( 'login_designer_create_error_messages' ) ) {
 		return $error_header . $message . $error_footer;
 	}
 }
+
+if ( ! function_exists( 'login_designer_wpml' ) ) {
+    /**
+     * Login Designer WPML
+     * @return array
+     */
+    function login_designer_wpml() {
+        $translations  = array();
+        $languages     = apply_filters( 'wpml_active_languages', null );
+
+        foreach ( (array) $languages as $k => $language ) {
+            $post_id        = wpml_object_id_filter( Login_Designer()->get_login_designer_page()->ID, 'page', false, $language['code'] );
+            if ( $post_id === null ) {
+                continue;
+            }
+
+            $this_post = get_post( $post_id );
+
+            if ( 'publish' !== $this_post->post_status ) {
+                continue;
+            }
+
+            $translations[] = $this_post->ID;
+        }
+
+        return $translations;
+    }
+}
