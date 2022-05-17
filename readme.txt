@@ -109,8 +109,11 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 = 1.3.1 =
 ### Bug Fixes
-* Removed Undefined text showing on the login page.
-* Removed login designer from Rank Math Sitemap.
+* Removed undefined text showing on the login page.
+
+### Improvement
+* Added compatibility for Yoast sitemap in case of WPML activated.
+* Added compatibility for Rank Math sitemap in case of WPML activated.
 
 = 1.3.0 =
 ### New features
