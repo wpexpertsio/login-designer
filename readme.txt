@@ -7,7 +7,7 @@ Tags: login, custom login, customize wordpress login, wordpress login, customize
 Requires at least: 4.7
 Tested up to: 5.9.1
 Requires PHP: 5.2.4
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPL-3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -77,6 +77,14 @@ Yes! Login Design is deployed with full translation and localization support via
 Please reach out via the official [plugin support forum](https://wordpress.org/support/plugin/login-designer).
 
 == Changelog ==
+
+= 1.3.1 = 05/17/2022
+### Bug Fixes
+* Removed undefined text showing on the login page.
+
+### Improvement
+* Added compatibility for Yoast sitemap in case of WPML activated.
+* Added compatibility for Rank Math sitemap in case of WPML activated.
 
 = 1.3 = 04/22/2022
 ### Enhancements

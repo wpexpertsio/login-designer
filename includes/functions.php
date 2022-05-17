@@ -130,3 +130,44 @@ if ( ! function_exists( 'login_designer_create_error_messages' ) ) {
 		return $error_header . $message . $error_footer;
 	}
 }
+
+if ( ! function_exists( 'login_designer_wpml_ids' ) ) {
+	/**
+	 * Login Designer WPML
+	 *
+	 * @return array
+	 */
+	function login_designer_wpml_ids() {
+		$translations = array();
+		$languages    = apply_filters( 'wpml_active_languages', null );
+		foreach ( (array) $languages as $k => $language ) {
+			$post_id = wpml_object_id_filter( Login_Designer()->get_login_designer_page()->ID, 'page', false, $language['code'] );
+			if ( null === $post_id ) {
+				continue;
+			}
+			$this_post = get_post( $post_id );
+			if ( 'publish' !== $this_post->post_status ) {
+				continue;
+			}
+			$translations[] = $this_post->ID;
+		}
+		return $translations;
+	}
+}
+
+if ( ! function_exists( 'login_designer_pages' ) ) {
+	/**
+	 * Login Designer Pages.
+	 *
+	 * @param int $login_designer_id Login designer page id.
+	 *
+	 * @return array
+	 */
+	function login_designer_pages( $login_designer_id ) {
+		$translations = array( $login_designer_id );
+		if ( in_array( 'sitepress-multilingual-cms/sitepress.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
+			$translations = array_merge( $translations, login_designer_wpml_ids() );
+		}
+		return $translations;
+	}
+}

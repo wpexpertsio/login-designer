@@ -29,7 +29,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	'login_designer_translations[translation]',
 	array(
-		'default'           => 1,
+		'default'           => 0,
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
