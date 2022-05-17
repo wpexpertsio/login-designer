@@ -5,36 +5,24 @@
  * @package Login Designer
  */
 
-add_filter( 'wpseo_exclude_from_sitemap_by_post_ids', 'login_designer_wpseo_exclude_page_id' );
-if ( ! function_exists( 'login_designer_wpseo_exclude_page_id' ) ) {
-    /**
-     * Excluding Login designer page ID form WPSEO
-     *
-     * @return array
-     */
-    function login_designer_wpseo_exclude_page_id() {
-        // Pull the Login Designer page from options.
-        $page = Login_Designer()->get_login_designer_page();
+add_filter(
+	'wpseo_exclude_from_sitemap_by_post_ids',
+	function() {
+		// Pull the Login Designer page from options.
+		$page = Login_Designer()->get_login_designer_page();
 
-        return array( $page->ID, login_designer_wpml() );
-    }
-}
+		return array( $page->ID );
+	}
+);
 
-add_filter( 'rank_math/sitemap/posts_to_exclude', 'login_designer_sitemap_exclude_page_id' );
-if ( ! function_exists( 'login_designer_sitemap_exclude_page_id' ) ) {
-    /**
-     * Excluding Login designer page ID form Sitemap
-     *
-     * @param int $posts_to_exclude Post IDs which sre excluding.
-     *
-     * @return array
-     */
-    function login_designer_sitemap_exclude_page_id( $posts_to_exclude ) {
-        // Pull the Login Designer page from options.
-        $page = Login_Designer()->get_login_designer_page()->ID;
+add_filter(
+	'rank_math/sitemap/posts_to_exclude',
+	function( $posts_to_exclude ) {
+		// Pull the Login Designer page from options.
+		$page = Login_Designer()->get_login_designer_page()->ID;
 
-        $posts_ids = array( $page, login_designer_wpml() );
+		$posts_ids = array( $page );
 
-        return array_merge( $posts_to_exclude, $posts_ids );
-    }
-}
+		return array_merge( $posts_to_exclude, $posts_ids );
+	}
+);
