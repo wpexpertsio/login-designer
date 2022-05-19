@@ -381,17 +381,29 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		 * Callback to retrieve the custom logo via AJAX from within the live previewer.
 		 */
 		public function get_logo_info_callback() {
-			$logo = $this->option_wrapper( 'logo' );
-			$logo = wp_get_attachment_image_src( $logo, 'full' );
+			// phpcs:disable WordPress.Security.NonceVerification.Recommended
+			if ( isset( $_REQUEST['method'] ) ) {
+				$method = sanitize_text_field( wp_unslash( $_REQUEST['method'] ) );
+				if ( 'login_form' === $method ) {
+					$logo = $this->option_wrapper( 'logo' );
+					$logo = wp_get_attachment_image_src( $logo, 'full' );
+				}
 
-			wp_send_json(
-				array(
-					'done'   => 1,
-					'url'    => esc_url( $logo[0] ),
-					'width'  => absint( $logo[1] ),
-					'height' => absint( $logo[2] ),
-				)
-			);
+				if ( 'password_protected_form' === $method ) {
+					$logo = get_option( 'password_protected' );
+					$logo = wp_get_attachment_image_src( $logo['logo'], 'full' );
+				}
+
+				wp_send_json(
+					array(
+						'done'   => 1,
+						'url'    => esc_url( $logo[0] ),
+						'width'  => absint( $logo[1] ),
+						'height' => absint( $logo[2] ),
+					)
+				);
+			}
+			// phpcs:enable
 
 			wp_die();
 		}

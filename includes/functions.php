@@ -137,11 +137,11 @@ if ( ! function_exists( 'login_designer_wpml_ids' ) ) {
 	 *
 	 * @return array
 	 */
-	function login_designer_wpml_ids() {
+	function login_designer_wpml_ids( $page_id ) {
 		$translations = array();
 		$languages    = apply_filters( 'wpml_active_languages', null );
 		foreach ( (array) $languages as $k => $language ) {
-			$post_id = wpml_object_id_filter( Login_Designer()->get_login_designer_page()->ID, 'page', false, $language['code'] );
+			$post_id = wpml_object_id_filter( $page_id, 'page', false, $language['code'] );
 			if ( null === $post_id ) {
 				continue;
 			}
@@ -166,8 +166,36 @@ if ( ! function_exists( 'login_designer_pages' ) ) {
 	function login_designer_pages( $login_designer_id ) {
 		$translations = array( $login_designer_id );
 		if ( in_array( 'sitepress-multilingual-cms/sitepress.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
-			$translations = array_merge( $translations, login_designer_wpml_ids() );
+			if ( class_exists( 'Login_Designer_Password_Protected' ) ) {
+				$password_protected_page_id = Login_Designer_Password_Protected::get_password_protected_id();
+				$translations[]             = $password_protected_page_id;
+				$translations               = array_merge( $translations, login_designer_wpml_ids( $password_protected_page_id ) );
+			}
+			$translations = array_merge( $translations, login_designer_wpml_ids( $login_designer_id ) );
 		}
 		return $translations;
+	}
+}
+
+if ( ! function_exists( 'password_protected_get_option' ) ) {
+	/**
+	 * Getting password protected styles.
+	 *
+	 * @param string $option_name Option name to get.
+	 * @param mixed  $default Default value if option not exist.
+	 *
+	 * @return mixed
+	 */
+	function password_protected_get_option( $option_name, $default = false ) {
+		$options = get_option( 'password_protected', array() );
+		if ( ! isset( $options[ $option_name ] ) ) {
+			$options = ( new Login_Designer_Customizer_Output() )->defaults();
+			if ( isset( $options[ $option_name ] ) ) {
+				return $options[ $option_name ];
+			}
+			return $default;
+		}
+
+		return $options[ $option_name ];
 	}
 }

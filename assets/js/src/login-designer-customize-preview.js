@@ -705,9 +705,7 @@
 
 			if ( to ) {
 
-				var data = {
-					action: 'get_logo_info'
-				};
+				var data = { action: 'get_logo_info', method: 'login_form', };
 
 				$.post( login_designer_script.ajax_url, data, function( response ) {
 
@@ -778,7 +776,7 @@
 				$( '#login-designer-logo-h1 .login-designer-event-button' ).wrap( nib );
 				$( '#login-designer-logo-h1 .login-designer-event-button' ).removeClass( 'customizer-event-overlay' );
 			} else {
-				$( '#login-designer-logo-h1 .login-designer-event-button' ).unwrap( nib );
+				$( '#login-designer-logo-h1 .login-designer-event-button' ).unwrap();
 				$( '#login-designer-logo-h1 .login-designer-event-button' ).addClass( 'customizer-event-overlay' );
 			}
 

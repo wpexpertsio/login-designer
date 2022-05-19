@@ -37,8 +37,13 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 				$classes[] = 'customize-partial-edit-shortcuts-shown';
 			}
 
-			if ( is_customize_preview() && is_page_template( 'template-login-designer.php' ) ) {
-				$classes[] = 'login-designer';
+			if ( is_customize_preview() ) {
+				if ( is_page_template( 'template-login-designer.php' ) ) {
+					$classes[] = 'login-designer';
+				}
+				if ( is_page_template( 'template-password-protected.php' ) ) {
+					$classes[] = 'password-protected';
+				}
 			}
 
 			return $classes;
@@ -165,6 +170,10 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 					'panel' => 'login_designer',
 				)
 			);
+
+			if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
+				$this->password_protected_customizer( $wp_customize, $defaults, $admin_defaults );
+			}
 
 			/**
 			 * Add the theme upgrade section, only if the pro version is available.
@@ -373,6 +382,121 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			);
 
 			return apply_filters( 'login_designer_fonts', $fonts );
+		}
+
+		/**
+		 * Customizer data for password protected
+		 *
+		 * @param WP_Customize_Manager $wp_customize WP Customizer.
+		 * @param array                $defaults Default settings.
+		 * @param array                $admin_defaults Default settings.
+		 */
+		protected function password_protected_customizer( $wp_customize, $defaults, $admin_defaults ) {
+			/**
+			 * Password Protected Customization
+			 */
+			$wp_customize->add_panel(
+				'password_protected',
+				array(
+					'title'       => esc_html__( 'Password Protected', 'login-designer' ),
+					'capability'  => 'edit_theme_options',
+					'description' => esc_html__( 'Using plugin to protect your site with password' ),
+					'priority'    => 151,
+				)
+			);
+
+			/**
+			 * Things todo ↴
+			1 todo Logo section.
+			2 todo label section.
+			3 todo field section.
+			4 todo remember checkbox section.
+			5 todo remember label section.
+			6 todo login button section.
+			7 todo form background section.
+			8 todo body background section.
+			 */
+
+			// Logo section.
+			$wp_customize->add_section(
+				'password_protected__section--logo',
+				array(
+					'panel' => 'password_protected',
+					'title' => esc_html__( 'Logo Styles', 'login-designer' ),
+				)
+			);
+
+			// Label section.
+			$wp_customize->add_section(
+				'password_protected__section--label',
+				array(
+					'panel' => 'password_protected',
+					'title' => esc_html__( 'Label Styles', 'login-designer' ),
+				)
+			);
+
+			// Field section.
+			$wp_customize->add_section(
+				'password_protected__section--field',
+				array(
+					'panel' => 'password_protected',
+					'title' => esc_html__( 'Field Styles', 'login-designer' ),
+				)
+			);
+
+			// Submit button section.
+			$wp_customize->add_section(
+				'password_protected__section--button',
+				array(
+					'panel' => 'password_protected',
+					'title' => esc_html__( 'Button Styles', 'login-desinger' ),
+				)
+			);
+
+			// Remember me checkbox section.
+			$wp_customize->add_section(
+				'password_protected__section--checkbox',
+				array(
+					'panel' => 'password_protected',
+					'title' => esc_html__( 'Remember me Style' ),
+				)
+			);
+
+			// Remember me label section.
+			$wp_customize->add_section(
+				'password_protected__section--checkbox-label',
+				array(
+					'title' => esc_html__( 'Remember me Label Styles', 'login-designer' ),
+					'panel' => 'password_protected',
+				)
+			);
+
+			// Form Background section.
+			$wp_customize->add_section(
+				'password_protected__section--form-background',
+				array(
+					'title' => esc_html__( 'Form Background', 'login-designer' ),
+					'panel' => 'password_protected',
+				)
+			);
+
+			// Body background section.
+			$wp_customize->add_section(
+				'password_protected__section--body-background',
+				array(
+					'title' => esc_html__( 'Body Background', 'login-designer' ),
+					'panel' => 'password_protected',
+				)
+			);
+
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-logo.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-labels.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-fields.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-button.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-checkbox.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-remember.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-form.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-background.php';
 		}
 	}
 

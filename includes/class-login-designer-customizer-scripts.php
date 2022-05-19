@@ -60,6 +60,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			$dir = Login_Designer()->asset_source( 'css' );
 
 			wp_enqueue_style( 'login-designer-customize-preview', $dir . 'login-designer-customize-preview' . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', LOGIN_DESIGNER_VERSION, 'all' );
+			if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
+				wp_enqueue_style( 'password-protected-customize-preview', $dir . 'password-protected-customize-preview' . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', LOGIN_DESIGNER_VERSION, 'all' );
+			}
 			wp_enqueue_style( 'login-designer-customize-ripple-effects', $dir . 'login-designer-ripple-effects' . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', LOGIN_DESIGNER_VERSION, 'all' );
 
 			wp_enqueue_script( 'login-designer-customize-ripple-effects', LOGIN_DESIGNER_PLUGIN_URL . 'assets/js/src/login-designer-ripple-effects.js', array( 'jquery' ), LOGIN_DESIGNER_VERSION, true );
@@ -93,6 +96,13 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 				'font_subset'           => '&latin,latin-ext',
 				'extension_backgrounds' => $customizer->extension_backgrounds(),
 			);
+
+			if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
+				$localize['password_protected_page'] = get_permalink( Login_Designer_Password_Protected::get_password_protected_id() );
+				wp_enqueue_script( 'password-protected-customize-live', $dir . 'password-protected-customize-live' . LOGIN_DESIGNER_ASSET_SUFFIX . '.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
+				wp_enqueue_script( 'password-protected-customize-preview', $dir . 'password-protected-customize-preview' . LOGIN_DESIGNER_ASSET_SUFFIX . '.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
+				wp_localize_script( 'password-protected-customize-preview', 'password_protected_script', $localize );
+			}
 
 			$localize = apply_filters( 'login_designer_customize_preview_localization', $localize );
 
@@ -133,6 +143,13 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 				'login_designer_page' => get_permalink( $page ),
 				'extension_bg_colors' => $customizer->extension_colors(),
 			);
+
+			if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
+				$localize['password_protected_page'] = get_permalink( Login_Designer_Password_Protected::get_password_protected_id() );
+				wp_enqueue_script( 'password-protected-customize-controls', $dir . 'password-protected-customize-controls' . LOGIN_DESIGNER_ASSET_SUFFIX . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
+				wp_enqueue_script( 'password-protected-customize-events', $dir . 'password-protected-customize-events' . LOGIN_DESIGNER_ASSET_SUFFIX . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
+				wp_localize_script( 'password-protected-customize-controls', 'password_protected_controls', $localize );
+			}
 
 			$localize = apply_filters( 'login_designer_control_localization', $localize );
 
