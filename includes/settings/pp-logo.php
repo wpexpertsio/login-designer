@@ -21,7 +21,7 @@ $wp_customize->add_control(
 		array(
 			'type'        => 'login-designer-title',
 			'label'       => esc_attr__( 'Logo', 'login-designer' ),
-			'description' => esc_attr__( 'Customize your Logo sizes, change you Logo and Remove your logo using these settings', 'login-designer' ),
+			'description' => esc_attr__( 'Customize your Logo sizes, change your Logo and Remove your logo using these settings', 'login-designer' ),
 			'section'     => 'password_protected__section--logo',
 		)
 	)
@@ -62,7 +62,7 @@ $wp_customize->add_control(
 	'password_protected[logo_url]',
 	array(
 		'label'          => esc_attr__( 'URL', 'login-designer' ),
-		'description'    => esc_attr__( 'URL', 'login-designer' ),
+		'description'    => esc_html__( 'Select a page for your logo to link to. This is typically your site\'s home page.', 'login-designer' ),
 		'section'        => 'password_protected__section--logo',
 		'type'           => 'dropdown-pages',
 		'allow_addition' => false,
