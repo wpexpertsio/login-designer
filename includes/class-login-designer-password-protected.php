@@ -50,7 +50,6 @@ if ( ! class_exists( 'Login_Designer_Password_Protected' ) ) {
 			$remember_font          = password_protected_get_option( 'remember_font' );
 			$button_font            = password_protected_get_option( 'button_font' );
 			$disable_logo           = password_protected_get_option( 'disable_logo' );
-			$logo_margin_bottom     = password_protected_get_option( 'logo_margin_bottom' );
 			$logo_width             = password_protected_get_option( 'logo_width' );
 			$logo_height            = password_protected_get_option( 'logo_height' );
 			$logo                   = password_protected_get_option( 'logo' );
@@ -126,19 +125,6 @@ if ( ! class_exists( 'Login_Designer_Password_Protected' ) ) {
 					width: 0;
 				}';
 			} else {
-				if ( $logo ) {
-					$logo = wp_get_attachment_image_url( $logo );
-					$css .= '#password-protected-logo a {
-						background-image: url("' . esc_attr( $logo ) . '");
-					}';
-				} else {
-					$css .= '#password-protected-logo a {
-						width: 84px;
-						height: 84PX;
-						background-size: 84px;
-						background-image: none, url("' . esc_url( admin_url( 'images/wordpress-logo.svg' ) ) . '");
-					}';
-				}
 
 				$css .= '#password-protected-logo a {
 					display: block;
@@ -150,10 +136,27 @@ if ( ! class_exists( 'Login_Designer_Password_Protected' ) ) {
 				#password-protected-logo,
 				#password-protected-logo a {
 					margin: 0 auto;
-					margin-bottom: ' . esc_attr( $logo_margin_bottom ) . 'px;
 					width: ' . esc_attr( $logo_width ) . 'px;
 					height: ' . esc_attr( $logo_height ) . 'px;
 				}';
+
+				if ( $logo ) {
+					$logo = wp_get_attachment_image_url( $logo );
+					$css .= '#password-protected-logo a {
+						background-image: url("' . esc_attr( $logo ) . '");
+					}';
+				} else {
+					$css .= '#password-protected-logo a {
+						width: 84px;
+						height: 84PX;
+						background-size: 84px;
+						background-image: none, url("' . esc_url( admin_url( 'images/wordpress-logo.svg' ) ) . '");
+					}
+					#password-protected-logo {
+						width: 84px;
+						height: 84px;
+					}';
+				}
 			}
 			$css .= 'label:not([for="password_protected_rememberme"]) {
 				font-size: ' . esc_attr( $label_font_size ) . 'px;

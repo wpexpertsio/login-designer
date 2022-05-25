@@ -34,7 +34,7 @@
             } );
         } );
 
-        wp.customize.previewer.bind( 'logo-sizes', function( data ){
+        wp.customize.previewer.bind( 'pp-logo-sizes', function( data ){
             let
                 width,
                 height;

@@ -69,6 +69,13 @@ $wp_customize->add_control(
 	)
 );
 
+/**
+ * In future add new settings here.
+ *
+ * @todo add Logo Width Settings.
+ * @todo add Logo Height Settings.
+ * @todo add Logo Position Settings.
+ */
 $wp_customize->add_setting(
 	'password_protected[logo_width]',
 	array(
@@ -79,24 +86,6 @@ $wp_customize->add_setting(
 	)
 );
 
-$wp_customize->add_control(
-	new Login_Designer_Range_Control(
-		$wp_customize,
-		'password_protected[logo_width]',
-		array(
-			'type'        => 'login-designer-range',
-			'label'       => esc_attr__( 'Width', 'login-designer' ),
-			'section'     => 'password_protected__section--logo',
-			'description' => 'px',
-			'default'     => $defaults['logo_width'],
-			'input_attrs' => array(
-				'min'  => 30,
-				'max'  => 400,
-				'step' => 2,
-			),
-		)
-	)
-);
 
 $wp_customize->add_setting(
 	'password_protected[logo_height]',
@@ -108,24 +97,6 @@ $wp_customize->add_setting(
 	)
 );
 
-$wp_customize->add_control(
-	new Login_Designer_Range_Control(
-		$wp_customize,
-		'password_protected[logo_height]',
-		array(
-			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Height', 'login-designer' ),
-			'section'     => 'password_protected__section--logo',
-			'description' => 'px',
-			'default'     => $defaults['logo_height'],
-			'input_attrs' => array(
-				'min'  => 30,
-				'max'  => 300,
-				'step' => 2,
-			),
-		)
-	)
-);
 
 $wp_customize->add_setting(
 	'password_protected[logo_margin_bottom]',
@@ -137,24 +108,6 @@ $wp_customize->add_setting(
 	)
 );
 
-$wp_customize->add_control(
-	new Login_Designer_Range_Control(
-		$wp_customize,
-		'password_protected[logo_margin_bottom]',
-		array(
-			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Position', 'login-designer' ),
-			'section'     => 'password_protected__section--logo',
-			'description' => 'px',
-			'default'     => $defaults['logo_margin_bottom'],
-			'input_attrs' => array(
-				'min'  => 0,
-				'max'  => 100,
-				'step' => 1,
-			),
-		)
-	)
-);
 
 $wp_customize->add_setting(
 	'password_protected[disable_logo]',

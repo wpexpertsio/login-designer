@@ -852,7 +852,8 @@
             </style>`;
         } else {
             style = `<style class="password_protected_logo">
-                #password-protected-logo a {
+                #password-protected-logo a,
+                #password-protected-logo {
                     display: block;
                     width: 84px !important;
                     height: 84px !important;
@@ -870,6 +871,7 @@
         }
 
         console.log( style );
+        console.dir( el );
 
         if ( el.length ) {
             el.replaceWith( style );
@@ -891,7 +893,7 @@
 
                 $.post( password_protected_script.ajax_url, data, function( response ){
                     hasLogoAction( response.url, response.width, response.height );
-                    wp.customize.preview.send( 'logo-sizes', { height: response.height, width: response.width } );
+                    wp.customize.preview.send( 'pp-logo-sizes', { height: response.height, width: response.width } );
                 } );
             } else {
                 hasLogoAction( to, null, null );
