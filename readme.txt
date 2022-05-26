@@ -80,7 +80,7 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 = 1.4 = 05/19/2022
 ### Enhancements
-* NEW: Added customizer for customizing password protected plugin page.
+* NEW: Added compatibility for the [password-protected](https://wp.org/plugins/password-protected) plugin; Now you can customize the password-protected screen with the customizer.
 
 = 1.3.1 = 05/17/2022
 ### Bug Fixes
