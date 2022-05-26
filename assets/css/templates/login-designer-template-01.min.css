@@ -1,3 +1,4 @@
+body.login.login-designer-template-01 #login { display: table;clear: both; }
 body.login.login-designer-template-01{background-image:none !important;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;content:" ";-webkit-box-align:stretch;-webkit-align-items:stretch;-ms-flex-align:stretch;align-items:stretch}
 @media only screen and (min-width:400px){body.login.login-designer-template-01 #login{-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:85%;margin:0;max-width:580px;padding:40px 0 0}
 }@media only screen and (min-width:800px){body.login.login-designer-template-01 #login{padding:100px 0 0}
