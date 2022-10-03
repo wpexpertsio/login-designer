@@ -78,10 +78,6 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
-= 1.4.1 = 10/03/2022
-### Bug Fixes
-* Fixed Password Protected undefined text issue.
-
 = 1.4 = 05/19/2022
 ### Enhancements
 * NEW: Added compatibility for the [password-protected](https://wp.org/plugins/password-protected) plugin; Now you can customize the password-protected screen with the customizer.

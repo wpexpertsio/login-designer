@@ -343,7 +343,7 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 			$languages = get_available_languages();
 			if ( ! empty( $languages ) ) {
 				$js = <<<JS
-                const language_translator=jQuery(".language-switcher");jQuery(language_translator).length&&(embed_html='<div class="language-switcher">'+jQuery(language_translator).html()+"</div>",jQuery(".language-switcher").remove(),jQuery("#login").append(embed_html));
+                let language_translator=jQuery(".language-switcher").html(),embed_html="<div class='language-switcher'>"+language_translator+"</div>";jQuery(".language-switcher").remove(),jQuery("#login").append(embed_html);
 JS;
 				wp_add_inline_script( 'jquery', trim( $js ) );
 				wp_enqueue_script( 'jquery' );
