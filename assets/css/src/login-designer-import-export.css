@@ -1,0 +1,69 @@
+.login-designer-import-export-btns {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.login-designer-ix-container {
+    width: 100%;
+}
+
+.login-designer-textarea {
+    border: none;
+    width: 100%;
+    height: 250px;
+    transition: height 0.3s;
+}
+
+.login-designer-snackbar {
+    width: 100vw;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    z-index: 99785009;
+}
+
+.login-designer-snackbar-text {
+    background: #383838;
+    padding: 10px;
+    width: 20rem;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 5px;
+}
+
+button.login-designer-snackbar-close {
+    cursor: pointer;
+    background: #383838;
+    color: #fff;
+    border: none;
+    margin-left: 9px;
+}
+
+.login-designer-import-export-buttons:first-child {
+    margin-right: 25px;
+}
+
+.login-designer-import-button,
+.login-designer-export-button {
+    margin-top: 10px !important;
+}
+
+.customize-control-title {
+    /*margin-bottom: 0 !important;*/
+}
+
+#sub-accordion-section-login_designer__section--styles .customize-control-select select option, #sub-accordion-section-login_designer__section--settings .customize-control-select select option {
+     text-align: left !important;
+}
+
+.login-designer-range__track {
+    width: 70% !important;
+}

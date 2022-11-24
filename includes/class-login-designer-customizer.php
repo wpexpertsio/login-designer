@@ -37,8 +37,13 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 				$classes[] = 'customize-partial-edit-shortcuts-shown';
 			}
 
-			if ( is_customize_preview() && is_page_template( 'template-login-designer.php' ) ) {
-				$classes[] = 'login-designer';
+			if ( is_customize_preview() ) {
+				if ( is_page_template( 'template-login-designer.php' ) ) {
+					$classes[] = 'login-designer';
+				}
+				if ( is_page_template( 'template-password-protected.php' ) ) {
+					$classes[] = 'password-protected';
+				}
 			}
 
 			return $classes;
@@ -56,6 +61,12 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 				return;
 			}
 
+			// Add custom section.
+			require_once LOGIN_DESIGNER_CUSTOMIZE_SECTIONS_DIR . 'class-login-designer-section.php';
+
+			// Register custom section.
+			$wp_customize->register_section_type( 'Login_Designer_Section' );
+
 			// Add custom controls.
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-range-control.php';
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-toggle-control.php';
@@ -64,6 +75,8 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-gallery-control.php';
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-upgrade-control.php';
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-license-control.php';
+			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-file-import-button-control.php';
+			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-dummy-control.php';
 
 			// Register the control types that we're using as JavaScript controls.
 			if ( class_exists( 'Login_Designer_Toggle_Control' ) ) {
@@ -80,6 +93,9 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			}
 			if ( class_exists( 'Login_Designer_Template_Control' ) ) {
 				$wp_customize->register_control_type( 'Login_Designer_Template_Control' );
+			}
+			if ( class_exists( 'Login_Designer_Dummy_Control' ) ) {
+				$wp_customize->register_control_type( 'Login_Designer_Dummy_Control' );
 			}
 
 			// Get the default options.
@@ -125,10 +141,74 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			$wp_customize->add_section(
 				'login_designer__section--settings',
 				array(
-					'title' => esc_html__( 'Settings', 'login-designer' ),
+					'title' => esc_html__( 'Branding', 'login-designer' ),
 					'panel' => 'login_designer',
 				)
 			);
+
+			// @todo need to add new Tag to the following sections.
+			$wp_customize->add_section(
+				new Login_Designer_Section(
+					$wp_customize,
+					'login_designer__section--error-messages',
+					array(
+						'title'                => esc_html__( 'Login Error Messages', 'login-designer' ),
+						'type'                 => 'login-designer-section',
+						'login_designer_type'  => 'free',
+						'login_designer_title' => esc_attr__( 'New', 'login-designer' ),
+						'panel'                => 'login_designer',
+					)
+				)
+			);
+
+			$wp_customize->add_section(
+				new Login_Designer_Section(
+					$wp_customize,
+					'login_designer__section--google-recaptcha',
+					array(
+						'title'                => esc_html__( 'Google Recaptcha', 'login-designer' ),
+						'type'                 => 'login-designer-section',
+						'login_designer_type'  => 'free',
+						'login_designer_title' => esc_attr__( 'New', 'login-designer' ),
+						'panel'                => 'login_designer',
+					)
+				)
+			);
+
+			$languages = get_available_languages();
+			if ( ! empty( $languages ) ) {
+				$wp_customize->add_section(
+					new Login_Designer_Section(
+						$wp_customize,
+						'login_designer__section--translations',
+						array(
+							'title'                => esc_html__( 'Language Switcher', 'login-designer' ),
+							'type'                 => 'login-designer-section',
+							'login_designer_type'  => 'free',
+							'login_designer_title' => esc_attr__( 'New', 'login-designer' ),
+							'panel'                => 'login_designer',
+						)
+					)
+				);
+			}
+
+			$wp_customize->add_section(
+				new Login_Designer_Section(
+					$wp_customize,
+					'login_designer__section--file-import-export',
+					array(
+						'title'                => esc_html__( 'Import & Export Settings', 'login-designer' ),
+						'type'                 => 'login-designer-section',
+						'login_designer_type'  => 'free',
+						'login_designer_title' => esc_attr__( 'New', 'login-designer' ),
+						'panel'                => 'login_designer',
+					)
+				)
+			);
+
+			if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
+				$this->password_protected_customizer( $wp_customize, $defaults, $admin_defaults );
+			}
 
 			/**
 			 * Add the theme upgrade section, only if the pro version is available.
@@ -179,6 +259,25 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/below.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/license.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/branding.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/language-switcher.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/login-error-messages.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/google-recaptcha.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/import-export-settings.php';
+
+			do_action(
+				'login_designer_customizer_control',
+				$wp_customize,
+				$this,
+				array(
+					'panel'                     => 'login_designer',
+					'login_designer_plugin_dir' => LOGIN_DESIGNER_PLUGIN_DIR,
+				)
+			);
+
+			// @todo Pro features sections.
+			if ( apply_filters( 'login_designer_pro_dummy_sections', true ) ) {
+				$this->login_designer_pro_dummy_sections( $wp_customize );
+			}
 		}
 
 		/**
@@ -187,7 +286,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 		 * @param string|bool $checked Customizer option.
 		 */
 		public function sanitize_checkbox( $checked ) {
-			return ( ( isset( $checked ) && true === $checked ) ? true : false );
+			return isset( $checked ) && true === $checked;
 		}
 
 		/**
@@ -333,6 +432,189 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			);
 
 			return apply_filters( 'login_designer_fonts', $fonts );
+		}
+
+		/**
+		 * Customizer data for password protected
+		 *
+		 * @param WP_Customize_Manager $wp_customize WP Customizer.
+		 * @param array                $defaults Default settings.
+		 * @param array                $admin_defaults Default settings.
+		 */
+		protected function password_protected_customizer( $wp_customize, $defaults, $admin_defaults ) {
+			/**
+			 * Password Protected Customization
+			 */
+			$wp_customize->add_panel(
+				'password_protected',
+				array(
+					'title'       => esc_html__( 'Password Protected', 'login-designer' ),
+					'capability'  => 'edit_theme_options',
+					'description' => esc_html__( 'Using plugin to protect your site with password' ),
+					'priority'    => 151,
+				)
+			);
+
+			/**
+			 * Things todo ↴
+			1 todo Logo section.
+			2 todo label section.
+			3 todo field section.
+			4 todo remember checkbox section.
+			5 todo remember label section.
+			6 todo login button section.
+			7 todo form background section.
+			8 todo body background section.
+			 */
+
+			// Logo section.
+			$wp_customize->add_section(
+				'password_protected__section--logo',
+				array(
+					'panel' => 'password_protected',
+					'title' => esc_html__( 'Logo Styles', 'login-designer' ),
+				)
+			);
+
+			// Label section.
+			$wp_customize->add_section(
+				'password_protected__section--label',
+				array(
+					'panel' => 'password_protected',
+					'title' => esc_html__( 'Label Styles', 'login-designer' ),
+				)
+			);
+
+			// Field section.
+			$wp_customize->add_section(
+				'password_protected__section--field',
+				array(
+					'panel' => 'password_protected',
+					'title' => esc_html__( 'Field Styles', 'login-designer' ),
+				)
+			);
+
+			// Submit button section.
+			$wp_customize->add_section(
+				'password_protected__section--button',
+				array(
+					'panel' => 'password_protected',
+					'title' => esc_html__( 'Button Styles', 'login-desinger' ),
+				)
+			);
+
+			// Remember me checkbox section.
+			$wp_customize->add_section(
+				'password_protected__section--checkbox',
+				array(
+					'panel' => 'password_protected',
+					'title' => esc_html__( 'Remember me Style' ),
+				)
+			);
+
+			// Remember me label section.
+			$wp_customize->add_section(
+				'password_protected__section--checkbox-label',
+				array(
+					'title' => esc_html__( 'Remember me Label Styles', 'login-designer' ),
+					'panel' => 'password_protected',
+				)
+			);
+
+			// Form Background section.
+			$wp_customize->add_section(
+				'password_protected__section--form-background',
+				array(
+					'title' => esc_html__( 'Form Background', 'login-designer' ),
+					'panel' => 'password_protected',
+				)
+			);
+
+			// Body background section.
+			$wp_customize->add_section(
+				'password_protected__section--body-background',
+				array(
+					'title' => esc_html__( 'Body Background', 'login-designer' ),
+					'panel' => 'password_protected',
+				)
+			);
+
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-logo.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-labels.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-fields.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-button.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-checkbox.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-remember.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-form.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-background.php';
+		}
+
+		/**
+		 * Login Designer Pro dummy sections.
+		 *
+		 * @param WP_Customize_Manager $wp_customize WP Customize Manager.
+		 */
+		protected function login_designer_pro_dummy_sections( $wp_customize ) {
+			$wp_customize->add_section(
+				new Login_Designer_Section(
+					$wp_customize,
+					'login_designer__section--background-slider',
+					array(
+						'title'                => esc_attr__( 'Background Slider', 'login-designer-pro' ),
+						'type'                 => 'login-designer-section',
+						'login_designer_type'  => 'pro',
+						'login_designer_title' => esc_attr__( 'Pro', 'login-designer' ),
+						'panel'                => 'login_designer',
+					)
+				)
+			);
+
+			$wp_customize->add_section(
+				new Login_Designer_Section(
+					$wp_customize,
+					'login_designer__section--form-animation',
+					array(
+						'title'                => esc_attr__( 'Form Animation', 'login-designer-pro' ),
+						'type'                 => 'login-designer-section',
+						'login_designer_type'  => 'pro',
+						'login_designer_title' => esc_attr__( 'Pro', 'login-designer' ),
+						'panel'                => 'login_designer',
+					)
+				)
+			);
+
+			$wp_customize->add_section(
+				new Login_Designer_Section(
+					$wp_customize,
+					'login_designer__section--rename-login-page',
+					array(
+						'title'                => esc_attr__( 'Rename Login Page', 'login-designer-pro' ),
+						'type'                 => 'login-designer-section',
+						'login_designer_type'  => 'pro',
+						'login_designer_title' => esc_attr__( 'Pro', 'login-designer' ),
+						'panel'                => 'login_designer',
+					)
+				)
+			);
+
+			$wp_customize->add_section(
+				new Login_Designer_Section(
+					$wp_customize,
+					'login_designer__section--google-fonts',
+					array(
+						'title'                => esc_attr__( 'Google Fonts', 'login-designer-pro' ),
+						'type'                 => 'login-designer-section',
+						'login_designer_type'  => 'pro',
+						'login_designer_title' => esc_attr__( 'Pro', 'login-designer' ),
+						'panel'                => 'login_designer',
+					)
+				)
+			);
+
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pro/background-slider.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pro/form-animation.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pro/rename-login-page.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pro/google-fonts.php';
 		}
 	}
 

@@ -1,0 +1,91 @@
+.login-designer--username-svg-hover-display {
+    position: absolute;
+    z-index: 9393922925;
+    opacity: 0;
+    transition: opacity 0.5s;
+    animation: hideSeekAnimation 4s linear 1;
+    cursor: pointer;
+}
+
+.login-designer--username-svg-hover-display:after {
+    content: '\f464';
+    font: 100 15px/1 dashicons;
+    background: #3582c4;
+    color: #fff;
+    font-size: 20px;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    border-radius: 50%;
+    left: -30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #fff;
+    transition: 0.5s;
+    box-shadow:  0 2px 1px rgb(60 67 74 / 15%);;
+}
+
+span#login-designer-username-field-hover:after,
+span#login-designer-password-field-hover:after {
+
+    position: absolute;
+    top: 5px;
+}
+
+span#login-designer-remember-hover,
+span#login-designer-username-hover,
+span#login-designer-password-hover {
+    position: absolute;
+    top: -8px;
+}
+
+#login-designer-bellow-form-field-hover:after {
+    position:absolute;
+    left: -165px;
+}
+
+span#login-designer-remember-label-hover:after {
+    position: relative;
+    top: -5px;
+    left: 4px;
+}
+
+span#login-designer--ripple-effect-logo {
+    left: 0;
+    top: 30px;
+    z-index: 993366551199;
+}
+
+@keyframes hideSeekAnimation {
+    0% {
+        opacity: 100%;
+    }
+    20% {
+        opacity: 30%;
+    }
+    30% {
+        opacity: 100%;
+    }
+    45% {
+        opacity: 30%;
+    }
+    50% {
+        opacity: 100%;
+    }
+    60% {
+        opacity: 30%;
+    }
+    70% {
+        opacity: 100%;
+    }
+    80% {
+        opacity: 30%;
+    }
+    90% {
+        opacity: 10%;
+    }
+    100% {
+        opacity: 0;
+    }
+}

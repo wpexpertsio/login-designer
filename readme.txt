@@ -1,21 +1,19 @@
 === Custom Login Page Customizer - Login Designer ===
-Author URI: https://richtabor.com
-Plugin URI: https://logindesigner.com
-Contributors: richtabor, thatplugincompany
+Contributors: wpexpertsio
 Donate link: https://logindesigner.com
 Tags: login, custom login, customize wordpress login, wordpress login, customizer, custom admin, login logo, logo, login customizer
 Requires at least: 4.7
-Tested up to: 5.5
-Requires PHP: 5.2.4
-Stable tag: 1.2.4
+Tested up to: 6.1.1
+Stable tag: 1.4.3
+Requires PHP: 7.4.3
 License: GPL-3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Login Designer is the best way to style a custom login page for your WordPress login, register and forgot password forms, right from the live-action WordPress Customizer.
+Author URI: https://wpexperts.io
 
 == Description ==
 
-You shouldn’t have to hire a developer to customize your website's login page. That’s why I built [Login Designer](https://logindesigner.com?utm_medium=login-designer-lite&utm_source=readme&utm_campaign=readme&utm_content=login-designer), the best login customizer plugin for WordPress.
+You shouldn’t have to hire a developer to customize your website's login page. That’s why I built Login Designer, the best login customizer plugin for WordPress.
 
 While Login Designer is not the first WordPress plugin designed for styling custom login pages, it offers an unrivaled live-editing experience unlike any other.
 
@@ -28,46 +26,80 @@ While Login Designer is not the first WordPress plugin designed for styling cust
 
 Zero refreshes. Contextually displayed options and plugin settings. Custom event triggers. Context-aware previews. Powerful custom controls. Live editing... the list goes on.
 
-[Login Designer](https://logindesigner.com?utm_medium=login-designer-lite&utm_source=readme&utm_campaign=readme&utm_content=login-designer-is-a-beast) is a UX beast.
+Login Designer is a UX beast.
 
 It’s familiar, yet completely revolutionary. Click on _any element_ from your login page to fine tune it. That element’s settings are contextually displayed, while other’s hide. This way, you'll spend less time navigating the Customizer’s sections and panels, and more time actually fine-tuning your website's login page. #winning
+
+#### Login Designer Features List ####
+- Login Page Templates.
+- Hide/Show logo on Login Page.
+- Change logo on login page.
+- Change logo redirect.
+- Change logo position.
+- Change login from label.
+- Change login form label font.
+- Change login form label text color.
+- Change login form label position.
+- Change login from field background color.
+- Change login form field border size.
+- Change login form field border color.
+- Change login form field border radius.
+- Change login form field Margin bottom.
+- Change login form field Left/Right padding.
+- Change login form field Top padding.
+- Change login form field Bottom padding.
+- Change login form field shadow.
+- Change login form field shadow opacity.
+- Change login form field shadow inset.
+- Change login form field font style.
+- Change login form field font size.
+- Change login form field font color.
+- Change login form checkbox size.
+- Change login form checkbox background.
+- Change login form checkbox border size.
+- Change login form checkbox border color.
+- Change login form checkbox border radius.
+- Change login form remember me font style.
+- Change login form remember me font size.
+- Change login form remember me text color.
+- Change login form remember me position.
+- Hide/Show login form remember me.
+- Change login from submit button background color.
+- Change login from submit button border size.
+- Change login from submit button border color.
+- Change login from submit button padding.
+- Change login from submit button padding top.
+- Change login from submit button padding bottom.
+- Change login from submit button border radius.
+- Change login from submit button box shadow.
+- Change login from submit button font style.
+- Change login from submit button font size.
+- Change login from submit button text color.
+- Change login form background color.
+- Change login form border radius.
+- Change login form box shadow.
+- Change login form shadow opacity.
+- Change login form side padding.
+- Change login form to transparent.
+- Change login form vertical padding.
+- Change login form width.
+- Change bellow login form font style.
+- Change bellow login form font size.
+- Change bellow login form font color.
+- Change bellow login form position.
+- Change bellow login form Show/Hide lost password.
+- Change bellow login form Show/Hide back to.
+- Change login page background Color.
+- Change login page background Image.
+
+
+
 
 = Get started today =
 
 Intrigued? _I bet you are._ Once you try Login Designer, every other Customizer experience will feel lackluster. Guaranteed.
 
 Installation is free, fun, quick, and easy.
-
-= Built with developers in mind =
-
-Extensible, adaptable, and open source — Login Designer is created with developers in mind. There are opportunities for developers at all levels to contribute. [Click here to contribute](https://github.com/thatplugincompany/login-designer).
-
-This plugin is created and maintaned by [Rich Tabor](https://richtabor.com?utm_medium=login-designer-lite&utm_source=readme&utm_campaign=readme&utm_content=rich-tabor).
-
-= Works well with =
-* [**Password Protected**](https://wordpress.org/plugins/password-protected/)
-* [**WPS Hide Login**](https://wordpress.org/plugins/wps-hide-login/)
-* [**WPS Limit Login**](https://wordpress.org/plugins/wps-limit-login/)
-* [**All In One WP Security & Firewall**](https://wordpress.org/plugins/all-in-one-wp-security-and-firewall/)
-* [**Force Login**](https://wordpress.org/plugins/wp-force-login/)
-* [**Nextend Social Login**](https://wordpress.org/plugins/nextend-facebook-connect/)
-* [**Peter's Login Redirect**](https://wordpress.org/plugins/peters-login-redirect/)
-* [**Redirection**](https://wordpress.org/plugins/redirection/)
-* [**WordPress Social Login**](https://wordpress.org/plugins/miniorange-login-openid/)
-* [**Super Socializer**](https://wordpress.org/plugins/super-socializer/)
-* [**User Registration**](https://wordpress.org/plugins/user-registration/)
-* [**Wordfence Security**](https://wordpress.org/plugins/wordfence/)
-* [**WP Limit Login Attempts**](https://wordpress.org/plugins/wp-limit-login-attempts/)
-
-== Screenshots ==
-
-1. Templates: Change your look in seconds
-
-2. Editing: Add backgrounds, change colors — customize anything
-
-3. Templates: Easily swap templates any time
-
-4. Templates: Start with a template, then customize
 
 == Installation ==
 
@@ -85,6 +117,10 @@ You may easily navigate to the Login Designer editor via the **WordPress Dashboa
 
 Yes! Login Designer's core features are and always will be free.
 
+= What themes work with Login Designer? =
+
+Any properly developed WordPress theme will work with Login Designer. If you're looking for exceptional themes, check out my theme catalogue at [ThemeBeans](https://logindesigner.com?utm_medium=login-designer-lite&utm_source=readme&utm_campaign=readme&utm_content=themebeans).
+
 = Is Login Designer translatable? =
 
 Yes! Login Design is deployed with full translation and localization support via the 'login-designer' text-domain.
@@ -93,7 +129,16 @@ Yes! Login Design is deployed with full translation and localization support via
 
 Please reach out via the official [plugin support forum](https://wordpress.org/support/plugin/login-designer).
 
+=  =
+
+
+
+
+== Screenshots ==
+
+
 == Changelog ==
 
-### Enhancements
-* Update [tested up to value](https://github.com/thatplugincompany/login-designer/pull/64) to WordPress 5.5
+
+== Upgrade Notice ==
+

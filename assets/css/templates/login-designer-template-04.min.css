@@ -1,0 +1,8 @@
+body.login.login-designer-template-04{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;content:" ";height:100%;-webkit-flex-wrap:nowrap;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-align:stretch;-webkit-align-items:stretch;-ms-flex-align:stretch;align-items:stretch;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end}
+body.login.login-designer-template-04 #login{border:0}
+@media only screen and (min-width:400px){body.login.login-designer-template-04 #login{-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;width:50%;margin:0;padding:40px 0 0}
+}@media only screen and (min-width:800px){body.login.login-designer-template-04 #login{padding:100px 0 0}
+}@media only screen and (max-width:399px){body.login.login-designer-template-04 #login{width:90%}
+}body.login.login-designer-template-04 form{border:0;max-width:400px;margin:0 auto}
+@media only screen and (max-width:499px){body.login.login-designer-template-04 form{padding-left:25px;padding-right:25px}
+}
