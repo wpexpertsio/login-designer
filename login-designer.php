@@ -122,6 +122,9 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		private function includes() {
+			if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
+				require_once ABSPATH . 'wp-admin/includes/plugin.php';
+			}
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/functions.php';
 			if ( is_admin() ) {
 				require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/admin/class-login-designer-notices.php';
@@ -129,7 +132,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/migration.php';
 			}
 
-			if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
+			if ( login_designer_is_plugin_active( 'password-protected/password-protected.php' ) ) {
 				require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-password-protected.php';
 			}
 
@@ -249,7 +252,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				)
 			);
 
-			if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
+			if ( class_exists( 'Login_Designer_Password_Protected' ) ) {
 				$admin_bar->add_menu(
 					array(
 						'id'     => 'password-protected-item',
@@ -344,7 +347,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 					wp_safe_redirect( $url );
 				}
 
-				if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
+				if ( class_exists( 'Login_Designer_Password_Protected' ) ) {
 					$page_id = Login_Designer_Password_Protected::get_password_protected_id();
 					if ( intval( $page_id ) === intval( $_GET['post'] ) ) {
 						$url = add_query_arg(

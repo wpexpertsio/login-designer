@@ -61,7 +61,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 			$dir = Login_Designer()->asset_source( 'css' );
 
 			wp_enqueue_style( 'login-designer-customize-preview', $dir . 'login-designer-customize-preview' . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', LOGIN_DESIGNER_VERSION, 'all' );
-			if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
+			if ( class_exists( 'Login_Designer_Password_Protected' ) ) {
 				wp_enqueue_style( 'password-protected-customize-preview', $dir . 'password-protected-customize-preview' . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', LOGIN_DESIGNER_VERSION, 'all' );
 			}
 			wp_enqueue_style( 'login-designer-customize-ripple-effects', $dir . 'login-designer-ripple-effects' . LOGIN_DESIGNER_ASSET_SUFFIX . '.css', LOGIN_DESIGNER_VERSION, 'all' );
@@ -98,7 +98,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 				'extension_backgrounds' => $customizer->extension_backgrounds(),
 			);
 
-			if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
+			if ( class_exists( 'Login_Designer_Password_Protected' ) ) {
 				$localize['password_protected_page'] = get_permalink( Login_Designer_Password_Protected::get_password_protected_id() );
 				wp_enqueue_script( 'password-protected-customize-live', $dir . 'password-protected-customize-live' . LOGIN_DESIGNER_ASSET_SUFFIX . '.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
 				wp_enqueue_script( 'password-protected-customize-preview', $dir . 'password-protected-customize-preview' . LOGIN_DESIGNER_ASSET_SUFFIX . '.js', array( 'customize-preview' ), LOGIN_DESIGNER_VERSION, true );
@@ -153,7 +153,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Scripts' ) ) :
 				'extension_bg_colors' => $customizer->extension_colors(),
 			);
 
-			if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
+			if ( class_exists( 'Login_Designer_Password_Protected' ) ) {
 				$localize['password_protected_page'] = get_permalink( Login_Designer_Password_Protected::get_password_protected_id() );
 				wp_enqueue_script( 'password-protected-customize-controls', $dir . 'password-protected-customize-controls' . LOGIN_DESIGNER_ASSET_SUFFIX . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );
 				wp_enqueue_script( 'password-protected-customize-events', $dir . 'password-protected-customize-events' . LOGIN_DESIGNER_ASSET_SUFFIX . '.js', array( 'customize-controls' ), LOGIN_DESIGNER_VERSION, true );

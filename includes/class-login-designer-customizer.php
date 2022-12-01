@@ -206,7 +206,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 				)
 			);
 
-			if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
+			if ( class_exists( 'Login_Designer_Password_Protected' ) ) {
 				$this->password_protected_customizer( $wp_customize, $defaults, $admin_defaults );
 			}
 

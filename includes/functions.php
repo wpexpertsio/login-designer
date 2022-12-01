@@ -199,3 +199,34 @@ if ( ! function_exists( 'password_protected_get_option' ) ) {
 		return $options[ $option_name ];
 	}
 }
+
+if ( ! function_exists( 'login_designer_is_plugin_active' ) ) {
+	/**
+	 * Check is requested plugin is active or not.
+	 *
+	 * @param string $plugin_name Plugin Name.
+	 *
+	 * @return bool
+	 */
+	function login_designer_is_plugin_active( $plugin_name ) {
+		$active_plugin = false;
+		if ( is_multisite() ) {
+			if ( is_plugin_active_for_network( $plugin_name ) ) {
+				$active_plugin = true;
+			} else {
+				$active_plugin = in_array(
+					$plugin_name,
+					apply_filters( 'active_plugins', get_option( 'active_plugins' ) ),
+					true
+				);
+			}
+		} else {
+			$active_plugin = in_array(
+				$plugin_name,
+				apply_filters( 'active_plugins', get_option( 'active_plugins' ) ),
+				true
+			);
+		}
+		return $active_plugin;
+	}
+}
