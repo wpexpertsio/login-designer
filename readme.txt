@@ -4,7 +4,7 @@ Donate link: https://logindesigner.com
 Tags: login, custom login, customize wordpress login, wordpress login, customizer, custom admin, login logo, logo, login customizer
 Requires at least: 4.7
 Tested up to: 6.1.1
-Stable tag: 1.4.3
+Stable tag: 1.5
 Requires PHP: 7.4.3
 License: GPL-3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
