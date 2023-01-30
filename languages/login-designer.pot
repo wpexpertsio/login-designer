@@ -1,0 +1,899 @@
+# Copyright (C) 2020 Login Designer
+# This file is distributed under the same license as the Login Designer package.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Login Designer\n"
+"Report-Msgid-Bugs-To: https://logindesigner.com\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Login Designer\n"
+"Language-Team: Login Designer\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Language: \n"
+"POT-Creation-Date: 2022-10-25 12:27+0000\n"
+"X-Generator: Loco https://localise.biz/"
+
+#. Login screen title. 1: Login screen name, 2: Network or site name
+#: includes/template-login-designer.php:54
+msgid "%1$s &lsaquo; %2$s &#8212; WordPress"
+msgstr ""
+
+#. %2$s gettext html element end tag.
+#: includes/class-login-designer-features.php:106
+#, php-format
+msgid "%1$s Error %2$s: Please confirm you are not a robot"
+msgstr ""
+
+#. Number of days
+#: includes/admin/class-login-designer-feedback.php:106
+msgid "%s days"
+msgstr ""
+
+#. Number of hours
+#: includes/admin/class-login-designer-feedback.php:115
+msgid "%s hours"
+msgstr ""
+
+#. Number of minutes
+#: includes/admin/class-login-designer-feedback.php:124
+msgid "%s minutes"
+msgstr ""
+
+#. Number of seconds
+#: includes/admin/class-login-designer-feedback.php:133
+msgid "%s seconds"
+msgstr ""
+
+#. Number of weeks
+#: includes/admin/class-login-designer-feedback.php:97
+msgid "%s weeks"
+msgstr ""
+
+#. Number of years
+#: includes/admin/class-login-designer-feedback.php:88
+msgid "%s years"
+msgstr ""
+
+#. 1: Name of the plugin
+#: includes/admin/class-login-designer-notices.php:73
+msgid ""
+"<b>The %s page may not be removed.</b> This page is used for login page "
+"styling within the Customizer."
+msgstr ""
+
+#. 1: Name of this plugin
+#: includes/install.php:135
+msgid ""
+"<p>This page is used by %1$s to preview the login form in the Customizer.</p>"
+msgstr ""
+
+#. Name of this plugin
+#: login-designer.php:413
+msgid ""
+"<p>This page is used by <a href=\"%1$s\">%2$s</a> to preview the login forms "
+"in the Customizer. Please don't delete this page. Thanks!</p>"
+msgstr ""
+
+#: includes/admin/class-login-designer-feedback.php:108
+msgid "a day"
+msgstr ""
+
+#: includes/admin/class-login-designer-feedback.php:126
+msgid "a minute"
+msgstr ""
+
+#: includes/admin/class-login-designer-feedback.php:135
+msgid "a second"
+msgstr ""
+
+#: includes/admin/class-login-designer-feedback.php:99
+msgid "a week"
+msgstr ""
+
+#: includes/admin/class-login-designer-feedback.php:90
+msgid "a year"
+msgstr ""
+
+#: includes/settings/logo.php:22
+msgid ""
+"Add your own logo. Logos will display at 50% height and width to account for "
+"retina devices. Modify the height and width below."
+msgstr ""
+
+#: includes/admin/class-login-designer-feedback.php:117
+msgid "an hour"
+msgstr ""
+
+#: includes/admin/class-login-designer-feedback.php:274
+msgid "Are you enjoying Login Designer?"
+msgstr ""
+
+#: includes/settings/background.php:131 includes/settings/pp-background.php:130
+msgid "Attachment"
+msgstr ""
+
+#: includes/class-login-designer-customizer-scripts.php:194
+msgid ""
+"Attention! You are attempting to reset all custom styling added to Login "
+"Designer. Please note that this action is irreversible. Proceed?"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:379
+msgid "Auto"
+msgstr ""
+
+#: includes/settings/below.php:165
+msgid "Back To"
+msgstr ""
+
+#: includes/settings/button.php:43 includes/settings/checkbox.php:72
+#: includes/settings/fields.php:43 includes/settings/form.php:43
+#: includes/settings/pp-button.php:44 includes/settings/pp-checkbox.php:73
+#: includes/settings/pp-form.php:45
+msgid "Background"
+msgstr ""
+
+#: includes/settings/background.php:67 includes/settings/pp-background.php:67
+msgid "Background Gallery"
+msgstr ""
+
+#: includes/settings/pro/background-slider.php:23
+#: includes/settings/pro/background-slider.php:43
+msgid "Background Slider"
+msgstr ""
+
+#: includes/settings/below.php:21
+msgid "Below Form"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:537
+msgid "Body Background"
+msgstr ""
+
+#: includes/settings/button.php:65 includes/settings/checkbox.php:94
+#: includes/settings/fields.php:65 includes/settings/pp-button.php:66
+#: includes/settings/pp-checkbox.php:95 includes/settings/pp-fields.php:67
+msgid "Border"
+msgstr ""
+
+#: includes/settings/button.php:93 includes/settings/checkbox.php:122
+#: includes/settings/fields.php:93 includes/settings/pp-button.php:94
+#: includes/settings/pp-checkbox.php:123 includes/settings/pp-fields.php:94
+msgid "Border Color"
+msgstr ""
+
+#: includes/settings/branding.php:110
+msgid "Bottom Left"
+msgstr ""
+
+#: includes/settings/branding.php:112
+msgid "Bottom Middle"
+msgstr ""
+
+#: includes/settings/branding.php:111
+msgid "Bottom Right"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:144
+#: includes/settings/branding.php:21
+msgid "Branding"
+msgstr ""
+
+#: includes/settings/button.php:21
+msgid "Button"
+msgstr ""
+
+#: includes/settings/pp-button.php:22
+msgid "Button Styles"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:392
+msgid "Center Bottom"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:391
+msgid "Center Center"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:390
+msgid "Center Top"
+msgstr ""
+
+#: includes/settings/button.php:291 includes/settings/pp-button.php:292
+msgid "Change the button font, color and size."
+msgstr ""
+
+#: includes/settings/fields.php:343 includes/settings/pp-fields.php:336
+msgid "Change the text field font, color and size."
+msgstr ""
+
+#: includes/settings/pp-background.php:25
+msgid "Change your background"
+msgstr ""
+
+#: includes/settings/checkbox.php:21
+msgid "Checkbox"
+msgstr ""
+
+#: includes/template-login-designer.php:160
+msgid "Click here to select a display template for your login page."
+msgstr ""
+
+#: includes/template-login-designer.php:158
+msgid ""
+"Click here to upload a background image, choose from the gallery and set a "
+"background color."
+msgstr ""
+
+#: includes/template-login-designer.php:234
+msgid "Click on the elements below the form to modify each one."
+msgstr ""
+
+#: includes/template-login-designer.php:164
+msgid ""
+"Click on the logo below to upload your own and set the image's height and "
+"width."
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:117
+msgid ""
+"Click the Templates icon at the top left of the preview window to change "
+"your template. To customize further, simply click on any element, or it's "
+"corresponding shortcut icon, to edit it's styling. "
+msgstr ""
+
+#: includes/class-login-designer-customizer-scripts.php:193
+#: includes/controls/class-login-designer-file-import-button-control.php:87
+msgid "Close"
+msgstr ""
+
+#: includes/settings/background.php:172 includes/settings/below.php:92
+#: includes/settings/button.php:361 includes/settings/fields.php:413
+#: includes/settings/labels.php:159 includes/settings/pp-background.php:171
+#: includes/settings/pp-button.php:362 includes/settings/pp-fields.php:385
+#: includes/settings/pp-labels.php:142 includes/settings/pp-remember.php:121
+#: includes/settings/remember.php:121
+msgid "Color"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:381
+msgid "Contain"
+msgstr ""
+
+#: includes/controls/class-login-designer-file-import-button-control.php:76
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:380
+msgid "Cover"
+msgstr ""
+
+#: includes/settings/fields.php:22
+msgid "Customize the full display appearance of the login form input fields."
+msgstr ""
+
+#: includes/settings/button.php:22
+msgid "Customize the full display appearance of the login submit button."
+msgstr ""
+
+#: includes/settings/checkbox.php:22
+msgid "Customize the Remember Me checkbox input element on the login form."
+msgstr ""
+
+#: includes/settings/pp-labels.php:24
+msgid ""
+"Customize your Label, change you Label color, position and font-size using "
+"these settings."
+msgstr ""
+
+#: includes/settings/pp-form.php:24
+msgid "Customize your login form"
+msgstr ""
+
+#: includes/settings/pp-logo.php:24
+msgid ""
+"Customize your Logo sizes, change your Logo and Remove your logo using these "
+"settings"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:410
+msgid "Default"
+msgstr ""
+
+#: includes/settings/logo.php:172 includes/settings/pp-logo.php:127
+msgid "Disable Logo"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:240
+msgid "Discover Add-ons"
+msgstr ""
+
+#: includes/settings/form.php:22
+msgid "Easily customize the login form wrapper default styling."
+msgstr ""
+
+#: includes/settings/remember.php:22
+msgid "Easily customize the Remember Me element on the login form."
+msgstr ""
+
+#: includes/settings/branding.php:43 includes/settings/google-recaptcha.php:44
+#: includes/settings/language-switcher.php:44
+msgid "Enable"
+msgstr ""
+
+#. 1: Opening link, 2: Closing link
+#: includes/settings/license.php:41
+msgid ""
+"Enter a %1$slicense key%2$s to enable remote updates, unlock premium "
+"templates and activate professional extensions."
+msgstr ""
+
+#: includes/settings/login-error-messages.php:98
+msgid "Enter Password invalid message"
+msgstr ""
+
+#: includes/settings/login-error-messages.php:60
+msgid "Enter password required message"
+msgstr ""
+
+#: includes/settings/login-error-messages.php:62
+msgid "Enter the message which will display when password field is empty"
+msgstr ""
+
+#: includes/settings/login-error-messages.php:100
+msgid "Enter the message which will display when Password is invalid"
+msgstr ""
+
+#: includes/settings/login-error-messages.php:43
+msgid "Enter the message which will display when username field is empty"
+msgstr ""
+
+#: includes/settings/login-error-messages.php:81
+msgid "Enter the message which will display when Username is invalid"
+msgstr ""
+
+#: includes/settings/login-error-messages.php:79
+msgid "Enter Username invalid message"
+msgstr ""
+
+#: includes/settings/login-error-messages.php:41
+msgid "Enter username required message"
+msgstr ""
+
+#: includes/settings/google-recaptcha.php:87
+msgid "Enter your Recaptcha API Key"
+msgstr ""
+
+#: includes/settings/google-recaptcha.php:105
+msgid "Enter your Recaptcha Secrete Key"
+msgstr ""
+
+#: includes/class-login-designer-features.php:250
+#: includes/class-login-designer-features.php:261
+#: includes/class-login-designer-features.php:272
+#: includes/class-login-designer-features.php:281
+msgid "Error"
+msgstr ""
+
+#: includes/controls/class-login-designer-file-import-button-control.php:69
+msgid "Export"
+msgstr ""
+
+#: login-designer.php:569 login-designer.php:610
+#: includes/class-login-designer-customizer.php:239
+msgid "Extensions"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:493
+msgid "Field Styles"
+msgstr ""
+
+#: includes/settings/fields.php:21 includes/settings/pp-fields.php:23
+#: includes/settings/pp-fields.php:45
+msgid "Fields"
+msgstr ""
+
+#: includes/settings/import-export-settings.php:32
+msgid "File Import Export Settings"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:395
+msgid "Fixed"
+msgstr ""
+
+#: includes/settings/below.php:42 includes/settings/button.php:311
+#: includes/settings/fields.php:363 includes/settings/labels.php:80
+#: includes/settings/pp-button.php:312 includes/settings/pp-remember.php:42
+#: includes/settings/remember.php:42
+msgid "Font"
+msgstr ""
+
+#: includes/settings/form.php:21
+msgid "Form"
+msgstr ""
+
+#: includes/settings/pro/form-animation.php:23
+#: includes/settings/pro/form-animation.php:43
+msgid "Form Animation"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:528
+#: includes/settings/pp-form.php:23
+msgid "Form Background"
+msgstr ""
+
+#: includes/class-login-designer-brand.php:128
+msgid "Get Login Designer today"
+msgstr ""
+
+#: includes/settings/pro/google-fonts.php:23
+#: includes/settings/pro/google-fonts.php:43
+msgid "Google Fonts"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:169
+msgid "Google Recaptcha"
+msgstr ""
+
+#: includes/settings/google-recaptcha.php:64
+msgid "Google Recaptcha Version"
+msgstr ""
+
+#: includes/settings/logo.php:115
+msgid "Height"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://logindesigner.com"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://logindesigner.com/"
+msgstr ""
+
+#: includes/controls/class-login-designer-file-import-button-control.php:70
+msgid "Import"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:200
+msgid "Import & Export Settings"
+msgstr ""
+
+#: includes/class-login-designer-customizer-scripts.php:192
+msgid "Install New Template"
+msgstr ""
+
+#: includes/class-login-designer-features.php:213
+msgid "Internal Server Error"
+msgstr ""
+
+#: includes/class-login-designer-features.php:185
+msgid "JSON file does not contain valid json"
+msgstr ""
+
+#: includes/settings/pp-labels.php:43
+msgid "Label"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:484
+msgid "Label Styles"
+msgstr ""
+
+#: includes/settings/labels.php:21 includes/settings/pp-labels.php:23
+msgid "Labels"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:185
+#: includes/settings/language-switcher.php:23
+msgid "Language Switcher"
+msgstr ""
+
+#: includes/admin/class-login-designer-feedback.php:281
+msgid "Leave a Review"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:386
+msgid "Left Bottom"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:385
+msgid "Left Center"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:384
+msgid "Left Top"
+msgstr ""
+
+#: includes/settings/license.php:39
+msgid "License"
+msgstr ""
+
+#: includes/template-login-designer.php:228
+msgid "Log In"
+msgstr ""
+
+#. 1: Name of this site
+#: includes/class-login-designer-frontend-settings.php:39
+msgid "Log in to %s"
+msgstr ""
+
+#. Name of the plugin
+#: login-designer.php:217 login-designer.php:248
+#: includes/class-login-designer-customizer.php:115
+#: includes/class-login-designer-theme-template.php:62
+#: includes/admin/class-login-designer-feedback.php:311
+msgid "Login Designer"
+msgstr ""
+
+#: includes/admin/class-login-designer-feedback.php:271
+msgid "Login Designer WordPress Plugin"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:155
+#: includes/settings/login-error-messages.php:23
+msgid "Login Error Messages"
+msgstr ""
+
+#. Author of the plugin
+msgid "LoginDesigner"
+msgstr ""
+
+#: includes/settings/branding.php:87 includes/settings/logo.php:21
+#: includes/settings/pp-logo.php:23
+msgid "Logo"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:475
+msgid "Logo Styles"
+msgstr ""
+
+#: includes/settings/below.php:142
+msgid "Lost Password"
+msgstr ""
+
+#: includes/template-login-designer.php:247
+msgid "Lost your password?"
+msgstr ""
+
+#: includes/settings/fields.php:115 includes/settings/pp-fields.php:116
+msgid "Margin Bottom"
+msgstr ""
+
+#: includes/settings/below.php:22
+msgid "Modify elements below the login form."
+msgstr ""
+
+#: includes/settings/labels.php:22
+msgid "Modify the text labels and style them however you like."
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:158
+#: includes/class-login-designer-customizer.php:172
+#: includes/class-login-designer-customizer.php:188
+#: includes/class-login-designer-customizer.php:203
+msgid "New"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:373
+msgid "No Repeat"
+msgstr ""
+
+#: includes/admin/class-login-designer-feedback.php:282
+msgid "No thanks / I already have"
+msgstr ""
+
+#: includes/settings/google-recaptcha.php:24
+msgid ""
+"Now we are able to secure your login form using Google Recaptcha, We are "
+"using Google Recaptcha V3"
+msgstr ""
+
+#: includes/settings/button.php:115 includes/settings/fields.php:144
+#: includes/settings/pp-button.php:116 includes/settings/pp-fields.php:144
+msgid "Padding"
+msgstr ""
+
+#: includes/settings/button.php:173 includes/settings/fields.php:202
+#: includes/settings/pp-button.php:174 includes/settings/pp-fields.php:200
+msgid "Padding Bottom"
+msgstr ""
+
+#: includes/settings/button.php:144 includes/settings/fields.php:173
+#: includes/settings/pp-button.php:145 includes/settings/pp-fields.php:172
+msgid "Padding Top"
+msgstr ""
+
+#: includes/install.php:141
+msgctxt "Page slug"
+msgid "login-designer"
+msgstr ""
+
+#: includes/class-login-designer-password-protected.php:324
+msgctxt "Page Slug"
+msgid "password-protected"
+msgstr ""
+
+#: includes/install.php:142
+msgctxt "Page title"
+msgid "Login Designer"
+msgstr ""
+
+#: includes/class-login-designer-password-protected.php:325
+msgctxt "Page Title"
+msgid "Password Protected"
+msgstr ""
+
+#: includes/class-login-designer-customizer-output.php:104
+#: includes/template-login-designer.php:196
+#: includes/template-password-protected.php:69 includes/settings/labels.php:60
+#: includes/settings/pp-labels.php:33
+msgid "Password"
+msgstr ""
+
+#: login-designer.php:219 login-designer.php:258
+#: includes/class-login-designer-customizer.php:451
+#: includes/class-login-designer-theme-template.php:63
+msgid "Password Protected"
+msgstr ""
+
+#: includes/settings/background.php:68 includes/settings/pp-background.php:68
+msgid ""
+"Pick a background image from our curated collection of beautiful images."
+msgstr ""
+
+#: includes/class-login-designer-brand.php:350
+msgid "Please define an SVG icon filename."
+msgstr ""
+
+#: includes/class-login-designer-brand.php:345
+msgid "Please define default parameters in the form of an array."
+msgstr ""
+
+#: includes/settings/background.php:151 includes/settings/below.php:114
+#: includes/settings/branding.php:107 includes/settings/labels.php:131
+#: includes/settings/logo.php:144 includes/settings/pp-background.php:150
+#: includes/settings/pp-labels.php:114 includes/settings/pp-remember.php:93
+#: includes/settings/remember.php:93
+msgid "Position"
+msgstr ""
+
+#: includes/class-login-designer-brand.php:127
+msgid "Powered by"
+msgstr ""
+
+#: login-designer.php:519 includes/class-login-designer-customizer.php:566
+#: includes/class-login-designer-customizer.php:580
+#: includes/class-login-designer-customizer.php:594
+#: includes/class-login-designer-customizer.php:608
+msgid "Pro"
+msgstr ""
+
+#: includes/settings/button.php:202 includes/settings/checkbox.php:144
+#: includes/settings/fields.php:231 includes/settings/form.php:65
+#: includes/settings/pp-button.php:203 includes/settings/pp-checkbox.php:145
+#: includes/settings/pp-fields.php:228 includes/settings/pp-form.php:67
+msgid "Radius"
+msgstr ""
+
+#: includes/template-login-designer.php:241
+msgid "Register"
+msgstr ""
+
+#: includes/settings/pp-remember.php:22 includes/settings/remember.php:21
+msgid "Remember"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:519
+msgid "Remember me Label Styles"
+msgstr ""
+
+#: includes/settings/pro/rename-login-page.php:23
+#: includes/settings/pro/rename-login-page.php:43
+msgid "Rename Login Page"
+msgstr ""
+
+#: includes/settings/background.php:91 includes/settings/pp-background.php:90
+msgid "Repeat"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:389
+msgid "Right Bottom"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:388
+msgid "Right Center"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:387
+msgid "Right Top"
+msgstr ""
+
+#: includes/controls/class-login-designer-file-import-button-control.php:81
+msgid "Save and Apply"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:396
+msgid "Scroll"
+msgstr ""
+
+#: includes/settings/logo.php:63 includes/settings/pp-logo.php:65
+msgid ""
+"Select a page for your logo to link to. This is typically your site's home "
+"page."
+msgstr ""
+
+#: login-designer.php:493
+msgid "Settings"
+msgstr ""
+
+#: includes/settings/button.php:231 includes/settings/fields.php:260
+#: includes/settings/form.php:94 includes/settings/pp-button.php:232
+#: includes/settings/pp-fields.php:256 includes/settings/pp-form.php:96
+msgid "Shadow"
+msgstr ""
+
+#: includes/settings/fields.php:317 includes/settings/pp-fields.php:311
+msgid "Shadow Inset"
+msgstr ""
+
+#: includes/settings/button.php:260 includes/settings/fields.php:289
+#: includes/settings/form.php:123 includes/settings/pp-button.php:261
+#: includes/settings/pp-fields.php:284 includes/settings/pp-form.php:125
+msgid "Shadow Opacity"
+msgstr ""
+
+#: includes/template-login-designer.php:203
+msgid "Show Password"
+msgstr ""
+
+#: includes/settings/branding.php:22
+msgid ""
+"Show some love and add a Powered by Login Designer badge to your login page."
+msgstr ""
+
+#: includes/settings/form.php:152 includes/settings/pp-form.php:154
+msgid "Side Padding"
+msgstr ""
+
+#. %s: site title
+#: includes/template-login-designer.php:255
+msgctxt "site"
+msgid "&larr; Back to %s"
+msgstr ""
+
+#: includes/settings/background.php:111 includes/settings/below.php:64
+#: includes/settings/button.php:333 includes/settings/checkbox.php:44
+#: includes/settings/fields.php:385 includes/settings/labels.php:102
+#: includes/settings/pp-background.php:110 includes/settings/pp-button.php:334
+#: includes/settings/pp-checkbox.php:45 includes/settings/pp-fields.php:358
+#: includes/settings/pp-labels.php:85 includes/settings/pp-remember.php:64
+#: includes/settings/remember.php:64
+msgid "Size"
+msgstr ""
+
+#: includes/settings/pro/background-slider.php:24
+#: includes/settings/pro/background-slider.php:44
+#: includes/settings/pro/form-animation.php:24
+#: includes/settings/pro/form-animation.php:44
+#: includes/settings/pro/google-fonts.php:24
+#: includes/settings/pro/google-fonts.php:44
+#: includes/settings/pro/rename-login-page.php:24
+#: includes/settings/pro/rename-login-page.php:44
+msgid "some description"
+msgstr ""
+
+#: login-designer.php:88 login-designer.php:99
+msgid "Something went wrong."
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:126
+msgid "Styles"
+msgstr ""
+
+#: login-designer.php:507
+msgid "Support"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:135
+msgid "Templates"
+msgstr ""
+
+#: includes/settings/branding.php:66 includes/settings/button.php:290
+#: includes/settings/fields.php:342 includes/settings/pp-button.php:291
+#: includes/settings/pp-fields.php:335
+msgid "Text"
+msgstr ""
+
+#: includes/controls/class-login-designer-file-import-button-control.php:86
+msgid "Text copied to clipboard"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"The easiest way to completely customize your WordPress login page. Create "
+"stunning login templates in seconds with the most beautiful and elegant "
+"login customizer WordPress plugin."
+msgstr ""
+
+#. %1$s to display page name.
+#: includes/class-login-designer-password-protected.php:318
+#, php-format
+msgid "This page is used by %1$s to preview the form on customizer"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:374
+msgid "Tile"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:375
+msgid "Tile Horizontally"
+msgstr ""
+
+#: includes/class-login-designer-customizer.php:376
+msgid "Tile Vertically"
+msgstr ""
+
+#: includes/settings/form.php:180 includes/settings/pp-form.php:182
+msgid "Transparent"
+msgstr ""
+
+#: includes/controls/class-login-designer-dummy-control.php:53
+msgid "Upgrade To Pro"
+msgstr ""
+
+#: includes/settings/background.php:24
+msgid "Upload Background"
+msgstr ""
+
+#: includes/settings/branding.php:113
+msgid "Upper Right"
+msgstr ""
+
+#: includes/settings/logo.php:62 includes/settings/pp-logo.php:64
+msgid "URL"
+msgstr ""
+
+#: includes/class-login-designer-templates.php:241
+#: includes/class-login-designer-templates.php:302
+#: includes/settings/labels.php:41
+msgid "Username"
+msgstr ""
+
+#: includes/class-login-designer-customizer-output.php:103
+#: includes/template-login-designer.php:181
+msgid "Username or Email Address"
+msgstr ""
+
+#: includes/settings/google-recaptcha.php:68
+msgid "V2"
+msgstr ""
+
+#: includes/settings/google-recaptcha.php:69
+msgid "V3"
+msgstr ""
+
+#: includes/settings/form.php:204 includes/settings/pp-form.php:206
+msgid "Vertical Padding"
+msgstr ""
+
+#: includes/settings/form.php:233 includes/settings/logo.php:86
+#: includes/settings/pp-form.php:235
+msgid "Width"
+msgstr ""
+
+#. 1. Name, 2. Time
+#: includes/admin/class-login-designer-feedback.php:277
+msgid ""
+"You have been using %1$s for %2$s now! Mind leaving a quick review and let "
+"me know know what you think of the plugin? I'd really appreciate it!"
+msgstr ""

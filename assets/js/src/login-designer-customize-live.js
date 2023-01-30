@@ -29,20 +29,21 @@
 			this.preview.bind( 'active', function() {
 
 				var
-				$body 		= $( 'body'),
-				$body_bg 	= $( '#login'),
-				$document 	= $( document ),
-				$logo	 	= $( '#login-designer-logo-h1'),
-				$loginform	= $( '#login form'),
-				$loginform_text	= $( '#login-designer--username'),
-				$loginform_pass	= $( '#login-designer--password'),
-				$username_label	= $( '#login-designer--username-label'),
-				$password_label	= $( '#login-designer--password-label'),
-				$button		= $( '#login-designer--button'),
-				$remember_me	= $( '.forgetmenot'),
-				$remember_me_cb	= $( '.forgetmenot label'),
-				$below_form	= $( '#login-designer--below-form'),
-				$branding	= $( '.login-designer-badge__inner');
+					$body 		= $( 'body'),
+					$body_bg 	= $( '#login'),
+					$document 	= $( document ),
+					$logo	 	= $( '#login-designer-logo-h1'),
+					$loginform	= $( '#login form'),
+					$loginform_text	= $( '#login-designer--username'),
+					$loginform_pass	= $( '#login-designer--password'),
+					$username_label	= $( '#login-designer--username-label'),
+					$password_label	= $( '#login-designer--password-label'),
+					$button		= $( '#login-designer--button'),
+					$remember_me	= $( '.forgetmenot'),
+					$remember_me_cb	= $( '.forgetmenot label'),
+					$below_form	= $( '#login-designer--below-form'),
+					$branding	= $( '.login-designer-badge__inner'),
+					$language_switcher = $( '.login-designer--translation-switcher' );
 
 				$logo.append( '<button class="login-designer-event-button customizer-event-overlay" data-login-designer-customizer-event="login-designer-edit-logo"></button>' );
 
@@ -64,6 +65,10 @@
 				// Templates
 				$body_bg.append( '<span class="customize-partial--login-designer-template customize-partial-edit-shortcut"><button class="login-designer-event-button customize-partial-edit-shortcut-button" data-login-designer-customizer-event="login-designer-edit-template"></button></span>' );
 
+				if ( login_designer_customize_live.label_hidden ) {
+					$body.append( '<span style="top: 90px;left: 40px;font-size: 10px" class=" customize-partial-edit-shortcut"><button style="font-size: 10px" class="login-designer-event-button customize-partial-edit-shortcut-button" data-login-designer-customizer-event="login-designer-edit-remember-me">label</button></span>' );
+				}
+
 				// Remember Me
 				$remember_me.append( '<button class="login-designer-event-button customizer-event-overlay" data-login-designer-customizer-event="login-designer-edit-remember-me"></button>' );
 
@@ -75,6 +80,7 @@
 
 				// Below Form
 				$branding.append( '<button class="login-designer-event-button customizer-event-overlay" data-login-designer-customizer-event="login-designer-edit-branding"></button>' );
+				$language_switcher.append( '<button class="login-designer-event-button customizer-event-overlay" data-login-designer-customizer-event="login-designer-edit-language"></button>' );
 
 				// Listen for events on the new previewer buttons
 				$document.on( 'touch click', '.login-designer-event-button', function( e ) {

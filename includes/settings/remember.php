@@ -123,3 +123,25 @@ $wp_customize->add_control(
 		)
 	)
 );
+
+$wp_customize->add_setting(
+	'login_designer[remember_hide]',
+	array(
+		'default'           => false,
+		'type'              => 'option',
+		'transport'         => 'postMessage',
+		'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
+	)
+);
+
+$wp_customize->add_control(
+	new Login_Designer_Toggle_Control(
+		$wp_customize,
+		'login_designer[remember_hide]',
+		array(
+			'label'   => esc_html__( 'Hide Remember Me', 'login-designer' ),
+			'type'    => 'login-designer-toggle',
+			'section' => 'login_designer__section--styles',
+		)
+	)
+);

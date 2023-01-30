@@ -1,3 +1,37 @@
+= 1.4.2 =
+### Enhancements
+* NEW: Added functionality to hide/display remember me.
+
+= 1.4.1 =
+### Bug Fixes
+* Fixed Password Protected undefined text issue.
+
+= 1.4 =
+### Enhancements
+* NEW: Added compatibility for the [password-protected](https://wp.org/plugins/password-protected) plugin; Now you can customize the password-protected screen with the customizer.
+
+= 1.3.1 =
+### Bug Fixes
+* Removed undefined text showing on the login page.
+
+### Improvement
+* Added compatibility for Yoast sitemap in case of WPML activated.
+* Added compatibility for Rank Math sitemap in case of WPML activated.
+
+= 1.3 =
+### Enhancements
+* Improved user experience by displaying edit icons on hover for the sections that can be customized
+* NEW: Added support for Google Re-captcha
+* NEW: Added option for Import/Export settings
+* NEW: Added option to change login error messages
+
+### Bug Fixes
+* FIXED : WP 5.9 language switcher breaks login themes
+
+= 1.2.5 =
+### Enhancements
+* Update [tested up to value](https://github.com/thatplugincompany/login-designer/pull/64) to WordPress 5.8.2
+
 = 1.2.4 =
 ### Enhancements
 * Modernize the [development stack](https://github.com/thatplugincompany/login-designer/pull/47) and employ PHPCS practices

@@ -1,0 +1,26 @@
+.login_designer_section_tag,
+.login_designer_section_tag--title {
+    border-radius: 50px;
+    color: #fff;
+    text-align: center;
+}
+.login_designer_section_tag {
+    padding: 0 10px;
+    font-size: 10px;
+}
+
+.login_designer_section_tag--title {
+    float: right;
+    font-size: 15px;
+    padding: 0 16px;
+}
+
+.login_designer_section_tag--title.pro,
+.login_designer_section_tag.pro {
+    background: #ffab4a !important;
+}
+
+.login_designer_section_tag--title.free,
+.login_designer_section_tag.free {
+    background: #01c7e6 !important;
+}
