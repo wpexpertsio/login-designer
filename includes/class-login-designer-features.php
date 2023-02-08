@@ -71,9 +71,12 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 		 */
 		public function add_google_recaptcha_authentication( $user ) {
 			
+			$errors = new WP_Error();
+			
 			$secrete_key = isset( $this->recaptcha_settings['google_recaptcha_secrete_key'] ) ? $this->recaptcha_settings['google_recaptcha_secrete_key'] : null;
 			// phpcs:ignore  WordPress.Security.NonceVerification
 			if ( isset( $_REQUEST['g-recaptcha-response'] ) ) {
+				
 				// phpcs:ignore  WordPress.Security.NonceVerification
 				$google_recaptcha_response = sanitize_text_field( wp_unslash( $_REQUEST['g-recaptcha-response'] ) );
 				$response                  = wp_remote_post(
@@ -88,28 +91,44 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 				$data                      = wp_remote_retrieve_body( $response );
 				$data                      = json_decode( $data );
 
-				if ( isset( $data->success ) ) {
-					if ( 3 === (int) $this->recaptcha_settings['recaptcha_version'] ) {
-						if ( $data->success && isset( $data->score ) && ( $data->score > 0 ) && isset( $data->action ) && ( 'login' === $data->action ) ) {
-							return $user;
-						}
-					} else {
-						if ( $data->success ) {
-							return $user;
-						}
+				if ( isset( $data->{'error-codes'} ) && is_array( $data->{'error-codes'} ) && count( $data->{'error-codes'} ) > 0 ) {
+
+					foreach ( $data->{'error-codes'} as $index => $error_code ) {
+						$errors->add( $error_code, sprintf( __( '%1$s Error %2$s: %3$s', 'login-designer' ), '<strong>', '</strong>', $this->ld_recaptcha_errors( $error_code ) ) );
 					}
+					
+					return $errors;
+
+				} else {
+
+					return $user;
+
 				}
+				
 			}
-			return new WP_Error(
-				'recaptcha',
-				sprintf(
-				// Translators: %1$s gettext html element start tag.
-				// Translators: %2$s gettext html element end tag.
-					__( '%1$s Error %2$s: Please confirm you are not a robot', 'login-designer' ),
-					'<strong>',
-					'</strong>'
-				)
+		}
+		
+		/**
+		 * Ld_recaptcha_errors
+		 *
+		 * @param  mixed $error_code
+		 * @return string
+		 */
+		public function ld_recaptcha_errors( $error_code ) {
+			$errors = array(
+				'missing-input-secret' 		=> __( 'The secret parameter is missing.', 'login-designer' ),
+				'invalid-input-secret' 		=> __( 'The secret parameter is invalid or malformed.', 'login-designer' ),
+				'missing-input-response' 	=> __( 'The response parameter is missing.', 'login-designer' ),
+				'invalid-input-response' 	=> __( 'Please confirm you are not a robot.', 'login-designer' ),
+				'bad-request' 				=> __( 'The request is invalid or malformed.', 'login-designer' ),
+				'timeout-or-duplicate' 		=> __( 'The response is no longer valid: either is too old or has been used previously.', 'login-designer' ),
 			);
+
+			if( array_key_exists( $error_code, $errors ) ) {
+				return $errors[$error_code];
+			}
+			
+			return __( 'Invalid reCaptcha', 'login-designer' );
 		}
 		/**
 		 * Login enqueue scripts
