@@ -70,7 +70,9 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 		 * @return WP_User|WP_Error
 		 */
 		public function add_google_recaptcha_authentication( $user ) {
-			
+			if ( empty( $this->recaptcha_settings['google_recaptcha_api_key'] ) ||  empty( $this->recaptcha_settings['google_recaptcha_secrete_key'] ) ) {
+            	return $user;
+            }
 			$errors = new WP_Error();
 			
 			$secrete_key = isset( $this->recaptcha_settings['google_recaptcha_secrete_key'] ) ? $this->recaptcha_settings['google_recaptcha_secrete_key'] : null;
