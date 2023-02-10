@@ -126,7 +126,7 @@ if ( ! function_exists( 'login_designer_create_error_messages' ) ) {
 	function login_designer_create_error_messages( $title, $message ) {
 		$error_header = '<strong>' . esc_attr( $title ) . '</strong>: ';
 
-		return $error_header . $message ;
+		return $error_header . $message;
 	}
 }
 
@@ -196,5 +196,81 @@ if ( ! function_exists( 'password_protected_get_option' ) ) {
 		}
 
 		return $options[ $option_name ];
+	}
+}
+
+if ( ! function_exists( 'login_designer_upload_file_by_url' ) ) {
+	/**
+	 * Upload file by URL
+	 *
+	 * @param string $url image file url.
+	 * @param string $title Attachment title.
+	 *
+	 * @return false|int
+	 */
+	function login_designer_upload_file_by_url( $url, $title = '' ) {
+		require_once ABSPATH . '/wp-load.php';
+		require_once ABSPATH . '/wp-admin/includes/image.php';
+		require_once ABSPATH . '/wp-admin/includes/file.php';
+		require_once ABSPATH . '/wp-admin/includes/media.php';
+
+		// Download url to a temp file.
+		$tmp = download_url( $url );
+		if ( is_wp_error( $tmp ) ) {
+			return false;
+		}
+
+		// Get the filename and extension ("photo.png" => "photo", "png").
+		$filename  = pathinfo( $url, PATHINFO_FILENAME );
+		$extension = pathinfo( $url, PATHINFO_EXTENSION );
+
+		// An extension is required or else WordPress will reject the upload.
+		if ( ! $extension ) {
+			// Look up mime type, example: "/photo.png" -> "image/png".
+			$mime = mime_content_type( $tmp );
+			$mime = is_string( $mime ) ? sanitize_mime_type( $mime ) : false;
+
+			// Only allow certain mime types because mime types do not always end in a valid extension (see the .doc example below).
+			$mime_extensions = array(
+				// mime_type         => extension (no period).
+				'text/plain'         => 'txt',
+				'text/csv'           => 'csv',
+				'application/msword' => 'doc',
+				'image/jpg'          => 'jpg',
+				'image/jpeg'         => 'jpeg',
+				'image/gif'          => 'gif',
+				'image/png'          => 'png',
+				'video/mp4'          => 'mp4',
+			);
+
+			if ( isset( $mime_extensions[ $mime ] ) ) {
+				// Use the mapped extension.
+				$extension = $mime_extensions[ $mime ];
+			} else {
+				// Could not identify extension.
+				wp_delete_file( $tmp );
+				return false;
+			}
+		}
+
+		// Upload by "sideloading": "the same way as an uploaded file is handled by media_handle_upload".
+		$args = array(
+			'name'     => "$filename.$extension",
+			'tmp_name' => $tmp,
+		);
+
+		// Do the upload.
+		$attachment_id = media_handle_sideload( $args, 0, $title );
+
+		// Cleanup temp file.
+		wp_delete_file( $tmp );
+
+		// Error uploading.
+		if ( is_wp_error( $attachment_id ) ) {
+			return false;
+		}
+
+		// Success, return attachment ID (int).
+		return (int) $attachment_id;
 	}
 }

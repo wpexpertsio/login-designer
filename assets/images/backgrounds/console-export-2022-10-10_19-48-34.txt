@@ -1,0 +1,7 @@
+This page uses the non standard property “zoom”. Consider using calc() in the relevant property values, or using “transform” along with “transform-origin: 0 0”. customize.php
+JQMIGRATE: Migrate is installed, version 3.3.2 load-scripts.php:5:709
+Object { 0: "Syed Ali Ahmed", 1: "Y", 2: "E", 3: "D" }
+file-uploader.js:18:9
+Content Security Policy: Ignoring ‘x-frame-options’ because of ‘frame-ancestors’ directive.
+An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can remove its sandboxing. customize.php
+JQMIGRATE: Migrate is installed, version 3.3.2 jquery-migrate.min.js:2:709

@@ -628,42 +628,6 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 							width: ' . absint( $width ) . 'px !important;
 						}
 					';
-					} elseif ( is_string( $options['logo'] ) ) {
-						$width  = $options['logo_width'];
-						$height = $options['logo_height'];
-
-						$css .= '
-
-						#login h1 a { width: auto; }
-
-						#login-designer-logo,
-						body.login #login h1 a {
-							background-image: url(" ' . esc_url( $options['logo'] ) . ' ");
-							background-position: center center;
-						}
-
-						#login-designer-logo-h1,
-						body.login #login h1 a {
-							margin-left: auto;
-							margin-right: auto;
-						}
-
-						#login-designer-logo,
-						body.login #login h1 a {
-							background-size: ' . absint( $width ) . 'px ' . absint( $height ) . 'px ;
-						}
-
-						#login-designer-logo-h1,
-						body.login #login h1 a {
-							width: ' . absint( $width ) . 'px;
-							height: ' . absint( $height ) . 'px;
-						}
-
-						#login-designer-logo-h1 {
-							width: ' . absint( $width ) . 'px !important;
-						}
-					';
-
 					}
 				}
 

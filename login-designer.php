@@ -1,15 +1,13 @@
 <?php
 /**
- * Plugin Name:       Login Designer
- * Plugin URI:        https://logindesigner.com
- * Description:       The easiest way to completely customize your WordPress login page. Create stunning login templates in seconds with the most beautiful and elegant login customizer WordPress plugin.
- * Author:            LoginDesigner
- * Author URI:        https://logindesigner.com/
- * Text Domain:       login-designer
- * Domain Path:       /languages
- * Version:           1.5
- * GitHub Plugin URI: wpexpertsio/login-designer
- * GitHub Plugin URI: https://github.com/wpexpertsio/login-designer
+ * Plugin Name:     Login Designer
+ * Plugin URI:      https://logindesigner.com
+ * Description:     The easiest way to completely customize your WordPress login page. Create stunning login templates in seconds with the most beautiful and elegant login customizer WordPress plugin.
+ * Author:          LoginDesigner
+ * Author URI:      https://logindesigner.com/
+ * Text Domain:     login-designer
+ * Domain Path:     /languages
+ * Version:         1.4.3
  *
  * Login Designer is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'LOGIN_DESIGNER_VERSION', '1.5' );
+define( 'LOGIN_DESIGNER_VERSION', '1.4.3' );
 define( 'LOGIN_DESIGNER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'LOGIN_DESIGNER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'LOGIN_DESIGNER_PLUGIN_FILE', __FILE__ );

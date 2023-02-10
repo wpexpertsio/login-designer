@@ -86,24 +86,44 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 						)
 					);
 					$data                      = wp_remote_retrieve_body( $response );
-					$data                      = json_decode( $data );
-
-					if ( isset( $data->success ) ) {
+					$data                      = json_decode( $data, true );
+					if ( isset( $data['success'] ) ) {
 						if ( 3 === (int) $this->recaptcha_settings['recaptcha_version'] ) {
-							if ( $data->success && isset( $data->score ) && ( $data->score > 0 ) && isset( $data->action ) && ( 'login' === $data->action ) ) {
+							if ( $data['success'] && isset( $data['score'] ) && ( $data['score'] > 0 ) && isset( $data['action'] ) && ( 'login' === $data['action'] ) ) {
 								return $user;
+							} else {
+								$error_messages = array(
+									'missing-input-secret' => '%1$s The recaptcha secret key is missing <br> Please contact to administrator %2$s',
+									'invalid-input-secret' => '%1$s The recaptcha secret key is missing <br> Please contact to administrator %2$s',
+									'missing-input-response' => '%1$s The response parameter is missing <br> Please contact to administrator %2$s',
+									'invalid-input-response' => '%1$s Please confirm you are not a robot %2$s',
+									'bad-request'          => '%1$s The request is invalid %2$s',
+									'timeout-or-duplicate' => '%1$s The request is no longer valid %2$s',
+								);
+
+								return new WP_Error(
+									'recaptcha',
+									sprintf(
+									// Translators: %1$s gettext html element start tag.
+									// Translators: %2$s gettext html element end tag.
+										$error_messages[ $data['error-codes'][0] ],
+										'<strong>',
+										'</strong>'
+									)
+								);
 							}
-						} elseif ( $data->success ) {
+						} elseif ( $data['success'] ) {
 								return $user;
 						}
 					}
 				}
+
 				return new WP_Error(
 					'recaptcha',
 					sprintf(
 					// Translators: %1$s gettext html element start tag.
 					// Translators: %2$s gettext html element end tag.
-						__( '%1$s Error %2$s: Please confirm you are not a robot', 'login-designer' ),
+						'%1$s Please confirm you are not a robot %2$s',
 						'<strong>',
 						'</strong>'
 					)
@@ -188,6 +208,17 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 					// @todo clean this code.
 					if ( is_array( $json_to_array ) ) {
 						if ( isset( $json_to_array['login_designer'] ) ) {
+
+							if ( isset( $json_to_array['login_designer']['logo'] ) ) {
+								$json_to_array['login_designer']['logo'] = login_designer_upload_file_by_url( $json_to_array['login_designer']['logo'] );
+							}
+
+							if ( isset( $json_to_array['login_designer']['bg_image'] ) ) {
+								$attachment = wp_get_attachment_image_src( login_designer_upload_file_by_url( $json_to_array['login_designer']['bg_image'] ), 'full' );
+								if ( $attachment ) {
+									$json_to_array['login_designer']['bg_image'] = $attachment[0];
+								}
+							}
 							update_option( 'login_designer', $json_to_array['login_designer'] );
 						}
 						if ( isset( $json_to_array['settings'] ) ) {
