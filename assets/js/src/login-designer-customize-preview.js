@@ -501,7 +501,7 @@
 	wp.customize( 'login_designer[field_margin_bottom]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_field_margin_bottom"> #login-designer--username { margin-bottom: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_field_margin_bottom"> #login-designer--username, #login-designer--password { margin-bottom: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_field_margin_bottom' );
 

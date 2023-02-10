@@ -38,9 +38,9 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	'login_designer_error_messages[username_error]',
 	array(
-		'label'       => esc_attr__( 'Enter username required message', 'login-designer' ),
+		'label'       => esc_attr__( 'Enter Username required message', 'login-designer' ),
 		'section'     => 'login_designer__section--error-messages',
-		'description' => esc_attr__( 'Enter the message which will display when username field is empty', 'login-designer' ),
+		'description' => esc_attr__( 'Enter the message which will display when Username field is empty', 'login-designer' ),
 		'type'        => 'text',
 	)
 );
@@ -57,9 +57,9 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	'login_designer_error_messages[password_error]',
 	array(
-		'label'       => esc_attr__( 'Enter password required message', 'login-designer' ),
+		'label'       => esc_attr__( 'Enter Password required message', 'login-designer' ),
 		'section'     => 'login_designer__section--error-messages',
-		'description' => esc_attr__( 'Enter the message which will display when password field is empty', 'login-designer' ),
+		'description' => esc_attr__( 'Enter the message which will display when Password field is empty', 'login-designer' ),
 		'type'        => 'text',
 	)
 );

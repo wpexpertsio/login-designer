@@ -1034,3 +1034,7 @@
 #sub-accordion-section-login_designer__section--settings .customize-control-select select option {
   text-align: right;
 }
+
+select, select option {
+  text-align: left !important;
+}

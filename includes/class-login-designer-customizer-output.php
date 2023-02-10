@@ -552,7 +552,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Custom background image.
 				if ( isset( $options['bg_image'] ) ) {
-					$css .= 'body.login, #login-designer-background { background-image: url(" ' . $options['bg_image'] . ' "); }';
+					$css .= '#login-designer-background { background-image: url(" ' . $options['bg_image'] . ' "); }';
 				}
 
 				// Background image gallery. Only display if there's no custom background image.
@@ -565,7 +565,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 						// Get the image's url.
 						$url = $image_dir . $options['bg_image_gallery'] . '.jpg';
 
-						$css .= 'body.login, #login-designer-background { background-image: url(" ' . esc_url( $url ) . ' "); }';
+						$css .= '#login-designer-background { background-image: url(" ' . esc_url( $url ) . ' "); }';
 					}
 				}
 
@@ -593,10 +593,11 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				if ( isset( $options['logo'] ) ) {
 					$image = wp_get_attachment_image_src( $options['logo'], 'full' );
 
-					$width  = isset( $options['logo_width'] ) ? $options['logo_width'] : $image[1] / 2;
-					$height = isset( $options['logo_height'] ) ? $options['logo_height'] : $image[2] / 2;
+					if ( $image ) {
+						$width  = isset( $options['logo_width'] ) ? $options['logo_width'] : $image[1] / 2;
+						$height = isset( $options['logo_height'] ) ? $options['logo_height'] : $image[2] / 2;
 
-					$css .= '
+						$css .= '
 
 						#login h1 a { width: auto; }
 
@@ -627,6 +628,43 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 							width: ' . absint( $width ) . 'px !important;
 						}
 					';
+					} elseif ( is_string( $options['logo'] ) ) {
+						$width  = $options['logo_width'];
+						$height = $options['logo_height'];
+
+						$css .= '
+
+						#login h1 a { width: auto; }
+
+						#login-designer-logo,
+						body.login #login h1 a {
+							background-image: url(" ' . esc_url( $options['logo'] ) . ' ");
+							background-position: center center;
+						}
+
+						#login-designer-logo-h1,
+						body.login #login h1 a {
+							margin-left: auto;
+							margin-right: auto;
+						}
+
+						#login-designer-logo,
+						body.login #login h1 a {
+							background-size: ' . absint( $width ) . 'px ' . absint( $height ) . 'px ;
+						}
+
+						#login-designer-logo-h1,
+						body.login #login h1 a {
+							width: ' . absint( $width ) . 'px;
+							height: ' . absint( $height ) . 'px;
+						}
+
+						#login-designer-logo-h1 {
+							width: ' . absint( $width ) . 'px !important;
+						}
+					';
+
+					}
 				}
 
 				// Logo display.
@@ -702,9 +740,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Field margin bottom.
 				if ( isset( $options['field_margin_bottom'] ) ) {
 					if ( is_customize_preview() ) {
-						$css .= '#login-designer--username { margin-bottom: ' . esc_attr( $options['field_margin_bottom'] ) . 'px }';
+						$css .= '#login-designer--username, #login-designer--password { margin-bottom: ' . esc_attr( $options['field_margin_bottom'] ) . 'px }';
 					} else {
-						$css .= '#login form #user_login { margin-bottom: ' . esc_attr( $options['field_margin_bottom'] ) . 'px; }';
+						$css .= '#login form #user_login, #login form .wp-pwd { margin-bottom: ' . esc_attr( $options['field_margin_bottom'] ) . 'px; }';
 					}
 				}
 

@@ -70,67 +70,45 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 		 * @return WP_User|WP_Error
 		 */
 		public function add_google_recaptcha_authentication( $user ) {
-			if ( empty( $this->recaptcha_settings['google_recaptcha_api_key'] ) ||  empty( $this->recaptcha_settings['google_recaptcha_secrete_key'] ) ) {
-            	return $user;
-            }
-			$errors = new WP_Error();
-			
-			$secrete_key = isset( $this->recaptcha_settings['google_recaptcha_secrete_key'] ) ? $this->recaptcha_settings['google_recaptcha_secrete_key'] : null;
-			// phpcs:ignore  WordPress.Security.NonceVerification
-			if ( isset( $_REQUEST['g-recaptcha-response'] ) ) {
-				
+			if ( isset( $this->recaptcha_settings['google_recaptcha_secrete_key'] ) ) {
+				$secrete_key = $this->recaptcha_settings['google_recaptcha_secrete_key'];
 				// phpcs:ignore  WordPress.Security.NonceVerification
-				$google_recaptcha_response = sanitize_text_field( wp_unslash( $_REQUEST['g-recaptcha-response'] ) );
-				$response                  = wp_remote_post(
-					'https://www.google.com/recaptcha/api/siteverify',
-					array(
-						'body' => array(
-							'secret'   => $secrete_key,
-							'response' => $google_recaptcha_response,
-						),
+				if ( isset( $_REQUEST['g-recaptcha-response'] ) ) {
+					// phpcs:ignore  WordPress.Security.NonceVerification
+					$google_recaptcha_response = sanitize_text_field( wp_unslash( $_REQUEST['g-recaptcha-response'] ) );
+					$response                  = wp_remote_post(
+						'https://www.google.com/recaptcha/api/siteverify',
+						array(
+							'body' => array(
+								'secret'   => $secrete_key,
+								'response' => $google_recaptcha_response,
+							),
+						)
+					);
+					$data                      = wp_remote_retrieve_body( $response );
+					$data                      = json_decode( $data );
+
+					if ( isset( $data->success ) ) {
+						if ( 3 === (int) $this->recaptcha_settings['recaptcha_version'] ) {
+							if ( $data->success && isset( $data->score ) && ( $data->score > 0 ) && isset( $data->action ) && ( 'login' === $data->action ) ) {
+								return $user;
+							}
+						} elseif ( $data->success ) {
+								return $user;
+						}
+					}
+				}
+				return new WP_Error(
+					'recaptcha',
+					sprintf(
+					// Translators: %1$s gettext html element start tag.
+					// Translators: %2$s gettext html element end tag.
+						__( '%1$s Error %2$s: Please confirm you are not a robot', 'login-designer' ),
+						'<strong>',
+						'</strong>'
 					)
 				);
-				$data                      = wp_remote_retrieve_body( $response );
-				$data                      = json_decode( $data );
-
-				if ( isset( $data->{'error-codes'} ) && is_array( $data->{'error-codes'} ) && count( $data->{'error-codes'} ) > 0 ) {
-
-					foreach ( $data->{'error-codes'} as $index => $error_code ) {
-						$errors->add( $error_code, sprintf( __( '%1$s Error %2$s: %3$s', 'login-designer' ), '<strong>', '</strong>', $this->ld_recaptcha_errors( $error_code ) ) );
-					}
-					
-					return $errors;
-
-				} else {
-
-					return $user;
-
-				}
-				
 			}
-		}
-		
-		/**
-		 * Ld_recaptcha_errors
-		 *
-		 * @param  mixed $error_code
-		 * @return string
-		 */
-		public function ld_recaptcha_errors( $error_code ) {
-			$errors = array(
-				'missing-input-secret' 		=> __( 'The secret parameter is missing.', 'login-designer' ),
-				'invalid-input-secret' 		=> __( 'The secret parameter is invalid or malformed.', 'login-designer' ),
-				'missing-input-response' 	=> __( 'The response parameter is missing.', 'login-designer' ),
-				'invalid-input-response' 	=> __( 'Please confirm you are not a robot.', 'login-designer' ),
-				'bad-request' 				=> __( 'The request is invalid or malformed.', 'login-designer' ),
-				'timeout-or-duplicate' 		=> __( 'The response is no longer valid: either is too old or has been used previously.', 'login-designer' ),
-			);
-
-			if( array_key_exists( $error_code, $errors ) ) {
-				return $errors[$error_code];
-			}
-			
-			return __( 'Invalid reCaptcha', 'login-designer' );
 		}
 		/**
 		 * Login enqueue scripts
@@ -180,22 +158,21 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 		 * Add google recaptcha field.
 		 */
 		public function add_google_recaptcha_field() {
-            if ( isset( $this->recaptcha_settings['recaptcha_version'] ) ) {
-                if ( 3 === (int) $this->recaptcha_settings['recaptcha_version'] ) {
-                    ?>
-                    <input type="hidden" name="g-recaptcha-response" id="google-recaptcha-response">
-                    <?php
-                } else {
-                    if ( isset( $this->recaptcha_settings['google_recaptcha_api_key'] ) ) {
-	                    $api_key = $this->recaptcha_settings['google_recaptcha_api_key'];
-	                    ?>
-                        <br>
-                        <div class="g-recaptcha" data-action="login" data-sitekey="<?php echo esc_attr( $api_key ); ?>" data-theme="dark"></div>
-                        <br>
-	                    <?php
-                    }
-                }
-            }
+			if ( isset( $this->recaptcha_settings['recaptcha_version'] ) ) {
+				if ( 3 === (int) $this->recaptcha_settings['recaptcha_version'] ) {
+					?>
+					<input type="hidden" name="g-recaptcha-response" id="google-recaptcha-response">
+					<?php
+				} elseif ( isset( $this->recaptcha_settings['google_recaptcha_api_key'] ) ) {
+						$api_key = $this->recaptcha_settings['google_recaptcha_api_key'];
+					?>
+						<br>
+						<div class="g-recaptcha" data-action="login" data-sitekey="<?php echo esc_attr( $api_key ); ?>" data-theme="dark"></div>
+						<br>
+						<?php
+
+				}
+			}
 		}
 
 		/**
@@ -242,7 +219,18 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 				}
 
 				if ( 'get_latest_json' === $method ) {
-					$login_designer                     = get_option( 'login_designer' );
+					$login_designer = get_option( 'login_designer' );
+
+					$logo = wp_get_attachment_image_src( $login_designer['logo'], 'full' );
+					if ( $logo ) {
+						$login_designer['logo'] = $logo[0];
+						if ( ! isset( $login_designer['logo_width'] ) ) {
+							$login_designer['logo_width'] = $logo[1];
+						}
+						if ( ! isset( $login_designer['logo_height'] ) ) {
+							$login_designer['logo_height'] = $logo[2];
+						}
+					}
 					$login_designer_settings            = get_option( 'login_designer_settings' );
 					$login_designer_language_translator = get_option( 'login_designer_translations' );
 					$json_file_content                  = array(
@@ -327,7 +315,7 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 								$new_message .= login_designer_create_error_messages(
 									esc_attr__( 'Error', 'login-designer' ),
 									$error_messages['password_error']
-								) . "<br />" . "\r\n";
+								) . '<br />' . "\r\n";
 							} else {
 								$new_message .= $error . '<br />' . "\r\n";
 							}
@@ -409,27 +397,27 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 		public function translation_field_js() {
 			$languages = get_available_languages();
 			if ( ! empty( $languages ) ) {
-                ?>
-                <script type="text/javascript" id="login-designer-language-switcher-problem-js">
-                    const language_translator=jQuery(".language-switcher");jQuery(language_translator).length&&(embed_html='<div class="language-switcher">'+jQuery(language_translator).html()+"</div>",jQuery(".language-switcher").remove(),jQuery("#login").append(embed_html));
-                </script>
-                <?php
+				?>
+				<script type="text/javascript" id="login-designer-language-switcher-problem-js">
+					const language_translator=jQuery(".language-switcher");jQuery(language_translator).length&&(embed_html='<div class="language-switcher">'+jQuery(language_translator).html()+"</div>",jQuery(".language-switcher").remove(),jQuery("#login").append(embed_html));
+				</script>
+				<?php
 			}
 		}
 
-        public function translation_field_css() {
-	        $languages = get_available_languages();
-	        if ( ! empty( $languages ) ) {
-		        ?>
-                <style type="text/css" id="login-designer-language-switcher-problem-css">
-                    .language-switcher #language-switcher {
-                        display: inline-block;
-                        margin-top: 20px;
-                    }
-                </style>
-		        <?php
-	        }
-        }
+		public function translation_field_css() {
+			$languages = get_available_languages();
+			if ( ! empty( $languages ) ) {
+				?>
+				<style type="text/css" id="login-designer-language-switcher-problem-css">
+					.language-switcher #language-switcher {
+						display: inline-block;
+						margin-top: 20px;
+					}
+				</style>
+				<?php
+			}
+		}
 	}
 }
 

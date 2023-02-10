@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Language: \n"
-"POT-Creation-Date: 2022-10-25 12:27+0000\n"
+"POT-Creation-Date: 2023-02-10 10:29+0000\n"
 "X-Generator: Loco https://localise.biz/"
 
 #. Login screen title. 1: Login screen name, 2: Network or site name
@@ -78,7 +78,7 @@ msgid ""
 msgstr ""
 
 #. Name of this plugin
-#: login-designer.php:413
+#: login-designer.php:412
 msgid ""
 "<p>This page is used by <a href=\"%1$s\">%2$s</a> to preview the login forms "
 "in the Customizer. Please don't delete this page. Thanks!</p>"
@@ -104,6 +104,12 @@ msgstr ""
 msgid "a year"
 msgstr ""
 
+#: includes/settings/pro/background-slider.php:24
+msgid ""
+"Add more interaction with the image slider in the background and get "
+"complete control over effects and transition speed."
+msgstr ""
+
 #: includes/settings/logo.php:22
 msgid ""
 "Add your own logo. Logos will display at 50% height and width to account for "
@@ -118,11 +124,18 @@ msgstr ""
 msgid "Are you enjoying Login Designer?"
 msgstr ""
 
+#: includes/settings/pro/form-animation.php:24
+msgid ""
+"Are you looking for ways to make your login page impressive? With the login "
+"designer pro version, you can add animation to your logo and login form on "
+"the login page with more the 30+ effects."
+msgstr ""
+
 #: includes/settings/background.php:131 includes/settings/pp-background.php:130
 msgid "Attachment"
 msgstr ""
 
-#: includes/class-login-designer-customizer-scripts.php:194
+#: includes/class-login-designer-customizer-scripts.php:206
 msgid ""
 "Attention! You are attempting to reset all custom styling added to Login "
 "Designer. Please note that this action is irreversible. Proceed?"
@@ -252,7 +265,7 @@ msgid ""
 "corresponding shortcut icon, to edit it's styling. "
 msgstr ""
 
-#: includes/class-login-designer-customizer-scripts.php:193
+#: includes/class-login-designer-customizer-scripts.php:205
 #: includes/controls/class-login-designer-file-import-button-control.php:87
 msgid "Close"
 msgstr ""
@@ -318,6 +331,12 @@ msgstr ""
 msgid "Discover Add-ons"
 msgstr ""
 
+#: includes/settings/pro/google-fonts.php:24
+msgid ""
+"Do more customization on your login pages with 700+ beautiful Google fonts "
+"that can match any style."
+msgstr ""
+
 #: includes/settings/form.php:22
 msgid "Easily customize the login form wrapper default styling."
 msgstr ""
@@ -343,11 +362,11 @@ msgid "Enter Password invalid message"
 msgstr ""
 
 #: includes/settings/login-error-messages.php:60
-msgid "Enter password required message"
+msgid "Enter Password required message"
 msgstr ""
 
 #: includes/settings/login-error-messages.php:62
-msgid "Enter the message which will display when password field is empty"
+msgid "Enter the message which will display when Password field is empty"
 msgstr ""
 
 #: includes/settings/login-error-messages.php:100
@@ -355,7 +374,7 @@ msgid "Enter the message which will display when Password is invalid"
 msgstr ""
 
 #: includes/settings/login-error-messages.php:43
-msgid "Enter the message which will display when username field is empty"
+msgid "Enter the message which will display when Username field is empty"
 msgstr ""
 
 #: includes/settings/login-error-messages.php:81
@@ -367,7 +386,7 @@ msgid "Enter Username invalid message"
 msgstr ""
 
 #: includes/settings/login-error-messages.php:41
-msgid "Enter username required message"
+msgid "Enter Username required message"
 msgstr ""
 
 #: includes/settings/google-recaptcha.php:87
@@ -378,10 +397,10 @@ msgstr ""
 msgid "Enter your Recaptcha Secret Key"
 msgstr ""
 
-#: includes/class-login-designer-features.php:250
-#: includes/class-login-designer-features.php:261
-#: includes/class-login-designer-features.php:272
-#: includes/class-login-designer-features.php:281
+#: includes/class-login-designer-features.php:305
+#: includes/class-login-designer-features.php:316
+#: includes/class-login-designer-features.php:327
+#: includes/class-login-designer-features.php:336
 msgid "Error"
 msgstr ""
 
@@ -389,7 +408,7 @@ msgstr ""
 msgid "Export"
 msgstr ""
 
-#: login-designer.php:569 login-designer.php:610
+#: login-designer.php:568 login-designer.php:609
 #: includes/class-login-designer-customizer.php:239
 msgid "Extensions"
 msgstr ""
@@ -453,6 +472,14 @@ msgstr ""
 msgid "Height"
 msgstr ""
 
+#: includes/settings/remember.php:142
+msgid "Hide Remember Me"
+msgstr ""
+
+#: includes/settings/form.php:152
+msgid "Horizontal Padding"
+msgstr ""
+
 #. URI of the plugin
 msgid "https://logindesigner.com"
 msgstr ""
@@ -469,15 +496,15 @@ msgstr ""
 msgid "Import & Export Settings"
 msgstr ""
 
-#: includes/class-login-designer-customizer-scripts.php:192
+#: includes/class-login-designer-customizer-scripts.php:204
 msgid "Install New Template"
 msgstr ""
 
-#: includes/class-login-designer-features.php:213
+#: includes/class-login-designer-features.php:266
 msgid "Internal Server Error"
 msgstr ""
 
-#: includes/class-login-designer-features.php:185
+#: includes/class-login-designer-features.php:214
 msgid "JSON file does not contain valid json"
 msgstr ""
 
@@ -528,7 +555,7 @@ msgid "Log in to %s"
 msgstr ""
 
 #. Name of the plugin
-#: login-designer.php:217 login-designer.php:248
+#: login-designer.php:216 login-designer.php:247
 #: includes/class-login-designer-customizer.php:115
 #: includes/class-login-designer-theme-template.php:62
 #: includes/admin/class-login-designer-feedback.php:311
@@ -633,14 +660,14 @@ msgctxt "Page Title"
 msgid "Password Protected"
 msgstr ""
 
-#: includes/class-login-designer-customizer-output.php:104
+#: includes/class-login-designer-customizer-output.php:113
 #: includes/template-login-designer.php:196
 #: includes/template-password-protected.php:69 includes/settings/labels.php:60
 #: includes/settings/pp-labels.php:33
 msgid "Password"
 msgstr ""
 
-#: login-designer.php:219 login-designer.php:258
+#: login-designer.php:218 login-designer.php:257
 #: includes/class-login-designer-customizer.php:451
 #: includes/class-login-designer-theme-template.php:63
 msgid "Password Protected"
@@ -660,10 +687,9 @@ msgid "Please define default parameters in the form of an array."
 msgstr ""
 
 #: includes/settings/background.php:151 includes/settings/below.php:114
-#: includes/settings/branding.php:107 includes/settings/labels.php:131
-#: includes/settings/logo.php:144 includes/settings/pp-background.php:150
-#: includes/settings/pp-labels.php:114 includes/settings/pp-remember.php:93
-#: includes/settings/remember.php:93
+#: includes/settings/branding.php:107 includes/settings/logo.php:144
+#: includes/settings/pp-background.php:150 includes/settings/pp-labels.php:114
+#: includes/settings/pp-remember.php:93 includes/settings/remember.php:93
 msgid "Position"
 msgstr ""
 
@@ -671,7 +697,7 @@ msgstr ""
 msgid "Powered by"
 msgstr ""
 
-#: login-designer.php:519 includes/class-login-designer-customizer.php:566
+#: login-designer.php:518 includes/class-login-designer-customizer.php:566
 #: includes/class-login-designer-customizer.php:580
 #: includes/class-login-designer-customizer.php:594
 #: includes/class-login-designer-customizer.php:608
@@ -732,7 +758,7 @@ msgid ""
 "page."
 msgstr ""
 
-#: login-designer.php:493
+#: login-designer.php:492
 msgid "Settings"
 msgstr ""
 
@@ -761,7 +787,7 @@ msgid ""
 "Show some love and add a Powered by Login Designer badge to your login page."
 msgstr ""
 
-#: includes/settings/form.php:152 includes/settings/pp-form.php:154
+#: includes/settings/pp-form.php:154
 msgid "Side Padding"
 msgstr ""
 
@@ -781,26 +807,26 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-#: includes/settings/pro/background-slider.php:24
 #: includes/settings/pro/background-slider.php:44
-#: includes/settings/pro/form-animation.php:24
 #: includes/settings/pro/form-animation.php:44
-#: includes/settings/pro/google-fonts.php:24
 #: includes/settings/pro/google-fonts.php:44
 #: includes/settings/pro/rename-login-page.php:24
-#: includes/settings/pro/rename-login-page.php:44
 msgid "some description"
 msgstr ""
 
-#: login-designer.php:88 login-designer.php:99
+#: login-designer.php:87 login-designer.php:98
 msgid "Something went wrong."
+msgstr ""
+
+#: includes/settings/labels.php:131
+msgid "Spacing"
 msgstr ""
 
 #: includes/class-login-designer-customizer.php:126
 msgid "Styles"
 msgstr ""
 
-#: login-designer.php:507
+#: login-designer.php:506
 msgid "Support"
 msgstr ""
 
@@ -823,6 +849,12 @@ msgid ""
 "The easiest way to completely customize your WordPress login page. Create "
 "stunning login templates in seconds with the most beautiful and elegant "
 "login customizer WordPress plugin."
+msgstr ""
+
+#: includes/settings/pro/rename-login-page.php:44
+msgid ""
+"The Hide/Rename option lets you change the URL of the login page to "
+"something more uncommon, which prevents spammers from hacking your website."
 msgstr ""
 
 #. %1$s to display page name.
@@ -869,7 +901,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: includes/class-login-designer-customizer-output.php:103
+#: includes/class-login-designer-customizer-output.php:112
 #: includes/template-login-designer.php:181
 msgid "Username or Email Address"
 msgstr ""
