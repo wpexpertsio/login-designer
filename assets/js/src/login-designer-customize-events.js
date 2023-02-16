@@ -153,7 +153,7 @@
 	 *
 	 * Parent option, Affected Control, Value which affects the control.
 	 */
-	function customizer_image_option_display( parent_setting, affected_control, custom_logic = false ) {
+	function customizer_image_option_display( parent_setting, affected_control ) {
 		wp.customize( parent_setting, function( setting ) {
 			wp.customize.control( affected_control, function( control ) {
 				var visibility = function() {
@@ -163,17 +163,6 @@
 					} else {
 						control.container.slideUp( 0 );
 						control.deactivate( { duration: 0 } );
-					}
-
-					if ( custom_logic ) {
-						if ( 'cover' === wp.customize( 'login_designer[bg_size]' ).get() ) {
-							console.log( 'clicked' )
-							control.activate( { duration: 0 } );
-							control.container.slideDown( 0 );
-						} else {
-							control.container.slideUp( 0 );
-							control.deactivate( { duration: 0 } );
-						}
 					}
 				};
 
@@ -578,7 +567,7 @@
 				} else if ( item === 'login_designer[bg_position]' ) {
 
 					customizer_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_position]' );
-					customizer_image_option_display( 'login_designer[bg_image_gallery]', 'login_designer[bg_position]', true );
+					customizer_image_option_display( 'login_designer[bg_image_gallery]', 'login_designer[bg_position]' );
 
 					customizer_select_option_display( 'login_designer[bg_size]', 'login_designer[bg_position]', 'cover' );
 

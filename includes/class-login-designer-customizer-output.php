@@ -552,7 +552,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 
 				// Custom background image.
 				if ( isset( $options['bg_image'] ) ) {
-					$css .= '#login-designer-background { background-image: url(" ' . $options['bg_image'] . ' "); }';
+					$css .= 'body.login, #login-designer-background { background-image: url(" ' . $options['bg_image'] . ' "); }';
 				}
 
 				// Background image gallery. Only display if there's no custom background image.
@@ -565,7 +565,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 						// Get the image's url.
 						$url = $image_dir . $options['bg_image_gallery'] . '.jpg';
 
-						$css .= '#login-designer-background { background-image: url(" ' . esc_url( $url ) . ' "); }';
+						$css .= 'body.login, #login-designer-background { background-image: url(" ' . esc_url( $url ) . ' "); }';
 					}
 				}
 

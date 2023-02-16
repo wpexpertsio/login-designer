@@ -77,6 +77,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-license-control.php';
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-file-import-button-control.php';
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-dummy-control.php';
+			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-test-recaptcha.php';
 
 			// Register the control types that we're using as JavaScript controls.
 			if ( class_exists( 'Login_Designer_Toggle_Control' ) ) {
@@ -96,6 +97,10 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			}
 			if ( class_exists( 'Login_Designer_Dummy_Control' ) ) {
 				$wp_customize->register_control_type( 'Login_Designer_Dummy_Control' );
+			}
+
+			if ( class_exists( 'Login_Designer_Test_Recaptcha' ) ) {
+				$wp_customize->register_control_type( 'Login_Designer_Test_Recaptcha' );
 			}
 
 			// Get the default options.

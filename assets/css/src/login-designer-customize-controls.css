@@ -1038,3 +1038,23 @@
 select, select option {
   text-align: left !important;
 }
+
+.login-designer-notice {
+  width: 95%;
+  height: 50px;
+  border-left-width: 5px;
+  line-height: 50px;
+  padding-left: 10px;
+}
+
+.login-designer-notice.error {
+    border-left-color: #dc3232;
+}
+
+.login-designer-notice.success {
+    border-left-color: #46b450;
+}
+
+#recaptcha-validation-success:empty {
+  display: none;
+}

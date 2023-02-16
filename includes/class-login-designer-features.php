@@ -41,10 +41,10 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 			 */
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 			add_action( 'wp_ajax_login_designer_import_json', array( $this, 'login_designer_import_json' ) );
+
 			/**
 			 * Google recaptcha settings action
 			 */
-			$this->recaptcha_settings = get_option( 'login_designer_google_recaptcha', false );
 			$this->adding_google_recaptcha_functionality();
 		}
 
@@ -52,14 +52,12 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 		 * Adding google recaptcha settings
 		 */
 		protected function adding_google_recaptcha_functionality() {
-			if ( $this->recaptcha_settings ) {
-				$enabled_recaptcha = $this->recaptcha_settings['enable_google_recaptcha'];
-				if ( $enabled_recaptcha ) {
-					add_action( 'login_form', array( $this, 'add_google_recaptcha_field' ) );
-					add_action( 'login_enqueue_scripts', array( $this, 'login_enqueue_scripts' ) );
-					add_filter( 'wp_authenticate_user', array( $this, 'add_google_recaptcha_authentication' ) );
-				}
-			}
+			add_action( 'wp_ajax_login_designer_recaptcha_v3', array( $this, 'verify_recaptcha_site_and_secret_key' ) );
+			add_action( 'wp_ajax_login_designer_validate_recaptcha_v2', array( $this, 'validate_recaptcha_v2' ) );
+
+			add_action( 'login_form', array( $this, 'add_google_recaptcha_field' ) );
+			add_filter( 'wp_authenticate_user', array( $this, 'add_google_recaptcha_authentication' ) );
+			add_action( 'login_enqueue_scripts', array( $this, 'login_enqueue_scripts' ) );
 		}
 
 		/**
@@ -70,78 +68,158 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 		 * @return WP_User|WP_Error
 		 */
 		public function add_google_recaptcha_authentication( $user ) {
-			if ( isset( $this->recaptcha_settings['google_recaptcha_secrete_key'] ) ) {
-				$secrete_key = $this->recaptcha_settings['google_recaptcha_secrete_key'];
-				// phpcs:ignore  WordPress.Security.NonceVerification
-				if ( isset( $_REQUEST['g-recaptcha-response'] ) ) {
-					// phpcs:ignore  WordPress.Security.NonceVerification
-					$google_recaptcha_response = sanitize_text_field( wp_unslash( $_REQUEST['g-recaptcha-response'] ) );
-					$response                  = wp_remote_post(
-						'https://www.google.com/recaptcha/api/siteverify',
-						array(
-							'body' => array(
-								'secret'   => $secrete_key,
-								'response' => $google_recaptcha_response,
-							),
-						)
-					);
-					$data                      = wp_remote_retrieve_body( $response );
-					$data                      = json_decode( $data, true );
-					if ( isset( $data['success'] ) ) {
-						if ( 3 === (int) $this->recaptcha_settings['recaptcha_version'] ) {
-							if ( $data['success'] && isset( $data['score'] ) && ( $data['score'] > 0 ) && isset( $data['action'] ) && ( 'login' === $data['action'] ) ) {
-								return $user;
-							} else {
-								$error_messages = array(
-									'missing-input-secret' => '%1$s The recaptcha secret key is missing <br> Please contact to administrator %2$s',
-									'invalid-input-secret' => '%1$s The recaptcha secret key is missing <br> Please contact to administrator %2$s',
-									'missing-input-response' => '%1$s The response parameter is missing <br> Please contact to administrator %2$s',
-									'invalid-input-response' => '%1$s Please confirm you are not a robot %2$s',
-									'bad-request'          => '%1$s The request is invalid %2$s',
-									'timeout-or-duplicate' => '%1$s The request is no longer valid %2$s',
-								);
+			$recaptcha_settings = get_option( 'login_designer_google_recaptcha', false );
+			if ( isset( $recaptcha_settings['enable_google_recaptcha'] ) && $recaptcha_settings['enable_google_recaptcha'] ) {
+				$new_recaptcha_settings = get_option( 'login_designer_recaptcha_settings', array() );
+				if ( isset( $new_recaptcha_settings['is_enabled'] ) && $new_recaptcha_settings['is_enabled'] ) {
+					$version = $new_recaptcha_settings['version'];
+					$secret  = $new_recaptcha_settings['secret_key'];
+                    // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+					if ( isset( $_REQUEST['g-recaptcha-response'] ) ) {
+                        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+						$response       = sanitize_text_field( wp_unslash( $_REQUEST['g-recaptcha-response'] ) );
+						$remote_request = wp_remote_post(
+							'https://www.google.com/recaptcha/api/siteverify',
+							array(
+								'body' => array(
+									'secret'   => $secret,
+									'response' => $response,
+								),
+							)
+						);
 
-								return new WP_Error(
-									'recaptcha',
-									sprintf(
-									// Translators: %1$s gettext html element start tag.
-									// Translators: %2$s gettext html element end tag.
-										$error_messages[ $data['error-codes'][0] ],
-										'<strong>',
-										'</strong>'
-									)
-								);
-							}
-						} elseif ( $data['success'] ) {
+						$remote_body = wp_remote_retrieve_body( $remote_request );
+						$remote_body = json_decode( $remote_body, true );
+
+						if ( $remote_body['success'] ) {
+							if ( 3 === $version ) {
+								if ( isset( $remote_body['score'] ) && ( $remote_body['score'] > 0 ) && isset( $remote_body['action'] ) && ( 'login' === $remote_body['action'] ) ) {
+									return $user;
+								} else {
+									return new WP_Error( 'recaptcha', __( 'Please confirm you are not a robot', 'login-designer' ) );
+								}
+							} else {
 								return $user;
+							}
+						} else {
+							if ( isset( $remote_body['error-codes'] ) && is_array( $remote_body['error-codes'] ) ) {
+								if ( in_array( 'timeout-or-duplicate', $remote_body['error-codes'], true ) ) {
+									return new WP_Error( 'recaptcha', __( 'The response is no longer valid please try again', 'login-designer' ) );
+								}
+
+								if ( in_array( 'invalid-input-response', $remote_body['error-codes'], true ) ) {
+									return new WP_Error( 'recaptcha', __( 'Please confirm you are not a robot', 'login-designer' ) );
+								}
+							}
 						}
 					}
 				}
+			}
+			return $user;
+		}
 
-				return new WP_Error(
-					'recaptcha',
-					sprintf(
-					// Translators: %1$s gettext html element start tag.
-					// Translators: %2$s gettext html element end tag.
-						'%1$s Please confirm you are not a robot %2$s',
-						'<strong>',
-						'</strong>'
-					)
-				);
+		/**
+		 * Verify recaptcha site and secret key
+		 */
+		public function verify_recaptcha_site_and_secret_key() {
+			if ( isset( $_POST['_wpnonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'login-designer-recaptcha-v3' ) ) {
+				if ( isset( $_POST['method'] ) ) {
+					switch ( sanitize_text_field( wp_unslash( $_POST['method'] ) ) ) {
+						case 'validate_recaptcha_secret_key':
+							$secret   = isset( $_POST['secret_key'] ) ? sanitize_text_field( wp_unslash( $_POST['secret_key'] ) ) : false;
+							$site_key = isset( $_POST['site_key'] ) ? sanitize_text_field( wp_unslash( $_POST['site_key'] ) ) : false;
+							$version  = isset( $_POST['version'] ) ? sanitize_text_field( wp_unslash( $_POST['version'] ) ) : false;
+							$response = isset( $_POST['response'] ) ? sanitize_text_field( wp_unslash( $_POST['response'] ) ) : false;
+
+							login_designer_verify_recaptcha_secret_key( $version, $site_key, $secret, $response );
+							break;
+
+						case 'invalid_site_key':
+							$settings               = get_option( 'login_designer_recaptcha_settings', array() );
+							$settings['is_enabled'] = false;
+							update_option( 'login_designer_recaptcha_settings', $settings );
+
+							wp_send_json_success(
+								array(
+									'message'  => esc_html__( 'The reCaptcha verification failed. Please try again.', 'login-designer' ),
+									'verified' => false,
+								),
+								200
+							);
+							break;
+					}
+				}
+				exit( 'I don\'t know what in going on' );
 			}
 		}
+
+		/**
+		 * Validate recaptcha v2
+		 */
+		public function validate_recaptcha_v2() {
+			if ( isset( $_POST['_wpnonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'login-designer-recaptcha-test' ) ) {
+				if ( isset( $_POST['method'] ) ) {
+					switch ( sanitize_text_field( wp_unslash( $_POST['method'] ) ) ) {
+						case 'validate_site_key':
+							$secret_key = isset( $_POST['secret_key'] ) ? sanitize_text_field( wp_unslash( $_POST['secret_key'] ) ) : false;
+							$site_key   = isset( $_POST['site_key'] ) ? sanitize_text_field( wp_unslash( $_POST['site_key'] ) ) : false;
+							$response   = ! empty( $_POST['recaptcha_response'] ) ? sanitize_text_field( wp_unslash( $_POST['recaptcha_response'] ) ) : false;
+							$version    = isset( $_POST['version'] ) ? sanitize_text_field( wp_unslash( $_POST['version'] ) ) : false;
+
+							if ( ! $response ) {
+								$settings               = get_option( 'login_designer_recaptcha_settings', array() );
+								$settings['is_enabled'] = false;
+								update_option( 'login_designer_recaptcha_settings', $settings );
+								wp_send_json_error(
+									array(
+										'message'  => esc_html__( 'The reCaptcha verification failed. Please try again.', 'login-designer' ),
+										'verified' => false,
+									),
+									400
+								);
+							}
+
+							login_designer_verify_recaptcha_secret_key( $version, $site_key, $secret_key, $response );
+							break;
+					}
+				}
+			}
+		}
+
 		/**
 		 * Login enqueue scripts
 		 */
 		public function login_enqueue_scripts() {
+			$recaptcha_settings = get_option( 'login_designer_google_recaptcha', false );
+			if ( is_customize_preview() ) {
+				$this->validate_recaptcha( $recaptcha_settings );
+			} else {
+				$this->add_recaptcha();
+			}
 			// phpcs:disable
-			if ( isset( $this->recaptcha_settings['recaptcha_version'] ) ) {
-				if ( 3 === (int) $this->recaptcha_settings['recaptcha_version'] ) {
-					if ( isset( $this->recaptcha_settings['google_recaptcha_api_key'] ) ) {
-						$api_key = $this->recaptcha_settings['google_recaptcha_api_key'];
+
+			// phpcs:enable
+		}
+
+		/**
+		 * Validate recaptcha.
+		 *
+		 * @param array $recaptcha_settings recaptcha settings.
+		 */
+		public function validate_recaptcha( $recaptcha_settings ) {
+			$new_recaptcha_settings = get_option( 'login_designer_recaptcha_settings', false );
+
+			if ( isset( $recaptcha_settings['recaptcha_version'] ) ) {
+				if ( 3 === (int) $recaptcha_settings['recaptcha_version'] ) {
+					if ( isset( $recaptcha_settings['google_recaptcha_api_key'] ) ) {
+						$api_key = $recaptcha_settings['google_recaptcha_api_key'];
+						// phpcs:disable WordPress.WP.EnqueuedResourceParameters.MissingVersion
+						// phpcs:disable WordPress.WP.EnqueuedResourceParameters.NotInFooter
 						wp_enqueue_script(
 							'login-designer-google-recaptcha-api',
-							"https://www.google.com/recaptcha/api.js?render=$api_key"
+							"https://www.google.com/recaptcha/api.js?render=$api_key",
+							array(),
+							null
 						);
 
 						wp_register_script(
@@ -151,47 +229,121 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 						);
 
 						wp_enqueue_script( 'login-designer-recaptcha-v3' );
+						$scripts  = '
+                            if ( typeof grecaptcha !== "undefined" ) {
+                            grecaptcha.ready( function() {
+                                try {
+                                    grecaptcha.execute( "' . $api_key . '", { action:"login" } )
+                                        .then( function( token ) {
+                                            ';
+						$scripts .= 'let data = {
+                                                secret_key: "' . $recaptcha_settings['google_recaptcha_secrete_key'] . '",
+                                                site_key: "' . $api_key . '",
+                                                version: "' . $recaptcha_settings['recaptcha_version'] . '",
+                                                response: token,
+                                                _wpnonce: "' . wp_create_nonce( 'login-designer-recaptcha-v3' ) . '",
+                                                action: "login_designer_recaptcha_v3",
+                                                method: "validate_recaptcha_secret_key",
+                                            };
+                                            jQuery.post( "' . admin_url( 'admin-ajax.php' ) . '", data, function( response ) {
+                                                jQuery( "#recaptcha-validation-success", window.parent.document ).html( `<p>${response.data.message}</p>` ).addClass( "notice-success" ).removeClass( "notice-error" );
+                                            } ).fail( function( response ) {
+                                                jQuery( "#recaptcha-validation-success", window.parent.document ).html( `<p>${response.responseJSON.data.message}</p>` ).addClass( "notice-error" ).removeClass( "notice-success" );
+                                            } ); ';
 
-						$scripts = '
-				grecaptcha.ready(function(){
-					grecaptcha.execute("' . $api_key . '", {action:"login"})
-						.then(function(token){
-						console.log( token );
-							document.getElementById( "google-recaptcha-response" ).value = token;
-						});
-				});
-			';
+						$scripts .= ' } );
+                                } catch ( e ) {
+                                    let data = {
+                                        action: "login_designer_recaptcha_v3",
+                                        method: "invalid_site_key",
+                                        _wpnonce: "' . wp_create_nonce( 'login-designer-recaptcha-v3' ) . '",
+                                    };
+                                    jQuery.post( "' . admin_url( 'admin-ajax.php' ) . '", data, function( response ) {
+                                        jQuery( "#recaptcha-validation-success", window.parent.document ).html( `<p>${response.data.message}</p>` ).addClass( "notice-error" ).removeClass( "notice-success" );
+                                    } );
+                                }
+                            });
+                            } else {
+                                let data = {
+                                    action: "login_designer_recaptcha_v3",
+                                    method: "invalid_site_key",
+                                    _wpnonce: "' . wp_create_nonce( 'login-designer-recaptcha-v3' ) . '",
+                                };
+                                jQuery.post( "' . admin_url( 'admin-ajax.php' ) . '", data, function( response ) {
+                                    jQuery( "#recaptcha-validation-success", window.parent.document ).html( `<p>${response.data.message}</p>` ).addClass( "notice-error" ).removeClass( "notice-success" );
+                                } );
+                            }
+                        ';
 
 						wp_add_inline_script( 'login-designer-recaptcha-v3', $scripts );
-                    }
+					}
 				} else {
-					wp_enqueue_script(
+					wp_register_script(
 						'login-designer-google-recaptcha-api',
 						'https://www.google.com/recaptcha/api.js'
 					);
+					$javascript = '';
+
+					wp_add_inline_script( 'login-designer-google-recaptcha-api', $javascript );
+					wp_enqueue_script( 'login-designer-google-recaptcha-api' );
 				}
-            }
-			// phpcs:enable
+			}
+			// phpcs:enable WordPress.WP.EnqueuedResourceParameters.MissingVersion
+			// phpcs:enable WordPress.WP.EnqueuedResourceParameters.NotInFooter
+		}
+
+		/**
+		 * Add recaptcha.
+		 */
+		public function add_recaptcha() {
+			$new_recaptcha_settings = get_option( 'login_designer_recaptcha_settings', false );
+			if ( $new_recaptcha_settings && isset( $new_recaptcha_settings['is_enabled'] ) && $new_recaptcha_settings['is_enabled'] ) {
+				if ( isset( $new_recaptcha_settings['version'] ) ) {
+					if ( 3 === (int) $new_recaptcha_settings['version'] ) {
+						if ( isset( $new_recaptcha_settings['site_key'] ) ) {
+							$api_key = $new_recaptcha_settings['site_key'];
+			                // phpcs:disable WordPress.WP.EnqueuedResourceParameters.MissingVersion
+			                // phpcs:disable WordPress.WP.EnqueuedResourceParameters.NotInFooter
+							wp_enqueue_script(
+								'login-designer-google-recaptcha-api',
+								"https://www.google.com/recaptcha/api.js?render=$api_key"
+							);
+
+							wp_register_script(
+								'login-designer-recaptcha-v3',
+								'',
+								array( 'login-designer-google-recaptcha-api' )
+							);
+
+							wp_enqueue_script( 'login-designer-recaptcha-v3' );
+							$scripts = '
+                            grecaptcha.ready( function() {
+                            grecaptcha.execute( "' . $api_key . '", { action:"login" } )
+                                .then( function( token ) {
+                                    document.getElementById( "google-recaptcha-response" ).value = token;
+                                } );
+                            });
+                        ';
+							wp_add_inline_script( 'login-designer-recaptcha-v3', $scripts );
+						}
+					} else {
+						wp_enqueue_script(
+							'login-designer-google-recaptcha-api',
+							'https://www.google.com/recaptcha/api.js'
+						);
+					}
+				}
+			}
 		}
 
 		/**
 		 * Add google recaptcha field.
 		 */
 		public function add_google_recaptcha_field() {
-			if ( isset( $this->recaptcha_settings['recaptcha_version'] ) ) {
-				if ( 3 === (int) $this->recaptcha_settings['recaptcha_version'] ) {
-					?>
-					<input type="hidden" name="g-recaptcha-response" id="google-recaptcha-response">
-					<?php
-				} elseif ( isset( $this->recaptcha_settings['google_recaptcha_api_key'] ) ) {
-						$api_key = $this->recaptcha_settings['google_recaptcha_api_key'];
-					?>
-						<br>
-						<div class="g-recaptcha" data-action="login" data-sitekey="<?php echo esc_attr( $api_key ); ?>" data-theme="dark"></div>
-						<br>
-						<?php
-
-				}
+			if ( is_customize_preview() ) {
+				$this->add_recaptcha_for_verification();
+			} else {
+				$this->add_recaptcha_for_live_site();
 			}
 		}
 
@@ -436,6 +588,9 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 			}
 		}
 
+		/**
+		 * Display element on right way.
+		 */
 		public function translation_field_css() {
 			$languages = get_available_languages();
 			if ( ! empty( $languages ) ) {
@@ -447,6 +602,50 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 					}
 				</style>
 				<?php
+			}
+		}
+
+		/**
+		 * Adding recaptcha for verification.
+		 */
+		private function add_recaptcha_for_verification() {
+			$recaptcha_settings = get_option( 'login_designer_google_recaptcha', false );
+			if ( isset( $recaptcha_settings['recaptcha_version'] ) ) {
+				if ( 3 === (int) $recaptcha_settings['recaptcha_version'] ) {
+					?>
+					<input type="hidden" name="g-recaptcha-response" id="google-recaptcha-response">
+					<?php
+				} elseif ( isset( $recaptcha_settings['google_recaptcha_api_key'] ) ) {
+					$api_key = $recaptcha_settings['google_recaptcha_api_key'];
+					?>
+					<br>
+					<div class="g-recaptcha" data-action="login" data-sitekey="<?php echo esc_attr( $api_key ); ?>" data-theme="light"></div>
+					<br>
+					<?php
+				}
+			}
+		}
+
+		/**
+		 * Adding recaptcha for live site.
+		 */
+		private function add_recaptcha_for_live_site() {
+			$recaptcha_settings = get_option( 'login_designer_recaptcha_settings', array() );
+			if ( isset( $recaptcha_settings['is_enabled'] ) && $recaptcha_settings['is_enabled'] ) {
+				$version  = $recaptcha_settings['version'];
+				$site_key = $recaptcha_settings['site_key'];
+
+				if ( 3 === (int) $version ) {
+					?>
+					<input type="hidden" name="g-recaptcha-response" id="google-recaptcha-response">
+					<?php
+				} else {
+					?>
+					<br>
+					<div class="g-recaptcha" data-action="login" data-sitekey="<?php echo esc_attr( $site_key ); ?>" data-theme="light"></div>
+					<br>
+					<?php
+				}
 			}
 		}
 	}

@@ -1403,5 +1403,33 @@
 		} );
 	} );
 
+	wp.customize( 'login_designer_google_recaptcha[recaptcha_version]', function( value ) {
+		value.bind( function( to ) {
+			jQuery( '#test-recaptcha', window.parent.document ).removeAttr( 'disabled' ).show();
+			jQuery( '#validate-recaptcha', window.parent.document ).remove();
+
+			if ( 2 === parseInt( to ) ) {
+				jQuery( '#recaptcha-validation-success', window.parent.document ).html( '<p>Please complete the reCaptcha on the right screen and press validate and save.</p>' );
+				jQuery( '#test-recaptcha', window.parent.document ).text( 'Render Recaptcha' );
+			} else {
+				jQuery( '#recaptcha-validation-success', window.parent.document ).empty();
+				jQuery( '#test-recaptcha', window.parent.document ).text( 'Validate and Save' );
+			}
+		} );
+	} );
+
+	wp.customize( 'login_designer_google_recaptcha[google_recaptcha_api_key]', function( value ) {
+		value.bind( function( to ) {
+			jQuery( '#test-recaptcha', window.parent.document ).removeAttr( 'disabled' ).show();
+			jQuery( '#validate-recaptcha', window.parent.document ).remove();
+		} );
+	} );
+
+	wp.customize( 'login_designer_google_recaptcha[google_recaptcha_secrete_key]', function( value ) {
+		value.bind( function( to ) {
+			jQuery( '#test-recaptcha', window.parent.document ).removeAttr( 'disabled' ).show();
+			jQuery( '#validate-recaptcha', window.parent.document ).remove();
+		} );
+	} );
 
 } )( jQuery );

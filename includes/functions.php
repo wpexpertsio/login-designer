@@ -274,3 +274,61 @@ if ( ! function_exists( 'login_designer_upload_file_by_url' ) ) {
 		return (int) $attachment_id;
 	}
 }
+
+if ( ! function_exists( 'login_designer_verify_recaptcha_secret_key' ) ) {
+	/**
+	 * Verify recaptcha secret key.
+	 *
+	 * @param string $version Version.
+	 * @param string $site_key Site key.
+	 * @param string $secret_key Secret key.
+	 * @param string $response Response.
+	 */
+	function login_designer_verify_recaptcha_secret_key( $version, $site_key, $secret_key = false, $response = false ) {
+		if ( $secret_key && $response ) {
+			$verify = wp_remote_post(
+				'https://www.google.com/recaptcha/api/siteverify',
+				array(
+					'body' => array(
+						'secret'   => $secret_key,
+						'response' => $response,
+					),
+				)
+			);
+			$data   = wp_remote_retrieve_body( $verify );
+			$data   = json_decode( $data, true );
+
+			if ( isset( $data['success'] ) ) {
+				if ( $data['success'] ) {
+					update_option(
+						'login_designer_recaptcha_settings',
+						array(
+							'is_enabled' => true,
+							'site_key'   => $site_key,
+							'secret_key' => $secret_key,
+							'version'    => $version,
+						)
+					);
+					wp_send_json_success(
+						array(
+							'message'  => esc_html__( 'The verification is successfully completed.', 'login-designer' ),
+							'verified' => true,
+						),
+						200
+					);
+				} else {
+					$settings               = get_option( 'login_designer_recaptcha_settings', array() );
+					$settings['is_enabled'] = false;
+					update_option( 'login_designer_recaptcha_settings', $settings );
+					wp_send_json_error(
+						array(
+							'message'  => esc_html__( 'The reCaptcha verification failed. Please try again.', 'login-designer' ),
+							'verified' => false,
+						),
+						400
+					);
+				}
+			}
+		}
+	}
+}
