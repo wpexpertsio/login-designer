@@ -101,15 +101,13 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 							} else {
 								return $user;
 							}
-						} else {
-							if ( isset( $remote_body['error-codes'] ) && is_array( $remote_body['error-codes'] ) ) {
-								if ( in_array( 'timeout-or-duplicate', $remote_body['error-codes'], true ) ) {
-									return new WP_Error( 'recaptcha', __( 'The response is no longer valid please try again', 'login-designer' ) );
-								}
+						} elseif ( isset( $remote_body['error-codes'] ) && is_array( $remote_body['error-codes'] ) ) {
+							if ( in_array( 'timeout-or-duplicate', $remote_body['error-codes'], true ) ) {
+								return new WP_Error( 'recaptcha', __( 'The response is no longer valid please try again', 'login-designer' ) );
+							}
 
-								if ( in_array( 'invalid-input-response', $remote_body['error-codes'], true ) ) {
-									return new WP_Error( 'recaptcha', __( 'Please confirm you are not a robot', 'login-designer' ) );
-								}
+							if ( in_array( 'invalid-input-response', $remote_body['error-codes'], true ) ) {
+								return new WP_Error( 'recaptcha', __( 'Please confirm you are not a robot', 'login-designer' ) );
 							}
 						}
 					}
@@ -191,14 +189,13 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 		 */
 		public function login_enqueue_scripts() {
 			$recaptcha_settings = get_option( 'login_designer_google_recaptcha', false );
-			if ( is_customize_preview() ) {
-				$this->validate_recaptcha( $recaptcha_settings );
-			} else {
-				$this->add_recaptcha();
+			if ( isset( $recaptcha_settings['enable_google_recaptcha'] ) && $recaptcha_settings['enable_google_recaptcha'] ) {
+				if ( is_customize_preview() ) {
+					$this->validate_recaptcha( $recaptcha_settings );
+				} else {
+					$this->add_recaptcha();
+				}
 			}
-			// phpcs:disable
-
-			// phpcs:enable
 		}
 
 		/**
@@ -340,10 +337,13 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 		 * Add google recaptcha field.
 		 */
 		public function add_google_recaptcha_field() {
-			if ( is_customize_preview() ) {
-				$this->add_recaptcha_for_verification();
-			} else {
-				$this->add_recaptcha_for_live_site();
+			$recaptcha_settings = get_option( 'login_designer_google_recaptcha', false );
+			if ( isset( $recaptcha_settings['enable_google_recaptcha'] ) && $recaptcha_settings['enable_google_recaptcha'] ) {
+				if ( is_customize_preview() ) {
+					$this->add_recaptcha_for_verification();
+				} else {
+					$this->add_recaptcha_for_live_site();
+				}
 			}
 		}
 
@@ -374,6 +374,10 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 							update_option( 'login_designer', $json_to_array['login_designer'] );
 						}
 						if ( isset( $json_to_array['settings'] ) ) {
+							$previous_settings = get_option( 'login_designer_settings', array() );
+							if ( isset( $previous_settings['login_designer_page'] ) ) {
+								$json_to_array['settings']['login_designer_page'] = $previous_settings['login_designer_page'];
+							}
 							update_option( 'login_designer_settings', $json_to_array['settings'] );
 						}
 						if ( isset( $json_to_array['language_translator'] ) ) {

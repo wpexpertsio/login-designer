@@ -21,7 +21,7 @@ $wp_customize->add_control(
 		array(
 			'type'        => 'login-designer-title',
 			'label'       => __( 'Rename Login Page', 'login-designer' ),
-			'description' => esc_attr__( 'some description', 'login-designer' ),
+			'description' => esc_attr__( 'The Hide/Rename option lets you change the URL of the login page to something more uncommon, which prevents spammers from hacking your website.', 'login-designer' ),
 			'section'     => 'login_designer__section--rename-login-page',
 		)
 	)
@@ -43,7 +43,7 @@ $wp_customize->add_control(
 			'label'       => __( 'Rename Login Page', 'login-designer' ),
 			'description' => esc_attr__( 'The Hide/Rename option lets you change the URL of the login page to something more uncommon, which prevents spammers from hacking your website.', 'login-designer' ),
 			'section'     => 'login_designer__section--rename-login-page',
-			'image_src'   => esc_url( LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/dummy.gif' ),
+			'image_src'   => esc_url( LOGIN_DESIGNER_PLUGIN_URL . 'assets/images/rename-login-page.jpg' ),
 		)
 	)
 );
