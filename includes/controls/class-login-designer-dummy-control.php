@@ -49,7 +49,7 @@ if ( ! class_exists( 'Login_Designer_Dummy_Control' ) ) {
 		 */
 		protected function content_template() {
 			?>
-			<a draggable="false" href="#" style="font-size: 17px;" target="_blank">
+			<a draggable="false" href="https://logindesigner.com/#pricing" style="font-size: 17px;" target="_blank">
 				<?php esc_attr_e( 'Upgrade To Pro', 'login-designer' ); ?>
 				<i style="vertical-align: baseline;width: auto;height: auto;" class="dashicons dashicons-external"></i>
 				<img style="margin-top: 10px" draggable="false" src="{{ data.image_src }}" alt="#">
