@@ -1432,4 +1432,22 @@
 		} );
 	} );
 
+	$.each( [
+		'login_designer[username_label]',
+		'login_designer[field_font]',
+		'login_designer[remember_font]',
+		'login_designer[button_font]',
+		'login_designer[below_font]',
+	], function( _index_, _control_ ) {
+		wp.customize( _control_, function( _value_ ) {
+			_value_.bind( function( _to_ ) {
+				if ( 'default' === _to_ ) {
+					return;
+				}
+
+				$( '#login-designer-localize-google-fonts', window.parent.document ).removeAttr( 'disabled' );
+			} );
+		} );
+	} );
+
 } )( jQuery );

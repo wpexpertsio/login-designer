@@ -78,6 +78,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-file-import-button-control.php';
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-dummy-control.php';
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-test-recaptcha.php';
+			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-localize-google-fonts.php';
 
 			// Register the control types that we're using as JavaScript controls.
 			if ( class_exists( 'Login_Designer_Toggle_Control' ) ) {
@@ -101,6 +102,10 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 			if ( class_exists( 'Login_Designer_Test_Recaptcha' ) ) {
 				$wp_customize->register_control_type( 'Login_Designer_Test_Recaptcha' );
+			}
+
+			if ( class_exists( 'Login_Designer_Localize_Google_Fonts' ) ) {
+				$wp_customize->register_control_type( 'Login_Designer_Localize_Google_Fonts' );
 			}
 
 			// Get the default options.
@@ -268,6 +273,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/login-error-messages.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/google-recaptcha.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/import-export-settings.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/google-fonts.php';
 
 			do_action(
 				'login_designer_customizer_control',

@@ -42,10 +42,28 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 			add_action( 'wp_ajax_login_designer_import_json', array( $this, 'login_designer_import_json' ) );
 
+			add_filter( 'gettext', array( $this, 'change_addons_to_get_pro' ), 9555520000000, 3 );
+
 			/**
 			 * Google recaptcha settings action
 			 */
 			$this->adding_google_recaptcha_functionality();
+		}
+
+		/**
+		 * Change addons to Get Pro
+		 *
+		 * @param string $translated_text Translated text.
+		 * @param string $text            Text.
+		 * @param string $domain          Domain.
+		 *
+		 * @return string
+		 */
+		public function change_addons_to_get_pro( $translated_text, $text, $domain ) {
+			if ( 'Add-Ons' === $text && 'freemius' === $domain ) {
+				return __( '⭐ Get Pro', 'login-designer' );
+			}
+			return $translated_text;
 		}
 
 		/**
@@ -58,6 +76,9 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 			add_action( 'login_form', array( $this, 'add_google_recaptcha_field' ) );
 			add_filter( 'wp_authenticate_user', array( $this, 'add_google_recaptcha_authentication' ) );
 			add_action( 'login_enqueue_scripts', array( $this, 'login_enqueue_scripts' ) );
+
+			add_action( 'wp_ajax_login_designer_localize_google_fonts', array( $this, 'download_fonts' ), -1 );
+			add_action( 'wp_ajax_nopriv_login_designer_localize_google_fonts', array( $this, 'download_fonts' ), -1 );
 		}
 
 		/**
@@ -196,6 +217,33 @@ if ( ! class_exists( 'Login_Designer_Features' ) ) {
 					$this->add_recaptcha();
 				}
 			}
+		}
+
+		/**
+		 * Download fonts
+		 */
+		public function download_fonts() {
+			if ( isset( $_POST['_wpnonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'login-designer-google-fonts' ) ) {
+				$login_designer_output = new Login_Designer_Customizer_Output();
+				if ( empty( $login_designer_output->fonts() ) ) {
+					wp_send_json_error(
+						'No fonts selected',
+						400
+					);
+				}
+				$fonts_url = ( new Login_Designer_Fonts_Downloader( $login_designer_output->fonts() ) )->download_fonts();
+				update_option( 'login_designer_fonts_url', $fonts_url );
+
+				wp_send_json_success(
+					'Fonts localized successfully',
+					201
+				);
+			}
+
+			wp_send_json_error(
+				'nonce verification failed',
+				401
+			);
 		}
 
 		/**

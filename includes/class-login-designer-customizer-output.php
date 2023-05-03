@@ -301,7 +301,12 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		 * Register Google fonts from the Customizer.
 		 */
 		public function enqueue_fonts() {
-			wp_enqueue_style( 'login-designer-fonts', $this->fonts(), array(), LOGIN_DESIGNER_VERSION );
+			$css_url = get_option( 'login_designer_fonts_url', false );
+
+			if ( empty( $css_url ) ) {
+				$css_url = $this->fonts();
+			}
+			wp_enqueue_style( 'login-designer-fonts', $css_url, array(), LOGIN_DESIGNER_VERSION );
 		}
 
 		/**

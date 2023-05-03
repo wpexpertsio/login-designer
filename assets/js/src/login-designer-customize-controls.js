@@ -173,7 +173,7 @@
 				} else if ( to === 'bg_08' ) {
 					color = '#4b2d3f';
 				} else if ( to === 'bg_09' ) {
-					color = '#ed4844';
+					color = '#ffffff';
 				} else {
 					color = '#f1f1f1';
 				}
