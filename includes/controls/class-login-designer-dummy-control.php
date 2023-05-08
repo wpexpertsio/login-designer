@@ -46,18 +46,21 @@ if ( ! class_exists( 'Login_Designer_Dummy_Control' ) ) {
 
 		/**
 		 * Content Template
+		 *
+		 * @throws Freemius_Exception Exception.
 		 */
 		protected function content_template() {
-			$purchase_url = add_query_arg(
-				array(
-					'checkout'      => 'true',
-					'billing_cycle' => 'annual',
-					'plugin_id'     => 12553,
-					'pricing_id'    => 24612,
-					'page'          => 'login-designer-pricing',
-				),
-				admin_url( 'themes.php' )
-			);
+			$purchase_url = 'https://logindesigner.com/#pricing';
+			if ( ! ld_fs()->is_plugin_activation() ) {
+				$purchase_url = ld_fs()->checkout_url(
+					'annual',
+					false,
+					array(
+						'pricing_id' => 24612,
+						'plugin_id'  => 12553,
+					)
+				);
+			}
 			?>
 			<a draggable="false" href="<?php echo esc_url( $purchase_url ); ?>" style="font-size: 17px;" target="_blank">
 				<?php esc_attr_e( 'Upgrade To Pro', 'login-designer' ); ?>
