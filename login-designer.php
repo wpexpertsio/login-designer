@@ -219,7 +219,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		public function options_page() {
-			add_theme_page( esc_html__( 'Login Designer', 'login-designer' ), esc_html__( 'Login Designer', 'login-designer' ), 'manage_options', 'login-designer', array( $this, 'login_designer' ) );
+			add_theme_page( esc_html__( 'Login Designer', 'login-designer' ), esc_html__( 'Login Designer', 'login-designer' ), 'manage_options', 'login-designer', array( $this, 'login_designer_page' ) );
 			if ( class_exists( 'Login_Designer_Password_Protected' ) ) {
 				add_theme_page( esc_html__( 'Password Protected', 'login-designer' ), esc_html__( 'Password Protected', 'login-designer' ), 'manage_options', 'password-protected-designer', '__return_null' );
 			}
@@ -228,7 +228,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		/**
 		 * Get the Login Designer page.
 		 */
-		public function login_designer() {
+		public function login_designer_page() {
 
 			$button_url = add_query_arg(
 				array(

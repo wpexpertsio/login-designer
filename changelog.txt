@@ -1,3 +1,14 @@
+= 1.6 05/09/2023 =
+### Enhancements
+* FIXED: The background color issue was fixed for the default template.
+* NEW: Added Feedback SDK to improve the plugin.
+* NEW: Added option to import Google fonts locally to resolve GDPR-related concern.
+
+= 1.5 03/07/2023 =
+### Improvement
+* NEW - Hide/Show 'Remember me?' option on login form
+* Improved code structure to make it more developer friendly
+
 = 1.4.2 =
 ### Enhancements
 * NEW: Added functionality to hide/display remember me.

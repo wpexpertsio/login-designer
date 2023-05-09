@@ -15,6 +15,8 @@ Login Designer is the best way to style a custom login page for your WordPress l
 
 == Description ==
 
+[ðŸ‘‰ Demo - Give it a try](https://tastewp.com/new/?pre-installed-plugin-slug=login-designer&ni=true)
+
 Login Designer is the most versatile login page customizer plugin for WordPress with options to customize the style of the login page layout to the last detail. Your website visitors will feel like the page is custom-made from scratch.
 
 Save yourself time and effort by choosing from predefined templates that come with ready-made layouts and customization options for colors, images, fonts, labels, and other details. The process is quick, easy, and fun - User-friendly for both beginners and advanced users.
@@ -153,7 +155,7 @@ Please reach out via the official [plugin support forum](https://wordpress.org/s
 
 == Changelog ==
 
-= 1.6 05/08/2023 =
+= 1.6 05/09/2023 =
 ### Enhancements
 * FIXED: The background color issue was fixed for the default template.
 * NEW: Added Feedback SDK to improve the plugin.
