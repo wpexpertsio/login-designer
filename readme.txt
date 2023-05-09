@@ -7,7 +7,7 @@ Tags: login, custom login, customize wordpress login, wordpress login, customize
 Requires at least: 4.7
 Tested up to: 6.1.1
 Requires PHP: 5.2.4
-Stable tag: 1.6
+Stable tag: 1.6.1
 License: GPL-3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -154,6 +154,10 @@ Yes! Login Design is deployed with full translation and localization support via
 Please reach out via the official [plugin support forum](https://wordpress.org/support/plugin/login-designer).
 
 == Changelog ==
+
+= 1.6.1 05/09/2023 =
+### Bug Fixes
+FIXED: Conflict with PHP versions equal to or less than 7.4 has been resolved.
 
 = 1.6 05/09/2023 =
 ### Enhancements
