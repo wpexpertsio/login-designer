@@ -30,6 +30,10 @@ if ( ! is_customize_preview() ) {
 	wp_safe_redirect( $logindesigner_url );
 }
 
+if ( class_exists( "\\Razzi\\Header" ) ) {
+    remove_action( 'wp_footer', array( \Razzi\Header::instance(), 'menu_mobile_modal' )  );
+}
+
 /**
  * Output the login page header.
  *

@@ -5,7 +5,7 @@ Contributors: wpexpertsio
 Donate link: https://logindesigner.com
 Tags: login, custom login, customize wordpress login, wordpress login, customizer, custom admin, login logo, logo, login customizer
 Requires at least: 4.7
-Tested up to: 6.1.1
+Tested up to: 6.2
 Requires PHP: 5.2.4
 Stable tag: 1.6.1
 License: GPL-3.0
@@ -15,7 +15,7 @@ Login Designer is the best way to style a custom login page for your WordPress l
 
 == Description ==
 
-[ðŸ‘‰ Demo - Give it a try](https://tastewp.com/new/?pre-installed-plugin-slug=login-designer&ni=true)
+[👉 Demo - Give it a try](https://tastewp.com/new/?pre-installed-plugin-slug=login-designer&ni=true)
 
 Login Designer is the most versatile login page customizer plugin for WordPress with options to customize the style of the login page layout to the last detail. Your website visitors will feel like the page is custom-made from scratch.
 
