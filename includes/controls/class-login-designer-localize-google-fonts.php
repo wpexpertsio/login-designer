@@ -72,7 +72,13 @@ if ( ! class_exists( 'Login_Designer_Localize_Google_Fonts' ) && class_exists( '
 
 				<div id="login-designer-google-fonts-response"></div>
 
-				<div class="notice notice-warning">
+				<div style="background: #fff;
+	border: 1px solid #c3c4c7;
+	border-left-width: 4px;
+	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	margin: 5px 15px 2px;
+	padding: 1px 12px;
+    border-left-color: #dba617;" class="">
 					<p>{{ data.message }}</p>
 
 					<span id="login-designer-google-fonts-spinner" class="spinner"></span>

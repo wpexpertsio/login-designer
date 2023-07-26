@@ -23,6 +23,10 @@ if ( ! is_customize_preview() ) {
 	wp_safe_redirect( $url );
 }
 
+if ( class_exists( "\\Razzi\\Header" ) ) {
+    remove_action( 'wp_footer', array( \Razzi\Header::instance(), 'menu_mobile_modal' )  );
+}
+
 // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
 global $wp_version, $Password_Protected, $error, $is_iphone;
 
