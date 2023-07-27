@@ -23,6 +23,10 @@ if ( ! is_customize_preview() ) {
 	wp_safe_redirect( $url );
 }
 
+/**
+ * Removing action hook to fix conflict with Razzi theme.
+ * @since 1.6.3
+ */
 if ( class_exists( "\\Razzi\\Header" ) ) {
     remove_action( 'wp_footer', array( \Razzi\Header::instance(), 'menu_mobile_modal' )  );
 }
