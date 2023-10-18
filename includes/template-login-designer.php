@@ -215,7 +215,7 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 						<label for="rememberme">
 							<span class="login-designer--ripple-effect-remember-field"></span>
 							<span id="login-designer-remember-hover" class="login-designer--username-svg-hover-display"></span>
-							<input name="rememberme" type="checkbox" id="rememberme" value="forever" />
+							<input name="rememberme" type="checkbox" id="rememberme" value="forever" checked />
 							<?php esc_html_e( 'Remember Me' ); ?>
 							<span id="login-designer-remember-label-hover" class="login-designer--username-svg-hover-display"></span>
 						</label>

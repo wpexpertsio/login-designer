@@ -501,7 +501,7 @@
 	wp.customize( 'login_designer[field_margin_bottom]', function( value ) {
 		value.bind( function( to ) {
 			var style, el;
-			style = '<style class="login_designer_field_margin_bottom"> #login-designer--username { margin-bottom: ' + to + 'px; } </style>';
+			style = '<style class="login_designer_field_margin_bottom"> #login-designer--username, #login-designer--password { margin-bottom: ' + to + 'px; } </style>';
 
 			el =  $( '.login_designer_field_margin_bottom' );
 
@@ -1403,5 +1403,51 @@
 		} );
 	} );
 
+	wp.customize( 'login_designer_google_recaptcha[recaptcha_version]', function( value ) {
+		value.bind( function( to ) {
+			jQuery( '#test-recaptcha', window.parent.document ).removeAttr( 'disabled' ).show();
+			jQuery( '#validate-recaptcha', window.parent.document ).remove();
+
+			if ( 2 === parseInt( to ) ) {
+				jQuery( '#recaptcha-validation-success', window.parent.document ).html( '<p>Please complete the reCaptcha on the right screen and press validate and save.</p>' );
+				jQuery( '#test-recaptcha', window.parent.document ).text( 'Render Recaptcha' );
+			} else {
+				jQuery( '#recaptcha-validation-success', window.parent.document ).empty();
+				jQuery( '#test-recaptcha', window.parent.document ).text( 'Validate and Save' );
+			}
+		} );
+	} );
+
+	wp.customize( 'login_designer_google_recaptcha[google_recaptcha_api_key]', function( value ) {
+		value.bind( function( to ) {
+			jQuery( '#test-recaptcha', window.parent.document ).removeAttr( 'disabled' ).show();
+			jQuery( '#validate-recaptcha', window.parent.document ).remove();
+		} );
+	} );
+
+	wp.customize( 'login_designer_google_recaptcha[google_recaptcha_secrete_key]', function( value ) {
+		value.bind( function( to ) {
+			jQuery( '#test-recaptcha', window.parent.document ).removeAttr( 'disabled' ).show();
+			jQuery( '#validate-recaptcha', window.parent.document ).remove();
+		} );
+	} );
+
+	$.each( [
+		'login_designer[username_label]',
+		'login_designer[field_font]',
+		'login_designer[remember_font]',
+		'login_designer[button_font]',
+		'login_designer[below_font]',
+	], function( _index_, _control_ ) {
+		wp.customize( _control_, function( _value_ ) {
+			_value_.bind( function( _to_ ) {
+				if ( 'default' === _to_ ) {
+					return;
+				}
+
+				$( '#login-designer-localize-google-fonts', window.parent.document ).removeAttr( 'disabled' );
+			} );
+		} );
+	} );
 
 } )( jQuery );

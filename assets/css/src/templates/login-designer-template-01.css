@@ -77,11 +77,15 @@ body.login.login-designer-template-01 #lostpasswordform .submit .button {
     bottom: 0;
     height: 100%;
     left: 580px;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     width: 100%;
     width: calc(100% - 580px);
     z-index: 0;
   }
+}
+
+body,html {
+  height: auto !important;
 }

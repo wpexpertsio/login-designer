@@ -46,72 +46,84 @@ if ( ! class_exists( 'Login_Designer_Password_Protected' ) ) {
 		 * Password protected head
 		 */
 		public function password_protected_head() {
-			$label_font             = password_protected_get_option( 'label_font' );
-			$remember_font          = password_protected_get_option( 'remember_font' );
-			$button_font            = password_protected_get_option( 'button_font' );
-			$disable_logo           = password_protected_get_option( 'disable_logo' );
-			$logo_width             = password_protected_get_option( 'logo_width' );
-			$logo_height            = password_protected_get_option( 'logo_height' );
-			$logo                   = password_protected_get_option( 'logo' );
-			$label_font_size        = password_protected_get_option( 'label_font_size' );
-			$label_position         = password_protected_get_option( 'label_position' );
-			$label_color            = password_protected_get_option( 'label_color' );
-			$field_background_color = password_protected_get_option( 'field_background_color', '#ffffff' );
-			$field_border           = password_protected_get_option( 'field_border' );
-			$field_border_color     = password_protected_get_option( 'field_border_color' );
-			$field_margin_bottom    = password_protected_get_option( 'field_margin_bottom' );
-			$field_side_padding     = password_protected_get_option( 'field_side_padding' );
-			$field_padding_top      = password_protected_get_option( 'field_padding_top' );
-			$field_padding_bottom   = password_protected_get_option( 'field_padding_bottom' );
-			$field_radius           = password_protected_get_option( 'field_radius' );
-			$field_shadow           = password_protected_get_option( 'field_shadow' );
-			$field_shadow_opacity   = (int) password_protected_get_option( 'field_shadow_opacity', 1 );
-			$field_shadow_opacity   = $field_shadow_opacity * .01;
-			$field_shadow_inset     = password_protected_get_option( 'field_shadow_inset' );
-			$field_font_size        = password_protected_get_option( 'field_font_size' );
-			$field_color            = password_protected_get_option( 'field_color' );
-			$field_shadow_inset     = $field_shadow_inset ? 'inset' : '';
-			$checkbox_size          = password_protected_get_option( 'checkbox_size' );
-			$checkbox_bg            = password_protected_get_option( 'checkbox_bg' );
-			$checkbox_border        = password_protected_get_option( 'checkbox_border' );
-			$checkbox_border_color  = password_protected_get_option( 'checkbox_border_color' );
-			$checkbox_radius        = password_protected_get_option( 'checkbox_radius' );
-			$remember_font_size     = password_protected_get_option( 'remember_font_size' );
-			$remember_position      = password_protected_get_option( 'remember_position' );
-			$remember_color         = password_protected_get_option( 'remember_color' );
-			$button_bg              = password_protected_get_option( 'button_bg' );
-			$button_border          = password_protected_get_option( 'button_border' );
-			$button_border_color    = password_protected_get_option( 'button_border_color' );
-			$button_side_padding    = password_protected_get_option( 'button_side_padding' );
-			$button_padding_top     = password_protected_get_option( 'button_padding_top' );
-			$button_padding_bottom  = password_protected_get_option( 'button_padding_bottom' );
-			$button_radius          = password_protected_get_option( 'button_radius' );
-			$button_shadow          = password_protected_get_option( 'button_shadow' );
-			$button_shadow_opacity  = password_protected_get_option( 'button_shadow_opacity', 1 );
-			$button_shadow_opacity  = (int) $button_shadow_opacity * .01;
-			$button_font_size       = password_protected_get_option( 'button_font_size' );
-			$button_color           = password_protected_get_option( 'button_color' );
-			$form_bg                = password_protected_get_option( 'form_bg' );
-			$form_radius            = password_protected_get_option( 'form_radius' );
-			$form_shadow            = password_protected_get_option( 'form_shadow' );
-			$form_shadow_opacity    = password_protected_get_option( 'form_shadow_opacity', 1 );
-			$form_shadow_opacity    = (int) $form_shadow_opacity * .01;
-			$form_side_padding      = password_protected_get_option( 'form_side_padding' );
-			$form_bg_transparency   = password_protected_get_option( 'form_bg_transparency' );
-			$form_vertical_padding  = password_protected_get_option( 'form_vertical_padding' );
-			$form_width             = password_protected_get_option( 'form_width' );
-			$bg_image               = password_protected_get_option( 'bg_image' );
-			$bg_image_gallery       = password_protected_get_option( 'bg_image_gallery' );
-			$bg_repeat              = password_protected_get_option( 'bg_repeat' );
-			$bg_size                = password_protected_get_option( 'bg_size' );
-			$bg_attach              = password_protected_get_option( 'bg_attach' );
-			$bg_position            = password_protected_get_option( 'bg_position' );
-			$bg_color               = password_protected_get_option( 'bg_color' );
+			$label_font                  = password_protected_get_option( 'label_font' );
+			$remember_font               = password_protected_get_option( 'remember_font' );
+			$button_font                 = password_protected_get_option( 'button_font' );
+			$disable_logo                = password_protected_get_option( 'disable_logo' );
+			$logo_width                  = password_protected_get_option( 'logo_width' );
+			$logo_height                 = password_protected_get_option( 'logo_height' );
+			$logo                        = password_protected_get_option( 'logo' );
+			$label_font_size             = password_protected_get_option( 'label_font_size' );
+			$label_position              = password_protected_get_option( 'label_position' );
+			$label_color                 = password_protected_get_option( 'label_color' );
+			$field_background_color      = password_protected_get_option( 'field_background_color', '#ffffff' );
+			$field_border                = password_protected_get_option( 'field_border' );
+			$field_border_color          = password_protected_get_option( 'field_border_color' );
+			$field_margin_bottom         = password_protected_get_option( 'field_margin_bottom' );
+			$field_side_padding          = password_protected_get_option( 'field_side_padding' );
+			$field_padding_top           = password_protected_get_option( 'field_padding_top' );
+			$field_padding_bottom        = password_protected_get_option( 'field_padding_bottom' );
+			$field_radius                = password_protected_get_option( 'field_radius' );
+			$field_shadow                = password_protected_get_option( 'field_shadow' );
+			$field_shadow_opacity        = (int) password_protected_get_option( 'field_shadow_opacity', 1 );
+			$field_shadow_opacity        = $field_shadow_opacity * .01;
+			$field_shadow_inset          = password_protected_get_option( 'field_shadow_inset' );
+			$field_font_size             = password_protected_get_option( 'field_font_size' );
+			$field_color                 = password_protected_get_option( 'field_color' );
+			$field_shadow_inset          = $field_shadow_inset ? 'inset' : '';
+			$checkbox_size               = password_protected_get_option( 'checkbox_size' );
+			$checkbox_bg                 = password_protected_get_option( 'checkbox_bg' );
+			$checkbox_border             = password_protected_get_option( 'checkbox_border' );
+			$checkbox_border_color       = password_protected_get_option( 'checkbox_border_color' );
+			$checkbox_radius             = password_protected_get_option( 'checkbox_radius' );
+			$remember_font_size          = password_protected_get_option( 'remember_font_size' );
+			$remember_position           = password_protected_get_option( 'remember_position' );
+			$remember_color              = password_protected_get_option( 'remember_color' );
+			$button_bg                   = password_protected_get_option( 'button_bg' );
+			$button_border               = password_protected_get_option( 'button_border' );
+			$button_border_color         = password_protected_get_option( 'button_border_color' );
+			$button_side_padding         = password_protected_get_option( 'button_side_padding' );
+			$button_padding_top          = password_protected_get_option( 'button_padding_top' );
+			$button_padding_bottom       = password_protected_get_option( 'button_padding_bottom' );
+			$button_radius               = password_protected_get_option( 'button_radius' );
+			$button_shadow               = password_protected_get_option( 'button_shadow' );
+			$button_shadow_opacity       = password_protected_get_option( 'button_shadow_opacity', 1 );
+			$button_shadow_opacity       = (int) $button_shadow_opacity * .01;
+			$button_font_size            = password_protected_get_option( 'button_font_size' );
+			$button_color                = password_protected_get_option( 'button_color' );
+			$form_bg                     = password_protected_get_option( 'form_bg' );
+			$form_radius                 = password_protected_get_option( 'form_radius' );
+			$form_shadow                 = password_protected_get_option( 'form_shadow' );
+			$form_shadow_opacity         = password_protected_get_option( 'form_shadow_opacity', 1 );
+			$form_shadow_opacity         = (int) $form_shadow_opacity * .01;
+			$form_side_padding           = password_protected_get_option( 'form_side_padding' );
+			$form_bg_transparency        = password_protected_get_option( 'form_bg_transparency' );
+			$form_vertical_padding       = password_protected_get_option( 'form_vertical_padding' );
+			$form_width                  = password_protected_get_option( 'form_width' );
+			$bg_image                    = password_protected_get_option( 'bg_image' );
+			$bg_image_gallery            = password_protected_get_option( 'bg_image_gallery' );
+			$bg_repeat                   = password_protected_get_option( 'bg_repeat' );
+			$bg_size                     = password_protected_get_option( 'bg_size' );
+			$bg_attach                   = password_protected_get_option( 'bg_attach' );
+			$bg_position                 = password_protected_get_option( 'bg_position' );
+			$bg_color                    = password_protected_get_option( 'bg_color' );
+			$text_bellow_label_font_size = password_protected_get_option( 'password_below_password_font_size', 14 );
+			$text_bellow_label_color     = password_protected_get_option( 'password_below_password_color', '#72777c' );
+			$text_bellow_label_font      = password_protected_get_option( 'password_below_password_font', 'default' );
+			$text_bellow_position        = password_protected_get_option( 'password_below_password_position', 0 );
+			$text_bellow_label_align     = password_protected_get_option( 'password_below_password_alignment', 'center' );
 
-			// phpcs:disable WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
-			// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-			// echo '<link rel="stylesheet" type="text/css" href="' . $this->fonts( $password_protected_styles ) . '"/>';
-			// phpcs:enable
+			$password_protected_styles = array(
+				'label_font'    => $label_font,
+				'remember_font' => $remember_font,
+				'button_font'   => $button_font,
+				'bellow_font'   => $text_bellow_label_font,
+			);
+
+//			 phpcs:disable WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
+//			 phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+			 echo '<link rel="stylesheet" type="text/css" href="' . $this->fonts( $password_protected_styles ) . '"/>';
+//			 phpcs:enable
 
 			$css = '';
 
@@ -249,6 +261,24 @@ if ( ! class_exists( 'Login_Designer_Password_Protected' ) ) {
 				background-color: ' . sanitize_hex_color( $bg_color ) . ';
 			}';
 
+			$css .= '
+			.password-protected-text-below,
+			.password-protected-text-above {
+				font-size: ' . esc_attr( $text_bellow_label_font_size ) . 'px;
+				color: ' . sanitize_hex_color( $text_bellow_label_color ) . ';
+				font-family: ' . esc_attr( $text_bellow_label_font ) . ';
+				text-align: ' . esc_attr( $text_bellow_label_align ) . ';
+			}
+
+			.password-protected-text-below {
+				margin-top: ' . esc_attr( $text_bellow_position ) . 'px;
+			}
+
+			.password-protected-text-above {
+				margin-bottom: ' . esc_attr( $text_bellow_position ) . 'px;
+			}
+			';
+
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo '<style>' . $css . '</style>';
 		}
@@ -265,6 +295,7 @@ if ( ! class_exists( 'Login_Designer_Password_Protected' ) ) {
 			$label_font    = $fonts_names['label_font'];
 			$remember_font = $fonts_names['remember_font'];
 			$button_font   = $fonts_names['button_font'];
+			$bellow_font   = $fonts_names['bellow_font'];
 
 			if ( $label_font ) {
 				if ( 'default' !== $label_font ) {
@@ -281,6 +312,12 @@ if ( ! class_exists( 'Login_Designer_Password_Protected' ) ) {
 			if ( $button_font ) {
 				if ( 'default' !== $button_font ) {
 					$fonts[] = $button_font;
+				}
+			}
+
+			if ( $bellow_font ) {
+				if ( 'default' !== $bellow_font ) {
+					$fonts[] = $bellow_font;
 				}
 			}
 

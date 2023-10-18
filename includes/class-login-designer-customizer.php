@@ -77,6 +77,8 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-license-control.php';
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-file-import-button-control.php';
 			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-dummy-control.php';
+			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-test-recaptcha.php';
+			require_once LOGIN_DESIGNER_CUSTOMIZE_CONTROLS_DIR . 'class-login-designer-localize-google-fonts.php';
 
 			// Register the control types that we're using as JavaScript controls.
 			if ( class_exists( 'Login_Designer_Toggle_Control' ) ) {
@@ -96,6 +98,14 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			}
 			if ( class_exists( 'Login_Designer_Dummy_Control' ) ) {
 				$wp_customize->register_control_type( 'Login_Designer_Dummy_Control' );
+			}
+
+			if ( class_exists( 'Login_Designer_Test_Recaptcha' ) ) {
+				$wp_customize->register_control_type( 'Login_Designer_Test_Recaptcha' );
+			}
+
+			if ( class_exists( 'Login_Designer_Localize_Google_Fonts' ) ) {
+				$wp_customize->register_control_type( 'Login_Designer_Localize_Google_Fonts' );
 			}
 
 			// Get the default options.
@@ -206,7 +216,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 				)
 			);
 
-			if ( class_exists( 'Login_Designer_Password_Protected' ) ) {
+			if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
 				$this->password_protected_customizer( $wp_customize, $defaults, $admin_defaults );
 			}
 
@@ -263,6 +273,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/login-error-messages.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/google-recaptcha.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/import-export-settings.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/google-fonts.php';
 
 			do_action(
 				'login_designer_customizer_control',
@@ -457,14 +468,16 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 
 			/**
 			 * Things todo ↴
-			1 todo Logo section.
-			2 todo label section.
-			3 todo field section.
-			4 todo remember checkbox section.
-			5 todo remember label section.
-			6 todo login button section.
-			7 todo form background section.
-			8 todo body background section.
+			 * @todo Logo section.
+			 * @todo label section.
+			 * @todo field section.
+			 * @todo remember checkbox section.
+			 * @todo remember label section.
+			 * @todo login button section.
+			 * @todo form background section.
+			 * @todo body background section.
+			 * @todo above form section.
+			 * @todo below form section.
 			 */
 
 			// Logo section.
@@ -539,6 +552,15 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 				)
 			);
 
+			// Below form section.
+			$wp_customize->add_section(
+				'password_protected__section--above-bellow-form',
+				array(
+					'title' => esc_html__( 'Bellow Form', 'login-designer' ),
+					'panel' => 'password_protected',
+				)
+			);
+
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-logo.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-labels.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-fields.php';
@@ -547,6 +569,7 @@ if ( ! class_exists( 'Login_Designer_Customizer' ) ) :
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-remember.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-form.php';
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-background.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/settings/pp-form-above-bellow.php';
 		}
 
 		/**

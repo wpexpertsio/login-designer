@@ -125,9 +125,8 @@ if ( ! function_exists( 'login_designer_create_error_messages' ) ) {
 	 */
 	function login_designer_create_error_messages( $title, $message ) {
 		$error_header = '<strong>' . esc_attr( $title ) . '</strong>: ';
-		$error_footer = "<br />\r\n";
 
-		return $error_header . $message . $error_footer;
+		return $error_header . $message;
 	}
 }
 
@@ -200,33 +199,136 @@ if ( ! function_exists( 'password_protected_get_option' ) ) {
 	}
 }
 
-if ( ! function_exists( 'login_designer_is_plugin_active' ) ) {
+if ( ! function_exists( 'login_designer_upload_file_by_url' ) ) {
 	/**
-	 * Check is requested plugin is active or not.
+	 * Upload file by URL
 	 *
-	 * @param string $plugin_name Plugin Name.
+	 * @param string $url image file url.
+	 * @param string $title Attachment title.
 	 *
-	 * @return bool
+	 * @return false|int
 	 */
-	function login_designer_is_plugin_active( $plugin_name ) {
-		$active_plugin = false;
-		if ( is_multisite() ) {
-			if ( is_plugin_active_for_network( $plugin_name ) ) {
-				$active_plugin = true;
-			} else {
-				$active_plugin = in_array(
-					$plugin_name,
-					apply_filters( 'active_plugins', get_option( 'active_plugins' ) ),
-					true
-				);
-			}
-		} else {
-			$active_plugin = in_array(
-				$plugin_name,
-				apply_filters( 'active_plugins', get_option( 'active_plugins' ) ),
-				true
-			);
+	function login_designer_upload_file_by_url( $url, $title = '' ) {
+		require_once ABSPATH . '/wp-load.php';
+		require_once ABSPATH . '/wp-admin/includes/image.php';
+		require_once ABSPATH . '/wp-admin/includes/file.php';
+		require_once ABSPATH . '/wp-admin/includes/media.php';
+
+		// Download url to a temp file.
+		$tmp = download_url( $url );
+		if ( is_wp_error( $tmp ) ) {
+			return false;
 		}
-		return $active_plugin;
+
+		// Get the filename and extension ("photo.png" => "photo", "png").
+		$filename  = pathinfo( $url, PATHINFO_FILENAME );
+		$extension = pathinfo( $url, PATHINFO_EXTENSION );
+
+		// An extension is required or else WordPress will reject the upload.
+		if ( ! $extension ) {
+			// Look up mime type, example: "/photo.png" -> "image/png".
+			$mime = mime_content_type( $tmp );
+			$mime = is_string( $mime ) ? sanitize_mime_type( $mime ) : false;
+
+			// Only allow certain mime types because mime types do not always end in a valid extension (see the .doc example below).
+			$mime_extensions = array(
+				// mime_type         => extension (no period).
+				'text/plain'         => 'txt',
+				'text/csv'           => 'csv',
+				'application/msword' => 'doc',
+				'image/jpg'          => 'jpg',
+				'image/jpeg'         => 'jpeg',
+				'image/gif'          => 'gif',
+				'image/png'          => 'png',
+				'video/mp4'          => 'mp4',
+			);
+
+			if ( isset( $mime_extensions[ $mime ] ) ) {
+				// Use the mapped extension.
+				$extension = $mime_extensions[ $mime ];
+			} else {
+				// Could not identify extension.
+				wp_delete_file( $tmp );
+				return false;
+			}
+		}
+
+		// Upload by "sideloading": "the same way as an uploaded file is handled by media_handle_upload".
+		$args = array(
+			'name'     => "$filename.$extension",
+			'tmp_name' => $tmp,
+		);
+
+		// Do the upload.
+		$attachment_id = media_handle_sideload( $args, 0, $title );
+
+		// Cleanup temp file.
+		wp_delete_file( $tmp );
+
+		// Error uploading.
+		if ( is_wp_error( $attachment_id ) ) {
+			return false;
+		}
+
+		// Success, return attachment ID (int).
+		return (int) $attachment_id;
+	}
+}
+
+if ( ! function_exists( 'login_designer_verify_recaptcha_secret_key' ) ) {
+	/**
+	 * Verify recaptcha secret key.
+	 *
+	 * @param string $version Version.
+	 * @param string $site_key Site key.
+	 * @param string $secret_key Secret key.
+	 * @param string $response Response.
+	 */
+	function login_designer_verify_recaptcha_secret_key( $version, $site_key, $secret_key = false, $response = false ) {
+		if ( $secret_key && $response ) {
+			$verify = wp_remote_post(
+				'https://www.google.com/recaptcha/api/siteverify',
+				array(
+					'body' => array(
+						'secret'   => $secret_key,
+						'response' => $response,
+					),
+				)
+			);
+			$data   = wp_remote_retrieve_body( $verify );
+			$data   = json_decode( $data, true );
+
+			if ( isset( $data['success'] ) ) {
+				if ( $data['success'] ) {
+					update_option(
+						'login_designer_recaptcha_settings',
+						array(
+							'is_enabled' => true,
+							'site_key'   => $site_key,
+							'secret_key' => $secret_key,
+							'version'    => $version,
+						)
+					);
+					wp_send_json_success(
+						array(
+							'message'  => esc_html__( 'The verification is successfully completed.', 'login-designer' ),
+							'verified' => true,
+						),
+						200
+					);
+				} else {
+					$settings               = get_option( 'login_designer_recaptcha_settings', array() );
+					$settings['is_enabled'] = false;
+					update_option( 'login_designer_recaptcha_settings', $settings );
+					wp_send_json_error(
+						array(
+							'message'  => esc_html__( 'The reCaptcha verification failed. Please try again.', 'login-designer' ),
+							'verified' => false,
+						),
+						400
+					);
+				}
+			}
+		}
 	}
 }

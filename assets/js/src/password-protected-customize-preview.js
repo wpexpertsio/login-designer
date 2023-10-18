@@ -1367,4 +1367,37 @@
             }
         });
     });
+
+    wp.customize( 'password_protected[password_below_password_font_size]', function( value ) {
+        value.bind( function( to ) {
+            $( '.password-protected-text-below, .password-protected-text-above' )
+                .css( 'font-size', to + 'px' );
+        } );
+    } );
+
+    wp.customize( 'password_protected[password_below_password_position]', function( value ) {
+        value.bind( function( to ) {
+            $( '.password-protected-text-below' )
+                .css( 'margin-top', to + 'px' );
+
+            $( '.password-protected-text-above' )
+                .css( 'margin-bottom', to + 'px' );
+        } );
+    } );
+
+    wp.customize( 'password_protected[password_below_password_color]', function( value ) {
+        value.bind( function( to ) {
+            $( '.password-protected-text-below, .password-protected-text-above' )
+                .css( 'color', to );
+        } );
+    } );
+
+    wp.customize( 'password_protected[password_below_password_alignment]', function( value ) {
+        value.bind( function( to ) {
+            $( '.password-protected-text-below, .password-protected-text-above' )
+                .css( 'text-align', to );
+        } );
+    } );
+
+    live_font_family( 'password_protected[password_below_password_font]', '.password-protected-text-below, .password-protected-text-above' );
 } )( jQuery );

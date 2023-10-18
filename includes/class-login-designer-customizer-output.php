@@ -301,7 +301,12 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 		 * Register Google fonts from the Customizer.
 		 */
 		public function enqueue_fonts() {
-			wp_enqueue_style( 'login-designer-fonts', $this->fonts(), array(), LOGIN_DESIGNER_VERSION );
+			$css_url = get_option( 'login_designer_fonts_url', false );
+
+			if ( empty( $css_url ) ) {
+				$css_url = $this->fonts();
+			}
+			wp_enqueue_style( 'login-designer-fonts', $css_url, array(), LOGIN_DESIGNER_VERSION );
 		}
 
 		/**
@@ -593,10 +598,11 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				if ( isset( $options['logo'] ) ) {
 					$image = wp_get_attachment_image_src( $options['logo'], 'full' );
 
-					$width  = isset( $options['logo_width'] ) ? $options['logo_width'] : $image[1] / 2;
-					$height = isset( $options['logo_height'] ) ? $options['logo_height'] : $image[2] / 2;
+					if ( $image ) {
+						$width  = isset( $options['logo_width'] ) ? $options['logo_width'] : $image[1] / 2;
+						$height = isset( $options['logo_height'] ) ? $options['logo_height'] : $image[2] / 2;
 
-					$css .= '
+						$css .= '
 
 						#login h1 a { width: auto; }
 
@@ -627,6 +633,7 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 							width: ' . absint( $width ) . 'px !important;
 						}
 					';
+					}
 				}
 
 				// Logo display.
@@ -702,9 +709,9 @@ if ( ! class_exists( 'Login_Designer_Customizer_Output' ) ) :
 				// Field margin bottom.
 				if ( isset( $options['field_margin_bottom'] ) ) {
 					if ( is_customize_preview() ) {
-						$css .= '#login-designer--username { margin-bottom: ' . esc_attr( $options['field_margin_bottom'] ) . 'px }';
+						$css .= '#login-designer--username, #login-designer--password { margin-bottom: ' . esc_attr( $options['field_margin_bottom'] ) . 'px }';
 					} else {
-						$css .= '#login form #user_login { margin-bottom: ' . esc_attr( $options['field_margin_bottom'] ) . 'px; }';
+						$css .= '#login form #user_login, #login form .wp-pwd { margin-bottom: ' . esc_attr( $options['field_margin_bottom'] ) . 'px; }';
 					}
 				}
 

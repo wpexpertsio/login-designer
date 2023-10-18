@@ -7,7 +7,7 @@
  * Author URI:      https://logindesigner.com/
  * Text Domain:     login-designer
  * Domain Path:     /languages
- * Version:         1.4.3
+ * Version:         1.6.3 - Dev
  *
  * Login Designer is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'LOGIN_DESIGNER_VERSION', '1.4.3' );
+define( 'LOGIN_DESIGNER_VERSION', '1.6.2' );
 define( 'LOGIN_DESIGNER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'LOGIN_DESIGNER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'LOGIN_DESIGNER_PLUGIN_FILE', __FILE__ );
@@ -34,6 +34,8 @@ define( 'LOGIN_DESIGNER_CUSTOMIZE_SECTIONS_DIR', plugin_dir_path( __FILE__ ) . '
 define( 'LOGIN_DESIGNER_DEBUG', true );
 define( 'LOGIN_DESIGNER_HAS_PRO', false );
 define( 'LOGIN_DESIGNER_STORE_URL', 'https://logindesigner.com/' );
+
+require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/freemius.php';
 
 if ( ! class_exists( 'Login_Designer' ) ) :
 
@@ -122,17 +124,18 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		private function includes() {
-			if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
-				require_once ABSPATH . 'wp-admin/includes/plugin.php';
-			}
 			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/functions.php';
+
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-file-system.php';
+			require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-fonts-downloader.php';
+
 			if ( is_admin() ) {
 				require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/admin/class-login-designer-notices.php';
 				require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/admin/class-login-designer-feedback.php';
 				require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/migration.php';
 			}
 
-			if ( login_designer_is_plugin_active( 'password-protected/password-protected.php' ) ) {
+			if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
 				require_once LOGIN_DESIGNER_PLUGIN_DIR . 'includes/class-login-designer-password-protected.php';
 			}
 
@@ -216,10 +219,29 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 		 * @return void
 		 */
 		public function options_page() {
-			add_theme_page( esc_html__( 'Login Designer', 'login-designer' ), esc_html__( 'Login Designer', 'login-designer' ), 'manage_options', 'login-designer', '__return_null' );
+			add_theme_page( esc_html__( 'Login Designer', 'login-designer' ), esc_html__( 'Login Designer', 'login-designer' ), 'manage_options', 'login-designer', array( $this, 'login_designer_page' ) );
 			if ( class_exists( 'Login_Designer_Password_Protected' ) ) {
 				add_theme_page( esc_html__( 'Password Protected', 'login-designer' ), esc_html__( 'Password Protected', 'login-designer' ), 'manage_options', 'password-protected-designer', '__return_null' );
 			}
+		}
+
+		/**
+		 * Get the Login Designer page.
+		 */
+		public function login_designer_page() {
+
+			$button_url = add_query_arg(
+				array(
+					'autofocus[section]' => 'login_designer__section--templates',
+					'url'                => get_permalink( $this->get_login_designer_page() ),
+					'return'             => admin_url( 'index.php' ),
+				),
+				admin_url( 'customize.php' )
+			);
+			echo '<h3>'
+				. esc_attr__( 'If you have not been redirected automatically then click this button' ) .
+			'	<a href="' . esc_url( $button_url ) . '" class="button button-primary">' . esc_attr__( 'Login Designer', 'login-designer' ) . '</a>
+			</h3>';
 		}
 
 		/**
@@ -239,6 +261,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				array(
 					'autofocus[section]' => 'login_designer__section--templates',
 					'url'                => $page,
+					'return'             => admin_url( 'index.php' ),
 				),
 				admin_url( 'customize.php' )
 			);
@@ -252,7 +275,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				)
 			);
 
-			if ( class_exists( 'Login_Designer_Password_Protected' ) ) {
+			if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
 				$admin_bar->add_menu(
 					array(
 						'id'     => 'password-protected-item',
@@ -262,6 +285,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 							array(
 								'autofocus[panel]' => 'password_protected',
 								'url'              => get_permalink( Login_Designer_Password_Protected::get_password_protected_id() ),
+								'return'           => admin_url( 'index.php' ),
 							),
 							admin_url( 'customize.php' )
 						),
@@ -288,11 +312,14 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 					array(
 						'autofocus[section]' => 'login_designer__section--templates',
 						'url'                => rawurlencode( $page ),
+						'return'             => admin_url( 'index.php' ),
 					),
 					admin_url( 'customize.php' )
 				);
 
-				wp_safe_redirect( $url );
+				if ( ! ld_fs()->is_activation_mode() ) {
+					wp_safe_redirect( $url );
+				}
 			}
 
 			if ( isset( $_GET['page'] ) && 'password-protected-designer' === $_GET['page'] ) {
@@ -337,6 +364,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 				array(
 					'autofocus[section]' => 'login_designer__section--templates',
 					'url'                => rawurlencode( $page_url ),
+					'return'             => admin_url( 'index.php' ),
 				),
 				admin_url( 'customize.php' )
 			);
@@ -347,7 +375,7 @@ if ( ! class_exists( 'Login_Designer' ) ) :
 					wp_safe_redirect( $url );
 				}
 
-				if ( class_exists( 'Login_Designer_Password_Protected' ) ) {
+				if ( in_array( 'password-protected/password-protected.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
 					$page_id = Login_Designer_Password_Protected::get_password_protected_id();
 					if ( intval( $page_id ) === intval( $_GET['post'] ) ) {
 						$url = add_query_arg(

@@ -102,7 +102,28 @@ $wp_customize->add_control(
 	'login_designer_google_recaptcha[google_recaptcha_secrete_key]',
 	array(
 		'type'    => 'text',
-		'label'   => esc_attr__( 'Enter your Recaptcha Secrete Key', 'login-designer' ),
+		'label'   => esc_attr__( 'Enter your Recaptcha Secret Key', 'login-designer' ),
 		'section' => 'login_designer__section--google-recaptcha',
+	)
+);
+
+$wp_customize->add_setting(
+	'login_designer_google_recaptcha[test_site_and_secrete_key]',
+	array(
+		'type'              => 'option',
+		'sanitize_callback' => 'sanitize_text_field',
+		'transport'         => 'refresh',
+	)
+);
+
+$wp_customize->add_control(
+	new Login_Designer_Test_Recaptcha(
+		$wp_customize,
+		'login_designer_google_recaptcha[test_site_and_secrete_key]',
+		array(
+			'type'    => 'login-designer-test-recaptcha',
+			'label'   => esc_attr__( 'Test Site and Secret Key', 'login-designer' ),
+			'section' => 'login_designer__section--google-recaptcha',
+		)
 	)
 );

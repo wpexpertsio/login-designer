@@ -35,6 +35,13 @@ global $wp_version, $Password_Protected, $error, $is_iphone;
 	<meta <?php bloginfo( 'charset' ); ?>>
 	<title><?php bloginfo( 'name' ); ?></title>
 
+
+    <style media="screen">
+        #login_error, .login .message, #loginform { margin-bottom: 20px; }
+        .password-protected-text-below { display: inline-block; text-align: center; margin-top: 30px;}
+        .password-protected-text-above { text-align: center; margin-bottom: 10px;}
+    </style>
+
 	<?php
 	if ( version_compare( $wp_version, '3.9-dev', '>=' ) ) {
 		wp_admin_css( 'login', true );
@@ -82,7 +89,12 @@ $password = apply_filters( 'password_protected_login_password_title', __( 'Passw
 
 		<?php do_action( 'password_protected_before_login_form' ); ?>
 
+        <div style="display: table;clear: both;"></div>
+
 		<form method="post" id="password-protected-form">
+
+            <?php do_action( 'password_protected_above_password_field' ); ?>
+
 			<p>
 				<label for="password_protected_pass">
 					<span id="password-protected--password-label">
@@ -96,7 +108,7 @@ $password = apply_filters( 'password_protected_login_password_title', __( 'Passw
 
 
 			<p id="password-protected-forgetmenot">
-				<label for="password_protected_rememberme"><input name="password_protected_rememberme" type="checkbox" id="password_protected_rememberme" value="1" tabindex="90" /> <?php esc_attr_e( 'Remember Me' ); ?></label>
+				<label for="password_protected_rememberme"><input name="password_protected_rememberme" type="checkbox" id="password_protected_rememberme" value="1" tabindex="90" checked /> <?php esc_attr_e( 'Remember Me' ); ?></label>
 			</p>
 
 
@@ -105,6 +117,11 @@ $password = apply_filters( 'password_protected_login_password_title', __( 'Passw
 					<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php esc_attr_e( 'Log In' ); ?>" tabindex="100" />
 				</span>
 			</p>
+
+            <div style="display: table;clear: both;"></div>
+
+            <?php do_action( 'password_protected_below_password_field' ); ?>
+
 		</form>
 
 	</div>

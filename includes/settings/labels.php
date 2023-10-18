@@ -128,7 +128,7 @@ $wp_customize->add_control(
 		'login_designer[label_position]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Position', 'login-designer' ),
+			'label'       => esc_html__( 'Spacing', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['label_position'],

@@ -149,7 +149,7 @@ $wp_customize->add_control(
 		'login_designer[form_side_padding]',
 		array(
 			'type'        => 'login-designer-range',
-			'label'       => esc_html__( 'Side Padding', 'login-designer' ),
+			'label'       => esc_html__( 'Horizontal Padding', 'login-designer' ),
 			'section'     => 'login_designer__section--styles',
 			'description' => 'px',
 			'default'     => $defaults['form_side_padding'],

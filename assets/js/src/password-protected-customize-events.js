@@ -76,6 +76,12 @@
             'password_protected[form_vertical_padding]',
             'password_protected[form_width]',
         ],
+        'custom_text_for_password_field': [
+            'password_protected[password_below_password_font]',
+            'password_protected[password_below_password_font_size]',
+            'password_protected[password_below_password_position]',
+            'password_protected[password_below_password_color]',
+        ],
     };
 
     function active_control( section ) {
@@ -93,6 +99,10 @@
 
         all_controls.form_background.forEach( function( item, index, array ){
             control_visibility( all_controls.form_background, 'deactivate' );
+        } );
+
+        all_controls.custom_text_for_password_field.forEach( function( item, index, array ) {
+            control_visibility( all_controls.custom_text_for_password_field, 'deactivate' );
         } );
     }
 
@@ -279,6 +289,10 @@
 
                 } else if ( 'password_protected[password_label]' === item ) {
 
+                } else if ( 'password_protected[password_bellow_password_field]' === item ) {
+                    debugger;
+                } else if ( 'password_protected[password_above_password_field]' === item ) {
+                    debugger;
                 }
             }
         } );
@@ -295,7 +309,9 @@
                 submit_btn = 'password-protected-edit-button',
                 remember_cb = 'password-protected-edit-rememberme-checkbox',
                 rememberme = 'password-protected-edit-rememberme-label',
-                form_bg = 'password-protected-edit-form-background';
+                form_bg = 'password-protected-edit-form-background',
+                text_above_password_field = 'password-protected-edit-text-above',
+                text_below_password_field = 'password-protected-edit-text-below';
 
             function bind_control_visibility_event( event, active_controls, focus_control ){
                 api.PasswordProtectedCustomizerPreview.preview.bind( event, function(){
@@ -323,6 +339,8 @@
             bind_control_visibility_event( rememberme,   all_controls.remember_me, 'password_protected[remember_font]' );
             bind_control_visibility_event( remember_cb, all_controls.remember_cb, 'password_protected[checkbox_size]' );
             bind_control_visibility_event( form_bg, all_controls.form_background, 'password_protected[form_bg]' );
+            bind_control_visibility_event( text_above_password_field, all_controls.custom_text_for_password_field, 'password_protected[password_below_password_font]' );
+            bind_control_visibility_event( text_below_password_field, all_controls.custom_text_for_password_field, 'password_protected[password_below_password_font]' );
         }
     };
 
