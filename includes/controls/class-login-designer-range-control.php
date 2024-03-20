@@ -105,7 +105,7 @@ class Login_Designer_Range_Control extends WP_Customize_Control {
 
 			<div class="login-designer-range__value">
 				<span>{{ data.value }}</span>
-				<input id="range-{{ data.id }}" type="number" class="login-designer-range__number-input" value="{{ data.value }}" data-default-value="{{ data.defaultValue }}" {{{ data.link }}} <# if ( data.value ) { #> checked="checked" <# } #> />
+				<input id="range-{{ data.id }}" type="number" class="login-designer-range__number-input" value="{{ data.value }}" data-default-value="{{ data.defaultValue }}" {{{ data.link }}} <# if ( data.value ) { #> checked="checked" <# } #> readonly="readonly" />
 				<# if ( data.description ) { #>
 					<em>{{ data.description }}</em>
 				<# } #>

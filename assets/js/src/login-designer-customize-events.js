@@ -86,6 +86,7 @@
 			'login_designer[remember_font]',
 			'login_designer[remember_font_size]',
 			'login_designer[remember_position]',
+			'login_designer[remember_hide]',
 		],
 		'checkbox' : [
 			'login_designer[checkbox_title]',
@@ -152,7 +153,7 @@
 	 *
 	 * Parent option, Affected Control, Value which affects the control.
 	 */
-	function customizer_image_option_display( parent_setting, affected_control ) {
+	function customizer_image_option_display( parent_setting, affected_control, custom_logic ) {
 		wp.customize( parent_setting, function( setting ) {
 			wp.customize.control( affected_control, function( control ) {
 				var visibility = function() {
@@ -162,6 +163,17 @@
 					} else {
 						control.container.slideUp( 0 );
 						control.deactivate( { duration: 0 } );
+					}
+
+					if ( custom_logic ) {
+						if ( 'cover' === wp.customize( 'login_designer[bg_size]' ).get() ) {
+							console.log( 'clicked' )
+							control.activate( { duration: 0 } );
+							control.container.slideUp( 0 );
+						} else {
+							control.container.slideDown( 0 );
+							control.deactivate( { duration: 0 } );
+						}
 					}
 				};
 
@@ -265,7 +277,7 @@
 
 		controls.forEach( function( item, index, array ) {
 
-			if ( action == 'activate' ) {
+			if ( action === 'activate' ) {
 
 				// For this particular control, let's check to see if corresponding options are visible.
 				// We only want to show relevant options based on the user's contextual design decisions.
@@ -466,27 +478,25 @@
 					});
 
 				} else if ( item === 'login_designer[bg_image_gallery]' ) {
+						customizer_no_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' );
 
-					customizer_no_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' );
+						wp.customize( 'login_designer[bg_image]', function( setting ) {
+							wp.customize.control( item, function( control ) {
+								var visibility = function() {
 
-					wp.customize( 'login_designer[bg_image]', function( setting ) {
-						wp.customize.control( item, function( control ) {
-							var visibility = function() {
+									if ( ! setting.get() ) {
+										// If there's no custom background image, let's show the gallery.
+										wp.customize.control( item ).activate( { duration: 0 } );
+									} else {
+										// If not, let's quickly hide it.
+										control.container.slideUp( 0 );
+									}
+								};
 
-								if ( ! setting.get() ) {
-									// If there's no custom background image, let's show the gallery.
-									wp.customize.control( item ).activate( { duration: 0 } );
-								} else {
-									// If not, let's quickly hide it.
-									control.container.slideUp( 0 );
-								}
-							};
-
-							visibility();
-							setting.bind( visibility );
+								visibility();
+								setting.bind( visibility );
+							});
 						});
-					});
-
 				} else if ( item === 'login_designer[bg_repeat]' ) {
 
 					// Only show the background options, if there is a background image uploaded.
@@ -494,7 +504,6 @@
 					customizer_image_option_display( 'login_designer[bg_image_gallery]', 'login_designer[bg_repeat]' );
 
 					$.each( [ 'login_designer[bg_image]', 'login_designer[bg_image_gallery]' ], function( index, settingId ) {
-
 						wp.customize( settingId, function( setting ) {
 							wp.customize.control( item, function( control ) {
 								var visibility = function() {
@@ -569,7 +578,7 @@
 				} else if ( item === 'login_designer[bg_position]' ) {
 
 					customizer_image_option_display( 'login_designer[bg_image]', 'login_designer[bg_position]' );
-					customizer_image_option_display( 'login_designer[bg_image_gallery]', 'login_designer[bg_position]' );
+					customizer_image_option_display( 'login_designer[bg_image_gallery]', 'login_designer[bg_position]', true );
 
 					customizer_select_option_display( 'login_designer[bg_size]', 'login_designer[bg_position]', 'cover' );
 
@@ -756,13 +765,9 @@
 						});
 					});
 
-				}
-
-				else {
-					// Activate all others.
+				}  else {
 					wp.customize.control( item ).activate( { duration: 0 } );
 				}
-
 			} else {
 				wp.customize.control( item ).deactivate( { duration: 0 } );
 			}
@@ -775,18 +780,18 @@
 		init: function () {
 
 			var
-			self = this,
-			active_state,
-			logo_event  		= 'login-designer-edit-logo',
-			form_event  		= 'login-designer-edit-loginform',
-			fields_event 		= 'login-designer-edit-loginform-fields',
-			username_label_event 	= 'login-designer-edit-loginform-labels-username',
-			password_label_event 	= 'login-designer-edit-loginform-labels-password',
-			button_event 		= 'login-designer-edit-button',
-			background_event 	= 'login-designer-edit-background',
-			remember_event 		= 'login-designer-edit-remember-me',
-			checkbox_event 		= 'login-designer-edit-remember-me-checkbox',
-			below_event 		= 'login-designer-edit-below';
+				self = this,
+				active_state,
+				logo_event  		= 'login-designer-edit-logo',
+				form_event  		= 'login-designer-edit-loginform',
+				fields_event 		= 'login-designer-edit-loginform-fields',
+				username_label_event 	= 'login-designer-edit-loginform-labels-username',
+				password_label_event 	= 'login-designer-edit-loginform-labels-password',
+				button_event 		= 'login-designer-edit-button',
+				background_event 	= 'login-designer-edit-background',
+				remember_event 		= 'login-designer-edit-remember-me',
+				checkbox_event 		= 'login-designer-edit-remember-me-checkbox',
+				below_event 		= 'login-designer-edit-below';
 
 			// Function used for contextually aware Customizer options.
 			function bind_control_visibility_event( event, active_controls, focus_control ) {
@@ -851,6 +856,13 @@
 			// Open settings panel when the Login Designer badge is clicked.
 			this.preview.bind( 'login-designer-edit-branding', function() {
 				var section = wp.customize.section( 'login_designer__section--settings' );
+				if ( ! section.expanded() ) {
+					section.expand( { duration: 0 } );
+				}
+			} );
+
+			this.preview.bind( 'login-designer-edit-language', function(){
+				var section = wp.customize.section( 'login_designer__section--translations' );
 				if ( ! section.expanded() ) {
 					section.expand( { duration: 0 } );
 				}

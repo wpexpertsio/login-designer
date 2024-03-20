@@ -44,6 +44,7 @@ $wp_customize->add_control(
 		array(
 			'section'  => 'login_designer__section--styles',
 			'settings' => 'login_designer[bg_image]',
+			'multiple' => 'add',
 		)
 	)
 );
@@ -171,5 +172,16 @@ $wp_customize->add_control(
 			'label'   => esc_html__( 'Color', 'login-designer' ),
 			'section' => 'login_designer__section--styles',
 		)
+	)
+);
+
+do_action(
+	'login_designer_background_customizer',
+	$wp_customize,
+	$this,
+	array(
+		'section'     => 'login_designer__section--styles',
+		'panel'       => 'login_designer',
+		'backgrounds' => $login_designer_background_choices,
 	)
 );

@@ -59,7 +59,8 @@ if ( ! class_exists( 'Login_Designer_Theme_Template' ) ) :
 
 			// Add templates.
 			$this->templates = array(
-				'template-login-designer.php' => esc_html__( 'Login Designer', 'login-designer' ),
+				'template-login-designer.php'     => esc_html__( 'Login Designer', 'login-designer' ),
+				'template-password-protected.php' => esc_html__( 'Password Protected', 'login-designer' ),
 			);
 		}
 

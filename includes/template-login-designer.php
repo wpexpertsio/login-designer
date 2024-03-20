@@ -8,6 +8,9 @@
  * @package Login Designer
  */
 
+$login_designer_template = get_option( 'login_designer', array( 'template' => 'default' ) );
+$languages               = get_available_languages();
+
 // Redirect if viewed from outside the Customizer.
 if ( ! is_customize_preview() ) {
 
@@ -141,6 +144,8 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 
 	<body class="login <?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 
+	<div style="display: none !important; visibility: hidden;" id="login-designer-template"><?php echo esc_attr( $login_designer_template['template'] ); ?></div>
+
 		<?php
 		/**
 		 * Fires in the login page header after the body tag is opened.
@@ -158,6 +163,7 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 
 			<h1 id="login-designer-logo-h1" data-hint="<?php echo esc_attr__( 'Click on the logo below to upload your own and set the image\'s height and width.', 'login-designer' ); ?>" data-hintPosition="top-middle" data-position="right">
 				<a id="login-designer-logo" class="customize-unpreviewable" href="#" title="" tabindex="-1"><?php bloginfo( 'name' ); ?></a>
+                <span id="login-designer--ripple-effect-logo" class="login-designer--username-svg-hover-display"></span>
 			</h1>
 
 			<?php
@@ -167,28 +173,39 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 			?>
 
 			<form name="loginform" id="loginform" class="<?php echo esc_attr( $visibility ); ?>"  action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
-
 				<p>
 					<label id="login-designer--username-label" for="user_login">
-						<span id="login-designer--username-label-text"><?php echo esc_html__( 'Username or Email Address', 'login-designer' ); ?></span>
+						<span id="login-designer--username-label-text">
+							<span class="login-designer--ripple-effect-username-label"></span>
+							<span id="login-designer-username-hover" class="login-designer--username-svg-hover-display"></span>
+							<?php echo esc_html__( 'Username or Email Address', 'login-designer' ); ?>
+						</span>
 						<div id="login-designer--username">
-							<input autocomplete="off" type="text" name="log" id="user_login" class="input" value="email@address.com" size="20" />
+							<span class="login-designer--ripple-effect-username-field"></span>
+							<span id="login-designer-username-field-hover" class="login-designer--username-svg-hover-display"></span>
+							<input readonly autocomplete="off" type="text" name="log" id="user_login" class="input" value="email@address.com" size="20" />
 						</div>
 					</label>
 				</p>
 
 				<p>
 					<label id="login-designer--password-label" for="user_pass">
-						<span id="login-designer--password-label-text"><?php echo esc_html__( 'Password', 'login-designer' ); ?></span>
-						<div id="login-designer--password">
-							<input autocomplete="off" type="password" name="pwd" id="user_pass" class="input" value="password" size="20" />
-							<?php if ( version_compare( $GLOBALS['wp_version'], '5.2', '>' ) ) { ?>
-								<button type="button" class="button button-secondary wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="<?php echo esc_attr__( 'Show Password', 'login-designer' ); ?>">
-									<span class="dashicons dashicons-visibility" aria-hidden="true"></span>
-								</button>
-							<?php } ?>
-						</div>
-					</label>
+						<span id="login-designer--password-label-text">
+							<span class="login-designer--ripple-effect-username-label"></span>
+							<span id="login-designer-password-hover" class="login-designer--username-svg-hover-display"></span>
+							<?php echo esc_html__( 'Password', 'login-designer' ); ?>
+						</span>
+				<div id="login-designer--password">
+					<span class="login-designer--ripple-effect-username-field"></span>
+					<span id="login-designer-password-field-hover" class="login-designer--username-svg-hover-display"></span>
+					<input readonly autocomplete="off" type="password" name="pwd" id="user_pass" class="input" value="password" size="20" />
+					<?php if ( version_compare( $GLOBALS['wp_version'], '5.2', '>' ) ) { ?>
+						<button type="button" class="button button-secondary wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="<?php echo esc_attr__( 'Show Password', 'login-designer' ); ?>">
+							<span class="dashicons dashicons-visibility" aria-hidden="true"></span>
+						</button>
+					<?php } ?>
+				</div>
+				</label>
 				</p>
 
 				<?php do_action( 'login_form' ); ?>
@@ -196,13 +213,18 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 				<div class="login-designer--form-footer">
 					<p class="forgetmenot">
 						<label for="rememberme">
-							<input name="rememberme" type="checkbox" id="rememberme" value="forever" />
+							<span class="login-designer--ripple-effect-remember-field"></span>
+							<span id="login-designer-remember-hover" class="login-designer--username-svg-hover-display"></span>
+							<input name="rememberme" type="checkbox" id="rememberme" value="forever" checked />
 							<?php esc_html_e( 'Remember Me' ); ?>
+							<span id="login-designer-remember-label-hover" class="login-designer--username-svg-hover-display"></span>
 						</label>
 					</p>
 
 					<p class="submit">
 						<span id="login-designer--button">
+							<span class="login-designer--ripple-effect-submit-field"></span>
+							<span id="login-designer-submit-hover" class="login-designer--username-svg-hover-display"></span>
 							<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php echo esc_html__( 'Log In', 'login-designer' ); ?>" />
 						</span>
 					</p>
@@ -210,6 +232,8 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 			</form>
 
 			<div id="login-designer--below-form" data-hint="<?php echo esc_attr__( 'Click on the elements below the form to modify each one.', 'login-designer' ); ?>" data-hintPosition="middle-right" data-position="bottom-right-aligned">
+				<div class="login-designer--ripple-effect-form-bellow-field"></div>
+				<span id="login-designer-bellow-form-field-hover" class="login-designer--username-svg-hover-display"></span>
 
 				<p id="nav">
 					<?php
@@ -235,7 +259,49 @@ $classes   = apply_filters( 'login_body_class', $classes, 'login' );
 
 			</div>
 
+			<?php
+			if ( apply_filters( 'login_display_language_dropdown', true ) ) {
+				$languages = get_available_languages();
+				if ( ! empty( $languages ) ) {
+					?>
+					<div data-logindesigner-template="template" class="language-switcher login-designer--translation-switcher" id="template-language-translator" style="display: <?php echo isset( $login_designer_template['template'] ) && 'default' !== $login_designer_template['template'] ? 'block' : 'none'; ?>;position: relative">
+						<form id="language-switcher" action="" method="get">
+							<label for="language-switcher-locales">
+								<span class="dashicons dashicons-translation" aria-hidden="true"></span>
+								<span class="screen-reader-text"><?php esc_attr_e( 'Language' ); ?></span>
+							</label>
+							<select name="wp_lang" id="language-switcher-locales">
+								<option value="en_US" data-installed="1" lang="en">English (United States)</option>
+							</select>
+							<input type="submit" class="button" value="<?php esc_attr_e( 'Change' ); ?>">
+						</form>
+					</div>
+					<?php
+				}
+			}
+			?>
 		</div>
+
+<?php
+if ( apply_filters( 'login_display_language_dropdown', true ) ) {
+	if ( ! empty( $languages ) ) {
+		?>
+			<div data-logindesigner-template="default" class="language-switcher login-designer--translation-switcher" id="default-language-translator" style="display: <?php echo isset( $login_designer_template['template'] ) && 'default' === $login_designer_template['template'] ? 'block' : 'none'; ?>;position: relative;">
+				<form id="language-switcher" action="" method="get">
+					<label for="language-switcher-locales">
+						<span class="dashicons dashicons-translation" aria-hidden="true"></span>
+						<span class="screen-reader-text"><?php esc_attr_e( 'Language' ); ?></span>
+					</label>
+						<select name="wp_lang" id="language-switcher-locales">
+							<option value="en_US" data-installed="1" lang="en">English (United States)</option>
+						</select>
+					<input type="submit" class="button" value="<?php esc_attr_e( 'Change' ); ?>">
+				</form>
+			</div>
+			<?php
+	}
+}
+?>
 
 		<?php do_action( 'login_footer' ); ?>
 

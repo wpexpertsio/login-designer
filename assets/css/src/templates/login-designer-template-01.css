@@ -1,0 +1,91 @@
+body.login.login-designer-template-01 {
+  background-image: none !important;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  content: " ";
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+@media only screen and (min-width: 400px) {
+  body.login.login-designer-template-01 #login {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 85%;
+    margin: 0;
+    max-width: 580px;
+    padding: 40px 0 0;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  body.login.login-designer-template-01 #login {
+    padding: 100px 0 0;
+  }
+}
+
+@media only screen and (max-width: 399px) {
+  body.login.login-designer-template-01 #login {
+    width: 90%;
+  }
+}
+
+body.login.login-designer-template-01 #login .message {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.login.login-designer-template-01 form {
+  border: 0;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 499px) {
+  body.login.login-designer-template-01 form {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+body.login.login-designer-template-01 #lostpasswordform label {
+  display: block;
+  text-align: center;
+}
+
+body.login.login-designer-template-01 #lostpasswordform .submit {
+  text-align: center;
+}
+
+body.login.login-designer-template-01 #lostpasswordform .submit .button {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (min-width: 683px) {
+  body.login.login-designer-template-01 #login-designer-background {
+    background-attachment: initial !important;
+    bottom: 0;
+    height: 100%;
+    left: 580px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    width: calc(100% - 580px);
+    z-index: 0;
+  }
+}
+
+body,html {
+  height: auto !important;
+}
