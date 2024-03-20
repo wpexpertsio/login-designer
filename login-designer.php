@@ -7,7 +7,7 @@
  * Author URI:      https://logindesigner.com/
  * Text Domain:     login-designer
  * Domain Path:     /languages
- * Version:         1.6.3
+ * Version:         1.6.4
  *
  * Login Designer is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'LOGIN_DESIGNER_VERSION', '1.6.3' );
+define( 'LOGIN_DESIGNER_VERSION', '1.6.4' );
 define( 'LOGIN_DESIGNER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'LOGIN_DESIGNER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'LOGIN_DESIGNER_PLUGIN_FILE', __FILE__ );
